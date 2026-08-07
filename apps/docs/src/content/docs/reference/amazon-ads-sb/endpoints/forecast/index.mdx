@@ -1,0 +1,47 @@
+---
+title: "Amazon Ads — Sponsored Brands Forecast endpoints"
+description: "1 generated Amazon Ads — Sponsored Brands endpoint contract for Forecast."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 109
+  label: "Forecast"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.forecast.sBCampaignPerformanceForecasts
+
+`POST` `/sb/forecasts`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (SBCampaignPerformanceForecasts)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.forecast.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `SBCampaignPerformanceForecastsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `body` | `Array<Inline1015>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

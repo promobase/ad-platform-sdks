@@ -1,0 +1,75 @@
+---
+title: "Amazon Ads — Sponsored Display Brand Safety Request Status endpoints"
+description: "2 generated Amazon Ads — Sponsored Display endpoint contracts for Brand Safety Request Status."
+generated: true
+platform: "amazon-ads-sd"
+sourceVersion: "v5"
+sidebar:
+  order: 102
+  label: "Brand Safety Request Status"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.brandSafetyRequestStatus.getRequestStatus
+
+`GET` `/sd/brandSafety/{requestId}/status`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getRequestStatus)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sd.brandSafetyRequestStatus.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetRequestStatusResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `requestId` | `path` | `string` | Yes | No | The ID of the request previously submitted. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.brandSafetyRequestStatus.listRequestStatus
+
+`GET` `/sd/brandSafety/status`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (listRequestStatus)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sd.brandSafetyRequestStatus.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `ListRequestStatusResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

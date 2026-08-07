@@ -1,0 +1,156 @@
+---
+title: "Amazon Ads — Sponsored Products Campaigns endpoints"
+description: "4 generated Amazon Ads — Sponsored Products endpoint contracts for Campaigns."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 109
+  label: "Campaigns"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.campaigns.createSponsoredProductsCampaigns
+
+`POST` `/sp/campaigns`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateSponsoredProductsCampaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.campaigns.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateSponsoredProductsCampaignsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `body` | `Array<Inline2791>` | Yes | No | An array of campaigns. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.campaigns.deleteSponsoredProductsCampaigns
+
+`POST` `/sp/campaigns/delete`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (DeleteSponsoredProductsCampaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.campaigns.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `DeleteSponsoredProductsCampaignsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIdFilter` | `body` | `Inline2836` | Yes | No | Filter entities by the list of objectIds |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.campaigns.listSponsoredProductsCampaigns
+
+`POST` `/sp/campaigns/list`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (ListSponsoredProductsCampaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.campaigns.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `ListSponsoredProductsCampaignsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIdFilter` | `body` | `Inline2862` | No | No | Filter entities by the list of objectIds |
+| `includeExtendedDataFields` | `body` | `boolean` | No | No | Whether to get entity with extended data fields such as creationDate, lastUpdateDate, servingStatus |
+| `marketplaceBudgetAllocationFilter` | `body` | `Inline2863` | No | No | Filter campaigns by MarketplaceBudgetAllocation setting. By default, only MANUAL campaigns are returned. This filter is not functional yet, will be functional soon. |
+| `maxResults` | `body` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API |
+| `nameFilter` | `body` | `Inline2864` | No | No | Filter entities by name |
+| `nextToken` | `body` | `string` | No | No | token value allowing to navigate to the next response page |
+| `portfolioIdFilter` | `body` | `Inline2865` | No | No | Filter entities by the list of objectIds |
+| `stateFilter` | `body` | `Inline2866` | No | No | Filter entities by state. To filter live entities, only 'ENABLED', 'PAUSED' and 'ARCHIVED' can be used |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.campaigns.updateSponsoredProductsCampaigns
+
+`PUT` `/sp/campaigns`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (UpdateSponsoredProductsCampaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.campaigns.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `UpdateSponsoredProductsCampaignsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `body` | `Array<Inline2803>` | Yes | No | An array of campaigns with updated values. Note: targetingType cannot be updated |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

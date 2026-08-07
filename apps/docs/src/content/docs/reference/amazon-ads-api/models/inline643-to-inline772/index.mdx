@@ -1,0 +1,1114 @@
+---
+title: "Amazon Ads API models: Inline643 – Inline772"
+description: "100 generated Amazon Ads API model contracts, from Inline643 through Inline772."
+generated: true
+platform: "amazon-ads-api"
+sourceVersion: "v5"
+sidebar:
+  order: 1024
+  label: "Inline643 – Inline772"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Inline643
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asinOverrides` | `asinOverrides` | `Array<string>` | No | No | List of ASIN overrides for the ingredient |
+| `brand` | `brand` | `string` | Yes | No | Brand name associated with the ingredient |
+| `displayText` | `displayText` | `string` | Yes | No | Formatted text for displaying the ingredient |
+| `isAsinRestricted` | `isAsinRestricted` | `boolean` | Yes | No | Flag indicating if ASIN is restricted for this ingredient |
+| `isBrandRestricted` | `isBrandRestricted` | `boolean` | Yes | No | Flag indicating if brand is restricted for this ingredient |
+| `isExclusiveOverride` | `isExclusiveOverride` | `boolean` | Yes | No | Flag indicating if this ingredient has exclusive override |
+| `name` | `name` | `string` | Yes | No | Name of the ingredient |
+| `quantityList` | `quantityList` | `Array<Inline643>` | No | No | List of quantity measurements for the ingredient |
+
+## Inline644
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text description of the media content |
+| `assetLibraryId` | `assetLibraryId` | `string` | No | No | Identifier for the asset. |
+| `mediaUrl` | `mediaUrl` | `string` | No | No | URL of the media content |
+
+## Inline645
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeProductSelectorWidget` | `storeProductSelectorWidget` | `Inline645` | Yes | No | Main widget structure for the product selector feature |
+
+## Inline646
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `buttonText` | `buttonText` | `string` | Yes | No | Text displayed on the introduction button |
+| `description` | `description` | `string` | Yes | No | Description text for the introduction section |
+| `heading` | `heading` | `string` | Yes | No | Heading text for the introduction section |
+| `headline` | `headline` | `string` | No | No | Headline text for the introduction section |
+| `imageOptions` | `imageOptions` | `Inline646` | Yes | No | Image options for the product selector introduction |
+| `isEnabled` | `isEnabled` | `boolean` | Yes | No | Flag indicating whether the introduction is enabled |
+
+## Inline647
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `desktopLayout` | `desktopLayout` | `string` | Yes | No | **StoreProductSelectorImageLayout Enum:** \| StoreProductSelectorImageLayout \| Description \| \| --- \| --- \| \| `TOP` \| Top image layout \| \| `LEFT` \| Left image layout \| \| `RIGHT` \| Right image layout \| \| `BOTTOM` \| Bottom image layout \| |
+| `mobileLayout` | `mobileLayout` | `string` | Yes | No | **StoreProductSelectorImageLayout Enum:** \| StoreProductSelectorImageLayout \| Description \| \| --- \| --- \| \| `TOP` \| Top image layout \| \| `LEFT` \| Left image layout \| \| `RIGHT` \| Right image layout \| \| `BOTTOM` \| Bottom image layout \| |
+
+## Inline648
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `answerList` | `answerList` | `Array<Inline648>` | No | No | List of possible answers for this question |
+| `areImagesEnabled` | `areImagesEnabled` | `boolean` | No | No | Flag indicating whether images are enabled |
+| `description` | `description` | `string` | No | No | Additional descriptive text or context for the question |
+| `hasImage` | `hasImage` | `boolean` | No | No | Flag indicating whether the question has an image |
+| `tag` | `tag` | `string` | Yes | No | Unique identifier for the question |
+| `text` | `text` | `string` | No | No | Main question text displayed to the user |
+
+## Inline649
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `buttonText` | `buttonText` | `string` | No | No | Text to display on the call-to-action button |
+| `description` | `description` | `string` | No | No | Descriptive text explaining the results |
+| `disclaimer` | `disclaimer` | `string` | Yes | No | Legal or additional information text for the results |
+| `headline` | `headline` | `string` | Yes | No | Main heading text for the results section |
+| `storeUrl` | `storeUrl` | `string` | No | No | URL to the store page for the selected products |
+
+## Inline65
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `x` | `x` | `string` | No | No | **HorizontalPosition Enum:** \| HorizontalPosition \| Description \| \| --- \| --- \| \| `LEFT` \| Left position \| \| `CENTER` \| Center position \| \| `RIGHT` \| Right position \| |
+| `y` | `y` | `string` | No | No | **VerticalPosition Enum:** \| VerticalPosition \| Description \| \| --- \| --- \| \| `TOP` \| Top position \| \| `MIDDLE` \| Middle position \| \| `BOTTOM` \| Bottom position \| |
+
+## Inline650
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeVideoRevealWidget` | `storeVideoRevealWidget` | `Inline650` | Yes | No | Main widget structure for the video reveal feature |
+
+## Inline651
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | Yes | No | Unique identifier for the video asset |
+| `url` | `url` | `string` | Yes | No | URL of the video content |
+
+## Inline652
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeBannerWidget` | `storeBannerWidget` | `Inline652` | Yes | No | — |
+
+## Inline653
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `banners` | `banners` | `Inline653` | No | No | — |
+| `tag` | `tag` | `string` | No | No | Unique tag for the content. |
+| `type` | `type` | `string` | No | No | **StoreWidgetType Enum:** \| StoreWidgetType \| Description \| \| --- \| --- \| \| `HERO` \| Widget type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `PRODUCT_GRID` \| Widget type for StoreProductGridWidget and StoreDealsWidget \| \| `GALLERY` \| Widget type for StoreGalleryWidget and StoreGalleryContent type \| \| `PRODUCT_COLLECTION` \| Widget type for StoreProductCollectionWidget and StoreProductCollection type \| \| `MULTI_MEDIA_CAROUSEL` \| Widget type for StoreShopTheLookWidget, StoreManuallyCuratedProductCarouselWidget and StoreProductCarouselWidget \| \| `PRODUCT_CAROUSEL` \| Widget type for StoreProductCarouselWidget \| \| `LIVE_VIDEO` \| Widget type and content type for StoreLiveVideoWidget \| \| `BANNER` \| Widget type and content type for StoreBannerWidget \| |
+
+## Inline654
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeProductCarouselWidget` | `storeProductCarouselWidget` | `Inline654` | Yes | No | — |
+
+## Inline655
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `callToActionData` | `callToActionData` | `Inline655` | No | No | — |
+| `searchContent` | `searchContent` | `Inline656` | No | No | — |
+| `tag` | `tag` | `string` | Yes | No | Unique tag for the content. |
+| `type` | `type` | `string` | Yes | No | **StoreWidgetSectionType Enum:** \| StoreWidgetSectionType \| Description \| \| --- \| --- \| \| `HERO` \| Section type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `DEALS_AND_COUPONS` \| Section type for StoreDealsWidget and StoreDealsContent type \| \| `GALLERY` \| Section type for StoreGalleryWidget \| \| `PRODUCT_COLLECTION` \| Section type for StoreProductCollectionWidget \| \| `PRODUCT_GRID` \| Section type for StoreProductGridWidget and type for StoreProductCollectionASINGrid \| \| `SHOP_THE_LOOK_CAROUSEL` \| Section type for StoreShopTheLookWidget and type for StoreShopTheLookContent \| \| `MANUALLY_CURATED_PRODUCT_CAROUSEL` \| Section type for StoreManuallyCuratedProductCarouselWidget and StoreCarouselContent type \| \| `RECOMMENDED` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `PREMIUM_BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `LIVE_VIDEO` \| Section type for StoreLiveVideoWidget \| \| `BANNER` \| Section type for StoreBannerWidget \| |
+
+## Inline656
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `node` | `node` | `string` | No | No | Node identifier for search |
+| `type` | `type` | `string` | No | No | **StoreProductCarouselSearchType Enum:** \| StoreProductCarouselSearchType \| Description \| \| --- \| --- \| \| `RECOMMENDATION_FOR_YOU` \| Personalized recommendations \| \| `BEST_SELLING` \| Best selling items \| |
+
+## Inline657
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeLiveVideoWidget` | `storeLiveVideoWidget` | `Inline657` | Yes | No | — |
+
+## Inline658
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `channel` | `channel` | `string` | No | No | Channel of the video. |
+| `tag` | `tag` | `string` | Yes | No | Unique tag for the content. |
+| `type` | `type` | `string` | Yes | No | **StoreWidgetType Enum:** \| StoreWidgetType \| Description \| \| --- \| --- \| \| `HERO` \| Widget type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `PRODUCT_GRID` \| Widget type for StoreProductGridWidget and StoreDealsWidget \| \| `GALLERY` \| Widget type for StoreGalleryWidget and StoreGalleryContent type \| \| `PRODUCT_COLLECTION` \| Widget type for StoreProductCollectionWidget and StoreProductCollection type \| \| `MULTI_MEDIA_CAROUSEL` \| Widget type for StoreShopTheLookWidget, StoreManuallyCuratedProductCarouselWidget and StoreProductCarouselWidget \| \| `PRODUCT_CAROUSEL` \| Widget type for StoreProductCarouselWidget \| \| `LIVE_VIDEO` \| Widget type and content type for StoreLiveVideoWidget \| \| `BANNER` \| Widget type and content type for StoreBannerWidget \| |
+
+## Inline66
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeEmptyTile` | `storeEmptyTile` | `Inline66` | Yes | No | — |
+
+## Inline661
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pageInfos` | `pageInfos` | `Array<Inline661>` | No | No | Collection of BrandStorePageInfo for all pages tied to the brand store |
+| `storeId` | `storeId` | `string` | Yes | No | Unique identifier for the store |
+| `storeName` | `storeName` | `string` | No | No | The name of the store |
+
+## Inline668
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `amount` | `amount` | `number` | Yes | No | Numerical amount of the ingredient |
+| `unit` | `unit` | `string` | Yes | No | Unit of measurement for the ingredient |
+
+## Inline67
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bondCustomerServiceLink` | `bondCustomerServiceLink` | `boolean` | No | No | Whether to include a customer service link. |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `text` | `text` | `string` | No | No | Text content (must be empty). |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `title` | `title` | `string` | No | No | Title of the tile (must be empty). |
+
+## Inline670
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `addToCartActionParams` | `addToCartActionParams` | `string` | Yes | No | Parameters for add to cart action |
+| `bottleDepositFee` | `bottleDepositFee` | `string` | No | No | Bottle deposit fee amount |
+| `bottleDepositFeeString` | `bottleDepositFeeString` | `string` | No | No | Bottle deposit fee as string |
+| `cartQuantity` | `cartQuantity` | `number` | Yes | No | Quantity of this item in the cart |
+| `catalogDisplayPricePerUnitOfMeasure` | `catalogDisplayPricePerUnitOfMeasure` | `string` | No | No | Price per unit of measure for display |
+| `freshButton` | `freshButton` | `string` | No | No | Fresh button information |
+| `isAlternateSearchResult` | `isAlternateSearchResult` | `boolean` | Yes | No | Flag indicating if this is an alternate search result |
+| `isRequiredQuantityInCart` | `isRequiredQuantityInCart` | `boolean` | Yes | No | Flag indicating if a quantity is required in cart |
+| `isSoldByCount` | `isSoldByCount` | `boolean` | Yes | No | Flag indicating if the product is sold by count |
+| `itemAvailability` | `itemAvailability` | `string` | Yes | No | Status of item availability |
+| `offerId` | `offerId` | `string` | Yes | No | Unique identifier for the offer |
+| `offerName` | `offerName` | `string` | Yes | No | Display name of the product offer |
+| `offerUnit` | `offerUnit` | `string` | Yes | No | Unit of the offer (e.g., Fl Oz, lb) |
+| `productAsin` | `productAsin` | `string` | Yes | No | ASIN associated with this product |
+| `productDetailsUrl` | `productDetailsUrl` | `string` | Yes | No | URL to the product details page |
+| `productImageUrl` | `productImageUrl` | `string` | Yes | No | URL of the product image |
+| `promotionDisplay` | `promotionDisplay` | `string` | No | No | Display text for active promotion |
+| `promotionId` | `promotionId` | `string` | No | No | Identifier for active promotion |
+| `quantityInStock` | `quantityInStock` | `number` | No | No | Available quantity in stock |
+| `requiredQuantity` | `requiredQuantity` | `number` | Yes | No | Required quantity for purchase |
+| `retailATCButton` | `retailATCButton` | `string` | No | No | Retail add-to-cart button information |
+| `reviewStars` | `reviewStars` | `Inline670` | No | No | Review information for a product |
+| `searchTerm` | `searchTerm` | `string` | No | No | Search term associated with this product |
+| `subtotalParams` | `subtotalParams` | `string` | Yes | No | Subtotal parameters for pricing calculations |
+| `vuomDisplayPrice` | `vuomDisplayPrice` | `string` | Yes | No | Display price for virtual unit of measure |
+
+## Inline674
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text description of the media content |
+| `assetLibraryId` | `assetLibraryId` | `string` | No | No | Identifier for the asset. |
+| `mediaUrl` | `mediaUrl` | `string` | No | No | URL of the media content |
+
+## Inline675
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `string` | Yes | No | Detailed instruction text for the direction step |
+| `title` | `title` | `string` | Yes | No | Title or heading for the direction step |
+
+## Inline676
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `priorityAsins` | `priorityAsins` | `Array<Inline676>` | No | No | List of priority ASINs for ingredients with detailed product information |
+| `quantity` | `quantity` | `number` | No | No | Quantity amount for the ingredient |
+| `searchText` | `searchText` | `string` | No | No | Search text for ingredient metadata |
+| `translatedUnit` | `translatedUnit` | `string` | No | No | Translated unit of measurement |
+
+## Inline677
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asinOverrides` | `asinOverrides` | `Array<string>` | No | No | List of ASIN overrides for the ingredient |
+| `brand` | `brand` | `string` | Yes | No | Brand name associated with the ingredient |
+| `displayText` | `displayText` | `string` | Yes | No | Formatted text for displaying the ingredient |
+| `isAsinRestricted` | `isAsinRestricted` | `boolean` | Yes | No | Flag indicating if ASIN is restricted for this ingredient |
+| `isBrandRestricted` | `isBrandRestricted` | `boolean` | Yes | No | Flag indicating if brand is restricted for this ingredient |
+| `isExclusiveOverride` | `isExclusiveOverride` | `boolean` | Yes | No | Flag indicating if this ingredient has exclusive override |
+| `name` | `name` | `string` | Yes | No | Name of the ingredient |
+| `quantityList` | `quantityList` | `Array<Inline677>` | No | No | List of quantity measurements for the ingredient |
+
+## Inline678
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text description of the media content |
+| `assetLibraryId` | `assetLibraryId` | `string` | No | No | Identifier for the asset. |
+| `mediaUrl` | `mediaUrl` | `string` | No | No | URL of the media content |
+
+## Inline68
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeCustomCodeTile` | `storeCustomCodeTile` | `Inline68` | Yes | No | — |
+
+## Inline684
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hasHalfStar` | `hasHalfStar` | `boolean` | Yes | No | Flag indicating if the product has a half star in the rating |
+| `reviewCount` | `reviewCount` | `number` | Yes | No | Number of reviews for the product |
+| `wholeStars` | `wholeStars` | `number` | Yes | No | Number of whole stars in the rating |
+
+## Inline688
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `size` | `size` | `string` | Yes | No | **StoreTileSize Enum:** \| StoreTileSize \| Description \| \| --- \| --- \| \| `LARGE` \| Large tile size, StoreAWLSTile only uses LARGE \| \| `MEDIUM` \| Medium tile size \| \| `SMALL` \| Small tile size \| \| `MINI` \| Mini tile size \| |
+| `tag` | `tag` | `string` | Yes | No | The unique tag for the tile to help track on performance. |
+| `type` | `type` | `string` | Yes | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline689
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brandedRecipeWidget` | `brandedRecipeWidget` | `Inline689` | Yes | No | Main widget structure for displaying a branded recipe |
+
+## Inline69
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `autoDimension` | `autoDimension` | `boolean` | No | No | Whether to use automatic dimensioning. |
+| `availableProductAsins` | `availableProductAsins` | `Array<string>` | No | No | List of available ASINs, maximum 500 unique items. |
+| `cti` | `cti` | `Inline69` | No | No | — |
+| `embedCode` | `embedCode` | `string` | No | No | Embedded code content. |
+| `integrity` | `integrity` | `string` | No | No | Integrity hash for security. |
+| `widgetName` | `widgetName` | `string` | No | No | Name of the widget. |
+| `widgetTag` | `widgetTag` | `string` | No | No | Widget identifier. |
+
+## Inline690
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `string` | Yes | No | Detailed instruction text for the direction step |
+| `title` | `title` | `string` | Yes | No | Title or heading for the direction step |
+
+## Inline691
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `priorityAsins` | `priorityAsins` | `Array<Inline691>` | No | No | List of priority ASINs for ingredients with detailed product information |
+| `quantity` | `quantity` | `number` | No | No | Quantity amount for the ingredient |
+| `searchText` | `searchText` | `string` | No | No | Search text for ingredient metadata |
+| `translatedUnit` | `translatedUnit` | `string` | No | No | Translated unit of measurement |
+
+## Inline692
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asinOverrides` | `asinOverrides` | `Array<string>` | No | No | List of ASIN overrides for the ingredient |
+| `brand` | `brand` | `string` | Yes | No | Brand name associated with the ingredient |
+| `displayText` | `displayText` | `string` | Yes | No | Formatted text for displaying the ingredient |
+| `isAsinRestricted` | `isAsinRestricted` | `boolean` | Yes | No | Flag indicating if ASIN is restricted for this ingredient |
+| `isBrandRestricted` | `isBrandRestricted` | `boolean` | Yes | No | Flag indicating if brand is restricted for this ingredient |
+| `isExclusiveOverride` | `isExclusiveOverride` | `boolean` | Yes | No | Flag indicating if this ingredient has exclusive override |
+| `name` | `name` | `string` | Yes | No | Name of the ingredient |
+| `quantityList` | `quantityList` | `Array<Inline692>` | No | No | List of quantity measurements for the ingredient |
+
+## Inline693
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text description of the media content |
+| `assetLibraryId` | `assetLibraryId` | `string` | No | No | Identifier for the asset. |
+| `mediaUrl` | `mediaUrl` | `string` | No | No | URL of the media content |
+
+## Inline694
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeProductSelectorWidget` | `storeProductSelectorWidget` | `Inline694` | Yes | No | Main widget structure for the product selector feature |
+
+## Inline695
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `buttonText` | `buttonText` | `string` | Yes | No | Text displayed on the introduction button |
+| `description` | `description` | `string` | Yes | No | Description text for the introduction section |
+| `heading` | `heading` | `string` | Yes | No | Heading text for the introduction section |
+| `headline` | `headline` | `string` | No | No | Headline text for the introduction section |
+| `imageOptions` | `imageOptions` | `Inline695` | Yes | No | Image options for the product selector introduction |
+| `isEnabled` | `isEnabled` | `boolean` | Yes | No | Flag indicating whether the introduction is enabled |
+
+## Inline696
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `desktopLayout` | `desktopLayout` | `string` | Yes | No | **StoreProductSelectorImageLayout Enum:** \| StoreProductSelectorImageLayout \| Description \| \| --- \| --- \| \| `TOP` \| Top image layout \| \| `LEFT` \| Left image layout \| \| `RIGHT` \| Right image layout \| \| `BOTTOM` \| Bottom image layout \| |
+| `mobileLayout` | `mobileLayout` | `string` | Yes | No | **StoreProductSelectorImageLayout Enum:** \| StoreProductSelectorImageLayout \| Description \| \| --- \| --- \| \| `TOP` \| Top image layout \| \| `LEFT` \| Left image layout \| \| `RIGHT` \| Right image layout \| \| `BOTTOM` \| Bottom image layout \| |
+
+## Inline697
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `answerList` | `answerList` | `Array<Inline697>` | No | No | List of possible answers for this question |
+| `areImagesEnabled` | `areImagesEnabled` | `boolean` | No | No | Flag indicating whether images are enabled |
+| `description` | `description` | `string` | No | No | Additional descriptive text or context for the question |
+| `hasImage` | `hasImage` | `boolean` | No | No | Flag indicating whether the question has an image |
+| `tag` | `tag` | `string` | Yes | No | Unique identifier for the question |
+| `text` | `text` | `string` | No | No | Main question text displayed to the user |
+
+## Inline698
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `buttonText` | `buttonText` | `string` | No | No | Text to display on the call-to-action button |
+| `description` | `description` | `string` | No | No | Descriptive text explaining the results |
+| `disclaimer` | `disclaimer` | `string` | Yes | No | Legal or additional information text for the results |
+| `headline` | `headline` | `string` | Yes | No | Main heading text for the results section |
+| `storeUrl` | `storeUrl` | `string` | No | No | URL to the store page for the selected products |
+
+## Inline699
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeVideoRevealWidget` | `storeVideoRevealWidget` | `Inline699` | Yes | No | Main widget structure for the video reveal feature |
+
+## Inline70
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeImageWidget` | `storeImageWidget` | `Inline70` | Yes | No | — |
+
+## Inline700
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | Yes | No | Unique identifier for the video asset |
+| `url` | `url` | `string` | Yes | No | URL of the video content |
+
+## Inline702
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brandedRecipeWidget` | `brandedRecipeWidget` | `Inline702` | Yes | No | Main widget structure for displaying a branded recipe |
+
+## Inline703
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `string` | Yes | No | Detailed instruction text for the direction step |
+| `title` | `title` | `string` | Yes | No | Title or heading for the direction step |
+
+## Inline704
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `priorityAsins` | `priorityAsins` | `Array<Inline704>` | No | No | List of priority ASINs for ingredients with detailed product information |
+| `quantity` | `quantity` | `number` | No | No | Quantity amount for the ingredient |
+| `searchText` | `searchText` | `string` | No | No | Search text for ingredient metadata |
+| `translatedUnit` | `translatedUnit` | `string` | No | No | Translated unit of measurement |
+
+## Inline705
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asinOverrides` | `asinOverrides` | `Array<string>` | No | No | List of ASIN overrides for the ingredient |
+| `brand` | `brand` | `string` | Yes | No | Brand name associated with the ingredient |
+| `displayText` | `displayText` | `string` | Yes | No | Formatted text for displaying the ingredient |
+| `isAsinRestricted` | `isAsinRestricted` | `boolean` | Yes | No | Flag indicating if ASIN is restricted for this ingredient |
+| `isBrandRestricted` | `isBrandRestricted` | `boolean` | Yes | No | Flag indicating if brand is restricted for this ingredient |
+| `isExclusiveOverride` | `isExclusiveOverride` | `boolean` | Yes | No | Flag indicating if this ingredient has exclusive override |
+| `name` | `name` | `string` | Yes | No | Name of the ingredient |
+| `quantityList` | `quantityList` | `Array<Inline705>` | No | No | List of quantity measurements for the ingredient |
+
+## Inline706
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text description of the media content |
+| `assetLibraryId` | `assetLibraryId` | `string` | No | No | Identifier for the asset. |
+| `mediaUrl` | `mediaUrl` | `string` | No | No | URL of the media content |
+
+## Inline707
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeProductSelectorWidget` | `storeProductSelectorWidget` | `Inline707` | Yes | No | Main widget structure for the product selector feature |
+
+## Inline708
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `buttonText` | `buttonText` | `string` | Yes | No | Text displayed on the introduction button |
+| `description` | `description` | `string` | Yes | No | Description text for the introduction section |
+| `heading` | `heading` | `string` | Yes | No | Heading text for the introduction section |
+| `headline` | `headline` | `string` | No | No | Headline text for the introduction section |
+| `imageOptions` | `imageOptions` | `Inline708` | Yes | No | Image options for the product selector introduction |
+| `isEnabled` | `isEnabled` | `boolean` | Yes | No | Flag indicating whether the introduction is enabled |
+
+## Inline709
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `desktopLayout` | `desktopLayout` | `string` | Yes | No | **StoreProductSelectorImageLayout Enum:** \| StoreProductSelectorImageLayout \| Description \| \| --- \| --- \| \| `TOP` \| Top image layout \| \| `LEFT` \| Left image layout \| \| `RIGHT` \| Right image layout \| \| `BOTTOM` \| Bottom image layout \| |
+| `mobileLayout` | `mobileLayout` | `string` | Yes | No | **StoreProductSelectorImageLayout Enum:** \| StoreProductSelectorImageLayout \| Description \| \| --- \| --- \| \| `TOP` \| Top image layout \| \| `LEFT` \| Left image layout \| \| `RIGHT` \| Right image layout \| \| `BOTTOM` \| Bottom image layout \| |
+
+## Inline71
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline71` | Yes | No | — |
+| `content` | `content` | `Inline72` | No | No | — |
+| `flexHeight` | `flexHeight` | `boolean` | No | No | Whether the height is flexible. |
+| `mobileContent` | `mobileContent` | `Inline74` | No | No | — |
+| `uploadMobileImage` | `uploadMobileImage` | `boolean` | No | No | Whether to upload a mobile-specific image. |
+
+## Inline710
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `answerList` | `answerList` | `Array<Inline710>` | No | No | List of possible answers for this question |
+| `areImagesEnabled` | `areImagesEnabled` | `boolean` | No | No | Flag indicating whether images are enabled |
+| `description` | `description` | `string` | No | No | Additional descriptive text or context for the question |
+| `hasImage` | `hasImage` | `boolean` | No | No | Flag indicating whether the question has an image |
+| `tag` | `tag` | `string` | Yes | No | Unique identifier for the question |
+| `text` | `text` | `string` | No | No | Main question text displayed to the user |
+
+## Inline711
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `buttonText` | `buttonText` | `string` | No | No | Text to display on the call-to-action button |
+| `description` | `description` | `string` | No | No | Descriptive text explaining the results |
+| `disclaimer` | `disclaimer` | `string` | Yes | No | Legal or additional information text for the results |
+| `headline` | `headline` | `string` | Yes | No | Main heading text for the results section |
+| `storeUrl` | `storeUrl` | `string` | No | No | URL to the store page for the selected products |
+
+## Inline712
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeVideoRevealWidget` | `storeVideoRevealWidget` | `Inline712` | Yes | No | Main widget structure for the video reveal feature |
+
+## Inline713
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | Yes | No | Unique identifier for the video asset |
+| `url` | `url` | `string` | Yes | No | URL of the video content |
+
+## Inline715
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sectionType` | `sectionType` | `string` | Yes | No | **StoreWidgetSectionType Enum:** \| StoreWidgetSectionType \| Description \| \| --- \| --- \| \| `HERO` \| Section type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `DEALS_AND_COUPONS` \| Section type for StoreDealsWidget and StoreDealsContent type \| \| `GALLERY` \| Section type for StoreGalleryWidget \| \| `PRODUCT_COLLECTION` \| Section type for StoreProductCollectionWidget \| \| `PRODUCT_GRID` \| Section type for StoreProductGridWidget and type for StoreProductCollectionASINGrid \| \| `SHOP_THE_LOOK_CAROUSEL` \| Section type for StoreShopTheLookWidget and type for StoreShopTheLookContent \| \| `MANUALLY_CURATED_PRODUCT_CAROUSEL` \| Section type for StoreManuallyCuratedProductCarouselWidget and StoreCarouselContent type \| \| `RECOMMENDED` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `PREMIUM_BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `LIVE_VIDEO` \| Section type for StoreLiveVideoWidget \| \| `BANNER` \| Section type for StoreBannerWidget \| |
+| `widgetTag` | `widgetTag` | `string` | Yes | No | The unique tag for the widget to help track on performance. |
+| `widgetType` | `widgetType` | `string` | Yes | No | **StoreWidgetType Enum:** \| StoreWidgetType \| Description \| \| --- \| --- \| \| `HERO` \| Widget type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `PRODUCT_GRID` \| Widget type for StoreProductGridWidget and StoreDealsWidget \| \| `GALLERY` \| Widget type for StoreGalleryWidget and StoreGalleryContent type \| \| `PRODUCT_COLLECTION` \| Widget type for StoreProductCollectionWidget and StoreProductCollection type \| \| `MULTI_MEDIA_CAROUSEL` \| Widget type for StoreShopTheLookWidget, StoreManuallyCuratedProductCarouselWidget and StoreProductCarouselWidget \| \| `PRODUCT_CAROUSEL` \| Widget type for StoreProductCarouselWidget \| \| `LIVE_VIDEO` \| Widget type and content type for StoreLiveVideoWidget \| \| `BANNER` \| Widget type and content type for StoreBannerWidget \| |
+
+## Inline716
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline716` | Yes | No | — |
+| `content` | `content` | `Inline717 \| Inline722 \| Inline727` | No | No | — |
+| `externalWidgetId` | `externalWidgetId` | `string` | Yes | No | External widget identifier. |
+
+## Inline717
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brandedRecipeWidget` | `brandedRecipeWidget` | `Inline717` | Yes | No | Main widget structure for displaying a branded recipe |
+
+## Inline718
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `string` | Yes | No | Detailed instruction text for the direction step |
+| `title` | `title` | `string` | Yes | No | Title or heading for the direction step |
+
+## Inline719
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `priorityAsins` | `priorityAsins` | `Array<Inline719>` | No | No | List of priority ASINs for ingredients with detailed product information |
+| `quantity` | `quantity` | `number` | No | No | Quantity amount for the ingredient |
+| `searchText` | `searchText` | `string` | No | No | Search text for ingredient metadata |
+| `translatedUnit` | `translatedUnit` | `string` | No | No | Translated unit of measurement |
+
+## Inline72
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text for the image. |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier. |
+| `assetTags` | `assetTags` | `string` | No | No | Tags associated with the asset. |
+| `bleedImage` | `bleedImage` | `string` | No | No | **StoreBleedImageType Enum:** \| StoreBleedImageType \| Description \| \| --- \| --- \| \| `NONE` \| No image bleed \| \| `SIDE` \| Side image bleed \| \| `CORNER` \| Corner image bleed \| \| `ALL` \| All sides image bleed \| |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `canvasData` | `canvasData` | `Inline72` | No | No | — |
+| `cropBoxData` | `cropBoxData` | `Inline73` | No | No | — |
+| `customUrl` | `customUrl` | `string` | No | No | Custom URL. |
+| `hideTitle` | `hideTitle` | `boolean` | No | No | Whether to hide the title. |
+| `imageHeight` | `imageHeight` | `number` | No | No | Height of the image. |
+| `imageKey` | `imageKey` | `string` | No | No | Key identifier for the image. |
+| `imageOffsetLeft` | `imageOffsetLeft` | `number` | No | No | Left offset for image positioning. |
+| `imageOffsetTop` | `imageOffsetTop` | `number` | No | No | Top offset for image positioning. |
+| `imageUrl` | `imageUrl` | `string` | No | No | URL of the image. |
+| `imageWidth` | `imageWidth` | `number` | No | No | Width of the image. |
+| `isAiGen` | `isAiGen` | `boolean` | No | No | Whether the image is AI-generated. |
+| `layout` | `layout` | `string` | No | No | **StoreImageLayout Enum:** \| StoreImageLayout \| Description \| \| --- \| --- \| \| `COVER` \| Cover layout \| \| `CONTAIN` \| Contain layout \| \| `TEXT` \| Text layout \| |
+| `pageId` | `pageId` | `string` | No | No | Page identifier. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the image. |
+| `text` | `text` | `string` | No | No | Text content. |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreImageTextAlign Enum:** \| StoreImageTextAlign \| Description \| \| --- \| --- \| \| `LEFT` \| Left text alignment \| \| `RIGHT` \| Right text alignment \| |
+| `tileLayers` | `tileLayers` | `Array<string>` | No | No | Layer configuration for the tile. |
+| `title` | `title` | `string` | No | No | Title of the image. |
+| `verticalAlign` | `verticalAlign` | `string` | No | No | **StoreVerticalAlign Enum:** \| StoreVerticalAlign \| Description \| \| --- \| --- \| \| `TOP` \| Top alignment \| \| `MIDDLE` \| Middle alignment \| \| `BOTTOM` \| Bottom alignment \| |
+
+## Inline720
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asinOverrides` | `asinOverrides` | `Array<string>` | No | No | List of ASIN overrides for the ingredient |
+| `brand` | `brand` | `string` | Yes | No | Brand name associated with the ingredient |
+| `displayText` | `displayText` | `string` | Yes | No | Formatted text for displaying the ingredient |
+| `isAsinRestricted` | `isAsinRestricted` | `boolean` | Yes | No | Flag indicating if ASIN is restricted for this ingredient |
+| `isBrandRestricted` | `isBrandRestricted` | `boolean` | Yes | No | Flag indicating if brand is restricted for this ingredient |
+| `isExclusiveOverride` | `isExclusiveOverride` | `boolean` | Yes | No | Flag indicating if this ingredient has exclusive override |
+| `name` | `name` | `string` | Yes | No | Name of the ingredient |
+| `quantityList` | `quantityList` | `Array<Inline720>` | No | No | List of quantity measurements for the ingredient |
+
+## Inline721
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text description of the media content |
+| `assetLibraryId` | `assetLibraryId` | `string` | No | No | Identifier for the asset. |
+| `mediaUrl` | `mediaUrl` | `string` | No | No | URL of the media content |
+
+## Inline722
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeProductSelectorWidget` | `storeProductSelectorWidget` | `Inline722` | Yes | No | Main widget structure for the product selector feature |
+
+## Inline723
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `buttonText` | `buttonText` | `string` | Yes | No | Text displayed on the introduction button |
+| `description` | `description` | `string` | Yes | No | Description text for the introduction section |
+| `heading` | `heading` | `string` | Yes | No | Heading text for the introduction section |
+| `headline` | `headline` | `string` | No | No | Headline text for the introduction section |
+| `imageOptions` | `imageOptions` | `Inline723` | Yes | No | Image options for the product selector introduction |
+| `isEnabled` | `isEnabled` | `boolean` | Yes | No | Flag indicating whether the introduction is enabled |
+
+## Inline724
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `desktopLayout` | `desktopLayout` | `string` | Yes | No | **StoreProductSelectorImageLayout Enum:** \| StoreProductSelectorImageLayout \| Description \| \| --- \| --- \| \| `TOP` \| Top image layout \| \| `LEFT` \| Left image layout \| \| `RIGHT` \| Right image layout \| \| `BOTTOM` \| Bottom image layout \| |
+| `mobileLayout` | `mobileLayout` | `string` | Yes | No | **StoreProductSelectorImageLayout Enum:** \| StoreProductSelectorImageLayout \| Description \| \| --- \| --- \| \| `TOP` \| Top image layout \| \| `LEFT` \| Left image layout \| \| `RIGHT` \| Right image layout \| \| `BOTTOM` \| Bottom image layout \| |
+
+## Inline725
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `answerList` | `answerList` | `Array<Inline725>` | No | No | List of possible answers for this question |
+| `areImagesEnabled` | `areImagesEnabled` | `boolean` | No | No | Flag indicating whether images are enabled |
+| `description` | `description` | `string` | No | No | Additional descriptive text or context for the question |
+| `hasImage` | `hasImage` | `boolean` | No | No | Flag indicating whether the question has an image |
+| `tag` | `tag` | `string` | Yes | No | Unique identifier for the question |
+| `text` | `text` | `string` | No | No | Main question text displayed to the user |
+
+## Inline726
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `buttonText` | `buttonText` | `string` | No | No | Text to display on the call-to-action button |
+| `description` | `description` | `string` | No | No | Descriptive text explaining the results |
+| `disclaimer` | `disclaimer` | `string` | Yes | No | Legal or additional information text for the results |
+| `headline` | `headline` | `string` | Yes | No | Main heading text for the results section |
+| `storeUrl` | `storeUrl` | `string` | No | No | URL to the store page for the selected products |
+
+## Inline727
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeVideoRevealWidget` | `storeVideoRevealWidget` | `Inline727` | Yes | No | Main widget structure for the video reveal feature |
+
+## Inline728
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | Yes | No | Unique identifier for the video asset |
+| `url` | `url` | `string` | Yes | No | URL of the video content |
+
+## Inline73
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | Height of the crop box. |
+| `left` | `left` | `number` | No | No | Left position of the crop box. |
+| `top` | `top` | `number` | No | No | Top position of the crop box. |
+| `width` | `width` | `number` | No | No | Width of the crop box. |
+
+## Inline730
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `blackLivesMatter` | `blackLivesMatter` | `boolean` | Yes | No | Flag to display Black Lives Matter banner |
+| `stopAsianHate` | `stopAsianHate` | `boolean` | Yes | No | Flag to display Stop Asian Hate banner |
+
+## Inline733
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sectionType` | `sectionType` | `string` | Yes | No | **StoreWidgetSectionType Enum:** \| StoreWidgetSectionType \| Description \| \| --- \| --- \| \| `HERO` \| Section type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `DEALS_AND_COUPONS` \| Section type for StoreDealsWidget and StoreDealsContent type \| \| `GALLERY` \| Section type for StoreGalleryWidget \| \| `PRODUCT_COLLECTION` \| Section type for StoreProductCollectionWidget \| \| `PRODUCT_GRID` \| Section type for StoreProductGridWidget and type for StoreProductCollectionASINGrid \| \| `SHOP_THE_LOOK_CAROUSEL` \| Section type for StoreShopTheLookWidget and type for StoreShopTheLookContent \| \| `MANUALLY_CURATED_PRODUCT_CAROUSEL` \| Section type for StoreManuallyCuratedProductCarouselWidget and StoreCarouselContent type \| \| `RECOMMENDED` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `PREMIUM_BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `LIVE_VIDEO` \| Section type for StoreLiveVideoWidget \| \| `BANNER` \| Section type for StoreBannerWidget \| |
+| `widgetTag` | `widgetTag` | `string` | Yes | No | The unique tag for the widget to help track on performance. |
+| `widgetType` | `widgetType` | `string` | Yes | No | **StoreWidgetType Enum:** \| StoreWidgetType \| Description \| \| --- \| --- \| \| `HERO` \| Widget type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `PRODUCT_GRID` \| Widget type for StoreProductGridWidget and StoreDealsWidget \| \| `GALLERY` \| Widget type for StoreGalleryWidget and StoreGalleryContent type \| \| `PRODUCT_COLLECTION` \| Widget type for StoreProductCollectionWidget and StoreProductCollection type \| \| `MULTI_MEDIA_CAROUSEL` \| Widget type for StoreShopTheLookWidget, StoreManuallyCuratedProductCarouselWidget and StoreProductCarouselWidget \| \| `PRODUCT_CAROUSEL` \| Widget type for StoreProductCarouselWidget \| \| `LIVE_VIDEO` \| Widget type and content type for StoreLiveVideoWidget \| \| `BANNER` \| Widget type and content type for StoreBannerWidget \| |
+
+## Inline734
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `banners` | `banners` | `Inline734` | No | No | — |
+| `tag` | `tag` | `string` | No | No | Unique tag for the content. |
+| `type` | `type` | `string` | No | No | **StoreWidgetType Enum:** \| StoreWidgetType \| Description \| \| --- \| --- \| \| `HERO` \| Widget type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `PRODUCT_GRID` \| Widget type for StoreProductGridWidget and StoreDealsWidget \| \| `GALLERY` \| Widget type for StoreGalleryWidget and StoreGalleryContent type \| \| `PRODUCT_COLLECTION` \| Widget type for StoreProductCollectionWidget and StoreProductCollection type \| \| `MULTI_MEDIA_CAROUSEL` \| Widget type for StoreShopTheLookWidget, StoreManuallyCuratedProductCarouselWidget and StoreProductCarouselWidget \| \| `PRODUCT_CAROUSEL` \| Widget type for StoreProductCarouselWidget \| \| `LIVE_VIDEO` \| Widget type and content type for StoreLiveVideoWidget \| \| `BANNER` \| Widget type and content type for StoreBannerWidget \| |
+
+## Inline739
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customUrl` | `customUrl` | `string` | No | No | Custom URL for the call to action. |
+| `pageId` | `pageId` | `string` | No | No | Page identifier. |
+| `productAsin` | `productAsin` | `string` | No | No | ASIN for the call to action. |
+| `text` | `text` | `string` | No | No | Call to action text. |
+
+## Inline74
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text for the mobile image. |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier for mobile. |
+| `assetTags` | `assetTags` | `string` | No | No | Tags associated with the mobile asset. |
+| `bleedImage` | `bleedImage` | `string` | No | No | **StoreBleedImageType Enum:** \| StoreBleedImageType \| Description \| \| --- \| --- \| \| `NONE` \| No image bleed \| \| `SIDE` \| Side image bleed \| \| `CORNER` \| Corner image bleed \| \| `ALL` \| All sides image bleed \| |
+| `canvasData` | `canvasData` | `Inline74` | No | No | — |
+| `cropBoxData` | `cropBoxData` | `Inline75` | No | No | — |
+| `hideTitle` | `hideTitle` | `boolean` | No | No | Whether to hide the title on mobile. |
+| `imageHeight` | `imageHeight` | `number` | No | No | Height of the mobile image. |
+| `imageKey` | `imageKey` | `string` | No | No | Key identifier for the mobile image. |
+| `imageOffsetLeft` | `imageOffsetLeft` | `number` | No | No | Left offset for mobile image positioning. |
+| `imageOffsetTop` | `imageOffsetTop` | `number` | No | No | Top offset for mobile image positioning. |
+| `imageUrl` | `imageUrl` | `string` | No | No | URL of the mobile image. |
+| `imageWidth` | `imageWidth` | `number` | No | No | Width of the mobile image. |
+| `isAiGen` | `isAiGen` | `boolean` | No | No | Whether the mobile image is AI-generated. |
+| `layout` | `layout` | `string` | No | No | **StoreImageLayout Enum:** \| StoreImageLayout \| Description \| \| --- \| --- \| \| `COVER` \| Cover layout \| \| `CONTAIN` \| Contain layout \| \| `TEXT` \| Text layout \| |
+| `tileLayers` | `tileLayers` | `Array<string>` | No | No | Layer configuration for the mobile tile. |
+| `title` | `title` | `string` | No | No | Title for mobile display. |
+| `verticalAlign` | `verticalAlign` | `string` | No | No | **StoreVerticalAlign Enum:** \| StoreVerticalAlign \| Description \| \| --- \| --- \| \| `TOP` \| Top alignment \| \| `MIDDLE` \| Middle alignment \| \| `BOTTOM` \| Bottom alignment \| |
+
+## Inline740
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `includeOutOfStock` | `includeOutOfStock` | `boolean` | Yes | No | Whether to include out of stock items in search. |
+| `keyword` | `keyword` | `string` | Yes | No | Search keyword. |
+| `node` | `node` | `string` | Yes | No | Node identifier for search. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | List of ASINs for search filtering. |
+
+## Inline741
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productAsin` | `productAsin` | `string` | Yes | No | The ASIN of the product. |
+| `tag` | `tag` | `string` | Yes | No | Unique tag for the slide which will be ASIN. |
+| `type` | `type` | `string` | Yes | No | **StoreSlideType Enum:** \| StoreSlideType \| Description \| \| --- \| --- \| \| `IMAGE` \| Slide type for StoreGallerySlide, StoreImageSlide \| \| `ASIN` \| Slide type for StoreASINSlide \| |
+
+## Inline745
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `canvasHeight` | `canvasHeight` | `number` | No | No | Height in the canvas. |
+| `height` | `height` | `number` | No | No | Height in the canvas. |
+| `left` | `left` | `number` | No | No | Left position in the canvas. |
+| `naturalHeight` | `naturalHeight` | `number` | No | No | Natural height of the image. |
+| `naturalWidth` | `naturalWidth` | `number` | No | No | Natural width of the image. |
+| `top` | `top` | `number` | No | No | Top position in the canvas. |
+| `width` | `width` | `number` | No | No | Width in the canvas. |
+
+## Inline746
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | Height of the crop box. |
+| `left` | `left` | `number` | No | No | Left position of the crop box. |
+| `top` | `top` | `number` | No | No | Top position of the crop box. |
+| `width` | `width` | `number` | No | No | Width of the crop box. |
+
+## Inline748
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category` | `category` | `string` | No | No | Category identifier. |
+| `item` | `item` | `string` | No | No | Item identifier. |
+| `type` | `type` | `string` | No | No | Type identifier. |
+
+## Inline75
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | Height of the crop box. |
+| `left` | `left` | `number` | No | No | Left position of the crop box. |
+| `top` | `top` | `number` | No | No | Top position of the crop box. |
+| `width` | `width` | `number` | No | No | Width of the crop box. |
+
+## Inline750
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `size` | `size` | `string` | Yes | No | **StoreTileSize Enum:** \| StoreTileSize \| Description \| \| --- \| --- \| \| `LARGE` \| Large tile size, StoreAWLSTile only uses LARGE \| \| `MEDIUM` \| Medium tile size \| \| `SMALL` \| Small tile size \| \| `MINI` \| Mini tile size \| |
+| `tag` | `tag` | `string` | Yes | No | The unique tag for the tile to help track on performance. |
+| `type` | `type` | `string` | Yes | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline751
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `autoDimension` | `autoDimension` | `boolean` | No | No | Whether to use automatic dimensioning. |
+| `availableProductAsins` | `availableProductAsins` | `Array<string>` | No | No | List of available ASINs, maximum 500 unique items. |
+| `cti` | `cti` | `Inline751` | No | No | — |
+| `embedCode` | `embedCode` | `string` | No | No | Embedded code content. |
+| `integrity` | `integrity` | `string` | No | No | Integrity hash for security. |
+| `widgetName` | `widgetName` | `string` | No | No | Name of the widget. |
+| `widgetTag` | `widgetTag` | `string` | No | No | Widget identifier. |
+
+## Inline753
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sectionType` | `sectionType` | `string` | Yes | No | **StoreWidgetSectionType Enum:** \| StoreWidgetSectionType \| Description \| \| --- \| --- \| \| `HERO` \| Section type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `DEALS_AND_COUPONS` \| Section type for StoreDealsWidget and StoreDealsContent type \| \| `GALLERY` \| Section type for StoreGalleryWidget \| \| `PRODUCT_COLLECTION` \| Section type for StoreProductCollectionWidget \| \| `PRODUCT_GRID` \| Section type for StoreProductGridWidget and type for StoreProductCollectionASINGrid \| \| `SHOP_THE_LOOK_CAROUSEL` \| Section type for StoreShopTheLookWidget and type for StoreShopTheLookContent \| \| `MANUALLY_CURATED_PRODUCT_CAROUSEL` \| Section type for StoreManuallyCuratedProductCarouselWidget and StoreCarouselContent type \| \| `RECOMMENDED` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `PREMIUM_BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `LIVE_VIDEO` \| Section type for StoreLiveVideoWidget \| \| `BANNER` \| Section type for StoreBannerWidget \| |
+| `widgetTag` | `widgetTag` | `string` | Yes | No | The unique tag for the widget to help track on performance. |
+| `widgetType` | `widgetType` | `string` | Yes | No | **StoreWidgetType Enum:** \| StoreWidgetType \| Description \| \| --- \| --- \| \| `HERO` \| Widget type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `PRODUCT_GRID` \| Widget type for StoreProductGridWidget and StoreDealsWidget \| \| `GALLERY` \| Widget type for StoreGalleryWidget and StoreGalleryContent type \| \| `PRODUCT_COLLECTION` \| Widget type for StoreProductCollectionWidget and StoreProductCollection type \| \| `MULTI_MEDIA_CAROUSEL` \| Widget type for StoreShopTheLookWidget, StoreManuallyCuratedProductCarouselWidget and StoreProductCarouselWidget \| \| `PRODUCT_CAROUSEL` \| Widget type for StoreProductCarouselWidget \| \| `LIVE_VIDEO` \| Widget type and content type for StoreLiveVideoWidget \| \| `BANNER` \| Widget type and content type for StoreBannerWidget \| |
+
+## Inline754
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline754` | Yes | No | — |
+| `content` | `content` | `Inline755` | No | No | — |
+
+## Inline755
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `autoDimension` | `autoDimension` | `boolean` | No | No | Whether to use automatic dimensioning. |
+| `availableProductAsins` | `availableProductAsins` | `Array<string>` | No | No | List of available ASINs, maximum 500 unique items. |
+| `cti` | `cti` | `Inline755` | No | No | — |
+| `embedCode` | `embedCode` | `string` | No | No | Embedded code content. |
+| `integrity` | `integrity` | `string` | No | No | Integrity hash for security. |
+| `widgetName` | `widgetName` | `string` | No | No | Name of the widget. |
+| `widgetTag` | `widgetTag` | `string` | No | No | Widget identifier. |
+
+## Inline758
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `node` | `node` | `string` | No | No | Node identifier for deals. |
+
+## Inline76
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeTextWidget` | `storeTextWidget` | `Inline76` | Yes | No | — |
+
+## Inline760
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sectionType` | `sectionType` | `string` | Yes | No | **StoreWidgetSectionType Enum:** \| StoreWidgetSectionType \| Description \| \| --- \| --- \| \| `HERO` \| Section type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `DEALS_AND_COUPONS` \| Section type for StoreDealsWidget and StoreDealsContent type \| \| `GALLERY` \| Section type for StoreGalleryWidget \| \| `PRODUCT_COLLECTION` \| Section type for StoreProductCollectionWidget \| \| `PRODUCT_GRID` \| Section type for StoreProductGridWidget and type for StoreProductCollectionASINGrid \| \| `SHOP_THE_LOOK_CAROUSEL` \| Section type for StoreShopTheLookWidget and type for StoreShopTheLookContent \| \| `MANUALLY_CURATED_PRODUCT_CAROUSEL` \| Section type for StoreManuallyCuratedProductCarouselWidget and StoreCarouselContent type \| \| `RECOMMENDED` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `PREMIUM_BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `LIVE_VIDEO` \| Section type for StoreLiveVideoWidget \| \| `BANNER` \| Section type for StoreBannerWidget \| |
+| `widgetTag` | `widgetTag` | `string` | Yes | No | The unique tag for the widget to help track on performance. |
+| `widgetType` | `widgetType` | `string` | Yes | No | **StoreWidgetType Enum:** \| StoreWidgetType \| Description \| \| --- \| --- \| \| `HERO` \| Widget type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `PRODUCT_GRID` \| Widget type for StoreProductGridWidget and StoreDealsWidget \| \| `GALLERY` \| Widget type for StoreGalleryWidget and StoreGalleryContent type \| \| `PRODUCT_COLLECTION` \| Widget type for StoreProductCollectionWidget and StoreProductCollection type \| \| `MULTI_MEDIA_CAROUSEL` \| Widget type for StoreShopTheLookWidget, StoreManuallyCuratedProductCarouselWidget and StoreProductCarouselWidget \| \| `PRODUCT_CAROUSEL` \| Widget type for StoreProductCarouselWidget \| \| `LIVE_VIDEO` \| Widget type and content type for StoreLiveVideoWidget \| \| `BANNER` \| Widget type and content type for StoreBannerWidget \| |
+
+## Inline761
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deals` | `deals` | `Inline761` | No | No | — |
+| `dealsMode` | `dealsMode` | `string` | No | No | **StoreDealsMode Enum:** \| StoreDealsMode \| Description \| \| --- \| --- \| \| `BULK` \| Bulk mode \| \| `AUTOMATIC` \| Automatic mode \| |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | List of ASINs, maximum 500 unique items. |
+| `tag` | `tag` | `string` | No | No | Unique tag for the content to track performance. |
+| `type` | `type` | `string` | No | No | **StoreWidgetSectionType Enum:** \| StoreWidgetSectionType \| Description \| \| --- \| --- \| \| `HERO` \| Section type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `DEALS_AND_COUPONS` \| Section type for StoreDealsWidget and StoreDealsContent type \| \| `GALLERY` \| Section type for StoreGalleryWidget \| \| `PRODUCT_COLLECTION` \| Section type for StoreProductCollectionWidget \| \| `PRODUCT_GRID` \| Section type for StoreProductGridWidget and type for StoreProductCollectionASINGrid \| \| `SHOP_THE_LOOK_CAROUSEL` \| Section type for StoreShopTheLookWidget and type for StoreShopTheLookContent \| \| `MANUALLY_CURATED_PRODUCT_CAROUSEL` \| Section type for StoreManuallyCuratedProductCarouselWidget and StoreCarouselContent type \| \| `RECOMMENDED` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `PREMIUM_BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `LIVE_VIDEO` \| Section type for StoreLiveVideoWidget \| \| `BANNER` \| Section type for StoreBannerWidget \| |
+
+## Inline763
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `size` | `size` | `string` | Yes | No | **StoreTileSize Enum:** \| StoreTileSize \| Description \| \| --- \| --- \| \| `LARGE` \| Large tile size, StoreAWLSTile only uses LARGE \| \| `MEDIUM` \| Medium tile size \| \| `SMALL` \| Small tile size \| \| `MINI` \| Mini tile size \| |
+| `tag` | `tag` | `string` | Yes | No | The unique tag for the tile to help track on performance. |
+| `type` | `type` | `string` | Yes | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline764
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bondCustomerServiceLink` | `bondCustomerServiceLink` | `boolean` | No | No | Whether to include a customer service link. |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `text` | `text` | `string` | No | No | Text content (must be empty). |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `title` | `title` | `string` | No | No | Title of the tile (must be empty). |
+
+## Inline767
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `alt` | `alt` | `string` | No | No | Alternative text. |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier. |
+| `filename` | `filename` | `string` | No | No | Name of the file. |
+| `imageKey` | `imageKey` | `string` | No | No | Key identifier for the image. |
+| `imageUrl` | `imageUrl` | `string` | No | No | The imageUrl of the item. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+| `url` | `url` | `string` | No | No | URL of the item. |
+
+## Inline768
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `alt` | `alt` | `string` | No | No | Alternative text for the slide. |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier for the slide. |
+| `imageKey` | `imageKey` | `string` | No | No | Key identifier for the image. |
+| `type` | `type` | `string` | No | No | **StoreSlideType Enum:** \| StoreSlideType \| Description \| \| --- \| --- \| \| `IMAGE` \| Slide type for StoreGallerySlide, StoreImageSlide \| \| `ASIN` \| Slide type for StoreASINSlide \| |
+
+## Inline77
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline77` | Yes | No | — |
+| `content` | `content` | `Inline78` | No | No | — |
+
+## Inline771
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sectionType` | `sectionType` | `string` | Yes | No | **StoreWidgetSectionType Enum:** \| StoreWidgetSectionType \| Description \| \| --- \| --- \| \| `HERO` \| Section type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `DEALS_AND_COUPONS` \| Section type for StoreDealsWidget and StoreDealsContent type \| \| `GALLERY` \| Section type for StoreGalleryWidget \| \| `PRODUCT_COLLECTION` \| Section type for StoreProductCollectionWidget \| \| `PRODUCT_GRID` \| Section type for StoreProductGridWidget and type for StoreProductCollectionASINGrid \| \| `SHOP_THE_LOOK_CAROUSEL` \| Section type for StoreShopTheLookWidget and type for StoreShopTheLookContent \| \| `MANUALLY_CURATED_PRODUCT_CAROUSEL` \| Section type for StoreManuallyCuratedProductCarouselWidget and StoreCarouselContent type \| \| `RECOMMENDED` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `PREMIUM_BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `LIVE_VIDEO` \| Section type for StoreLiveVideoWidget \| \| `BANNER` \| Section type for StoreBannerWidget \| |
+| `widgetTag` | `widgetTag` | `string` | Yes | No | The unique tag for the widget to help track on performance. |
+| `widgetType` | `widgetType` | `string` | Yes | No | **StoreWidgetType Enum:** \| StoreWidgetType \| Description \| \| --- \| --- \| \| `HERO` \| Widget type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `PRODUCT_GRID` \| Widget type for StoreProductGridWidget and StoreDealsWidget \| \| `GALLERY` \| Widget type for StoreGalleryWidget and StoreGalleryContent type \| \| `PRODUCT_COLLECTION` \| Widget type for StoreProductCollectionWidget and StoreProductCollection type \| \| `MULTI_MEDIA_CAROUSEL` \| Widget type for StoreShopTheLookWidget, StoreManuallyCuratedProductCarouselWidget and StoreProductCarouselWidget \| \| `PRODUCT_CAROUSEL` \| Widget type for StoreProductCarouselWidget \| \| `LIVE_VIDEO` \| Widget type and content type for StoreLiveVideoWidget \| \| `BANNER` \| Widget type and content type for StoreBannerWidget \| |
+
+## Inline772
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `metadata` | `metadata` | `Array<Inline772>` | No | No | Metadata associated with the gallery. |
+| `slides` | `slides` | `Array<Inline773>` | No | No | List of slides in the gallery. |
+| `tag` | `tag` | `string` | No | No | Unique tag for the content. |
+| `text` | `text` | `string` | No | No | Text content of the gallery. |
+| `title` | `title` | `string` | No | No | Title of the gallery. |
+| `type` | `type` | `string` | No | No | **StoreWidgetType Enum:** \| StoreWidgetType \| Description \| \| --- \| --- \| \| `HERO` \| Widget type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `PRODUCT_GRID` \| Widget type for StoreProductGridWidget and StoreDealsWidget \| \| `GALLERY` \| Widget type for StoreGalleryWidget and StoreGalleryContent type \| \| `PRODUCT_COLLECTION` \| Widget type for StoreProductCollectionWidget and StoreProductCollection type \| \| `MULTI_MEDIA_CAROUSEL` \| Widget type for StoreShopTheLookWidget, StoreManuallyCuratedProductCarouselWidget and StoreProductCarouselWidget \| \| `PRODUCT_CAROUSEL` \| Widget type for StoreProductCarouselWidget \| \| `LIVE_VIDEO` \| Widget type and content type for StoreLiveVideoWidget \| \| `BANNER` \| Widget type and content type for StoreBannerWidget \| |

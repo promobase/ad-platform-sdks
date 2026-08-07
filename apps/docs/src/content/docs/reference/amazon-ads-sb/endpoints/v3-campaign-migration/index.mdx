@@ -1,0 +1,154 @@
+---
+title: "Amazon Ads — Sponsored Brands V3 Campaign Migration endpoints"
+description: "4 generated Amazon Ads — Sponsored Brands endpoint contracts for V3 Campaign Migration."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 117
+  label: "V3 Campaign Migration"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.v3CampaignMigration.migrationJobResults
+
+`POST` `/sb/v4/legacyCampaigns/migrationJob/results`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (MigrationJobResults)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.v3CampaignMigration.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `MigrationJobResultsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `jobId` | `body` | `string` | Yes | No | — |
+| `nextToken` | `body` | `string` | No | No | Token value allowing to navigate to the next response page. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.v3CampaignMigration.migrationJobStatus
+
+`POST` `/sb/v4/legacyCampaigns/migrationJob/status`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (MigrationJobStatus)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.v3CampaignMigration.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `MigrationJobStatusResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `jobId` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.v3CampaignMigration.migrationResults
+
+`POST` `/sb/v4/legacyCampaigns/overallMigrationResults`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (MigrationResults)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.v3CampaignMigration.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `MigrationResultsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `body` | `string` | No | No | Token value allowing to navigate to the next response page. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.v3CampaignMigration.startMigrationJob
+
+`POST` `/sb/v4/legacyCampaigns/migrationJob`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (StartMigrationJob)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.v3CampaignMigration.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `StartMigrationJobResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brandEntityId` | `body` | `string` | No | No | Please note that brandEntityId is only required for sellers. You can get the brandEntityId by calling the &lt;a href = https://advertising.amazon.com/API/docs/en-us/sponsored-brands/3-0/openapi#tag/Brands/operation/getBrands&gt;GET /brands&lt;/a&gt; endpoint. |
+| `campaignIds` | `body` | `Array<string>` | Yes | No | Provide list of campaign ids that needs to be migrated |
+| `enableThemeTargeting` | `body` | `boolean` | Yes | No | By default, theme targeting is set true if no value is provide. To disable theme targeting, set this flag to false. |
+| `isStagedMigration` | `body` | `boolean` | No | No | Set this flag to true if you want generate new campaign ID based on V3 campaign ID. These campaigns will not be visible through V4 campaign list call. If set to true not all campaign entities such as ad group, targeting, ad, or creatives are created. Use this flag for staging purpose only. By default it will always be false |
+| `newCampaignState` | `body` | `string` | No | No | This is optional parameter. By default, the new migrated campaigns will have the original status of V3 campaigns. If this parameter is set, then all newly migrated campaigns will have this state. Supported campaign states \| State \| Description \| \|----------------------------------------------------------\|--------------\| \| ENABLED \| Campaign entity has ENABLED state \| |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

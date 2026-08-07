@@ -1,0 +1,155 @@
+---
+title: "Amazon Ads — Sponsored Brands Ad Groups endpoints"
+description: "4 generated Amazon Ads — Sponsored Brands endpoint contracts for Ad Groups."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 101
+  label: "Ad Groups"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.adGroups.createSponsoredBrandsAdGroups
+
+`POST` `/sb/v4/adGroups`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateSponsoredBrandsAdGroups)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.adGroups.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateSponsoredBrandsAdGroupsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `body` | `Array<Inline1080>` | Yes | No | An array of adGroups. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.adGroups.deleteSponsoredBrandsAdGroups
+
+`POST` `/sb/v4/adGroups/delete`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (DeleteSponsoredBrandsAdGroups)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.adGroups.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `DeleteSponsoredBrandsAdGroupsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `body` | `Inline1088` | No | No | Filter entities by the list of objectIds. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.adGroups.listSponsoredBrandsAdGroups
+
+`POST` `/sb/v4/adGroups/list`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (ListSponsoredBrandsAdGroups)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.adGroups.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `ListSponsoredBrandsAdGroupsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `body` | `Inline1096` | No | No | Filter entities by the list of objectIds. |
+| `campaignIdFilter` | `body` | `Inline1097` | No | No | Filter entities by the list of objectIds. |
+| `includeExtendedDataFields` | `body` | `boolean` | No | No | Setting to true will slow down performance because the API needs to retrieve extra information for each campaign. |
+| `maxResults` | `body` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API. |
+| `nameFilter` | `body` | `Inline1098` | No | No | Filter entities by name. |
+| `nextToken` | `body` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `stateFilter` | `body` | `Inline1099` | No | No | Filter entities by state. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.adGroups.updateSponsoredBrandsAdGroups
+
+`PUT` `/sb/v4/adGroups`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (UpdateSponsoredBrandsAdGroups)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.adGroups.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `UpdateSponsoredBrandsAdGroupsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `body` | `Array<Inline1084>` | Yes | No | An array of adGroups with updated values. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

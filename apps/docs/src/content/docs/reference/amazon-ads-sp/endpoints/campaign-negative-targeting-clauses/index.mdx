@@ -1,0 +1,155 @@
+---
+title: "Amazon Ads — Sponsored Products Campaign Negative Targeting Clauses endpoints"
+description: "4 generated Amazon Ads — Sponsored Products endpoint contracts for Campaign Negative Targeting Clauses."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 107
+  label: "Campaign Negative Targeting Clauses"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.campaignNegativeTargetingClauses.createSponsoredProductsCampaignNegativeTargetingClauses
+
+`POST` `/sp/campaignNegativeTargets`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateSponsoredProductsCampaignNegativeTargetingClauses)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.campaignNegativeTargetingClauses.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateSponsoredProductsCampaignNegativeTargetingClausesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeTargetingClauses` | `body` | `Array<Inline2762>` | Yes | No | An array of Campaign Negative TargetingClauses. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.campaignNegativeTargetingClauses.deleteSponsoredProductsCampaignNegativeTargetingClauses
+
+`POST` `/sp/campaignNegativeTargets/delete`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (DeleteSponsoredProductsCampaignNegativeTargetingClauses)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.campaignNegativeTargetingClauses.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `DeleteSponsoredProductsCampaignNegativeTargetingClausesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeTargetIdFilter` | `body` | `Inline2770` | Yes | No | Filter entities by the list of objectIds |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.campaignNegativeTargetingClauses.listSponsoredProductsCampaignNegativeTargetingClauses
+
+`POST` `/sp/campaignNegativeTargets/list`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (ListSponsoredProductsCampaignNegativeTargetingClauses)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.campaignNegativeTargetingClauses.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `ListSponsoredProductsCampaignNegativeTargetingClausesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asinFilter` | `body` | `Inline2780` | No | No | — |
+| `campaignIdFilter` | `body` | `Inline2781` | No | No | Filter entities by the list of objectIds |
+| `campaignNegativeTargetIdFilter` | `body` | `Inline2782` | No | No | Filter entities by the list of objectIds |
+| `includeExtendedDataFields` | `body` | `boolean` | No | No | Whether to get entity with extended data fields such as creationDate, lastUpdateDate, servingStatus |
+| `maxResults` | `body` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API |
+| `nextToken` | `body` | `string` | No | No | token value allowing to navigate to the next response page |
+| `stateFilter` | `body` | `Inline2783` | No | No | Filter entities by state. To filter live entities, only 'ENABLED', 'PAUSED' and 'ARCHIVED' can be used |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.campaignNegativeTargetingClauses.updateSponsoredProductsCampaignNegativeTargetingClauses
+
+`PUT` `/sp/campaignNegativeTargets`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (UpdateSponsoredProductsCampaignNegativeTargetingClauses)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.campaignNegativeTargetingClauses.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `UpdateSponsoredProductsCampaignNegativeTargetingClausesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeTargetingClauses` | `body` | `Array<Inline2766>` | Yes | No | An array of Campaign Negative TargetingClauses with updated values. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

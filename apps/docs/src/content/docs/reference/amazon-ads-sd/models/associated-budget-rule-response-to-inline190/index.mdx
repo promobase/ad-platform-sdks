@@ -1,0 +1,907 @@
+---
+title: "Amazon Ads — Sponsored Display models: Associated Budget Rule Response – Inline190"
+description: "100 generated Amazon Ads — Sponsored Display model contracts, from AssociatedBudgetRuleResponse through Inline190."
+generated: true
+platform: "amazon-ads-sd"
+sourceVersion: "v5"
+sidebar:
+  order: 1000
+  label: "Associated Budget Rule Response – Inline190"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## AssociatedBudgetRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful |
+| `ruleId` | `ruleId` | `string` | No | No | The budget rule identifier. |
+
+## AssociatedCampaign
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The campaign identifier. |
+| `campaignName` | `campaignName` | `string` | Yes | No | The campaign name. |
+| `ruleStatus` | `ruleStatus` | `string` | Yes | No | The budget rule evaluation status for this campaign. Read-only. |
+
+## BudgetChangeType
+
+`enum` model on the `json` wire format.
+
+**Values:** `PERCENT`
+
+## budgetIncreaseBy
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | The value by which to update the budget of the budget rule. |
+| `value` | `value` | `number` | Yes | No | The budget value. |
+
+## BudgetRuleError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## BudgetRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `associatedCampaignIds` | `associatedCampaignIds` | `Array<string>` | No | No | — |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful |
+| `ruleId` | `ruleId` | `string` | No | No | The rule identifier. |
+
+## BudgetUsageCampaign
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `number` | No | No | Budget amount of resource requested |
+| `budgetUsagePercent` | `budgetUsagePercent` | `number` | No | No | Budget usage percentage (spend / available budget) for the given budget policy. |
+| `campaignId` | `campaignId` | `string` | No | No | ID of requested resource |
+| `index` | `index` | `number` | No | No | An index to maintain order of the campaignIds |
+| `usageUpdatedTimestamp` | `usageUpdatedTimestamp` | `string` | No | No | Last evaluation time for budget usage |
+
+## BudgetUsageCampaignBatchError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | No | No | ID of requested resource |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+| `index` | `index` | `number` | No | No | An index to maintain order of the campaignIds |
+
+## BudgetUsageCampaignRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | No | No | A list of campaign IDs |
+
+## BudgetUsageCampaignResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline9>` | No | No | List of budget usage percentages that failed to pull |
+| `success` | `success` | `Array<Inline10>` | No | No | List of budget usage percentages that were successfully pulled |
+
+## BudgetUsageError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## ComparisonOperator
+
+`enum` model on the `json` wire format.
+
+**Values:** `GREATER_THAN`, `GREATER_THAN_OR_EQUAL_TO`, `LESS_THAN`, `LESS_THAN_OR_EQUAL_TO`
+
+## CreateAssociatedBudgetRulesForSDCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `number` | Yes | No | The campaign identifier. |
+| `budgetRuleIds` | `budgetRuleIds` | `Array<string>` | No | No | A list of budget rule identifiers. |
+
+## CreateAssociatedBudgetRulesForSDCampaignsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateAssociatedBudgetRulesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRuleIds` | `budgetRuleIds` | `Array<string>` | No | No | A list of budget rule identifiers. |
+
+## CreateAssociatedBudgetRulesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `responses` | `responses` | `Array<Inline15>` | No | No | — |
+
+## CreateBrandSafetyDenyListDomainsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `domains` | `domains` | `Array<Inline345>` | Yes | No | — |
+
+## CreateBrandSafetyDenyListDomainsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline347` | Yes | No | — |
+
+## CreateBudgetRulesForSDCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesDetails` | `budgetRulesDetails` | `Array<Inline354>` | No | No | A list of budget rule details. |
+
+## CreateBudgetRulesForSDCampaignsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateBudgetRulesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `responses` | `responses` | `Array<Inline17>` | No | No | — |
+
+## CreateSDBudgetRulesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesDetails` | `budgetRulesDetails` | `Array<Inline19>` | No | No | A list of budget rule details. |
+
+## CreateSnapshotParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recordType` | `recordType` | `string` | Yes | No | — |
+| `stateFilter` | `stateFilter` | `string` | No | No | Optional. Restricts results to entities with state within the specified comma-separated list. The stateFilter not presenting or passing `null` or `""` would be treated as default behavior is to include enabled and paused. |
+| `tacticFilter` | `tacticFilter` | `string` | No | No | Optional. Restricts results to entities with the advertising tactic associated with the campaign within the specified comma-separated list. The tacticFilter not presenting or passing `null` or `""` would be treated as default behavior is to return entities for all tactics. |
+
+## CreateSnapshotResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline330` | Yes | No | — |
+
+## DateRangeTypeRuleDuration
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The end date of the budget rule in YYYYMMDD format. The end date is inclusive. Required to be equal or greater than `startDate`. |
+| `startDate` | `startDate` | `string` | Yes | No | The start date of the budget rule in YYYYMMDD format. The start date is inclusive. Required to be greater than or equal to current date. |
+
+## DayOfWeek
+
+`enum` model on the `json` wire format.
+
+**Values:** `FRIDAY`, `MONDAY`, `SATURDAY`, `SUNDAY`, `THURSDAY`, `TUESDAY`, `WEDNESDAY`
+
+## DeleteBrandSafetyDenyListParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DeleteBrandSafetyDenyListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline339` | Yes | No | — |
+
+## DisassociateAssociatedBudgetRuleForSDCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `number` | Yes | No | The campaign identifier. |
+| `budgetRuleId` | `budgetRuleId` | `string` | Yes | No | The budget rule identifier. |
+
+## DisassociateAssociatedBudgetRuleForSDCampaignsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline398` | Yes | No | — |
+
+## DisassociateAssociatedBudgetRuleResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DownloadSnapshotByIdParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `snapshotId` | `snapshotId` | `string` | Yes | No | — |
+
+## DownloadSnapshotByIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline411` | Yes | No | — |
+
+## EventTypeRuleDuration
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The event end date in YYYYMMDD format. Read-only. |
+| `eventId` | `eventId` | `string` | Yes | No | The event identifier. This value is available from the budget rules recommendation API. |
+| `eventName` | `eventName` | `string` | No | No | The event name. Read-only. |
+| `startDate` | `startDate` | `string` | No | No | The event start date in YYYYMMDD format. Read-only. Note that this field is present only for announced events. |
+
+## GetBudgetRuleByRuleIdForSDCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRuleId` | `budgetRuleId` | `string` | Yes | No | The budget rule identifier. |
+
+## GetBudgetRuleByRuleIdForSDCampaignsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline379` | Yes | No | — |
+
+## GetCampaignsAssociatedWithSDBudgetRuleParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRuleId` | `budgetRuleId` | `string` | Yes | No | The budget rule identifier. |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the `nextToken` field is empty, there are no further results. |
+| `pageSize` | `pageSize` | `number` | Yes | No | Sets a limit on the number of results returned. Maximum limit of `pageSize` is 30. |
+
+## GetCampaignsAssociatedWithSDBudgetRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline386` | Yes | No | — |
+
+## GetHeadlineRecommendationsForSDParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adFormat` | `adFormat` | `string` | No | No | — |
+| `asins` | `asins` | `Array<string>` | No | No | An array of ASINs associated with the creative. |
+| `maxNumRecommendations` | `maxNumRecommendations` | `number` | No | No | Maximum number of recommendations that API should return. Response will [0, maxNumRecommendations] recommendations (recommendations are not guaranteed as there can be instances where the ML model can not generate policy compliant headlines for the given set of asins). |
+
+## GetHeadlineRecommendationsForSDResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline405` | Yes | No | — |
+
+## GetRequestResultsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `requestId` | `requestId` | `string` | Yes | No | The ID of the request previously submitted. |
+| `startIndex` | `startIndex` | `number` | No | No | Optional. Sets a cursor into the requested set of results. Use in conjunction with the count parameter to control pagination of the returned array. 0-indexed record offset for the result set, defaults to 0. |
+| `count` | `count` | `number` | No | No | Optional. Sets the number of results in the returned array. Use in conjunction with the startIndex parameter to control pagination. For example, to return the first 1000 results set startIndex=0 and count=1000. To return the next 1000 results, set startIndex=1000 and count=1000, and so on. Defaults to max page size(1000). |
+
+## GetRequestResultsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline333` | Yes | No | — |
+
+## GetRequestStatusParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `requestId` | `requestId` | `string` | Yes | No | The ID of the request previously submitted. |
+
+## GetRequestStatusResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline336` | Yes | No | — |
+
+## GetSDBudgetRecommendationsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | Yes | No | A list of campaign ids for which to get budget recommendations and missed opportunities. |
+
+## GetSDBudgetRecommendationsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## GetSDBudgetRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRule` | `budgetRule` | `Inline29` | No | No | — |
+
+## GetSDBudgetRulesForAdvertiserParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the `nextToken` field is empty, there are no further results. |
+| `pageSize` | `pageSize` | `number` | Yes | No | Sets a limit on the number of results returned. Maximum limit of `pageSize` is 30. |
+
+## GetSDBudgetRulesForAdvertiserResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesForAdvertiserResponse` | `budgetRulesForAdvertiserResponse` | `Array<Inline35>` | No | No | A list of rules created by the advertiser. |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the `nextToken` field is empty, there are no further results. |
+
+## GetSnapshotByIdParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `snapshotId` | `snapshotId` | `string` | Yes | No | — |
+
+## GetSnapshotByIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline408` | Yes | No | — |
+
+## GetTargetBidRecommendationsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `products` | `Array<Inline413>` | No | No | A list of products to tailor bid recommendations for category and audience based targeting clauses. |
+| `targetingClauses` | `targetingClauses` | `Array<Inline414>` | Yes | No | A list of targeting clauses to receive bid recommendations for. |
+
+## GetTargetBidRecommendationsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## GetTargetRecommendationsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locale` | `locale` | `string` | No | No | The requested locale from query parameter |
+| `products` | `products` | `Array<Inline421>` | Yes | No | A list of products for which to get targeting recommendations |
+| `tactic` | `tactic` | `string` | Yes | No | The advertising tactic associated with the campaign. The following table lists available tactic names: \|Tactic Name\|Type\|Description\| \|-----------\|-----\|-----------\| \|T00001&nbsp;\|&nbsp;\|This tactic name is only applicable for the `requestReport` operation and does not apply to any other campaign management operations. Reach shoppers who showed interest in categories related to your promoted products, or target specific products or product categories on Amazon. This tactic is for use by only vendors. This tactic is used to retrieve metrics for Sponsored Display campaigns that use interest, product or category audiences, including Sponsored Display campaigns that were previously Product Display Ads campaigns.\| \|T00010&nbsp;\|Views&nbsp;\|**Note that this advertising tactic is not currently supported. This note will be removed when this advertising tactic is available.** This is the same tactic as 'remarketing'. Shoppers who viewed the detail pages of your advertised products or similar products.\| \|remarketing&nbsp;\|Views&nbsp;\|This is the same tactic as 'T00010'. Shoppers who viewed the detail pages of your advertised products or similar products.\| \|T00020&nbsp;\|Products&nbsp;\|Products: Choose individual products to show your ads in placements related to those products.&lt;br&gt;Categories: Choose individual categories to show your ads in placements related to those categories.\| |
+| `typeFilter` | `typeFilter` | `Array<string>` | Yes | No | A filter to indicate which types of recommendations to request. |
+
+## GetTargetRecommendationsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline423` | Yes | No | — |
+
+## Inline10
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `number` | No | No | Budget amount of resource requested |
+| `budgetUsagePercent` | `budgetUsagePercent` | `number` | No | No | Budget usage percentage (spend / available budget) for the given budget policy. |
+| `campaignId` | `campaignId` | `string` | No | No | ID of requested resource |
+| `index` | `index` | `number` | No | No | An index to maintain order of the campaignIds |
+| `usageUpdatedTimestamp` | `usageUpdatedTimestamp` | `string` | No | No | Last evaluation time for budget usage |
+
+## Inline100
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## Inline101
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | Object representing days of the week for weekly type rule. It is not required for daily recurrence type |
+| `intraDaySchedule` | `intraDaySchedule` | `Array<Inline101>` | No | No | List of objects representing start and end time of desired intra-day budget rule window |
+| `type` | `type` | `string` | No | No | depicts the type of recurrence |
+
+## Inline104
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rangeLower` | `rangeLower` | `number` | No | No | — |
+| `rangeUpper` | `rangeUpper` | `number` | No | No | — |
+
+## Inline106
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category` | `category` | `number` | No | No | The category identifier |
+| `name` | `name` | `string` | No | No | The category name |
+| `path` | `path` | `Array<string>` | No | No | The path of the category within the category catalogue |
+| `rank` | `rank` | `number` | No | No | A rank to signify which recommendations are weighed more heavily, with a lower rank signifying a stronger recommendation |
+| `targetableAsinCountRange` | `targetableAsinCountRange` | `Inline106` | No | No | The range of ASINs available within the category catalogue |
+
+## Inline108
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category` | `category` | `number` | No | No | The category identifier |
+| `name` | `name` | `string` | No | No | The category name |
+| `path` | `path` | `Array<string>` | No | No | The path of the category within the category catalogue |
+| `rank` | `rank` | `number` | No | No | A rank to signify which recommendations are weighed more heavily, with a lower rank signifying a stronger recommendation |
+| `targetableAsinCountRange` | `targetableAsinCountRange` | `Inline108` | No | No | The range of ASINs available within the category catalogue |
+| `translatedName` | `translatedName` | `string` | No | No | The translated category name by requested locale, field will not be provided if locale is not provided or campaign localization service is down |
+| `translatedPath` | `translatedPath` | `Array<string>` | No | No | The translated path of the category within the category catalogue by requested locale, field will not be provided if locale is not provided or campaign localization is down |
+
+## Inline110
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rangeLower` | `rangeLower` | `number` | No | No | — |
+| `rangeUpper` | `rangeUpper` | `number` | No | No | — |
+
+## Inline119
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The campaign identifier. |
+| `campaignName` | `campaignName` | `string` | Yes | No | The campaign name. |
+| `ruleStatus` | `ruleStatus` | `string` | Yes | No | The budget rule evaluation status for this campaign. Read-only. |
+
+## Inline128
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `headline` | `headline` | `string` | No | No | String that contains Recommended headline. |
+| `headlineId` | `headlineId` | `string` | No | No | Unique Id of Recommended headline. |
+
+## Inline133
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `createdDate` | `createdDate` | `number` | No | No | Epoch time of budget rule creation. Read-only. |
+| `lastUpdatedDate` | `lastUpdatedDate` | `number` | No | No | Epoch time of budget rule update. Read-only. |
+| `ruleDetails` | `ruleDetails` | `Inline133` | No | No | Object representing details of a budget rule for SD campaign |
+| `ruleId` | `ruleId` | `string` | Yes | No | The budget rule identifier. |
+| `ruleState` | `ruleState` | `string` | No | No | The budget rule state. |
+| `ruleStatus` | `ruleStatus` | `string` | No | No | The budget rule status. Read-only. |
+
+## Inline134
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dateRangeTypeRuleDuration` | `dateRangeTypeRuleDuration` | `Inline134` | No | No | Object representing date range type rule duration. |
+| `eventTypeRuleDuration` | `eventTypeRuleDuration` | `Inline135` | No | No | Object representing event type rule duration. |
+
+## Inline135
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The event end date in YYYYMMDD format. Read-only. |
+| `eventId` | `eventId` | `string` | Yes | No | The event identifier. This value is available from the budget rules recommendation API. |
+| `eventName` | `eventName` | `string` | No | No | The event name. Read-only. |
+| `startDate` | `startDate` | `string` | No | No | The event start date in YYYYMMDD format. Read-only. Note that this field is present only for announced events. |
+
+## Inline136
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## Inline137
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | Object representing days of the week for weekly type rule. It is not required for daily recurrence type |
+| `intraDaySchedule` | `intraDaySchedule` | `Array<Inline137>` | No | No | List of objects representing start and end time of desired intra-day budget rule window |
+| `type` | `type` | `string` | No | No | depicts the type of recurrence |
+
+## Inline141
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asin` | `asin` | `string` | No | No | Amazon Standard Identification Number |
+| `rank` | `rank` | `number` | No | No | A rank to signify which recommendations are weighed more heavily, with a lower rank signifying a stronger recommendation |
+
+## Inline143
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertisedAsins` | `advertisedAsins` | `Array<string>` | No | No | The top advertised products this recommendation is made for. |
+| `asin` | `asin` | `string` | No | No | Amazon Standard Identification Number |
+| `rank` | `rank` | `number` | No | No | A rank to signify which recommendations are weighed more heavily, with a lower rank signifying a stronger recommendation |
+
+## Inline146
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertisedAsins` | `advertisedAsins` | `Array<string>` | No | No | The top advertised products this recommendation is made for. |
+| `asin` | `asin` | `string` | No | No | Amazon Standard Identification Number |
+| `rank` | `rank` | `number` | No | No | A rank to signify which recommendations are weighed more heavily, with a lower rank signifying a stronger recommendation |
+
+## Inline148
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | The product targeting grammar used to define the targeting theme. Note asinAsBestSeller is currently not supported. |
+
+## Inline149
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertisedAsins` | `advertisedAsins` | `Array<string>` | No | No | The top advertised products this recommendation is made for. |
+| `asin` | `asin` | `string` | No | No | Amazon Standard Identification Number |
+| `rank` | `rank` | `number` | No | No | A rank to signify which recommendations are weighed more heavily, with a lower rank signifying a stronger recommendation |
+
+## Inline15
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful |
+| `ruleId` | `ruleId` | `string` | No | No | The budget rule identifier. |
+
+## Inline151
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | The product targeting grammar used to define the targeting theme. Note asinAsBestSeller is currently not supported. |
+
+## Inline154
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | HTTP status code 200 indicating a successful response for product recommendations. |
+| `name` | `name` | `string` | No | No | The theme name specified in the request. |
+| `recommendations` | `recommendations` | `Array<Inline154>` | No | No | A list of recommended products. |
+
+## Inline155
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | HTTP status code indicating a failure response for targeting recomendations. |
+| `errorMessage` | `errorMessage` | `string` | No | No | A human friendly error message indicating the failure reasons. |
+| `name` | `name` | `string` | No | No | The theme name specified in the request. If the themes field is not provided in the request, the value of this field will be set to default. |
+
+## Inline157
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | HTTP status code 200 indicating a successful response for product recommendations. |
+| `expression` | `expression` | `Array<Inline157>` | No | No | A list of expressions defining the product targeting theme. The list will define an AND operator on different expressions. For example, asinPriceGreaterThan and asinReviewRatingLessThan can be used to request product recommendations which are both with greater price and less review rating compared to the goal products. Note: currently the service only support one item in the array. |
+| `name` | `name` | `string` | No | No | The theme name specified in the request. |
+| `recommendations` | `recommendations` | `Array<Inline158>` | No | No | A list of recommended products. |
+
+## Inline158
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertisedAsins` | `advertisedAsins` | `Array<string>` | No | No | The top advertised products this recommendation is made for. |
+| `asin` | `asin` | `string` | No | No | Amazon Standard Identification Number |
+| `rank` | `rank` | `number` | No | No | A rank to signify which recommendations are weighed more heavily, with a lower rank signifying a stronger recommendation |
+
+## Inline159
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | HTTP status code indicating a failure response for targeting recomendations. |
+| `errorMessage` | `errorMessage` | `string` | No | No | A human friendly error message indicating the failure reasons. |
+| `expression` | `expression` | `Array<Inline159>` | No | No | A list of expressions that failed to be applied in the product targeting theme. |
+| `name` | `name` | `string` | No | No | The theme name specified in the request. If the themes field is not provided in the request, the value of this field will be set to default. |
+
+## Inline169
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `string` | No | No | The value to be targeted. |
+
+## Inline17
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `associatedCampaignIds` | `associatedCampaignIds` | `Array<string>` | No | No | — |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful |
+| `ruleId` | `ruleId` | `string` | No | No | The rule identifier. |
+
+## Inline170
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `Array<Inline170>` | Yes | No | — |
+
+## Inline172
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `string` | No | No | The value to be targeted. |
+
+## Inline173
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `Array<Inline173>` | Yes | No | — |
+
+## Inline174
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `string` | Yes | No | The value to be targeted. |
+
+## Inline176
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asin` | `asin` | `string` | Yes | No | Amazon Standard Identification Number |
+
+## Inline177
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingClause` | `targetingClause` | `Inline177` | Yes | No | The targeting clause |
+
+## Inline178
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `Array<Inline178>` | Yes | No | — |
+
+## Inline180
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asin` | `asin` | `string` | Yes | No | Amazon Standard Identification Number |
+
+## Inline181
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingClause` | `targetingClause` | `Inline181` | Yes | No | The targeting clause |
+
+## Inline182
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `Array<Inline182>` | Yes | No | — |
+
+## Inline184
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asin` | `asin` | `string` | Yes | No | Amazon Standard Identification Number |
+
+## Inline185
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingClause` | `targetingClause` | `Inline185` | Yes | No | The targeting clause |
+
+## Inline186
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `Array<Inline186>` | Yes | No | — |
+
+## Inline188
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asin` | `asin` | `string` | Yes | No | Amazon Standard Identification Number |
+
+## Inline189
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingClause` | `targetingClause` | `Inline189` | Yes | No | The targeting clause |
+
+## Inline19
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetIncreaseBy` | `budgetIncreaseBy` | `Inline19` | No | No | — |
+| `duration` | `duration` | `Inline20` | No | No | — |
+| `name` | `name` | `string` | No | No | The budget rule name. Required to be unique within a campaign. |
+| `performanceMeasureCondition` | `performanceMeasureCondition` | `Inline22` | No | No | — |
+| `recurrence` | `recurrence` | `Inline23` | No | No | — |
+| `ruleType` | `ruleType` | `string` | No | No | The type of budget rule. SCHEDULE: A budget rule based on a start and end date. PERFORMANCE: A budget rule based on advertising performance criteria. |
+
+## Inline190
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `Array<Inline190>` | Yes | No | — |

@@ -1,0 +1,47 @@
+---
+title: "Amazon Ads — Sponsored Display Budget Recommendations endpoints"
+description: "1 generated Amazon Ads — Sponsored Display endpoint contract for Budget Recommendations."
+generated: true
+platform: "amazon-ads-sd"
+sourceVersion: "v5"
+sidebar:
+  order: 103
+  label: "Budget Recommendations"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.budgetRecommendations.getSDBudgetRecommendations
+
+`POST` `/sd/campaigns/budgetRecommendations`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getSDBudgetRecommendations)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sd.budgetRecommendations.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetSDBudgetRecommendationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `body` | `Array<string>` | Yes | No | A list of campaign ids for which to get budget recommendations and missed opportunities. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

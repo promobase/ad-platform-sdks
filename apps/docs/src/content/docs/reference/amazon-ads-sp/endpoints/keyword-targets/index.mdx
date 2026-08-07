@@ -1,0 +1,69 @@
+---
+title: "Amazon Ads — Sponsored Products Keyword Targets endpoints"
+description: "2 generated Amazon Ads — Sponsored Products endpoint contracts for Keyword Targets."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 112
+  label: "Keyword Targets"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.keywordTargets.getGlobalRankedKeywordRecommendation
+
+`POST` `/sp/global/targets/keywords/recommendations/list`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getGlobalRankedKeywordRecommendation)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.keywordTargets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetGlobalRankedKeywordRecommendationResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.keywordTargets.getRankedKeywordRecommendation
+
+`POST` `/sp/targets/keywords/recommendations`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getRankedKeywordRecommendation)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.keywordTargets.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetRankedKeywordRecommendationResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

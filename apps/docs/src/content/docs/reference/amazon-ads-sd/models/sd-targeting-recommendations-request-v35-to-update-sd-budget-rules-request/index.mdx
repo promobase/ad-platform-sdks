@@ -1,0 +1,237 @@
+---
+title: "Amazon Ads — Sponsored Display models: SD Targeting Recommendations Request V35 – Update SD Budget Rules Request"
+description: "26 generated Amazon Ads — Sponsored Display model contracts, from SDTargetingRecommendationsRequestV35 through UpdateSDBudgetRulesRequest."
+generated: true
+platform: "amazon-ads-sd"
+sourceVersion: "v5"
+sidebar:
+  order: 1004
+  label: "SD Targeting Recommendations Request V35 – Update SD Budget Rules Request"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## SDTargetingRecommendationsRequestV35
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categoryType` | `categoryType` | `string` | No | No | This field is optional unless the field locationExpression is present in the request. It is used for category audience targeting to specify if the audience is for views (re-marketing) or purchases (re-purchasing). The specified categories will be returned accordingly. |
+| `locationExpression` | `locationExpression` | `Array<Inline241>` | No | No | This optional field is used to specify the locations used in SD location targeting for non-Amazon sellers only at the moment. Therefore it's only supported if the product is a landing page url. |
+| `products` | `products` | `Array<Inline242>` | Yes | No | A list of products for which to get targeting recommendations. This array can only contain either asins or landing pages. If landingPageUrl is used, there can only be one item in the array for each request. |
+| `tactic` | `tactic` | `string` | Yes | No | The advertising tactic associated with the campaign. The following table lists available tactic names: \|Tactic Name\|Type\|Description\| \|-----------\|-----\|-----------\| \|T00001&nbsp;\|&nbsp;\|This tactic name is only applicable for the `requestReport` operation and does not apply to any other campaign management operations. Reach shoppers who showed interest in categories related to your promoted products, or target specific products or product categories on Amazon. This tactic is for use by only vendors. This tactic is used to retrieve metrics for Sponsored Display campaigns that use interest, product or category audiences, including Sponsored Display campaigns that were previously Product Display Ads campaigns.\| \|T00010&nbsp;\|Views&nbsp;\|**Note that this advertising tactic is not currently supported. This note will be removed when this advertising tactic is available.** This is the same tactic as 'remarketing'. Shoppers who viewed the detail pages of your advertised products or similar products.\| \|remarketing&nbsp;\|Views&nbsp;\|This is the same tactic as 'T00010'. Shoppers who viewed the detail pages of your advertised products or similar products.\| \|T00020&nbsp;\|Products&nbsp;\|Products: Choose individual products to show your ads in placements related to those products.&lt;br&gt;Categories: Choose individual categories to show your ads in placements related to those categories.\| \|T00030&nbsp;\|Audiences&nbsp;\|Select individual audiences to show your ads.\| |
+| `themes` | `themes` | `Inline243` | No | No | The themes used to refine the recommendations. Currently only product targeting themes are supported. |
+| `typeFilter` | `typeFilter` | `Array<string>` | Yes | No | A filter to indicate which types of recommendations to request. |
+
+## SDTargetingRecommendationsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendations` | `recommendations` | `Inline245` | No | No | A collection of targeting recommendations. Results will be sorted with strongest recommendations in the beginning. |
+
+## SDTargetingRecommendationsResponseV31
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendations` | `recommendations` | `Inline247` | No | No | A collection of targeting recommendations. Results will be sorted with strongest recommendations in the beginning. |
+
+## SDTargetingRecommendationsResponseV32
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendations` | `recommendations` | `Inline250` | No | No | For v3.2 the service will continue to return the recommendations returned for v3.1 in products field, and return recommendations for product targeting themes in themes field. |
+
+## SDTargetingRecommendationsResponseV33
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendations` | `recommendations` | `Inline255` | No | No | For v3.3 the service will continue to return the recommendations returned for v3.2, and return audience recommendations if requested. |
+
+## SDTargetingRecommendationsResponseV34
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendations` | `recommendations` | `Inline261` | No | No | For v3.4 the service will continue to return the recommendations returned for v3.2, return audience recommendations if requested, and return the theme expression used in product targeting if requested. |
+
+## SDTargetingRecommendationsResponseV35
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendations` | `recommendations` | `Inline268` | No | No | For v3.5 the service will continue to return the recommendations returned for v3.4, return Entertainment targeting recommendations if requested and return asin-less recommendations if a landing page URL was passed in the request. |
+
+## SDTargetingRecommendationsThemes
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product` | `product` | `Array<Inline276>` | No | No | A list of themes for product targeting recommendations. If this list is empty, the service will return all the current available theme recommendations. Recommendations will be returned for each theme. If specified, each theme should only include unique expressions. |
+
+## SDTargetingRecommendationsTypeFilterV31
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<string>`
+
+## SDTargetingRecommendationsTypeFilterV32
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<string>`
+
+## SDTargetingRecommendationsTypeFilterV33
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<string>`
+
+## SDTargetingRecommendationsV31
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `products` | `Array<Inline281>` | No | No | List of recommended product targets |
+| `categories` | `categories` | `Array<Inline282>` | No | No | List of recommended category targets |
+
+## SDTargetingRecommendationsV32
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `products` | `Array<Inline284>` | No | No | List of recommended product targets |
+| `categories` | `categories` | `Array<Inline285>` | No | No | List of recommended category targets |
+| `themes` | `themes` | `Inline286` | No | No | — |
+
+## SDTargetingRecommendationsV33
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `products` | `Array<Inline289>` | No | No | List of recommended product targets |
+| `categories` | `categories` | `Array<Inline290>` | No | No | List of recommended category targets |
+| `audiences` | `audiences` | `Array<Inline291>` | No | No | List of recommended audience targets, broken down by audience category |
+| `themes` | `themes` | `Inline292` | No | No | — |
+
+## SDTargetingRecommendationsV34
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audiences` | `audiences` | `Array<Inline295>` | No | No | List of recommended audience targets, broken down by audience category |
+| `categories` | `categories` | `Array<Inline296>` | No | No | List of recommended category targets |
+| `products` | `products` | `Array<Inline297>` | No | No | List of recommended product targets |
+| `themes` | `themes` | `Inline298` | No | No | — |
+
+## SDTargetingRecommendationsV35
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audiences` | `audiences` | `Array<Inline302>` | No | No | List of recommended audience targets, broken down by audience category |
+| `categories` | `categories` | `Array<Inline303>` | No | No | List of recommended category targets |
+| `contentCategories` | `contentCategories` | `Array<Inline304>` | No | No | List of recommended entertainment targets |
+| `products` | `products` | `Array<Inline305>` | No | No | List of recommended product targets |
+| `themes` | `themes` | `Inline306` | No | No | — |
+
+## SDThemeRecommendations
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `products` | `Array<Inline310 \| Inline311>` | No | No | A list of product targeting theme recommendations. |
+
+## SDThemeRecommendationsV34
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `products` | `Array<Inline313 \| Inline315>` | No | No | A list of product targeting theme recommendations. |
+
+## SnapshotRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `stateFilter` | `stateFilter` | `string` | No | No | Optional. Restricts results to entities with state within the specified comma-separated list. The stateFilter not presenting or passing `null` or `""` would be treated as default behavior is to include enabled and paused. |
+| `tacticFilter` | `tacticFilter` | `string` | No | No | Optional. Restricts results to entities with the advertising tactic associated with the campaign within the specified comma-separated list. The tacticFilter not presenting or passing `null` or `""` would be treated as default behavior is to return entities for all tactics. |
+
+## SnapshotResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expiration` | `expiration` | `number` | No | No | The epoch time for expiration of the snapshot file. It's only available if status is SUCCESS. |
+| `fileSize` | `fileSize` | `number` | No | No | The size of the snapshot file in bytes. It's only available if status is SUCCESS. |
+| `location` | `location` | `string` | No | No | The URI for the snapshot. It's only available if status is SUCCESS. |
+| `recordType` | `recordType` | `string` | No | No | The record type of the snapshot file. |
+| `snapshotId` | `snapshotId` | `string` | No | No | The identifier of the snapshot that was requested. |
+| `status` | `status` | `string` | No | No | The status of the generation of the snapshot. |
+| `statusDetails` | `statusDetails` | `string` | No | No | Status information of the call if SUCCESS or FAILURE status, optional for IN_PROCESS. |
+
+## state
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACTIVE`, `PAUSED`
+
+## timeOfDay
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | No | No | The end time of intra-day budget rule window in the format 'hh:mm:ss'. Required to be greater than start-time. |
+| `startTime` | `startTime` | `string` | No | No | The start time of intra-day budget rule window in the format 'hh:mm:ss' |
+
+## UpdateBudgetRulesForSDCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesDetails` | `budgetRulesDetails` | `Array<Inline366>` | No | No | A list of budget rule details. |
+
+## UpdateBudgetRulesForSDCampaignsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateBudgetRulesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `responses` | `responses` | `Array<Inline321>` | No | No | — |
+
+## UpdateSDBudgetRulesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesDetails` | `budgetRulesDetails` | `Array<Inline323>` | No | No | A list of budget rule details. |

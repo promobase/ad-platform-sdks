@@ -30,12 +30,20 @@ const referenceRoot = join(root, "apps/docs/src/content/docs/reference");
 const effectManifests: Record<string, string> = {
   meta: "packages/meta-business-sdk/src/generated/effect/manifest.json",
   tiktok: "packages/tiktok-business-sdk/src/generated/effect/manifest.json",
+  snapchat: "packages/snapchat-sdk/src/generated/effect/manifest.json",
+  reddit: "packages/reddit-sdk/src/generated/effect/manifest.json",
+  pinterest: "packages/pinterest-sdk/src/generated/effect/manifest.json",
+  bluesky: "packages/bluesky-sdk/src/generated/effect/manifest.json",
   "google-ads": "packages/google-ads-sdk/src/generated/v25/effect/manifest.json",
   "google-business-profile":
     "packages/google-business-profile-sdk/src/generated/effect/manifest.json",
   linkedin: "packages/linkedin-sdk/src/generated/effect/manifest.json",
   x: "packages/x-sdk/src/generated/effect/manifest.json",
   youtube: "packages/youtube-sdk/src/generated/effect/manifest.json",
+  "amazon-ads-sp": "packages/amazon-ads-sdk/src/generated/sponsored-products/effect/manifest.json",
+  "amazon-ads-sb": "packages/amazon-ads-sdk/src/generated/sponsored-brands/effect/manifest.json",
+  "amazon-ads-sd": "packages/amazon-ads-sdk/src/generated/sponsored-display/effect/manifest.json",
+  "amazon-ads-api": "packages/amazon-ads-sdk/src/generated/api/effect/manifest.json",
 };
 
 const platformDirs = (await readdir(referenceRoot, { withFileTypes: true }))

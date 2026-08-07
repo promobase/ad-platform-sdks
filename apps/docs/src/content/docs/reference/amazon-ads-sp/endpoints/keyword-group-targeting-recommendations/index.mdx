@@ -1,0 +1,49 @@
+---
+title: "Amazon Ads — Sponsored Products Keyword Group Targeting Recommendations endpoints"
+description: "1 generated Amazon Ads — Sponsored Products endpoint contract for Keyword Group Targeting Recommendations."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 111
+  label: "Keyword Group Targeting Recommendations"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.keywordGroupTargetingRecommendations.getKeywordGroupRecommendations
+
+`POST` `/sp/targeting/recommendations/keywordGroups`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getKeywordGroupRecommendations)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.keywordGroupTargetingRecommendations.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetKeywordGroupRecommendationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `body` | `Array<string>` | Yes | No | List of ASINs. |
+| `countryCode` | `body` | `string` | No | No | The country code representing the origin country of the input ASIN list, it will be used for generating keyword group recommendations. |
+| `nextToken` | `body` | `string` | No | No | If the last response included this field then there are more items to retrieve. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

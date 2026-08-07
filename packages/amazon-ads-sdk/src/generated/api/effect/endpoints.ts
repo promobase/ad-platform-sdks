@@ -5,7 +5,7 @@ import * as Models from "./schemas.ts";
 
 export const amazon_ads_adGroupForecasts_dSPRetrieveAdGroupForecast = defineEndpointDescriptor({
   id: "amazon-ads.adGroupForecasts.dSPRetrieveAdGroupForecast",
-  platform: "amazon-ads",
+  platform: "amazon-ads-api",
   method: "POST",
   path: "/adsApi/v1/retrieve/adGroupForecasts/dsp",
   summary: "DSPRetrieveAdGroupForecast",
@@ -13,7 +13,7 @@ export const amazon_ads_adGroupForecasts_dSPRetrieveAdGroupForecast = defineEndp
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: ["advertising::campaign_management"],
-  capabilities: ["amazon-ads.adGroupForecasts.manage"],
+  capabilities: ["amazon-ads-api.adGroupForecasts.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: ["OAuth2"],
   protocols: ["json"],
@@ -28,7 +28,7 @@ export const amazon_ads_adGroupForecasts_dSPRetrieveAdGroupForecast = defineEndp
 
 export const amazon_ads_campaignForecasts_dSPRetrieveCampaignForecast = defineEndpointDescriptor({
   id: "amazon-ads.campaignForecasts.dSPRetrieveCampaignForecast",
-  platform: "amazon-ads",
+  platform: "amazon-ads-api",
   method: "POST",
   path: "/adsApi/v1/retrieve/campaignForecasts/dsp",
   summary: "DSPRetrieveCampaignForecast",
@@ -36,7 +36,7 @@ export const amazon_ads_campaignForecasts_dSPRetrieveCampaignForecast = defineEn
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: ["advertising::campaign_management"],
-  capabilities: ["amazon-ads.campaignForecasts.manage"],
+  capabilities: ["amazon-ads-api.campaignForecasts.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: ["OAuth2"],
   protocols: ["json"],
@@ -51,7 +51,7 @@ export const amazon_ads_campaignForecasts_dSPRetrieveCampaignForecast = defineEn
 
 export const amazon_ads_brandStoreEditions_listBrandStoreEdition = defineEndpointDescriptor({
   id: "amazon-ads.brandStoreEditions.listBrandStoreEdition",
-  platform: "amazon-ads",
+  platform: "amazon-ads-api",
   method: "GET",
   path: "/adsApi/v1/brandStoreEditions",
   summary: "ListBrandStoreEdition",
@@ -59,7 +59,7 @@ export const amazon_ads_brandStoreEditions_listBrandStoreEdition = defineEndpoin
   execution: "inline",
   idempotency: "safe",
   requiredScopes: ["advertising::campaign_management"],
-  capabilities: ["amazon-ads.brandStoreEditions.read"],
+  capabilities: ["amazon-ads-api.brandStoreEditions.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: ["OAuth2"],
   protocols: ["json"],
@@ -78,7 +78,7 @@ export const amazon_ads_brandStoreEditions_listBrandStoreEdition = defineEndpoin
 
 export const amazon_ads_brandStores_queryBrandStore = defineEndpointDescriptor({
   id: "amazon-ads.brandStores.queryBrandStore",
-  platform: "amazon-ads",
+  platform: "amazon-ads-api",
   method: "POST",
   path: "/adsApi/v1/query/brandStores",
   summary: "QueryBrandStore",
@@ -86,7 +86,7 @@ export const amazon_ads_brandStores_queryBrandStore = defineEndpointDescriptor({
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: ["advertising::campaign_management"],
-  capabilities: ["amazon-ads.brandStores.manage"],
+  capabilities: ["amazon-ads-api.brandStores.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: ["OAuth2"],
   protocols: ["json"],
@@ -105,7 +105,7 @@ export const amazon_ads_brandStores_queryBrandStore = defineEndpointDescriptor({
 
 export const amazon_ads_brandStoreEditionPublishVersions_queryBrandStoreEditionPublishVersion = defineEndpointDescriptor({
   id: "amazon-ads.brandStoreEditionPublishVersions.queryBrandStoreEditionPublishVersion",
-  platform: "amazon-ads",
+  platform: "amazon-ads-api",
   method: "POST",
   path: "/adsApi/v1/query/brandStoreEditionPublishVersions",
   summary: "QueryBrandStoreEditionPublishVersion",
@@ -113,7 +113,7 @@ export const amazon_ads_brandStoreEditionPublishVersions_queryBrandStoreEditionP
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: ["advertising::campaign_management"],
-  capabilities: ["amazon-ads.brandStoreEditionPublishVersions.manage"],
+  capabilities: ["amazon-ads-api.brandStoreEditionPublishVersions.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: ["OAuth2"],
   protocols: ["json"],
@@ -136,7 +136,7 @@ export const amazon_ads_brandStoreEditionPublishVersions_queryBrandStoreEditionP
 
 export const amazon_ads_brandStorePages_queryBrandStorePage = defineEndpointDescriptor({
   id: "amazon-ads.brandStorePages.queryBrandStorePage",
-  platform: "amazon-ads",
+  platform: "amazon-ads-api",
   method: "POST",
   path: "/adsApi/v1/query/brandStorePages",
   summary: "QueryBrandStorePage",
@@ -144,7 +144,7 @@ export const amazon_ads_brandStorePages_queryBrandStorePage = defineEndpointDesc
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: ["advertising::campaign_management"],
-  capabilities: ["amazon-ads.brandStorePages.manage"],
+  capabilities: ["amazon-ads-api.brandStorePages.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: ["OAuth2"],
   protocols: ["json"],
@@ -169,7 +169,7 @@ export const amazon_ads_brandStorePages_queryBrandStorePage = defineEndpointDesc
 
 export const amazon_ads_brandStoreEditionPublishVersions_updateBrandStoreEditionPublishVersion = defineEndpointDescriptor({
   id: "amazon-ads.brandStoreEditionPublishVersions.updateBrandStoreEditionPublishVersion",
-  platform: "amazon-ads",
+  platform: "amazon-ads-api",
   method: "POST",
   path: "/adsApi/v1/update/brandStoreEditionPublishVersions",
   summary: "UpdateBrandStoreEditionPublishVersion",
@@ -177,7 +177,7 @@ export const amazon_ads_brandStoreEditionPublishVersions_updateBrandStoreEdition
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: ["advertising::campaign_management"],
-  capabilities: ["amazon-ads.brandStoreEditionPublishVersions.manage"],
+  capabilities: ["amazon-ads-api.brandStoreEditionPublishVersions.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: ["OAuth2"],
   protocols: ["json"],
@@ -192,7 +192,7 @@ export const amazon_ads_brandStoreEditionPublishVersions_updateBrandStoreEdition
 
 export const amazon_ads_brandStorePages_updateBrandStorePage = defineEndpointDescriptor({
   id: "amazon-ads.brandStorePages.updateBrandStorePage",
-  platform: "amazon-ads",
+  platform: "amazon-ads-api",
   method: "POST",
   path: "/adsApi/v1/update/brandStorePages",
   summary: "UpdateBrandStorePage",
@@ -200,7 +200,7 @@ export const amazon_ads_brandStorePages_updateBrandStorePage = defineEndpointDes
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: ["advertising::campaign_management"],
-  capabilities: ["amazon-ads.brandStorePages.manage"],
+  capabilities: ["amazon-ads-api.brandStorePages.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: ["OAuth2"],
   protocols: ["json"],

@@ -8,6 +8,11 @@ export function amazonAdsCanonicalIr(
   endpoints: readonly EndpointSpec[],
   schemas: readonly SchemaSpec[],
   sourceRevision?: string,
+  platform:
+    | "amazon-ads-sp"
+    | "amazon-ads-sb"
+    | "amazon-ads-sd"
+    | "amazon-ads-api" = "amazon-ads-api",
 ): SdkIr {
   const models = new Map<string, SdkIr["models"][number]>();
   const capabilities = new Map<string, SdkIr["capabilities"][number]>();
@@ -51,7 +56,7 @@ export function amazonAdsCanonicalIr(
     const effect =
       endpoint.method === "GET" ? "read" : endpoint.method === "DELETE" ? "delete" : "write";
     const category = camel(endpoint.tag);
-    const capabilityId = `amazon-ads.${category}.${effect === "read" ? "read" : "manage"}`;
+    const capabilityId = `${platform}.${category}.${effect === "read" ? "read" : "manage"}`;
     const requiredScopes = endpoint.security.find((s) => s.scopes.length > 0)?.scopes ?? [];
     if (!capabilities.has(capabilityId)) {
       capabilities.set(capabilityId, {
@@ -66,7 +71,7 @@ export function amazonAdsCanonicalIr(
     irEndpoints.push({
       id,
       operationId: `amazon-ads.${category}.${camel(baseName)}${count === 1 ? "" : count}`,
-      platform: "amazon-ads",
+      platform,
       method: endpoint.method,
       path: endpoint.path,
       parameters: [
@@ -121,7 +126,7 @@ export function amazonAdsCanonicalIr(
   }
 
   return {
-    platform: "amazon-ads",
+    platform,
     source: {
       kind: "openapi",
       location: "https://github.com/pinterest/api-description",

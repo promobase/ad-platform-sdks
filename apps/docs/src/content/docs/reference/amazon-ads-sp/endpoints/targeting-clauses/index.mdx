@@ -1,0 +1,157 @@
+---
+title: "Amazon Ads — Sponsored Products Targeting Clauses endpoints"
+description: "4 generated Amazon Ads — Sponsored Products endpoint contracts for Targeting Clauses."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 122
+  label: "Targeting Clauses"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.targetingClauses.createSponsoredProductsTargetingClauses
+
+`POST` `/sp/targets`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateSponsoredProductsTargetingClauses)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.targetingClauses.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateSponsoredProductsTargetingClausesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingClauses` | `body` | `Array<Inline3096>` | Yes | No | An array of targetingClauses. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.targetingClauses.deleteSponsoredProductsTargetingClauses
+
+`POST` `/sp/targets/delete`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (DeleteSponsoredProductsTargetingClauses)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.targetingClauses.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `DeleteSponsoredProductsTargetingClausesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetIdFilter` | `body` | `Inline3124` | Yes | No | Filter entities by the list of objectIds |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.targetingClauses.listSponsoredProductsTargetingClauses
+
+`POST` `/sp/targets/list`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (ListSponsoredProductsTargetingClauses)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.targetingClauses.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `ListSponsoredProductsTargetingClausesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `body` | `Inline3141` | No | No | Filter entities by the list of objectIds |
+| `asinFilter` | `body` | `Inline3142` | No | No | — |
+| `campaignIdFilter` | `body` | `Inline3143` | No | No | Filter entities by the list of objectIds |
+| `expressionTypeFilter` | `body` | `Inline3144` | No | No | Filter entities by ExpressionType |
+| `includeExtendedDataFields` | `body` | `boolean` | No | No | Whether to get entity with extended data fields such as creationDate, lastUpdateDate, servingStatus |
+| `maxResults` | `body` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API |
+| `nextToken` | `body` | `string` | No | No | token value allowing to navigate to the next response page |
+| `stateFilter` | `body` | `Inline3145` | No | No | Filter entities by state. To filter live entities, only 'ENABLED', 'PAUSED' and 'ARCHIVED' can be used |
+| `targetIdFilter` | `body` | `Inline3146` | No | No | Filter entities by the list of objectIds |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.targetingClauses.updateSponsoredProductsTargetingClauses
+
+`PUT` `/sp/targets`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (UpdateSponsoredProductsTargetingClauses)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.targetingClauses.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `UpdateSponsoredProductsTargetingClausesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingClauses` | `body` | `Array<Inline3100>` | Yes | No | An array of targetingClauses with updated values. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

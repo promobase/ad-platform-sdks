@@ -1,0 +1,70 @@
+---
+title: "Amazon Ads — Sponsored Display SDK reference"
+description: "Generated reference for 22 Amazon Ads — Sponsored Display endpoints and 426 models."
+generated: true
+platform: "amazon-ads-sd"
+sourceVersion: "v5"
+sidebar:
+  order: 113
+  label: "Amazon Ads — Sponsored Display"
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+Install the platform package and import either its high-level client or its generated Effect client.
+
+```bash
+bun add @mosaic/amazon-ads
+```
+
+```ts
+import { createEffectClient } from "@mosaic/amazon-ads/sponsored-display/effect";
+
+const client = createEffectClient();
+```
+
+| Contract | Value |
+| --- | --- |
+| Platform | Amazon Ads — Sponsored Display |
+| API version | `v5` |
+| Source | `openapi: https://github.com/pinterest/api-description` |
+| Endpoints | 22 |
+| Models | 426 |
+| Capabilities | 12 |
+
+## Endpoints
+
+- [Brand Safety Deny List Domains](/reference/amazon-ads-sd/endpoints/brand-safety-deny-list-domains)
+- [Brand Safety Request Results](/reference/amazon-ads-sd/endpoints/brand-safety-request-results)
+- [Brand Safety Request Status](/reference/amazon-ads-sd/endpoints/brand-safety-request-status)
+- [Budget Recommendations](/reference/amazon-ads-sd/endpoints/budget-recommendations)
+- [Budget Rules](/reference/amazon-ads-sd/endpoints/budget-rules)
+- [Budget Usage](/reference/amazon-ads-sd/endpoints/budget-usage)
+- [Recommendations](/reference/amazon-ads-sd/endpoints/recommendations)
+- [Snapshot AP Is](/reference/amazon-ads-sd/endpoints/snapshot-ap-is)
+- [Targeting Recommendations](/reference/amazon-ads-sd/endpoints/targeting-recommendations)
+
+## Models
+
+- [Associated Budget Rule Response – Inline190](/reference/amazon-ads-sd/models/associated-budget-rule-response-to-inline190)
+- [Inline191 – Inline327](/reference/amazon-ads-sd/models/inline191-to-inline327)
+- [Inline33 – SDASIN](/reference/amazon-ads-sd/models/inline33-to-sdasin)
+- [SD Audience – SD Targeting Recommendations Request V34](/reference/amazon-ads-sd/models/sd-audience-to-sd-targeting-recommendations-request-v34)
+- [SD Targeting Recommendations Request V35 – Update SD Budget Rules Request](/reference/amazon-ads-sd/models/sd-targeting-recommendations-request-v35-to-update-sd-budget-rules-request)
+
+## Capabilities
+
+| Capability | Summary | Required scopes |
+| --- | --- | --- |
+| `amazon-ads-sd.brandSafetyDenyListDomains.manage` | Manage Brand Safety Deny List Domains via Pinterest API | None declared |
+| `amazon-ads-sd.brandSafetyDenyListDomains.read` | Read Brand Safety Deny List Domains via Pinterest API | None declared |
+| `amazon-ads-sd.brandSafetyRequestResults.read` | Read Brand Safety Request Results via Pinterest API | None declared |
+| `amazon-ads-sd.brandSafetyRequestStatus.read` | Read Brand Safety Request Status via Pinterest API | None declared |
+| `amazon-ads-sd.budgetRecommendations.manage` | Manage Budget Recommendations via Pinterest API | None declared |
+| `amazon-ads-sd.budgetRules.manage` | Manage BudgetRules via Pinterest API | None declared |
+| `amazon-ads-sd.budgetRules.read` | Read BudgetRules via Pinterest API | None declared |
+| `amazon-ads-sd.budgetUsage.manage` | Manage Budget Usage via Pinterest API | None declared |
+| `amazon-ads-sd.recommendations.manage` | Manage Recommendations via Pinterest API | None declared |
+| `amazon-ads-sd.snapshotAPIs.manage` | Manage Snapshot APIs via Pinterest API | None declared |
+| `amazon-ads-sd.snapshotAPIs.read` | Read Snapshot APIs via Pinterest API | None declared |
+| `amazon-ads-sd.targetingRecommendations.manage` | Manage Targeting Recommendations via Pinterest API | None declared |

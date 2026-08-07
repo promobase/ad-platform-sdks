@@ -1,0 +1,220 @@
+---
+title: "Amazon Ads — Sponsored Products Product Targeting endpoints"
+description: "6 generated Amazon Ads — Sponsored Products endpoint contracts for Product Targeting."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 120
+  label: "Product Targeting"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.productTargeting.getCategoryRecommendationsForASINs
+
+`POST` `/sp/targets/categories/recommendations`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getCategoryRecommendationsForASINs)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.productTargeting.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetCategoryRecommendationsForASINsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locale` | `query` | `string` | No | No | The locale to which the caller wishes to translate the list of category recommendations to. For example, if the caller wishes to receive a list of category recommendations in Simplified Chinese, the locale parameter should be set to zh_CN. If no locale is provided, the returned list of category recommendations will be in the default language of the marketplace. |
+| `asins` | `body` | `Array<string>` | No | No | List of input ASINs. This API does not check if the ASINs are valid ASINs. |
+| `includeAncestor` | `body` | `boolean` | No | No | Enable this if you would like to retrieve categories which are ancestor nodes of the original recommended categories. This may increase the number of categories returned, but decrease the relevancy of those categories. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.productTargeting.getNegativeBrands
+
+`GET` `/sp/negativeTargets/brands/recommendations`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getNegativeBrands)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sp.productTargeting.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetNegativeBrandsResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.productTargeting.getRefinementsForCategory
+
+`GET` `/sp/targets/category/{categoryId}/refinements`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getRefinementsForCategory)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sp.productTargeting.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetRefinementsForCategoryResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categoryId` | `path` | `string` | Yes | No | The category ID. Please use the GetTargetableCategories API or the GetCategoriesForASINs API to retrieve categories IDs. This API does not check if the category is a valid category. |
+| `locale` | `query` | `string` | No | No | The locale to which the caller wishes to translate the refinements to. For example, if the caller wishes to receive the refinements in Simplified Chinese, the locale parameter should be set to zh_CN. If no locale is provided, the refinements will be in the default language of the marketplace. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.productTargeting.getTargetableASINCounts
+
+`POST` `/sp/targets/products/count`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getTargetableASINCounts)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.productTargeting.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetTargetableASINCountsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ageRanges` | `body` | `Array<Inline3155>` | No | No | List of Age Ranges. Use the GetRefinementsForCategory to retrieve Age Ranges. Age Ranges are only available for categories related to children's toys and games. |
+| `brands` | `body` | `Array<Inline3156>` | No | No | List of Brands. |
+| `category` | `body` | `string` | Yes | No | The category node id. Please use the GetTargetableCategories API or GetCategoryRecommendationsForASINs API to retrieve category IDs. |
+| `genres` | `body` | `Array<Inline3157>` | No | No | List of Genres. Use the GetRefinementsForCategory to retrieve Genre Node IDs. Genres are only available for categories related to books. |
+| `isPrimeShipping` | `body` | `boolean` | No | No | Indicates if products have prime shipping |
+| `priceRange` | `body` | `Inline3158` | No | No | A range of prices. We use this to retrieve the number of targetable ASINs that falls within this price range. |
+| `ratingRange` | `body` | `Inline3159` | No | No | Rating range is restricted to integers between 0 and 5, inclusive. Min must be less than or equal to max. We use this to retrieve the number of targetable ASINs that falls within this rating range. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.productTargeting.getTargetableCategories
+
+`GET` `/sp/targets/categories`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getTargetableCategories)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sp.productTargeting.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetTargetableCategoriesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locale` | `query` | `string` | No | No | The locale to which the caller wishes to translate the targetable categories to. For example, if the caller wishes to receive the targetable categories in Simplified Chinese, the locale parameter should be set to zh_CN. If no locale is provided, the returned targetable categories will be in the default language of the marketplace. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.productTargeting.searchBrands
+
+`POST` `/sp/negativeTargets/brands/search`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (searchBrands)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.productTargeting.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `SearchBrandsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

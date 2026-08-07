@@ -1,0 +1,197 @@
+---
+title: "Amazon Ads — Sponsored Products Target Promotion Groups endpoints"
+description: "5 generated Amazon Ads — Sponsored Products endpoint contracts for Target Promotion Groups."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 121
+  label: "Target Promotion Groups"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.targetPromotionGroups.createTargetPromotionGroups
+
+`POST` `/sp/targetPromotionGroups`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateTargetPromotionGroups)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.targetPromotionGroups.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateTargetPromotionGroupsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `body` | `string` | Yes | No | The adGroupId of the Ad Group of an Auto-Targeting campaign that will be part of the Target Promotion Group. |
+| `adIds` | `body` | `Array<string>` | No | No | The list of adIds (optional) of the Ad Group of the Auto-Targeting campaign, that will be part of the Target Promotion Group. If this list is empty, all the Product Ads under the Ad Group will be part of the Target Promotion Group. |
+| `existingCampaignDetails` | `body` | `Inline3062` | No | No | The request object for creating a new target promotion group with existing campaigns. Please note that the adGroupIds provided need to contain the same Ad ASINs/SKUs combination as the Auto-Targeting adGroup for the target promotion group. |
+| `newCampaignDetails` | `body` | `Inline3063` | No | No | The request object for creating a new target promotion group with new campaigns. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.targetPromotionGroups.createTargetPromotionGroupTargets
+
+`POST` `/sp/targetPromotionGroups/targets`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateTargetPromotionGroupTargets)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.targetPromotionGroups.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateTargetPromotionGroupTargetsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetPromotionGroupId` | `body` | `string` | Yes | No | The id of the target promotion group where the targets are being added. |
+| `targets` | `body` | `Array<Inline3085>` | No | No | List of targets to be added to the target promotion group. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.targetPromotionGroups.getTargetPromotionGroupsRecommendations
+
+`POST` `/sp/targetPromotionGroups/recommendations`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (GetTargetPromotionGroupsRecommendations)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.targetPromotionGroups.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetTargetPromotionGroupsRecommendationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `body` | `Inline3079` | No | No | Filter entities by the list of objectIds |
+| `adIdFilter` | `body` | `Inline3080` | No | No | Filter entities by the list of objectIds |
+| `campaignIdFilter` | `body` | `Inline3081` | No | No | Filter entities by the list of objectIds |
+| `maxResults` | `body` | `number` | No | No | Number of records to include in the paginated response. Defaults to 1000. |
+| `nextToken` | `body` | `string` | No | No | Token for fetching the next page |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.targetPromotionGroups.listTargetPromotionGroups
+
+`POST` `/sp/targetPromotionGroups/list`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (ListTargetPromotionGroups)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.targetPromotionGroups.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `ListTargetPromotionGroupsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `body` | `Inline3071` | No | No | Filter entities by the list of objectIds |
+| `maxResults` | `body` | `number` | No | No | The maximum number of results requested. |
+| `nextToken` | `body` | `string` | No | No | Token value allowing to navigate to the next or previous response page |
+| `targetPromotionGroupIdFilter` | `body` | `Inline3072` | No | No | Filter entities by the list of objectIds |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.targetPromotionGroups.listTargetPromotionGroupTargets
+
+`POST` `/sp/targetPromotionGroups/targets/list`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (ListTargetPromotionGroupTargets)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.targetPromotionGroups.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `ListTargetPromotionGroupTargetsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `body` | `Inline3091` | No | No | Filter entities by the list of objectIds |
+| `maxResults` | `body` | `number` | No | No | The maximum number of results requested. |
+| `nextToken` | `body` | `string` | No | No | Token value allowing to navigate to the next or previous response page |
+| `targetPromotionGroupIdFilter` | `body` | `Inline3092` | No | No | Filter entities by the list of objectIds |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

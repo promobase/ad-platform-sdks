@@ -1,0 +1,51 @@
+---
+title: "Amazon Ads — Sponsored Products Budget Recommendation New Campaigns endpoints"
+description: "1 generated Amazon Ads — Sponsored Products endpoint contract for Budget Recommendation New Campaigns."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 101
+  label: "Budget Recommendation New Campaigns"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.budgetRecommendationNewCampaigns.getBudgetRecommendation
+
+`POST` `/sp/campaigns/initialBudgetRecommendation`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getBudgetRecommendation)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.budgetRecommendationNewCampaigns.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetBudgetRecommendationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `body` | `Array<Inline2847>` | Yes | No | The ad group information for this new campaign. |
+| `bidding` | `body` | `Inline2848` | Yes | No | The bidding control configuration for the new campaign. |
+| `endDate` | `body` | `string` | No | No | The end date of the campaign in YYYYMMDD format. |
+| `startDate` | `body` | `string` | No | No | The start date of the campaign in YYYYMMDD format. |
+| `targetingType` | `body` | `string` | Yes | No | Specifies the targeting type. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

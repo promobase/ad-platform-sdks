@@ -1,0 +1,1062 @@
+---
+title: "Amazon Ads — Sponsored Products models: Inline451 – Inline609"
+description: "100 generated Amazon Ads — Sponsored Products model contracts, from Inline451 through Inline609."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 1021
+  label: "Inline451 – Inline609"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Inline451
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendedAsin` | `recommendedAsin` | `string` | No | No | Recommended ASIN |
+| `themes` | `themes` | `Array<string>` | No | No | List of themes associated with this recommended ASIN. |
+
+## Inline453
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | A theme name representing the context around the recommended list of ASINs. |
+| `recommendedAsins` | `recommendedAsins` | `Array<string>` | No | No | List of recommended ASINs under current theme. |
+| `theme` | `theme` | `string` | No | No | A theme name representing the context around the recommended list of ASINs. |
+
+## Inline456
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | The bid value for the keyword, in minor currency units (example: cents). The default value will be the suggested bid. |
+| `keyword` | `keyword` | `string` | No | No | The keyword value |
+| `matchType` | `matchType` | `string` | No | No | Keyword match type. The default value will be BROAD. |
+| `userSelectedKeyword` | `userSelectedKeyword` | `boolean` | No | No | Flag that tells if keyword was selected by the user or was recommended by KRS |
+
+## Inline458
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asin` | `asin` | `string` | No | No | The identifier of the product. |
+| `globalStoreSetting` | `globalStoreSetting` | `Inline458` | No | No | This denotes the fields related to [GlobalStore Program](https://sellercentral.amazon.com/help/hub/reference/external/202139180). |
+
+## Inline459
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | The bid value for the keyword, in minor currency units (example: cents). The default value will be the suggested bid. |
+| `keyword` | `keyword` | `string` | No | No | The keyword value |
+| `matchType` | `matchType` | `string` | No | No | Keyword match type. The default value will be BROAD. |
+| `userSelectedKeyword` | `userSelectedKeyword` | `boolean` | No | No | Flag that tells if keyword was selected by the user or was recommended by KRS |
+
+## Inline46
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | Yes | No | — |
+| `impactMetrics` | `impactMetrics` | `Inline46` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | The type of bids in bid analyses. &lt;br&gt;`SUGGESTED_UPPER` - The upper bound for the suggested bid. &lt;br&gt;`SUGGESTED_LOWER` - The lower bound for the suggested bid. &lt;br&gt;`SUGGESTED` - The suggested bid value. &lt;br&gt;'ALTERNATIVE' - The alternative bids that is included in the bid analyses. |
+
+## Inline461
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidInfo` | `bidInfo` | `Array<Inline461>` | No | No | A list of keyword bid info |
+| `keyword` | `keyword` | `string` | No | No | The keyword value |
+| `recId` | `recId` | `string` | No | No | The recommended keyword target id |
+| `searchTermImpressionRank` | `searchTermImpressionRank` | `number` | No | No | The account-level ad-attributed impression rank for the search-term/keyword. Provides [1:N] place the advertiser ranks among all advertisers for the keyword by ad impressions in a marketplace in the last 30 days. It tells an advertiser how many advertisers had higher share of ad impressions. This information is only available for keywords the advertiser targeted with ad impressions. |
+| `searchTermImpressionShare` | `searchTermImpressionShare` | `number` | No | No | The account-level ad-attributed impression share for the search-term/keyword. Provides percentage share of all ad impressions the advertiser has for the keyword in the last 30 days. This metric helps advertisers identify potential opportunities based on their share on relevant keywords. This information is only available for keywords the advertiser targeted with ad impressions. |
+| `translation` | `translation` | `string` | No | No | The translation of keyword if a locale is passed in |
+| `userSelectedKeyword` | `userSelectedKeyword` | `boolean` | No | No | Flag that tells if keyword was selected by the user or was recommended by KRS |
+
+## Inline463
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | The bid value for the keyword, in minor currency units (example: cents). The default value will be the suggested bid. |
+| `matchType` | `matchType` | `string` | No | No | Keyword match type. The default value will be BROAD. |
+| `rank` | `rank` | `number` | No | No | The keyword target rank. |
+| `suggestedBid` | `suggestedBid` | `Inline463` | No | No | Suggested bid range |
+| `theme` | `theme` | `string` | No | No | The theme of the bid recommendation. The default theme is CONVERSION_OPPORTUNITIES. |
+
+## Inline465
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidInfo` | `bidInfo` | `Array<Inline465>` | No | No | A list of keyword bid info |
+| `keyword` | `keyword` | `string` | No | No | The keyword value |
+| `recId` | `recId` | `string` | No | No | The recommended keyword target id |
+| `searchTermImpressionRank` | `searchTermImpressionRank` | `number` | No | No | The account-level ad-attributed impression rank for the search-term/keyword. Provides [1:N] place the advertiser ranks among all advertisers for the keyword by ad impressions in a marketplace in the last 30 days. It tells an advertiser how many advertisers had higher share of ad impressions. This information is only available for keywords the advertiser targeted with ad impressions. |
+| `searchTermImpressionShare` | `searchTermImpressionShare` | `number` | No | No | The account-level ad-attributed impression share for the search-term/keyword. Provides percentage share of all ad impressions the advertiser has for the keyword in the last 30 days. This metric helps advertisers identify potential opportunities based on their share on relevant keywords. This information is only available for keywords the advertiser targeted with ad impressions. |
+| `translation` | `translation` | `string` | No | No | The translation of keyword if a locale is passed in |
+| `userSelectedKeyword` | `userSelectedKeyword` | `boolean` | No | No | Flag that tells if keyword was selected by the user or was recommended by KRS |
+
+## Inline467
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `clicks` | `clicks` | `Inline467` | No | No | The impact metrics are given in the same order of suggested bids. &lt;br&gt; Note: This object is nullable |
+| `orders` | `orders` | `Inline468` | No | No | The impact metrics are given in the same order of suggested bids. &lt;br&gt; Note: This object is nullable |
+
+## Inline468
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `values` | `values` | `Array<Inline468>` | No | No | — |
+
+## Inline469
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidInfo` | `bidInfo` | `Array<Inline469>` | No | No | A list of keyword bid info |
+| `keyword` | `keyword` | `string` | No | No | The keyword value |
+| `recId` | `recId` | `string` | No | No | The recommended keyword target id |
+| `searchTermImpressionRank` | `searchTermImpressionRank` | `number` | No | No | The account-level ad-attributed impression rank for the search-term/keyword. Provides [1:N] place the advertiser ranks among all advertisers for the keyword by ad impressions in a marketplace in the last 30 days. It tells an advertiser how many advertisers had higher share of ad impressions. This information is only available for keywords the advertiser targeted with ad impressions. |
+| `searchTermImpressionShare` | `searchTermImpressionShare` | `number` | No | No | The account-level ad-attributed impression share for the search-term/keyword. Provides percentage share of all ad impressions the advertiser has for the keyword in the last 30 days. This metric helps advertisers identify potential opportunities based on their share on relevant keywords. This information is only available for keywords the advertiser targeted with ad impressions. |
+| `translation` | `translation` | `string` | No | No | The translation of keyword if a locale is passed in |
+| `userSelectedKeyword` | `userSelectedKeyword` | `boolean` | No | No | Flag that tells if keyword was selected by the user or was recommended by KRS |
+
+## Inline47
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | Yes | No | — |
+| `impactMetrics` | `impactMetrics` | `Inline47` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | The type of bids in bid analyses. &lt;br&gt;`SUGGESTED_UPPER` - The upper bound for the suggested bid. &lt;br&gt;`SUGGESTED_LOWER` - The lower bound for the suggested bid. &lt;br&gt;`SUGGESTED` - The suggested bid value. &lt;br&gt;'ALTERNATIVE' - The alternative bids that is included in the bid analyses. |
+
+## Inline472
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | The bid value for the keyword, in minor currency units (example: cents). The default value will be the suggested bid. |
+| `matchType` | `matchType` | `string` | No | No | Keyword match type. The default value will be BROAD. |
+| `rank` | `rank` | `number` | No | No | The keyword target rank |
+| `suggestedBid` | `suggestedBid` | `Inline472` | No | No | Suggested bid range in major and minor currency units (example: dollars and cents). |
+
+## Inline474
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | End date of the opportunities date range in YYYY-MM-DDTHH:mm:ssZ format. |
+| `estimatedAdSpendLower` | `estimatedAdSpendLower` | `number` | No | No | Lower estimated ad spend for the campaign. |
+| `estimatedAdSpendUpper` | `estimatedAdSpendUpper` | `number` | No | No | Upper estimated ad spend for the campaign. |
+| `estimatedIncrementalClicksLower` | `estimatedIncrementalClicksLower` | `number` | No | No | Lower bound of the estimated incremental clicks that could be gained if all optimizations are made. |
+| `estimatedIncrementalClicksUpper` | `estimatedIncrementalClicksUpper` | `number` | No | No | Upper bound of the estimated incremental clicks that could be gained if all optimizations are made. |
+| `estimatedIncrementalConversionsLower` | `estimatedIncrementalConversionsLower` | `number` | No | No | Lower estimated incremental number of conversions for the campaign. |
+| `estimatedIncrementalConversionsUpper` | `estimatedIncrementalConversionsUpper` | `number` | No | No | Upper estimated incremental number of conversions for the campaign. |
+| `estimatedIncrementalImpressionsLower` | `estimatedIncrementalImpressionsLower` | `number` | No | No | Lower estimated incremental number of impressions for the campaign. |
+| `estimatedIncrementalImpressionsUpper` | `estimatedIncrementalImpressionsUpper` | `number` | No | No | Upper estimated incremental number of impressions for the campaign. |
+| `estimatedIncrementalSalesLower` | `estimatedIncrementalSalesLower` | `number` | No | No | Lower estimated incremental sales for the campaign. |
+| `estimatedIncrementalSalesUpper` | `estimatedIncrementalSalesUpper` | `number` | No | No | Upper estimated incremental sales for the campaign. |
+| `startDate` | `startDate` | `string` | No | No | Start date of the opportunities date range in YYYY-MM-DDTHH:mm:ssZ format. |
+
+## Inline479
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | No | No | The end time of intra-day budget rule window in the format 'hh:mm:ss'. Required to be greater than start-time. |
+| `startTime` | `startTime` | `string` | No | No | The start time of intra-day budget rule window in the format 'hh:mm:ss' |
+
+## Inline482
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of Age Range. This field is REQUIRED if the Age Range object is being used as an input. Use the GetRefinementsForCategory to retrieve Age Range Node IDs. |
+| `name` | `name` | `string` | No | No | Name of Age Range. This field is OPTIONAL if the Age Range object is being used as an input. |
+
+## Inline483
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of brand. This field is REQUIRED if the Brand object is being used as an input. Use the GetRefinementsForCategory to retrieve Brand Node IDs. |
+| `name` | `name` | `string` | No | No | Name of brand. This field is OPTIONAL if the Brand object is being used as an input. |
+
+## Inline484
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of Genre. This field is REQUIRED if the Genre object is being used as an input. Use the GetRefinementsForCategory to retrieve Genre Node IDs. |
+| `name` | `name` | `string` | No | No | Name of Genre. This field is OPTIONAL if the Genre object is being used as an input. |
+
+## Inline486
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of Age Range. Use the POST /sp/targets/category/&#123;categoryId&#125;/refinements endpoint to retrieve Age Range Node IDs. |
+| `name` | `name` | `string` | No | No | Name of Age Range. |
+| `translatedName` | `translatedName` | `string` | No | No | Translated name of Age Range based off locale sent in request. |
+
+## Inline487
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of brand. |
+| `name` | `name` | `string` | No | No | Name of brand. |
+
+## Inline488
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of Genre. Use the POST /sp/targets/category/&#123;categoryId&#125;/refinements endpoint to retrieve Genre Node IDs. |
+| `name` | `name` | `string` | No | No | Name of Genre. |
+| `translatedName` | `translatedName` | `string` | No | No | Translated name of the Genre based off locale send in the query parameter. |
+
+## Inline49
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ALL` | `ALL` | `Array<Inline49>` | Yes | No | — |
+| `PLACEMENT_PRODUCT_PAGE` | `PLACEMENT_PRODUCT_PAGE` | `Array<Inline50>` | Yes | No | — |
+| `PLACEMENT_REST_OF_SEARCH` | `PLACEMENT_REST_OF_SEARCH` | `Array<Inline51>` | Yes | No | — |
+| `PLACEMENT_TOP` | `PLACEMENT_TOP` | `Array<Inline52>` | Yes | No | — |
+
+## Inline493
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. ROAS is the only supported metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## Inline497
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The end date of the budget rule in YYYYMMDD format. The end date is inclusive. Required to be equal or greater than `startDate`. |
+| `startDate` | `startDate` | `string` | Yes | No | The start date of the budget rule in YYYYMMDD format. The start date is inclusive. Required to be greater than or equal to current date. |
+
+## Inline498
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The event end date in YYYYMMDD format. Read-only. |
+| `eventId` | `eventId` | `string` | Yes | No | The event identifier. This value is available from the budget rules recommendation API. |
+| `eventName` | `eventName` | `string` | No | No | The event name. Read-only. |
+| `startDate` | `startDate` | `string` | No | No | The event start date in YYYYMMDD format. Read-only. Note that this field is present only for announced events. |
+
+## Inline50
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | Yes | No | — |
+| `impactMetrics` | `impactMetrics` | `Inline50` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | The type of bids in bid analyses. &lt;br&gt;`SUGGESTED_UPPER` - The upper bound for the suggested bid. &lt;br&gt;`SUGGESTED_LOWER` - The lower bound for the suggested bid. &lt;br&gt;`SUGGESTED` - The suggested bid value. &lt;br&gt;'ALTERNATIVE' - The alternative bids that is included in the bid analyses. |
+
+## Inline502
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## Inline504
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `roas` | `roas` | `number` | No | No | return on ad spend value |
+
+## Inline506
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## Inline51
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | Yes | No | — |
+| `impactMetrics` | `impactMetrics` | `Inline51` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | The type of bids in bid analyses. &lt;br&gt;`SUGGESTED_UPPER` - The upper bound for the suggested bid. &lt;br&gt;`SUGGESTED_LOWER` - The lower bound for the suggested bid. &lt;br&gt;`SUGGESTED` - The suggested bid value. &lt;br&gt;'ALTERNATIVE' - The alternative bids that is included in the bid analyses. |
+
+## Inline515
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceId` | `audienceId` | `string` | Yes | No | Unique identifier for the audience segment. |
+| `audienceSegmentType` | `audienceSegmentType` | `string` | Yes | No | Type of audience segment. |
+
+## Inline517
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetIncreaseBy` | `budgetIncreaseBy` | `Inline517` | No | No | — |
+| `duration` | `duration` | `Inline518` | No | No | — |
+| `name` | `name` | `string` | No | No | The budget rule name. Required to be unique within a campaign. |
+| `performanceMeasureCondition` | `performanceMeasureCondition` | `Inline520` | No | No | — |
+| `recurrence` | `recurrence` | `Inline521` | No | No | — |
+| `ruleType` | `ruleType` | `string` | No | No | The type of budget rule. SCHEDULE: A budget rule based on a start and end date. PERFORMANCE: A budget rule based on advertising performance criteria. |
+
+## Inline518
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dateRangeTypeRuleDuration` | `dateRangeTypeRuleDuration` | `Inline518` | No | No | Object representing date range type rule duration. |
+| `eventTypeRuleDuration` | `eventTypeRuleDuration` | `Inline519` | No | No | Object representing event type rule duration. |
+
+## Inline519
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The event end date in YYYYMMDD format. Read-only. |
+| `eventId` | `eventId` | `string` | Yes | No | The event identifier. This value is available from the budget rules recommendation API. |
+| `eventName` | `eventName` | `string` | No | No | The event name. Read-only. |
+| `startDate` | `startDate` | `string` | No | No | The event start date in YYYYMMDD format. Read-only. Note that this field is present only for announced events. |
+
+## Inline52
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | Yes | No | — |
+| `impactMetrics` | `impactMetrics` | `Inline52` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | The type of bids in bid analyses. &lt;br&gt;`SUGGESTED_UPPER` - The upper bound for the suggested bid. &lt;br&gt;`SUGGESTED_LOWER` - The lower bound for the suggested bid. &lt;br&gt;`SUGGESTED` - The suggested bid value. &lt;br&gt;'ALTERNATIVE' - The alternative bids that is included in the bid analyses. |
+
+## Inline520
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## Inline521
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | Object representing days of the week for weekly type rule. It is not required for daily recurrence type |
+| `intraDaySchedule` | `intraDaySchedule` | `Array<Inline521>` | No | No | List of objects representing start and end time of desired intra-day budget rule window |
+| `type` | `type` | `string` | No | No | The frequency of the rule application. |
+
+## Inline523
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | The value by which to update the budget of the budget rule. |
+| `value` | `value` | `number` | Yes | No | The budget value. |
+
+## Inline524
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dateRangeTypeRuleDuration` | `dateRangeTypeRuleDuration` | `Inline524` | No | No | Object representing date range type rule duration. |
+| `eventTypeRuleDuration` | `eventTypeRuleDuration` | `Inline525` | No | No | Object representing event type rule duration. |
+
+## Inline525
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The event end date in YYYYMMDD format. Read-only. |
+| `eventId` | `eventId` | `string` | Yes | No | The event identifier. This value is available from the budget rules recommendation API. |
+| `eventName` | `eventName` | `string` | No | No | The event name. Read-only. |
+| `startDate` | `startDate` | `string` | No | No | The event start date in YYYYMMDD format. Read-only. Note that this field is present only for announced events. |
+
+## Inline526
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## Inline527
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | Object representing days of the week for weekly type rule. It is not required for daily recurrence type |
+| `intraDaySchedule` | `intraDaySchedule` | `Array<Inline527>` | No | No | List of objects representing start and end time of desired intra-day budget rule window |
+| `type` | `type` | `string` | No | No | The frequency of the rule application. |
+
+## Inline53
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `string` | No | No | The targeting expression value. |
+
+## Inline532
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The end date in YYYYMMDD format. |
+| `eventId` | `eventId` | `string` | No | No | The event identifier. |
+| `eventName` | `eventName` | `string` | No | No | The event name. |
+| `startDate` | `startDate` | `string` | No | No | The start date in YYYYMMDD format. |
+| `suggestedBudgetIncreasePercent` | `suggestedBudgetIncreasePercent` | `number` | No | No | The suggested budget increase expressed as a percent. |
+
+## Inline534
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetIncreaseBy` | `budgetIncreaseBy` | `Inline534` | No | No | — |
+| `duration` | `duration` | `Inline535` | No | No | — |
+| `name` | `name` | `string` | No | No | The budget rule name. Required to be unique within a campaign. |
+| `performanceMeasureCondition` | `performanceMeasureCondition` | `Inline537` | No | No | — |
+| `recurrence` | `recurrence` | `Inline538` | No | No | — |
+| `ruleType` | `ruleType` | `string` | No | No | The type of budget rule. SCHEDULE: A budget rule based on a start and end date. PERFORMANCE: A budget rule based on advertising performance criteria. |
+
+## Inline535
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dateRangeTypeRuleDuration` | `dateRangeTypeRuleDuration` | `Inline535` | No | No | Object representing date range type rule duration. |
+| `eventTypeRuleDuration` | `eventTypeRuleDuration` | `Inline536` | No | No | Object representing event type rule duration. |
+
+## Inline536
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The event end date in YYYYMMDD format. Read-only. |
+| `eventId` | `eventId` | `string` | Yes | No | The event identifier. This value is available from the budget rules recommendation API. |
+| `eventName` | `eventName` | `string` | No | No | The event name. Read-only. |
+| `startDate` | `startDate` | `string` | No | No | The event start date in YYYYMMDD format. Read-only. Note that this field is present only for announced events. |
+
+## Inline537
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## Inline538
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | Object representing days of the week for weekly type rule. It is not required for daily recurrence type |
+| `intraDaySchedule` | `intraDaySchedule` | `Array<Inline538>` | No | No | List of objects representing start and end time of desired intra-day budget rule window |
+| `type` | `type` | `string` | No | No | The frequency of the rule application. |
+
+## Inline541
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | No | No | campaignId |
+| `campaignOptimizationId` | `campaignOptimizationId` | `string` | No | No | The persistent rule identifier. |
+| `notificationString` | `notificationString` | `string` | No | No | Explains why the rule state is disabled |
+| `ruleState` | `ruleState` | `string` | No | No | The campaign optimization rule state. |
+
+## Inline542
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `Error` | `Error` | `Inline542` | No | No | The Error Response Object. |
+| `campaignId` | `campaignId` | `string` | No | No | campaignId |
+
+## Inline544
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | No | No | campaignId |
+| `performanceMetrics` | `performanceMetrics` | `Inline544` | No | No | Performance Metrics supported by the rule recommendation |
+| `performanceMetricsExists` | `performanceMetricsExists` | `boolean` | No | No | If true, performance metrics for the campaign are available in performanceMetrics response field. |
+
+## Inline545
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `Error` | `Error` | `Inline545` | No | No | The Error Response Object. |
+| `campaignId` | `campaignId` | `string` | No | No | campaignId |
+
+## Inline548
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `benchmarkStatus` | `benchmarkStatus` | `string` | No | No | Specifies the processing status of the benchmark. Success - If all fields in values property (impressions, clicks, conversions) have all non-null values. Failed - If all fields in values property have all null values. Partial - If some of the fields (impressions, clicks, or conversions) in values property have null values. |
+| `values` | `values` | `Inline548` | No | No | Metrics benchmark values. |
+
+## Inline549
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lower` | `lower` | `number` | No | No | lower bound. |
+| `upper` | `upper` | `number` | No | No | upper bound. |
+
+## Inline55
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `estimatedImpressionAvg` | `estimatedImpressionAvg` | `number` | Yes | No | Number indicating the average of the estimated impressions |
+| `estimatedImpressionLower` | `estimatedImpressionLower` | `number` | Yes | No | Number indicating a lower bound of the estimated impressions |
+| `estimatedImpressionUpper` | `estimatedImpressionUpper` | `number` | Yes | No | Number indicating an upper bound of the estimated impressions |
+
+## Inline550
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lower` | `lower` | `number` | No | No | lower bound. |
+| `upper` | `upper` | `number` | No | No | upper bound. |
+
+## Inline553
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The end date in ISO-8601 format. |
+| `eventId` | `eventId` | `string` | No | No | The event identifier. |
+| `eventName` | `eventName` | `string` | No | No | The event name. |
+| `startDate` | `startDate` | `string` | No | No | The start date in ISO-8601 format. |
+
+## Inline554
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The end date in ISO-8601 format. |
+| `groupedEventId` | `groupedEventId` | `string` | No | No | The grouped event identifier. |
+| `groupedEventName` | `groupedEventName` | `string` | No | No | The grouped event name. |
+| `startDate` | `startDate` | `string` | No | No | The start date in ISO-8601 format. |
+
+## Inline556
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The campaign identifier. |
+| `campaignName` | `campaignName` | `string` | Yes | No | The campaign name. |
+| `ruleStatus` | `ruleStatus` | `string` | Yes | No | The budget rule evaluation status for this campaign. Read-only. |
+
+## Inline561
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorCode` | `errorCode` | `string` | No | No | Error Code. For informational purpose only. |
+| `errorId` | `errorId` | `number` | No | No | ID to indicate the granular error. Rely only on this to programmatically handle errors. |
+| `errorMessage` | `errorMessage` | `string` | No | No | human readable error message for each error. |
+
+## Inline563
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `createdDate` | `createdDate` | `number` | No | No | Epoch time of budget rule creation. Read-only. |
+| `lastUpdatedDate` | `lastUpdatedDate` | `number` | No | No | Epoch time of budget rule update. Read-only. |
+| `ruleDetails` | `ruleDetails` | `Inline563` | No | No | Object representing details of a budget rule for SP campaign |
+| `ruleId` | `ruleId` | `string` | Yes | No | The budget rule identifier. |
+| `ruleState` | `ruleState` | `string` | No | No | The budget rule state. |
+| `ruleStatus` | `ruleStatus` | `string` | No | No | The budget rule evaluation status. Read-only. |
+
+## Inline564
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dateRangeTypeRuleDuration` | `dateRangeTypeRuleDuration` | `Inline564` | No | No | Object representing date range type rule duration. |
+| `eventTypeRuleDuration` | `eventTypeRuleDuration` | `Inline565` | No | No | Object representing event type rule duration. |
+
+## Inline565
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The event end date in YYYYMMDD format. Read-only. |
+| `eventId` | `eventId` | `string` | Yes | No | The event identifier. This value is available from the budget rules recommendation API. |
+| `eventName` | `eventName` | `string` | No | No | The event name. Read-only. |
+| `startDate` | `startDate` | `string` | No | No | The event start date in YYYYMMDD format. Read-only. Note that this field is present only for announced events. |
+
+## Inline566
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## Inline567
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | Object representing days of the week for weekly type rule. It is not required for daily recurrence type |
+| `intraDaySchedule` | `intraDaySchedule` | `Array<Inline567>` | No | No | List of objects representing start and end time of desired intra-day budget rule window |
+| `type` | `type` | `string` | No | No | The frequency of the rule application. |
+
+## Inline572
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `location` | `location` | `string` | Yes | No | Error location, JSON Path expression specifying element of API payload causing error |
+| `trigger` | `trigger` | `string` | No | No | optional value causing error |
+
+## Inline575
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDateTime` | `creationDateTime` | `string` | No | No | Creation date in ISO 8601. |
+| `lastUpdateDateTime` | `lastUpdateDateTime` | `string` | No | No | Last updated date in ISO 8601. |
+| `servingStatus` | `servingStatus` | `string` | No | No | — |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<Inline575>` | No | No | The serving status reasons of the AdGroup |
+
+## Inline577
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityNotFoundError` | `entityNotFoundError` | `Inline577` | No | No | — |
+| `internalServerError` | `internalServerError` | `Inline578` | No | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+| `invalidInputError` | `invalidInputError` | `Inline579` | No | No | Errors related to ad eligibility |
+| `malformedValueError` | `malformedValueError` | `Inline580` | No | No | Errors being used to represent malformed values e.g. containing not allowed characters, not following patters etc |
+| `missingValueError` | `missingValueError` | `Inline581` | No | No | Error describing missing values in API payloads |
+| `otherError` | `otherError` | `Inline582` | No | No | Errors not related to any of the other error types |
+| `rangeError` | `rangeError` | `Inline583` | No | No | Errors related to range constraints violations |
+| `throttledError` | `throttledError` | `Inline584` | No | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## Inline578
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline578` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline579
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline579` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline58
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placementAdjustment` | `placementAdjustment` | `Inline58` | No | No | Specifies bid adjustments based on the placement location. Use `PLACEMENT_TOP` for the top of the search page. Use `PLACEMENT_REST_OF_SEARCH` for the rest of the search page. Use `PLACEMENT_PRODUCT_PAGE` for a product page. |
+
+## Inline580
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline580` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `fragment` | `fragment` | `string` | No | No | fragment of the value which is wrong |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline581
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline581` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline582
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline582` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline583
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | allowed values |
+| `cause` | `cause` | `Inline583` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | optional lower limit |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | optional upper limit |
+
+## Inline584
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline584` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline586
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline586` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `entityId` | `entityId` | `string` | Yes | No | The entity id in the request |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline587
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline587` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline588
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline588` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline589
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline589` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `fragment` | `fragment` | `string` | No | No | fragment of the value which is wrong |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline590
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline590` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline591
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline591` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline592
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | allowed values |
+| `cause` | `cause` | `Inline592` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | optional lower limit |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | optional upper limit |
+
+## Inline593
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline593` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline595
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline595` | Yes | No | — |
+
+## Inline596
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline596` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline597
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline597` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline598
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline598` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `fragment` | `fragment` | `string` | No | No | fragment of the value which is wrong |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline599
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline599` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline6
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `string` | No | No | The targeting expression value. |
+
+## Inline600
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline600` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline601
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | allowed values |
+| `cause` | `cause` | `Inline601` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | optional lower limit |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | optional upper limit |
+
+## Inline602
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline602` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline604
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `helpUrl` | `helpUrl` | `string` | No | No | A URL with additional information about the status identifier. |
+| `message` | `message` | `string` | No | No | A human-readable description of the status identifier specified in the name field. |
+| `name` | `name` | `string` | No | No | — |
+
+## Inline606
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline606` | Yes | No | — |
+
+## Inline607
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline607` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | — |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | — |
+
+## Inline608
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline608` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline609
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline609` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |

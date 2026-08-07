@@ -1,0 +1,48 @@
+---
+title: "Amazon Ads — Sponsored Brands Insights endpoints"
+description: "1 generated Amazon Ads — Sponsored Brands endpoint contract for Insights."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 110
+  label: "Insights"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.insights.sBInsightsCampaignInsights
+
+`POST` `/sb/campaigns/insights`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (SBInsightsCampaignInsights)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.insights.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `SBInsightsCampaignInsightsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `query` | `string` | No | No | Operations that return paginated results include a pagination token in this field. To retrieve the next page of results, call the same operation and specify this token in the request. If the `NextToken` field is empty, there are no further results. |
+| `adGroups` | `body` | `Array<Inline1005>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

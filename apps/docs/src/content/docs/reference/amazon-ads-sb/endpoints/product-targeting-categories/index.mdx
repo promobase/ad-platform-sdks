@@ -1,0 +1,127 @@
+---
+title: "Amazon Ads — Sponsored Brands Product Targeting Categories endpoints"
+description: "3 generated Amazon Ads — Sponsored Brands endpoint contracts for Product Targeting Categories."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 113
+  label: "Product Targeting Categories"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.productTargetingCategories.sBTargetingGetRefinementsForCategory
+
+`GET` `/sb/targets/categories/{categoryRefinementId}/refinements`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (SBTargetingGetRefinementsForCategory)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sb.productTargetingCategories.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `SBTargetingGetRefinementsForCategoryResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categoryRefinementId` | `path` | `string` | Yes | No | The category refinement id. Please use /sb/targets/categories or /sb/recommendations/targets/category to retrieve category IDs. |
+| `locale` | `query` | `string` | No | No | The locale to which the caller wishes to translate the targetable categories or refinements to. For example, if the caller wishes to receive the targetable categories in Simplified Chinese, the locale parameter should be set to zh_CN. If no locale is provided, the returned tagetable categories will be in the default language of the marketplace. |
+| `nextToken` | `query` | `string` | No | No | Operations that return paginated results include a pagination token in this field. To retrieve the next page of results, call the same operation and specify this token in the request. If the `NextToken` field is empty, there are no further results. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.productTargetingCategories.sBTargetingGetTargetableASINCounts
+
+`POST` `/sb/targets/products/count`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (SBTargetingGetTargetableASINCounts)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.productTargetingCategories.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `SBTargetingGetTargetableASINCountsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ageRanges` | `body` | `Array<string>` | No | No | List of Age Range Refinement Ids. |
+| `brands` | `body` | `Array<string>` | No | No | List of Brand Refinement Ids. |
+| `category` | `body` | `string` | Yes | No | The category refinement id. Please use /sb/targets/categories or /sb/recommendations/targets/category to retrieve category IDs. |
+| `genres` | `body` | `Array<string>` | No | No | List of Genre Refinement Ids. |
+| `isPrimeShipping` | `body` | `boolean` | No | No | Indicates if products have prime shipping. Leave empty to include both prime shipping and non-prime shipping products. |
+| `priceRange` | `body` | `Inline1075` | No | No | A range of prices. We use this to retrieve the number of targetable ASINs that falls within this price range. |
+| `ratingRange` | `body` | `Inline1076` | No | No | Rating range is restricted to integers between 0 and 5, inclusive. Min must be less than or equal to max. We use this to retrieve the number of targetable ASINs that falls within this rating range. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.productTargetingCategories.sBTargetingGetTargetableCategories
+
+`GET` `/sb/targets/categories`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (SBTargetingGetTargetableCategories)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sb.productTargetingCategories.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `SBTargetingGetTargetableCategoriesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locale` | `query` | `string` | No | No | The locale to which the caller wishes to translate the targetable categories or refinements to. For example, if the caller wishes to receive the targetable categories in Simplified Chinese, the locale parameter should be set to zh_CN. If no locale is provided, the returned tagetable categories will be in the default language of the marketplace. |
+| `supplySource` | `query` | `string` | Yes | No | The supply source where the target will be used. Use `AMAZON` for placements on Amazon website. Use `STREAMING_VIDEO` for off-site video placements such as IMDb TV. |
+| `includeOnlyRootCategories` | `query` | `boolean` | No | No | Indicates whether to only retun root categories or not. |
+| `parentCategoryRefinementId` | `query` | `string` | No | No | Returns child categories of category. |
+| `nextToken` | `query` | `string` | No | No | Operations that return paginated results include a pagination token in this field. To retrieve the next page of results, call the same operation and specify this token in the request. If the `NextToken` field is empty, there are no further results. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

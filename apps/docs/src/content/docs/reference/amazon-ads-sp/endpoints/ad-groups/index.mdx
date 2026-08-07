@@ -1,0 +1,156 @@
+---
+title: "Amazon Ads — Sponsored Products Ad Groups endpoints"
+description: "4 generated Amazon Ads — Sponsored Products endpoint contracts for Ad Groups."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 100
+  label: "Ad Groups"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.adGroups.createSponsoredProductsAdGroups
+
+`POST` `/sp/adGroups`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateSponsoredProductsAdGroups)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.adGroups.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateSponsoredProductsAdGroupsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `body` | `Array<Inline2667>` | Yes | No | An array of adGroups. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.adGroups.deleteSponsoredProductsAdGroups
+
+`POST` `/sp/adGroups/delete`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (DeleteSponsoredProductsAdGroups)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.adGroups.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `DeleteSponsoredProductsAdGroupsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `body` | `Inline2675` | Yes | No | Filter entities by the list of objectIds |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.adGroups.listSponsoredProductsAdGroups
+
+`POST` `/sp/adGroups/list`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (ListSponsoredProductsAdGroups)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.adGroups.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `ListSponsoredProductsAdGroupsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `body` | `Inline2683` | No | No | Filter entities by the list of objectIds |
+| `campaignIdFilter` | `body` | `Inline2684` | No | No | Filter entities by the list of objectIds |
+| `campaignTargetingTypeFilter` | `body` | `string` | No | No | — |
+| `includeExtendedDataFields` | `body` | `boolean` | No | No | Whether to get entity with extended data fields such as creationDate, lastUpdateDate, servingStatus |
+| `maxResults` | `body` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API |
+| `nameFilter` | `body` | `Inline2685` | No | No | Filter entities by name |
+| `nextToken` | `body` | `string` | No | No | token value allowing to navigate to the next response page |
+| `stateFilter` | `body` | `Inline2686` | No | No | Filter entities by state. To filter live entities, only 'ENABLED', 'PAUSED' and 'ARCHIVED' can be used |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.adGroups.updateSponsoredProductsAdGroups
+
+`PUT` `/sp/adGroups`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (UpdateSponsoredProductsAdGroups)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.adGroups.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `UpdateSponsoredProductsAdGroupsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `body` | `Array<Inline2671>` | Yes | No | An array of adGroups with updated values. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

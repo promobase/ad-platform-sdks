@@ -1,0 +1,885 @@
+---
+title: "Amazon Ads — Sponsored Products models: Multi Country Theme Based Bid Recommendation Response – Search Optimization Rules Params"
+description: "100 generated Amazon Ads — Sponsored Products model contracts, from MultiCountryThemeBasedBidRecommendationResponse through SearchOptimizationRulesParams."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 1026
+  label: "Multi Country Theme Based Bid Recommendation Response – Search Optimization Rules Params"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## MultiCountryThemeBasedBidRecommendationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidRecommendations` | `bidRecommendations` | `Array<Inline267>` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline269>` | No | No | List of errors occurred while processing multi country request. |
+
+## OptimizationRulesAPISwaggerActionDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actionOperator` | `actionOperator` | `string` | Yes | No | The action operation for the rule. |
+| `actionUnit` | `actionUnit` | `string` | Yes | No | — |
+| `value` | `value` | `number` | Yes | No | An integer between 1 & 100, representing the percent increase on base bid. |
+
+## OptimizationRulesAPISwaggerActionType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADOPT`
+
+## OptimizationRulesAPISwaggerAssociateOptimizationRulesToCampaignRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRuleIds` | `optimizationRuleIds` | `Array<string>` | Yes | No | An array of rule identifiers. |
+
+## OptimizationRulesAPISwaggerAssociateOptimizationRulesToCampaignResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `responses` | `responses` | `Array<Inline274>` | No | No | — |
+
+## OptimizationRulesAPISwaggerCampaignFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `Inline276` | No | No | Filter type and value pair. |
+
+## OptimizationRulesAPISwaggerComparisonOperator
+
+`enum` model on the `json` wire format.
+
+**Values:** `EQUAL_TO`, `GREATER_THAN`, `GREATER_THAN_OR_EQUAL_TO`, `LESS_THAN`, `LESS_THAN_OR_EQUAL_TO`
+
+## OptimizationRulesAPISwaggerCreateOptimizationRulesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRules` | `optimizationRules` | `Array<Inline279>` | Yes | No | — |
+
+## OptimizationRulesAPISwaggerCreateOptimizationRulesRequestV2
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRules` | `optimizationRules` | `Array<Inline285>` | Yes | No | — |
+
+## OptimizationRulesAPISwaggerCreateOptimizationRulesResponseV2
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `responses` | `responses` | `Array<Inline292>` | No | No | — |
+
+## OptimizationRulesAPISwaggerDayOfTheWeek
+
+`enum` model on the `json` wire format.
+
+**Values:** `FRIDAY`, `MONDAY`, `SATURDAY`, `SUNDAY`, `THURSDAY`, `TUESDAY`, `WEDNESDAY`
+
+## OptimizationRulesAPISwaggerDuration
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | No | No | Time of optimization rule completion in ISO 8061. |
+| `eventId` | `eventId` | `string` | No | No | Identifier for the event during which the rule is applied. |
+| `eventName` | `eventName` | `string` | No | No | Name of the event during which the rule is applied. |
+| `startTime` | `startTime` | `string` | No | No | Time of optimization rule creation in ISO 8061. Not Required only when eventId present. |
+
+## OptimizationRulesAPISwaggerEntityFieldFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## OptimizationRulesAPISwaggerExpressionType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BROAD`, `EXACT`, `EXPANDED`, `PHRASE`
+
+## OptimizationRulesAPISwaggerFilterType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BROAD_MATCH`, `EXACT_MATCH`
+
+## OptimizationRulesAPISwaggerOptimizationRule
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `Inline304` | No | No | Action to be taken by the rule. |
+| `conditions` | `conditions` | `Array<Inline305>` | No | No | — |
+| `recurrence` | `recurrence` | `Inline307` | No | No | The recurrence of the optimization rule application. |
+| `ruleCategory` | `ruleCategory` | `string` | No | No | The type of the optimization rule. |
+| `ruleName` | `ruleName` | `string` | No | No | The rule name. |
+| `ruleSubCategory` | `ruleSubCategory` | `string` | No | No | The sub-category of the optimization rule. |
+| `status` | `status` | `string` | No | No | The status of a rule. Only ENABLED and PAUSED are accepted in requests. |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | No | No | The rule identifier. |
+
+## OptimizationRulesAPISwaggerOptimizationRuleFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRuleId` | `optimizationRuleId` | `Inline310` | No | No | Filter type and value pair. |
+| `ruleCategory` | `ruleCategory` | `Inline311` | No | No | Filter type and value pair. |
+| `ruleSubCategory` | `ruleSubCategory` | `Inline312` | No | No | Filter type and value pair. |
+
+## OptimizationRulesAPISwaggerOptimizationRuleFilterV2
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRuleId` | `optimizationRuleId` | `Inline314` | No | No | Filter type and value pair. |
+| `ruleCategory` | `ruleCategory` | `Inline315` | No | No | Filter type and value pair. |
+| `ruleName` | `ruleName` | `Inline316` | No | No | Filter type and value pair. |
+| `ruleStatus` | `ruleStatus` | `Inline317` | No | No | Filter type and value pair. |
+| `ruleSubCategory` | `ruleSubCategory` | `Inline318` | No | No | Filter type and value pair. |
+
+## OptimizationRulesAPISwaggerOptimizationRulesError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `message` | `message` | `string` | No | No | A human-readable description of the response. |
+
+## OptimizationRulesAPISwaggerOptimizationRulesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `responses` | `responses` | `Array<Inline321>` | No | No | — |
+
+## OptimizationRulesAPISwaggerOptimizationRulesResponseV2
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `responses` | `responses` | `Array<Inline327>` | No | No | — |
+
+## OptimizationRulesAPISwaggerOptimizationRuleV2
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `Inline334` | No | No | Action to be taken by the rule. |
+| `conditions` | `conditions` | `Array<Inline335>` | No | No | — |
+| `recurrence` | `recurrence` | `Inline337` | No | No | The recurrence of the optimization rule application. |
+| `ruleCategory` | `ruleCategory` | `string` | No | No | The type of the optimization rule. |
+| `ruleName` | `ruleName` | `string` | No | No | The rule name. |
+| `ruleSubCategory` | `ruleSubCategory` | `string` | No | No | The sub-category of the optimization rule. |
+| `status` | `status` | `string` | No | No | The status of a rule. Only ENABLED and PAUSED are accepted in requests. |
+| `targeting` | `targeting` | `Array<Inline339>` | No | No | — |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | No | No | The rule identifier. |
+
+## OptimizationRulesAPISwaggerOptimizationRuleWithoutRuleId
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `Inline341` | Yes | No | Action to be taken by the rule. |
+| `conditions` | `conditions` | `Array<Inline342>` | No | No | — |
+| `recurrence` | `recurrence` | `Inline344` | Yes | No | The recurrence of the optimization rule application. |
+| `ruleCategory` | `ruleCategory` | `string` | Yes | No | The type of the optimization rule. |
+| `ruleName` | `ruleName` | `string` | No | No | The rule name. |
+| `ruleSubCategory` | `ruleSubCategory` | `string` | Yes | No | The sub-category of the optimization rule. |
+| `status` | `status` | `string` | No | No | The status of a rule. Only ENABLED and PAUSED are accepted in requests. |
+
+## OptimizationRulesAPISwaggerOptimizationRuleWithoutRuleIdV2
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `Inline347` | No | No | Action to be taken by the rule. |
+| `conditions` | `conditions` | `Array<Inline348>` | No | No | — |
+| `recurrence` | `recurrence` | `Inline350` | No | No | The recurrence of the optimization rule application. |
+| `ruleCategory` | `ruleCategory` | `string` | Yes | No | The type of the optimization rule. |
+| `ruleName` | `ruleName` | `string` | Yes | No | The rule name. |
+| `ruleSubCategory` | `ruleSubCategory` | `string` | Yes | No | The sub-category of the optimization rule. |
+| `status` | `status` | `string` | Yes | No | The status of a rule. Only ENABLED and PAUSED are accepted in requests. |
+| `targeting` | `targeting` | `Array<Inline352>` | No | No | — |
+
+## OptimizationRulesAPISwaggerRangeTypeRuleCriteria
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `maxValue` | `maxValue` | `number` | Yes | No | — |
+| `minValue` | `minValue` | `number` | Yes | No | — |
+
+## OptimizationRulesAPISwaggerRuleAction
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actionDetails` | `actionDetails` | `Inline355` | Yes | No | Details of a rule action. |
+| `actionType` | `actionType` | `string` | Yes | No | The action taken when the optimization rule is enabled. Defaults to ADOPT. |
+
+## OptimizationRulesAPISwaggerRuleActionOperator
+
+`enum` model on the `json` wire format.
+
+**Values:** `INCREMENT`
+
+## OptimizationRulesAPISwaggerRuleAttribute
+
+`enum` model on the `json` wire format.
+
+**Values:** `ROAS`
+
+## OptimizationRulesAPISwaggerRuleAttributeV2
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACOS`, `CLICKS`, `CPC`, `CTR`, `CVR`, `IMPRESSIONS`, `ORDERS`, `ROAS`, `SALES`, `SPEND`
+
+## OptimizationRulesAPISwaggerRuleCategory
+
+`enum` model on the `json` wire format.
+
+**Values:** `BID`
+
+## OptimizationRulesAPISwaggerRuleCategoryV2
+
+`enum` model on the `json` wire format.
+
+**Values:** `BID`, `BUDGET`, `TARGETING`
+
+## OptimizationRulesAPISwaggerRuleCondition
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline362 \| Inline363` | No | No | — |
+
+## OptimizationRulesAPISwaggerRuleConditionV2
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline365 \| Inline366` | No | No | Only Value Type Criteria is supported right now. |
+
+## OptimizationRulesAPISwaggerRuleCriteria
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline368 \| Inline369`
+
+## OptimizationRulesAPISwaggerRuleRecurrence
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline371` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline372>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## OptimizationRulesAPISwaggerRuleRecurrenceType
+
+`enum` model on the `json` wire format.
+
+**Values:** `DAILY`, `WEEKLY`
+
+## OptimizationRulesAPISwaggerRuleStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ENABLED`, `ENDED`, `PAUSED`, `SCHEDULED`
+
+## OptimizationRulesAPISwaggerRuleSubCategory
+
+`enum` model on the `json` wire format.
+
+**Values:** `SCHEDULE`
+
+## OptimizationRulesAPISwaggerRuleSubCategoryV2
+
+`enum` model on the `json` wire format.
+
+**Values:** `PERFORMANCE`, `SCHEDULE`
+
+## OptimizationRulesAPISwaggerRuleTargeting
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expressionTypes` | `expressionTypes` | `Array<string>` | Yes | No | — |
+| `lookbackDays` | `lookbackDays` | `number` | Yes | No | The number of days of data to look back on for the rule. |
+| `targetingType` | `targetingType` | `string` | Yes | No | The type of targets for the rule. |
+
+## OptimizationRulesAPISwaggerSearchOptimizationRulesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignFilter` | `campaignFilter` | `Inline379` | No | No | Filter on campaigns. This filter only returns associated Bid and Targeting rules, and it does not return budget rules. |
+| `nextToken` | `nextToken` | `string` | No | No | — |
+| `optimizationRuleFilter` | `optimizationRuleFilter` | `Inline380` | No | No | Filter on optimization rules. |
+| `pageSize` | `pageSize` | `number` | No | No | — |
+
+## OptimizationRulesAPISwaggerSearchOptimizationRulesRequestV2
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignFilter` | `campaignFilter` | `Inline384` | No | No | Filter on campaigns. This filter only returns associated Bid and Targeting rules, and it does not return budget rules. |
+| `maxResults` | `maxResults` | `number` | No | No | The maximum number of optimization rules to fetch. |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the field is empty, the first page of results will be returned. |
+| `optimizationRuleFilter` | `optimizationRuleFilter` | `Inline385` | No | No | Filter on optimization rules. |
+| `sortBy` | `sortBy` | `Array<string>` | No | No | Sort conditions applied to the response. |
+
+## OptimizationRulesAPISwaggerSearchOptimizationRulesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `nextToken` | `nextToken` | `string` | No | No | — |
+| `optimizationRules` | `optimizationRules` | `Array<Inline391>` | No | No | — |
+
+## OptimizationRulesAPISwaggerSearchOptimizationRulesResponseV2
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `nextToken` | `nextToken` | `string` | No | No | — |
+| `optimizationRules` | `optimizationRules` | `Array<Inline397>` | No | No | — |
+
+## OptimizationRulesAPISwaggerSingleOptimizationRuleAssociationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful. |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | No | No | The rule identifier. |
+
+## OptimizationRulesAPISwaggerSingleOptimizationRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful. |
+| `optimizationRule` | `optimizationRule` | `Inline405` | No | No | — |
+
+## OptimizationRulesAPISwaggerSingleOptimizationRuleResponseV2
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful. |
+| `optimizationRule` | `optimizationRule` | `Inline411` | No | No | — |
+
+## OptimizationRulesAPISwaggerSortableField
+
+`enum` model on the `json` wire format.
+
+**Values:** `NAME`
+
+## OptimizationRulesAPISwaggerTargetingType
+
+`enum` model on the `json` wire format.
+
+**Values:** `KEYWORD`, `PRODUCT`
+
+## OptimizationRulesAPISwaggerUpdateOptimizationRulesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRules` | `optimizationRules` | `Array<Inline420>` | Yes | No | — |
+
+## OptimizationRulesAPISwaggerUpdateOptimizationRulesRequestV2
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRules` | `optimizationRules` | `Array<Inline426>` | Yes | No | — |
+
+## OptimizationRulesAPISwaggerUpdateOptimizationRulesResponseV2
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `responses` | `responses` | `Array<Inline433>` | No | No | — |
+
+## OptimizationRulesAPISwaggerValueTypeRuleCriteria
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## PerformanceMeasureCondition
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## PerformanceMetric
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACOS`, `CTR`, `CVR`, `ROAS`
+
+## PlacementAdjustment
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `percentage` | `percentage` | `number` | No | No | — |
+| `predicate` | `predicate` | `string` | No | No | — |
+
+## PlacementBiddingRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `string` | No | No | Type of suggested action. |
+| `incrementalImpressionsLowerPercent` | `incrementalImpressionsLowerPercent` | `number` | No | No | Lower bound of the estimated incremental impressions that could be gained if this optimization used |
+| `incrementalImpressionsUpperPercent` | `incrementalImpressionsUpperPercent` | `number` | No | No | Upper bound of the estimated incremental impressions that could be gained if this optimization used |
+| `placementType` | `placementType` | `string` | No | No | The placement type. |
+| `suggestedBidAdjustment` | `suggestedBidAdjustment` | `number` | No | No | The suggested bid adjustment percent value for this placement type. |
+
+## PriceRange
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max` | `max` | `number` | No | No | — |
+| `min` | `min` | `number` | No | No | — |
+
+## ProductDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asin` | `asin` | `string` | No | No | The identifier of the product. |
+| `globalStoreSetting` | `globalStoreSetting` | `Inline446` | No | No | This denotes the fields related to [GlobalStore Program](https://sellercentral.amazon.com/help/hub/reference/external/202139180). |
+
+## ProductDetailsList
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline448>`
+
+## ProductRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendedAsin` | `recommendedAsin` | `string` | No | No | Recommended ASIN |
+| `themes` | `themes` | `Array<string>` | No | No | List of themes associated with this recommended ASIN. |
+
+## ProductRecommendationsByASIN
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextCursor` | `nextCursor` | `string` | No | No | An identifier to fetch next set of `ProductRecommendation` records in the result set if available. This will be null when at the end of result set. |
+| `previousCursor` | `previousCursor` | `string` | No | No | Optional parameter that links to the previous result set served. This parameter will be null on the first request. |
+| `recommendations` | `recommendations` | `Array<Inline451>` | No | No | An array of `ProductRecommendation` objects. |
+
+## ProductRecommendationsByTheme
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextCursor` | `nextCursor` | `string` | No | No | An identifier to fetch next set of `ThemeRecommendation` records in the result set if available. This will be null when at the end of result set. |
+| `previousCursor` | `previousCursor` | `string` | No | No | Optional parameter that links to the previous result set served to the requester. |
+| `recommendations` | `recommendations` | `Array<Inline453>` | No | No | An array of `ThemeRecommendation` objects |
+
+## RangeMetricValue
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lower` | `lower` | `number` | No | No | — |
+| `upper` | `upper` | `number` | No | No | — |
+
+## RankedKeywordTargetsForAdGroupRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the ad group |
+| `bidsEnabled` | `bidsEnabled` | `boolean` | No | No | Set this parameter to false if you do not want to retrieve bid suggestions for your keyword targets. Defaults to true. |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The recommendationType to retrieve recommended keyword targets for an existing ad group. |
+| `targets` | `targets` | `Array<Inline456>` | No | No | A list of targets that need to be ranked |
+
+## RankedKeywordTargetsForAsinsRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | An array list of Asins |
+| `biddingStrategy` | `biddingStrategy` | `string` | No | No | The bid recommendations returned will depend on the bidding strategy. &lt;br&gt; LEGACY_FOR_SALES - Dynamic Bids (Down only) &lt;br&gt; AUTO_FOR_SALES - Dynamic Bids (Up or down) &lt;br&gt; MANUAL - Fixed Bids |
+| `bidsEnabled` | `bidsEnabled` | `boolean` | No | No | Set this parameter to false if you do not want to retrieve bid suggestions for your keyword targets. Defaults to true. |
+| `productDetailsList` | `productDetailsList` | `Array<Inline458>` | No | No | The list of products in the request. |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The recommendationType to retrieve recommended keyword targets for a list of ASINs. |
+| `targets` | `targets` | `Array<Inline459>` | No | No | A list of targets that need to be ranked |
+
+## RankedTargetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywordTargetList` | `keywordTargetList` | `Array<Inline461>` | No | No | A list of ranked keyword targets |
+
+## RankedTargetWithThemedBids
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidInfo` | `bidInfo` | `Array<Inline463>` | No | No | A list of keyword bid info |
+| `keyword` | `keyword` | `string` | No | No | The keyword value |
+| `recId` | `recId` | `string` | No | No | The recommended keyword target id |
+| `searchTermImpressionRank` | `searchTermImpressionRank` | `number` | No | No | The account-level ad-attributed impression rank for the search-term/keyword. Provides [1:N] place the advertiser ranks among all advertisers for the keyword by ad impressions in a marketplace in the last 30 days. It tells an advertiser how many advertisers had higher share of ad impressions. This information is only available for keywords the advertiser targeted with ad impressions. |
+| `searchTermImpressionShare` | `searchTermImpressionShare` | `number` | No | No | The account-level ad-attributed impression share for the search-term/keyword. Provides percentage share of all ad impressions the advertiser has for the keyword in the last 30 days. This metric helps advertisers identify potential opportunities based on their share on relevant keywords. This information is only available for keywords the advertiser targeted with ad impressions. |
+| `translation` | `translation` | `string` | No | No | The translation of keyword if a locale is passed in |
+| `userSelectedKeyword` | `userSelectedKeyword` | `boolean` | No | No | Flag that tells if keyword was selected by the user or was recommended by KRS |
+
+## RankedTargetWithThemedBidsList
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline465>`
+
+## RankedTargetWithThemedBidsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `impactMetrics` | `impactMetrics` | `Array<Inline467>` | No | No | A list of impact metrics which anticipates the number of clicks and orders you will receive if you target all targeting expressions using the low, medium, and high suggested bid. |
+| `keywordTargetList` | `keywordTargetList` | `Array<Inline469>` | No | No | — |
+
+## RatingRange
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max` | `max` | `number` | No | No | — |
+| `min` | `min` | `number` | No | No | — |
+
+## RecKeywordTarget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidInfo` | `bidInfo` | `Array<Inline472>` | No | No | A list of keyword bid info |
+| `keyword` | `keyword` | `string` | No | No | The keyword value |
+| `recId` | `recId` | `string` | No | No | The recommended keyword target id |
+| `searchTermImpressionRank` | `searchTermImpressionRank` | `number` | No | No | The account-level ad-attributed impression rank for the search-term/keyword. Provides [1:N] place the advertiser ranks among all advertisers for the keyword by ad impressions in a marketplace in the last 30 days. It tells an advertiser how many advertisers had higher share of ad impressions. This information is only available for keywords the advertiser targeted with ad impressions. |
+| `searchTermImpressionShare` | `searchTermImpressionShare` | `number` | No | No | The account-level ad-attributed impression share for the search-term/keyword. Provides percentage share of all ad impressions the advertiser has for the keyword in the last 30 days. This metric helps advertisers identify potential opportunities based on their share on relevant keywords. This information is only available for keywords the advertiser targeted with ad impressions. |
+| `translation` | `translation` | `string` | No | No | The translation of keyword if a locale is passed in |
+| `userSelectedKeyword` | `userSelectedKeyword` | `boolean` | No | No | Flag that tells if keyword was selected by the user or was recommended by KRS |
+
+## Recommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign. |
+| `forecastEstimates` | `forecastEstimates` | `Inline474` | No | No | — |
+| `recommendationDetails` | `recommendationDetails` | `unknown \| unknown \| unknown \| unknown \| unknown \| unknown` | Yes | No | Contains one or more recommendation details of different types. |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | Type of recommendations requested. \| Value \| Description \| \| --- \| --- \| \| `BIDDING_STRATEGY` \| Recommendation for the campaign bidding strategy. \| \| `KEYWORD` \| Recommendations related to campaign keywords targeting. \| \| `KEYWORD_GROUP` \| Recommendation related to Keyword groups. Keyword Groups is a new control for Amazon Ads Sponsored Products keyword-based campaigns that enables advertisers to reach relevant audiences through a collection of keywords. \| \| `BUDGET_STRATEGY` \| Recommendation for the campaign budget.\| \| `PLACEMENT_BIDDING` \| Bid recommendations for campaign placements such as top of search, rest of search etc. \| \| `SHOPPER_COHORT` \| Bid adjustment recommendations for the shopper cohorts (audiences) attached to the campaign.\| |
+
+## RecommendationDetails
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown \| unknown \| unknown \| unknown \| unknown \| unknown`
+
+## RecommendationOptions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locale` | `locale` | `string` | No | No | Translations are for readability and do not affect the targeting of ads. Supported marketplace to locale mappings can be found at the &lt;a href='https://advertising.amazon.com/API/docs/en-us/localization/#/Keyword%20Localization'&gt;POST /keywords/localize&lt;/a&gt; endpoint. Note: Translations will be null if locale is unsupported. |
+| `maxRecommendations` | `maxRecommendations` | `number` | No | No | The max size of recommended target. Set it to 0 if you only want to rank user-defined keywords. |
+| `sortDimension` | `sortDimension` | `string` | No | No | The ranking metric value. Supported values: CLICKS, CONVERSIONS, DEFAULT. DEFAULT will be applied if no value passed in. |
+
+## RecommendationType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BIDDING_STRATEGY`, `BUDGET_STRATEGY`, `KEYWORD`, `KEYWORD_GROUP`, `PLACEMENT_BIDDING`, `SHOPPER_COHORT`
+
+## Recurrence
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | Object representing days of the week for weekly type rule. It is not required for daily recurrence type |
+| `intraDaySchedule` | `intraDaySchedule` | `Array<Inline479>` | No | No | List of objects representing start and end time of desired intra-day budget rule window |
+| `type` | `type` | `string` | No | No | The frequency of the rule application. |
+
+## RecurrenceType
+
+`enum` model on the `json` wire format.
+
+**Values:** `DAILY`
+
+## Refinements
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ageRanges` | `ageRanges` | `Array<Inline482>` | No | No | List of Age Ranges. Use the GetRefinementsForCategory to retrieve Age Ranges. Age Ranges are only available for categories related to children's toys and games. |
+| `brands` | `brands` | `Array<Inline483>` | No | No | List of Brands. |
+| `genres` | `genres` | `Array<Inline484>` | No | No | List of Genres. Use the GetRefinementsForCategory to retrieve Genre Node IDs. Genres are only available for categories related to books. |
+
+## RefinementsLoP
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ageRanges` | `ageRanges` | `Array<Inline486>` | No | No | List of Age Ranges in a language of preference (LoP). Use the POST /sp/targets/category/&#123;categoryId&#125;/refinements endpoint to retrieve Age Ranges. Age Ranges are only available for categories related to children's toys and games. |
+| `brands` | `brands` | `Array<Inline487>` | No | No | List of Brands. |
+| `genres` | `genres` | `Array<Inline488>` | No | No | List of Genres in a language of preference (LoP). Use the POST /sp/targets/category/&#123;categoryId&#125;/refinements endpoint to retrieve Genre Node IDs. Genres are only available for categories related to books. |
+
+## RuleAction
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADOPT`
+
+## RuleCampaignId
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## RuleCondition
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. ROAS is the only supported metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## RuleConditionList
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline493>`
+
+## RuleConditionMetric
+
+`enum` model on the `json` wire format.
+
+**Values:** `AVERAGE_BID`, `ROAS`
+
+## RuleCreationDate
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## RuleDuration
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dateRangeTypeRuleDuration` | `dateRangeTypeRuleDuration` | `Inline497` | No | No | Object representing date range type rule duration. |
+| `eventTypeRuleDuration` | `eventTypeRuleDuration` | `Inline498` | No | No | Object representing event type rule duration. |
+
+## RuleName
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## RuleNotification
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | No | No | campaignId |
+| `campaignOptimizationId` | `campaignOptimizationId` | `string` | No | No | The persistent rule identifier. |
+| `notificationString` | `notificationString` | `string` | No | No | Explains why the rule state is disabled |
+| `ruleState` | `ruleState` | `string` | No | No | The campaign optimization rule state. |
+
+## RuleNotificationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `Error` | `Error` | `Inline502` | No | No | The Error Response Object. |
+| `campaignId` | `campaignId` | `string` | No | No | campaignId |
+
+## RuleRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | No | No | campaignId |
+| `performanceMetrics` | `performanceMetrics` | `Inline504` | No | No | Performance Metrics supported by the rule recommendation |
+| `performanceMetricsExists` | `performanceMetricsExists` | `boolean` | No | No | If true, performance metrics for the campaign are available in performanceMetrics response field. |
+
+## RuleRecommendationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `Error` | `Error` | `Inline506` | No | No | The Error Response Object. |
+| `campaignId` | `campaignId` | `string` | No | No | campaignId |
+
+## RuleRecommendationMetrics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `roas` | `roas` | `number` | No | No | return on ad spend value |
+
+## RuleState
+
+`enum` model on the `json` wire format.
+
+**Values:** `DISABLED`, `ENABLED`
+
+## RuleStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACTIVE`, `ARCHIVED`
+
+## RuleType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BID`, `KEYWORD`, `PRODUCT`
+
+## SearchBrandsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword` | `keyword` | `string` | Yes | No | — |
+
+## SearchBrandsRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword` | `keyword` | `string` | Yes | No | — |
+
+## SearchBrandsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline2944>` | Yes | No | — |
+
+## SearchOptimizationRulesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignFilter` | `campaignFilter` | `Inline3037` | No | No | Filter on campaigns. This filter only returns associated Bid and Targeting rules, and it does not return budget rules. |
+| `nextToken` | `nextToken` | `string` | No | No | — |
+| `optimizationRuleFilter` | `optimizationRuleFilter` | `Inline3038` | No | No | Filter on optimization rules. |
+| `pageSize` | `pageSize` | `number` | No | No | — |

@@ -1,0 +1,110 @@
+---
+title: "Amazon Ads — Sponsored Display Brand Safety Deny List Domains endpoints"
+description: "3 generated Amazon Ads — Sponsored Display endpoint contracts for Brand Safety Deny List Domains."
+generated: true
+platform: "amazon-ads-sd"
+sourceVersion: "v5"
+sidebar:
+  order: 100
+  label: "Brand Safety Deny List Domains"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.brandSafetyDenyListDomains.createBrandSafetyDenyListDomains
+
+`POST` `/sd/brandSafety/deny`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (createBrandSafetyDenyListDomains)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sd.brandSafetyDenyListDomains.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateBrandSafetyDenyListDomainsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `domains` | `body` | `Array<Inline349>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.brandSafetyDenyListDomains.deleteBrandSafetyDenyList
+
+`DELETE` `/sd/brandSafety/deny`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (deleteBrandSafetyDenyList)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sd.brandSafetyDenyListDomains.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `DeleteBrandSafetyDenyListResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.brandSafetyDenyListDomains.listDomains
+
+`GET` `/sd/brandSafety/deny`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (listDomains)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sd.brandSafetyDenyListDomains.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `ListDomainsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `startIndex` | `query` | `number` | No | No | Optional. Sets a cursor into the requested set of domains. Use in conjunction with the count parameter to control pagination of the returned array. 0-indexed record offset for the result set, defaults to 0. |
+| `count` | `query` | `number` | No | No | Optional. Sets the number of domain objects in the returned array. Use in conjunction with the startIndex parameter to control pagination. For example, to return the first 1000 domains set startIndex=0 and count=1000. To return the next 1000 domains, set startIndex=1000 and count=1000, and so on. Defaults to max page size(1000). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

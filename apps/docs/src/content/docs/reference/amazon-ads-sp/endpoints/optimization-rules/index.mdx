@@ -1,0 +1,153 @@
+---
+title: "Amazon Ads — Sponsored Products Optimization Rules endpoints"
+description: "4 generated Amazon Ads — Sponsored Products endpoint contracts for Optimization Rules."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 117
+  label: "Optimization Rules"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.optimizationRules.associateOptimizationRulesToCampaign
+
+`POST` `/sp/campaigns/{campaignId}/optimizationRules`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (AssociateOptimizationRulesToCampaign)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.optimizationRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `AssociateOptimizationRulesToCampaignResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `path` | `string` | Yes | No | The sp campaign identifier. |
+| `optimizationRuleIds` | `body` | `Array<string>` | Yes | No | An array of rule identifiers. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.optimizationRules.createOptimizationRules
+
+`POST` `/sp/rules/optimization`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateOptimizationRules)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.optimizationRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateOptimizationRulesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRules` | `body` | `Array<Inline3020>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.optimizationRules.searchOptimizationRules
+
+`POST` `/sp/rules/optimization/search`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (SearchOptimizationRules)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.optimizationRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `SearchOptimizationRulesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignFilter` | `body` | `Inline3048` | No | No | Filter on campaigns. This filter only returns associated Bid and Targeting rules, and it does not return budget rules. |
+| `nextToken` | `body` | `string` | No | No | — |
+| `optimizationRuleFilter` | `body` | `Inline3049` | No | No | Filter on optimization rules. |
+| `pageSize` | `body` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.optimizationRules.updateOptimizationRules
+
+`PUT` `/sp/rules/optimization`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (UpdateOptimizationRules)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.optimizationRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `UpdateOptimizationRulesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRules` | `body` | `Array<Inline3032>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

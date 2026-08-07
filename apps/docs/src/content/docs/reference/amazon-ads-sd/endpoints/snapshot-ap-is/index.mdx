@@ -1,0 +1,117 @@
+---
+title: "Amazon Ads — Sponsored Display Snapshot AP Is endpoints"
+description: "3 generated Amazon Ads — Sponsored Display endpoint contracts for Snapshot AP Is."
+generated: true
+platform: "amazon-ads-sd"
+sourceVersion: "v5"
+sidebar:
+  order: 107
+  label: "Snapshot AP Is"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.snapshotAPIs.createSnapshot
+
+`POST` `/sd/{recordType}/snapshot`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (createSnapshot)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sd.snapshotAPIs.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateSnapshotResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recordType` | `path` | `string` | Yes | No | — |
+| `stateFilter` | `body` | `string` | No | No | Optional. Restricts results to entities with state within the specified comma-separated list. The stateFilter not presenting or passing `null` or `""` would be treated as default behavior is to include enabled and paused. |
+| `tacticFilter` | `body` | `string` | No | No | Optional. Restricts results to entities with the advertising tactic associated with the campaign within the specified comma-separated list. The tacticFilter not presenting or passing `null` or `""` would be treated as default behavior is to return entities for all tactics. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.snapshotAPIs.downloadSnapshotById
+
+`GET` `/sd/snapshots/{snapshotId}/download`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (downloadSnapshotById)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sd.snapshotAPIs.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `DownloadSnapshotByIdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `snapshotId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.snapshotAPIs.getSnapshotById
+
+`GET` `/sd/snapshots/{snapshotId}`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getSnapshotById)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sd.snapshotAPIs.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetSnapshotByIdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `snapshotId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

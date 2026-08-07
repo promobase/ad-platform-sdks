@@ -1,0 +1,1053 @@
+---
+title: "Amazon Ads — Sponsored Brands models: Inline867 – Internal Server Error Code"
+description: "100 generated Amazon Ads — Sponsored Brands model contracts, from Inline867 through InternalServerErrorCode."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 1009
+  label: "Inline867 – Internal Server Error Code"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Inline867
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline867` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | Exact error reason.. |
+
+## Inline868
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline868` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline869
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | Allowed values. |
+| `cause` | `cause` | `Inline869` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | Optional lower limit. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | Optional upper limit. |
+
+## Inline870
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign` | `campaign` | `Inline870` | No | No | — |
+| `campaignId` | `campaignId` | `string` | No | No | The campaign ID. |
+| `index` | `index` | `number` | Yes | No | The index of the campaign in the array from the request body. |
+
+## Inline871
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `percentage` | `percentage` | `number` | No | No | — |
+| `shopperSegment` | `shopperSegment` | `string` | No | No | List of bid adjustments for shopper segments. - NEW_TO_BRAND_PURCHASE - The shopper segment where shopper has not purchased product from the brand. |
+
+## Inline872
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceSegments` | `audienceSegments` | `Array<Inline872>` | No | No | — |
+| `percentage` | `percentage` | `number` | No | No | — |
+| `shopperCohortType` | `shopperCohortType` | `string` | No | No | Type of shopper cohort to apply shopper cohort bid adjustments to. Only AUDIENCE_SEGMENT is supported at the moment |
+
+## Inline873
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDate` | `creationDate` | `number` | No | No | Creation date in epoch time. |
+| `lastUpdateDate` | `lastUpdateDate` | `number` | No | No | Date of last update in epoch time. |
+| `servingStatus` | `servingStatus` | `string` | No | No | `Notice: the servingStatus enums have not been finalized yet.` The campaign serving status determined by system. - ADVERTISER_STATUS_ENABLED - Advertiser's status is enabled - ADVERTISER_POLICING_PENDING_REVIEW - Avertiser is pending review because of policing reason - ADVERTISER_POLICING_SUSPENDED - Advertiser's status is suspended because of policing reason - ADVERTISER_PAUSED - Advertiser's status is paused - ADVERTISER_ARCHIVED - Advertiser's status is archived - ADVERTISER_PAYMENT_FAILURE - Advertiser's internal status is suspended - ADVERTISER_ACCOUNT_OUT_OF_BUDGET - Advertiser is out of budget for all Sponsored Ads campaigns - ADVERTISER_OUT_OF_PREPAY_BALANCE - Advertiser is out of prepay balance for all Sponsored Ads campaigns - ADVERTISER_EXCEED_SPENDS_LIMIT - Advertiser spends over the daily limit - CAMPAIGN_STATUS_ENABLED - Campaign's status is enabled. - CAMPAIGN_PAUSED - Campaign's status is paused. - CAMPAIGN_ARCHIVED - Campaign's status is archived. - CAMPAIGN_INCOMPLETE - Campaign does not contain any ads or targeting clauses. - CAMPAIGN_OUT_OF_BUDGET - Campaign is out of budget. - PORTFOLIO_STATUS_ENABLED - Portfolio's status is enabled - PORTFOLIO_PAUSED - Portfolio's status is paused - PORTFOLIO_ARCHIVED - Portfolio's status is archived - PORTFOLIO_OUT_OF_BUDGET - Portfolio is out of budget - PORTFOLIO_PENDING_START_DATE - Portfolio's start date is in the future - PORTFOLIO_ENDED - Portfolio's end date is in the past. - INELIGIBLE - Ad Offer is ineligible - ELIGIBLE - Ad Offer is eligible - ENDED - Campaign's end date is in the past. - PENDING_REVIEW - Campaign is pending review. - PENDING_START_DATE - Campaign's start date is in the future. - REJECTED - Campaign is rejected by moderation process. - UNKNOWN - Serving status is unknown. Please contact us for support. |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<string>` | No | No | The serving status reasons of the Campaign. |
+
+## Inline874
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `applicableRuleId` | `applicableRuleId` | `string` | No | No | — |
+| `applicableRuleName` | `applicableRuleName` | `string` | No | No | — |
+| `isProcessing` | `isProcessing` | `boolean` | No | No | — |
+| `value` | `value` | `number` | No | No | — |
+
+## Inline875
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline877
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | Yes | No | Entity object identifier. |
+| `creative` | `creative` | `Inline877` | Yes | No | — |
+
+## Inline878
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pageType` | `pageType` | `string` | No | No | The BrandCollectionLandingPageType is used for brand collection ads, supporting only store page and product list landing pages. |
+| `url` | `url` | `string` | No | No | URL of an existing simple landing page or Store page for brand collection ads. If the pageType is PRODUCT_LIST, the landing page must include the ASINs of at least three products that are advertised as part of the campaign. Do not include this property in the request if the asins property is also included, these properties are mutually exclusive. |
+
+## Inline880
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline880>` | No | No | — |
+| `success` | `success` | `Array<Inline882>` | No | No | — |
+
+## Inline881
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | Allowed values. |
+| `cause` | `cause` | `Inline881` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | Optional lower limit. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | Optional upper limit. |
+
+## Inline882
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | Yes | No | Entity object identifier. |
+| `creativeVersion` | `creativeVersion` | `string` | No | No | — |
+| `index` | `index` | `number` | Yes | No | The index in the original list from the request. |
+
+## Inline884
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conditions` | `conditions` | `Array<Inline884>` | No | No | — |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | No | No | The identifier of the optimization rule. |
+
+## Inline886
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline886>` | No | No | — |
+| `success` | `success` | `Array<Inline887>` | No | No | — |
+
+## Inline887
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `number` | Yes | No | The index of the entityId in the array from the request body. |
+| `optimizationRule` | `optimizationRule` | `Inline887` | Yes | No | — |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | Yes | No | The identifier of the optimization rule. |
+
+## Inline89
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | No | No | ID of requested resource |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+| `index` | `index` | `number` | No | No | An index to maintain order of the campaignIds |
+
+## Inline890
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | The number of pixels to crop down from the value specified as top |
+| `left` | `left` | `number` | No | No | The leftmost pixel from which to begin cropping |
+| `top` | `top` | `number` | No | No | The highest pixel from which to begin cropping |
+| `width` | `width` | `number` | No | No | The number of pixels to crop rightwards from the value specified as left |
+
+## Inline892
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | Yes | No | Entity object identifier. |
+| `creative` | `creative` | `Inline892` | Yes | No | — |
+
+## Inline895
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | Yes | No | Entity object identifier. |
+| `creative` | `creative` | `Inline895` | Yes | No | — |
+
+## Inline896
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | An array of ASINs associated with the creative. |
+| `brandLogoAssetId` | `brandLogoAssetId` | `string` | Yes | No | The identifier of the [brand logo](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#brandlogo) image from the brand store's asset library. Note that for campaigns created in the Amazon Advertising console prior to release of the brand store's assets library, responses will not include a value for this field. |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline896` | No | No | Asset cropping attributes |
+| `brandName` | `brandName` | `string` | Yes | No | The displayed brand name in the ad headline. Maximum length is 30 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `consentToTranslate` | `consentToTranslate` | `boolean` | No | No | If set to true and the headline and/or video are not in the marketplace's default language, Amazon will attempt to translate them to the marketplace's default language. If Amazon is unable to translate them, the ad will be rejected by moderation. We only support translating headlines and videos from English to German, French, Italian, Spanish, Japanese, and Dutch. See developer notes for more information. |
+| `headline` | `headline` | `string` | Yes | No | The headline text. Maximum length of the string is 50 characters for all marketplaces other than Japan, which has a maximum length of 35 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `landingPage` | `landingPage` | `Inline897` | No | No | Landing page V2, where type is String with allowed values listed, and url or asins of that type. This parameter is in PREVIEW only and can not be used as part of a request. |
+| `videoAssetIds` | `videoAssetIds` | `Array<string>` | Yes | No | The assetIds of the original videos submitted by the advertiser. If 'consentToTranslate' is set to true and translation is SUCCESSFUL then 'videoAssetIds' will return translated video assetId whereas `originalVideoAssetIds` will return the original video assetId. In all other cases, `videoAssetIds` will return original video assetId. |
+
+## Inline897
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | The list of asins on the landingPage If type is PRODUCT_LIST. A minimum of 3 asins are required. For the 'PRODUCT_LIST' type, the asins property is mandatory, and the url should not be included. |
+| `type` | `type` | `string` | No | No | Supported types are PRODUCT_LIST, STORE, DETAIL_PAGE, CUSTOM_URL. More could be added in future. |
+| `url` | `url` | `string` | No | No | The url of the landingPage. When including the 'asins' property in the request, do not include this property, as they are mutually exclusive. For the PRODUCT_LIST type, the asins property is mandatory, and the url should not be included. |
+
+## Inline899
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | No | No | The unique ID of a Sponsored Brands ad. |
+| `creativeVersion` | `creativeVersion` | `string` | No | No | The version identifier that helps you keep track of multiple versions of a submitted (non-draft) Sponsored Brands creative. |
+
+## Inline90
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `number` | No | No | Budget amount of resource requested |
+| `budgetUsagePercent` | `budgetUsagePercent` | `number` | No | No | Budget usage percentage (spend / available budget) for the given budget policy. |
+| `campaignId` | `campaignId` | `string` | No | No | ID of requested resource |
+| `index` | `index` | `number` | No | No | An index to maintain order of the campaignIds |
+| `usageUpdatedTimestamp` | `usageUpdatedTimestamp` | `string` | No | No | Last evaluation time for budget usage |
+
+## Inline901
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | An array of ASINs associated with the creative. |
+| `brandLogoAssetId` | `brandLogoAssetId` | `string` | Yes | No | The identifier of the [brand logo](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#brandlogo) image from the brand store's asset library. Note that for campaigns created in the Amazon Advertising console prior to release of the brand store's assets library, responses will not include a value for this field. |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline901` | No | No | Asset cropping attributes |
+| `brandName` | `brandName` | `string` | Yes | No | The displayed brand name in the ad headline. Maximum length is 30 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `consentToTranslate` | `consentToTranslate` | `boolean` | No | No | If set to true and the headline and/or video are not in the marketplace's default language, Amazon will attempt to translate them to the marketplace's default language. If Amazon is unable to translate them, the ad will be rejected by moderation. We only support translating headlines and videos from English to German, French, Italian, Spanish, Japanese, and Dutch. See developer notes for more information. |
+| `headline` | `headline` | `string` | Yes | No | The headline text. Maximum length of the string is 50 characters for all marketplaces other than Japan, which has a maximum length of 35 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `landingPage` | `landingPage` | `Inline902` | No | No | Landing page V2, where type is String with allowed values listed, and url or asins of that type. This parameter is in PREVIEW only and can not be used as part of a request. |
+| `videoAssetIds` | `videoAssetIds` | `Array<string>` | Yes | No | The assetIds of the original videos submitted by the advertiser. If 'consentToTranslate' is set to true and translation is SUCCESSFUL then 'videoAssetIds' will return translated video assetId whereas `originalVideoAssetIds` will return the original video assetId. In all other cases, `videoAssetIds` will return original video assetId. |
+
+## Inline902
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | The list of asins on the landingPage If type is PRODUCT_LIST. A minimum of 3 asins are required. For the 'PRODUCT_LIST' type, the asins property is mandatory, and the url should not be included. |
+| `type` | `type` | `string` | No | No | Supported types are PRODUCT_LIST, STORE, DETAIL_PAGE, CUSTOM_URL. More could be added in future. |
+| `url` | `url` | `string` | No | No | The url of the landingPage. When including the 'asins' property in the request, do not include this property, as they are mutually exclusive. For the PRODUCT_LIST type, the asins property is mandatory, and the url should not be included. |
+
+## Inline904
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creatives` | `creatives` | `Array<Inline904>` | No | No | A list of creatives |
+| `nextToken` | `nextToken` | `string` | No | No | Operations that return paginated results include a pagination token in this field. To retrieve the next page of results, call the same operation and specify this token in the request. If the `NextToken` field is empty, there are no further results. |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of results returned by an operation. |
+
+## Inline905
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | The number of pixels to crop down from the value specified as top |
+| `left` | `left` | `number` | No | No | The leftmost pixel from which to begin cropping |
+| `top` | `top` | `number` | No | No | The highest pixel from which to begin cropping |
+| `width` | `width` | `number` | No | No | The number of pixels to crop rightwards from the value specified as left |
+
+## Inline906
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | No | No | — |
+| `crop` | `crop` | `Inline906` | No | No | The crop to apply to the selected Custom image. A Custom image must have a 1200x628 aspect ratio, with a .01 delta for floating point precision. If a customImageAssetId is supplied but a crop is not, the crop will be defaulted to the whole image. |
+| `url` | `url` | `string` | No | No | — |
+
+## Inline907
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | The list of asins on the landingPage If type is PRODUCT_LIST. |
+| `type` | `type` | `string` | No | No | Landing page type |
+| `value` | `value` | `string` | No | No | The url of the landingPage. |
+
+## Inline908
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asin` | `asin` | `string` | No | No | — |
+| `pageTitle` | `pageTitle` | `string` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+
+## Inline910
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | Yes | No | Entity object identifier. |
+| `creative` | `creative` | `Inline910` | Yes | No | — |
+
+## Inline911
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pageType` | `pageType` | `string` | No | No | The BrandCollectionLandingPageType is used for brand collection ads, supporting only store page and product list landing pages. |
+| `url` | `url` | `string` | No | No | URL of an existing simple landing page or Store page for brand collection ads. If the pageType is PRODUCT_LIST, the landing page must include the ASINs of at least three products that are advertised as part of the campaign. Do not include this property in the request if the asins property is also included, these properties are mutually exclusive. |
+
+## Inline914
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | Yes | No | Entity object identifier. |
+| `creative` | `creative` | `Inline914` | Yes | No | — |
+
+## Inline915
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pageType` | `pageType` | `string` | No | No | The BrandCollectionLandingPageType is used for brand collection ads, supporting only store page and product list landing pages. |
+| `url` | `url` | `string` | No | No | URL of an existing simple landing page or Store page for brand collection ads. If the pageType is PRODUCT_LIST, the landing page must include the ASINs of at least three products that are advertised as part of the campaign. Do not include this property in the request if the asins property is also included, these properties are mutually exclusive. |
+
+## Inline916
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | An array of ASINs associated with the creative. |
+| `brandLogoAssetId` | `brandLogoAssetId` | `string` | Yes | No | The identifier of the [brand logo](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#brandlogo) image from the brand store's asset library. Note that for campaigns created in the Amazon Advertising console prior to release of the brand store's assets library, responses will not include a value for this field. |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline916` | No | No | Asset cropping attributes |
+| `brandName` | `brandName` | `string` | Yes | No | The displayed brand name in the ad headline. Maximum length is 30 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `customImageAssetId` | `customImageAssetId` | `string` | No | No | The identifier of the Custom image from the Store assets library. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#customimage) for more information on what constitutes a valid Custom image. |
+| `customImageCrop` | `customImageCrop` | `Inline917` | No | No | Asset cropping attributes |
+| `headline` | `headline` | `string` | Yes | No | The headline text. Maximum length of the string is 50 characters for all marketplaces other than Japan, which has a maximum length of 35 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+
+## Inline917
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | The number of pixels to crop down from the value specified as top |
+| `left` | `left` | `number` | No | No | The leftmost pixel from which to begin cropping |
+| `top` | `top` | `number` | No | No | The highest pixel from which to begin cropping |
+| `width` | `width` | `number` | No | No | The number of pixels to crop rightwards from the value specified as left |
+
+## Inline919
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | No | No | The unique ID of a Sponsored Brands ad. |
+| `creativeVersion` | `creativeVersion` | `string` | No | No | The version identifier that helps you keep track of multiple versions of a submitted (non-draft) Sponsored Brands creative. |
+
+## Inline921
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | An array of ASINs associated with the creative. |
+| `brandLogoAssetId` | `brandLogoAssetId` | `string` | Yes | No | The identifier of the [brand logo](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#brandlogo) image from the brand store's asset library. Note that for campaigns created in the Amazon Advertising console prior to release of the brand store's assets library, responses will not include a value for this field. |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline921` | No | No | Asset cropping attributes |
+| `brandName` | `brandName` | `string` | Yes | No | The displayed brand name in the ad headline. Maximum length is 30 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `customImageAssetId` | `customImageAssetId` | `string` | No | No | The identifier of the Custom image from the Store assets library. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#customimage) for more information on what constitutes a valid Custom image. |
+| `customImageCrop` | `customImageCrop` | `Inline922` | No | No | Asset cropping attributes |
+| `headline` | `headline` | `string` | Yes | No | The headline text. Maximum length of the string is 50 characters for all marketplaces other than Japan, which has a maximum length of 35 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+
+## Inline922
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | The number of pixels to crop down from the value specified as top |
+| `left` | `left` | `number` | No | No | The leftmost pixel from which to begin cropping |
+| `top` | `top` | `number` | No | No | The highest pixel from which to begin cropping |
+| `width` | `width` | `number` | No | No | The number of pixels to crop rightwards from the value specified as left |
+
+## Inline923
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | An array of ASINs associated with the creative. |
+| `brandLogoAssetId` | `brandLogoAssetId` | `string` | Yes | No | The identifier of the [brand logo](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#brandlogo) image from the brand store's asset library. Note that for campaigns created in the Amazon Advertising console prior to release of the brand store's assets library, responses will not include a value for this field. |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline923` | No | No | Asset cropping attributes |
+| `brandName` | `brandName` | `string` | Yes | No | The displayed brand name in the ad headline. Maximum length is 30 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `collectionType` | `collectionType` | `string` | No | No | The CollectionType is used to designate either an auto or manual collection. |
+| `companionAsins` | `companionAsins` | `Array<string>` | No | No | The companion asins in the ad. Only for Bundle Collection type. |
+| `consentToTranslate` | `consentToTranslate` | `boolean` | No | No | If set to true and the headline and/or video are not in the marketplace's default language, Amazon will attempt to translate them to the marketplace's default language. If Amazon is unable to translate them, the ad will be rejected by moderation. We only support translating headlines and videos from English to German, French, Italian, Spanish, Japanese, and Dutch. See developer notes for more information. |
+| `creativePropertiesToOptimize` | `creativePropertiesToOptimize` | `Array<string>` | No | No | The CreativeProperties Amazon will enhance or generate based on various factors like audience, placement etc. |
+| `customImages` | `customImages` | `Array<Inline924>` | No | No | An array of customImages associated with the creative. Minimum one custom image. |
+| `headline` | `headline` | `string` | No | No | DEPRECATED. Please use `headlines` field to provide the headline texts associated with the creative. This shape is deprecated: Please use headlines instead |
+| `headlines` | `headlines` | `Array<string>` | No | No | An array of headline texts associated with the creative. |
+| `landingPage` | `landingPage` | `Inline925` | No | No | Landing page V2, where type is String with allowed values listed, and url or asins of that type. This parameter is in PREVIEW only and can not be used as part of a request. |
+
+## Inline924
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | No | No | — |
+| `crop` | `crop` | `Inline924` | No | No | The crop to apply to the selected Custom image. A Custom image must have a 1200x628 aspect ratio, with a .01 delta for floating point precision. If a customImageAssetId is supplied but a crop is not, the crop will be defaulted to the whole image. |
+| `url` | `url` | `string` | No | No | — |
+
+## Inline925
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | The list of asins on the landingPage If type is PRODUCT_LIST. A minimum of 3 asins are required. For the 'PRODUCT_LIST' type, the asins property is mandatory, and the url should not be included. |
+| `type` | `type` | `string` | No | No | Supported types are PRODUCT_LIST, STORE, DETAIL_PAGE, CUSTOM_URL. More could be added in future. |
+| `url` | `url` | `string` | No | No | The url of the landingPage. When including the 'asins' property in the request, do not include this property, as they are mutually exclusive. For the PRODUCT_LIST type, the asins property is mandatory, and the url should not be included. |
+
+## Inline927
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | No | No | The unique ID of a Sponsored Brands ad. |
+| `creativeVersion` | `creativeVersion` | `string` | No | No | The version identifier that helps you keep track of multiple versions of a submitted (non-draft) Sponsored Brands creative. |
+
+## Inline929
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | An array of ASINs associated with the creative. |
+| `brandLogoAssetId` | `brandLogoAssetId` | `string` | Yes | No | The identifier of the [brand logo](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#brandlogo) image from the brand store's asset library. Note that for campaigns created in the Amazon Advertising console prior to release of the brand store's assets library, responses will not include a value for this field. |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline929` | No | No | Asset cropping attributes |
+| `brandName` | `brandName` | `string` | Yes | No | The displayed brand name in the ad headline. Maximum length is 30 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `collectionType` | `collectionType` | `string` | No | No | The CollectionType is used to designate either an auto or manual collection. |
+| `companionAsins` | `companionAsins` | `Array<string>` | No | No | The companion asins in the ad. Only for Bundle Collection type. |
+| `consentToTranslate` | `consentToTranslate` | `boolean` | No | No | If set to true and the headline and/or video are not in the marketplace's default language, Amazon will attempt to translate them to the marketplace's default language. If Amazon is unable to translate them, the ad will be rejected by moderation. We only support translating headlines and videos from English to German, French, Italian, Spanish, Japanese, and Dutch. See developer notes for more information. |
+| `creativePropertiesToOptimize` | `creativePropertiesToOptimize` | `Array<string>` | No | No | The CreativeProperties Amazon will enhance or generate based on various factors like audience, placement etc. |
+| `customImages` | `customImages` | `Array<Inline930>` | No | No | An array of customImages associated with the creative. Minimum one custom image. |
+| `headline` | `headline` | `string` | No | No | DEPRECATED. Please use `headlines` field to provide the headline texts associated with the creative. This shape is deprecated: Please use headlines instead |
+| `headlines` | `headlines` | `Array<string>` | No | No | An array of headline texts associated with the creative. |
+| `landingPage` | `landingPage` | `Inline931` | No | No | Landing page V2, where type is String with allowed values listed, and url or asins of that type. This parameter is in PREVIEW only and can not be used as part of a request. |
+
+## Inline93
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline93>` | No | No | A list of validation errors. |
+| `index` | `index` | `number` | Yes | No | the index of the adGroup in the array from the request body. |
+
+## Inline930
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | No | No | — |
+| `crop` | `crop` | `Inline930` | No | No | The crop to apply to the selected Custom image. A Custom image must have a 1200x628 aspect ratio, with a .01 delta for floating point precision. If a customImageAssetId is supplied but a crop is not, the crop will be defaulted to the whole image. |
+| `url` | `url` | `string` | No | No | — |
+
+## Inline931
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | The list of asins on the landingPage If type is PRODUCT_LIST. A minimum of 3 asins are required. For the 'PRODUCT_LIST' type, the asins property is mandatory, and the url should not be included. |
+| `type` | `type` | `string` | No | No | Supported types are PRODUCT_LIST, STORE, DETAIL_PAGE, CUSTOM_URL. More could be added in future. |
+| `url` | `url` | `string` | No | No | The url of the landingPage. When including the 'asins' property in the request, do not include this property, as they are mutually exclusive. For the PRODUCT_LIST type, the asins property is mandatory, and the url should not be included. |
+
+## Inline932
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brandLogoAssetId` | `brandLogoAssetId` | `string` | Yes | No | The identifier of the [brand logo](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#brandlogo) image from the brand store's asset library. Note that for campaigns created in the Amazon Advertising console prior to release of the brand store's assets library, responses will not include a value for this field. |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline932` | No | No | Asset cropping attributes |
+| `brandName` | `brandName` | `string` | Yes | No | The displayed brand name in the ad headline. Maximum length is 30 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `consentToTranslate` | `consentToTranslate` | `boolean` | No | No | If set to true and the headline and/or video are not in the marketplace's default language, Amazon will attempt to translate them to the marketplace's default language. If Amazon is unable to translate them, the ad will be rejected by moderation. We only support translating headlines and videos from English to German, French, Italian, Spanish, Japanese, and Dutch. See developer notes for more information. |
+| `creativePropertiesToOptimize` | `creativePropertiesToOptimize` | `Array<string>` | No | No | The CreativeProperties Amazon will enhance or generate based on various factors like audience, placement etc. |
+| `headline` | `headline` | `string` | No | No | DEPRECATED. Please use `headlines` field to provide the headline texts associated with the creative. This shape is deprecated: Please use headlines instead |
+| `headlines` | `headlines` | `Array<string>` | No | No | An array of headline texts associated with the creative. |
+| `landingPage` | `landingPage` | `Inline933` | No | No | Landing page V2, where type is String with allowed values listed, and url or asins of that type. This parameter is in PREVIEW only and can not be used as part of a request. |
+| `subpages` | `subpages` | `Array<Inline934>` | Yes | No | An array of subpages |
+
+## Inline933
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | The list of asins on the landingPage If type is PRODUCT_LIST. A minimum of 3 asins are required. For the 'PRODUCT_LIST' type, the asins property is mandatory, and the url should not be included. |
+| `type` | `type` | `string` | No | No | Supported types are PRODUCT_LIST, STORE, DETAIL_PAGE, CUSTOM_URL. More could be added in future. |
+| `url` | `url` | `string` | No | No | The url of the landingPage. When including the 'asins' property in the request, do not include this property, as they are mutually exclusive. For the PRODUCT_LIST type, the asins property is mandatory, and the url should not be included. |
+
+## Inline934
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asin` | `asin` | `string` | No | No | — |
+| `pageTitle` | `pageTitle` | `string` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+
+## Inline936
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | No | No | The unique ID of a Sponsored Brands ad. |
+| `creativeVersion` | `creativeVersion` | `string` | No | No | The version identifier that helps you keep track of multiple versions of a submitted (non-draft) Sponsored Brands creative. |
+
+## Inline938
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brandLogoAssetId` | `brandLogoAssetId` | `string` | Yes | No | The identifier of the [brand logo](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#brandlogo) image from the brand store's asset library. Note that for campaigns created in the Amazon Advertising console prior to release of the brand store's assets library, responses will not include a value for this field. |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline938` | No | No | Asset cropping attributes |
+| `brandName` | `brandName` | `string` | Yes | No | The displayed brand name in the ad headline. Maximum length is 30 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `consentToTranslate` | `consentToTranslate` | `boolean` | No | No | If set to true and the headline and/or video are not in the marketplace's default language, Amazon will attempt to translate them to the marketplace's default language. If Amazon is unable to translate them, the ad will be rejected by moderation. We only support translating headlines and videos from English to German, French, Italian, Spanish, Japanese, and Dutch. See developer notes for more information. |
+| `creativePropertiesToOptimize` | `creativePropertiesToOptimize` | `Array<string>` | No | No | The CreativeProperties Amazon will enhance or generate based on various factors like audience, placement etc. |
+| `headline` | `headline` | `string` | No | No | DEPRECATED. Please use `headlines` field to provide the headline texts associated with the creative. This shape is deprecated: Please use headlines instead |
+| `headlines` | `headlines` | `Array<string>` | No | No | An array of headline texts associated with the creative. |
+| `landingPage` | `landingPage` | `Inline939` | No | No | Landing page V2, where type is String with allowed values listed, and url or asins of that type. This parameter is in PREVIEW only and can not be used as part of a request. |
+| `subpages` | `subpages` | `Array<Inline940>` | Yes | No | An array of subpages |
+
+## Inline939
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | The list of asins on the landingPage If type is PRODUCT_LIST. A minimum of 3 asins are required. For the 'PRODUCT_LIST' type, the asins property is mandatory, and the url should not be included. |
+| `type` | `type` | `string` | No | No | Supported types are PRODUCT_LIST, STORE, DETAIL_PAGE, CUSTOM_URL. More could be added in future. |
+| `url` | `url` | `string` | No | No | The url of the landingPage. When including the 'asins' property in the request, do not include this property, as they are mutually exclusive. For the PRODUCT_LIST type, the asins property is mandatory, and the url should not be included. |
+
+## Inline94
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline94` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | Exact error reason.. |
+
+## Inline940
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asin` | `asin` | `string` | No | No | — |
+| `pageTitle` | `pageTitle` | `string` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+
+## Inline941
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brandLogoAssetId` | `brandLogoAssetId` | `string` | No | No | The identifier of image/video asset from the store's asset library |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline941` | No | No | Asset cropping attributes |
+| `brandName` | `brandName` | `string` | No | No | The displayed brand name in the ad headline. Maximum length is 30 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `consentToTranslate` | `consentToTranslate` | `boolean` | No | No | If set to true and the headline and/or video are not in the marketplace's default language, Amazon will attempt to translate them to the marketplace's default language. If Amazon is unable to translate them, the ad will be rejected by moderation. We only support translating headlines and videos from English to German, French, Italian, Spanish, Japanese, and Dutch. See developer notes for more information. |
+| `headline` | `headline` | `string` | No | No | The headline text. Maximum length of the string is 50 characters for all marketplaces other than Japan, which has a maximum length of 35 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `videoAssetIds` | `videoAssetIds` | `Array<string>` | Yes | No | The assetIds of the original videos submitted by the advertiser. If 'consentToTranslate' is set to true and translation is SUCCESSFUL then 'videoAssetIds' will return translated video assetId whereas `originalVideoAssetIds` will return the original video assetId. In all other cases, `videoAssetIds` will return original video assetId. |
+
+## Inline943
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | No | No | The unique ID of a Sponsored Brands ad. |
+| `creativeVersion` | `creativeVersion` | `string` | No | No | The version identifier that helps you keep track of multiple versions of a submitted (non-draft) Sponsored Brands creative. |
+
+## Inline945
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brandLogoAssetId` | `brandLogoAssetId` | `string` | No | No | The identifier of image/video asset from the store's asset library |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline945` | No | No | Asset cropping attributes |
+| `brandName` | `brandName` | `string` | No | No | The displayed brand name in the ad headline. Maximum length is 30 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `consentToTranslate` | `consentToTranslate` | `boolean` | No | No | If set to true and the headline and/or video are not in the marketplace's default language, Amazon will attempt to translate them to the marketplace's default language. If Amazon is unable to translate them, the ad will be rejected by moderation. We only support translating headlines and videos from English to German, French, Italian, Spanish, Japanese, and Dutch. See developer notes for more information. |
+| `headline` | `headline` | `string` | No | No | The headline text. Maximum length of the string is 50 characters for all marketplaces other than Japan, which has a maximum length of 35 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `videoAssetIds` | `videoAssetIds` | `Array<string>` | Yes | No | The assetIds of the original videos submitted by the advertiser. If 'consentToTranslate' is set to true and translation is SUCCESSFUL then 'videoAssetIds' will return translated video assetId whereas `originalVideoAssetIds` will return the original video assetId. In all other cases, `videoAssetIds` will return original video assetId. |
+
+## Inline947
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetIncreaseBy` | `budgetIncreaseBy` | `Inline947` | No | No | — |
+| `duration` | `duration` | `Inline948` | No | No | — |
+| `name` | `name` | `string` | No | No | The budget rule name. Required to be unique within a campaign. |
+| `performanceMeasureCondition` | `performanceMeasureCondition` | `Inline950` | No | No | — |
+| `recurrence` | `recurrence` | `Inline951` | No | No | — |
+| `ruleType` | `ruleType` | `string` | No | No | The type of budget rule. SCHEDULE: A budget rule based on a start and end date. PERFORMANCE: A budget rule based on advertising performance criteria. |
+
+## Inline948
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dateRangeTypeRuleDuration` | `dateRangeTypeRuleDuration` | `Inline948` | No | No | Object representing date range type rule duration. |
+| `eventTypeRuleDuration` | `eventTypeRuleDuration` | `Inline949` | No | No | Object representing event type rule duration. |
+
+## Inline949
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The event end date in YYYYMMDD format. Read-only. |
+| `eventId` | `eventId` | `string` | Yes | No | The event identifier. This value is available from the budget rules recommendation API. |
+| `eventName` | `eventName` | `string` | No | No | The event name. Read-only. |
+| `startDate` | `startDate` | `string` | No | No | The event start date in YYYYMMDD format. Read-only. Note that this field is present only for announced events. |
+
+## Inline95
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline95` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline950
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## Inline951
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | Object representing days of the week for weekly type rule. It is not required for daily recurrence type |
+| `intraDaySchedule` | `intraDaySchedule` | `Array<Inline951>` | No | No | List of objects representing start and end time of desired intra-day budget rule window |
+| `type` | `type` | `string` | No | No | depicts the type of recurrence |
+
+## Inline954
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetIncreaseBy` | `budgetIncreaseBy` | `Inline954` | No | No | — |
+| `duration` | `duration` | `Inline955` | No | No | — |
+| `name` | `name` | `string` | No | No | The budget rule name. Required to be unique within a campaign. |
+| `performanceMeasureCondition` | `performanceMeasureCondition` | `Inline957` | No | No | — |
+| `recurrence` | `recurrence` | `Inline958` | No | No | — |
+| `ruleType` | `ruleType` | `string` | No | No | The type of budget rule. SCHEDULE: A budget rule based on a start and end date. PERFORMANCE: A budget rule based on advertising performance criteria. |
+
+## Inline955
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dateRangeTypeRuleDuration` | `dateRangeTypeRuleDuration` | `Inline955` | No | No | Object representing date range type rule duration. |
+| `eventTypeRuleDuration` | `eventTypeRuleDuration` | `Inline956` | No | No | Object representing event type rule duration. |
+
+## Inline956
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The event end date in YYYYMMDD format. Read-only. |
+| `eventId` | `eventId` | `string` | Yes | No | The event identifier. This value is available from the budget rules recommendation API. |
+| `eventName` | `eventName` | `string` | No | No | The event name. Read-only. |
+| `startDate` | `startDate` | `string` | No | No | The event start date in YYYYMMDD format. Read-only. Note that this field is present only for announced events. |
+
+## Inline957
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## Inline958
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | Object representing days of the week for weekly type rule. It is not required for daily recurrence type |
+| `intraDaySchedule` | `intraDaySchedule` | `Array<Inline958>` | No | No | List of objects representing start and end time of desired intra-day budget rule window |
+| `type` | `type` | `string` | No | No | depicts the type of recurrence |
+
+## Inline959
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `createdDate` | `createdDate` | `number` | No | No | Epoch time of budget rule creation. Read-only. |
+| `lastUpdatedDate` | `lastUpdatedDate` | `number` | No | No | Epoch time of budget rule update. Read-only. |
+| `ruleDetails` | `ruleDetails` | `Inline959` | No | No | — |
+| `ruleId` | `ruleId` | `string` | Yes | No | The budget rule identifier. |
+| `ruleState` | `ruleState` | `string` | No | No | The budget rule state. |
+| `ruleStatus` | `ruleStatus` | `string` | No | No | The budget rule status. Read-only. |
+
+## Inline96
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | Allowed values. |
+| `cause` | `cause` | `Inline96` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | Optional lower limit. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | Optional upper limit. |
+
+## Inline960
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dateRangeTypeRuleDuration` | `dateRangeTypeRuleDuration` | `Inline960` | No | No | Object representing date range type rule duration. |
+| `eventTypeRuleDuration` | `eventTypeRuleDuration` | `Inline961` | No | No | Object representing event type rule duration. |
+
+## Inline961
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The event end date in YYYYMMDD format. Read-only. |
+| `eventId` | `eventId` | `string` | Yes | No | The event identifier. This value is available from the budget rules recommendation API. |
+| `eventName` | `eventName` | `string` | No | No | The event name. Read-only. |
+| `startDate` | `startDate` | `string` | No | No | The event start date in YYYYMMDD format. Read-only. Note that this field is present only for announced events. |
+
+## Inline962
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## Inline963
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | Object representing days of the week for weekly type rule. It is not required for daily recurrence type |
+| `intraDaySchedule` | `intraDaySchedule` | `Array<Inline963>` | No | No | List of objects representing start and end time of desired intra-day budget rule window |
+| `type` | `type` | `string` | No | No | depicts the type of recurrence |
+
+## Inline966
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `createdDate` | `createdDate` | `number` | No | No | Epoch time of budget rule creation. Read-only. |
+| `lastUpdatedDate` | `lastUpdatedDate` | `number` | No | No | Epoch time of budget rule update. Read-only. |
+| `ruleDetails` | `ruleDetails` | `Inline966` | No | No | — |
+| `ruleId` | `ruleId` | `string` | Yes | No | The budget rule identifier. |
+| `ruleState` | `ruleState` | `string` | No | No | The budget rule state. |
+| `ruleStatus` | `ruleStatus` | `string` | No | No | The budget rule status. Read-only. |
+
+## Inline967
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dateRangeTypeRuleDuration` | `dateRangeTypeRuleDuration` | `Inline967` | No | No | Object representing date range type rule duration. |
+| `eventTypeRuleDuration` | `eventTypeRuleDuration` | `Inline968` | No | No | Object representing event type rule duration. |
+
+## Inline968
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The event end date in YYYYMMDD format. Read-only. |
+| `eventId` | `eventId` | `string` | Yes | No | The event identifier. This value is available from the budget rules recommendation API. |
+| `eventName` | `eventName` | `string` | No | No | The event name. Read-only. |
+| `startDate` | `startDate` | `string` | No | No | The event start date in YYYYMMDD format. Read-only. Note that this field is present only for announced events. |
+
+## Inline969
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## Inline97
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroup` | `adGroup` | `Inline97` | No | No | — |
+| `adGroupId` | `adGroupId` | `string` | No | No | the adGroup ID. |
+| `index` | `index` | `number` | Yes | No | the index of the adGroup in the array from the request body. |
+
+## Inline970
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | Object representing days of the week for weekly type rule. It is not required for daily recurrence type |
+| `intraDaySchedule` | `intraDaySchedule` | `Array<Inline970>` | No | No | List of objects representing start and end time of desired intra-day budget rule window |
+| `type` | `type` | `string` | No | No | depicts the type of recurrence |
+
+## Inline972
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRule` | `budgetRule` | `Inline972` | No | No | — |
+
+## Inline973
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dateRangeTypeRuleDuration` | `dateRangeTypeRuleDuration` | `Inline973` | No | No | Object representing date range type rule duration. |
+| `eventTypeRuleDuration` | `eventTypeRuleDuration` | `Inline974` | No | No | Object representing event type rule duration. |
+
+## Inline974
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The event end date in YYYYMMDD format. Read-only. |
+| `eventId` | `eventId` | `string` | Yes | No | The event identifier. This value is available from the budget rules recommendation API. |
+| `eventName` | `eventName` | `string` | No | No | The event name. Read-only. |
+| `startDate` | `startDate` | `string` | No | No | The event start date in YYYYMMDD format. Read-only. Note that this field is present only for announced events. |
+
+## Inline975
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## Inline976
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | Object representing days of the week for weekly type rule. It is not required for daily recurrence type |
+| `intraDaySchedule` | `intraDaySchedule` | `Array<Inline976>` | No | No | List of objects representing start and end time of desired intra-day budget rule window |
+| `type` | `type` | `string` | No | No | depicts the type of recurrence |
+
+## Inline979
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `associatedCampaigns` | `associatedCampaigns` | `Array<Inline979>` | No | No | A list of campaigns that are associated to this budget rule. |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the `nextToken` field is empty, there are no further results. |
+
+## Inline982
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `associatedRules` | `associatedRules` | `Array<Inline982>` | No | No | A list of associated budget rules. |
+
+## Inline983
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dateRangeTypeRuleDuration` | `dateRangeTypeRuleDuration` | `Inline983` | No | No | Object representing date range type rule duration. |
+| `eventTypeRuleDuration` | `eventTypeRuleDuration` | `Inline984` | No | No | Object representing event type rule duration. |
+
+## Inline984
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The event end date in YYYYMMDD format. Read-only. |
+| `eventId` | `eventId` | `string` | Yes | No | The event identifier. This value is available from the budget rules recommendation API. |
+| `eventName` | `eventName` | `string` | No | No | The event name. Read-only. |
+| `startDate` | `startDate` | `string` | No | No | The event start date in YYYYMMDD format. Read-only. Note that this field is present only for announced events. |
+
+## Inline985
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## Inline986
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | Object representing days of the week for weekly type rule. It is not required for daily recurrence type |
+| `intraDaySchedule` | `intraDaySchedule` | `Array<Inline986>` | No | No | List of objects representing start and end time of desired intra-day budget rule window |
+| `type` | `type` | `string` | No | No | depicts the type of recurrence |
+
+## Inline99
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline99>` | No | No | A list of validation errors. |
+| `index` | `index` | `number` | Yes | No | the index of the ad in the array from the request body. |
+
+## Inline991
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline997
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The campaign identifier. |
+
+## Inline999
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendedBudgetRuleEvents` | `recommendedBudgetRuleEvents` | `Array<Inline999>` | No | No | A list of recommended special events with date range and suggested budget increase. |
+
+## InternalErrorErrorCode
+
+`enum` model on the `json` wire format.
+
+**Values:** `INTERNAL_ERROR`
+
+## InternalServerErrorCode
+
+`enum` model on the `json` wire format.
+
+**Values:** `INTERNAL_ERROR`

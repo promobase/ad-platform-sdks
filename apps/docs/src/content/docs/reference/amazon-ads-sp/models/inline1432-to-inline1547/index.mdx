@@ -1,0 +1,1014 @@
+---
+title: "Amazon Ads — Sponsored Products models: Inline1432 – Inline1547"
+description: "100 generated Amazon Ads — Sponsored Products model contracts, from Inline1432 through Inline1547."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 1006
+  label: "Inline1432 – Inline1547"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Inline1432
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `internalServerError` | `internalServerError` | `Inline1432` | Yes | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+
+## Inline1433
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `invalidInputError` | `invalidInputError` | `Inline1433` | Yes | No | Errors related to ad eligibility |
+
+## Inline1434
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `throttledError` | `throttledError` | `Inline1434` | Yes | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## Inline1435
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingClauseSetupError` | `targetingClauseSetupError` | `Inline1435` | Yes | No | Errors related to targeting clause setup |
+
+## Inline1437
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | Bid associated with the target. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `expressionType` | `expressionType` | `string` | Yes | No | The match type (for KEYWORDs) or the expression type (for PRODUCT). One of QUERY_BROAD_MATCHES, QUERY_EXACT_MATCHES, QUERY_PHRASE_MATCHES, ASIN_SAME_AS, ASIN_EXPANDED_FROM |
+| `target` | `target` | `string` | Yes | No | The keyword or the product ASIN to be targeted. |
+
+## Inline1439
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline1439>` | No | No | Response object of failed target promotion group target. |
+| `expressionType` | `expressionType` | `string` | No | No | The expression type of the target that was requested to be created. |
+| `target` | `target` | `string` | No | No | The target that was requested to be created. |
+
+## Inline1440
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `billingError` | `billingError` | `Inline1440` | Yes | No | Errors related to bids |
+
+## Inline1441
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `duplicateValueError` | `duplicateValueError` | `Inline1441` | Yes | No | — |
+
+## Inline1442
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityNotFoundError` | `entityNotFoundError` | `Inline1442` | Yes | No | — |
+
+## Inline1443
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityQuotaError` | `entityQuotaError` | `Inline1443` | Yes | No | Errors related to exceeding quota in campaign management service |
+
+## Inline1444
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityStateError` | `entityStateError` | `Inline1444` | Yes | No | entity state update errors |
+
+## Inline1445
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expressionTypeError` | `expressionTypeError` | `Inline1445` | Yes | No | — |
+
+## Inline1446
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `localeError` | `localeError` | `Inline1446` | Yes | No | — |
+
+## Inline1447
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `malformedValueError` | `malformedValueError` | `Inline1447` | Yes | No | Errors being used to represent malformed values e.g. containing not allowed characters, not following patters etc |
+
+## Inline1448
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `missingValueError` | `missingValueError` | `Inline1448` | Yes | No | Error describing missing values in API payloads |
+
+## Inline1449
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `parentEntityError` | `parentEntityError` | `Inline1449` | Yes | No | Errors related to parent entity |
+
+## Inline1450
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rangeError` | `rangeError` | `Inline1450` | Yes | No | Errors related to range constraints violations |
+
+## Inline1451
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `otherError` | `otherError` | `Inline1451` | Yes | No | Errors not related to any of the other error types |
+
+## Inline1452
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `internalServerError` | `internalServerError` | `Inline1452` | Yes | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+
+## Inline1453
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `invalidInputError` | `invalidInputError` | `Inline1453` | Yes | No | Errors related to ad eligibility |
+
+## Inline1454
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `throttledError` | `throttledError` | `Inline1454` | Yes | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## Inline1455
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingClauseSetupError` | `targetingClauseSetupError` | `Inline1455` | Yes | No | Errors related to targeting clause setup |
+
+## Inline1456
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expressionType` | `expressionType` | `string` | No | No | The expression type of the target that was requested to be created. |
+| `target` | `target` | `string` | No | No | The target that was requested to be created. |
+| `targetDetails` | `targetDetails` | `Inline1456` | No | No | Target created in the target promotion group. |
+
+## Inline1458
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `manualTargetingAdGroupId` | `manualTargetingAdGroupId` | `string` | No | No | The adGroupId of the manual-targeting campaign where the target belongs. |
+| `targetId` | `targetId` | `string` | No | No | The id of the target that got created. |
+| `targetPromotionGroupId` | `targetPromotionGroupId` | `string` | No | No | The id of the target promotion group. |
+
+## Inline1460
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywordTarget` | `keywordTarget` | `Inline1460` | Yes | No | A keyword target. |
+
+## Inline1461
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productTarget` | `productTarget` | `Inline1461` | Yes | No | A product target. |
+
+## Inline1463
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `string` | No | No | index of the item in the request. |
+| `subErrors` | `subErrors` | `Array<Inline1463>` | No | No | A list of the errors encountered. |
+
+## Inline1464
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `string` | No | No | index of the item in the request. |
+| `targetDetails` | `targetDetails` | `Inline1464 \| Inline1465` | No | No | — |
+
+## Inline1465
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productTargetDetailsV2` | `productTargetDetailsV2` | `Inline1465` | Yes | No | A product target. |
+
+## Inline1468
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywordTarget` | `keywordTarget` | `Inline1468` | Yes | No | A keyword target. |
+
+## Inline1469
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productTarget` | `productTarget` | `Inline1469` | Yes | No | A product target. |
+
+## Inline1471
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `location` | `location` | `string` | Yes | No | Error location, JSON Path expression specifying element of API payload causing error |
+| `trigger` | `trigger` | `string` | No | No | optional value causing error |
+
+## Inline1474
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `location` | `location` | `string` | Yes | No | Error location, JSON Path expression specifying element of API payload causing error |
+| `trigger` | `trigger` | `string` | No | No | optional value causing error |
+
+## Inline1477
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline1479
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline1479>` | No | No | — |
+| `success` | `success` | `Array<Inline1493>` | No | No | — |
+
+## Inline148
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline1480
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1480` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | — |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | — |
+
+## Inline1481
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1481` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1482
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1482` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1483
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1483` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `entityId` | `entityId` | `string` | Yes | No | The entity id in the request |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1484
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1484` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `quota` | `quota` | `string` | No | No | optional current quota |
+| `quotaScope` | `quotaScope` | `string` | No | No | — |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1485
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1485` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1486
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1486` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1487
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1487` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `fragment` | `fragment` | `string` | No | No | fragment of the value which is wrong |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1488
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1488` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1489
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1489` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1490
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1490` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1491
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | allowed values |
+| `cause` | `cause` | `Inline1491` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | optional lower limit |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | optional upper limit |
+
+## Inline1492
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1492` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1493
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroup` | `adGroup` | `Inline1493` | No | No | — |
+| `adGroupId` | `adGroupId` | `string` | No | No | the adGroup ID |
+| `index` | `index` | `number` | Yes | No | the index of the adGroup in the array from the request body |
+
+## Inline1495
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline1497
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline1497>` | No | No | — |
+| `success` | `success` | `Array<Inline1509>` | No | No | — |
+
+## Inline1498
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1498` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1499
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1499` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `entityId` | `entityId` | `string` | Yes | No | The entity id in the request |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1500
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1500` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `quota` | `quota` | `string` | No | No | optional current quota |
+| `quotaScope` | `quotaScope` | `string` | No | No | — |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1501
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1501` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1502
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1502` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1503
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1503` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `fragment` | `fragment` | `string` | No | No | fragment of the value which is wrong |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1504
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1504` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1505
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1505` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1506
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1506` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1507
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | allowed values |
+| `cause` | `cause` | `Inline1507` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | optional lower limit |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | optional upper limit |
+
+## Inline1508
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1508` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1509
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeKeyword` | `campaignNegativeKeyword` | `Inline1509` | No | No | — |
+| `campaignNegativeKeywordId` | `campaignNegativeKeywordId` | `string` | No | No | the campaignNegativeKeyword ID |
+| `index` | `index` | `number` | Yes | No | the index of the campaign in the array from the request body |
+
+## Inline151
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful |
+| `ruleId` | `ruleId` | `string` | No | No | The budget rule identifier. |
+
+## Inline1511
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline1513
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline1513>` | No | No | — |
+| `success` | `success` | `Array<Inline1526>` | No | No | — |
+
+## Inline1514
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1514` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1515
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1515` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `entityId` | `entityId` | `string` | Yes | No | The entity id in the request |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1516
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1516` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `quota` | `quota` | `string` | No | No | optional current quota |
+| `quotaScope` | `quotaScope` | `string` | No | No | — |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1517
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1517` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1518
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1518` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1519
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1519` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `fragment` | `fragment` | `string` | No | No | fragment of the value which is wrong |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1520
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1520` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1521
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1521` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1522
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1522` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1523
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | allowed values |
+| `cause` | `cause` | `Inline1523` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | optional lower limit |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | optional upper limit |
+
+## Inline1524
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1524` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1525
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1525` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1526
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeTargetingClauseId` | `campaignNegativeTargetingClauseId` | `string` | No | No | the CampaignNegativeTargets ID |
+| `campaignNegativeTargetingClauses` | `campaignNegativeTargetingClauses` | `Inline1526` | No | No | — |
+| `index` | `index` | `number` | Yes | No | the index of the CampaignNegativeTargets in the array from the request body |
+
+## Inline1527
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDateTime` | `creationDateTime` | `string` | No | No | Creation date in ISO 8601. |
+| `lastUpdateDateTime` | `lastUpdateDateTime` | `string` | No | No | Last updated date in ISO 8601. |
+| `servingStatus` | `servingStatus` | `string` | No | No | — |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<Inline1527>` | No | No | The serving status reasons of the CampaignNegativeTargetingClause |
+
+## Inline1528
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | No | No | The type of nagative targeting expression. You can only specify values for the following predicates: \| Predicate \| Description \| \| --- \| --- \| \| `ASIN_BRAND_SAME_AS` \| Target the brand that is the same as the brand expressed. \| \| `ASIN_SAME_AS` \| Target an ASIN that is the same as the ASIN expressed. \| \| `OTHER` \| Other Type. \| |
+| `value` | `value` | `string` | No | No | The expression value |
+
+## Inline153
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `associatedCampaignIds` | `associatedCampaignIds` | `Array<string>` | No | No | — |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful |
+| `ruleId` | `ruleId` | `string` | No | No | The rule identifier. |
+
+## Inline1530
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline1532
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline1532>` | No | No | — |
+| `success` | `success` | `Array<Inline1548>` | No | No | — |
+
+## Inline1533
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1533` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1534
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1534` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | — |
+
+## Inline1535
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1535` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1536
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1536` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1537
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1537` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1538
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1538` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `entityId` | `entityId` | `string` | Yes | No | The entity id in the request |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1539
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1539` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `quota` | `quota` | `string` | No | No | optional current quota |
+| `quotaScope` | `quotaScope` | `string` | No | No | — |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1540
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1540` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1541
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1541` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1542
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1542` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `fragment` | `fragment` | `string` | No | No | fragment of the value which is wrong |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1543
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1543` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1544
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1544` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1545
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1545` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline1546
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | allowed values |
+| `cause` | `cause` | `Inline1546` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | optional lower limit |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | optional upper limit |
+
+## Inline1547
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1547` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |

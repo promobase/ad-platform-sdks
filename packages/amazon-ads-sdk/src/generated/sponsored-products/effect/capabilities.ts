@@ -2,142 +2,142 @@
 
 export const capabilities = [
   {
-    "id": "amazon-ads.adGroups.manage",
+    "id": "amazon-ads-sp.adGroups.manage",
     "summary": "Manage Ad groups via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.budgetRecommendationNewCampaigns.manage",
+    "id": "amazon-ads-sp.budgetRecommendationNewCampaigns.manage",
     "summary": "Manage Budget Recommendation New Campaigns via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.budgetRecommendationsAndMissedOpportunities.manage",
+    "id": "amazon-ads-sp.budgetRecommendationsAndMissedOpportunities.manage",
     "summary": "Manage Budget recommendations and missed opportunities via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.budgetRules.manage",
+    "id": "amazon-ads-sp.budgetRules.manage",
     "summary": "Manage BudgetRules via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.budgetRules.read",
+    "id": "amazon-ads-sp.budgetRules.read",
     "summary": "Read BudgetRules via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.budgetRulesRecommendation.manage",
+    "id": "amazon-ads-sp.budgetRulesRecommendation.manage",
     "summary": "Manage BudgetRulesRecommendation via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.budgetUsage.manage",
+    "id": "amazon-ads-sp.budgetUsage.manage",
     "summary": "Manage Budget Usage via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.campaignNegativeKeywords.manage",
+    "id": "amazon-ads-sp.campaignNegativeKeywords.manage",
     "summary": "Manage Campaign negative keywords via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.campaignNegativeTargetingClauses.manage",
+    "id": "amazon-ads-sp.campaignNegativeTargetingClauses.manage",
     "summary": "Manage Campaign negative targeting clauses via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.campaignOptimizationRules.manage",
+    "id": "amazon-ads-sp.campaignOptimizationRules.manage",
     "summary": "Manage Campaign Optimization Rules via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.campaignOptimizationRules.read",
+    "id": "amazon-ads-sp.campaignOptimizationRules.read",
     "summary": "Read Campaign Optimization Rules via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.campaigns.manage",
+    "id": "amazon-ads-sp.campaigns.manage",
     "summary": "Manage Campaigns via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.consolidatedRecommendations.manage",
+    "id": "amazon-ads-sp.consolidatedRecommendations.manage",
     "summary": "Manage Consolidated Recommendations via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.consolidatedRecommendations.read",
+    "id": "amazon-ads-sp.consolidatedRecommendations.read",
     "summary": "Read Consolidated Recommendations via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.keywordGroupTargetingRecommendations.manage",
+    "id": "amazon-ads-sp.keywordGroupTargetingRecommendations.manage",
     "summary": "Manage Keyword Group Targeting Recommendations via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.keywords.manage",
+    "id": "amazon-ads-sp.keywords.manage",
     "summary": "Manage Keywords via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.keywordTargets.manage",
+    "id": "amazon-ads-sp.keywordTargets.manage",
     "summary": "Manage Keyword Targets via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.multiCountryThemeBasedBidRecommendations.manage",
+    "id": "amazon-ads-sp.multiCountryThemeBasedBidRecommendations.manage",
     "summary": "Manage Multi Country Theme-based bid recommendations via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.negativeKeywords.manage",
+    "id": "amazon-ads-sp.negativeKeywords.manage",
     "summary": "Manage Negative keywords via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.negativeTargetingClauses.manage",
+    "id": "amazon-ads-sp.negativeTargetingClauses.manage",
     "summary": "Manage Negative targeting clauses via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.optimizationRules.manage",
+    "id": "amazon-ads-sp.optimizationRules.manage",
     "summary": "Manage Optimization Rules via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.productAds.manage",
+    "id": "amazon-ads-sp.productAds.manage",
     "summary": "Manage Product ads via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.productRecommendationService.manage",
+    "id": "amazon-ads-sp.productRecommendationService.manage",
     "summary": "Manage Product Recommendation Service via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.productTargeting.manage",
+    "id": "amazon-ads-sp.productTargeting.manage",
     "summary": "Manage Product Targeting via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.productTargeting.read",
+    "id": "amazon-ads-sp.productTargeting.read",
     "summary": "Read Product Targeting via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.targetingClauses.manage",
+    "id": "amazon-ads-sp.targetingClauses.manage",
     "summary": "Manage Targeting clauses via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.targetPromotionGroups.manage",
+    "id": "amazon-ads-sp.targetPromotionGroups.manage",
     "summary": "Manage TargetPromotionGroups via Pinterest API",
     "requiredScopes": []
   },
   {
-    "id": "amazon-ads.themeBasedBidRecommendations.manage",
+    "id": "amazon-ads-sp.themeBasedBidRecommendations.manage",
     "summary": "Manage Theme-based bid recommendations via Pinterest API",
     "requiredScopes": []
   }

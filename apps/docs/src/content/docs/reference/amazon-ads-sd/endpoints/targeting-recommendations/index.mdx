@@ -1,0 +1,85 @@
+---
+title: "Amazon Ads — Sponsored Display Targeting Recommendations endpoints"
+description: "2 generated Amazon Ads — Sponsored Display endpoint contracts for Targeting Recommendations."
+generated: true
+platform: "amazon-ads-sd"
+sourceVersion: "v5"
+sidebar:
+  order: 108
+  label: "Targeting Recommendations"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.targetingRecommendations.getTargetBidRecommendations
+
+`POST` `/sd/targets/bid/recommendations`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getTargetBidRecommendations)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sd.targetingRecommendations.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetTargetBidRecommendationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `body` | `Array<Inline418>` | No | No | A list of products to tailor bid recommendations for category and audience based targeting clauses. |
+| `targetingClauses` | `body` | `Array<Inline419>` | Yes | No | A list of targeting clauses to receive bid recommendations for. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.targetingRecommendations.getTargetRecommendations
+
+`POST` `/sd/targets/recommendations`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getTargetRecommendations)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sd.targetingRecommendations.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetTargetRecommendationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locale` | `query` | `string` | No | No | The requested locale from query parameter |
+| `products` | `body` | `Array<Inline425>` | Yes | No | A list of products for which to get targeting recommendations |
+| `tactic` | `body` | `string` | Yes | No | The advertising tactic associated with the campaign. The following table lists available tactic names: \|Tactic Name\|Type\|Description\| \|-----------\|-----\|-----------\| \|T00001&nbsp;\|&nbsp;\|This tactic name is only applicable for the `requestReport` operation and does not apply to any other campaign management operations. Reach shoppers who showed interest in categories related to your promoted products, or target specific products or product categories on Amazon. This tactic is for use by only vendors. This tactic is used to retrieve metrics for Sponsored Display campaigns that use interest, product or category audiences, including Sponsored Display campaigns that were previously Product Display Ads campaigns.\| \|T00010&nbsp;\|Views&nbsp;\|**Note that this advertising tactic is not currently supported. This note will be removed when this advertising tactic is available.** This is the same tactic as 'remarketing'. Shoppers who viewed the detail pages of your advertised products or similar products.\| \|remarketing&nbsp;\|Views&nbsp;\|This is the same tactic as 'T00010'. Shoppers who viewed the detail pages of your advertised products or similar products.\| \|T00020&nbsp;\|Products&nbsp;\|Products: Choose individual products to show your ads in placements related to those products.&lt;br&gt;Categories: Choose individual categories to show your ads in placements related to those categories.\| |
+| `typeFilter` | `body` | `Array<string>` | Yes | No | A filter to indicate which types of recommendations to request. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

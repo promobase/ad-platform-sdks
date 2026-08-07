@@ -1,0 +1,878 @@
+---
+title: "Amazon Ads — Sponsored Display models: SD Audience – SD Targeting Recommendations Request V34"
+description: "100 generated Amazon Ads — Sponsored Display model contracts, from SDAudience through SDTargetingRecommendationsRequestV34."
+generated: true
+platform: "amazon-ads-sd"
+sourceVersion: "v5"
+sidebar:
+  order: 1003
+  label: "SD Audience – SD Targeting Recommendations Request V34"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## SDAudience
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## SDAudienceCategory
+
+`enum` model on the `json` wire format.
+
+**Values:** `In-market`, `Interest`, `Life event`, `Lifestyle`
+
+## SDAudienceCategoryRecommendations
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audiences` | `audiences` | `Array<Inline57>` | No | No | List of recommended standard Amazon audience targets |
+| `category` | `category` | `string` | No | No | An audience category determines the goal of the audience such as In-market, Interest and Lifestyle |
+
+## SDAudienceRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience` | `audience` | `string` | No | No | The audience identifier |
+| `name` | `name` | `string` | No | No | The Amazon audience name |
+| `rank` | `rank` | `number` | No | No | A rank to signify which recommendations are weighed more heavily, with a lower rank signifying a stronger recommendation |
+
+## SDAudienceRecommendations
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audiences` | `audiences` | `Array<Inline60>` | No | No | List of recommended audience targets, broken down by audience category |
+
+## SDBidOptimizationV32
+
+`enum` model on the `json` wire format.
+
+**Values:** `clicks`, `conversions`, `reach`
+
+## SDBidRecommendationV31
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rangeLower` | `rangeLower` | `number` | Yes | No | The lowest recommended bid to use to win an ad placement for this target. |
+| `rangeUpper` | `rangeUpper` | `number` | Yes | No | The highest recommended bid to use to win an ad placement for this target. |
+| `recommended` | `recommended` | `number` | Yes | No | The recommended bid to use to win an ad placement for this target. |
+
+## SDBrandSafetyDenyListDomain
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | The website or app identifier. This can be in the form of full domain (eg. 'example.com' or 'example.net'), or mobile app identifier (eg. 'com.example.app' for Android apps or '1234567890' for iOS apps) |
+| `type` | `type` | `string` | Yes | No | The type. |
+
+## SDBrandSafetyDenyListDomainState
+
+`enum` model on the `json` wire format.
+
+**Values:** `ARCHIVED`, `ENABLED`
+
+## SDBrandSafetyDenyListDomainType
+
+`enum` model on the `json` wire format.
+
+**Values:** `APP`, `CREATOR`, `WEBSITE`
+
+## SDBrandSafetyDenyListDomainUpdateResultStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `FAILURE`, `SUCCESS`
+
+## SDBrandSafetyDenyListProcessedDomain
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `createdAt` | `createdAt` | `string` | No | No | The date time the domain was created at. Format: YYYY-MM-ddT:HH:mm:ssZ |
+| `domainId` | `domainId` | `number` | No | No | The identifier of the Brand Safety List domain. |
+| `lastModified` | `lastModified` | `string` | No | No | The date time the domain was last modified. Format: YYYY-MM-ddT:HH:mm:ssZ |
+| `name` | `name` | `string` | No | No | The website or app identifier. This can be in the form of full domain (eg. 'example.com' or 'example.net'), or mobile app identifier (eg. 'com.example.app' for Android apps or '1234567890' for iOS apps) |
+| `state` | `state` | `string` | No | No | The state of the domain. |
+| `type` | `type` | `string` | No | No | The type. |
+
+## SDBrandSafetyGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `domains` | `domains` | `Array<Inline69>` | No | No | List of Brand Safety Deny List Domains |
+| `pagination` | `pagination` | `Inline70` | No | No | Response pagination info for Brand Safety Deny List GET requests |
+
+## SDBrandSafetyGetResponsePagination
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `limit` | `number` | No | No | The maximum number of deny list domains returned from GET request. |
+| `offset` | `offset` | `number` | No | No | The number of deny list domains skipped. |
+| `total` | `total` | `number` | No | No | The total number of deny list domains created by the advertiser. |
+
+## SDBrandSafetyListRequestStatusResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `requestStatusList` | `requestStatusList` | `Array<Inline73>` | No | No | List of all requests' status. |
+
+## SDBrandSafetyPostRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `domains` | `domains` | `Array<Inline75>` | Yes | No | — |
+
+## SDBrandSafetyRequestResult
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+| `domainId` | `domainId` | `number` | No | No | The identifier of the Brand Safety Deny List Domain. |
+| `name` | `name` | `string` | No | No | The website or app identifier. |
+| `status` | `status` | `string` | No | No | The state of the domain. |
+
+## SDBrandSafetyRequestResultsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `results` | `results` | `Array<Inline78>` | No | No | A list of results for the given requestId |
+
+## SDBrandSafetyRequestStatus
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `requestId` | `requestId` | `string` | No | No | Request ID |
+| `status` | `status` | `string` | No | No | The status of the request |
+| `statusDetails` | `statusDetails` | `string` | No | No | Details related to the request status |
+| `timestamp` | `timestamp` | `string` | No | No | Request timestamp |
+
+## SDBrandSafetyRequestStatusResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `requestStatus` | `requestStatus` | `Inline81` | No | No | — |
+
+## SDBrandSafetyUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `requestId` | `requestId` | `string` | No | No | The identifier of the request |
+
+## SDBudgetRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | Campaign id. |
+| `index` | `index` | `number` | Yes | No | Correlate the recommendation to the campaign index in the request. Zero-based. |
+| `sevenDaysMissedOpportunities` | `sevenDaysMissedOpportunities` | `Inline84` | Yes | No | — |
+| `suggestedBudget` | `suggestedBudget` | `number` | Yes | No | Recommended budget for the campaign. This will be in local currency. |
+
+## SDBudgetRecommendationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | Campaign id. |
+| `code` | `code` | `string` | Yes | No | The HTTP status code of the response. |
+| `details` | `details` | `string` | Yes | No | A human-readable description of the response. |
+| `index` | `index` | `number` | Yes | No | Correlate the recommendation to the campaign index in the request. Zero-based. |
+
+## SDBudgetRecommendationsRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | Yes | No | A list of campaign ids for which to get budget recommendations and missed opportunities. |
+
+## SDBudgetRecommendationsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRecommendationsErrorResults` | `budgetRecommendationsErrorResults` | `Array<Inline88>` | Yes | No | List of errors that occurred when generating budget recommendation. |
+| `budgetRecommendationsSuccessResults` | `budgetRecommendationsSuccessResults` | `Array<Inline89>` | Yes | No | List of successful budget recommendation for campaigns. |
+
+## SDBudgetRule
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `createdDate` | `createdDate` | `number` | No | No | Epoch time of budget rule creation. Read-only. |
+| `lastUpdatedDate` | `lastUpdatedDate` | `number` | No | No | Epoch time of budget rule update. Read-only. |
+| `ruleDetails` | `ruleDetails` | `Inline91` | No | No | Object representing details of a budget rule for SD campaign |
+| `ruleId` | `ruleId` | `string` | Yes | No | The budget rule identifier. |
+| `ruleState` | `ruleState` | `string` | No | No | The budget rule state. |
+| `ruleStatus` | `ruleStatus` | `string` | No | No | The budget rule status. Read-only. |
+
+## SDBudgetRuleDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetIncreaseBy` | `budgetIncreaseBy` | `Inline97` | No | No | — |
+| `duration` | `duration` | `Inline98` | No | No | — |
+| `name` | `name` | `string` | No | No | The budget rule name. Required to be unique within a campaign. |
+| `performanceMeasureCondition` | `performanceMeasureCondition` | `Inline100` | No | No | — |
+| `recurrence` | `recurrence` | `Inline101` | No | No | — |
+| `ruleType` | `ruleType` | `string` | No | No | The type of budget rule. SCHEDULE: A budget rule based on a start and end date. PERFORMANCE: A budget rule based on advertising performance criteria. |
+
+## SdCampaignsBudgetUsageParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | No | No | A list of campaign IDs |
+
+## SdCampaignsBudgetUsageResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## SDCategory
+
+`scalar` model on the `json` wire format.
+
+**Value:** `number`
+
+## SDCategoryRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category` | `category` | `number` | No | No | The category identifier |
+| `name` | `name` | `string` | No | No | The category name |
+| `path` | `path` | `Array<string>` | No | No | The path of the category within the category catalogue |
+| `rank` | `rank` | `number` | No | No | A rank to signify which recommendations are weighed more heavily, with a lower rank signifying a stronger recommendation |
+| `targetableAsinCountRange` | `targetableAsinCountRange` | `Inline104` | No | No | The range of ASINs available within the category catalogue |
+
+## SDCategoryRecommendations
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categories` | `categories` | `Array<Inline106>` | No | No | List of recommended category targets |
+
+## SDCategoryRecommendationsV33
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categories` | `categories` | `Array<Inline108>` | No | No | List of recommended category targets |
+
+## SDCategoryRecommendationV33
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category` | `category` | `number` | No | No | The category identifier |
+| `name` | `name` | `string` | No | No | The category name |
+| `path` | `path` | `Array<string>` | No | No | The path of the category within the category catalogue |
+| `rank` | `rank` | `number` | No | No | A rank to signify which recommendations are weighed more heavily, with a lower rank signifying a stronger recommendation |
+| `targetableAsinCountRange` | `targetableAsinCountRange` | `Inline110` | No | No | The range of ASINs available within the category catalogue |
+| `translatedName` | `translatedName` | `string` | No | No | The translated category name by requested locale, field will not be provided if locale is not provided or campaign localization service is down |
+| `translatedPath` | `translatedPath` | `Array<string>` | No | No | The translated path of the category within the category catalogue by requested locale, field will not be provided if locale is not provided or campaign localization is down |
+
+## SDContentCategory
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## SDContentCategoryRecommendations
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `contentCategory` | `contentCategory` | `string` | No | No | The content category value |
+| `name` | `name` | `string` | No | No | The content category name |
+| `rank` | `rank` | `number` | No | No | A rank to signify which recommendations are weighed more heavily, with a lower rank signifying a stronger recommendation |
+
+## SDContentTargetingPredicateV31
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `string` | Yes | No | The value to be targeted. |
+
+## SDCostTypeV31
+
+`enum` model on the `json` wire format.
+
+**Values:** `cpc`, `vcpm`
+
+## SDCreativeType
+
+`enum` model on the `json` wire format.
+
+**Values:** `IMAGE`, `VIDEO`
+
+## SdDefaultError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | The HTTP status code of the response. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## SDErrorResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | The HTTP status code of the response |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## SDGetAssociatedCampaignsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `associatedCampaigns` | `associatedCampaigns` | `Array<Inline119>` | No | No | A list of campaigns that are associated to this budget rule. |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the `nextToken` field is empty, there are no further results. |
+
+## SDGoalProduct
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asin` | `asin` | `string` | Yes | No | Amazon Standard Identification Number |
+
+## SDHeadlineRecommendationAccessDeniedException
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | AccessDeniedErrorCode. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error response. |
+
+## SDHeadlineRecommendationIdentifierNotfoundException
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | IdentiferNotFoundErrorCode. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error response. |
+
+## SDHeadlineRecommendationInternalServerException
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | InternalErrorCode. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error response. |
+
+## SDHeadlineRecommendationMarsThrottlingException
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | ThrottledErrorCode. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error response. |
+
+## SDHeadlineRecommendationNotAcceptableException
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | NotAcceptableErrorCode. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error response. |
+
+## SDHeadlineRecommendationRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adFormat` | `adFormat` | `string` | No | No | — |
+| `asins` | `asins` | `Array<string>` | No | No | An array of ASINs associated with the creative. |
+| `maxNumRecommendations` | `maxNumRecommendations` | `number` | No | No | Maximum number of recommendations that API should return. Response will [0, maxNumRecommendations] recommendations (recommendations are not guaranteed as there can be instances where the ML model can not generate policy compliant headlines for the given set of asins). |
+
+## SDHeadlineRecommendationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendations` | `recommendations` | `Array<Inline128>` | No | No | Recommendations are sorted, i.e., more suitable headline has lesser array index value. |
+| `requestId` | `requestId` | `string` | No | No | An identifier for request made which is generated by server. |
+
+## SDHeadlineRecommendationSchemaValidationException
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | InvalidArgumentErrorCode. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error response. |
+
+## SDLandingPageType
+
+`enum` model on the `json` wire format.
+
+**Values:** `OFF_AMAZON_LINK`
+
+## SDLandingPageURL
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## SDListAssociatedBudgetRulesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `associatedRules` | `associatedRules` | `Array<Inline133>` | No | No | A list of associated budget rules. |
+
+## SDLocale
+
+`enum` model on the `json` wire format.
+
+**Values:** `ar_AE`, `de_DE`, `en_AE`, `en_AU`, `en_CA`, `en_GB`, `en_IN`, `en_SG`, `en_US`, `es_ES`, `es_MX`, `fr_CA`, `fr_FR`, `hi_IN`, `it_IT`, `ja_JP`, `ko_KR`, `nl_NL`, `pl_PL`, `pt_BR`, `sv_SE`, `ta_IN`, `th_TH`, `tr_TR`, `vi_VN`, `zh_CN`
+
+## SDProductRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asin` | `asin` | `string` | No | No | Amazon Standard Identification Number |
+| `rank` | `rank` | `number` | No | No | A rank to signify which recommendations are weighed more heavily, with a lower rank signifying a stronger recommendation |
+
+## SDProductRecommendationsV31
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `products` | `Array<Inline141>` | No | No | List of recommended product targets |
+
+## SDProductRecommendationsV32
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `products` | `Array<Inline143>` | No | No | List of recommended product targets |
+
+## SDProductRecommendationV32
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertisedAsins` | `advertisedAsins` | `Array<string>` | No | No | The top advertised products this recommendation is made for. |
+| `asin` | `asin` | `string` | No | No | Amazon Standard Identification Number |
+| `rank` | `rank` | `number` | No | No | A rank to signify which recommendations are weighed more heavily, with a lower rank signifying a stronger recommendation |
+
+## SDProductTargetingRecommendationsSuccess
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | HTTP status code 200 indicating a successful response for product recommendations. |
+| `name` | `name` | `string` | No | No | The theme name specified in the request. |
+| `recommendations` | `recommendations` | `Array<Inline146>` | No | No | A list of recommended products. |
+
+## SDProductTargetingRecommendationsSuccessV34
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | HTTP status code 200 indicating a successful response for product recommendations. |
+| `expression` | `expression` | `Array<Inline148>` | No | No | A list of expressions defining the product targeting theme. The list will define an AND operator on different expressions. For example, asinPriceGreaterThan and asinReviewRatingLessThan can be used to request product recommendations which are both with greater price and less review rating compared to the goal products. Note: currently the service only support one item in the array. |
+| `name` | `name` | `string` | No | No | The theme name specified in the request. |
+| `recommendations` | `recommendations` | `Array<Inline149>` | No | No | A list of recommended products. |
+
+## SDProductTargetingTheme
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expression` | `expression` | `Array<Inline151>` | Yes | No | A list of expressions defining the product targeting theme. The list will define an AND operator on different expressions. For example, asinPriceGreaterThan and asinReviewRatingLessThan can be used to request product recommendations which are both with greater price and less review rating compared to the goal products. Note: currently the service only support one item in the array. |
+| `name` | `name` | `string` | Yes | No | This is the meaningful theme name which will be used as a unique identifier across various themes in the same request. This identifier will also be used to map the recommendations back to the theme in the response body. Note: the value for this field cannot be "default" as that's a reserved keyword in the system. |
+
+## SDProductTargetingThemeExpression
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | The product targeting grammar used to define the targeting theme. Note asinAsBestSeller is currently not supported. |
+
+## SDProductThemeRecommendations
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline154 \| Inline155>`
+
+## SDProductThemeRecommendationsV34
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline157 \| Inline159>`
+
+## SDRecommendationType
+
+`enum` model on the `json` wire format.
+
+**Values:** `PRODUCT`
+
+## SDRecommendationTypeV31
+
+`enum` model on the `json` wire format.
+
+**Values:** `CATEGORY`, `PRODUCT`
+
+## SDRecommendationTypeV32
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUDIENCE`, `CATEGORY`, `PRODUCT`
+
+## SDRecommendationTypeV33
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUDIENCE`, `CATEGORY`, `CONTENT_CATEGORY`, `PRODUCT`
+
+## SDRuleType
+
+`enum` model on the `json` wire format.
+
+**Values:** `PERFORMANCE`, `SCHEDULE`
+
+## SDSevenDaysMissedOpportunities
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | End date of the missed opportunities date range (YYYY-MM-DD). |
+| `estimatedMissedClicksLower` | `estimatedMissedClicksLower` | `number` | No | No | Lower bound of the estimated missed clicks. |
+| `estimatedMissedClicksUpper` | `estimatedMissedClicksUpper` | `number` | No | No | Upper bound of the estimated missed clicks. |
+| `estimatedMissedImpressionsLower` | `estimatedMissedImpressionsLower` | `number` | No | No | Lower bound of the estimated missed impressions. |
+| `estimatedMissedImpressionsUpper` | `estimatedMissedImpressionsUpper` | `number` | No | No | Upper bound of the estimated missed impressions. |
+| `estimatedMissedSalesLower` | `estimatedMissedSalesLower` | `number` | No | No | Lower bound of the estimated missed sales. This will be in local currency. |
+| `estimatedMissedSalesUpper` | `estimatedMissedSalesUpper` | `number` | No | No | Upper bound of the estimated missed sales. This will be in local currency. |
+| `estimatedMissedViewableImpressionsLower` | `estimatedMissedViewableImpressionsLower` | `number` | No | No | Lower bound of the estimated missed viewable impressions for vCPM campaigns. |
+| `estimatedMissedViewableImpressionsUpper` | `estimatedMissedViewableImpressionsUpper` | `number` | No | No | Upper bound of the estimated missed viewable impressions for vCPM campaigns. |
+| `percentTimeInBudget` | `percentTimeInBudget` | `number` | No | No | Percentage of time the campaign is active with a budget. |
+| `startDate` | `startDate` | `string` | No | No | Start date of the missed opportunities date range (YYYY-MM-DD). |
+
+## SDTactic
+
+`enum` model on the `json` wire format.
+
+**Values:** `T00001`, `T00010`, `T00020`, `remarketing`
+
+## SDTacticV31
+
+`enum` model on the `json` wire format.
+
+**Values:** `T00001`, `T00010`, `T00020`, `T00030`, `remarketing`
+
+## SDTargetExpressionV31
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline169 \| Inline170`
+
+## SDTargetExpressionV32
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline172 \| Inline173 \| Inline174`
+
+## SDTargetingBidRecommendationsRequestV31
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `products` | `Array<Inline176>` | No | No | A list of products to tailor bid recommendations for category and audience based targeting clauses. |
+| `targetingClauses` | `targetingClauses` | `Array<Inline177>` | Yes | No | A list of targeting clauses to receive bid recommendations for. |
+
+## SDTargetingBidRecommendationsRequestV32
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidOptimization` | `bidOptimization` | `string` | Yes | No | Determines what the recommended bids will be optimized for. \|Name\|CostType\|Supported Tactics\|Description\| \|----\|----------\|-----------\|-----------\| \|clicks\|cpc\|T00020 T00030\|Optimize for page visits\| \|conversions\|cpc\|T00020 T00030\|Optimize for conversion\| \|reach\|vcpm\|T00020 T00030\|Optimize for viewable impressions\| |
+| `costType` | `costType` | `string` | Yes | No | Determines what performance metric the bid recommendations will be optimized for. \|Name\|Supported Tactics\|Description\| \|----\|----------\|-----------\| \|CPC\|T00020 T00030\|The bid recommendations will be optimized for clicks triggered by the ad.\| \|VCPM\|T00020 T00030\|The bid recommendations will be optimized for viewed impressions triggered by the ad.\| |
+| `products` | `products` | `Array<Inline180>` | No | No | A list of products to tailor bid recommendations for category and audience based targeting clauses. |
+| `targetingClauses` | `targetingClauses` | `Array<Inline181>` | Yes | No | A list of targeting clauses to receive bid recommendations for. |
+
+## SDTargetingBidRecommendationsRequestV33
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidOptimization` | `bidOptimization` | `string` | Yes | No | Determines what the recommended bids will be optimized for. \|Name\|CostType\|Supported Tactics\|Description\| \|----\|----------\|-----------\|-----------\| \|clicks\|cpc\|T00020 T00030\|Optimize for page visits\| \|conversions\|cpc\|T00020 T00030\|Optimize for conversion\| \|reach\|vcpm\|T00020 T00030\|Optimize for viewable impressions\| |
+| `costType` | `costType` | `string` | Yes | No | Determines what performance metric the bid recommendations will be optimized for. \|Name\|Supported Tactics\|Description\| \|----\|----------\|-----------\| \|CPC\|T00020 T00030\|The bid recommendations will be optimized for clicks triggered by the ad.\| \|VCPM\|T00020 T00030\|The bid recommendations will be optimized for viewed impressions triggered by the ad.\| |
+| `creativeType` | `creativeType` | `string` | No | No | The type of the associated creative. If the field is empty or null, a default value of IMAGE will be used. Only supports one type (VIDEO or IMAGE) at a time. |
+| `products` | `products` | `Array<Inline184>` | No | No | A list of products to tailor bid recommendations for category and audience based targeting clauses. |
+| `targetingClauses` | `targetingClauses` | `Array<Inline185>` | Yes | No | A list of targeting clauses to receive bid recommendations for. |
+
+## SDTargetingBidRecommendationsRequestV34
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidOptimization` | `bidOptimization` | `string` | Yes | No | Determines what the recommended bids will be optimized for. \|Name\|CostType\|Supported Tactics\|Description\| \|----\|----------\|-----------\|-----------\| \|clicks\|cpc\|T00020 T00030\|Optimize for page visits\| \|conversions\|cpc\|T00020 T00030\|Optimize for conversion\| \|reach\|vcpm\|T00020 T00030\|Optimize for viewable impressions\| |
+| `costType` | `costType` | `string` | Yes | No | Determines what performance metric the bid recommendations will be optimized for. \|Name\|Supported Tactics\|Description\| \|----\|----------\|-----------\| \|CPC\|T00020 T00030\|The bid recommendations will be optimized for clicks triggered by the ad.\| \|VCPM\|T00020 T00030\|The bid recommendations will be optimized for viewed impressions triggered by the ad.\| |
+| `creativeType` | `creativeType` | `string` | No | No | The type of the associated creative. If the field is empty or null, a default value of IMAGE will be used. Only supports one type (VIDEO or IMAGE) at a time. |
+| `products` | `products` | `Array<Inline188>` | No | No | A list of products to tailor bid recommendations for category and audience based targeting clauses. This array must contain consistent fields of either asins or landing pages (when linking to other pages), these cannot be mixed for any given request. If landingPageUrl is used, only one item is allowed for the list. |
+| `targetingClauses` | `targetingClauses` | `Array<Inline189>` | Yes | No | A list of targeting clauses to receive bid recommendations for. |
+
+## SDTargetingBidRecommendationsResponseItemFailureV31
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | The HTTP status code of this item. |
+| `details` | `details` | `string` | Yes | No | A human-readable description of this item on error. |
+
+## SDTargetingBidRecommendationsResponseItemSuccessV31
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | The HTTP status code of this item. |
+| `rangeLower` | `rangeLower` | `number` | No | No | The lowest recommended bid to use to win an ad placement for this target. |
+| `rangeUpper` | `rangeUpper` | `number` | No | No | The highest recommended bid to use to win an ad placement for this target. |
+| `recommended` | `recommended` | `number` | No | No | The recommended bid to use to win an ad placement for this target. |
+
+## SDTargetingBidRecommendationsResponseV31
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidRecommendations` | `bidRecommendations` | `Array<Inline195 \| Inline196>` | Yes | No | — |
+| `costType` | `costType` | `string` | Yes | No | Determines what performance metric the bid recommendations will be optimized for. \|Name\|Supported Tactics\|Description\| \|----\|----------\|-----------\| \|CPC\|T00020 T00030\|The bid recommendations will be optimized for clicks triggered by the ad.\| \|VCPM\|T00020 T00030\|The bid recommendations will be optimized for viewed impressions triggered by the ad.\| |
+
+## SDTargetingBidRecommendationsResponseV32
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidOptimization` | `bidOptimization` | `string` | Yes | No | Determines what the recommended bids will be optimized for. \|Name\|CostType\|Supported Tactics\|Description\| \|----\|----------\|-----------\|-----------\| \|clicks\|cpc\|T00020 T00030\|Optimize for page visits\| \|conversions\|cpc\|T00020 T00030\|Optimize for conversion\| \|reach\|vcpm\|T00020 T00030\|Optimize for viewable impressions\| |
+| `bidRecommendations` | `bidRecommendations` | `Array<Inline198 \| Inline199>` | Yes | No | — |
+| `costType` | `costType` | `string` | Yes | No | Determines what performance metric the bid recommendations will be optimized for. \|Name\|Supported Tactics\|Description\| \|----\|----------\|-----------\| \|CPC\|T00020 T00030\|The bid recommendations will be optimized for clicks triggered by the ad.\| \|VCPM\|T00020 T00030\|The bid recommendations will be optimized for viewed impressions triggered by the ad.\| |
+
+## SDTargetingClauseV31
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expression` | `expression` | `Array<Inline201 \| Inline202>` | Yes | No | The targeting expression to match against. ------- Applicable to Product targeting (T00020) ------- * A 'TargetingExpression' in a Product targeting Campaign can only contain 'TargetingPredicate' components. * Expressions must specify either a category predicate or an ASIN predicate, but never both. * Only one category may be specified per targeting expression. * Only one brand may be specified per targeting expression. * Only one asin may be specified per targeting expression. * To exclude a brand from a targeting expression you must create a negative targeting expression in the same ad group as the positive targeting expression. ------- Applicable to Audience targeting (T00030) ------- * A 'TargetingExpression' in an Audience Campaign can only contain 'TargetingPredicateNested' components. * Expressions must specify either auto ASIN-grain (exact products), manual ASIN-grain (similar products), or manual category-grain targeting. * **Future** To exclude parts of an audience, specify a TargetingPredicateNested component that contains a negative TargetingPredicate type. |
+| `expressionType` | `expressionType` | `string` | Yes | No | Tactic T00020 ad groups only allow manual targeting. |
+
+## SDTargetingClauseV32
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expression` | `expression` | `Array<Inline204 \| Inline205 \| Inline206>` | Yes | No | The targeting expression to match against. ------- Applicable to contextual targeting (T00020) ------- * A 'TargetingExpression' in a contextual targeting campaign can only contain 'TargetingPredicate' or 'ContentTargetingPredicate' components. * Expressions must specify either a category predicate or an ASIN predicate, but never both. * Only one category may be specified per targeting expression. * Only one brand may be specified per targeting expression. * Only one asin may be specified per targeting expression. * To exclude a brand from a targeting expression you must create a negative targeting expression in the same ad group as the positive targeting expression. ------- Applicable to audience targeting (T00030) ------- * A 'TargetingExpression' in an audience campaign can only contain 'TargetingPredicateNested' or 'ContentTargetingPredicate' components. |
+| `expressionType` | `expressionType` | `string` | Yes | No | Tactic T00020 ad groups only allow manual targeting. |
+
+## SDTargetingExpressionV31
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline208 \| Inline209>`
+
+## SDTargetingExpressionV32
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline211 \| Inline212 \| Inline213>`
+
+## SDTargetingPredicateBaseV31
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `string` | No | No | The value to be targeted. |
+
+## SDTargetingPredicateNestedV31
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `Array<Inline216>` | Yes | No | — |
+
+## SDTargetingPredicateV31
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `string` | No | No | The value to be targeted. |
+
+## SDTargetingRecommendations
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `products` | `Array<Inline219>` | No | No | List of recommended product targets |
+
+## SDTargetingRecommendationsFailure
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | HTTP status code indicating a failure response for targeting recomendations. |
+| `errorMessage` | `errorMessage` | `string` | No | No | A human friendly error message indicating the failure reasons. |
+| `name` | `name` | `string` | No | No | The theme name specified in the request. If the themes field is not provided in the request, the value of this field will be set to default. |
+
+## SDTargetingRecommendationsFailureV34
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | HTTP status code indicating a failure response for targeting recomendations. |
+| `errorMessage` | `errorMessage` | `string` | No | No | A human friendly error message indicating the failure reasons. |
+| `expression` | `expression` | `Array<Inline222>` | No | No | A list of expressions that failed to be applied in the product targeting theme. |
+| `name` | `name` | `string` | No | No | The theme name specified in the request. If the themes field is not provided in the request, the value of this field will be set to default. |
+
+## SDTargetingRecommendationsProducts
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline224>`
+
+## SDTargetingRecommendationsProductsV31
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline226>`
+
+## SDTargetingRecommendationsRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `products` | `Array<Inline228>` | Yes | No | A list of products for which to get targeting recommendations |
+| `tactic` | `tactic` | `string` | Yes | No | The advertising tactic associated with the campaign. The following table lists available tactic names: \|Tactic Name\|Type\|Description\| \|-----------\|-----\|-----------\| \|T00001&nbsp;\|&nbsp;\|This tactic name is only applicable for the `requestReport` operation and does not apply to any other campaign management operations. Reach shoppers who showed interest in categories related to your promoted products, or target specific products or product categories on Amazon. This tactic is for use by only vendors. This tactic is used to retrieve metrics for Sponsored Display campaigns that use interest, product or category audiences, including Sponsored Display campaigns that were previously Product Display Ads campaigns.\| \|T00010&nbsp;\|Views&nbsp;\|**Note that this advertising tactic is not currently supported. This note will be removed when this advertising tactic is available.** This is the same tactic as 'remarketing'. Shoppers who viewed the detail pages of your advertised products or similar products.\| \|remarketing&nbsp;\|Views&nbsp;\|This is the same tactic as 'T00010'. Shoppers who viewed the detail pages of your advertised products or similar products.\| \|T00020&nbsp;\|Products&nbsp;\|Products: Choose individual products to show your ads in placements related to those products.&lt;br&gt;Categories: Choose individual categories to show your ads in placements related to those categories.\| |
+| `typeFilter` | `typeFilter` | `Array<string>` | Yes | No | A filter to indicate which types of recommendations to request. |
+
+## SDTargetingRecommendationsRequestV31
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `products` | `Array<Inline230>` | Yes | No | A list of products for which to get targeting recommendations |
+| `tactic` | `tactic` | `string` | Yes | No | The advertising tactic associated with the campaign. The following table lists available tactic names: \|Tactic Name\|Type\|Description\| \|-----------\|-----\|-----------\| \|T00001&nbsp;\|&nbsp;\|This tactic name is only applicable for the `requestReport` operation and does not apply to any other campaign management operations. Reach shoppers who showed interest in categories related to your promoted products, or target specific products or product categories on Amazon. This tactic is for use by only vendors. This tactic is used to retrieve metrics for Sponsored Display campaigns that use interest, product or category audiences, including Sponsored Display campaigns that were previously Product Display Ads campaigns.\| \|T00010&nbsp;\|Views&nbsp;\|**Note that this advertising tactic is not currently supported. This note will be removed when this advertising tactic is available.** This is the same tactic as 'remarketing'. Shoppers who viewed the detail pages of your advertised products or similar products.\| \|remarketing&nbsp;\|Views&nbsp;\|This is the same tactic as 'T00010'. Shoppers who viewed the detail pages of your advertised products or similar products.\| \|T00020&nbsp;\|Products&nbsp;\|Products: Choose individual products to show your ads in placements related to those products.&lt;br&gt;Categories: Choose individual categories to show your ads in placements related to those categories.\| \|T00030&nbsp;\|Audiences&nbsp;\|Select individual audiences to show your ads.\| |
+| `typeFilter` | `typeFilter` | `Array<string>` | Yes | No | A filter to indicate which types of recommendations to request. |
+
+## SDTargetingRecommendationsRequestV32
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `products` | `Array<Inline232>` | Yes | No | A list of products for which to get targeting recommendations |
+| `tactic` | `tactic` | `string` | Yes | No | The advertising tactic associated with the campaign. The following table lists available tactic names: \|Tactic Name\|Type\|Description\| \|-----------\|-----\|-----------\| \|T00001&nbsp;\|&nbsp;\|This tactic name is only applicable for the `requestReport` operation and does not apply to any other campaign management operations. Reach shoppers who showed interest in categories related to your promoted products, or target specific products or product categories on Amazon. This tactic is for use by only vendors. This tactic is used to retrieve metrics for Sponsored Display campaigns that use interest, product or category audiences, including Sponsored Display campaigns that were previously Product Display Ads campaigns.\| \|T00010&nbsp;\|Views&nbsp;\|**Note that this advertising tactic is not currently supported. This note will be removed when this advertising tactic is available.** This is the same tactic as 'remarketing'. Shoppers who viewed the detail pages of your advertised products or similar products.\| \|remarketing&nbsp;\|Views&nbsp;\|This is the same tactic as 'T00010'. Shoppers who viewed the detail pages of your advertised products or similar products.\| \|T00020&nbsp;\|Products&nbsp;\|Products: Choose individual products to show your ads in placements related to those products.&lt;br&gt;Categories: Choose individual categories to show your ads in placements related to those categories.\| \|T00030&nbsp;\|Audiences&nbsp;\|Select individual audiences to show your ads.\| |
+| `themes` | `themes` | `Inline233` | No | No | The themes used to refine the recommendations. Currently only product targeting themes are supported. |
+| `typeFilter` | `typeFilter` | `Array<string>` | Yes | No | A filter to indicate which types of recommendations to request. |
+
+## SDTargetingRecommendationsRequestV33
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `products` | `Array<Inline235>` | Yes | No | A list of products for which to get targeting recommendations |
+| `tactic` | `tactic` | `string` | Yes | No | The advertising tactic associated with the campaign. The following table lists available tactic names: \|Tactic Name\|Type\|Description\| \|-----------\|-----\|-----------\| \|T00001&nbsp;\|&nbsp;\|This tactic name is only applicable for the `requestReport` operation and does not apply to any other campaign management operations. Reach shoppers who showed interest in categories related to your promoted products, or target specific products or product categories on Amazon. This tactic is for use by only vendors. This tactic is used to retrieve metrics for Sponsored Display campaigns that use interest, product or category audiences, including Sponsored Display campaigns that were previously Product Display Ads campaigns.\| \|T00010&nbsp;\|Views&nbsp;\|**Note that this advertising tactic is not currently supported. This note will be removed when this advertising tactic is available.** This is the same tactic as 'remarketing'. Shoppers who viewed the detail pages of your advertised products or similar products.\| \|remarketing&nbsp;\|Views&nbsp;\|This is the same tactic as 'T00010'. Shoppers who viewed the detail pages of your advertised products or similar products.\| \|T00020&nbsp;\|Products&nbsp;\|Products: Choose individual products to show your ads in placements related to those products.&lt;br&gt;Categories: Choose individual categories to show your ads in placements related to those categories.\| \|T00030&nbsp;\|Audiences&nbsp;\|Select individual audiences to show your ads.\| |
+| `themes` | `themes` | `Inline236` | No | No | The themes used to refine the recommendations. Currently only product targeting themes are supported. |
+| `typeFilter` | `typeFilter` | `Array<string>` | Yes | No | A filter to indicate which types of recommendations to request. |
+
+## SDTargetingRecommendationsRequestV34
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `products` | `Array<Inline238>` | Yes | No | A list of products for which to get targeting recommendations |
+| `tactic` | `tactic` | `string` | Yes | No | The advertising tactic associated with the campaign. The following table lists available tactic names: \|Tactic Name\|Type\|Description\| \|-----------\|-----\|-----------\| \|T00001&nbsp;\|&nbsp;\|This tactic name is only applicable for the `requestReport` operation and does not apply to any other campaign management operations. Reach shoppers who showed interest in categories related to your promoted products, or target specific products or product categories on Amazon. This tactic is for use by only vendors. This tactic is used to retrieve metrics for Sponsored Display campaigns that use interest, product or category audiences, including Sponsored Display campaigns that were previously Product Display Ads campaigns.\| \|T00010&nbsp;\|Views&nbsp;\|**Note that this advertising tactic is not currently supported. This note will be removed when this advertising tactic is available.** This is the same tactic as 'remarketing'. Shoppers who viewed the detail pages of your advertised products or similar products.\| \|remarketing&nbsp;\|Views&nbsp;\|This is the same tactic as 'T00010'. Shoppers who viewed the detail pages of your advertised products or similar products.\| \|T00020&nbsp;\|Products&nbsp;\|Products: Choose individual products to show your ads in placements related to those products.&lt;br&gt;Categories: Choose individual categories to show your ads in placements related to those categories.\| \|T00030&nbsp;\|Audiences&nbsp;\|Select individual audiences to show your ads.\| |
+| `themes` | `themes` | `Inline239` | No | No | The themes used to refine the recommendations. Currently only product targeting themes are supported. |
+| `typeFilter` | `typeFilter` | `Array<string>` | Yes | No | A filter to indicate which types of recommendations to request. |

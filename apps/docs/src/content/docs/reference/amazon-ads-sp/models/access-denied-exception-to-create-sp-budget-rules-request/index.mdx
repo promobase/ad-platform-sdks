@@ -1,0 +1,924 @@
+---
+title: "Amazon Ads — Sponsored Products models: Access Denied Exception – Create SP Budget Rules Request"
+description: "100 generated Amazon Ads — Sponsored Products model contracts, from AccessDeniedException through CreateSPBudgetRulesRequest."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 1000
+  label: "Access Denied Exception – Create SP Budget Rules Request"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## AccessDeniedException
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | The HTTP status code of the response. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## AdGroup
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | No | No | The ad group identifier. |
+| `asins` | `asins` | `Array<string>` | Yes | No | The list of ad ASINs in the ad group. |
+| `targetingExpressions` | `targetingExpressions` | `Array<Inline1>` | Yes | No | The list of targeting expressions. Maximum of 100 per request. |
+
+## AdGroupBasedRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | No | No | The identifier of the ad group |
+| `bidsEnabled` | `bidsEnabled` | `boolean` | No | No | Set this parameter to false if you do not want to retrieve bid suggestions for your keyword targets. Defaults to true. |
+| `campaignId` | `campaignId` | `string` | No | No | The identifier of the campaign |
+| `recommendationType` | `recommendationType` | `string` | No | No | The recommendationType to retrieve recommended keyword targets for an existing ad group. |
+| `locale` | `locale` | `string` | No | No | Translations are for readability and do not affect the targeting of ads. Supported marketplace to locale mappings can be found at the &lt;a href='https://advertising.amazon.com/API/docs/en-us/localization/#/Keyword%20Localization'&gt;POST /keywords/localize&lt;/a&gt; endpoint. Note: Translations will be null if locale is unsupported. |
+| `maxRecommendations` | `maxRecommendations` | `number` | No | No | The max size of recommended target. Set it to 0 if you only want to rank user-defined keywords. |
+| `sortDimension` | `sortDimension` | `string` | No | No | The ranking metric value. Supported values: CLICKS, CONVERSIONS, DEFAULT. DEFAULT will be applied if no value passed in. |
+
+## AdGroupKeywordTargetRankRecommendationRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the ad group |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The recommendationType to retrieve recommended keyword targets for an existing ad group. |
+| `targets` | `targets` | `Array<Inline4>` | No | No | A list of targets that need to be ranked |
+
+## AdGroupThemeBasedBidRecommendationRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The ad group identifier. |
+| `campaignId` | `campaignId` | `string` | Yes | No | The campaign identifier. |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The bid recommendation type. |
+| `targetingExpressions` | `targetingExpressions` | `Array<Inline6>` | Yes | No | The list of targeting expressions. Maximum of 100 per request, use pagination for more if needed. |
+
+## AdGroupThemeBasedBidRecommendationRequestV4
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The ad group identifier. |
+| `campaignId` | `campaignId` | `string` | Yes | No | The campaign identifier. |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The bid recommendation type. |
+| `targetingExpressions` | `targetingExpressions` | `Array<Inline8>` | Yes | No | The list of targeting expressions. Maximum of 100 per request, use pagination for more if needed. |
+
+## AdGroupThemeBasedBidRecommendationRequestV5
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The ad group identifier. |
+| `campaignId` | `campaignId` | `string` | Yes | No | The campaign identifier. |
+| `includeAnalysis` | `includeAnalysis` | `boolean` | No | No | Flag to include new bid analyzer data. |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The bid recommendation type. |
+| `targetingExpressions` | `targetingExpressions` | `Array<Inline10>` | Yes | No | The list of targeting expressions. Maximum of 100 per request, use pagination for more if needed. |
+
+## Adjustment
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placementAdjustment` | `placementAdjustment` | `Inline12` | No | No | Specifies bid adjustments based on the placement location. Use `PLACEMENT_TOP` for the top of the search page. Use `PLACEMENT_REST_OF_SEARCH` for the rest of the search page. Use `PLACEMENT_PRODUCT_PAGE` for a product page. |
+
+## AgeRange
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of Age Range. This field is REQUIRED if the Age Range object is being used as an input. Use the GetRefinementsForCategory to retrieve Age Range Node IDs. |
+| `name` | `name` | `string` | No | No | Name of Age Range. This field is OPTIONAL if the Age Range object is being used as an input. |
+
+## AgeRangeLoP
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of Age Range. Use the POST /sp/targets/category/&#123;categoryId&#125;/refinements endpoint to retrieve Age Range Node IDs. |
+| `name` | `name` | `string` | No | No | Name of Age Range. |
+| `translatedName` | `translatedName` | `string` | No | No | Translated name of Age Range based off locale sent in request. |
+
+## AgeRanges
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline16>`
+
+## AgeRangesLoP
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline18>`
+
+## AsinsBasedRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `biddingStrategy` | `biddingStrategy` | `string` | No | No | The bid recommendations returned will depend on the bidding strategy. &lt;br&gt; LEGACY_FOR_SALES - Dynamic Bids (Down only) &lt;br&gt; AUTO_FOR_SALES - Dynamic Bids (Up or down) &lt;br&gt; MANUAL - Fixed Bids |
+| `bidsEnabled` | `bidsEnabled` | `boolean` | No | No | Set this parameter to false if you do not want to retrieve bid suggestions for your keyword targets. Defaults to true. |
+| `recommendationType` | `recommendationType` | `string` | No | No | The recommendationType to retrieve recommended keyword targets for a list of ASINs. |
+| `locale` | `locale` | `string` | No | No | Translations are for readability and do not affect the targeting of ads. Supported marketplace to locale mappings can be found at the &lt;a href='https://advertising.amazon.com/API/docs/en-us/localization/#/Keyword%20Localization'&gt;POST /keywords/localize&lt;/a&gt; endpoint. Note: Translations will be null if locale is unsupported. |
+| `maxRecommendations` | `maxRecommendations` | `number` | No | No | The max size of recommended target. Set it to 0 if you only want to rank user-defined keywords. |
+| `sortDimension` | `sortDimension` | `string` | No | No | The ranking metric value. Supported values: CLICKS, CONVERSIONS, DEFAULT. DEFAULT will be applied if no value passed in. |
+
+## AsinsKeywordTargetRankRecommendationRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | An array list of Asins |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The recommendationType to retrieve recommended keyword targets for a list of ASINs. |
+| `targets` | `targets` | `Array<Inline21>` | No | No | A list of targets that need to be ranked |
+
+## AsinsThemeBasedBidRecommendationRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | The list of ad ASINs in the ad group. |
+| `bidding` | `bidding` | `Inline23` | Yes | No | Bidding control configuration for the campaign. |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The bid recommendation type. |
+| `targetingExpressions` | `targetingExpressions` | `Array<Inline24>` | Yes | No | The list of targeting expressions. Maximum of 100 per request, use pagination for more if needed. |
+
+## AsinsThemeBasedBidRecommendationRequestV4
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | The list of ad ASINs in the ad group. |
+| `bidding` | `bidding` | `Inline26` | Yes | No | Bidding control configuration for the campaign. |
+| `productDetailsList` | `productDetailsList` | `Array<Inline27>` | No | No | The list of products in the request, required for GlobalStore ASINs. |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The bid recommendation type. |
+| `targetingExpressions` | `targetingExpressions` | `Array<Inline28>` | Yes | No | The list of targeting expressions. Maximum of 100 per request, use pagination for more if needed. |
+
+## AsinsThemeBasedBidRecommendationRequestV5
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | The list of ad ASINs in the ad group. |
+| `bidding` | `bidding` | `Inline30` | Yes | No | Bidding control configuration for the campaign. |
+| `includeAnalysis` | `includeAnalysis` | `boolean` | No | No | Flag to include new bid analyzer data. |
+| `productDetailsList` | `productDetailsList` | `Array<Inline31>` | No | No | The list of products in the request, required for GlobalStore ASINs. |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The bid recommendation type. |
+| `targetingExpressions` | `targetingExpressions` | `Array<Inline32>` | Yes | No | The list of targeting expressions. Maximum of 100 per request, use pagination for more if needed. |
+
+## AssociatedBudgetRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful |
+| `ruleId` | `ruleId` | `string` | No | No | The budget rule identifier. |
+
+## AssociatedCampaign
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The campaign identifier. |
+| `campaignName` | `campaignName` | `string` | Yes | No | The campaign name. |
+| `ruleStatus` | `ruleStatus` | `string` | Yes | No | The budget rule evaluation status for this campaign. Read-only. |
+
+## AssociateOptimizationRulesToCampaignParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The sp campaign identifier. |
+| `optimizationRuleIds` | `optimizationRuleIds` | `Array<string>` | Yes | No | An array of rule identifiers. |
+
+## AssociateOptimizationRulesToCampaignResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AudienceSegment
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceId` | `audienceId` | `string` | Yes | No | Unique identifier for the audience segment. |
+| `audienceSegmentType` | `audienceSegmentType` | `string` | Yes | No | Type of audience segment. |
+
+## BadRequestException
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | The HTTP status code of the response. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## Benchmark
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `benchmarkStatus` | `benchmarkStatus` | `string` | No | No | Specifies the processing status of the benchmark. Success - If all fields in values property (impressions, clicks, conversions) have all non-null values. Failed - If all fields in values property have all null values. Partial - If some of the fields (impressions, clicks, or conversions) in values property have null values. |
+| `values` | `values` | `Inline38` | No | No | Metrics benchmark values. |
+
+## BidAnalyses
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline42>`
+
+## BidAnalysesPerPlacement
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ALL` | `ALL` | `Array<Inline44>` | Yes | No | — |
+| `PLACEMENT_PRODUCT_PAGE` | `PLACEMENT_PRODUCT_PAGE` | `Array<Inline45>` | Yes | No | — |
+| `PLACEMENT_REST_OF_SEARCH` | `PLACEMENT_REST_OF_SEARCH` | `Array<Inline46>` | Yes | No | — |
+| `PLACEMENT_TOP` | `PLACEMENT_TOP` | `Array<Inline47>` | Yes | No | — |
+
+## BidAnalysesPerTargetingExpression
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidAnalyses` | `bidAnalyses` | `Inline49` | Yes | No | — |
+| `targetingExpression` | `targetingExpression` | `Inline53` | Yes | No | The targeting expression. The `type` property specifies the targeting option. Use `CLOSE_MATCH` to match your auto targeting ads closely to the specified value. Use `LOOSE_MATCH` to match your auto targeting ads broadly to the specified value. Use `SUBSTITUTES` to display your auto targeting ads along with substitutable products. Use `COMPLEMENTS` to display your auto targeting ads along with affiliated products. Use `KEYWORD_BROAD_MATCH` to broadly match your keyword targeting ads with search queries. Use `KEYWORD_EXACT_MATCH` to exactly match your keyword targeting ads with search queries. Use `KEYWORD_PHRASE_MATCH` to match your keyword targeting ads with search phrases. your keyword targeting ads with search phrases. Use `PAT_ASIN` to match your product attribute targeting ads with product ASIN. Use `PAT_CATEGORY` to match your product attribute targeting ads with product category. Use `PAT_CATEGORY_REFINEMENT` to match your product attribute targeting ads with product attribute, including brand, price, rating, prime shipping eligible, age range and genre. Use `KEYWORD_GROUP` to match your keyword targeting ads with keyword group. |
+
+## BidAnalysis
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | Yes | No | — |
+| `impactMetrics` | `impactMetrics` | `Inline55` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | The type of bids in bid analyses. &lt;br&gt;`SUGGESTED_UPPER` - The upper bound for the suggested bid. &lt;br&gt;`SUGGESTED_LOWER` - The lower bound for the suggested bid. &lt;br&gt;`SUGGESTED` - The suggested bid value. &lt;br&gt;'ALTERNATIVE' - The alternative bids that is included in the bid analyses. |
+
+## BidAnalysisImpactMetrics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `estimatedImpressionAvg` | `estimatedImpressionAvg` | `number` | Yes | No | Number indicating the average of the estimated impressions |
+| `estimatedImpressionLower` | `estimatedImpressionLower` | `number` | Yes | No | Number indicating a lower bound of the estimated impressions |
+| `estimatedImpressionUpper` | `estimatedImpressionUpper` | `number` | Yes | No | Number indicating an upper bound of the estimated impressions |
+
+## Bidding
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adjustments` | `adjustments` | `Array<Inline58>` | No | No | Placement adjustment configuration for the campaign. |
+| `strategy` | `strategy` | `string` | Yes | No | The bidding strategy selected for the campaign. Use LEGACY_FOR_SALES to lower your bid in real time when your ad may be less likely to convert to a sale. Use AUTO_FOR_SALES to increase your bid in real time when your ad may be more likely to convert to a sale or lower your bid when less likely to convert to a sale. Use MANUAL to use your exact bid along with any manual adjustments. |
+
+## BiddingStrategy
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUTO_FOR_SALES`, `LEGACY_FOR_SALES`, `MANUAL`, `RULE_BASED`
+
+## BiddingStrategyRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `string` | No | No | Type of suggested action. |
+| `suggestedBiddingStrategy` | `suggestedBiddingStrategy` | `string` | No | No | The suggested bidding strategy value for the campaign. \| Value \| Strategy name \| Description \| \|----------------\|---------------\|-------------\| \| `LEGACY_FOR_SALES` \| Dynamic bids - down only \| Lowers your bids in real time when your ad may be less likely to convert to a sale. Campaigns created before the release of the bidding controls feature used this setting by default. \| \| `AUTO_FOR_SALES` \| Dynamic bids - up and down \| Increases or decreases your bids in real time by a maximum of 100%. With this setting bids increase when your ad is more likely to convert to a sale, and bids decrease when less likely to convert to a sale. \| \| `MANUAL` \| Fixed bid \| Uses your exact bid and any placement adjustments you set, and is not subject to dynamic bidding. \| |
+
+## BidPlacementAdjustment
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `percentage` | `percentage` | `number` | No | No | — |
+| `predicate` | `predicate` | `string` | No | No | — |
+
+## BidRecommendationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | A machine-readable error code. |
+| `details` | `details` | `string` | Yes | No | A human-readable description of the response. |
+
+## BidRecommendationPerTargetingExpression
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidValues` | `bidValues` | `Array<Inline64>` | Yes | No | — |
+| `targetingExpression` | `targetingExpression` | `Inline65` | Yes | No | The targeting expression. The `type` property specifies the targeting option. Use `CLOSE_MATCH` to match your auto targeting ads closely to the specified value. Use `LOOSE_MATCH` to match your auto targeting ads broadly to the specified value. Use `SUBSTITUTES` to display your auto targeting ads along with substitutable products. Use `COMPLEMENTS` to display your auto targeting ads along with affiliated products. Use `KEYWORD_BROAD_MATCH` to broadly match your keyword targeting ads with search queries. Use `KEYWORD_EXACT_MATCH` to exactly match your keyword targeting ads with search queries. Use `KEYWORD_PHRASE_MATCH` to match your keyword targeting ads with search phrases. your keyword targeting ads with search phrases. |
+
+## BidRecommendationPerTargetingExpressionV4
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidValues` | `bidValues` | `Array<Inline67>` | Yes | No | — |
+| `targetingExpression` | `targetingExpression` | `Inline68` | Yes | No | The targeting expression. The `type` property specifies the targeting option. Use `CLOSE_MATCH` to match your auto targeting ads closely to the specified value. Use `LOOSE_MATCH` to match your auto targeting ads broadly to the specified value. Use `SUBSTITUTES` to display your auto targeting ads along with substitutable products. Use `COMPLEMENTS` to display your auto targeting ads along with affiliated products. Use `KEYWORD_BROAD_MATCH` to broadly match your keyword targeting ads with search queries. Use `KEYWORD_EXACT_MATCH` to exactly match your keyword targeting ads with search queries. Use `KEYWORD_PHRASE_MATCH` to match your keyword targeting ads with search phrases. your keyword targeting ads with search phrases. Use `PAT_ASIN` to match your product attribute targeting ads with product ASIN. Use `PAT_CATEGORY` to match your product attribute targeting ads with product category. Use `PAT_CATEGORY_REFINEMENT` to match your product attribute targeting ads with product attribute, including brand, price, rating, prime shipping eligible, age range and genre. Use `KEYWORD_GROUP` to match your keyword targeting ads with keyword group. |
+
+## BidRecommendationPerTargetingExpressionV5
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidValues` | `bidValues` | `Array<Inline70>` | Yes | No | — |
+| `suggestedBidImpactMetrics` | `suggestedBidImpactMetrics` | `Inline71` | No | No | — |
+| `targetingExpression` | `targetingExpression` | `Inline72` | Yes | No | The targeting expression. The `type` property specifies the targeting option. Use `CLOSE_MATCH` to match your auto targeting ads closely to the specified value. Use `LOOSE_MATCH` to match your auto targeting ads broadly to the specified value. Use `SUBSTITUTES` to display your auto targeting ads along with substitutable products. Use `COMPLEMENTS` to display your auto targeting ads along with affiliated products. Use `KEYWORD_BROAD_MATCH` to broadly match your keyword targeting ads with search queries. Use `KEYWORD_EXACT_MATCH` to exactly match your keyword targeting ads with search queries. Use `KEYWORD_PHRASE_MATCH` to match your keyword targeting ads with search phrases. your keyword targeting ads with search phrases. Use `PAT_ASIN` to match your product attribute targeting ads with product ASIN. Use `PAT_CATEGORY` to match your product attribute targeting ads with product category. Use `PAT_CATEGORY_REFINEMENT` to match your product attribute targeting ads with product attribute, including brand, price, rating, prime shipping eligible, age range and genre. Use `KEYWORD_GROUP` to match your keyword targeting ads with keyword group. |
+
+## BidSuggestion
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidRecId` | `bidRecId` | `string` | No | No | The bid recommendation id |
+| `rangeEnd` | `rangeEnd` | `number` | No | No | The bid range end |
+| `rangeStart` | `rangeStart` | `number` | No | No | The bid range start |
+| `suggested` | `suggested` | `number` | No | No | The suggested bid |
+
+## BidValue
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `suggestedBid` | `suggestedBid` | `number` | Yes | No | The suggested bid. |
+
+## BidValues
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rangeEnd` | `rangeEnd` | `number` | No | No | The bid range end |
+| `rangeStart` | `rangeStart` | `number` | No | No | The bid range start |
+| `suggested` | `suggested` | `number` | No | No | The suggested bid |
+
+## Brand
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of brand. This field is REQUIRED if the Brand object is being used as an input. Use the GetRefinementsForCategory to retrieve Brand Node IDs. |
+| `name` | `name` | `string` | No | No | Name of brand. This field is OPTIONAL if the Brand object is being used as an input. |
+
+## BrandLoP
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of brand. |
+| `name` | `name` | `string` | No | No | Name of brand. |
+
+## Brands
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline79>`
+
+## BrandsLoP
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline81>`
+
+## BudgetChangeType
+
+`enum` model on the `json` wire format.
+
+**Values:** `PERCENT`
+
+## budgetIncreaseBy
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | The value by which to update the budget of the budget rule. |
+| `value` | `value` | `number` | Yes | No | The budget value. |
+
+## BudgetRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `string` | No | No | Type of suggested action. |
+| `suggestedBudget` | `suggestedBudget` | `number` | No | No | The suggested budget value for the campaign. |
+
+## BudgetRecommendationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `Error` | `Error` | `Inline86` | Yes | No | — |
+| `campaignId` | `campaignId` | `string` | Yes | No | encrypted campaignId |
+| `index` | `index` | `number` | Yes | No | Correlate the recommendation to the campaign index in the request. Zero-based |
+
+## BudgetRecommendationForExistingCampaign
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRuleRecommendation` | `budgetRuleRecommendation` | `Inline88` | Yes | No | — |
+| `campaignId` | `campaignId` | `string` | Yes | No | encrypted campaignId |
+| `index` | `index` | `number` | Yes | No | Correlate the recommendation to the campaign index in the request. Zero-based |
+| `sevenDaysMissedOpportunities` | `sevenDaysMissedOpportunities` | `Inline89` | Yes | No | — |
+| `suggestedBudget` | `suggestedBudget` | `number` | Yes | No | recommended budget for the campaign. |
+
+## BudgetRecommendationNewCampaignsErrorMessage
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## BudgetRecommendationNewCampaignsException
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message` | `message` | `string` | No | No | — |
+
+## BudgetRecommendationRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | Yes | No | List of campaigns. |
+
+## BudgetRecommendationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRecommendationsErrorResults` | `budgetRecommendationsErrorResults` | `Array<Inline94>` | Yes | No | List of errors that occured when generating bduget recommendation. |
+| `budgetRecommendationsSuccessResults` | `budgetRecommendationsSuccessResults` | `Array<Inline95>` | Yes | No | List of successful budget recomendation for campagins. |
+
+## BudgetRuleError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## BudgetRuleRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ruleId` | `ruleId` | `string` | No | No | rule id for the recomemendation |
+| `ruleName` | `ruleName` | `string` | No | No | rule name for the recomemendation |
+| `suggestedBudgetIncreasePercent` | `suggestedBudgetIncreasePercent` | `number` | No | No | suggested increase percent |
+
+## BudgetRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `associatedCampaignIds` | `associatedCampaignIds` | `Array<string>` | No | No | — |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful |
+| `ruleId` | `ruleId` | `string` | No | No | The rule identifier. |
+
+## BudgetRulesRelations
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRuleId` | `budgetRuleId` | `string` | Yes | No | The rule identifier. |
+| `campaignId` | `campaignId` | `string` | Yes | No | The campaign identifier. |
+
+## BudgetUsageCampaign
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `number` | No | No | Budget amount of resource requested |
+| `budgetUsagePercent` | `budgetUsagePercent` | `number` | No | No | Budget usage percentage (spend / available budget) for the given budget policy. |
+| `campaignId` | `campaignId` | `string` | No | No | ID of requested resource |
+| `index` | `index` | `number` | No | No | An index to maintain order of the campaignIds |
+| `usageUpdatedTimestamp` | `usageUpdatedTimestamp` | `string` | No | No | Last evaluation time for budget usage |
+
+## BudgetUsageCampaignBatchError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | No | No | ID of requested resource |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+| `index` | `index` | `number` | No | No | An index to maintain order of the campaignIds |
+
+## BudgetUsageCampaignRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | No | No | A list of campaign IDs |
+
+## BudgetUsageCampaignResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline105>` | No | No | List of budget usage percentages that failed to pull |
+| `success` | `success` | `Array<Inline106>` | No | No | List of budget usage percentages that were successfully pulled |
+
+## BudgetUsageError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## BulkBudgetRulesAssociationForSPParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesAssociations` | `budgetRulesAssociations` | `Array<Inline2722>` | No | No | A list of budget rule campaign details. |
+
+## BulkBudgetRulesAssociationForSPResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BulkBudgetRulesAssociationRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesAssociations` | `budgetRulesAssociations` | `Array<Inline109>` | No | No | A list of budget rule campaign details. |
+
+## BulkBudgetRulesAssociationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesAssociations` | `budgetRulesAssociations` | `Inline111` | No | No | — |
+
+## BulkBudgetRulesDisAssociationForSPParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesDisAssociations` | `budgetRulesDisAssociations` | `Array<Inline2726>` | No | No | A list of budget rule campaign details. |
+
+## BulkBudgetRulesDisAssociationForSPResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BulkBudgetRulesDisAssociationRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesDisAssociations` | `budgetRulesDisAssociations` | `Array<Inline114>` | No | No | A list of budget rule campaign details. |
+
+## BulkBudgetRulesDisAssociationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesDisAssociations` | `budgetRulesDisAssociations` | `Inline116` | No | No | — |
+
+## BulkBudgetRulesRelationsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | No | No | The campaign identifier. |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful |
+| `index` | `index` | `number` | No | No | The index of the request in the bulk request. |
+| `ruleId` | `ruleId` | `string` | No | No | The budget rule identifier. |
+
+## Campaign
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign. |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | Type of recommendations requested. \| Value \| Description \| \| --- \| --- \| \| `BIDDING_STRATEGY` \| Recommendation for the campaign bidding strategy. \| \| `KEYWORD` \| Recommendations related to campaign keywords targeting. \| \| `KEYWORD_GROUP` \| Recommendation related to Keyword groups. Keyword Groups is a new control for Amazon Ads Sponsored Products keyword-based campaigns that enables advertisers to reach relevant audiences through a collection of keywords. \| \| `BUDGET_STRATEGY` \| Recommendation for the campaign budget.\| \| `PLACEMENT_BIDDING` \| Bid recommendations for campaign placements such as top of search, rest of search etc. \| \| `SHOPPER_COHORT` \| Bid adjustment recommendations for the shopper cohorts (audiences) attached to the campaign.\| |
+
+## campaignOptimizationId
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## CampaignOptimizationRule
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | No | No | — |
+| `campaignOptimizationId` | `campaignOptimizationId` | `string` | Yes | No | The persistent rule identifier. |
+| `createdDate` | `createdDate` | `string` | No | No | Time of campaign optimization rule creation in ISO 8061. Read-only. |
+| `recurrence` | `recurrence` | `string` | No | No | The frequency of the rule application. |
+| `ruleAction` | `ruleAction` | `string` | No | No | The action taken when the campaign optimization rule is enabled. Defaults to adopt |
+| `ruleCondition` | `ruleCondition` | `Array<Inline122>` | No | No | — |
+| `ruleName` | `ruleName` | `string` | No | No | The campaign optimization rule name. |
+| `ruleStatus` | `ruleStatus` | `string` | No | No | The campaign optimization rule status. Read-Only |
+| `ruleType` | `ruleType` | `string` | No | No | The type of the campaign optimization rule. Only Support BID as of now |
+
+## CampaignOptimizationRuleError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## CampaignRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `biddingStrategyRecommendation` | `biddingStrategyRecommendation` | `Inline125` | No | No | Contains suggested recommendation for the campaign bidding strategy. |
+| `budgetRecommendation` | `budgetRecommendation` | `Inline126` | No | No | Contains suggested recommendation for the campaign budget. |
+| `campaignId` | `campaignId` | `string` | No | No | The identifier of the campaign. |
+| `keywordTargetingRecommendations` | `keywordTargetingRecommendations` | `Array<Inline127>` | No | No | — |
+| `placementBiddingRecommendations` | `placementBiddingRecommendations` | `Array<Inline128>` | No | No | — |
+| `sevenDaysEstimatedOpportunities` | `sevenDaysEstimatedOpportunities` | `Inline129` | No | No | — |
+| `targetingGroupBidRecommendations` | `targetingGroupBidRecommendations` | `Array<Inline130>` | No | No | — |
+
+## CategoryItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `canBeTargeted` | `canBeTargeted` | `boolean` | No | No | A flag which indicates if the current node may be targeted |
+| `id` | `id` | `string` | No | No | The category id of the current node |
+| `name` | `name` | `string` | No | No | The name of the category |
+| `parent` | `parent` | `string` | No | No | The category id of the parent node |
+| `path` | `path` | `string` | No | No | The path of the category, which contains the current category and all parent categories |
+
+## CategoryItemWithAsinCounts
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asinCounts` | `asinCounts` | `Inline133` | No | No | An integer range between min and max |
+| `categoryPath` | `categoryPath` | `string` | No | No | The path of the category, which contains the current category and all parent categories |
+| `id` | `id` | `string` | No | No | The category id of the current node |
+| `name` | `name` | `string` | No | No | The name of the category |
+| `parentCategoryId` | `parentCategoryId` | `string` | No | No | The category id of the parent node |
+
+## CategoryItemWithAsinCountsLoP
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asinCounts` | `asinCounts` | `Inline135` | No | No | The number of asins belonging to the category. |
+| `categoryPath` | `categoryPath` | `string` | No | No | The path of the category, which contains the current category and all parent categories |
+| `id` | `id` | `string` | No | No | The category id of the current node |
+| `name` | `name` | `string` | No | No | The name of the category |
+| `parentCategoryId` | `parentCategoryId` | `string` | No | No | The category id of the parent node |
+| `translatedCategoryPath` | `translatedCategoryPath` | `string` | No | No | The translated path of the category, which contains the current category and all parent categories. |
+| `translatedName` | `translatedName` | `string` | No | No | The translated name of the category. |
+
+## CategoryRecommendations
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categories` | `categories` | `Array<Inline137>` | No | No | List of category recommendations |
+
+## CategoryRecommendationsWithAsinCounts
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categories` | `categories` | `Array<Inline139>` | No | No | List of category recommendations |
+
+## CategoryRecommendationsWithAsinCountsLoP
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categories` | `categories` | `Array<Inline141>` | No | No | List of category recommendations |
+
+## Clicks
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lower` | `lower` | `number` | No | No | lower bound. |
+| `upper` | `upper` | `number` | No | No | upper bound. |
+
+## ComparisonOperator
+
+`enum` model on the `json` wire format.
+
+**Values:** `EQUAL_TO`, `GREATER_THAN`, `GREATER_THAN_OR_EQUAL_TO`, `LESS_THAN`, `LESS_THAN_OR_EQUAL_TO`
+
+## Conversions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lower` | `lower` | `number` | No | No | lower bound. |
+| `upper` | `upper` | `number` | No | No | upper bound. |
+
+## CountryCodes
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<string>`
+
+## CountryKeyword
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | The bid value for the keyword, in minor currency units (example: cents). The default value will be the suggested bid. |
+| `userSelectedKeyword` | `userSelectedKeyword` | `boolean` | No | No | Flag that tells if keyword was selected by the user or was recommended by KRS |
+| `value` | `value` | `string` | No | No | The keyword value |
+
+## CountryTarget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `countryKeywords` | `countryKeywords` | `Inline148` | No | No | Map represents the same keyword in a different countries and locales. Key is a 2-letter country code, value is a keyword object with value and bid fields |
+| `matchType` | `matchType` | `string` | No | No | Keyword match type. The default value will be BROAD. |
+
+## CreateAssociatedBudgetRulesForSPCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `number` | Yes | No | The campaign identifier. |
+| `budgetRuleIds` | `budgetRuleIds` | `Array<string>` | No | No | A list of budget rule identifiers. |
+
+## CreateAssociatedBudgetRulesForSPCampaignsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateAssociatedBudgetRulesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRuleIds` | `budgetRuleIds` | `Array<string>` | No | No | A list of budget rule identifiers. |
+
+## CreateAssociatedBudgetRulesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `responses` | `responses` | `Array<Inline151>` | No | No | — |
+
+## CreateBudgetRulesForSPCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesDetails` | `budgetRulesDetails` | `Array<Inline2688>` | No | No | A list of budget rule details. |
+
+## CreateBudgetRulesForSPCampaignsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateBudgetRulesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `responses` | `responses` | `Array<Inline153>` | No | No | — |
+
+## CreateOptimizationRuleParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | Yes | No | A list of campaign ids |
+| `recurrence` | `recurrence` | `string` | Yes | No | The frequency of the rule application. |
+| `ruleAction` | `ruleAction` | `string` | Yes | No | The action taken when the campaign optimization rule is enabled. Defaults to adopt |
+| `ruleCondition` | `ruleCondition` | `Array<Inline2989>` | No | No | — |
+| `ruleName` | `ruleName` | `string` | No | No | The campaign optimization rule name. |
+| `ruleType` | `ruleType` | `string` | Yes | No | The type of the campaign optimization rule. Only Support BID as of now |
+
+## CreateOptimizationRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline2991` | Yes | No | — |
+
+## CreateOptimizationRulesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRules` | `optimizationRules` | `Array<Inline3013>` | Yes | No | — |
+
+## CreateOptimizationRulesResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateSPBudgetRulesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesDetails` | `budgetRulesDetails` | `Array<Inline155>` | No | No | A list of budget rule details. |

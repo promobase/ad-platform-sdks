@@ -79,8 +79,32 @@ const PLATFORM_DETAILS: Record<
   "amazon-ads": {
     label: "Amazon Ads",
     packageName: "@mosaic/amazon-ads",
-    effectImport: "@mosaic/amazon-ads/effect",
+    effectImport: "@mosaic/amazon-ads",
     order: 110,
+  },
+  "amazon-ads-sp": {
+    label: "Amazon Ads — Sponsored Products",
+    packageName: "@mosaic/amazon-ads",
+    effectImport: "@mosaic/amazon-ads/sponsored-products/effect",
+    order: 111,
+  },
+  "amazon-ads-sb": {
+    label: "Amazon Ads — Sponsored Brands",
+    packageName: "@mosaic/amazon-ads",
+    effectImport: "@mosaic/amazon-ads/sponsored-brands/effect",
+    order: 112,
+  },
+  "amazon-ads-sd": {
+    label: "Amazon Ads — Sponsored Display",
+    packageName: "@mosaic/amazon-ads",
+    effectImport: "@mosaic/amazon-ads/sponsored-display/effect",
+    order: 113,
+  },
+  "amazon-ads-api": {
+    label: "Amazon Ads API",
+    packageName: "@mosaic/amazon-ads",
+    effectImport: "@mosaic/amazon-ads/api/effect",
+    order: 114,
   },
   bluesky: {
     label: "Bluesky",

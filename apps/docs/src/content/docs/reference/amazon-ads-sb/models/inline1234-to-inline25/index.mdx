@@ -1,0 +1,1101 @@
+---
+title: "Amazon Ads — Sponsored Brands models: Inline1234 – Inline25"
+description: "100 generated Amazon Ads — Sponsored Brands model contracts, from Inline1234 through Inline25."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 1004
+  label: "Inline1234 – Inline25"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Inline1234
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDate` | `creationDate` | `number` | No | No | Creation date in epoch time. |
+| `lastUpdateDate` | `lastUpdateDate` | `number` | No | No | Date of last update in epoch time. |
+| `servingStatus` | `servingStatus` | `string` | No | No | The ad serving status determined by system. - AD_STATUS_LIVE - Ad's status is enabled. - AD_POLICING_PENDING_REVIEW - Ad is pending review because of policing reason. - AD_POLICING_SUSPENDED - Ad is suspended review because of policing reason. - AD_PAUSED - Ad's status is paused. - AD_CREATOR_CONTENT_LICENSE_EXPIRED - Ad is suspended because the creator content license has expired for the custom video/image content used in the Ad Creative. - AD_ARCHIVED - Ad's status is archived. - AD_GROUP_STATUS_ENABLED - Ad group's (parent) status is enabled. - AD_GROUP_PAUSED - Ad group's (parent) status is paused. - AD_GROUP_ARCHIVED - Ad group's (parent) status is archived. - AD_GROUP_INCOMPLETE - Ad group (parent) does not contain any ads or targeting clauses. - AD_GROUP_POLICING_PENDING_REVIEW - Ad group is pending review because of policing reason - AD_GROUP_POLICING_CREATIVE_REJECTED - Ad group is rejected due to creative because of policing reason - AD_GROUP_LOW_BID - Ad group is less than the minimum allowed bid in its marketplace - ADVERTISER_STATUS_ENABLED - Advertiser's status is enabled - ADVERTISER_POLICING_PENDING_REVIEW - Avertiser is pending review because of policing reason - ADVERTISER_POLICING_SUSPENDED - Advertiser's status is suspended because of policing reason - ADVERTISER_PAUSED - Advertiser's status is paused - ADVERTISER_ARCHIVED - Advertiser's status is archived - ADVERTISER_PAYMENT_FAILURE - Advertiser's internal status is suspended - ADVERTISER_ACCOUNT_OUT_OF_BUDGET - Advertiser is out of budget for all Sponsored Ads campaigns - ADVERTISER_OUT_OF_PREPAY_BALANCE - Advertiser is out of prepay balance for all Sponsored Ads campaigns - ADVERTISER_EXCEED_SPENDS_LIMIT - Advertiser spends over the daily limit - CAMPAIGN_STATUS_ENABLED - Campaign's (parent) status is enabled. - CAMPAIGN_PAUSED - Campaign's (parent) status is paused. - CAMPAIGN_ARCHIVED - Campaign's (parent) status is archived. - CAMPAIGN_INCOMPLETE - Campaign (parent) does not contain any ads or targeting clauses. - CAMPAIGN_OUT_OF_BUDGET - Campaign (parent) is out of budget. - PORTFOLIO_STATUS_ENABLED - Portfolio's (parent) status is enabled - PORTFOLIO_PAUSED - Portfolio's (parent) status is paused - PORTFOLIO_ARCHIVED - Portfolio's (parent) status is archived - PORTFOLIO_OUT_OF_BUDGET - Portfolio (parent) is out of budget - PORTFOLIO_PENDING_START_DATE - Portfolio's (parent) start date is in the future - PORTFOLIO_ENDED - Portfolio's (parent) end date is in the past. - INELIGIBLE - Ad is ineligible. - ELIGIBLE - Ad is eligible. - ENDED - Campaign's (parent) end date is in the past. - PENDING_REVIEW - Campaign (parent) is pending review. - PENDING_START_DATE - Campaign's (parent) start date is in the future. - REJECTED - Campaign (parent) is rejected by moderation process. - UNKNOWN - Serving status is unknown. Please contact us for support. |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<string>` | No | No | The serving status reasons of the Ad. |
+
+## Inline1235
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | ASIN(s) on the landingPage for pageType PRODUCT_LIST or DETAIL_PAGE. If pageType is DETAIL_PAGE, this field must contains a single asin. If pageType is PRODUCT_LIST, this field must contains at least 3 asins. For other pageTypes, this field must be null and the url field must be non null. |
+| `pageType` | `pageType` | `string` | No | No | The type of landing page, such as store page, product list (simple landing page), custom url. |
+| `url` | `url` | `string` | No | No | URL of a Store page. Vendors may also specify the URL of a custom landing page. If a custom URL is specified, the landing page must include the ASINs of at least three products that are advertised as part of the campaign. Do not include this property in the request if the asins property is also included, these properties are mutually exclusive. |
+
+## Inline1236
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | No | No | The adGroupId of the created ad. Populated only after status = MIGRATED. |
+| `adId` | `adId` | `string` | No | No | The adId of the created ad. Populated only after status = MIGRATED. |
+| `asins` | `asins` | `Array<string>` | No | No | For MANUAL_COLLECTION: 3-10 recommended ASINs. For AUTO_COLLECTION: empty (system selects dynamically at serve time). |
+| `errorCode` | `errorCode` | `string` | No | No | Error code. Populated only when status = MIGRATION_FAILED. |
+| `errorMessage` | `errorMessage` | `string` | No | No | Error message. Populated only when status = MIGRATION_FAILED. |
+| `migrationType` | `migrationType` | `string` | No | No | The type of migration being offered for this option. - MIGRATE: Preserves the advertiser's original configuration as closely as possible. - IMPROVE: Optimizes the configuration for better performance. |
+| `optionType` | `optionType` | `string` | Yes | No | The type of SB Collection to migrate to. |
+| `rationale` | `rationale` | `string` | No | No | Rationale explaining why this migration option is being offered. |
+| `status` | `status` | `string` | No | No | The lifecycle status of a migration option. |
+
+## Inline1238
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## Inline1239
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## Inline124
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline124>` | No | No | A list of validation errors |
+| `index` | `index` | `number` | Yes | No | the index of the optimization rule id/entity Id in the array from the request body. |
+
+## Inline1240
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## Inline1241
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## Inline1242
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## Inline125
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityId` | `entityId` | `string` | Yes | No | Entity object identifier. |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `index` | `index` | `number` | Yes | No | The index of the entityId in the array from the request body. |
+| `optimizationRule` | `optimizationRule` | `Inline125` | Yes | No | — |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | Yes | No | The identifier of the optimization rule. |
+
+## Inline127
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline127>` | No | No | A list of validation errors. |
+| `index` | `index` | `number` | Yes | No | the index of the creative in the array from the request body. |
+
+## Inline128
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | Allowed values. |
+| `cause` | `cause` | `Inline128` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | Optional lower limit. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | Optional upper limit. |
+
+## Inline129
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | Yes | No | Entity object identifier. |
+| `creativeVersion` | `creativeVersion` | `string` | No | No | — |
+| `index` | `index` | `number` | Yes | No | The index in the original list from the request. |
+
+## Inline131
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline131>` | No | No | A list of validation errors |
+| `index` | `index` | `number` | Yes | No | the index of the optimization rule id/entity Id in the array from the request body. |
+
+## Inline132
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityId` | `entityId` | `string` | Yes | No | Entity object identifier. |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `index` | `index` | `number` | Yes | No | The index of the entityId/optimizationId in the array from the request body. |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | Yes | No | The identifier of the optimization rule. |
+
+## Inline134
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline134>` | No | No | A list of validation errors |
+| `index` | `index` | `number` | Yes | No | the index of the optimization rule id/entity Id in the array from the request body. |
+
+## Inline135
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `number` | Yes | No | The index of the entityId in the array from the request body. |
+| `optimizationRule` | `optimizationRule` | `Inline135` | Yes | No | — |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | Yes | No | The identifier of the optimization rule. |
+
+## Inline137
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidAdjustmentsByPlacement` | `bidAdjustmentsByPlacement` | `Array<Inline137>` | No | No | Placement level bid adjustment. Note that this field can only be set when 'bidOptimization' is set to false. |
+| `bidAdjustmentsByShopperSegment` | `bidAdjustmentsByShopperSegment` | `Array<Inline138>` | No | No | DEPRECATED [PLANNED SHUTOFF DATE 3/31/2024] **Note: This feature has been deprecated and planned to shutoff on 03/31/2024. After the shut off date, we will ignore this field in the request and treat it as null. You will not get an error if you supply this field in the request. Based on customer feedback, we are rethinking this feature in context to Goal based campaigns to help advertiser reach NTB customers at scale with transparent reporting. Meanwhile, if you have any feedback or suggestion related to this feature then please reach out to our customer support teams. Shopper segment level bid adjustment. When both bidAdjustmentsByPlacement and bidAdjustmentsByShopperSegment are specified, the adjustment will be multiplicative. This shape is deprecated. |
+| `bidOptimization` | `bidOptimization` | `boolean` | No | No | Whether to use automatic placement level bid optimization. If set to true, Amazon will automatically set the right placement adjustment and the bidAdjustmentsByPlacement field is ignored. If set to false, the bidAdjustmentsByPlacement field will be used to adjust bid on different placements. If this field is changed from false to true, the bidAdjustmentsByPlacement field will be reset to null. While this field affects bidAdjustmentsByPlacement, it will not control shopperCohortBidAdjustments. |
+| `bidOptimizationStrategy` | `bidOptimizationStrategy` | `string` | No | No | DEPRECATED [PLANNED SHUTOFF DATE 3/31/2024] **Note: This feature has been deprecated and planned to shutoff on 03/31/2024. After the shut off date, we will ignore this field in the request and treat it as null. You will not get an error if you supply this field in the request. Based on customer feedback, we are rethinking this feature in context to Goal based campaigns to help advertiser reach NTB customers at scale with transparent reporting. Meanwhile, if you have any feedback or suggestion related to this feature then please reach out to our customer support teams. The bid optimization strategy. - MAXIMIZE_IMMEDIATE_SALES - The default bidding strategy. The campaign is optimized to maximize sale. - MAXIMIZE_NEW_TO_BRAND_CUSTOMERS - The campaign is optimized to acquire more new-to-brand customers. This shape is deprecated. |
+| `shopperCohortBidAdjustments` | `shopperCohortBidAdjustments` | `Array<Inline139>` | No | No | Shopper cohort based bid adjustments. |
+
+## Inline138
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `percentage` | `percentage` | `number` | No | No | — |
+| `shopperSegment` | `shopperSegment` | `string` | No | No | List of bid adjustments for shopper segments. - NEW_TO_BRAND_PURCHASE - The shopper segment where shopper has not purchased product from the brand. |
+
+## Inline139
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceSegments` | `audienceSegments` | `Array<Inline139>` | No | No | — |
+| `percentage` | `percentage` | `number` | No | No | — |
+| `shopperCohortType` | `shopperCohortType` | `string` | No | No | Type of shopper cohort to apply shopper cohort bid adjustments to. Only AUDIENCE_SEGMENT is supported at the moment |
+
+## Inline14
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDate` | `creationDate` | `number` | No | No | Creation date in epoch time. |
+| `lastUpdateDate` | `lastUpdateDate` | `number` | No | No | Date of last update in epoch time. |
+| `servingStatus` | `servingStatus` | `string` | No | No | `Notice: the servingStatus enums have not been finalized yet.` The ad group serving status determined by system. - AD_GROUP_STATUS_ENABLED - Ad group's status is enabled. - AD_GROUP_PAUSED - Ad group's status is paused. - AD_GROUP_ARCHIVED - Ad group's status is archived. - AD_GROUP_INCOMPLETE - Ad group does not contain any ads or targeting clauses. - AD_GROUP_POLICING_PENDING_REVIEW - Ad group is pending review because of policing reason - AD_GROUP_POLICING_CREATIVE_REJECTED - Ad group is rejected due to creative because of policing reason - AD_GROUP_LOW_BID - Ad group is less than the minimum allowed bid in its marketplace - ADVERTISER_STATUS_ENABLED - Advertiser's status is enabled - ADVERTISER_POLICING_PENDING_REVIEW - Avertiser is pending review because of policing reason - ADVERTISER_POLICING_SUSPENDED - Advertiser's status is suspended because of policing reason - ADVERTISER_PAUSED - Advertiser's status is paused - ADVERTISER_ARCHIVED - Advertiser's status is archived - ADVERTISER_PAYMENT_FAILURE - Advertiser's internal status is suspended - ADVERTISER_ACCOUNT_OUT_OF_BUDGET - Advertiser is out of budget for all Sponsored Ads campaigns - ADVERTISER_OUT_OF_PREPAY_BALANCE - Advertiser is out of prepay balance for all Sponsored Ads campaigns - ADVERTISER_EXCEED_SPENDS_LIMIT - Advertiser spends over the daily limit - CAMPAIGN_STATUS_ENABLED - Campaign's (parent) status is enabled. - CAMPAIGN_PAUSED - Campaign's (parent) status is paused. - CAMPAIGN_ARCHIVED - Campaign's (parent) status is archived. - CAMPAIGN_INCOMPLETE - Campaign (parent) does not contain any ads or targeting clauses. - CAMPAIGN_OUT_OF_BUDGET - Campaign (parent) is out of budget. - PORTFOLIO_STATUS_ENABLED - Portfolio's (parent) status is enabled - PORTFOLIO_PAUSED - Portfolio's (parent) status is paused - PORTFOLIO_ARCHIVED - Portfolio's (parent) status is archived - PORTFOLIO_OUT_OF_BUDGET - Portfolio (parent) is out of budget - PORTFOLIO_PENDING_START_DATE - Portfolio's (parent) start date is in the future - PORTFOLIO_ENDED - Portfolio's (parent) end date is in the past. - INELIGIBLE - Ad group is ineligible. - ELIGIBLE - Ad group is eligible. - ENDED - Campaign's (parent) end date is in the past. - PENDING_REVIEW - Campaign (parent) is pending review. - PENDING_START_DATE - Campaign's (parent) start date is in the future. - REJECTED - Campaign (parent) is rejected by moderation process. - UNKNOWN - Serving status is unknown. Please contact us for support. |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<string>` | No | No | The serving status reasons of the Ad Group. |
+
+## Inline140
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDate` | `creationDate` | `number` | No | No | Creation date in epoch time. |
+| `lastUpdateDate` | `lastUpdateDate` | `number` | No | No | Date of last update in epoch time. |
+| `servingStatus` | `servingStatus` | `string` | No | No | `Notice: the servingStatus enums have not been finalized yet.` The campaign serving status determined by system. - ADVERTISER_STATUS_ENABLED - Advertiser's status is enabled - ADVERTISER_POLICING_PENDING_REVIEW - Avertiser is pending review because of policing reason - ADVERTISER_POLICING_SUSPENDED - Advertiser's status is suspended because of policing reason - ADVERTISER_PAUSED - Advertiser's status is paused - ADVERTISER_ARCHIVED - Advertiser's status is archived - ADVERTISER_PAYMENT_FAILURE - Advertiser's internal status is suspended - ADVERTISER_ACCOUNT_OUT_OF_BUDGET - Advertiser is out of budget for all Sponsored Ads campaigns - ADVERTISER_OUT_OF_PREPAY_BALANCE - Advertiser is out of prepay balance for all Sponsored Ads campaigns - ADVERTISER_EXCEED_SPENDS_LIMIT - Advertiser spends over the daily limit - CAMPAIGN_STATUS_ENABLED - Campaign's status is enabled. - CAMPAIGN_PAUSED - Campaign's status is paused. - CAMPAIGN_ARCHIVED - Campaign's status is archived. - CAMPAIGN_INCOMPLETE - Campaign does not contain any ads or targeting clauses. - CAMPAIGN_OUT_OF_BUDGET - Campaign is out of budget. - PORTFOLIO_STATUS_ENABLED - Portfolio's status is enabled - PORTFOLIO_PAUSED - Portfolio's status is paused - PORTFOLIO_ARCHIVED - Portfolio's status is archived - PORTFOLIO_OUT_OF_BUDGET - Portfolio is out of budget - PORTFOLIO_PENDING_START_DATE - Portfolio's start date is in the future - PORTFOLIO_ENDED - Portfolio's end date is in the past. - INELIGIBLE - Ad Offer is ineligible - ELIGIBLE - Ad Offer is eligible - ENDED - Campaign's end date is in the past. - PENDING_REVIEW - Campaign is pending review. - PENDING_START_DATE - Campaign's start date is in the future. - REJECTED - Campaign is rejected by moderation process. - UNKNOWN - Serving status is unknown. Please contact us for support. |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<string>` | No | No | The serving status reasons of the Campaign. |
+
+## Inline141
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `applicableRuleId` | `applicableRuleId` | `string` | No | No | — |
+| `applicableRuleName` | `applicableRuleName` | `string` | No | No | — |
+| `isProcessing` | `isProcessing` | `boolean` | No | No | — |
+| `value` | `value` | `number` | No | No | — |
+
+## Inline142
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline146
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `biddingError` | `biddingError` | `Inline146` | No | No | Errors related to bids. |
+| `billingError` | `billingError` | `Inline147` | No | No | Errors related to billing. |
+| `budgetError` | `budgetError` | `Inline148` | No | No | — |
+| `dateError` | `dateError` | `Inline149` | No | No | Errors related to dates. |
+| `otherError` | `otherError` | `Inline150` | No | No | Errors not related to any of the other error types. |
+| `rangeError` | `rangeError` | `Inline151` | No | No | Errors related to range constraints violations. |
+
+## Inline147
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline147` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | Exact error reason. |
+
+## Inline148
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline148` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | — |
+
+## Inline149
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline149` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | Exact error reason.. |
+
+## Inline150
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline150` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline151
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | Allowed values. |
+| `cause` | `cause` | `Inline151` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | Optional lower limit. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | Optional upper limit. |
+
+## Inline153
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline153` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | Exact error reason. |
+| `upperLimit` | `upperLimit` | `string` | No | No | — |
+
+## Inline154
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline154` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | Exact error reason. |
+
+## Inline155
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline155` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | — |
+
+## Inline156
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline156` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | Exact error reason.. |
+
+## Inline157
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline157` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline158
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | Allowed values. |
+| `cause` | `cause` | `Inline158` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | Optional lower limit. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | Optional upper limit. |
+
+## Inline160
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error. |
+| `errorValue` | `errorValue` | `Inline160` | Yes | No | — |
+
+## Inline161
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline161` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | Exact error reason. |
+
+## Inline162
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline162` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | — |
+
+## Inline163
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline163` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | Exact error reason.. |
+
+## Inline164
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline164` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline165
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | Allowed values. |
+| `cause` | `cause` | `Inline165` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | Optional lower limit. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | Optional upper limit. |
+
+## Inline167
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidding` | `bidding` | `Inline167` | No | No | — |
+| `brandEntityId` | `brandEntityId` | `string` | No | No | — |
+| `budget` | `budget` | `number` | Yes | No | — |
+| `budgetType` | `budgetType` | `string` | Yes | No | For the lifetime budget type, `startDate` and `endDate` must be specified. |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign. |
+| `costType` | `costType` | `string` | No | No | The costType can be set to determines how the campaign will bid and charge. To view the bid maximums and minimums by geography and costType, see https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace. **For Author advertiser, the value will always be CPC**. - CPC [Default] - Cost per click. The performance of this campaign is measured by the clicks triggered by the ad. - VCPM - Cost per 1000 viewable impressions. The performance of this campaign is measured by the viewable impressions triggered by the ad. - FIXED_PRICE - Sale price for a specific ad placement regardless of auction performance. It can only be used for campaign with a targetedPGDealId. |
+| `endDate` | `endDate` | `string` | No | No | The format of the date is YYYY-MM-DD. |
+| `extendedData` | `extendedData` | `Inline170` | No | No | CampaignExtendedData can only be retrieved via the list API. It won't be available in the response during update/create. |
+| `goal` | `goal` | `string` | No | No | Goal will allow you to set goal type to help drive your campaign performance. If no goal is selected then it will default to PAGE_VISIT. **For Author advertiser, the value will always be PAGE_VISIT**. The goal type of the campaign. - BRAND_IMPRESSION_SHARE - This goal will allow you grown your brand impression share on top of search placements. - AD_VIEWS - This goal maximizes view for your ads through all placements. - PAGE_VISIT [DEFAULT] - This goal drives traffic to your landing and detail pages through all placements. - ACQUIRE_NEW_CUSTOMERS - This goal drives new customer acquisition for your brand. |
+| `isMultiAdGroupsEnabled` | `isMultiAdGroupsEnabled` | `boolean` | No | No | — |
+| `kpi` | `kpi` | `string` | No | No | This property is a PREVIEW ONLY. It is a READ ONLY property mapped from the campaign goal field. This is the KPI that the campaign goal is working to optimize for. - TOP_OF_SEARCH_IMPRESSION_SHARE - will maximize impression for top search placement for BRAND_IMPRESSION_SHARE goal. - VIEWABLE_IMPRESSIONS - will maximize viewable impressions for AD_VIEWS goal. - CLICKS - will maximize clicks for PAGE_VISIT goal. - NEW_TO_BRAND_PURCHASES - will maximize new to brand purchases for ACQUIRE_NEW_CUSTOMERS goal. |
+| `name` | `name` | `string` | Yes | No | The name of the campaign. |
+| `portfolioId` | `portfolioId` | `string` | No | No | The identifier of an existing portfolio to which the campaign is associated. |
+| `productLocation` | `productLocation` | `string` | No | No | The product location of the campaign. - SOLD_ON_AMAZON - For products sold on Amazon websites. - NOT_SOLD_ON_AMAZON - For products not sold on Amazon websites. - SOLD_ON_DTC - Deprecated (For products sold on DTC websites). |
+| `ruleBasedBudget` | `ruleBasedBudget` | `Inline171` | No | No | — |
+| `siteRestrictions` | `siteRestrictions` | `Array<string>` | No | No | Restrict the ad to a particular site. siteRestrictions is an optional field. If this field is not set, ads from the campaign will appear on Amazon - including both Amazon retail and Amazon Business. Please note that: 1) AMAZON_BUSINESS option is only available for Amazon Business operated marketplaces (US, CA, MX, UK, DE, FR, IT, ES, IN, JP, AU); 2) siteRestrictions cannot be changed post campaign creation; 3) siteRestrictions doesn’t support shopperCohortBidding setting. |
+| `smartDefault` | `smartDefault` | `Array<string>` | No | No | The smartDefault specifies a list of the smart default options for the campaign. **For Author advertiser, the value will always be ["MANUAL"]**. `smartDefault` is optional for create campaign requests. `smartDefault` are applicable to all applicable child entities of the campaign and are not editable once the campaign is created. When using ["TARGETING"], targets will be automatically added based on the goal selected. When ["MANUAL"] is selected, you will still be required to manually add targets. If you don't specify `smartDefault`, default value will be applied based on `goal` . If campaign's `goal` is selected, `smartDefault` will be set to ["TARGETING"]. Otherwise, a campaign's `smartDefault` will be set to ["MANUAL"]. Each element in smartDefault can be set to determines which default strategy to be used - MANUAL - Manual settings, no smart default be applied to the campaign, if MANUAL is added in the list, no other items are allowed in the list (the list must contains only one item) - TARGETING - Smart Default Targeting creation, will automatically creating targetings when create ad group Example: ["TARGETING"] |
+| `startDate` | `startDate` | `string` | No | No | The format of the date is YYYY-MM-DD. |
+| `state` | `state` | `string` | Yes | No | The current resource state. |
+| `tags` | `tags` | `Inline172` | No | No | A list of advertiser-specified custom identifiers for the campaign. Each customer identifier is a key-value pair. You can specify a maximum of 50 identifiers. |
+| `targetedPGDealId` | `targetedPGDealId` | `string` | No | No | DealId associated with the campaign. This field is immutable and cannot be changed after the campaign is created. |
+
+## Inline168
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `percentage` | `percentage` | `number` | No | No | — |
+| `shopperSegment` | `shopperSegment` | `string` | No | No | List of bid adjustments for shopper segments. - NEW_TO_BRAND_PURCHASE - The shopper segment where shopper has not purchased product from the brand. |
+
+## Inline169
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceSegments` | `audienceSegments` | `Array<Inline169>` | No | No | — |
+| `percentage` | `percentage` | `number` | No | No | — |
+| `shopperCohortType` | `shopperCohortType` | `string` | No | No | Type of shopper cohort to apply shopper cohort bid adjustments to. Only AUDIENCE_SEGMENT is supported at the moment |
+
+## Inline17
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error. |
+| `errorValue` | `errorValue` | `Inline17` | Yes | No | — |
+
+## Inline170
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDate` | `creationDate` | `number` | No | No | Creation date in epoch time. |
+| `lastUpdateDate` | `lastUpdateDate` | `number` | No | No | Date of last update in epoch time. |
+| `servingStatus` | `servingStatus` | `string` | No | No | `Notice: the servingStatus enums have not been finalized yet.` The campaign serving status determined by system. - ADVERTISER_STATUS_ENABLED - Advertiser's status is enabled - ADVERTISER_POLICING_PENDING_REVIEW - Avertiser is pending review because of policing reason - ADVERTISER_POLICING_SUSPENDED - Advertiser's status is suspended because of policing reason - ADVERTISER_PAUSED - Advertiser's status is paused - ADVERTISER_ARCHIVED - Advertiser's status is archived - ADVERTISER_PAYMENT_FAILURE - Advertiser's internal status is suspended - ADVERTISER_ACCOUNT_OUT_OF_BUDGET - Advertiser is out of budget for all Sponsored Ads campaigns - ADVERTISER_OUT_OF_PREPAY_BALANCE - Advertiser is out of prepay balance for all Sponsored Ads campaigns - ADVERTISER_EXCEED_SPENDS_LIMIT - Advertiser spends over the daily limit - CAMPAIGN_STATUS_ENABLED - Campaign's status is enabled. - CAMPAIGN_PAUSED - Campaign's status is paused. - CAMPAIGN_ARCHIVED - Campaign's status is archived. - CAMPAIGN_INCOMPLETE - Campaign does not contain any ads or targeting clauses. - CAMPAIGN_OUT_OF_BUDGET - Campaign is out of budget. - PORTFOLIO_STATUS_ENABLED - Portfolio's status is enabled - PORTFOLIO_PAUSED - Portfolio's status is paused - PORTFOLIO_ARCHIVED - Portfolio's status is archived - PORTFOLIO_OUT_OF_BUDGET - Portfolio is out of budget - PORTFOLIO_PENDING_START_DATE - Portfolio's start date is in the future - PORTFOLIO_ENDED - Portfolio's end date is in the past. - INELIGIBLE - Ad Offer is ineligible - ELIGIBLE - Ad Offer is eligible - ENDED - Campaign's end date is in the past. - PENDING_REVIEW - Campaign is pending review. - PENDING_START_DATE - Campaign's start date is in the future. - REJECTED - Campaign is rejected by moderation process. - UNKNOWN - Serving status is unknown. Please contact us for support. |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<string>` | No | No | The serving status reasons of the Campaign. |
+
+## Inline171
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `applicableRuleId` | `applicableRuleId` | `string` | No | No | — |
+| `applicableRuleName` | `applicableRuleName` | `string` | No | No | — |
+| `isProcessing` | `isProcessing` | `boolean` | No | No | — |
+| `value` | `value` | `number` | No | No | — |
+
+## Inline172
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline18
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline18` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | Exact error reason.. |
+
+## Inline182
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful |
+| `ruleId` | `ruleId` | `string` | No | No | The budget rule identifier. |
+
+## Inline184
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asinExclusions` | `asinExclusions` | `Array<string>` | No | No | — |
+| `brandLogoAssetID` | `brandLogoAssetID` | `string` | No | No | — |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline184` | No | No | The crop to apply to the selected Brand logo. A Brand logo must have minimum dimensions of 400x400. If a brandLogoAssetID is supplied but a crop is not, the crop will be defaulted to the whole image. |
+| `brandName` | `brandName` | `string` | Yes | No | — |
+
+## Inline186
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | — |
+| `left` | `left` | `number` | No | No | — |
+| `top` | `top` | `number` | No | No | — |
+| `width` | `width` | `number` | No | No | — |
+
+## Inline188
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | — |
+| `brandLogoAssetID` | `brandLogoAssetID` | `string` | No | No | — |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline188` | No | No | The crop to apply to the selected Brand logo. A Brand logo must have minimum dimensions of 400x400. If a brandLogoAssetID is supplied but a crop is not, the crop will be defaulted to the whole image. |
+| `brandName` | `brandName` | `string` | No | No | — |
+| `collectionName` | `collectionName` | `string` | No | No | — |
+| `collectionType` | `collectionType` | `string` | No | No | The CollectionType is used to designate either an auto or manual collection. |
+| `companionAsins` | `companionAsins` | `Array<string>` | No | No | — |
+| `consentToTranslate` | `consentToTranslate` | `boolean` | No | No | If set to true and the headline and/or video are not in the marketplace's default language, Amazon will attempt to translate them to the marketplace's default language. If Amazon is unable to translate them, the ad will be rejected by moderation. We only support translating headlines and videos from English to German, French, Italian, Spanish, Japanese, and Dutch. See developer notes for more information. |
+| `headline` | `headline` | `string` | No | No | The headline text. Maximum length of the string is 50 characters for all marketplaces other than Japan, which has a maximum length of 35 characters. |
+| `videoAssetIds` | `videoAssetIds` | `Array<string>` | No | No | — |
+
+## Inline189
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | ASIN(s) on the landingPage for pageType PRODUCT_LIST or DETAIL_PAGE. If pageType is DETAIL_PAGE, this field must contains a single asin. If pageType is PRODUCT_LIST, this field must contains at least 3 asins. For other pageTypes, this field must be null and the url field must be non null. |
+| `pageType` | `pageType` | `string` | No | No | The type of landing page, such as store page, product list (simple landing page), custom url. |
+| `url` | `url` | `string` | No | No | URL of a Store page. Vendors may also specify the URL of a custom landing page. If a custom URL is specified, the landing page must include the ASINs of at least three products that are advertised as part of the campaign. Do not include this property in the request if the asins property is also included, these properties are mutually exclusive. |
+
+## Inline19
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline19` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline191
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | — |
+| `left` | `left` | `number` | No | No | — |
+| `top` | `top` | `number` | No | No | — |
+| `width` | `width` | `number` | No | No | — |
+
+## Inline193
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | An array of ASINs associated with the creative. |
+| `brandLogoAssetId` | `brandLogoAssetId` | `string` | Yes | No | The identifier of the [brand logo](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#brandlogo) image from the brand store's asset library. Note that for campaigns created in the Amazon Advertising console prior to release of the brand store's assets library, responses will not include a value for this field. |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline193` | No | No | Asset cropping attributes |
+| `brandName` | `brandName` | `string` | Yes | No | The displayed brand name in the ad headline. Maximum length is 30 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `consentToTranslate` | `consentToTranslate` | `boolean` | No | No | If set to true and the headline and/or video are not in the marketplace's default language, Amazon will attempt to translate them to the marketplace's default language. If Amazon is unable to translate them, the ad will be rejected by moderation. We only support translating headlines and videos from English to German, French, Italian, Spanish, Japanese, and Dutch. See developer notes for more information. |
+| `headline` | `headline` | `string` | Yes | No | The headline text. Maximum length of the string is 50 characters for all marketplaces other than Japan, which has a maximum length of 35 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `landingPage` | `landingPage` | `Inline194` | No | No | Landing page V2, where type is String with allowed values listed, and url or asins of that type. This parameter is in PREVIEW only and can not be used as part of a request. |
+| `videoAssetIds` | `videoAssetIds` | `Array<string>` | Yes | No | The assetIds of the original videos submitted by the advertiser. If 'consentToTranslate' is set to true and translation is SUCCESSFUL then 'videoAssetIds' will return translated video assetId whereas `originalVideoAssetIds` will return the original video assetId. In all other cases, `videoAssetIds` will return original video assetId. |
+
+## Inline194
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | The list of asins on the landingPage If type is PRODUCT_LIST. A minimum of 3 asins are required. For the 'PRODUCT_LIST' type, the asins property is mandatory, and the url should not be included. |
+| `type` | `type` | `string` | No | No | Supported types are PRODUCT_LIST, STORE, DETAIL_PAGE, CUSTOM_URL. More could be added in future. |
+| `url` | `url` | `string` | No | No | The url of the landingPage. When including the 'asins' property in the request, do not include this property, as they are mutually exclusive. For the PRODUCT_LIST type, the asins property is mandatory, and the url should not be included. |
+
+## Inline197
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `associatedCampaignIds` | `associatedCampaignIds` | `Array<string>` | No | No | — |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful |
+| `ruleId` | `ruleId` | `string` | No | No | The rule identifier. |
+
+## Inline199
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidAdjustmentsByPlacement` | `bidAdjustmentsByPlacement` | `Array<Inline199>` | No | No | Placement level bid adjustment. Note that this field can only be set when 'bidOptimization' is set to false. |
+| `bidAdjustmentsByShopperSegment` | `bidAdjustmentsByShopperSegment` | `Array<Inline200>` | No | No | DEPRECATED [PLANNED SHUTOFF DATE 3/31/2024] **Note: This feature has been deprecated and planned to shutoff on 03/31/2024. After the shut off date, we will ignore this field in the request and treat it as null. You will not get an error if you supply this field in the request. Based on customer feedback, we are rethinking this feature in context to Goal based campaigns to help advertiser reach NTB customers at scale with transparent reporting. Meanwhile, if you have any feedback or suggestion related to this feature then please reach out to our customer support teams. Shopper segment level bid adjustment. When both bidAdjustmentsByPlacement and bidAdjustmentsByShopperSegment are specified, the adjustment will be multiplicative. This shape is deprecated. |
+| `bidOptimization` | `bidOptimization` | `boolean` | No | No | Whether to use automatic placement level bid optimization. If set to true, Amazon will automatically set the right placement adjustment and the bidAdjustmentsByPlacement field is ignored. If set to false, the bidAdjustmentsByPlacement field will be used to adjust bid on different placements. If this field is changed from false to true, the bidAdjustmentsByPlacement field will be reset to null. While this field affects bidAdjustmentsByPlacement, it will not control shopperCohortBidAdjustments. |
+| `bidOptimizationStrategy` | `bidOptimizationStrategy` | `string` | No | No | DEPRECATED [PLANNED SHUTOFF DATE 3/31/2024] **Note: This feature has been deprecated and planned to shutoff on 03/31/2024. After the shut off date, we will ignore this field in the request and treat it as null. You will not get an error if you supply this field in the request. Based on customer feedback, we are rethinking this feature in context to Goal based campaigns to help advertiser reach NTB customers at scale with transparent reporting. Meanwhile, if you have any feedback or suggestion related to this feature then please reach out to our customer support teams. The bid optimization strategy. - MAXIMIZE_IMMEDIATE_SALES - The default bidding strategy. The campaign is optimized to maximize sale. - MAXIMIZE_NEW_TO_BRAND_CUSTOMERS - The campaign is optimized to acquire more new-to-brand customers. This shape is deprecated. |
+| `shopperCohortBidAdjustments` | `shopperCohortBidAdjustments` | `Array<Inline201>` | No | No | Shopper cohort based bid adjustments. |
+
+## Inline20
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | Allowed values. |
+| `cause` | `cause` | `Inline20` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | Optional lower limit. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | Optional upper limit. |
+
+## Inline200
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `percentage` | `percentage` | `number` | No | No | — |
+| `shopperSegment` | `shopperSegment` | `string` | No | No | List of bid adjustments for shopper segments. - NEW_TO_BRAND_PURCHASE - The shopper segment where shopper has not purchased product from the brand. |
+
+## Inline201
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceSegments` | `audienceSegments` | `Array<Inline201>` | No | No | — |
+| `percentage` | `percentage` | `number` | No | No | — |
+| `shopperCohortType` | `shopperCohortType` | `string` | No | No | Type of shopper cohort to apply shopper cohort bid adjustments to. Only AUDIENCE_SEGMENT is supported at the moment |
+
+## Inline202
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline204
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | — |
+| `brandLogoAssetID` | `brandLogoAssetID` | `string` | No | No | — |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline204` | No | No | The crop to apply to the selected Brand logo. A Brand logo must have minimum dimensions of 400x400. If a brandLogoAssetID is supplied but a crop is not, the crop will be defaulted to the whole image. |
+| `brandName` | `brandName` | `string` | No | No | — |
+| `collectionName` | `collectionName` | `string` | No | No | — |
+| `collectionType` | `collectionType` | `string` | No | No | The CollectionType is used to designate either an auto or manual collection. |
+| `companionAsins` | `companionAsins` | `Array<string>` | No | No | — |
+| `consentToTranslate` | `consentToTranslate` | `boolean` | No | No | If set to true and the headline and/or video are not in the marketplace's default language, Amazon will attempt to translate them to the marketplace's default language. If Amazon is unable to translate them, the ad will be rejected by moderation. We only support translating headlines and videos from English to German, French, Italian, Spanish, Japanese, and Dutch. See developer notes for more information. |
+| `creativePropertiesToOptimize` | `creativePropertiesToOptimize` | `Array<string>` | No | No | The List of CreativeProperties Amazon will enhance or generate based on various factors like audience, placement etc. |
+| `customImages` | `customImages` | `Array<Inline205>` | No | No | Requires minimum one custom image. You can add an optional collection of custom images that can be displayed on the ad as slideshow. Learn more about slideshow here https://advertising.amazon.com/resources/whats-new/slideshow-ads-creative-for-sponsored-brands/ |
+| `headline` | `headline` | `string` | No | No | DEPRECATED. Please use `headlines` field to provide the headline texts associated with the creative. The headline text. Maximum length of the string is 50 characters for all marketplaces other than Japan, which has a maximum length of 35 characters. See the policy for headline requirements. |
+| `headlines` | `headlines` | `Array<string>` | No | No | An array of headline texts associated with the creative. |
+
+## Inline205
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | No | No | — |
+| `crop` | `crop` | `Inline205` | No | No | The crop to apply to the selected Custom image. A Custom image must have a 1200x628 aspect ratio, with a .01 delta for floating point precision. If a customImageAssetId is supplied but a crop is not, the crop will be defaulted to the whole image. |
+| `url` | `url` | `string` | No | No | — |
+
+## Inline206
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | ASIN(s) on the landingPage for pageType PRODUCT_LIST or DETAIL_PAGE. If pageType is DETAIL_PAGE, this field must contains a single asin. If pageType is PRODUCT_LIST, this field must contains at least 3 asins. For other pageTypes, this field must be null and the url field must be non null. |
+| `pageType` | `pageType` | `string` | No | No | The type of landing page, such as store page, product list (simple landing page), custom url. |
+| `url` | `url` | `string` | No | No | URL of a Store page. Vendors may also specify the URL of a custom landing page. If a custom URL is specified, the landing page must include the ASINs of at least three products that are advertised as part of the campaign. Do not include this property in the request if the asins property is also included, these properties are mutually exclusive. |
+
+## Inline208
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | — |
+| `left` | `left` | `number` | No | No | — |
+| `top` | `top` | `number` | No | No | — |
+| `width` | `width` | `number` | No | No | — |
+
+## Inline209
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | No | No | — |
+| `crop` | `crop` | `Inline209` | No | No | The crop to apply to the selected Custom image. A Custom image must have a 1200x628 aspect ratio, with a .01 delta for floating point precision. If a customImageAssetId is supplied but a crop is not, the crop will be defaulted to the whole image. |
+| `url` | `url` | `string` | No | No | — |
+
+## Inline211
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | An array of ASINs associated with the creative. |
+| `brandLogoAssetId` | `brandLogoAssetId` | `string` | Yes | No | The identifier of the [brand logo](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#brandlogo) image from the brand store's asset library. Note that for campaigns created in the Amazon Advertising console prior to release of the brand store's assets library, responses will not include a value for this field. |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline211` | No | No | Asset cropping attributes |
+| `brandName` | `brandName` | `string` | Yes | No | The displayed brand name in the ad headline. Maximum length is 30 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `collectionType` | `collectionType` | `string` | No | No | The CollectionType is used to designate either an auto or manual collection. |
+| `companionAsins` | `companionAsins` | `Array<string>` | No | No | The companion asins in the ad. Only for Bundle Collection type. |
+| `consentToTranslate` | `consentToTranslate` | `boolean` | No | No | If set to true and the headline and/or video are not in the marketplace's default language, Amazon will attempt to translate them to the marketplace's default language. If Amazon is unable to translate them, the ad will be rejected by moderation. We only support translating headlines and videos from English to German, French, Italian, Spanish, Japanese, and Dutch. See developer notes for more information. |
+| `creativePropertiesToOptimize` | `creativePropertiesToOptimize` | `Array<string>` | No | No | The CreativeProperties Amazon will enhance or generate based on various factors like audience, placement etc. |
+| `customImages` | `customImages` | `Array<Inline212>` | No | No | An array of customImages associated with the creative. Minimum one custom image. |
+| `headline` | `headline` | `string` | No | No | DEPRECATED. Please use `headlines` field to provide the headline texts associated with the creative. This shape is deprecated: Please use headlines instead |
+| `headlines` | `headlines` | `Array<string>` | No | No | An array of headline texts associated with the creative. |
+| `landingPage` | `landingPage` | `Inline213` | No | No | Landing page V2, where type is String with allowed values listed, and url or asins of that type. This parameter is in PREVIEW only and can not be used as part of a request. |
+
+## Inline212
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | No | No | — |
+| `crop` | `crop` | `Inline212` | No | No | The crop to apply to the selected Custom image. A Custom image must have a 1200x628 aspect ratio, with a .01 delta for floating point precision. If a customImageAssetId is supplied but a crop is not, the crop will be defaulted to the whole image. |
+| `url` | `url` | `string` | No | No | — |
+
+## Inline213
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | The list of asins on the landingPage If type is PRODUCT_LIST. A minimum of 3 asins are required. For the 'PRODUCT_LIST' type, the asins property is mandatory, and the url should not be included. |
+| `type` | `type` | `string` | No | No | Supported types are PRODUCT_LIST, STORE, DETAIL_PAGE, CUSTOM_URL. More could be added in future. |
+| `url` | `url` | `string` | No | No | The url of the landingPage. When including the 'asins' property in the request, do not include this property, as they are mutually exclusive. For the PRODUCT_LIST type, the asins property is mandatory, and the url should not be included. |
+
+## Inline216
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | — |
+| `brandLogoAssetID` | `brandLogoAssetID` | `string` | No | No | — |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline216` | No | No | The crop to apply to the selected Brand logo. A Brand logo must have minimum dimensions of 400x400. If a brandLogoAssetID is supplied but a crop is not, the crop will be defaulted to the whole image. |
+| `brandName` | `brandName` | `string` | Yes | No | — |
+| `landingPage` | `landingPage` | `Inline217` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+
+## Inline217
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pageType` | `pageType` | `string` | No | No | The BrandCollectionLandingPageType is used for brand collection ads, supporting only store page and product list landing pages. |
+| `url` | `url` | `string` | No | No | URL of an existing simple landing page or Store page for brand collection ads. If the pageType is PRODUCT_LIST, the landing page must include the ASINs of at least three products that are advertised as part of the campaign. Do not include this property in the request if the asins property is also included, these properties are mutually exclusive. |
+
+## Inline219
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | — |
+| `left` | `left` | `number` | No | No | — |
+| `top` | `top` | `number` | No | No | — |
+| `width` | `width` | `number` | No | No | — |
+
+## Inline22
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `biddingError` | `biddingError` | `Inline22` | No | No | Errors related to bids. |
+| `dateError` | `dateError` | `Inline23` | No | No | Errors related to dates. |
+| `otherError` | `otherError` | `Inline24` | No | No | Errors not related to any of the other error types. |
+| `rangeError` | `rangeError` | `Inline25` | No | No | Errors related to range constraints violations. |
+
+## Inline220
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pageType` | `pageType` | `string` | No | No | The BrandCollectionLandingPageType is used for brand collection ads, supporting only store page and product list landing pages. |
+| `url` | `url` | `string` | No | No | URL of an existing simple landing page or Store page for brand collection ads. If the pageType is PRODUCT_LIST, the landing page must include the ASINs of at least three products that are advertised as part of the campaign. Do not include this property in the request if the asins property is also included, these properties are mutually exclusive. |
+
+## Inline222
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | Yes | No | Enum: "COST_PER_CLICK" "COST_PER_NEW_TO_BRAND_PURCHASES" The name of the attribute. Supported rule metrics and corresponding supported comparisonOperators: \| AttributeName \| ComparisonOperator \| Description \| \|------------------------------------\|---------------------------\|-----------------------------------------------------------------------------------------\| \| COST_PER_CLICK \| LESS_THAN_OR_EQUAL_TO \| Maximize page visits while cost per click less than or equal to threshold. \| \| COST_PER_NEW_TO_BRAND_PURCHASES \| LESS_THAN_OR_EQUAL_TO \| Maximize new to brand purchases while cost per purchase less than or equal to threshold.\| \| |
+| `criteria` | `criteria` | `Inline222` | Yes | No | — |
+
+## Inline224
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conditions` | `conditions` | `Array<Inline224>` | No | No | — |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | No | No | The identifier of the optimization rule. |
+
+## Inline227
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | — |
+| `brandLogoAssetID` | `brandLogoAssetID` | `string` | No | No | — |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline227` | No | No | The crop to apply to the selected Brand logo. A Brand logo must have minimum dimensions of 400x400. If a brandLogoAssetID is supplied but a crop is not, the crop will be defaulted to the whole image. |
+| `brandName` | `brandName` | `string` | No | No | — |
+| `customImageAssetId` | `customImageAssetId` | `string` | No | No | — |
+| `customImageCrop` | `customImageCrop` | `Inline228` | No | No | The crop to apply to the selected Custom image. A Custom image must have a 1200x628 aspect ratio, with a .01 delta for floating point precision. If a customImageAssetId is supplied but a crop is not, the crop will be defaulted to the whole image. |
+| `headline` | `headline` | `string` | No | No | The headline text. Maximum length of the string is 50 characters for all marketplaces other than Japan, which has a maximum length of 35 characters. |
+
+## Inline228
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | — |
+| `left` | `left` | `number` | No | No | — |
+| `top` | `top` | `number` | No | No | — |
+| `width` | `width` | `number` | No | No | — |
+
+## Inline229
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | ASIN(s) on the landingPage for pageType PRODUCT_LIST or DETAIL_PAGE. If pageType is DETAIL_PAGE, this field must contains a single asin. If pageType is PRODUCT_LIST, this field must contains at least 3 asins. For other pageTypes, this field must be null and the url field must be non null. |
+| `pageType` | `pageType` | `string` | No | No | The type of landing page, such as store page, product list (simple landing page), custom url. |
+| `url` | `url` | `string` | No | No | URL of a Store page. Vendors may also specify the URL of a custom landing page. If a custom URL is specified, the landing page must include the ASINs of at least three products that are advertised as part of the campaign. Do not include this property in the request if the asins property is also included, these properties are mutually exclusive. |
+
+## Inline23
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline23` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | Exact error reason.. |
+
+## Inline231
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | — |
+| `left` | `left` | `number` | No | No | — |
+| `top` | `top` | `number` | No | No | — |
+| `width` | `width` | `number` | No | No | — |
+
+## Inline232
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | — |
+| `left` | `left` | `number` | No | No | — |
+| `top` | `top` | `number` | No | No | — |
+| `width` | `width` | `number` | No | No | — |
+
+## Inline234
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | An array of ASINs associated with the creative. |
+| `brandLogoAssetId` | `brandLogoAssetId` | `string` | Yes | No | The identifier of the [brand logo](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#brandlogo) image from the brand store's asset library. Note that for campaigns created in the Amazon Advertising console prior to release of the brand store's assets library, responses will not include a value for this field. |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline234` | No | No | Asset cropping attributes |
+| `brandName` | `brandName` | `string` | Yes | No | The displayed brand name in the ad headline. Maximum length is 30 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `customImageAssetId` | `customImageAssetId` | `string` | No | No | The identifier of the Custom image from the Store assets library. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#customimage) for more information on what constitutes a valid Custom image. |
+| `customImageCrop` | `customImageCrop` | `Inline235` | No | No | Asset cropping attributes |
+| `headline` | `headline` | `string` | Yes | No | The headline text. Maximum length of the string is 50 characters for all marketplaces other than Japan, which has a maximum length of 35 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+
+## Inline235
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | The number of pixels to crop down from the value specified as top |
+| `left` | `left` | `number` | No | No | The leftmost pixel from which to begin cropping |
+| `top` | `top` | `number` | No | No | The highest pixel from which to begin cropping |
+| `width` | `width` | `number` | No | No | The number of pixels to crop rightwards from the value specified as left |
+
+## Inline238
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetIncreaseBy` | `budgetIncreaseBy` | `Inline238` | No | No | — |
+| `duration` | `duration` | `Inline239` | No | No | — |
+| `name` | `name` | `string` | No | No | The budget rule name. Required to be unique within a campaign. |
+| `performanceMeasureCondition` | `performanceMeasureCondition` | `Inline241` | No | No | — |
+| `recurrence` | `recurrence` | `Inline242` | No | No | — |
+| `ruleType` | `ruleType` | `string` | No | No | The type of budget rule. SCHEDULE: A budget rule based on a start and end date. PERFORMANCE: A budget rule based on advertising performance criteria. |
+
+## Inline239
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dateRangeTypeRuleDuration` | `dateRangeTypeRuleDuration` | `Inline239` | No | No | Object representing date range type rule duration. |
+| `eventTypeRuleDuration` | `eventTypeRuleDuration` | `Inline240` | No | No | Object representing event type rule duration. |
+
+## Inline24
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline24` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline240
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The event end date in YYYYMMDD format. Read-only. |
+| `eventId` | `eventId` | `string` | Yes | No | The event identifier. This value is available from the budget rules recommendation API. |
+| `eventName` | `eventName` | `string` | No | No | The event name. Read-only. |
+| `startDate` | `startDate` | `string` | No | No | The event start date in YYYYMMDD format. Read-only. Note that this field is present only for announced events. |
+
+## Inline241
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## Inline242
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | Object representing days of the week for weekly type rule. It is not required for daily recurrence type |
+| `intraDaySchedule` | `intraDaySchedule` | `Array<Inline242>` | No | No | List of objects representing start and end time of desired intra-day budget rule window |
+| `type` | `type` | `string` | No | No | depicts the type of recurrence |
+
+## Inline244
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign to which the keyword is associated. |
+| `name` | `name` | `string` | Yes | No | The name of the ad group. |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation. |
+
+## Inline246
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline246>` | No | No | — |
+| `success` | `success` | `Array<Inline250>` | No | No | — |
+
+## Inline247
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline247` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | Exact error reason.. |
+
+## Inline248
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline248` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## Inline249
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | Allowed values. |
+| `cause` | `cause` | `Inline249` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | Optional lower limit. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | Optional upper limit. |
+
+## Inline25
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | Allowed values. |
+| `cause` | `cause` | `Inline25` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | Optional lower limit. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | Optional upper limit. |

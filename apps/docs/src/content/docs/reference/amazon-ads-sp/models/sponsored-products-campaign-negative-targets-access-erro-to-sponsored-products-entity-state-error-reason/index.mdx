@@ -1,0 +1,901 @@
+---
+title: "Amazon Ads — Sponsored Products models: Sponsored Products Campaign Negative Targets Access Error – Sponsored Products Entity State Error Reason"
+description: "100 generated Amazon Ads — Sponsored Products model contracts, from SponsoredProductsCampaignNegativeTargetsAccessError through SponsoredProductsEntityStateErrorReason."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 1028
+  label: "Sponsored Products Campaign Negative Targets Access Error – Sponsored Products Entity State Error Reason"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## SponsoredProductsCampaignNegativeTargetsAccessError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline1075` | Yes | No | — |
+
+## SponsoredProductsCampaignNegativeTargetsAccessErrorSelector
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityNotFoundError` | `entityNotFoundError` | `Inline1084` | No | No | — |
+| `internalServerError` | `internalServerError` | `Inline1085` | No | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+| `invalidInputError` | `invalidInputError` | `Inline1086` | No | No | Errors related to ad eligibility |
+| `malformedValueError` | `malformedValueError` | `Inline1087` | No | No | Errors being used to represent malformed values e.g. containing not allowed characters, not following patters etc |
+| `missingValueError` | `missingValueError` | `Inline1088` | No | No | Error describing missing values in API payloads |
+| `otherError` | `otherError` | `Inline1089` | No | No | Errors not related to any of the other error types |
+| `rangeError` | `rangeError` | `Inline1090` | No | No | Errors related to range constraints violations |
+| `throttledError` | `throttledError` | `Inline1091` | No | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## SponsoredProductsCampaignNegativeTargetsAccessExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline1093>` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+
+## SponsoredProductsCampaignNegativeTargetsMutationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline1102` | Yes | No | — |
+
+## SponsoredProductsCampaignNegativeTargetsMutationErrorSelector
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `billingError` | `billingError` | `Inline1116` | No | No | Errors related to bids |
+| `duplicateValueError` | `duplicateValueError` | `Inline1117` | No | No | — |
+| `entityNotFoundError` | `entityNotFoundError` | `Inline1118` | No | No | — |
+| `entityQuotaError` | `entityQuotaError` | `Inline1119` | No | No | Errors related to exceeding quota in campaign management service |
+| `entityStateError` | `entityStateError` | `Inline1120` | No | No | entity state update errors |
+| `internalServerError` | `internalServerError` | `Inline1121` | No | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+| `malformedValueError` | `malformedValueError` | `Inline1122` | No | No | Errors being used to represent malformed values e.g. containing not allowed characters, not following patters etc |
+| `missingValueError` | `missingValueError` | `Inline1123` | No | No | Error describing missing values in API payloads |
+| `otherError` | `otherError` | `Inline1124` | No | No | Errors not related to any of the other error types |
+| `parentEntityError` | `parentEntityError` | `Inline1125` | No | No | Errors related to parent entity |
+| `rangeError` | `rangeError` | `Inline1126` | No | No | Errors related to range constraints violations |
+| `targetingClauseSetupError` | `targetingClauseSetupError` | `Inline1127` | No | No | Errors related to targeting clause setup |
+| `throttledError` | `throttledError` | `Inline1128` | No | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## SponsoredProductsCampaignNegativeTargetsMutationExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline1130>` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+
+## SponsoredProductsCampaignServingStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACCOUNT_OUT_OF_BUDGET`, `ADVERTISER_ARCHIVED`, `ADVERTISER_EXCEED_SPENDS_LIMIT`, `ADVERTISER_OUT_OF_BUDGET`, `ADVERTISER_PAUSED`, `ADVERTISER_PAYMENT_FAILURE`, `ADVERTISER_POLICING_PENDING_REVIEW`, `ADVERTISER_POLICING_SUSPENDED`, `CAMPAIGN_ARCHIVED`, `CAMPAIGN_INCOMPLETE`, `CAMPAIGN_OUT_OF_BUDGET`, `CAMPAIGN_PAUSED`, `CAMPAIGN_STATUS_ENABLED`, `ENDED`, `OTHER`, `PENDING_REVIEW`, `PENDING_START_DATE`, `PORTFOLIO_ARCHIVED`, `PORTFOLIO_ENDED`, `PORTFOLIO_OUT_OF_BUDGET`, `PORTFOLIO_PAUSED`, `PORTFOLIO_PENDING_START_DATE`, `PORTFOLIO_STATUS_ENABLED`, `REJECTED`
+
+## SponsoredProductsCampaignServingStatusDetail
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `helpUrl` | `helpUrl` | `string` | No | No | A URL with additional information about the status identifier. |
+| `message` | `message` | `string` | No | No | A human-readable description of the status identifier specified in the name field. |
+| `name` | `name` | `string` | No | No | — |
+
+## SponsoredProductsCampaignServingStatusReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACCOUNT_OUT_OF_BUDGET_DETAIL`, `ADVERTISER_ARCHIVED_DETAIL`, `ADVERTISER_EXCEED_SPENDS_LIMIT_DETAIL`, `ADVERTISER_OUT_OF_BUDGET_DETAIL`, `ADVERTISER_PAUSED_DETAIL`, `ADVERTISER_PAYMENT_FAILURE_DETAIL`, `ADVERTISER_POLICING_PENDING_REVIEW_DETAIL`, `ADVERTISER_POLICING_SUSPENDED_DETAIL`, `CAMPAIGN_ARCHIVED_DETAIL`, `CAMPAIGN_INCOMPLETE_DETAIL`, `CAMPAIGN_OUT_OF_BUDGET_DETAIL`, `CAMPAIGN_PAUSED_DETAIL`, `CAMPAIGN_STATUS_ENABLED_DETAIL`, `ENDED_DETAIL`, `OTHER`, `PENDING_REVIEW_DETAIL`, `PENDING_START_DATE_DETAIL`, `PORTFOLIO_ARCHIVED_DETAIL`, `PORTFOLIO_ENDED_DETAIL`, `PORTFOLIO_OUT_OF_BUDGET_DETAIL`, `PORTFOLIO_PAUSED_DETAIL`, `PORTFOLIO_PENDING_START_DATE_DETAIL`, `PORTFOLIO_STATUS_ENABLED_DETAIL`, `REJECTED_DETAIL`
+
+## SponsoredProductsCreateAdGroup
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign to which the keyword is associated. |
+| `defaultBid` | `defaultBid` | `number` | Yes | No | A bid value for use when no bid is specified for keywords in the ad group. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `name` | `name` | `string` | Yes | No | The name of the ad group. |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation |
+
+## SponsoredProductsCreateCampaign
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `autoManageCampaign` | `autoManageCampaign` | `boolean` | No | No | — |
+| `budget` | `budget` | `Inline1148` | Yes | No | — |
+| `dynamicBidding` | `dynamicBidding` | `Inline1149` | No | No | Specifies bidding controls. DynamicBidding is optional for both Create and Update requests. For Create Campaign requests, if you don't specify dynamicBidding, default strategy of `LEGACY_FOR_SALES` will be applied. |
+| `endDate` | `endDate` | `string` | No | No | The format of the date is YYYY-MM-DD. |
+| `name` | `name` | `string` | Yes | No | The name of the campaign. |
+| `offAmazonSettings` | `offAmazonSettings` | `Inline1151` | No | No | Settings that apply to ads served off Amazon. `OffAmazonSettings` is optional for both Create and Update requests. This field is upcoming and is not ready for use. |
+| `portfolioId` | `portfolioId` | `string` | No | No | The identifier of an existing portfolio to which the campaign is associated. |
+| `siteRestrictions` | `siteRestrictions` | `Array<string>` | No | No | Restrict the ad to a particular site. siteRestrictions is an optional field. If this field is not set, ads from the campaign will appear on Amazon - including both Amazon retail and Amazon Business - as well as select sites and apps off Amazon. Please note that: 1) AMAZON_BUSINESS option is only available for Amazon Business operated marketplaces (US, CA, MX, UK, DE, FR, IT, ES, IN, JP, AU), and AMAZON_HAUL option is only available in US; 2) siteRestrictions cannot be changed post campaign creation; 3) siteRestrictions don’t support shopperCohortBidding setting, SITE_AMAZON_BUSINESS placementBidding setting and offAmazonSettings; 4) Only AMAZON_BUSINESS option is ready for use at the moment. |
+| `startDate` | `startDate` | `string` | No | No | Default: today's date. The format of the date is YYYY-MM-DD. |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation |
+| `tags` | `tags` | `Inline1152` | No | No | A list of advertiser-specified custom identifiers for the campaign. Each customer identifier is a key-value pair. You can specify a maximum of 50 identifiers. |
+| `targetingType` | `targetingType` | `string` | Yes | No | — |
+
+## SponsoredProductsCreateCampaignNegativeKeyword
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign to which the keyword is associated. |
+| `keywordText` | `keywordText` | `string` | Yes | No | The keyword text. |
+| `matchType` | `matchType` | `string` | Yes | No | — |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation |
+
+## SponsoredProductsCreateCampaignNegativeTargetingClause
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign to which this target is associated. CampaignNegativeTargetingClauses are only available for AUTO campaigns |
+| `expression` | `expression` | `Array<Inline1155>` | Yes | No | The NegativeTargeting expression. |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation |
+
+## SponsoredProductsCreateExpressionType
+
+`enum` model on the `json` wire format.
+
+**Values:** `MANUAL`
+
+## SponsoredProductsCreateKeyword
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the ad group to which this keyword is associated. |
+| `bid` | `bid` | `number` | No | No | Bid associated with this keyword. Applicable to biddable match types only. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifer of the campaign to which the keyword is associated. |
+| `keywordText` | `keywordText` | `string` | Yes | No | The keyword text. |
+| `matchType` | `matchType` | `string` | Yes | No | — |
+| `nativeLanguageKeyword` | `nativeLanguageKeyword` | `string` | No | No | The unlocalized keyword text in the preferred locale of the advertiser. |
+| `nativeLanguageLocale` | `nativeLanguageLocale` | `string` | No | No | The locale preference of the advertiser. For example, if the advertiser’s preferred language is Simplified Chinese, set the locale to zh_CN. Supported locales include: Simplified Chinese (locale: zh_CN) for US, UK and CA. English (locale: en_GB) for DE, FR, IT and ES. |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation |
+
+## SponsoredProductsCreateKeywordTarget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | Bid associated with the target. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `keyword` | `keyword` | `string` | Yes | No | The keyword text. |
+| `matchType` | `matchType` | `string` | Yes | No | — |
+
+## SponsoredProductsCreateNegativeKeyword
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the ad group to which this keyword is associated. |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifer of the campaign to which the keyword is associated. |
+| `keywordText` | `keywordText` | `string` | Yes | No | The keyword text. |
+| `matchType` | `matchType` | `string` | Yes | No | — |
+| `nativeLanguageKeyword` | `nativeLanguageKeyword` | `string` | No | No | The unlocalized keyword text in the preferred locale of the advertiser |
+| `nativeLanguageLocale` | `nativeLanguageLocale` | `string` | No | No | The locale preference of the advertiser. |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation |
+
+## SponsoredProductsCreateNegativeTargetingClause
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the ad group to which this target is associated. |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign to which this target is associated. |
+| `expression` | `expression` | `Array<Inline1161>` | Yes | No | The NegativeTargeting expression. |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation |
+
+## SponsoredProductsCreateOrUpdateBiddingStrategy
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUTO_FOR_SALES`, `LEGACY_FOR_SALES`, `MANUAL`, `RULE_BASED`
+
+## SponsoredProductsCreateOrUpdateBudget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `number` | Yes | No | Monetary value |
+| `budgetType` | `budgetType` | `string` | Yes | No | — |
+
+## SponsoredProductsCreateOrUpdateBudgetType
+
+`enum` model on the `json` wire format.
+
+**Values:** `DAILY`
+
+## SponsoredProductsCreateOrUpdateDynamicBidding
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placementBidding` | `placementBidding` | `Array<Inline1166>` | No | No | — |
+| `shopperCohortBidding` | `shopperCohortBidding` | `Array<Inline1167>` | No | No | Specifies Shopper Cohorts based bid adjustment controls. `shopperCohortBidding` is optional for both Create and Update requests. You can enable this control to adjust your bid based on the shopper cohorts. The percentage value set is the percentage of the original bid including any other bid adjustments such as `placementBidding`. For example, a `placementBidding` with 50% adjustment on a $1.00 bid would increase the bid to $1.50, and a `shopperCohortBidding` with 100% adjustment would further increase the bid to $3.00. |
+| `strategy` | `strategy` | `string` | No | No | The bidding strategy. `strategy` is required for create requests if dynamicBidding is provided, but is optional for update requests. \| Value \| Strategy name \| Description \| \|----------------\|---------------\|-------------\| \| `LEGACY_FOR_SALES` \| Dynamic bids - down only \| Lowers your bids in real time when your ad may be less likely to convert to a sale. Campaigns created before the release of the bidding controls feature used this setting by default. \| \| `AUTO_FOR_SALES` \| Dynamic bids - up and down \| Increases or decreases your bids in real time by a maximum of 100%. With this setting bids increase when your ad is more likely to convert to a sale, and bids decrease when less likely to convert to a sale. \| \| `MANUAL` \| Fixed bid \| Uses your exact bid and any placement adjustments you set, and is not subject to dynamic bidding. \| \| `RULE_BASED` \| Rule based bidding \| See Rule based bidding documentation https://advertising.amazon.com/API/docs/en-us/sponsored-products/rule-based-bidding/overview \| |
+
+## SponsoredProductsCreateOrUpdateEntityState
+
+`enum` model on the `json` wire format.
+
+**Values:** `ENABLED`, `PAUSED`, `PROPOSED`
+
+## SponsoredProductsCreateOrUpdateMatchType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BROAD`, `EXACT`, `PHRASE`
+
+## SponsoredProductsCreateOrUpdateNegativeMatchType
+
+`enum` model on the `json` wire format.
+
+**Values:** `NEGATIVE_BROAD`, `NEGATIVE_EXACT`, `NEGATIVE_PHRASE`
+
+## SponsoredProductsCreateOrUpdateNegativeTargetingExpressionPredicate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | The type of nagative targeting expression. You can only specify values for the following predicates: \| Predicate \| Description \| \| --- \| --- \| \| `ASIN_BRAND_SAME_AS` \| Target the brand that is the same as the brand expressed. \| \| `ASIN_SAME_AS` \| Target an ASIN that is the same as the ASIN expressed. \| |
+| `value` | `value` | `string` | No | No | The expression value |
+
+## SponsoredProductsCreateOrUpdateNegativeTargetingExpressionPredicateType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ASIN_BRAND_SAME_AS`, `ASIN_SAME_AS`
+
+## SponsoredProductsCreateOrUpdateOffAmazonBudgetControlStrategy
+
+`enum` model on the `json` wire format.
+
+**Values:** `MAXIMIZE_REACH`, `MINIMIZE_SPEND`
+
+## SponsoredProductsCreateOrUpdateOffAmazonSettings
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `offAmazonBudgetControlStrategy` | `offAmazonBudgetControlStrategy` | `string` | No | No | The budget control strategy for ads served off Amazon . `OffAmazonBudgetControlStrategy` is optional for create and update requests. Value \| Description \| \|-----------\|------------\| \| `MAXIMIZE_REACH` \| Prioritize more reach using your target settings. This setting may result in more impressions and opportunities for sales off Amazon. \| \| `MINIMIZE_SPEND` \| Optimize ad delivery to minimize spending. This setting may result in fewer impressions off Amazon, but it can help control spend. \| |
+
+## SponsoredProductsCreateProductAd
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The ad group identifier. |
+| `asin` | `asin` | `string` | No | No | The ASIN associated with the product. Defined for vendors only. |
+| `campaignId` | `campaignId` | `string` | Yes | No | The campaign identifier. |
+| `customText` | `customText` | `string` | No | No | The custom text to use for creating a custom text ad for the associated ASIN. Defined only for KDP Authors and Book Vendors in US marketplace. |
+| `globalStoreSetting` | `globalStoreSetting` | `Inline1176` | No | No | — |
+| `sku` | `sku` | `string` | No | No | The SKU associated with the product. Defined for seller accounts only. |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation |
+
+## SponsoredProductsCreateProductTarget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | Bid associated with the target. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `matchType` | `matchType` | `string` | Yes | No | — |
+| `target` | `target` | `string` | Yes | No | The product ASIN of the target. |
+
+## SponsoredProductsCreateSponsoredProductsAdGroupsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `adGroups` | `Array<Inline1179>` | Yes | No | An array of adGroups. |
+
+## SponsoredProductsCreateSponsoredProductsAdGroupsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `adGroups` | `Inline1181` | Yes | No | — |
+
+## SponsoredProductsCreateSponsoredProductsCampaignNegativeKeywordsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeKeywords` | `campaignNegativeKeywords` | `Array<Inline1197>` | Yes | No | An array of campaignNegativeKeywords. |
+
+## SponsoredProductsCreateSponsoredProductsCampaignNegativeKeywordsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeKeywords` | `campaignNegativeKeywords` | `Inline1199` | Yes | No | — |
+
+## SponsoredProductsCreateSponsoredProductsCampaignNegativeTargetingClausesRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeTargetingClauses` | `campaignNegativeTargetingClauses` | `Array<Inline1213>` | Yes | No | An array of Campaign Negative TargetingClauses. |
+
+## SponsoredProductsCreateSponsoredProductsCampaignNegativeTargetingClausesResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeTargetingClauses` | `campaignNegativeTargetingClauses` | `Inline1215` | Yes | No | — |
+
+## SponsoredProductsCreateSponsoredProductsCampaignsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Array<Inline1232>` | Yes | No | An array of campaigns. |
+
+## SponsoredProductsCreateSponsoredProductsCampaignsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Inline1238` | Yes | No | — |
+
+## SponsoredProductsCreateSponsoredProductsKeywordsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywords` | `keywords` | `Array<Inline1261>` | Yes | No | An array of keywords. |
+
+## SponsoredProductsCreateSponsoredProductsKeywordsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywords` | `keywords` | `Inline1263` | Yes | No | — |
+
+## SponsoredProductsCreateSponsoredProductsNegativeKeywordsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeKeywords` | `negativeKeywords` | `Array<Inline1280>` | Yes | No | An array of negativeKeywords. |
+
+## SponsoredProductsCreateSponsoredProductsNegativeKeywordsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeKeywords` | `negativeKeywords` | `Inline1282` | Yes | No | — |
+
+## SponsoredProductsCreateSponsoredProductsNegativeTargetingClausesRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeTargetingClauses` | `negativeTargetingClauses` | `Array<Inline1297>` | Yes | No | An array of negativeTargeting. |
+
+## SponsoredProductsCreateSponsoredProductsNegativeTargetingClausesResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeTargetingClauses` | `negativeTargetingClauses` | `Inline1299` | Yes | No | — |
+
+## SponsoredProductsCreateSponsoredProductsProductAdsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productAds` | `productAds` | `Array<Inline1316>` | Yes | No | An array of ads. |
+
+## SponsoredProductsCreateSponsoredProductsProductAdsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productAds` | `productAds` | `Inline1318` | Yes | No | — |
+
+## SponsoredProductsCreateSponsoredProductsTargetingClausesRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingClauses` | `targetingClauses` | `Array<Inline1337>` | Yes | No | An array of targetingClauses. |
+
+## SponsoredProductsCreateSponsoredProductsTargetingClausesResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingClauses` | `targetingClauses` | `Inline1339` | Yes | No | — |
+
+## SponsoredProductsCreateTarget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `manualTargetingAdGroupId` | `manualTargetingAdGroupId` | `string` | No | No | The adGroupId of the manual-targeting campaign where the target belongs. |
+| `targetId` | `targetId` | `string` | No | No | The id of the target that got created. |
+| `targetPromotionGroupId` | `targetPromotionGroupId` | `string` | No | No | The id of the target promotion group. |
+
+## SponsoredProductsCreateTargetError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | No | No | The type of the error. |
+| `errorValue` | `errorValue` | `Inline1359 \| Inline1360 \| Inline1361 \| Inline1362 \| Inline1363 \| Inline1364 \| Inline1365 \| Inline1366 \| Inline1367 \| Inline1368 \| Inline1369 \| Inline1370 \| Inline1371 \| Inline1372 \| Inline1373 \| Inline1374 \| Inline1375` | No | No | — |
+
+## SponsoredProductsCreateTargetErrorSelector
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline1377 \| Inline1378 \| Inline1379 \| Inline1380 \| Inline1381 \| Inline1382 \| Inline1383 \| Inline1384 \| Inline1385 \| Inline1386 \| Inline1387 \| Inline1388 \| Inline1389 \| Inline1390 \| Inline1391 \| Inline1392 \| Inline1393`
+
+## SponsoredProductsCreateTargetingClause
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the ad group to which this target is associated. |
+| `bid` | `bid` | `number` | No | No | The bid for ads sourced using the target. Targets that do not have bid values in listTargetingClauses will inherit the defaultBid from the adGroup level. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign to which this target is associated. |
+| `expression` | `expression` | `Array<Inline1395>` | Yes | No | The targeting expression. |
+| `expressionType` | `expressionType` | `string` | Yes | No | — |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation |
+
+## SponsoredProductsCreateTargetingExpressionPredicate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | The type of targeting expression. You can specify values for the following predicates: \| Predicate \| Description \| \| --- \| --- \| \| `ASIN_CATEGORY_SAME_AS` \| Target the category that is the same as the category expressed. \| \| `ASIN_BRAND_SAME_AS` \| Target the brand that is the same as the brand expressed. \| \| `ASIN_PRICE_LESS_THAN` \| Target a price that is less than the price expressed. \| \| `ASIN_PRICE_BETWEEN` \| Target a price that is between the prices expressed. \| \| `ASIN_PRICE_GREATER_THAN` \| Target a price that is greater than the price expressed. \| \| `ASIN_REVIEW_RATING_LESS_THAN` \| Target a review rating less than the review rating that is expressed. \| \| `ASIN_REVIEW_RATING_BETWEEN` \| Target a review rating that is between the review ratings expressed. \| \| `ASIN_REVIEW_RATING_GREATER_THAN` \| Target a review rating that is greater than the review rating expressed. \| \| `ASIN_SAME_AS` \| Target an ASIN that is the same as the ASIN expressed. \| \| `ASIN_IS_PRIME_SHIPPING_ELIGIBLE` \| Target products that are Prime Shipping Eligible. This refinement can be applied at a category or brand level only. \| \| `ASIN_AGE_RANGE_SAME_AS` \| Target an age range that is in the expressed range. This refinement can be applied for toys and games categories only. \| \| `ASIN_GENRE_SAME_AS` \| Target products related to the expressed genre. This refinement can be applied for Books and eBooks categories only. \| \| `ASIN_EXPANDED_FROM` \| Target products similar in performance to the ASIN expressed. \| \| `KEYWORD_GROUP_SAME_AS` \| Target the keyword group that is the same as the keyword group expressed (Beta coming soon). \| |
+| `value` | `value` | `string` | No | No | The expression value |
+
+## SponsoredProductsCreateTargetingExpressionPredicateType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ASIN_AGE_RANGE_SAME_AS`, `ASIN_BRAND_SAME_AS`, `ASIN_CATEGORY_SAME_AS`, `ASIN_EXPANDED_FROM`, `ASIN_GENRE_SAME_AS`, `ASIN_IS_PRIME_SHIPPING_ELIGIBLE`, `ASIN_PRICE_BETWEEN`, `ASIN_PRICE_GREATER_THAN`, `ASIN_PRICE_LESS_THAN`, `ASIN_REVIEW_RATING_BETWEEN`, `ASIN_REVIEW_RATING_GREATER_THAN`, `ASIN_REVIEW_RATING_LESS_THAN`, `ASIN_SAME_AS`, `KEYWORD_GROUP_SAME_AS`
+
+## SponsoredProductsCreateTargetPromotionGroupsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The adGroupId of the Ad Group of an Auto-Targeting campaign that will be part of the Target Promotion Group. |
+| `adIds` | `adIds` | `Array<string>` | No | No | The list of adIds (optional) of the Ad Group of the Auto-Targeting campaign, that will be part of the Target Promotion Group. If this list is empty, all the Product Ads under the Ad Group will be part of the Target Promotion Group. |
+| `existingCampaignDetails` | `existingCampaignDetails` | `Inline1399` | No | No | The request object for creating a new target promotion group with existing campaigns. Please note that the adGroupIds provided need to contain the same Ad ASINs/SKUs combination as the Auto-Targeting adGroup for the target promotion group. |
+| `newCampaignDetails` | `newCampaignDetails` | `Inline1400` | No | No | The request object for creating a new target promotion group with new campaigns. |
+
+## SponsoredProductsCreateTargetPromotionGroupsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetPromotionGroup` | `targetPromotionGroup` | `Inline1404` | No | No | A Target Promotion Group that groups an Auto-Targeting Campaign/AdGroup with a Manual-Targeting Keyword Campaign/AdGroup, and a Manual-Targeting Product Campaign/AdGroup |
+
+## SponsoredProductsCreateTargetPromotionGroupsV2RequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The adGroupId of the source Ad Group that will be part of the Target Promotion Group. |
+| `adIds` | `adIds` | `Array<string>` | No | No | The list of adIds (optional) of the source Ad Group, that will be part of the Target Promotion Group. If this list is not provided, all the Product Ads under the source Ad Group will be part of the Target Promotion Group. |
+| `existingCampaignDetails` | `existingCampaignDetails` | `Array<Inline1406>` | No | No | List of existing manual campaign ad groups to be added in the Target Promotion Group. It must contain one keyword ad group, or one product ad group, or both. The request will fail if this field is provided alongside newCampaignDetails. |
+| `newCampaignDetails` | `newCampaignDetails` | `Array<Inline1407>` | No | No | List of new destination manual campaigns to be created as part of the Target Promotion Group. It must contain setting for the creation of one keyword ad group, or one product ad group, or both. The request will fail if this field is provided alongside existingCampaignDetails. |
+| `targetPromotionGroupName` | `targetPromotionGroupName` | `string` | Yes | No | The name of the target promotion group that will be created. |
+
+## SponsoredProductsCreateTargetPromotionGroupsV2ResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetPromotionGroup` | `targetPromotionGroup` | `Inline1412` | No | No | A Target Promotion Group that groups a source AdGroup with one or more destination Manual Keyword/Product Targeting AdGroup(s) |
+
+## SponsoredProductsCreateTargetPromotionGroupTargetsBatchError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `string` | No | No | index of the item in the request. |
+| `subErrors` | `subErrors` | `Array<Inline1414>` | No | No | A list of the errors encountered. |
+
+## SponsoredProductsCreateTargetPromotionGroupTargetsBatchSuccess
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `string` | No | No | index of the item in the request. |
+| `targetDetails` | `targetDetails` | `Inline1416 \| Inline1417` | No | No | — |
+
+## SponsoredProductsCreateTargetPromotionGroupTargetsFailureResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline1419>` | No | No | Response object of failed target promotion group target. |
+| `expressionType` | `expressionType` | `string` | No | No | The expression type of the target that was requested to be created. |
+| `target` | `target` | `string` | No | No | The target that was requested to be created. |
+
+## SponsoredProductsCreateTargetPromotionGroupTargetsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetPromotionGroupId` | `targetPromotionGroupId` | `string` | Yes | No | The id of the target promotion group where the targets are being added. |
+| `targets` | `targets` | `Array<Inline1437>` | No | No | List of targets to be added to the target promotion group. |
+
+## SponsoredProductsCreateTargetPromotionGroupTargetsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline1439>` | No | No | List of targets that failed to create. |
+| `success` | `success` | `Array<Inline1456>` | No | No | List of successfully created targets. |
+
+## SponsoredProductsCreateTargetPromotionGroupTargetsSuccessResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expressionType` | `expressionType` | `string` | No | No | The expression type of the target that was requested to be created. |
+| `target` | `target` | `string` | No | No | The target that was requested to be created. |
+| `targetDetails` | `targetDetails` | `Inline1458` | No | No | Target created in the target promotion group. |
+
+## SponsoredProductsCreateTargetPromotionGroupTargetsV2RequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetPromotionGroupId` | `targetPromotionGroupId` | `string` | Yes | No | The id of the target promotion group where the targets are being added. |
+| `targets` | `targets` | `Array<Inline1460 \| Inline1461>` | No | No | List of targets to be added to the target promotion group. |
+
+## SponsoredProductsCreateTargetPromotionGroupTargetsV2ResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline1463>` | No | No | — |
+| `success` | `success` | `Array<Inline1464>` | No | No | — |
+
+## SponsoredProductsCreateTargetRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | Bid associated with the target. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `expressionType` | `expressionType` | `string` | Yes | No | The match type (for KEYWORDs) or the expression type (for PRODUCT). One of QUERY_BROAD_MATCHES, QUERY_EXACT_MATCHES, QUERY_PHRASE_MATCHES, ASIN_SAME_AS, ASIN_EXPANDED_FROM |
+| `target` | `target` | `string` | Yes | No | The keyword or the product ASIN to be targeted. |
+
+## SponsoredProductsCreateTargetRequestV2
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline1468 \| Inline1469`
+
+## SponsoredProductsCurrencyError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1471` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## SponsoredProductsCurrencyErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `CANNOT_UPDATE_CURRENCY`, `CURRENCY_NOT_MATCHING_PREFERRED_CURRENCY`, `CURRENCY_NOT_SUPPORTED`, `PREFERRED_CURRENCY_NOT_SET`
+
+## SponsoredProductsDateError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1474` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## SponsoredProductsDateErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `END_DATE_EARLIER_THAN_TODAY`, `END_DATE_LATER_THAN_MAXIMUM`, `INVALID_DATE`, `START_DATE_AFTER_END_DATE`, `START_DATE_EARLIER_THAN_TODAY`, `START_DATE_LATER_THAN_MAXIMUM`, `UPDATING_ENDED_CAMPAIGN_WITHOUT_EXTENSION`, `UPDATING_READ_ONLY_END_DATE`, `UPDATING_READ_ONLY_START_DATE`
+
+## SponsoredProductsDeleteSponsoredProductsAdGroupsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline1477` | Yes | No | Filter entities by the list of objectIds |
+
+## SponsoredProductsDeleteSponsoredProductsAdGroupsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `adGroups` | `Inline1479` | Yes | No | — |
+
+## SponsoredProductsDeleteSponsoredProductsCampaignNegativeKeywordsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeKeywordIdFilter` | `campaignNegativeKeywordIdFilter` | `Inline1495` | Yes | No | Filter entities by the list of objectIds |
+
+## SponsoredProductsDeleteSponsoredProductsCampaignNegativeKeywordsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeKeywords` | `campaignNegativeKeywords` | `Inline1497` | Yes | No | — |
+
+## SponsoredProductsDeleteSponsoredProductsCampaignNegativeTargetingClausesRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeTargetIdFilter` | `campaignNegativeTargetIdFilter` | `Inline1511` | Yes | No | Filter entities by the list of objectIds |
+
+## SponsoredProductsDeleteSponsoredProductsCampaignNegativeTargetingClausesResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeTargetingClauses` | `campaignNegativeTargetingClauses` | `Inline1513` | Yes | No | — |
+
+## SponsoredProductsDeleteSponsoredProductsCampaignsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline1530` | Yes | No | Filter entities by the list of objectIds |
+
+## SponsoredProductsDeleteSponsoredProductsCampaignsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Inline1532` | Yes | No | — |
+
+## SponsoredProductsDeleteSponsoredProductsKeywordsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywordIdFilter` | `keywordIdFilter` | `Inline1555` | Yes | No | Filter entities by the list of objectIds |
+
+## SponsoredProductsDeleteSponsoredProductsKeywordsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywords` | `keywords` | `Inline1557` | Yes | No | — |
+
+## SponsoredProductsDeleteSponsoredProductsNegativeKeywordsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeKeywordIdFilter` | `negativeKeywordIdFilter` | `Inline1574` | Yes | No | Filter entities by the list of objectIds |
+
+## SponsoredProductsDeleteSponsoredProductsNegativeKeywordsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeKeywords` | `negativeKeywords` | `Inline1576` | Yes | No | — |
+
+## SponsoredProductsDeleteSponsoredProductsNegativeTargetingClausesRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeTargetIdFilter` | `negativeTargetIdFilter` | `Inline1591` | Yes | No | Filter entities by the list of objectIds |
+
+## SponsoredProductsDeleteSponsoredProductsNegativeTargetingClausesResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeTargetingClauses` | `negativeTargetingClauses` | `Inline1593` | Yes | No | — |
+
+## SponsoredProductsDeleteSponsoredProductsProductAdsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adIdFilter` | `adIdFilter` | `Inline1610` | Yes | No | Filter entities by the list of objectIds |
+
+## SponsoredProductsDeleteSponsoredProductsProductAdsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productAds` | `productAds` | `Inline1612` | Yes | No | — |
+
+## SponsoredProductsDeleteSponsoredProductsTargetingClausesRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetIdFilter` | `targetIdFilter` | `Inline1631` | Yes | No | Filter entities by the list of objectIds |
+
+## SponsoredProductsDeleteSponsoredProductsTargetingClausesResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingClauses` | `targetingClauses` | `Inline1633` | Yes | No | — |
+
+## SponsoredProductsDuplicateValueError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1652` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## SponsoredProductsDuplicateValueErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `DUPLICATE_VALUE`, `MARKETPLACE_ATTRIBUTES_REPEATED`, `NAME_NOT_UNIQUE`
+
+## SponsoredProductsDynamicBidding
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placementBidding` | `placementBidding` | `Array<Inline1655>` | No | No | — |
+| `shopperCohortBidding` | `shopperCohortBidding` | `Array<Inline1656>` | No | No | Specifies Shopper Cohorts based bid adjustment controls. `shopperCohortBidding` is optional for both Create and Update requests. You can enable this control to adjust your bid based on the shopper cohorts. The percentage value set is the percentage of the original bid including any other bid adjustments such as `placementBidding`. For example, a `placementBidding` with 50% adjustment on a $1.00 bid would increase the bid to $1.50, and a `shopperCohortBidding` with 100% adjustment would further increase the bid to $3.00. |
+| `strategy` | `strategy` | `string` | Yes | No | The bidding strategy. \| Value \| Strategy name \| Description \| \|----------------\|---------------\|-------------\| \| `LEGACY_FOR_SALES` \| Dynamic bids - down only \| Lowers your bids in real time when your ad may be less likely to convert to a sale. Campaigns created before the release of the bidding controls feature used this setting by default. \| \| `AUTO_FOR_SALES` \| Dynamic bids - up and down \| Increases or decreases your bids in real time by a maximum of 100%. With this setting bids increase when your ad is more likely to convert to a sale, and bids decrease when less likely to convert to a sale. \| \| `MANUAL` \| Fixed bid \| Uses your exact bid and any placement adjustments you set, and is not subject to dynamic bidding. \| \| `RULE_BASED` \| Rule based bidding \| See Rule based bidding documentation https://advertising.amazon.com/API/docs/en-us/sponsored-products/rule-based-bidding/overview \| |
+
+## SponsoredProductsEntityNotFoundError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1658` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `entityId` | `entityId` | `string` | Yes | No | The entity id in the request |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## SponsoredProductsEntityNotFoundErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `ENTITY_NOT_FOUND`
+
+## SponsoredProductsEntityQuotaError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1661` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `quota` | `quota` | `string` | No | No | optional current quota |
+| `quotaScope` | `quotaScope` | `string` | No | No | — |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## SponsoredProductsEntityState
+
+`enum` model on the `json` wire format.
+
+**Values:** `ARCHIVED`, `ENABLED`, `ENABLING`, `OTHER`, `PAUSED`, `PROPOSED`, `USER_DELETED`
+
+## SponsoredProductsEntityStateError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1664` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## SponsoredProductsEntityStateErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `ARCHIVED_ENTITY_CANNOT_BE_MODIFIED`, `AUTO_TARGETING_CLAUSE_CANNOT_BE_ARCHIVED_MANUALLY`, `INVALID_STATE_TRANSITION`, `INVALID_TARGET_STATE`, `MARKETPLACE_STATE_CANNOT_BE_ARCHIVED`, `PARENT_ARCHIVED_FORBIDS_UPDATES`, `PARENT_ENTITY_FORBIDS_CREATION`, `PARENT_STATUS_FORBIDS_UPDATES_AND_CREATES`

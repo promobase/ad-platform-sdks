@@ -1,0 +1,1034 @@
+---
+title: "Amazon Ads — Sponsored Products models: Sponsored Products Entity State Filter – Sponsored Products New Ad Group"
+description: "100 generated Amazon Ads — Sponsored Products model contracts, from SponsoredProductsEntityStateFilter through SponsoredProductsNewAdGroup."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 1029
+  label: "Sponsored Products Entity State Filter – Sponsored Products New Ad Group"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## SponsoredProductsEntityStateFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## SponsoredProductsEntityType
+
+`enum` model on the `json` wire format.
+
+**Values:** `AD_GROUP`, `CAMPAIGN`, `CAMPAIGN_NEGATIVE_KEYWORD`, `CAMPAIGN_NEGATIVE_TARGETING_CLAUSE`, `KEYWORD`, `NEGATIVE_KEYWORD`, `NEGATIVE_TARGETING_CLAUSE`, `PRODUCT_AD`, `TARGETING_CLAUSE`
+
+## SponsoredProductsError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorCode` | `errorCode` | `string` | No | No | — |
+| `errorMessage` | `errorMessage` | `string` | No | No | — |
+
+## SponsoredProductsErrorCause
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `location` | `location` | `string` | Yes | No | Error location, JSON Path expression specifying element of API payload causing error |
+| `trigger` | `trigger` | `string` | No | No | optional value causing error |
+
+## SponsoredProductsExistingAdGroup
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The id of the Ad Group. |
+
+## SponsoredProductsExistingCampaignDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywordCampaignAdGroupIds` | `keywordCampaignAdGroupIds` | `Array<string>` | No | No | AdGroupIds of existing manual campaigns to be used as part of the Target Promotion Group for promoting keyword targets. |
+| `productCampaignAdGroupIds` | `productCampaignAdGroupIds` | `Array<string>` | No | No | AdGroupIds of existing manual campaigns to be used as part of the Target Promotion Group for promoting product targets. |
+
+## SponsoredProductsExpressionType
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUTO`, `MANUAL`, `OTHER`
+
+## SponsoredProductsExpressionTypeError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1674` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## SponsoredProductsExpressionTypeErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `UNSUPPORTED_EXPRESSION_TYPE`
+
+## SponsoredProductsExpressionTypeFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## SponsoredProductsExpressionTypeWithoutOther
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUTO`, `MANUAL`
+
+## SponsoredProductsGetTargetPromotionGroupsRecommendationsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline1679` | No | No | Filter entities by the list of objectIds |
+| `adIdFilter` | `adIdFilter` | `Inline1680` | No | No | Filter entities by the list of objectIds |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline1681` | No | No | Filter entities by the list of objectIds |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to 1000. |
+| `nextToken` | `nextToken` | `string` | No | No | Token for fetching the next page |
+
+## SponsoredProductsGetTargetPromotionGroupsRecommendationsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | Token for fetching the next page |
+| `targets` | `targets` | `Array<Inline1683>` | Yes | No | List of optimized targets for the request, as recommended by Amazon heuristics |
+| `totalResults` | `totalResults` | `number` | Yes | No | Total number of records available |
+
+## SponsoredProductsGlobalStoreSetting
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogSourceCountryCode` | `catalogSourceCountryCode` | `string` | No | No | Country code of source marketplace where seller has listed the product. Possible source country codes include US, UK, DE, JP, AE, and TR. |
+
+## SponsoredProductsInternalErrorErrorCode
+
+`enum` model on the `json` wire format.
+
+**Values:** `INTERNAL_ERROR`
+
+## SponsoredProductsInternalServerError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1687` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## SponsoredProductsInternalServerErrorCode
+
+`enum` model on the `json` wire format.
+
+**Values:** `INTERNAL_SERVER_EXCEPTION`
+
+## SponsoredProductsInternalServerErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `INTERNAL_ERROR`
+
+## SponsoredProductsInternalServerExceptionCode
+
+`enum` model on the `json` wire format.
+
+**Values:** `INTERNAL_SERVER_EXCEPTION`
+
+## SponsoredProductsInternalServerExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+
+## SponsoredProductsInvalidArgumentErrorCode
+
+`enum` model on the `json` wire format.
+
+**Values:** `INVALID_ARGUMENT`
+
+## SponsoredProductsInvalidInputError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1694` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## SponsoredProductsInvalidInputErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `INVALID_TOKEN`
+
+## SponsoredProductsKeyword
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the ad group to which this keyword is associated. |
+| `bid` | `bid` | `number` | No | No | Bid associated with this keyword. Applicable to biddable match types only. Keywords that do not have bid values in listKeywords will inherit the defaultBid from the adGroup level. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign to which the keyword is associated. |
+| `extendedData` | `extendedData` | `Inline1697` | No | No | — |
+| `globalKeywordId` | `globalKeywordId` | `string` | No | No | The global keyword identifier that manages this marketplace keyword. |
+| `keywordId` | `keywordId` | `string` | Yes | No | The identifier of the keyword. |
+| `keywordText` | `keywordText` | `string` | Yes | No | The keyword text. |
+| `matchType` | `matchType` | `string` | Yes | No | — |
+| `nativeLanguageKeyword` | `nativeLanguageKeyword` | `string` | No | No | The unlocalized keyword text in the preferred locale of the advertiser. |
+| `nativeLanguageLocale` | `nativeLanguageLocale` | `string` | No | No | The locale preference of the advertiser. For example, if the advertiser’s preferred language is Simplified Chinese, set the locale to zh_CN. Supported locales include: Simplified Chinese (locale: zh_CN) for US, UK and CA. English (locale: en_GB) for DE, FR, IT and ES. |
+| `state` | `state` | `string` | Yes | No | The current resource state. \| State \| Description \| \| --- \| --- \| \| `ENABLED` \| Enabled State \| \| `PAUSED` \| Paused State \| \| `PROPOSED` \| Proposed State (Upcoming Feature) \| \| `ARCHIVED` \| ARCHIVED State \| \| `ENABLING` \| State for Draft Entity Only \| \| `USER_DELETED` \| State for Draft Entity Only \| \| `OTHER` \| Read Only \| |
+
+## SponsoredProductsKeywordAccessError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline1699` | Yes | No | — |
+
+## SponsoredProductsKeywordAccessErrorSelector
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityNotFoundError` | `entityNotFoundError` | `Inline1709` | No | No | — |
+| `internalServerError` | `internalServerError` | `Inline1710` | No | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+| `invalidInputError` | `invalidInputError` | `Inline1711` | No | No | Errors related to ad eligibility |
+| `localeError` | `localeError` | `Inline1712` | No | No | — |
+| `malformedValueError` | `malformedValueError` | `Inline1713` | No | No | Errors being used to represent malformed values e.g. containing not allowed characters, not following patters etc |
+| `missingValueError` | `missingValueError` | `Inline1714` | No | No | Error describing missing values in API payloads |
+| `otherError` | `otherError` | `Inline1715` | No | No | Errors not related to any of the other error types |
+| `rangeError` | `rangeError` | `Inline1716` | No | No | Errors related to range constraints violations |
+| `throttledError` | `throttledError` | `Inline1717` | No | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## SponsoredProductsKeywordAccessExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline1719>` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+
+## SponsoredProductsKeywordExtendedData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDateTime` | `creationDateTime` | `string` | No | No | Creation date in ISO 8601. |
+| `lastUpdateDateTime` | `lastUpdateDateTime` | `string` | No | No | Last updated date in ISO 8601. |
+| `servingStatus` | `servingStatus` | `string` | No | No | — |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<Inline1729>` | No | No | The serving status reasons of the Keyword |
+
+## SponsoredProductsKeywordFailureResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline1731>` | No | No | A list of validation errors |
+| `index` | `index` | `number` | Yes | No | the index of the keyword in the array from the request body |
+
+## SponsoredProductsKeywordMatchType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BROAD`, `EXACT`, `PHRASE`
+
+## SponsoredProductsKeywordMutationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline1748` | Yes | No | — |
+
+## SponsoredProductsKeywordMutationErrorSelector
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `biddingError` | `biddingError` | `Inline1764` | No | No | Errors related to bids |
+| `billingError` | `billingError` | `Inline1765` | No | No | Errors related to bids |
+| `duplicateValueError` | `duplicateValueError` | `Inline1766` | No | No | — |
+| `entityNotFoundError` | `entityNotFoundError` | `Inline1767` | No | No | — |
+| `entityQuotaError` | `entityQuotaError` | `Inline1768` | No | No | Errors related to exceeding quota in campaign management service |
+| `entityStateError` | `entityStateError` | `Inline1769` | No | No | entity state update errors |
+| `internalServerError` | `internalServerError` | `Inline1770` | No | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+| `localeError` | `localeError` | `Inline1771` | No | No | — |
+| `malformedValueError` | `malformedValueError` | `Inline1772` | No | No | Errors being used to represent malformed values e.g. containing not allowed characters, not following patters etc |
+| `missingValueError` | `missingValueError` | `Inline1773` | No | No | Error describing missing values in API payloads |
+| `otherError` | `otherError` | `Inline1774` | No | No | Errors not related to any of the other error types |
+| `parentEntityError` | `parentEntityError` | `Inline1775` | No | No | Errors related to parent entity |
+| `rangeError` | `rangeError` | `Inline1776` | No | No | Errors related to range constraints violations |
+| `targetingClauseSetupError` | `targetingClauseSetupError` | `Inline1777` | No | No | Errors related to targeting clause setup |
+| `throttledError` | `throttledError` | `Inline1778` | No | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## SponsoredProductsKeywordMutationExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline1780>` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+
+## SponsoredProductsKeywordServingStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACCOUNT_OUT_OF_BUDGET`, `ADVERTISER_ARCHIVED`, `ADVERTISER_EXCEED_SPENDS_LIMIT`, `ADVERTISER_OUT_OF_BUDGET`, `ADVERTISER_PAUSED`, `ADVERTISER_PAYMENT_FAILURE`, `ADVERTISER_POLICING_PENDING_REVIEW`, `ADVERTISER_POLICING_SUSPENDED`, `AD_GROUP_ARCHIVED`, `AD_GROUP_INCOMPLETE`, `AD_GROUP_LOW_BID`, `AD_GROUP_PAUSED`, `AD_GROUP_POLICING_CREATIVE_REJECTED`, `AD_GROUP_POLICING_PENDING_REVIEW`, `AD_GROUP_STATUS_ENABLED`, `CAMPAIGN_ARCHIVED`, `CAMPAIGN_INCOMPLETE`, `CAMPAIGN_OUT_OF_BUDGET`, `CAMPAIGN_PAUSED`, `CAMPAIGN_STATUS_ENABLED`, `ENDED`, `OTHER`, `PENDING_REVIEW`, `PENDING_START_DATE`, `PORTFOLIO_ARCHIVED`, `PORTFOLIO_ENDED`, `PORTFOLIO_OUT_OF_BUDGET`, `PORTFOLIO_PAUSED`, `PORTFOLIO_PENDING_START_DATE`, `PORTFOLIO_STATUS_ENABLED`, `REJECTED`, `TARGETING_CLAUSE_ARCHIVED`, `TARGETING_CLAUSE_BLOCKED`, `TARGETING_CLAUSE_PAUSED`, `TARGETING_CLAUSE_POLICING_SUSPENDED`, `TARGETING_CLAUSE_STATUS_LIVE`
+
+## SponsoredProductsKeywordServingStatusDetail
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `helpUrl` | `helpUrl` | `string` | No | No | A URL with additional information about the status identifier. |
+| `message` | `message` | `string` | No | No | A human-readable description of the status identifier specified in the name field. |
+| `name` | `name` | `string` | No | No | — |
+
+## SponsoredProductsKeywordServingStatusReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACCOUNT_OUT_OF_BUDGET_DETAIL`, `ADVERTISER_ARCHIVED_DETAIL`, `ADVERTISER_EXCEED_SPENDS_LIMIT_DETAIL`, `ADVERTISER_OUT_OF_BUDGET_DETAIL`, `ADVERTISER_PAUSED_DETAIL`, `ADVERTISER_PAYMENT_FAILURE_DETAIL`, `ADVERTISER_POLICING_PENDING_REVIEW_DETAIL`, `ADVERTISER_POLICING_SUSPENDED_DETAIL`, `AD_GROUP_ARCHIVED_DETAIL`, `AD_GROUP_INCOMPLETE_DETAIL`, `AD_GROUP_LOW_BID_DETAIL`, `AD_GROUP_PAUSED_DETAIL`, `AD_GROUP_POLICING_CREATIVE_REJECTED_DETAIL`, `AD_GROUP_POLICING_PENDING_REVIEW_DETAIL`, `AD_GROUP_STATUS_ENABLED_DETAIL`, `CAMPAIGN_ARCHIVED_DETAIL`, `CAMPAIGN_INCOMPLETE_DETAIL`, `CAMPAIGN_OUT_OF_BUDGET_DETAIL`, `CAMPAIGN_PAUSED_DETAIL`, `CAMPAIGN_STATUS_ENABLED_DETAIL`, `ENDED_DETAIL`, `OTHER`, `PENDING_REVIEW_DETAIL`, `PENDING_START_DATE_DETAIL`, `PORTFOLIO_ARCHIVED_DETAIL`, `PORTFOLIO_ENDED_DETAIL`, `PORTFOLIO_OUT_OF_BUDGET_DETAIL`, `PORTFOLIO_PAUSED_DETAIL`, `PORTFOLIO_PENDING_START_DATE_DETAIL`, `PORTFOLIO_STATUS_ENABLED_DETAIL`, `REJECTED_DETAIL`, `TARGETING_CLAUSE_ARCHIVED_DETAIL`, `TARGETING_CLAUSE_BLOCKED_DETAIL`, `TARGETING_CLAUSE_PAUSED_DETAIL`, `TARGETING_CLAUSE_POLICING_SUSPENDED_DETAIL`, `TARGETING_CLAUSE_STATUS_LIVE_DETAIL`
+
+## SponsoredProductsKeywordSuccessResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `number` | Yes | No | the index of the keyword in the array from the request body |
+| `keyword` | `keyword` | `Inline1799` | No | No | — |
+| `keywordId` | `keywordId` | `string` | No | No | the keyword ID |
+
+## SponsoredProductsKeywordTargetV2
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `destinationAdGroupId` | `destinationAdGroupId` | `string` | No | No | The adGroupId of the destination manual-targeting adGroup where the target belongs. |
+| `keywordId` | `keywordId` | `string` | No | No | The id of the keyword target. |
+| `keywordText` | `keywordText` | `string` | No | No | The keyword text. |
+| `matchType` | `matchType` | `string` | No | No | The match type (for KEYWORDs). One of EXACT, PHRASE, BROAD |
+| `targetPromotionGroupId` | `targetPromotionGroupId` | `string` | No | No | The id of the target promotion group. |
+
+## SponsoredProductsKeywordTextFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+| `queryTermMatchType` | `queryTermMatchType` | `string` | Yes | No | Match type for query filters. \| Value \| Description \| \|-----------\|------------\| \| `BROAD_MATCH` \| Match if the queried value contains the filter value (substring matching). Note: If queryTermMatchType is set to BROAD_MATCH, only matches for the first query included will be returned. \| \| `EXACT_MATCH` \| Match if the queried value is exactly equivalent to the filter value. \| |
+
+## SponsoredProductsListSponsoredProductsAdGroupsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline1803` | No | No | Filter entities by the list of objectIds |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline1804` | No | No | Filter entities by the list of objectIds |
+| `campaignTargetingTypeFilter` | `campaignTargetingTypeFilter` | `string` | No | No | — |
+| `includeExtendedDataFields` | `includeExtendedDataFields` | `boolean` | No | No | Whether to get entity with extended data fields such as creationDate, lastUpdateDate, servingStatus |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API |
+| `nameFilter` | `nameFilter` | `Inline1805` | No | No | Filter entities by name |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `stateFilter` | `stateFilter` | `Inline1806` | No | No | Filter entities by state. To filter live entities, only 'ENABLED', 'PAUSED' and 'ARCHIVED' can be used |
+
+## SponsoredProductsListSponsoredProductsAdGroupsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `adGroups` | `Array<Inline1808>` | No | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of entities |
+
+## SponsoredProductsListSponsoredProductsCampaignNegativeKeywordsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline1810` | No | No | Filter entities by the list of objectIds |
+| `campaignNegativeKeywordIdFilter` | `campaignNegativeKeywordIdFilter` | `Inline1811` | No | No | Filter entities by the list of objectIds |
+| `campaignNegativeKeywordTextFilter` | `campaignNegativeKeywordTextFilter` | `Inline1812` | No | No | Filter by keywordText |
+| `includeExtendedDataFields` | `includeExtendedDataFields` | `boolean` | No | No | Whether to get entity with extended data fields such as creationDate, lastUpdateDate, servingStatus |
+| `matchTypeFilter` | `matchTypeFilter` | `Array<string>` | No | No | Restricts results to resources with the selected matchType |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `stateFilter` | `stateFilter` | `Inline1813` | No | No | Filter entities by state. To filter live entities, only 'ENABLED', 'PAUSED' and 'ARCHIVED' can be used |
+
+## SponsoredProductsListSponsoredProductsCampaignNegativeKeywordsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeKeywords` | `campaignNegativeKeywords` | `Array<Inline1815>` | No | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of entities |
+
+## SponsoredProductsListSponsoredProductsCampaignNegativeTargetingClausesRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asinFilter` | `asinFilter` | `Inline1817` | No | No | — |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline1818` | No | No | Filter entities by the list of objectIds |
+| `campaignNegativeTargetIdFilter` | `campaignNegativeTargetIdFilter` | `Inline1819` | No | No | Filter entities by the list of objectIds |
+| `includeExtendedDataFields` | `includeExtendedDataFields` | `boolean` | No | No | Whether to get entity with extended data fields such as creationDate, lastUpdateDate, servingStatus |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `stateFilter` | `stateFilter` | `Inline1820` | No | No | Filter entities by state. To filter live entities, only 'ENABLED', 'PAUSED' and 'ARCHIVED' can be used |
+
+## SponsoredProductsListSponsoredProductsCampaignNegativeTargetingClausesResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeTargetingClauses` | `campaignNegativeTargetingClauses` | `Array<Inline1822>` | No | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of entities |
+
+## SponsoredProductsListSponsoredProductsCampaignsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline1826` | No | No | Filter entities by the list of objectIds |
+| `includeExtendedDataFields` | `includeExtendedDataFields` | `boolean` | No | No | Whether to get entity with extended data fields such as creationDate, lastUpdateDate, servingStatus |
+| `marketplaceBudgetAllocationFilter` | `marketplaceBudgetAllocationFilter` | `Inline1827` | No | No | Filter campaigns by MarketplaceBudgetAllocation setting. By default, only MANUAL campaigns are returned. This filter is not functional yet, will be functional soon. |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API |
+| `nameFilter` | `nameFilter` | `Inline1828` | No | No | Filter entities by name |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `portfolioIdFilter` | `portfolioIdFilter` | `Inline1829` | No | No | Filter entities by the list of objectIds |
+| `stateFilter` | `stateFilter` | `Inline1830` | No | No | Filter entities by state. To filter live entities, only 'ENABLED', 'PAUSED' and 'ARCHIVED' can be used |
+
+## SponsoredProductsListSponsoredProductsCampaignsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Array<Inline1832>` | No | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of entities |
+
+## SponsoredProductsListSponsoredProductsKeywordsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline1839` | No | No | Filter entities by the list of objectIds |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline1840` | No | No | Filter entities by the list of objectIds |
+| `includeExtendedDataFields` | `includeExtendedDataFields` | `boolean` | No | No | Whether to get entity with extended data fields such as creationDate, lastUpdateDate, servingStatus |
+| `keywordIdFilter` | `keywordIdFilter` | `Inline1841` | No | No | Filter entities by the list of objectIds |
+| `keywordTextFilter` | `keywordTextFilter` | `Inline1842` | No | No | Filter by keywordText |
+| `locale` | `locale` | `string` | No | No | Restricts results to keywords associated with locale |
+| `matchTypeFilter` | `matchTypeFilter` | `Array<string>` | No | No | Only the keyword with match type that is in this list will be listed |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `stateFilter` | `stateFilter` | `Inline1843` | No | No | Filter entities by state. To filter live entities, only 'ENABLED', 'PAUSED' and 'ARCHIVED' can be used |
+
+## SponsoredProductsListSponsoredProductsKeywordsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywords` | `keywords` | `Array<Inline1845>` | No | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of entities |
+
+## SponsoredProductsListSponsoredProductsNegativeKeywordsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline1847` | No | No | Filter entities by the list of objectIds |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline1848` | No | No | Filter entities by the list of objectIds |
+| `includeExtendedDataFields` | `includeExtendedDataFields` | `boolean` | No | No | Whether to get entity with extended data fields such as creationDate, lastUpdateDate, servingStatus |
+| `locale` | `locale` | `string` | No | No | Restricts results to negativeKeywords that match the specified locale. |
+| `matchTypeFilter` | `matchTypeFilter` | `Array<string>` | No | No | Only the negativeKeyword with the match type that is in this list will be listed |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API |
+| `negativeKeywordIdFilter` | `negativeKeywordIdFilter` | `Inline1849` | No | No | Filter entities by the list of objectIds |
+| `negativeKeywordTextFilter` | `negativeKeywordTextFilter` | `Inline1850` | No | No | Filter by keywordText |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `stateFilter` | `stateFilter` | `Inline1851` | No | No | Filter entities by state. To filter live entities, only 'ENABLED', 'PAUSED' and 'ARCHIVED' can be used |
+
+## SponsoredProductsListSponsoredProductsNegativeKeywordsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeKeywords` | `negativeKeywords` | `Array<Inline1853>` | No | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of entities |
+
+## SponsoredProductsListSponsoredProductsNegativeTargetingClausesRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline1855` | No | No | Filter entities by the list of objectIds |
+| `asinFilter` | `asinFilter` | `Inline1856` | No | No | — |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline1857` | No | No | Filter entities by the list of objectIds |
+| `includeExtendedDataFields` | `includeExtendedDataFields` | `boolean` | No | No | Whether to get entity with extended data fields such as creationDate, lastUpdateDate, servingStatus |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API |
+| `negativeTargetIdFilter` | `negativeTargetIdFilter` | `Inline1858` | No | No | Filter entities by the list of objectIds |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `stateFilter` | `stateFilter` | `Inline1859` | No | No | Filter entities by state. To filter live entities, only 'ENABLED', 'PAUSED' and 'ARCHIVED' can be used |
+
+## SponsoredProductsListSponsoredProductsNegativeTargetingClausesResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeTargetingClauses` | `negativeTargetingClauses` | `Array<Inline1861>` | No | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of entities |
+
+## SponsoredProductsListSponsoredProductsProductAdsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline1865` | No | No | Filter entities by the list of objectIds |
+| `adIdFilter` | `adIdFilter` | `Inline1866` | No | No | Filter entities by the list of objectIds |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline1867` | No | No | Filter entities by the list of objectIds |
+| `includeExtendedDataFields` | `includeExtendedDataFields` | `boolean` | No | No | Whether to get entity with extended data fields such as creationDate, lastUpdateDate, servingStatus |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `stateFilter` | `stateFilter` | `Inline1868` | No | No | Filter entities by state. To filter live entities, only 'ENABLED', 'PAUSED' and 'ARCHIVED' can be used |
+
+## SponsoredProductsListSponsoredProductsProductAdsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `productAds` | `productAds` | `Array<Inline1870>` | No | No | — |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of entities |
+
+## SponsoredProductsListSponsoredProductsTargetingClausesRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline1873` | No | No | Filter entities by the list of objectIds |
+| `asinFilter` | `asinFilter` | `Inline1874` | No | No | — |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline1875` | No | No | Filter entities by the list of objectIds |
+| `expressionTypeFilter` | `expressionTypeFilter` | `Inline1876` | No | No | Filter entities by ExpressionType |
+| `includeExtendedDataFields` | `includeExtendedDataFields` | `boolean` | No | No | Whether to get entity with extended data fields such as creationDate, lastUpdateDate, servingStatus |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `stateFilter` | `stateFilter` | `Inline1877` | No | No | Filter entities by state. To filter live entities, only 'ENABLED', 'PAUSED' and 'ARCHIVED' can be used |
+| `targetIdFilter` | `targetIdFilter` | `Inline1878` | No | No | Filter entities by the list of objectIds |
+
+## SponsoredProductsListSponsoredProductsTargetingClausesResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `targetingClauses` | `targetingClauses` | `Array<Inline1880>` | No | No | — |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of entities |
+
+## SponsoredProductsListTargetPromotionGroupsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline1884` | No | No | Filter entities by the list of objectIds |
+| `maxResults` | `maxResults` | `number` | No | No | The maximum number of results requested. |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next or previous response page |
+| `targetPromotionGroupIdFilter` | `targetPromotionGroupIdFilter` | `Inline1885` | No | No | Filter entities by the list of objectIds |
+
+## SponsoredProductsListTargetPromotionGroupsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the nextToken field is empty, there are no further results. |
+| `targetPromotionGroups` | `targetPromotionGroups` | `Array<Inline1887>` | No | No | — |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of results available. |
+
+## SponsoredProductsListTargetPromotionGroupsV2RequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `destinationAdGroupIdFilter` | `destinationAdGroupIdFilter` | `Inline1889` | No | No | Filter entities by the list of objectIds |
+| `maxResults` | `maxResults` | `number` | No | No | The maximum number of results requested. |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next or previous response page |
+| `sourceAdGroupIdFilter` | `sourceAdGroupIdFilter` | `Inline1890` | No | No | Filter entities by the list of objectIds |
+| `targetPromotionGroupIdFilter` | `targetPromotionGroupIdFilter` | `Inline1891` | No | No | Filter entities by the list of objectIds |
+
+## SponsoredProductsListTargetPromotionGroupsV2ResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the nextToken field is empty, there are no further results. |
+| `targetPromotionGroups` | `targetPromotionGroups` | `Array<Inline1893>` | No | No | — |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of results available. |
+
+## SponsoredProductsListTargetPromotionGroupTargetsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline1895` | No | No | Filter entities by the list of objectIds |
+| `maxResults` | `maxResults` | `number` | No | No | The maximum number of results requested. |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next or previous response page |
+| `targetPromotionGroupIdFilter` | `targetPromotionGroupIdFilter` | `Inline1896` | No | No | Filter entities by the list of objectIds |
+
+## SponsoredProductsListTargetPromotionGroupTargetsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the nextToken field is empty, there are no further results. |
+| `targets` | `targets` | `Array<Inline1898>` | No | No | — |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of results available. |
+
+## SponsoredProductsListTargetPromotionGroupTargetsV2RequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline1900` | No | No | Filter entities by the list of objectIds |
+| `maxResults` | `maxResults` | `number` | No | No | The maximum number of results requested. |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next or previous response page |
+| `targetPromotionGroupIdFilter` | `targetPromotionGroupIdFilter` | `Inline1901` | No | No | Filter entities by the list of objectIds |
+
+## SponsoredProductsListTargetPromotionGroupTargetsV2ResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the nextToken field is empty, there are no further results. |
+| `targets` | `targets` | `Array<Inline1903 \| Inline1904>` | No | No | — |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of results available. |
+
+## SponsoredProductsLocaleError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1906` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## SponsoredProductsLocaleErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `INVALID_LOCALE`
+
+## SponsoredProductsMalformedValueError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1909` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `fragment` | `fragment` | `string` | No | No | fragment of the value which is wrong |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## SponsoredProductsMalformedValueErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `BLANK`, `FORBIDDEN_CHARS`, `LEADING_OR_TRAILING_WHITESPACE`, `PATTERN_NOT_MATCHED`, `TOO_LONG`, `TOO_SHORT`
+
+## SponsoredProductsMarketplace
+
+`enum` model on the `json` wire format.
+
+**Values:** `AE`, `AU`, `BR`, `CA`, `DE`, `EG`, `ES`, `FR`, `IN`, `IT`, `JP`, `MX`, `NL`, `PL`, `SA`, `SE`, `SG`, `TR`, `UK`, `US`
+
+## SponsoredProductsMarketplaceBudgetAllocation
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUTO`, `MANUAL`
+
+## SponsoredProductsMarketplaceBudgetAllocationFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## SponsoredProductsMatchType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BROAD`, `EXACT`, `OTHER`, `PHRASE`
+
+## SponsoredProductsMissingValueError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline1916` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## SponsoredProductsMissingValueErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `MISSING_VALUE`
+
+## SponsoredProductsNameFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+| `queryTermMatchType` | `queryTermMatchType` | `string` | No | No | Match type for query filters. \| Value \| Description \| \|-----------\|------------\| \| `BROAD_MATCH` \| Match if the queried value contains the filter value (substring matching). Note: If queryTermMatchType is set to BROAD_MATCH, only matches for the first query included will be returned. \| \| `EXACT_MATCH` \| Match if the queried value is exactly equivalent to the filter value. \| |
+
+## SponsoredProductsNegativeKeyword
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the ad group to which this keyword is associated. |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign to which the keyword is associated. |
+| `extendedData` | `extendedData` | `Inline1920` | No | No | — |
+| `globalKeywordId` | `globalKeywordId` | `string` | No | No | The global keyword identifier that manages this marketplace keyword. |
+| `keywordId` | `keywordId` | `string` | Yes | No | The identifier of the keyword. |
+| `keywordText` | `keywordText` | `string` | Yes | No | The keyword text. |
+| `matchType` | `matchType` | `string` | Yes | No | — |
+| `nativeLanguageKeyword` | `nativeLanguageKeyword` | `string` | No | No | The unlocalized keyword text in the preferred locale of the advertiser |
+| `nativeLanguageLocale` | `nativeLanguageLocale` | `string` | No | No | The locale preference of the advertiser. |
+| `state` | `state` | `string` | Yes | No | The current resource state. \| State \| Description \| \| --- \| --- \| \| `ENABLED` \| Enabled State \| \| `PAUSED` \| Paused State \| \| `PROPOSED` \| Proposed State (Upcoming Feature) \| \| `ARCHIVED` \| ARCHIVED State \| \| `ENABLING` \| State for Draft Entity Only \| \| `USER_DELETED` \| State for Draft Entity Only \| \| `OTHER` \| Read Only \| |
+
+## SponsoredProductsNegativeKeywordAccessError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline1922` | Yes | No | — |
+
+## SponsoredProductsNegativeKeywordAccessErrorSelector
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityNotFoundError` | `entityNotFoundError` | `Inline1931` | No | No | — |
+| `internalServerError` | `internalServerError` | `Inline1932` | No | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+| `invalidInputError` | `invalidInputError` | `Inline1933` | No | No | Errors related to ad eligibility |
+| `malformedValueError` | `malformedValueError` | `Inline1934` | No | No | Errors being used to represent malformed values e.g. containing not allowed characters, not following patters etc |
+| `missingValueError` | `missingValueError` | `Inline1935` | No | No | Error describing missing values in API payloads |
+| `otherError` | `otherError` | `Inline1936` | No | No | Errors not related to any of the other error types |
+| `rangeError` | `rangeError` | `Inline1937` | No | No | Errors related to range constraints violations |
+| `throttledError` | `throttledError` | `Inline1938` | No | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## SponsoredProductsNegativeKeywordAccessExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline1940>` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+
+## SponsoredProductsNegativeKeywordExtendedData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDateTime` | `creationDateTime` | `string` | No | No | Creation date in ISO 8601. |
+| `lastUpdateDateTime` | `lastUpdateDateTime` | `string` | No | No | Last updated date in ISO 8601. |
+| `servingStatus` | `servingStatus` | `string` | No | No | — |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<Inline1949>` | No | No | The serving status reasons of the Keyword |
+
+## SponsoredProductsNegativeKeywordFailureResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline1951>` | No | No | A list of validation errors |
+| `index` | `index` | `number` | Yes | No | the index of the negativeKeyword in the array from the request body |
+
+## SponsoredProductsNegativeKeywordMutationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline1965` | Yes | No | — |
+
+## SponsoredProductsNegativeKeywordMutationErrorSelector
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `billingError` | `billingError` | `Inline1979` | No | No | Errors related to bids |
+| `duplicateValueError` | `duplicateValueError` | `Inline1980` | No | No | — |
+| `entityNotFoundError` | `entityNotFoundError` | `Inline1981` | No | No | — |
+| `entityQuotaError` | `entityQuotaError` | `Inline1982` | No | No | Errors related to exceeding quota in campaign management service |
+| `entityStateError` | `entityStateError` | `Inline1983` | No | No | entity state update errors |
+| `internalServerError` | `internalServerError` | `Inline1984` | No | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+| `malformedValueError` | `malformedValueError` | `Inline1985` | No | No | Errors being used to represent malformed values e.g. containing not allowed characters, not following patters etc |
+| `missingValueError` | `missingValueError` | `Inline1986` | No | No | Error describing missing values in API payloads |
+| `otherError` | `otherError` | `Inline1987` | No | No | Errors not related to any of the other error types |
+| `parentEntityError` | `parentEntityError` | `Inline1988` | No | No | Errors related to parent entity |
+| `rangeError` | `rangeError` | `Inline1989` | No | No | Errors related to range constraints violations |
+| `targetingClauseSetupError` | `targetingClauseSetupError` | `Inline1990` | No | No | Errors related to targeting clause setup |
+| `throttledError` | `throttledError` | `Inline1991` | No | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## SponsoredProductsNegativeKeywordMutationExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline1993>` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+
+## SponsoredProductsNegativeKeywordSuccessResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `number` | Yes | No | the index of the negativeKeyword in the array from the request body |
+| `negativeKeyword` | `negativeKeyword` | `Inline2007` | No | No | — |
+| `negativeKeywordId` | `negativeKeywordId` | `string` | No | No | the negativeKeyword ID |
+
+## SponsoredProductsNegativeMatchType
+
+`enum` model on the `json` wire format.
+
+**Values:** `NEGATIVE_BROAD`, `NEGATIVE_EXACT`, `NEGATIVE_PHRASE`, `OTHER`
+
+## SponsoredProductsNegativeTargetAccessError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline2010` | Yes | No | — |
+
+## SponsoredProductsNegativeTargetAccessErrorSelector
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityNotFoundError` | `entityNotFoundError` | `Inline2019` | No | No | — |
+| `internalServerError` | `internalServerError` | `Inline2020` | No | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+| `invalidInputError` | `invalidInputError` | `Inline2021` | No | No | Errors related to ad eligibility |
+| `malformedValueError` | `malformedValueError` | `Inline2022` | No | No | Errors being used to represent malformed values e.g. containing not allowed characters, not following patters etc |
+| `missingValueError` | `missingValueError` | `Inline2023` | No | No | Error describing missing values in API payloads |
+| `otherError` | `otherError` | `Inline2024` | No | No | Errors not related to any of the other error types |
+| `rangeError` | `rangeError` | `Inline2025` | No | No | Errors related to range constraints violations |
+| `throttledError` | `throttledError` | `Inline2026` | No | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## SponsoredProductsNegativeTargetAccessExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline2028>` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+
+## SponsoredProductsNegativeTargetingClause
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the ad group to which this target is associated. |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign to which this target is associated. |
+| `expression` | `expression` | `Array<Inline2037>` | Yes | No | The NegativeTargeting expression. |
+| `extendedData` | `extendedData` | `Inline2038` | No | No | — |
+| `globalTargetId` | `globalTargetId` | `string` | No | No | The global target identifier that manages this marketplace target. |
+| `resolvedExpression` | `resolvedExpression` | `Array<Inline2039>` | Yes | No | The resolved NegativeTargeting expression. |
+| `state` | `state` | `string` | Yes | No | The current resource state. \| State \| Description \| \| --- \| --- \| \| `ENABLED` \| Enabled State \| \| `PAUSED` \| Paused State \| \| `PROPOSED` \| Proposed State (Upcoming Feature) \| \| `ARCHIVED` \| ARCHIVED State \| \| `ENABLING` \| State for Draft Entity Only \| \| `USER_DELETED` \| State for Draft Entity Only \| \| `OTHER` \| Read Only \| |
+| `targetId` | `targetId` | `string` | Yes | No | The target identifier |
+
+## SponsoredProductsNegativeTargetingClauseExtendedData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDateTime` | `creationDateTime` | `string` | No | No | Creation date in ISO 8601. |
+| `lastUpdateDateTime` | `lastUpdateDateTime` | `string` | No | No | Last updated date in ISO 8601. |
+| `servingStatus` | `servingStatus` | `string` | No | No | — |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<Inline2041>` | No | No | The serving status reasons of the NegativeTargetingClause |
+
+## SponsoredProductsNegativeTargetingClauseFailureResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline2043>` | No | No | A list of validation errors |
+| `index` | `index` | `number` | Yes | No | the index of the NegativeTargetingClause in the array from the request body |
+
+## SponsoredProductsNegativeTargetingClauseSuccessResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `number` | Yes | No | the index of the NegativeTargetingClause in the array from the request body |
+| `negativeTargetingClause` | `negativeTargetingClause` | `Inline2057` | No | No | — |
+| `targetId` | `targetId` | `string` | No | No | the NegativeTargetingClause ID |
+
+## SponsoredProductsNegativeTargetingExpressionPredicate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | No | No | The type of nagative targeting expression. You can only specify values for the following predicates: \| Predicate \| Description \| \| --- \| --- \| \| `ASIN_BRAND_SAME_AS` \| Target the brand that is the same as the brand expressed. \| \| `ASIN_SAME_AS` \| Target an ASIN that is the same as the ASIN expressed. \| \| `OTHER` \| Other Type. \| |
+| `value` | `value` | `string` | No | No | The expression value |
+
+## SponsoredProductsNegativeTargetingExpressionPredicateType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ASIN_BRAND_SAME_AS`, `ASIN_SAME_AS`, `OTHER`
+
+## SponsoredProductsNegativeTargetMutationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline2063` | Yes | No | — |
+
+## SponsoredProductsNegativeTargetMutationErrorSelector
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `billingError` | `billingError` | `Inline2077` | No | No | Errors related to bids |
+| `duplicateValueError` | `duplicateValueError` | `Inline2078` | No | No | — |
+| `entityNotFoundError` | `entityNotFoundError` | `Inline2079` | No | No | — |
+| `entityQuotaError` | `entityQuotaError` | `Inline2080` | No | No | Errors related to exceeding quota in campaign management service |
+| `entityStateError` | `entityStateError` | `Inline2081` | No | No | entity state update errors |
+| `internalServerError` | `internalServerError` | `Inline2082` | No | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+| `malformedValueError` | `malformedValueError` | `Inline2083` | No | No | Errors being used to represent malformed values e.g. containing not allowed characters, not following patters etc |
+| `missingValueError` | `missingValueError` | `Inline2084` | No | No | Error describing missing values in API payloads |
+| `otherError` | `otherError` | `Inline2085` | No | No | Errors not related to any of the other error types |
+| `parentEntityError` | `parentEntityError` | `Inline2086` | No | No | Errors related to parent entity |
+| `rangeError` | `rangeError` | `Inline2087` | No | No | Errors related to range constraints violations |
+| `targetingClauseSetupError` | `targetingClauseSetupError` | `Inline2088` | No | No | Errors related to targeting clause setup |
+| `throttledError` | `throttledError` | `Inline2089` | No | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## SponsoredProductsNegativeTargetMutationExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline2091>` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+
+## SponsoredProductsNewAdGroup
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupName` | `adGroupName` | `string` | Yes | No | The name of the new ad group. |
+| `defaultBid` | `defaultBid` | `number` | Yes | No | The default bid value that gets applied if no bid is provided for the target. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `targetingTypes` | `targetingTypes` | `Array<string>` | Yes | No | List of targeting types to be used for targets in the ad group. Supported types are KEYWORD and PRODUCT. |

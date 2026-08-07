@@ -1,0 +1,186 @@
+---
+title: "Amazon Ads — Sponsored Brands Optimization Rules endpoints"
+description: "5 generated Amazon Ads — Sponsored Brands endpoint contracts for Optimization Rules."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 112
+  label: "Optimization Rules"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.optimizationRules.associateSponsoredBrandsOptimizationRules
+
+`POST` `/sb/rules/optimization/associate`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (AssociateSponsoredBrandsOptimizationRules)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.optimizationRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `AssociateSponsoredBrandsOptimizationRulesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRuleAssociations` | `body` | `Array<Inline1049>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.optimizationRules.createSponsoredBrandsOptimizationRules
+
+`POST` `/sb/rules/optimization`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateSponsoredBrandsOptimizationRules)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.optimizationRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateSponsoredBrandsOptimizationRulesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRules` | `body` | `Array<Inline1041>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.optimizationRules.disassociateSponsoredBrandsOptimizationRules
+
+`POST` `/sb/rules/optimization/disassociate`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (DisassociateSponsoredBrandsOptimizationRules)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.optimizationRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `DisassociateSponsoredBrandsOptimizationRulesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRuleDisassociations` | `body` | `Array<Inline1053>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.optimizationRules.listSponsoredBrandsOptimizationRules
+
+`POST` `/sb/rules/optimization/list`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (ListSponsoredBrandsOptimizationRules)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.optimizationRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `ListSponsoredBrandsOptimizationRulesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityFilter` | `body` | `Inline1059` | No | No | Filter optimization rules by entityId and entityType |
+| `maxResults` | `body` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API. |
+| `nextToken` | `body` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `optimizationRuleIdFilter` | `body` | `Inline1060` | No | No | Filter optimization rules by the list of optmization rule ids. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.optimizationRules.updateSponsoredBrandsOptimizationRules
+
+`PUT` `/sb/rules/optimization`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (UpdateSponsoredBrandsOptimizationRules)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.optimizationRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `UpdateSponsoredBrandsOptimizationRulesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRules` | `body` | `Array<Inline1045>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

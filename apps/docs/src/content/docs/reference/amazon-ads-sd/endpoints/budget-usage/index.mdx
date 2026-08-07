@@ -1,0 +1,47 @@
+---
+title: "Amazon Ads — Sponsored Display Budget Usage endpoints"
+description: "1 generated Amazon Ads — Sponsored Display endpoint contract for Budget Usage."
+generated: true
+platform: "amazon-ads-sd"
+sourceVersion: "v5"
+sidebar:
+  order: 105
+  label: "Budget Usage"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.budgetUsage.sdCampaignsBudgetUsage
+
+`POST` `/sd/campaigns/budget/usage`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (sdCampaignsBudgetUsage)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sd.budgetUsage.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `SdCampaignsBudgetUsageResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `body` | `Array<string>` | No | No | A list of campaign IDs |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

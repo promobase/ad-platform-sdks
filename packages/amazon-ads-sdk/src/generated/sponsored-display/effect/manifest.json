@@ -1,5 +1,5 @@
 {
-  "platform": "amazon-ads",
+  "platform": "amazon-ads-sd",
   "source": {
     "kind": "openapi",
     "location": "https://github.com/pinterest/api-description",

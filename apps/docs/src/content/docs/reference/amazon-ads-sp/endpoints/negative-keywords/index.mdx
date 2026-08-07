@@ -1,0 +1,158 @@
+---
+title: "Amazon Ads — Sponsored Products Negative Keywords endpoints"
+description: "4 generated Amazon Ads — Sponsored Products endpoint contracts for Negative Keywords."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 115
+  label: "Negative Keywords"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.negativeKeywords.createSponsoredProductsNegativeKeywords
+
+`POST` `/sp/negativeKeywords`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateSponsoredProductsNegativeKeywords)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.negativeKeywords.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateSponsoredProductsNegativeKeywordsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeKeywords` | `body` | `Array<Inline2910>` | Yes | No | An array of negativeKeywords. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.negativeKeywords.deleteSponsoredProductsNegativeKeywords
+
+`POST` `/sp/negativeKeywords/delete`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (DeleteSponsoredProductsNegativeKeywords)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.negativeKeywords.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `DeleteSponsoredProductsNegativeKeywordsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeKeywordIdFilter` | `body` | `Inline2918` | Yes | No | Filter entities by the list of objectIds |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.negativeKeywords.listSponsoredProductsNegativeKeywords
+
+`POST` `/sp/negativeKeywords/list`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (ListSponsoredProductsNegativeKeywords)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.negativeKeywords.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `ListSponsoredProductsNegativeKeywordsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `body` | `Inline2927` | No | No | Filter entities by the list of objectIds |
+| `campaignIdFilter` | `body` | `Inline2928` | No | No | Filter entities by the list of objectIds |
+| `includeExtendedDataFields` | `body` | `boolean` | No | No | Whether to get entity with extended data fields such as creationDate, lastUpdateDate, servingStatus |
+| `locale` | `body` | `string` | No | No | Restricts results to negativeKeywords that match the specified locale. |
+| `matchTypeFilter` | `body` | `Array<string>` | No | No | Only the negativeKeyword with the match type that is in this list will be listed |
+| `maxResults` | `body` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API |
+| `negativeKeywordIdFilter` | `body` | `Inline2929` | No | No | Filter entities by the list of objectIds |
+| `negativeKeywordTextFilter` | `body` | `Inline2930` | No | No | Filter by keywordText |
+| `nextToken` | `body` | `string` | No | No | token value allowing to navigate to the next response page |
+| `stateFilter` | `body` | `Inline2931` | No | No | Filter entities by state. To filter live entities, only 'ENABLED', 'PAUSED' and 'ARCHIVED' can be used |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.negativeKeywords.updateSponsoredProductsNegativeKeywords
+
+`PUT` `/sp/negativeKeywords`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (UpdateSponsoredProductsNegativeKeywords)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.negativeKeywords.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `UpdateSponsoredProductsNegativeKeywordsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeKeywords` | `body` | `Array<Inline2914>` | Yes | No | An array of negativeKeywords with updated values. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

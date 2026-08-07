@@ -1,0 +1,69 @@
+---
+title: "Amazon Ads — Sponsored Products Budget Rules Recommendation endpoints"
+description: "2 generated Amazon Ads — Sponsored Products endpoint contracts for Budget Rules Recommendation."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 104
+  label: "Budget Rules Recommendation"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.budgetRulesRecommendation.sPGetAllRuleEvents
+
+`POST` `/sp/v1/events`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (SPGetAllRuleEvents)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.budgetRulesRecommendation.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `SPGetAllRuleEventsResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.budgetRulesRecommendation.sPGetBudgetRulesRecommendation
+
+`POST` `/sp/campaigns/budgetRules/recommendations`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (SPGetBudgetRulesRecommendation)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.budgetRulesRecommendation.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `SPGetBudgetRulesRecommendationResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

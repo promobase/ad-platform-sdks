@@ -1,0 +1,49 @@
+---
+title: "Amazon Ads API Brand Stores endpoints"
+description: "1 generated Amazon Ads API endpoint contract for Brand Stores."
+generated: true
+platform: "amazon-ads-api"
+sourceVersion: "v5"
+sidebar:
+  order: 104
+  label: "Brand Stores"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.brandStores.queryBrandStore
+
+`POST` `/adsApi/v1/query/brandStores`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (QueryBrandStore)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-api.brandStores.manage` |
+| Required scopes | `advertising::campaign_management` |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `QueryBrandStoreResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `maxResults` | `body` | `number` | No | No | — |
+| `nextToken` | `body` | `string` | No | No | — |
+| `storeNameFilter` | `body` | `Inline2480` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

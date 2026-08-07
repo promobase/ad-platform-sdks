@@ -1,0 +1,927 @@
+---
+title: "Amazon Ads — Sponsored Products models: Inline3039 – Inline3161"
+description: "100 generated Amazon Ads — Sponsored Products model contracts, from Inline3039 through Inline3161."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 1019
+  label: "Inline3039 – Inline3161"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Inline3039
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline304
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actionDetails` | `actionDetails` | `Inline304` | Yes | No | Details of a rule action. |
+| `actionType` | `actionType` | `string` | Yes | No | The action taken when the optimization rule is enabled. Defaults to ADOPT. |
+
+## Inline3040
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline3042
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated error code for machine use. |
+| `nextToken` | `nextToken` | `string` | No | No | — |
+| `optimizationRules` | `optimizationRules` | `Array<Inline3042>` | No | No | — |
+
+## Inline3043
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline3043 \| Inline3044` | No | No | — |
+
+## Inline3044
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline3045
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline3045` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline3046>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## Inline3046
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline3048
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `Inline3048` | No | No | Filter type and value pair. |
+
+## Inline3049
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRuleId` | `optimizationRuleId` | `Inline3049` | No | No | Filter type and value pair. |
+| `ruleCategory` | `ruleCategory` | `Inline3050` | No | No | Filter type and value pair. |
+| `ruleSubCategory` | `ruleSubCategory` | `Inline3051` | No | No | Filter type and value pair. |
+
+## Inline305
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline305 \| Inline306` | No | No | — |
+
+## Inline3050
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline3051
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline3053
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `countryCode` | `countryCode` | `string` | No | No | The country code representing the origin country of the input ASIN list, used for generating keyword group recommendations. |
+| `keywordGroups` | `keywordGroups` | `Array<Inline3053>` | Yes | No | Keyword group recommendations for input list of ASINs. |
+| `nextToken` | `nextToken` | `string` | No | No | If present then there is more data to retrieve. To retrieve, resend request with token. |
+
+## Inline3055
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywordCampaignAdGroupIds` | `keywordCampaignAdGroupIds` | `Array<string>` | No | No | AdGroupIds of existing manual campaigns to be used as part of the Target Promotion Group for promoting keyword targets. |
+| `productCampaignAdGroupIds` | `productCampaignAdGroupIds` | `Array<string>` | No | No | AdGroupIds of existing manual campaigns to be used as part of the Target Promotion Group for promoting product targets. |
+
+## Inline3056
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `Inline3056` | Yes | No | The budget for the campaigns in the target promotion group. |
+| `defaultBid` | `defaultBid` | `number` | Yes | No | The default bid value that gets applied if no bid is provided for the target. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `dynamicBidding` | `dynamicBidding` | `Inline3057` | No | No | Specifies bidding controls. |
+| `endDate` | `endDate` | `string` | No | No | The end date of the new target promotion group entities. The format of the date is YYYY-MM-DD. |
+| `namePrefix` | `namePrefix` | `string` | Yes | No | The name prefix to be used for the entities under the target promotion group. e.g. if the namePrefix is ABC, we will create a keyword campaign with the name 'ABC-ManualKeywordTargeting-Campaign-AutoGenerated' |
+| `startDate` | `startDate` | `string` | No | No | The start date of the new target promotion group entities. Default is today's date. The format of the date is YYYY-MM-DD. |
+| `tags` | `tags` | `Inline3058` | No | No | A list of advertiser-specified custom identifiers for the campaign. Each customer identifier is a key-value pair. You can specify a maximum of 50 identifiers. |
+
+## Inline3057
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placementBidding` | `placementBidding` | `Array<Inline3057>` | No | No | The product placement. |
+| `strategy` | `strategy` | `string` | Yes | No | One of LEGACY_FOR_SALES, AUTO_FOR_SALES, MANUAL, RULE_BASED. |
+
+## Inline3058
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline306
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline3060
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetPromotionGroup` | `targetPromotionGroup` | `Inline3060` | No | No | A Target Promotion Group that groups an Auto-Targeting Campaign/AdGroup with a Manual-Targeting Keyword Campaign/AdGroup, and a Manual-Targeting Product Campaign/AdGroup |
+
+## Inline3062
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywordCampaignAdGroupIds` | `keywordCampaignAdGroupIds` | `Array<string>` | No | No | AdGroupIds of existing manual campaigns to be used as part of the Target Promotion Group for promoting keyword targets. |
+| `productCampaignAdGroupIds` | `productCampaignAdGroupIds` | `Array<string>` | No | No | AdGroupIds of existing manual campaigns to be used as part of the Target Promotion Group for promoting product targets. |
+
+## Inline3063
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `Inline3063` | Yes | No | The budget for the campaigns in the target promotion group. |
+| `defaultBid` | `defaultBid` | `number` | Yes | No | The default bid value that gets applied if no bid is provided for the target. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `dynamicBidding` | `dynamicBidding` | `Inline3064` | No | No | Specifies bidding controls. |
+| `endDate` | `endDate` | `string` | No | No | The end date of the new target promotion group entities. The format of the date is YYYY-MM-DD. |
+| `namePrefix` | `namePrefix` | `string` | Yes | No | The name prefix to be used for the entities under the target promotion group. e.g. if the namePrefix is ABC, we will create a keyword campaign with the name 'ABC-ManualKeywordTargeting-Campaign-AutoGenerated' |
+| `startDate` | `startDate` | `string` | No | No | The start date of the new target promotion group entities. Default is today's date. The format of the date is YYYY-MM-DD. |
+| `tags` | `tags` | `Inline3065` | No | No | A list of advertiser-specified custom identifiers for the campaign. Each customer identifier is a key-value pair. You can specify a maximum of 50 identifiers. |
+
+## Inline3064
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placementBidding` | `placementBidding` | `Array<Inline3064>` | No | No | The product placement. |
+| `strategy` | `strategy` | `string` | Yes | No | One of LEGACY_FOR_SALES, AUTO_FOR_SALES, MANUAL, RULE_BASED. |
+
+## Inline3065
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline3066
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3067
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3069
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the nextToken field is empty, there are no further results. |
+| `targetPromotionGroups` | `targetPromotionGroups` | `Array<Inline3069>` | No | No | — |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of results available. |
+
+## Inline307
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline307` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline308>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## Inline3071
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3072
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3073
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3074
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3075
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3077
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | Token for fetching the next page |
+| `targets` | `targets` | `Array<Inline3077>` | Yes | No | List of optimized targets for the request, as recommended by Amazon heuristics |
+| `totalResults` | `totalResults` | `number` | Yes | No | Total number of records available |
+
+## Inline3079
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline308
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline3080
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3081
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3082
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | Bid associated with the target. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `expressionType` | `expressionType` | `string` | Yes | No | The match type (for KEYWORDs) or the expression type (for PRODUCT). One of QUERY_BROAD_MATCHES, QUERY_EXACT_MATCHES, QUERY_PHRASE_MATCHES, ASIN_SAME_AS, ASIN_EXPANDED_FROM |
+| `target` | `target` | `string` | Yes | No | The keyword or the product ASIN to be targeted. |
+
+## Inline3085
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | Bid associated with the target. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `expressionType` | `expressionType` | `string` | Yes | No | The match type (for KEYWORDs) or the expression type (for PRODUCT). One of QUERY_BROAD_MATCHES, QUERY_EXACT_MATCHES, QUERY_PHRASE_MATCHES, ASIN_SAME_AS, ASIN_EXPANDED_FROM |
+| `target` | `target` | `string` | Yes | No | The keyword or the product ASIN to be targeted. |
+
+## Inline3086
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3087
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3089
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the nextToken field is empty, there are no further results. |
+| `targets` | `targets` | `Array<Inline3089>` | No | No | — |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of results available. |
+
+## Inline3091
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3092
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3093
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the ad group to which this target is associated. |
+| `bid` | `bid` | `number` | No | No | The bid for ads sourced using the target. Targets that do not have bid values in listTargetingClauses will inherit the defaultBid from the adGroup level. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign to which this target is associated. |
+| `expression` | `expression` | `Array<Inline3093>` | Yes | No | The targeting expression. |
+| `expressionType` | `expressionType` | `string` | Yes | No | — |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation |
+
+## Inline3096
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the ad group to which this target is associated. |
+| `bid` | `bid` | `number` | No | No | The bid for ads sourced using the target. Targets that do not have bid values in listTargetingClauses will inherit the defaultBid from the adGroup level. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign to which this target is associated. |
+| `expression` | `expression` | `Array<Inline3096>` | Yes | No | The targeting expression. |
+| `expressionType` | `expressionType` | `string` | Yes | No | — |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation |
+
+## Inline3097
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | The bid for ads sourced using the target. Targets that do not have bid values in listTargetingClauses will inherit the defaultBid from the adGroup level. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `expression` | `expression` | `Array<Inline3097>` | No | No | The targeting expression. |
+| `expressionType` | `expressionType` | `string` | No | No | — |
+| `state` | `state` | `string` | No | No | Entity state for create or update operation |
+| `targetId` | `targetId` | `string` | Yes | No | The target identifier |
+
+## Inline31
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asin` | `asin` | `string` | No | No | The identifier of the product. |
+| `globalStoreSetting` | `globalStoreSetting` | `Inline31` | No | No | This denotes the fields related to [GlobalStore Program](https://sellercentral.amazon.com/help/hub/reference/external/202139180). |
+
+## Inline310
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline3100
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | The bid for ads sourced using the target. Targets that do not have bid values in listTargetingClauses will inherit the defaultBid from the adGroup level. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `expression` | `expression` | `Array<Inline3100>` | No | No | The targeting expression. |
+| `expressionType` | `expressionType` | `string` | No | No | — |
+| `state` | `state` | `string` | No | No | Entity state for create or update operation |
+| `targetId` | `targetId` | `string` | Yes | No | The target identifier |
+
+## Inline3101
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The ad group identifier. |
+| `campaignId` | `campaignId` | `string` | Yes | No | The campaign identifier. |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The bid recommendation type. |
+| `targetingExpressions` | `targetingExpressions` | `Array<Inline3101>` | Yes | No | The list of targeting expressions. Maximum of 100 per request, use pagination for more if needed. |
+
+## Inline3102
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | The list of ad ASINs in the ad group. |
+| `bidding` | `bidding` | `Inline3102` | Yes | No | Bidding control configuration for the campaign. |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The bid recommendation type. |
+| `targetingExpressions` | `targetingExpressions` | `Array<Inline3103>` | Yes | No | The list of targeting expressions. Maximum of 100 per request, use pagination for more if needed. |
+
+## Inline3103
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `string` | No | No | The targeting expression value. |
+
+## Inline3105
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidRecommendations` | `bidRecommendations` | `Array<Inline3105>` | Yes | No | — |
+
+## Inline3106
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `string` | No | No | The targeting expression value. |
+
+## Inline3107
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `clicks` | `clicks` | `Inline3107` | No | No | The impact metrics are given in the same order of suggested bids. &lt;br&gt; Note: This object is nullable |
+| `orders` | `orders` | `Inline3108` | No | No | The impact metrics are given in the same order of suggested bids. &lt;br&gt; Note: This object is nullable |
+
+## Inline3108
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `values` | `values` | `Array<Inline3108>` | No | No | — |
+
+## Inline311
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline3111
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categoryTree` | `categoryTree` | `string` | No | No | — |
+
+## Inline3114
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categories` | `categories` | `Array<Inline3114>` | No | No | List of category recommendations |
+
+## Inline3117
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ageRanges` | `ageRanges` | `Array<Inline3117>` | No | No | List of Age Ranges. Use the GetRefinementsForCategory to retrieve Age Ranges. Age Ranges are only available for categories related to children's toys and games. |
+| `brands` | `brands` | `Array<Inline3118>` | No | No | List of Brands. |
+| `genres` | `genres` | `Array<Inline3119>` | No | No | List of Genres. Use the GetRefinementsForCategory to retrieve Genre Node IDs. Genres are only available for categories related to books. |
+
+## Inline3118
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of brand. This field is REQUIRED if the Brand object is being used as an input. Use the GetRefinementsForCategory to retrieve Brand Node IDs. |
+| `name` | `name` | `string` | No | No | Name of brand. This field is OPTIONAL if the Brand object is being used as an input. |
+
+## Inline3119
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of Genre. This field is REQUIRED if the Genre object is being used as an input. Use the GetRefinementsForCategory to retrieve Genre Node IDs. |
+| `name` | `name` | `string` | No | No | Name of Genre. This field is OPTIONAL if the Genre object is being used as an input. |
+
+## Inline312
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline3121
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3124
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3125
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the ad group |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The recommendationType to retrieve recommended keyword targets for an existing ad group. |
+| `targets` | `targets` | `Array<Inline3125>` | No | No | A list of targets that need to be ranked |
+
+## Inline3126
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | An array list of Asins |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The recommendationType to retrieve recommended keyword targets for a list of ASINs. |
+| `targets` | `targets` | `Array<Inline3126>` | No | No | A list of targets that need to be ranked |
+
+## Inline3128
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rank` | `rank` | `number` | No | No | The keyword target rank |
+| `suggestedBid` | `suggestedBid` | `Inline3128` | No | No | — |
+| `translation` | `translation` | `string` | No | No | The translation of keyword if a locale is passed in |
+| `bid` | `bid` | `number` | No | No | The bid value for the keyword, in minor currency units (example: cents). The default value will be the suggested bid. |
+| `keyword` | `keyword` | `string` | No | No | The keyword value |
+| `matchType` | `matchType` | `string` | No | No | Keyword match type. The default value will be BROAD. |
+| `userSelectedKeyword` | `userSelectedKeyword` | `boolean` | No | No | Flag that tells if keyword was selected by the user or was recommended by KRS |
+
+## Inline3130
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3131
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+| `queryTermMatchType` | `queryTermMatchType` | `string` | No | No | Match type for query filters. \| Value \| Description \| \|-----------\|------------\| \| `BROAD_MATCH` \| Match if the queried value contains the filter value (substring matching). Note: If queryTermMatchType is set to BROAD_MATCH, only matches for the first query included will be returned. \| \| `EXACT_MATCH` \| Match if the queried value is exactly equivalent to the filter value. \| |
+
+## Inline3132
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3133
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3134
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3135
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3137
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `targetingClauses` | `targetingClauses` | `Array<Inline3137>` | No | No | — |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of entities |
+
+## Inline3138
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDateTime` | `creationDateTime` | `string` | No | No | Creation date in ISO 8601. |
+| `lastUpdateDateTime` | `lastUpdateDateTime` | `string` | No | No | Last updated date in ISO 8601. |
+| `servingStatus` | `servingStatus` | `string` | No | No | — |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<Inline3138>` | No | No | The serving status reasons of the TargetingClause |
+
+## Inline3139
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | No | No | The type of targeting expression. You can specify values for the following predicates: \| Predicate \| Description \| \| --- \| --- \| \| `QUERY_BROAD_REL_MATCHES` \| Auto Targeting - cannot be manually created - corresponds to the `Loose match` target type in the UI, this will show your ad to shoppers who use search terms loosely related to your products.\| \| `QUERY_HIGH_REL_MATCHES` \| Auto Targeting - cannot be manually created - corresponds to the `Close match` target type in the UI, this will show your ad to shoppers who use search terms closely related to your products.\| \| `ASIN_ACCESSORY_RELATED` \| Auto Targeting - cannot be manually created - corresponds to the `Complements` target type in the UI, this will show your ad to shoppers who view the detail pages of products that complement your product.\| \| `ASIN_SUBSTITUTE_RELATED` \| Auto Targeting - cannot be manually created - corresponds to the `Substitutes` target type in the UI, this will show your ad to shoppers who use detail pages of products similar to yours.\| \| `ASIN_CATEGORY_SAME_AS` \| Target the category that is the same as the category expressed \| \| `ASIN_BRAND_SAME_AS` \| Target the brand that is the same as the brand expressed. \| \| `ASIN_PRICE_LESS_THAN` \| Target a price that is less than the price expressed. \| \| `ASIN_PRICE_BETWEEN` \| Target a price that is between the prices expressed. \| \| `ASIN_PRICE_GREATER_THAN` \| Target a price that is greater than the price expressed. \| \| `ASIN_REVIEW_RATING_LESS_THAN` \| Target a review rating less than the review rating that is expressed. \| \| `ASIN_REVIEW_RATING_BETWEEN` \| Target a review rating that is between the review ratings expressed. \| \| `ASIN_REVIEW_RATING_GREATER_THAN` \| Target a review rating that is greater than the review rating expressed. \| \| `ASIN_SAME_AS` \| Target an ASIN that is the same as the ASIN expressed. \| \| `ASIN_IS_PRIME_SHIPPING_ELIGIBLE` \| Target products that are Prime Shipping Eligible. This refinement can be applied at a category or brand level only. \| \| `ASIN_AGE_RANGE_SAME_AS` \| Target an age range that is in the expressed range. This refinement can be applied for toys and games categories only. \| \| `ASIN_GENRE_SAME_AS` \| Target products related to the expressed genre. This refinement can be applied for Books and eBooks categories only. \| \| `ASIN_EXPANDED_FROM` \| Target products similar in performance to the ASIN expressed. \| \| `KEYWORD_GROUP_SAME_AS` \| Target the keyword group that is the same as the keyword group expressed (Beta coming soon). \| \| `OTHER` \| Other Type. \| |
+| `value` | `value` | `string` | No | No | The expression value |
+
+## Inline314
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline3141
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3142
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+| `queryTermMatchType` | `queryTermMatchType` | `string` | No | No | Match type for query filters. \| Value \| Description \| \|-----------\|------------\| \| `BROAD_MATCH` \| Match if the queried value contains the filter value (substring matching). Note: If queryTermMatchType is set to BROAD_MATCH, only matches for the first query included will be returned. \| \| `EXACT_MATCH` \| Match if the queried value is exactly equivalent to the filter value. \| |
+
+## Inline3143
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3144
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3145
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3146
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline3147
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of Age Range. This field is REQUIRED if the Age Range object is being used as an input. Use the GetRefinementsForCategory to retrieve Age Range Node IDs. |
+| `name` | `name` | `string` | No | No | Name of Age Range. This field is OPTIONAL if the Age Range object is being used as an input. |
+
+## Inline3148
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of brand. This field is REQUIRED if the Brand object is being used as an input. Use the GetRefinementsForCategory to retrieve Brand Node IDs. |
+| `name` | `name` | `string` | No | No | Name of brand. This field is OPTIONAL if the Brand object is being used as an input. |
+
+## Inline3149
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of Genre. This field is REQUIRED if the Genre object is being used as an input. Use the GetRefinementsForCategory to retrieve Genre Node IDs. |
+| `name` | `name` | `string` | No | No | Name of Genre. This field is OPTIONAL if the Genre object is being used as an input. |
+
+## Inline315
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline3150
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max` | `max` | `number` | No | No | — |
+| `min` | `min` | `number` | No | No | — |
+
+## Inline3151
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max` | `max` | `number` | No | No | — |
+| `min` | `min` | `number` | No | No | — |
+
+## Inline3153
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asinCounts` | `asinCounts` | `Inline3153` | No | No | — |
+
+## Inline3155
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of Age Range. This field is REQUIRED if the Age Range object is being used as an input. Use the GetRefinementsForCategory to retrieve Age Range Node IDs. |
+| `name` | `name` | `string` | No | No | Name of Age Range. This field is OPTIONAL if the Age Range object is being used as an input. |
+
+## Inline3156
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of brand. This field is REQUIRED if the Brand object is being used as an input. Use the GetRefinementsForCategory to retrieve Brand Node IDs. |
+| `name` | `name` | `string` | No | No | Name of brand. This field is OPTIONAL if the Brand object is being used as an input. |
+
+## Inline3157
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of Genre. This field is REQUIRED if the Genre object is being used as an input. Use the GetRefinementsForCategory to retrieve Genre Node IDs. |
+| `name` | `name` | `string` | No | No | Name of Genre. This field is OPTIONAL if the Genre object is being used as an input. |
+
+## Inline3158
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max` | `max` | `number` | No | No | — |
+| `min` | `min` | `number` | No | No | — |
+
+## Inline3159
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max` | `max` | `number` | No | No | — |
+| `min` | `min` | `number` | No | No | — |
+
+## Inline316
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline3161
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextCursor` | `nextCursor` | `string` | No | No | An identifier to fetch next set of `ProductRecommendation` records in the result set if available. This will be null when at the end of result set. |
+| `previousCursor` | `previousCursor` | `string` | No | No | Optional parameter that links to the previous result set served. This parameter will be null on the first request. |
+| `recommendations` | `recommendations` | `Array<Inline3161>` | No | No | An array of `ProductRecommendation` objects. |

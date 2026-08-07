@@ -1,0 +1,156 @@
+---
+title: "Amazon Ads — Sponsored Brands Campaigns endpoints"
+description: "4 generated Amazon Ads — Sponsored Brands endpoint contracts for Campaigns."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 108
+  label: "Campaigns"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.campaigns.createSponsoredBrandsCampaigns
+
+`POST` `/sb/v4/campaigns`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateSponsoredBrandsCampaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.campaigns.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateSponsoredBrandsCampaignsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `body` | `Array<Inline1176>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.campaigns.deleteSponsoredBrandsCampaigns
+
+`POST` `/sb/v4/campaigns/delete`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (DeleteSponsoredBrandsCampaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.campaigns.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `DeleteSponsoredBrandsCampaignsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIdFilter` | `body` | `Inline1193` | No | No | Filter entities by the list of objectIds. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.campaigns.listSponsoredBrandsCampaigns
+
+`POST` `/sb/v4/campaigns/list`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (ListSponsoredBrandsCampaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.campaigns.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `ListSponsoredBrandsCampaignsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIdFilter` | `body` | `Inline1207` | No | No | Filter entities by the list of objectIds. |
+| `goalTypeFilter` | `body` | `Inline1208` | No | No | Filter entities by goal type. |
+| `includeExtendedDataFields` | `body` | `boolean` | No | No | Setting to true will slow down performance because the API needs to retrieve extra information for each campaign. |
+| `maxResults` | `body` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API. |
+| `nameFilter` | `body` | `Inline1209` | No | No | Filter entities by name. |
+| `nextToken` | `body` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `portfolioIdFilter` | `body` | `Inline1210` | No | No | Filter entities by the list of objectIds. |
+| `stateFilter` | `body` | `Inline1211` | No | No | Filter entities by state. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.campaigns.updateSponsoredBrandsCampaigns
+
+`PUT` `/sb/v4/campaigns`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (UpdateSponsoredBrandsCampaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.campaigns.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `UpdateSponsoredBrandsCampaignsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `body` | `Array<Inline1186>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

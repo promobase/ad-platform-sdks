@@ -1,0 +1,47 @@
+---
+title: "Amazon Ads — Sponsored Products Budget Recommendations And Missed Opportunities endpoints"
+description: "1 generated Amazon Ads — Sponsored Products endpoint contract for Budget Recommendations And Missed Opportunities."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 102
+  label: "Budget Recommendations And Missed Opportunities"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.budgetRecommendationsAndMissedOpportunities.getBudgetRecommendations
+
+`POST` `/sp/campaigns/budgetRecommendations`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getBudgetRecommendations)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.budgetRecommendationsAndMissedOpportunities.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetBudgetRecommendationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `body` | `Array<string>` | Yes | No | List of campaigns. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

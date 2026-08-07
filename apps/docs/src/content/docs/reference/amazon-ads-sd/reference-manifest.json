@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "platform": "amazon-ads-sd",
+  "version": "v5",
+  "endpointCount": 22,
+  "modelCount": 426,
+  "capabilityCount": 12,
+  "endpointPages": [
+    "endpoints/brand-safety-deny-list-domains",
+    "endpoints/brand-safety-request-results",
+    "endpoints/brand-safety-request-status",
+    "endpoints/budget-recommendations",
+    "endpoints/budget-rules",
+    "endpoints/budget-usage",
+    "endpoints/recommendations",
+    "endpoints/snapshot-ap-is",
+    "endpoints/targeting-recommendations"
+  ],
+  "modelPages": [
+    "models/associated-budget-rule-response-to-inline190",
+    "models/inline191-to-inline327",
+    "models/inline33-to-sdasin",
+    "models/sd-audience-to-sd-targeting-recommendations-request-v34",
+    "models/sd-targeting-recommendations-request-v35-to-update-sd-budget-rules-request"
+  ]
+}

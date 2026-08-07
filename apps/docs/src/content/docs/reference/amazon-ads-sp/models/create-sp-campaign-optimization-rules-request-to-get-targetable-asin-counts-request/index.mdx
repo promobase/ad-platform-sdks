@@ -1,0 +1,838 @@
+---
+title: "Amazon Ads — Sponsored Products models: Create SP Campaign Optimization Rules Request – Get Targetable Asin Counts Request"
+description: "100 generated Amazon Ads — Sponsored Products model contracts, from CreateSPCampaignOptimizationRulesRequest through GetTargetableAsinCountsRequest."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 1001
+  label: "Create SP Campaign Optimization Rules Request – Get Targetable Asin Counts Request"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## CreateSPCampaignOptimizationRulesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | Yes | No | A list of campaign ids |
+| `recurrence` | `recurrence` | `string` | Yes | No | The frequency of the rule application. |
+| `ruleAction` | `ruleAction` | `string` | Yes | No | The action taken when the campaign optimization rule is enabled. Defaults to adopt |
+| `ruleCondition` | `ruleCondition` | `Array<Inline161>` | No | No | — |
+| `ruleName` | `ruleName` | `string` | No | No | The campaign optimization rule name. |
+| `ruleType` | `ruleType` | `string` | Yes | No | The type of the campaign optimization rule. Only Support BID as of now |
+
+## CreateSPCampaignOptimizationRulesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignOptimizationId` | `campaignOptimizationId` | `string` | No | No | The persistent rule identifier. |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful |
+
+## CreateSponsoredProductsAdGroupsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `adGroups` | `Array<Inline2664>` | Yes | No | An array of adGroups. |
+
+## CreateSponsoredProductsAdGroupsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateSponsoredProductsCampaignNegativeKeywordsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeKeywords` | `campaignNegativeKeywords` | `Array<Inline2736>` | Yes | No | An array of campaignNegativeKeywords. |
+
+## CreateSponsoredProductsCampaignNegativeKeywordsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateSponsoredProductsCampaignNegativeTargetingClausesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeTargetingClauses` | `campaignNegativeTargetingClauses` | `Array<Inline2759>` | Yes | No | An array of Campaign Negative TargetingClauses. |
+
+## CreateSponsoredProductsCampaignNegativeTargetingClausesResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateSponsoredProductsCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Array<Inline2784>` | Yes | No | An array of campaigns. |
+
+## CreateSponsoredProductsCampaignsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateSponsoredProductsKeywordsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywords` | `keywords` | `Array<Inline2882>` | Yes | No | An array of keywords. |
+
+## CreateSponsoredProductsKeywordsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateSponsoredProductsNegativeKeywordsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeKeywords` | `negativeKeywords` | `Array<Inline2907>` | Yes | No | An array of negativeKeywords. |
+
+## CreateSponsoredProductsNegativeKeywordsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateSponsoredProductsNegativeTargetingClausesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeTargetingClauses` | `negativeTargetingClauses` | `Array<Inline2932>` | Yes | No | An array of negativeTargeting. |
+
+## CreateSponsoredProductsNegativeTargetingClausesResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateSponsoredProductsProductAdsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productAds` | `productAds` | `Array<Inline2965>` | Yes | No | An array of ads. |
+
+## CreateSponsoredProductsProductAdsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateSponsoredProductsTargetingClausesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingClauses` | `targetingClauses` | `Array<Inline3093>` | Yes | No | An array of targetingClauses. |
+
+## CreateSponsoredProductsTargetingClausesResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateTargetPromotionGroupsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The adGroupId of the Ad Group of an Auto-Targeting campaign that will be part of the Target Promotion Group. |
+| `adIds` | `adIds` | `Array<string>` | No | No | The list of adIds (optional) of the Ad Group of the Auto-Targeting campaign, that will be part of the Target Promotion Group. If this list is empty, all the Product Ads under the Ad Group will be part of the Target Promotion Group. |
+| `existingCampaignDetails` | `existingCampaignDetails` | `Inline3055` | No | No | The request object for creating a new target promotion group with existing campaigns. Please note that the adGroupIds provided need to contain the same Ad ASINs/SKUs combination as the Auto-Targeting adGroup for the target promotion group. |
+| `newCampaignDetails` | `newCampaignDetails` | `Inline3056` | No | No | The request object for creating a new target promotion group with new campaigns. |
+
+## CreateTargetPromotionGroupsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline3060` | Yes | No | — |
+
+## CreateTargetPromotionGroupTargetsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetPromotionGroupId` | `targetPromotionGroupId` | `string` | Yes | No | The id of the target promotion group where the targets are being added. |
+| `targets` | `targets` | `Array<Inline3082>` | No | No | List of targets to be added to the target promotion group. |
+
+## CreateTargetPromotionGroupTargetsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DateRangeTypeRuleDuration
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The end date of the budget rule in YYYYMMDD format. The end date is inclusive. Required to be equal or greater than `startDate`. |
+| `startDate` | `startDate` | `string` | Yes | No | The start date of the budget rule in YYYYMMDD format. The start date is inclusive. Required to be greater than or equal to current date. |
+
+## DayOfWeek
+
+`enum` model on the `json` wire format.
+
+**Values:** `FRIDAY`, `MONDAY`, `SATURDAY`, `SUNDAY`, `THURSDAY`, `TUESDAY`, `WEDNESDAY`
+
+## DeleteCampaignOptimizationRuleParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignOptimizationId` | `campaignOptimizationId` | `string` | Yes | No | The sp campaign optimization rule identifier. |
+
+## DeleteCampaignOptimizationRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline3000` | Yes | No | — |
+
+## DeleteSPCampaignOptimizationRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignOptimizationId` | `campaignOptimizationId` | `string` | No | No | The persistent rule identifier. |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful |
+
+## DeleteSponsoredProductsAdGroupsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline2672` | Yes | No | Filter entities by the list of objectIds |
+
+## DeleteSponsoredProductsAdGroupsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DeleteSponsoredProductsCampaignNegativeKeywordsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeKeywordIdFilter` | `campaignNegativeKeywordIdFilter` | `Inline2744` | Yes | No | Filter entities by the list of objectIds |
+
+## DeleteSponsoredProductsCampaignNegativeKeywordsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DeleteSponsoredProductsCampaignNegativeTargetingClausesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeTargetIdFilter` | `campaignNegativeTargetIdFilter` | `Inline2767` | Yes | No | Filter entities by the list of objectIds |
+
+## DeleteSponsoredProductsCampaignNegativeTargetingClausesResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DeleteSponsoredProductsCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline2833` | Yes | No | Filter entities by the list of objectIds |
+
+## DeleteSponsoredProductsCampaignsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DeleteSponsoredProductsKeywordsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywordIdFilter` | `keywordIdFilter` | `Inline2890` | Yes | No | Filter entities by the list of objectIds |
+
+## DeleteSponsoredProductsKeywordsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DeleteSponsoredProductsNegativeKeywordsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeKeywordIdFilter` | `negativeKeywordIdFilter` | `Inline2915` | Yes | No | Filter entities by the list of objectIds |
+
+## DeleteSponsoredProductsNegativeKeywordsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DeleteSponsoredProductsNegativeTargetingClausesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeTargetIdFilter` | `negativeTargetIdFilter` | `Inline2946` | Yes | No | Filter entities by the list of objectIds |
+
+## DeleteSponsoredProductsNegativeTargetingClausesResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DeleteSponsoredProductsProductAdsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adIdFilter` | `adIdFilter` | `Inline2973` | Yes | No | Filter entities by the list of objectIds |
+
+## DeleteSponsoredProductsProductAdsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DeleteSponsoredProductsTargetingClausesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetIdFilter` | `targetIdFilter` | `Inline3121` | Yes | No | Filter entities by the list of objectIds |
+
+## DeleteSponsoredProductsTargetingClausesResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DisassociateAssociatedBudgetRuleForSPCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `number` | Yes | No | The campaign identifier. |
+| `budgetRuleId` | `budgetRuleId` | `string` | Yes | No | The budget rule identifier. |
+
+## DisassociateAssociatedBudgetRuleForSPCampaignsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline2818` | Yes | No | — |
+
+## DisassociateAssociatedBudgetRuleResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## EventTypeRuleDuration
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The event end date in YYYYMMDD format. Read-only. |
+| `eventId` | `eventId` | `string` | Yes | No | The event identifier. This value is available from the budget rules recommendation API. |
+| `eventName` | `eventName` | `string` | No | No | The event name. Read-only. |
+| `startDate` | `startDate` | `string` | No | No | The event start date in YYYYMMDD format. Read-only. Note that this field is present only for announced events. |
+
+## FetchCampaignRecommendationsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Array<Inline2731>` | Yes | No | List of campaigns with specific recommendation types requested. |
+| `maxResults` | `maxResults` | `number` | No | No | Optional. Limits the number of items to return in the response. |
+| `nextToken` | `nextToken` | `string` | No | No | Optional. Token to retrieve subsequent page of results. |
+
+## FetchCampaignRecommendationsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline2733` | Yes | No | — |
+
+## ForecastEstimates
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | End date of the opportunities date range in YYYY-MM-DDTHH:mm:ssZ format. |
+| `estimatedAdSpendLower` | `estimatedAdSpendLower` | `number` | No | No | Lower estimated ad spend for the campaign. |
+| `estimatedAdSpendUpper` | `estimatedAdSpendUpper` | `number` | No | No | Upper estimated ad spend for the campaign. |
+| `estimatedIncrementalClicksLower` | `estimatedIncrementalClicksLower` | `number` | No | No | Lower bound of the estimated incremental clicks that could be gained if all optimizations are made. |
+| `estimatedIncrementalClicksUpper` | `estimatedIncrementalClicksUpper` | `number` | No | No | Upper bound of the estimated incremental clicks that could be gained if all optimizations are made. |
+| `estimatedIncrementalConversionsLower` | `estimatedIncrementalConversionsLower` | `number` | No | No | Lower estimated incremental number of conversions for the campaign. |
+| `estimatedIncrementalConversionsUpper` | `estimatedIncrementalConversionsUpper` | `number` | No | No | Upper estimated incremental number of conversions for the campaign. |
+| `estimatedIncrementalImpressionsLower` | `estimatedIncrementalImpressionsLower` | `number` | No | No | Lower estimated incremental number of impressions for the campaign. |
+| `estimatedIncrementalImpressionsUpper` | `estimatedIncrementalImpressionsUpper` | `number` | No | No | Upper estimated incremental number of impressions for the campaign. |
+| `estimatedIncrementalSalesLower` | `estimatedIncrementalSalesLower` | `number` | No | No | Lower estimated incremental sales for the campaign. |
+| `estimatedIncrementalSalesUpper` | `estimatedIncrementalSalesUpper` | `number` | No | No | Upper estimated incremental sales for the campaign. |
+| `startDate` | `startDate` | `string` | No | No | Start date of the opportunities date range in YYYY-MM-DDTHH:mm:ssZ format. |
+
+## Genre
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of Genre. This field is REQUIRED if the Genre object is being used as an input. Use the GetRefinementsForCategory to retrieve Genre Node IDs. |
+| `name` | `name` | `string` | No | No | Name of Genre. This field is OPTIONAL if the Genre object is being used as an input. |
+
+## GenreLoP
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Id of Genre. Use the POST /sp/targets/category/&#123;categoryId&#125;/refinements endpoint to retrieve Genre Node IDs. |
+| `name` | `name` | `string` | No | No | Name of Genre. |
+| `translatedName` | `translatedName` | `string` | No | No | Translated name of the Genre based off locale send in the query parameter. |
+
+## Genres
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline172>`
+
+## GenresLoP
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline174>`
+
+## GetBudgetRecommendationParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `adGroups` | `Array<Inline2837>` | Yes | No | The ad group information for this new campaign. |
+| `bidding` | `bidding` | `Inline2838` | Yes | No | The bidding control configuration for the new campaign. |
+| `endDate` | `endDate` | `string` | No | No | The end date of the campaign in YYYYMMDD format. |
+| `startDate` | `startDate` | `string` | No | No | The start date of the campaign in YYYYMMDD format. |
+| `targetingType` | `targetingType` | `string` | Yes | No | Specifies the targeting type. |
+
+## GetBudgetRecommendationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline2840` | Yes | No | — |
+
+## GetBudgetRecommendationsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | Yes | No | List of campaigns. |
+
+## GetBudgetRecommendationsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline2825` | Yes | No | — |
+
+## GetBudgetRuleByRuleIdForSPCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRuleId` | `budgetRuleId` | `string` | Yes | No | The budget rule identifier. |
+
+## GetBudgetRuleByRuleIdForSPCampaignsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline2713` | Yes | No | — |
+
+## GetCampaignOptimizationRuleParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignOptimizationId` | `campaignOptimizationId` | `string` | Yes | No | The sp campaign optimization rule identifier. |
+
+## GetCampaignOptimizationRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline3003` | Yes | No | — |
+
+## GetCampaignRecommendationsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | No | No | Optional. Returns or generates recommendations only for the specified campaignIds. |
+| `nextToken` | `nextToken` | `string` | No | No | Optional. Token to retrieve subsequent page of results. |
+| `maxResults` | `maxResults` | `string` | No | No | Optional. Limits the number of items to return in the response. |
+
+## GetCampaignRecommendationsRequestV2
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Array<Inline176>` | Yes | No | List of campaigns with specific recommendation types requested. |
+| `maxResults` | `maxResults` | `number` | No | No | Optional. Limits the number of items to return in the response. |
+| `nextToken` | `nextToken` | `string` | No | No | Optional. Token to retrieve subsequent page of results. |
+
+## GetCampaignRecommendationsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | An identifier to fetch next set of campaign recommendations records in the result set if available. This will be null when at the end of result set. |
+| `recommendations` | `recommendations` | `Array<Inline178>` | Yes | No | List of campaign recommendations. |
+
+## GetCampaignRecommendationsResponseV2
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | An identifier to fetch next set of recommendations records in the result set if available. This will be null when at the end of result set. |
+| `recommendations` | `recommendations` | `Array<Inline185>` | Yes | No | List of recommendations. |
+
+## GetCampaignsAssociatedWithSPBudgetRuleParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRuleId` | `budgetRuleId` | `string` | Yes | No | The budget rule identifier. |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the `nextToken` field is empty, there are no further results. |
+| `pageSize` | `pageSize` | `number` | Yes | No | Sets a limit on the number of results returned. Maximum limit of `pageSize` is 30. |
+
+## GetCampaignsAssociatedWithSPBudgetRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline2720` | Yes | No | — |
+
+## GetCategoryRecommendationsForASINsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locale` | `locale` | `string` | No | No | The locale to which the caller wishes to translate the list of category recommendations to. For example, if the caller wishes to receive a list of category recommendations in Simplified Chinese, the locale parameter should be set to zh_CN. If no locale is provided, the returned list of category recommendations will be in the default language of the marketplace. |
+| `asins` | `asins` | `Array<string>` | No | No | List of input ASINs. This API does not check if the ASINs are valid ASINs. |
+| `includeAncestor` | `includeAncestor` | `boolean` | No | No | Enable this if you would like to retrieve categories which are ancestor nodes of the original recommended categories. This may increase the number of categories returned, but decrease the relevancy of those categories. |
+
+## GetCategoryRecommendationsForAsinsRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | List of input ASINs. This API does not check if the ASINs are valid ASINs. |
+| `includeAncestor` | `includeAncestor` | `boolean` | No | No | Enable this if you would like to retrieve categories which are ancestor nodes of the original recommended categories. This may increase the number of categories returned, but decrease the relevancy of those categories. |
+
+## GetCategoryRecommendationsForASINsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline3114` | Yes | No | — |
+
+## GetGlobalRankedKeywordRecommendationParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `Inline2876 \| Inline2878` | Yes | No | — |
+
+## GetGlobalRankedKeywordRecommendationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline2880` | Yes | No | — |
+
+## GetKeywordGroupRecommendationsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | List of ASINs. |
+| `countryCode` | `countryCode` | `string` | No | No | The country code representing the origin country of the input ASIN list, it will be used for generating keyword group recommendations. |
+| `nextToken` | `nextToken` | `string` | No | No | If the last response included this field then there are more items to retrieve. |
+
+## GetKeywordGroupRecommendationsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline3053` | Yes | No | — |
+
+## GetMultiCountryThemeBasedBidRecommendationForAdGroupV1Params
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `Inline2867 \| Inline2868` | Yes | No | — |
+
+## GetMultiCountryThemeBasedBidRecommendationForAdGroupV1Response
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline2872` | Yes | No | — |
+
+## GetNegativeBrandsParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## GetNegativeBrandsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline2941>` | Yes | No | — |
+
+## GetOptimizationRuleEligibilityParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | Yes | No | A list of campaign ids |
+| `requirePerformanceMetrics` | `requirePerformanceMetrics` | `boolean` | No | No | If set to false, eligible campaigns without a recommendation for performanceMetrics are also provided in response.Check performanceMetricsExists response field to know if performanceMetrics is available for eligible campaign. |
+
+## GetOptimizationRuleEligibilityResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline3006` | Yes | No | — |
+
+## GetProductRecommendationsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAsins` | `adAsins` | `Array<string>` | Yes | No | List of input ASINs. |
+| `count` | `count` | `number` | No | No | Count of objects requested in the response. The count will be applied on the objects returned under `recommendations` array in response body. &lt;ul&gt; &lt;li&gt;Requesting `application/vnd.spproductrecommendationresponse.themes.v3+json` mediatype applies the count on `ThemeRecommendation` objects.If no count value is passed a default of `5` is assumed. The API will return a maximum of `10` themes irrespective of how large the count is set. &lt;/li&gt; &lt;li&gt;Requesting `application/vnd.spproductrecommendationresponse.asins.v3+json` mediatype applies count on the `ProductRecommendation` objects in response body.If no count value is passed a default of `100` is assumed. The API will return a maximum of `1000` recommendations irrespective of how large the count is set. &lt;/li&gt; &lt;/ul&gt; Please refer the response Schemas for more info. |
+| `cursor` | `cursor` | `string` | No | No | A optional cursor value that can be used to fetch next or previous set of records. |
+| `locale` | `locale` | `string` | No | No | Theme names and descriptions will be provided in the language for your supported locale. Available options are en_US (U.S. English), en_GB (UK English), zh_CN (Chinese), es_ES (Spanish), jp_JP (Japanese), de_DE (German), fr_FR (French), it_IT(Italian). If locale is not provided or unsupported, the theme names and descriptions will be returned in U.S. English (en_US). |
+
+## GetProductRecommendationsRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAsins` | `adAsins` | `Array<string>` | Yes | No | List of input ASINs. |
+| `count` | `count` | `number` | No | No | Count of objects requested in the response. The count will be applied on the objects returned under `recommendations` array in response body. &lt;ul&gt; &lt;li&gt;Requesting `application/vnd.spproductrecommendationresponse.themes.v3+json` mediatype applies the count on `ThemeRecommendation` objects.If no count value is passed a default of `5` is assumed. The API will return a maximum of `10` themes irrespective of how large the count is set. &lt;/li&gt; &lt;li&gt;Requesting `application/vnd.spproductrecommendationresponse.asins.v3+json` mediatype applies count on the `ProductRecommendation` objects in response body.If no count value is passed a default of `100` is assumed. The API will return a maximum of `1000` recommendations irrespective of how large the count is set. &lt;/li&gt; &lt;/ul&gt; Please refer the response Schemas for more info. |
+| `cursor` | `cursor` | `string` | No | No | A optional cursor value that can be used to fetch next or previous set of records. |
+| `locale` | `locale` | `string` | No | No | Theme names and descriptions will be provided in the language for your supported locale. Available options are en_US (U.S. English), en_GB (UK English), zh_CN (Chinese), es_ES (Spanish), jp_JP (Japanese), de_DE (German), fr_FR (French), it_IT(Italian). If locale is not provided or unsupported, the theme names and descriptions will be returned in U.S. English (en_US). |
+
+## GetProductRecommendationsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline3161` | Yes | No | — |
+
+## GetRankedKeywordRecommendationParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `Inline3125 \| Inline3126` | Yes | No | — |
+
+## GetRankedKeywordRecommendationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline3128` | Yes | No | — |
+
+## GetRefinementsForCategoryParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categoryId` | `categoryId` | `string` | Yes | No | The category ID. Please use the GetTargetableCategories API or the GetCategoriesForASINs API to retrieve categories IDs. This API does not check if the category is a valid category. |
+| `locale` | `locale` | `string` | No | No | The locale to which the caller wishes to translate the refinements to. For example, if the caller wishes to receive the refinements in Simplified Chinese, the locale parameter should be set to zh_CN. If no locale is provided, the refinements will be in the default language of the marketplace. |
+
+## GetRefinementsForCategoryResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline3117` | Yes | No | — |
+
+## GetRuleNotificationParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | Yes | No | A list of campaign ids |
+
+## GetRuleNotificationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline3010` | Yes | No | — |
+
+## GetSPBudgetRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRule` | `budgetRule` | `Inline189` | No | No | — |
+
+## GetSPBudgetRulesForAdvertiserParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the `nextToken` field is empty, there are no further results. |
+| `pageSize` | `pageSize` | `number` | Yes | No | Sets a limit on the number of results returned. Maximum limit of `pageSize` is 30. |
+
+## GetSPBudgetRulesForAdvertiserResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesForAdvertiserResponse` | `budgetRulesForAdvertiserResponse` | `Array<Inline195>` | No | No | A list of rules created by the advertiser. |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the `nextToken` field is empty, there are no further results. |
+
+## GetSPCampaignOptimizationRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CampaignOptimizationRule` | `CampaignOptimizationRule` | `Inline201` | No | No | — |
+
+## GetTargetableASINCountsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ageRanges` | `ageRanges` | `Array<Inline3147>` | No | No | List of Age Ranges. Use the GetRefinementsForCategory to retrieve Age Ranges. Age Ranges are only available for categories related to children's toys and games. |
+| `brands` | `brands` | `Array<Inline3148>` | No | No | List of Brands. |
+| `category` | `category` | `string` | Yes | No | The category node id. Please use the GetTargetableCategories API or GetCategoryRecommendationsForASINs API to retrieve category IDs. |
+| `genres` | `genres` | `Array<Inline3149>` | No | No | List of Genres. Use the GetRefinementsForCategory to retrieve Genre Node IDs. Genres are only available for categories related to books. |
+| `isPrimeShipping` | `isPrimeShipping` | `boolean` | No | No | Indicates if products have prime shipping |
+| `priceRange` | `priceRange` | `Inline3150` | No | No | A range of prices. We use this to retrieve the number of targetable ASINs that falls within this price range. |
+| `ratingRange` | `ratingRange` | `Inline3151` | No | No | Rating range is restricted to integers between 0 and 5, inclusive. Min must be less than or equal to max. We use this to retrieve the number of targetable ASINs that falls within this rating range. |
+
+## GetTargetableAsinCountsRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ageRanges` | `ageRanges` | `Array<Inline203>` | No | No | List of Age Ranges. Use the GetRefinementsForCategory to retrieve Age Ranges. Age Ranges are only available for categories related to children's toys and games. |
+| `brands` | `brands` | `Array<Inline204>` | No | No | List of Brands. |
+| `category` | `category` | `string` | Yes | No | The category node id. Please use the GetTargetableCategories API or GetCategoryRecommendationsForASINs API to retrieve category IDs. |
+| `genres` | `genres` | `Array<Inline205>` | No | No | List of Genres. Use the GetRefinementsForCategory to retrieve Genre Node IDs. Genres are only available for categories related to books. |
+| `isPrimeShipping` | `isPrimeShipping` | `boolean` | No | No | Indicates if products have prime shipping |
+| `priceRange` | `priceRange` | `Inline206` | No | No | A range of prices. We use this to retrieve the number of targetable ASINs that falls within this price range. |
+| `ratingRange` | `ratingRange` | `Inline207` | No | No | Rating range is restricted to integers between 0 and 5, inclusive. Min must be less than or equal to max. We use this to retrieve the number of targetable ASINs that falls within this rating range. |

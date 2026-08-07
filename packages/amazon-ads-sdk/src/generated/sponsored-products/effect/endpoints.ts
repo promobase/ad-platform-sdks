@@ -5,7 +5,7 @@ import * as Models from "./schemas.ts";
 
 export const amazon_ads_optimizationRules_associateOptimizationRulesToCampaign = defineEndpointDescriptor({
   id: "amazon-ads.optimizationRules.associateOptimizationRulesToCampaign",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/campaigns/{campaignId}/optimizationRules",
   summary: "Associates one or multiple optimization rules with a campaign.\n",
@@ -13,7 +13,7 @@ export const amazon_ads_optimizationRules_associateOptimizationRulesToCampaign =
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.optimizationRules.manage"],
+  capabilities: ["amazon-ads-sp.optimizationRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -30,7 +30,7 @@ export const amazon_ads_optimizationRules_associateOptimizationRulesToCampaign =
 
 export const amazon_ads_budgetRules_bulkBudgetRulesAssociationForSP = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.bulkBudgetRulesAssociationForSP",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/budgetRulesAssociation",
   summary: "Associates budget rules to one or more campaigns.",
@@ -38,7 +38,7 @@ export const amazon_ads_budgetRules_bulkBudgetRulesAssociationForSP = defineEndp
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.manage"],
+  capabilities: ["amazon-ads-sp.budgetRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -53,7 +53,7 @@ export const amazon_ads_budgetRules_bulkBudgetRulesAssociationForSP = defineEndp
 
 export const amazon_ads_budgetRules_bulkBudgetRulesDisAssociationForSP = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.bulkBudgetRulesDisAssociationForSP",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/budgetRulesAssociation/delete",
   summary: "DisAssociates budget rules from one or more campaigns",
@@ -61,7 +61,7 @@ export const amazon_ads_budgetRules_bulkBudgetRulesDisAssociationForSP = defineE
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.manage"],
+  capabilities: ["amazon-ads-sp.budgetRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -76,7 +76,7 @@ export const amazon_ads_budgetRules_bulkBudgetRulesDisAssociationForSP = defineE
 
 export const amazon_ads_budgetRules_createAssociatedBudgetRulesForSPCampaigns = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.createAssociatedBudgetRulesForSPCampaigns",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/campaigns/{campaignId}/budgetRules",
   summary: "Associates one or more budget rules to a campaign specified by identifer.",
@@ -84,7 +84,7 @@ export const amazon_ads_budgetRules_createAssociatedBudgetRulesForSPCampaigns = 
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.manage"],
+  capabilities: ["amazon-ads-sp.budgetRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -101,7 +101,7 @@ export const amazon_ads_budgetRules_createAssociatedBudgetRulesForSPCampaigns = 
 
 export const amazon_ads_budgetRules_createBudgetRulesForSPCampaigns = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.createBudgetRulesForSPCampaigns",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/budgetRules",
   summary: "Creates one or more budget rules.",
@@ -109,7 +109,7 @@ export const amazon_ads_budgetRules_createBudgetRulesForSPCampaigns = defineEndp
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.manage"],
+  capabilities: ["amazon-ads-sp.budgetRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -124,7 +124,7 @@ export const amazon_ads_budgetRules_createBudgetRulesForSPCampaigns = defineEndp
 
 export const amazon_ads_campaignOptimizationRules_createOptimizationRule = defineEndpointDescriptor({
   id: "amazon-ads.campaignOptimizationRules.createOptimizationRule",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/rules/campaignOptimization",
   summary: "Creates a campaign optimization rule.",
@@ -132,7 +132,7 @@ export const amazon_ads_campaignOptimizationRules_createOptimizationRule = defin
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaignOptimizationRules.manage"],
+  capabilities: ["amazon-ads-sp.campaignOptimizationRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -157,7 +157,7 @@ export const amazon_ads_campaignOptimizationRules_createOptimizationRule = defin
 
 export const amazon_ads_optimizationRules_createOptimizationRules = defineEndpointDescriptor({
   id: "amazon-ads.optimizationRules.createOptimizationRules",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/rules/optimization",
   summary: "Creates one or more optimization rules.\n",
@@ -165,7 +165,7 @@ export const amazon_ads_optimizationRules_createOptimizationRules = defineEndpoi
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.optimizationRules.manage"],
+  capabilities: ["amazon-ads-sp.optimizationRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -180,7 +180,7 @@ export const amazon_ads_optimizationRules_createOptimizationRules = defineEndpoi
 
 export const amazon_ads_adGroups_createSponsoredProductsAdGroups = defineEndpointDescriptor({
   id: "amazon-ads.adGroups.createSponsoredProductsAdGroups",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/adGroups",
   summary: "CreateSponsoredProductsAdGroups",
@@ -188,7 +188,7 @@ export const amazon_ads_adGroups_createSponsoredProductsAdGroups = defineEndpoin
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.adGroups.manage"],
+  capabilities: ["amazon-ads-sp.adGroups.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -203,7 +203,7 @@ export const amazon_ads_adGroups_createSponsoredProductsAdGroups = defineEndpoin
 
 export const amazon_ads_campaignNegativeKeywords_createSponsoredProductsCampaignNegativeKeywords = defineEndpointDescriptor({
   id: "amazon-ads.campaignNegativeKeywords.createSponsoredProductsCampaignNegativeKeywords",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/campaignNegativeKeywords",
   summary: "CreateSponsoredProductsCampaignNegativeKeywords",
@@ -211,7 +211,7 @@ export const amazon_ads_campaignNegativeKeywords_createSponsoredProductsCampaign
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaignNegativeKeywords.manage"],
+  capabilities: ["amazon-ads-sp.campaignNegativeKeywords.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -226,7 +226,7 @@ export const amazon_ads_campaignNegativeKeywords_createSponsoredProductsCampaign
 
 export const amazon_ads_campaignNegativeTargetingClauses_createSponsoredProductsCampaignNegativeTargetingClauses = defineEndpointDescriptor({
   id: "amazon-ads.campaignNegativeTargetingClauses.createSponsoredProductsCampaignNegativeTargetingClauses",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/campaignNegativeTargets",
   summary: "CreateSponsoredProductsCampaignNegativeTargetingClauses",
@@ -234,7 +234,7 @@ export const amazon_ads_campaignNegativeTargetingClauses_createSponsoredProducts
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaignNegativeTargetingClauses.manage"],
+  capabilities: ["amazon-ads-sp.campaignNegativeTargetingClauses.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -249,7 +249,7 @@ export const amazon_ads_campaignNegativeTargetingClauses_createSponsoredProducts
 
 export const amazon_ads_campaigns_createSponsoredProductsCampaigns = defineEndpointDescriptor({
   id: "amazon-ads.campaigns.createSponsoredProductsCampaigns",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/campaigns",
   summary: "CreateSponsoredProductsCampaigns",
@@ -257,7 +257,7 @@ export const amazon_ads_campaigns_createSponsoredProductsCampaigns = defineEndpo
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaigns.manage"],
+  capabilities: ["amazon-ads-sp.campaigns.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -272,7 +272,7 @@ export const amazon_ads_campaigns_createSponsoredProductsCampaigns = defineEndpo
 
 export const amazon_ads_keywords_createSponsoredProductsKeywords = defineEndpointDescriptor({
   id: "amazon-ads.keywords.createSponsoredProductsKeywords",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/keywords",
   summary: "CreateSponsoredProductsKeywords",
@@ -280,7 +280,7 @@ export const amazon_ads_keywords_createSponsoredProductsKeywords = defineEndpoin
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.keywords.manage"],
+  capabilities: ["amazon-ads-sp.keywords.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -295,7 +295,7 @@ export const amazon_ads_keywords_createSponsoredProductsKeywords = defineEndpoin
 
 export const amazon_ads_negativeKeywords_createSponsoredProductsNegativeKeywords = defineEndpointDescriptor({
   id: "amazon-ads.negativeKeywords.createSponsoredProductsNegativeKeywords",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/negativeKeywords",
   summary: "CreateSponsoredProductsNegativeKeywords",
@@ -303,7 +303,7 @@ export const amazon_ads_negativeKeywords_createSponsoredProductsNegativeKeywords
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.negativeKeywords.manage"],
+  capabilities: ["amazon-ads-sp.negativeKeywords.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -318,7 +318,7 @@ export const amazon_ads_negativeKeywords_createSponsoredProductsNegativeKeywords
 
 export const amazon_ads_negativeTargetingClauses_createSponsoredProductsNegativeTargetingClauses = defineEndpointDescriptor({
   id: "amazon-ads.negativeTargetingClauses.createSponsoredProductsNegativeTargetingClauses",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/negativeTargets",
   summary: "CreateSponsoredProductsNegativeTargetingClauses",
@@ -326,7 +326,7 @@ export const amazon_ads_negativeTargetingClauses_createSponsoredProductsNegative
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.negativeTargetingClauses.manage"],
+  capabilities: ["amazon-ads-sp.negativeTargetingClauses.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -341,7 +341,7 @@ export const amazon_ads_negativeTargetingClauses_createSponsoredProductsNegative
 
 export const amazon_ads_productAds_createSponsoredProductsProductAds = defineEndpointDescriptor({
   id: "amazon-ads.productAds.createSponsoredProductsProductAds",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/productAds",
   summary: "CreateSponsoredProductsProductAds",
@@ -349,7 +349,7 @@ export const amazon_ads_productAds_createSponsoredProductsProductAds = defineEnd
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.productAds.manage"],
+  capabilities: ["amazon-ads-sp.productAds.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -364,7 +364,7 @@ export const amazon_ads_productAds_createSponsoredProductsProductAds = defineEnd
 
 export const amazon_ads_targetingClauses_createSponsoredProductsTargetingClauses = defineEndpointDescriptor({
   id: "amazon-ads.targetingClauses.createSponsoredProductsTargetingClauses",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/targets",
   summary: "CreateSponsoredProductsTargetingClauses",
@@ -372,7 +372,7 @@ export const amazon_ads_targetingClauses_createSponsoredProductsTargetingClauses
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.targetingClauses.manage"],
+  capabilities: ["amazon-ads-sp.targetingClauses.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -387,7 +387,7 @@ export const amazon_ads_targetingClauses_createSponsoredProductsTargetingClauses
 
 export const amazon_ads_targetPromotionGroups_createTargetPromotionGroups = defineEndpointDescriptor({
   id: "amazon-ads.targetPromotionGroups.createTargetPromotionGroups",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/targetPromotionGroups",
   summary: "CreateTargetPromotionGroups",
@@ -395,7 +395,7 @@ export const amazon_ads_targetPromotionGroups_createTargetPromotionGroups = defi
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.targetPromotionGroups.manage"],
+  capabilities: ["amazon-ads-sp.targetPromotionGroups.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -416,7 +416,7 @@ export const amazon_ads_targetPromotionGroups_createTargetPromotionGroups = defi
 
 export const amazon_ads_targetPromotionGroups_createTargetPromotionGroupTargets = defineEndpointDescriptor({
   id: "amazon-ads.targetPromotionGroups.createTargetPromotionGroupTargets",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/targetPromotionGroups/targets",
   summary: "CreateTargetPromotionGroupTargets",
@@ -424,7 +424,7 @@ export const amazon_ads_targetPromotionGroups_createTargetPromotionGroupTargets 
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.targetPromotionGroups.manage"],
+  capabilities: ["amazon-ads-sp.targetPromotionGroups.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -441,7 +441,7 @@ export const amazon_ads_targetPromotionGroups_createTargetPromotionGroupTargets 
 
 export const amazon_ads_campaignOptimizationRules_deleteCampaignOptimizationRule = defineEndpointDescriptor({
   id: "amazon-ads.campaignOptimizationRules.deleteCampaignOptimizationRule",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "DELETE",
   path: "/sp/rules/campaignOptimization/{campaignOptimizationId}",
   summary: "Deletes a campaign optimization rule specified by identifier.",
@@ -449,7 +449,7 @@ export const amazon_ads_campaignOptimizationRules_deleteCampaignOptimizationRule
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaignOptimizationRules.manage"],
+  capabilities: ["amazon-ads-sp.campaignOptimizationRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -464,7 +464,7 @@ export const amazon_ads_campaignOptimizationRules_deleteCampaignOptimizationRule
 
 export const amazon_ads_adGroups_deleteSponsoredProductsAdGroups = defineEndpointDescriptor({
   id: "amazon-ads.adGroups.deleteSponsoredProductsAdGroups",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/adGroups/delete",
   summary: "DeleteSponsoredProductsAdGroups",
@@ -472,7 +472,7 @@ export const amazon_ads_adGroups_deleteSponsoredProductsAdGroups = defineEndpoin
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.adGroups.manage"],
+  capabilities: ["amazon-ads-sp.adGroups.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -487,7 +487,7 @@ export const amazon_ads_adGroups_deleteSponsoredProductsAdGroups = defineEndpoin
 
 export const amazon_ads_campaignNegativeKeywords_deleteSponsoredProductsCampaignNegativeKeywords = defineEndpointDescriptor({
   id: "amazon-ads.campaignNegativeKeywords.deleteSponsoredProductsCampaignNegativeKeywords",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/campaignNegativeKeywords/delete",
   summary: "DeleteSponsoredProductsCampaignNegativeKeywords",
@@ -495,7 +495,7 @@ export const amazon_ads_campaignNegativeKeywords_deleteSponsoredProductsCampaign
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaignNegativeKeywords.manage"],
+  capabilities: ["amazon-ads-sp.campaignNegativeKeywords.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -510,7 +510,7 @@ export const amazon_ads_campaignNegativeKeywords_deleteSponsoredProductsCampaign
 
 export const amazon_ads_campaignNegativeTargetingClauses_deleteSponsoredProductsCampaignNegativeTargetingClauses = defineEndpointDescriptor({
   id: "amazon-ads.campaignNegativeTargetingClauses.deleteSponsoredProductsCampaignNegativeTargetingClauses",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/campaignNegativeTargets/delete",
   summary: "DeleteSponsoredProductsCampaignNegativeTargetingClauses",
@@ -518,7 +518,7 @@ export const amazon_ads_campaignNegativeTargetingClauses_deleteSponsoredProducts
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaignNegativeTargetingClauses.manage"],
+  capabilities: ["amazon-ads-sp.campaignNegativeTargetingClauses.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -533,7 +533,7 @@ export const amazon_ads_campaignNegativeTargetingClauses_deleteSponsoredProducts
 
 export const amazon_ads_campaigns_deleteSponsoredProductsCampaigns = defineEndpointDescriptor({
   id: "amazon-ads.campaigns.deleteSponsoredProductsCampaigns",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/campaigns/delete",
   summary: "DeleteSponsoredProductsCampaigns",
@@ -541,7 +541,7 @@ export const amazon_ads_campaigns_deleteSponsoredProductsCampaigns = defineEndpo
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaigns.manage"],
+  capabilities: ["amazon-ads-sp.campaigns.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -556,7 +556,7 @@ export const amazon_ads_campaigns_deleteSponsoredProductsCampaigns = defineEndpo
 
 export const amazon_ads_keywords_deleteSponsoredProductsKeywords = defineEndpointDescriptor({
   id: "amazon-ads.keywords.deleteSponsoredProductsKeywords",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/keywords/delete",
   summary: "DeleteSponsoredProductsKeywords",
@@ -564,7 +564,7 @@ export const amazon_ads_keywords_deleteSponsoredProductsKeywords = defineEndpoin
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.keywords.manage"],
+  capabilities: ["amazon-ads-sp.keywords.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -579,7 +579,7 @@ export const amazon_ads_keywords_deleteSponsoredProductsKeywords = defineEndpoin
 
 export const amazon_ads_negativeKeywords_deleteSponsoredProductsNegativeKeywords = defineEndpointDescriptor({
   id: "amazon-ads.negativeKeywords.deleteSponsoredProductsNegativeKeywords",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/negativeKeywords/delete",
   summary: "DeleteSponsoredProductsNegativeKeywords",
@@ -587,7 +587,7 @@ export const amazon_ads_negativeKeywords_deleteSponsoredProductsNegativeKeywords
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.negativeKeywords.manage"],
+  capabilities: ["amazon-ads-sp.negativeKeywords.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -602,7 +602,7 @@ export const amazon_ads_negativeKeywords_deleteSponsoredProductsNegativeKeywords
 
 export const amazon_ads_negativeTargetingClauses_deleteSponsoredProductsNegativeTargetingClauses = defineEndpointDescriptor({
   id: "amazon-ads.negativeTargetingClauses.deleteSponsoredProductsNegativeTargetingClauses",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/negativeTargets/delete",
   summary: "DeleteSponsoredProductsNegativeTargetingClauses",
@@ -610,7 +610,7 @@ export const amazon_ads_negativeTargetingClauses_deleteSponsoredProductsNegative
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.negativeTargetingClauses.manage"],
+  capabilities: ["amazon-ads-sp.negativeTargetingClauses.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -625,7 +625,7 @@ export const amazon_ads_negativeTargetingClauses_deleteSponsoredProductsNegative
 
 export const amazon_ads_productAds_deleteSponsoredProductsProductAds = defineEndpointDescriptor({
   id: "amazon-ads.productAds.deleteSponsoredProductsProductAds",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/productAds/delete",
   summary: "DeleteSponsoredProductsProductAds",
@@ -633,7 +633,7 @@ export const amazon_ads_productAds_deleteSponsoredProductsProductAds = defineEnd
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.productAds.manage"],
+  capabilities: ["amazon-ads-sp.productAds.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -648,7 +648,7 @@ export const amazon_ads_productAds_deleteSponsoredProductsProductAds = defineEnd
 
 export const amazon_ads_targetingClauses_deleteSponsoredProductsTargetingClauses = defineEndpointDescriptor({
   id: "amazon-ads.targetingClauses.deleteSponsoredProductsTargetingClauses",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/targets/delete",
   summary: "DeleteSponsoredProductsTargetingClauses",
@@ -656,7 +656,7 @@ export const amazon_ads_targetingClauses_deleteSponsoredProductsTargetingClauses
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.targetingClauses.manage"],
+  capabilities: ["amazon-ads-sp.targetingClauses.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -671,7 +671,7 @@ export const amazon_ads_targetingClauses_deleteSponsoredProductsTargetingClauses
 
 export const amazon_ads_budgetRules_disassociateAssociatedBudgetRuleForSPCampaigns = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.disassociateAssociatedBudgetRuleForSPCampaigns",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "DELETE",
   path: "/sp/campaigns/{campaignId}/budgetRules/{budgetRuleId}",
   summary: "Disassociates a budget rule specified by identifier from a campaign specified by identifier.",
@@ -679,7 +679,7 @@ export const amazon_ads_budgetRules_disassociateAssociatedBudgetRuleForSPCampaig
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.manage"],
+  capabilities: ["amazon-ads-sp.budgetRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -696,7 +696,7 @@ export const amazon_ads_budgetRules_disassociateAssociatedBudgetRuleForSPCampaig
 
 export const amazon_ads_consolidatedRecommendations_fetchCampaignRecommendations = defineEndpointDescriptor({
   id: "amazon-ads.consolidatedRecommendations.fetchCampaignRecommendations",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/campaign/recommendations",
   summary: "fetchCampaignRecommendations",
@@ -704,7 +704,7 @@ export const amazon_ads_consolidatedRecommendations_fetchCampaignRecommendations
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.consolidatedRecommendations.manage"],
+  capabilities: ["amazon-ads-sp.consolidatedRecommendations.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -723,7 +723,7 @@ export const amazon_ads_consolidatedRecommendations_fetchCampaignRecommendations
 
 export const amazon_ads_budgetRecommendationNewCampaigns_getBudgetRecommendation = defineEndpointDescriptor({
   id: "amazon-ads.budgetRecommendationNewCampaigns.getBudgetRecommendation",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/campaigns/initialBudgetRecommendation",
   summary: "getBudgetRecommendation",
@@ -731,7 +731,7 @@ export const amazon_ads_budgetRecommendationNewCampaigns_getBudgetRecommendation
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRecommendationNewCampaigns.manage"],
+  capabilities: ["amazon-ads-sp.budgetRecommendationNewCampaigns.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -754,7 +754,7 @@ export const amazon_ads_budgetRecommendationNewCampaigns_getBudgetRecommendation
 
 export const amazon_ads_budgetRecommendationsAndMissedOpportunities_getBudgetRecommendations = defineEndpointDescriptor({
   id: "amazon-ads.budgetRecommendationsAndMissedOpportunities.getBudgetRecommendations",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/campaigns/budgetRecommendations",
   summary: "Get recommended daily budget and estimated missed opportunities for campaigns.",
@@ -762,7 +762,7 @@ export const amazon_ads_budgetRecommendationsAndMissedOpportunities_getBudgetRec
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRecommendationsAndMissedOpportunities.manage"],
+  capabilities: ["amazon-ads-sp.budgetRecommendationsAndMissedOpportunities.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -777,7 +777,7 @@ export const amazon_ads_budgetRecommendationsAndMissedOpportunities_getBudgetRec
 
 export const amazon_ads_budgetRules_getBudgetRuleByRuleIdForSPCampaigns = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.getBudgetRuleByRuleIdForSPCampaigns",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "GET",
   path: "/sp/budgetRules/{budgetRuleId}",
   summary: "Gets a budget rule specified by identifier.",
@@ -785,7 +785,7 @@ export const amazon_ads_budgetRules_getBudgetRuleByRuleIdForSPCampaigns = define
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.read"],
+  capabilities: ["amazon-ads-sp.budgetRules.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -800,7 +800,7 @@ export const amazon_ads_budgetRules_getBudgetRuleByRuleIdForSPCampaigns = define
 
 export const amazon_ads_campaignOptimizationRules_getCampaignOptimizationRule = defineEndpointDescriptor({
   id: "amazon-ads.campaignOptimizationRules.getCampaignOptimizationRule",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "GET",
   path: "/sp/rules/campaignOptimization/{campaignOptimizationId}",
   summary: "Gets a campaign optimization rule specified by identifier.",
@@ -808,7 +808,7 @@ export const amazon_ads_campaignOptimizationRules_getCampaignOptimizationRule = 
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaignOptimizationRules.read"],
+  capabilities: ["amazon-ads-sp.campaignOptimizationRules.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -823,7 +823,7 @@ export const amazon_ads_campaignOptimizationRules_getCampaignOptimizationRule = 
 
 export const amazon_ads_consolidatedRecommendations_getCampaignRecommendations = defineEndpointDescriptor({
   id: "amazon-ads.consolidatedRecommendations.getCampaignRecommendations",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "GET",
   path: "/sp/campaign/recommendations",
   summary: "getCampaignRecommendations",
@@ -831,7 +831,7 @@ export const amazon_ads_consolidatedRecommendations_getCampaignRecommendations =
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.consolidatedRecommendations.read"],
+  capabilities: ["amazon-ads-sp.consolidatedRecommendations.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -850,7 +850,7 @@ export const amazon_ads_consolidatedRecommendations_getCampaignRecommendations =
 
 export const amazon_ads_budgetRules_getCampaignsAssociatedWithSPBudgetRule = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.getCampaignsAssociatedWithSPBudgetRule",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "GET",
   path: "/sp/budgetRules/{budgetRuleId}/campaigns",
   summary: "Gets all the campaigns associated with a budget rule",
@@ -858,7 +858,7 @@ export const amazon_ads_budgetRules_getCampaignsAssociatedWithSPBudgetRule = def
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.read"],
+  capabilities: ["amazon-ads-sp.budgetRules.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -877,7 +877,7 @@ export const amazon_ads_budgetRules_getCampaignsAssociatedWithSPBudgetRule = def
 
 export const amazon_ads_productTargeting_getCategoryRecommendationsForASINs = defineEndpointDescriptor({
   id: "amazon-ads.productTargeting.getCategoryRecommendationsForASINs",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/targets/categories/recommendations",
   summary: "Returns a list of category recommendations for the input list of ASINs.",
@@ -885,7 +885,7 @@ export const amazon_ads_productTargeting_getCategoryRecommendationsForASINs = de
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.productTargeting.manage"],
+  capabilities: ["amazon-ads-sp.productTargeting.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -904,7 +904,7 @@ export const amazon_ads_productTargeting_getCategoryRecommendationsForASINs = de
 
 export const amazon_ads_keywordTargets_getGlobalRankedKeywordRecommendation = defineEndpointDescriptor({
   id: "amazon-ads.keywordTargets.getGlobalRankedKeywordRecommendation",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/global/targets/keywords/recommendations/list",
   summary: "Get global keyword recommendations",
@@ -912,7 +912,7 @@ export const amazon_ads_keywordTargets_getGlobalRankedKeywordRecommendation = de
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.keywordTargets.manage"],
+  capabilities: ["amazon-ads-sp.keywordTargets.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -925,7 +925,7 @@ export const amazon_ads_keywordTargets_getGlobalRankedKeywordRecommendation = de
 
 export const amazon_ads_keywordGroupTargetingRecommendations_getKeywordGroupRecommendations = defineEndpointDescriptor({
   id: "amazon-ads.keywordGroupTargetingRecommendations.getKeywordGroupRecommendations",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/targeting/recommendations/keywordGroups",
   summary: "getKeywordGroupRecommendations",
@@ -933,7 +933,7 @@ export const amazon_ads_keywordGroupTargetingRecommendations_getKeywordGroupReco
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.keywordGroupTargetingRecommendations.manage"],
+  capabilities: ["amazon-ads-sp.keywordGroupTargetingRecommendations.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -952,7 +952,7 @@ export const amazon_ads_keywordGroupTargetingRecommendations_getKeywordGroupReco
 
 export const amazon_ads_multiCountryThemeBasedBidRecommendations_getMultiCountryThemeBasedBidRecommendationForAdGroupV1 = defineEndpointDescriptor({
   id: "amazon-ads.multiCountryThemeBasedBidRecommendations.getMultiCountryThemeBasedBidRecommendationForAdGroupV1",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/global/targets/bid/recommendations",
   summary: "Get bid recommendations for multi-country ad groups",
@@ -960,7 +960,7 @@ export const amazon_ads_multiCountryThemeBasedBidRecommendations_getMultiCountry
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.multiCountryThemeBasedBidRecommendations.manage"],
+  capabilities: ["amazon-ads-sp.multiCountryThemeBasedBidRecommendations.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -973,7 +973,7 @@ export const amazon_ads_multiCountryThemeBasedBidRecommendations_getMultiCountry
 
 export const amazon_ads_productTargeting_getNegativeBrands = defineEndpointDescriptor({
   id: "amazon-ads.productTargeting.getNegativeBrands",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "GET",
   path: "/sp/negativeTargets/brands/recommendations",
   summary: "Returns brands recommended for negative targeting.",
@@ -981,7 +981,7 @@ export const amazon_ads_productTargeting_getNegativeBrands = defineEndpointDescr
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.productTargeting.read"],
+  capabilities: ["amazon-ads-sp.productTargeting.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -994,7 +994,7 @@ export const amazon_ads_productTargeting_getNegativeBrands = defineEndpointDescr
 
 export const amazon_ads_campaignOptimizationRules_getOptimizationRuleEligibility = defineEndpointDescriptor({
   id: "amazon-ads.campaignOptimizationRules.getOptimizationRuleEligibility",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/rules/campaignOptimization/eligibility",
   summary: "Gets a campaign optimization rule eligibility for SP campaigns.",
@@ -1002,7 +1002,7 @@ export const amazon_ads_campaignOptimizationRules_getOptimizationRuleEligibility
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaignOptimizationRules.manage"],
+  capabilities: ["amazon-ads-sp.campaignOptimizationRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1019,7 +1019,7 @@ export const amazon_ads_campaignOptimizationRules_getOptimizationRuleEligibility
 
 export const amazon_ads_productRecommendationService_getProductRecommendations = defineEndpointDescriptor({
   id: "amazon-ads.productRecommendationService.getProductRecommendations",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/targets/products/recommendations",
   summary: "Suggested target ASINs for your advertised product",
@@ -1027,7 +1027,7 @@ export const amazon_ads_productRecommendationService_getProductRecommendations =
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.productRecommendationService.manage"],
+  capabilities: ["amazon-ads-sp.productRecommendationService.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1048,7 +1048,7 @@ export const amazon_ads_productRecommendationService_getProductRecommendations =
 
 export const amazon_ads_keywordTargets_getRankedKeywordRecommendation = defineEndpointDescriptor({
   id: "amazon-ads.keywordTargets.getRankedKeywordRecommendation",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/targets/keywords/recommendations",
   summary: "Get keyword recommendations",
@@ -1056,7 +1056,7 @@ export const amazon_ads_keywordTargets_getRankedKeywordRecommendation = defineEn
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.keywordTargets.manage"],
+  capabilities: ["amazon-ads-sp.keywordTargets.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1069,7 +1069,7 @@ export const amazon_ads_keywordTargets_getRankedKeywordRecommendation = defineEn
 
 export const amazon_ads_productTargeting_getRefinementsForCategory = defineEndpointDescriptor({
   id: "amazon-ads.productTargeting.getRefinementsForCategory",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "GET",
   path: "/sp/targets/category/{categoryId}/refinements",
   summary: "Returns refinements according to category input.",
@@ -1077,7 +1077,7 @@ export const amazon_ads_productTargeting_getRefinementsForCategory = defineEndpo
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.productTargeting.read"],
+  capabilities: ["amazon-ads-sp.productTargeting.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1094,7 +1094,7 @@ export const amazon_ads_productTargeting_getRefinementsForCategory = defineEndpo
 
 export const amazon_ads_campaignOptimizationRules_getRuleNotification = defineEndpointDescriptor({
   id: "amazon-ads.campaignOptimizationRules.getRuleNotification",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/rules/campaignOptimization/state",
   summary: "Gets campaign optimization rule state. Recommended refresh frequency is once a day.",
@@ -1102,7 +1102,7 @@ export const amazon_ads_campaignOptimizationRules_getRuleNotification = defineEn
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaignOptimizationRules.manage"],
+  capabilities: ["amazon-ads-sp.campaignOptimizationRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1117,7 +1117,7 @@ export const amazon_ads_campaignOptimizationRules_getRuleNotification = defineEn
 
 export const amazon_ads_budgetRules_getSPBudgetRulesForAdvertiser = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.getSPBudgetRulesForAdvertiser",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "GET",
   path: "/sp/budgetRules",
   summary: "Get all budget rules created by an advertiser",
@@ -1125,7 +1125,7 @@ export const amazon_ads_budgetRules_getSPBudgetRulesForAdvertiser = defineEndpoi
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.read"],
+  capabilities: ["amazon-ads-sp.budgetRules.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1142,7 +1142,7 @@ export const amazon_ads_budgetRules_getSPBudgetRulesForAdvertiser = defineEndpoi
 
 export const amazon_ads_productTargeting_getTargetableASINCounts = defineEndpointDescriptor({
   id: "amazon-ads.productTargeting.getTargetableASINCounts",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/targets/products/count",
   summary: "Get number of targetable asins based on refinements provided by the user.",
@@ -1150,7 +1150,7 @@ export const amazon_ads_productTargeting_getTargetableASINCounts = defineEndpoin
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.productTargeting.manage"],
+  capabilities: ["amazon-ads-sp.productTargeting.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1177,7 +1177,7 @@ export const amazon_ads_productTargeting_getTargetableASINCounts = defineEndpoin
 
 export const amazon_ads_productTargeting_getTargetableCategories = defineEndpointDescriptor({
   id: "amazon-ads.productTargeting.getTargetableCategories",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "GET",
   path: "/sp/targets/categories",
   summary: "Returns all targetable categories.",
@@ -1185,7 +1185,7 @@ export const amazon_ads_productTargeting_getTargetableCategories = defineEndpoin
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.productTargeting.read"],
+  capabilities: ["amazon-ads-sp.productTargeting.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1200,7 +1200,7 @@ export const amazon_ads_productTargeting_getTargetableCategories = defineEndpoin
 
 export const amazon_ads_targetPromotionGroups_getTargetPromotionGroupsRecommendations = defineEndpointDescriptor({
   id: "amazon-ads.targetPromotionGroups.getTargetPromotionGroupsRecommendations",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/targetPromotionGroups/recommendations",
   summary: "GetTargetPromotionGroupsRecommendations",
@@ -1208,7 +1208,7 @@ export const amazon_ads_targetPromotionGroups_getTargetPromotionGroupsRecommenda
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.targetPromotionGroups.manage"],
+  capabilities: ["amazon-ads-sp.targetPromotionGroups.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1231,7 +1231,7 @@ export const amazon_ads_targetPromotionGroups_getTargetPromotionGroupsRecommenda
 
 export const amazon_ads_themeBasedBidRecommendations_getThemeBasedBidRecommendationForAdGroupV1 = defineEndpointDescriptor({
   id: "amazon-ads.themeBasedBidRecommendations.getThemeBasedBidRecommendationForAdGroupV1",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/targets/bid/recommendations",
   summary: "Get bid recommendations for ad groups",
@@ -1239,7 +1239,7 @@ export const amazon_ads_themeBasedBidRecommendations_getThemeBasedBidRecommendat
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.themeBasedBidRecommendations.manage"],
+  capabilities: ["amazon-ads-sp.themeBasedBidRecommendations.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1252,7 +1252,7 @@ export const amazon_ads_themeBasedBidRecommendations_getThemeBasedBidRecommendat
 
 export const amazon_ads_budgetRules_listAssociatedBudgetRulesForSPCampaigns = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.listAssociatedBudgetRulesForSPCampaigns",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "GET",
   path: "/sp/campaigns/{campaignId}/budgetRules",
   summary: "Gets a list of budget rules associated to a campaign specified by identifier.",
@@ -1260,7 +1260,7 @@ export const amazon_ads_budgetRules_listAssociatedBudgetRulesForSPCampaigns = de
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.read"],
+  capabilities: ["amazon-ads-sp.budgetRules.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1275,7 +1275,7 @@ export const amazon_ads_budgetRules_listAssociatedBudgetRulesForSPCampaigns = de
 
 export const amazon_ads_adGroups_listSponsoredProductsAdGroups = defineEndpointDescriptor({
   id: "amazon-ads.adGroups.listSponsoredProductsAdGroups",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/adGroups/list",
   summary: "ListSponsoredProductsAdGroups",
@@ -1283,7 +1283,7 @@ export const amazon_ads_adGroups_listSponsoredProductsAdGroups = defineEndpointD
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.adGroups.manage"],
+  capabilities: ["amazon-ads-sp.adGroups.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1312,7 +1312,7 @@ export const amazon_ads_adGroups_listSponsoredProductsAdGroups = defineEndpointD
 
 export const amazon_ads_campaignNegativeKeywords_listSponsoredProductsCampaignNegativeKeywords = defineEndpointDescriptor({
   id: "amazon-ads.campaignNegativeKeywords.listSponsoredProductsCampaignNegativeKeywords",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/campaignNegativeKeywords/list",
   summary: "ListSponsoredProductsCampaignNegativeKeywords",
@@ -1320,7 +1320,7 @@ export const amazon_ads_campaignNegativeKeywords_listSponsoredProductsCampaignNe
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaignNegativeKeywords.manage"],
+  capabilities: ["amazon-ads-sp.campaignNegativeKeywords.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1349,7 +1349,7 @@ export const amazon_ads_campaignNegativeKeywords_listSponsoredProductsCampaignNe
 
 export const amazon_ads_campaignNegativeTargetingClauses_listSponsoredProductsCampaignNegativeTargetingClauses = defineEndpointDescriptor({
   id: "amazon-ads.campaignNegativeTargetingClauses.listSponsoredProductsCampaignNegativeTargetingClauses",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/campaignNegativeTargets/list",
   summary: "ListSponsoredProductsCampaignNegativeTargetingClauses",
@@ -1357,7 +1357,7 @@ export const amazon_ads_campaignNegativeTargetingClauses_listSponsoredProductsCa
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaignNegativeTargetingClauses.manage"],
+  capabilities: ["amazon-ads-sp.campaignNegativeTargetingClauses.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1384,7 +1384,7 @@ export const amazon_ads_campaignNegativeTargetingClauses_listSponsoredProductsCa
 
 export const amazon_ads_campaigns_listSponsoredProductsCampaigns = defineEndpointDescriptor({
   id: "amazon-ads.campaigns.listSponsoredProductsCampaigns",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/campaigns/list",
   summary: "ListSponsoredProductsCampaigns",
@@ -1392,7 +1392,7 @@ export const amazon_ads_campaigns_listSponsoredProductsCampaigns = defineEndpoin
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaigns.manage"],
+  capabilities: ["amazon-ads-sp.campaigns.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1421,7 +1421,7 @@ export const amazon_ads_campaigns_listSponsoredProductsCampaigns = defineEndpoin
 
 export const amazon_ads_keywords_listSponsoredProductsKeywords = defineEndpointDescriptor({
   id: "amazon-ads.keywords.listSponsoredProductsKeywords",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/keywords/list",
   summary: "ListSponsoredProductsKeywords",
@@ -1429,7 +1429,7 @@ export const amazon_ads_keywords_listSponsoredProductsKeywords = defineEndpointD
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.keywords.manage"],
+  capabilities: ["amazon-ads-sp.keywords.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1462,7 +1462,7 @@ export const amazon_ads_keywords_listSponsoredProductsKeywords = defineEndpointD
 
 export const amazon_ads_negativeKeywords_listSponsoredProductsNegativeKeywords = defineEndpointDescriptor({
   id: "amazon-ads.negativeKeywords.listSponsoredProductsNegativeKeywords",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/negativeKeywords/list",
   summary: "ListSponsoredProductsNegativeKeywords",
@@ -1470,7 +1470,7 @@ export const amazon_ads_negativeKeywords_listSponsoredProductsNegativeKeywords =
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.negativeKeywords.manage"],
+  capabilities: ["amazon-ads-sp.negativeKeywords.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1503,7 +1503,7 @@ export const amazon_ads_negativeKeywords_listSponsoredProductsNegativeKeywords =
 
 export const amazon_ads_negativeTargetingClauses_listSponsoredProductsNegativeTargetingClauses = defineEndpointDescriptor({
   id: "amazon-ads.negativeTargetingClauses.listSponsoredProductsNegativeTargetingClauses",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/negativeTargets/list",
   summary: "ListSponsoredProductsNegativeTargetingClauses",
@@ -1511,7 +1511,7 @@ export const amazon_ads_negativeTargetingClauses_listSponsoredProductsNegativeTa
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.negativeTargetingClauses.manage"],
+  capabilities: ["amazon-ads-sp.negativeTargetingClauses.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1540,7 +1540,7 @@ export const amazon_ads_negativeTargetingClauses_listSponsoredProductsNegativeTa
 
 export const amazon_ads_productAds_listSponsoredProductsProductAds = defineEndpointDescriptor({
   id: "amazon-ads.productAds.listSponsoredProductsProductAds",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/productAds/list",
   summary: "ListSponsoredProductsProductAds",
@@ -1548,7 +1548,7 @@ export const amazon_ads_productAds_listSponsoredProductsProductAds = defineEndpo
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.productAds.manage"],
+  capabilities: ["amazon-ads-sp.productAds.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1575,7 +1575,7 @@ export const amazon_ads_productAds_listSponsoredProductsProductAds = defineEndpo
 
 export const amazon_ads_targetingClauses_listSponsoredProductsTargetingClauses = defineEndpointDescriptor({
   id: "amazon-ads.targetingClauses.listSponsoredProductsTargetingClauses",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/targets/list",
   summary: "ListSponsoredProductsTargetingClauses",
@@ -1583,7 +1583,7 @@ export const amazon_ads_targetingClauses_listSponsoredProductsTargetingClauses =
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.targetingClauses.manage"],
+  capabilities: ["amazon-ads-sp.targetingClauses.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1614,7 +1614,7 @@ export const amazon_ads_targetingClauses_listSponsoredProductsTargetingClauses =
 
 export const amazon_ads_targetPromotionGroups_listTargetPromotionGroups = defineEndpointDescriptor({
   id: "amazon-ads.targetPromotionGroups.listTargetPromotionGroups",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/targetPromotionGroups/list",
   summary: "ListTargetPromotionGroups",
@@ -1622,7 +1622,7 @@ export const amazon_ads_targetPromotionGroups_listTargetPromotionGroups = define
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.targetPromotionGroups.manage"],
+  capabilities: ["amazon-ads-sp.targetPromotionGroups.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1643,7 +1643,7 @@ export const amazon_ads_targetPromotionGroups_listTargetPromotionGroups = define
 
 export const amazon_ads_targetPromotionGroups_listTargetPromotionGroupTargets = defineEndpointDescriptor({
   id: "amazon-ads.targetPromotionGroups.listTargetPromotionGroupTargets",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/targetPromotionGroups/targets/list",
   summary: "ListTargetPromotionGroupTargets",
@@ -1651,7 +1651,7 @@ export const amazon_ads_targetPromotionGroups_listTargetPromotionGroupTargets = 
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.targetPromotionGroups.manage"],
+  capabilities: ["amazon-ads-sp.targetPromotionGroups.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1672,7 +1672,7 @@ export const amazon_ads_targetPromotionGroups_listTargetPromotionGroupTargets = 
 
 export const amazon_ads_productTargeting_searchBrands = defineEndpointDescriptor({
   id: "amazon-ads.productTargeting.searchBrands",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/negativeTargets/brands/search",
   summary: "Returns brands related to keyword input for negative targeting.",
@@ -1680,7 +1680,7 @@ export const amazon_ads_productTargeting_searchBrands = defineEndpointDescriptor
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.productTargeting.manage"],
+  capabilities: ["amazon-ads-sp.productTargeting.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1695,7 +1695,7 @@ export const amazon_ads_productTargeting_searchBrands = defineEndpointDescriptor
 
 export const amazon_ads_optimizationRules_searchOptimizationRules = defineEndpointDescriptor({
   id: "amazon-ads.optimizationRules.searchOptimizationRules",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/rules/optimization/search",
   summary: "Searches optimization rules based on optional filters.\n",
@@ -1703,7 +1703,7 @@ export const amazon_ads_optimizationRules_searchOptimizationRules = defineEndpoi
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.optimizationRules.manage"],
+  capabilities: ["amazon-ads-sp.optimizationRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1724,7 +1724,7 @@ export const amazon_ads_optimizationRules_searchOptimizationRules = defineEndpoi
 
 export const amazon_ads_budgetUsage_spCampaignsBudgetUsage = defineEndpointDescriptor({
   id: "amazon-ads.budgetUsage.spCampaignsBudgetUsage",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/campaigns/budget/usage",
   summary: "Budget usage API for SP campaigns",
@@ -1732,7 +1732,7 @@ export const amazon_ads_budgetUsage_spCampaignsBudgetUsage = defineEndpointDescr
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetUsage.manage"],
+  capabilities: ["amazon-ads-sp.budgetUsage.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1747,7 +1747,7 @@ export const amazon_ads_budgetUsage_spCampaignsBudgetUsage = defineEndpointDescr
 
 export const amazon_ads_budgetRulesRecommendation_sPGetAllRuleEvents = defineEndpointDescriptor({
   id: "amazon-ads.budgetRulesRecommendation.sPGetAllRuleEvents",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/v1/events",
   summary: "Gets all special individual and grouped events with suggested date range in advertiser's marketplace.",
@@ -1755,7 +1755,7 @@ export const amazon_ads_budgetRulesRecommendation_sPGetAllRuleEvents = defineEnd
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRulesRecommendation.manage"],
+  capabilities: ["amazon-ads-sp.budgetRulesRecommendation.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1768,7 +1768,7 @@ export const amazon_ads_budgetRulesRecommendation_sPGetAllRuleEvents = defineEnd
 
 export const amazon_ads_budgetRulesRecommendation_sPGetBudgetRulesRecommendation = defineEndpointDescriptor({
   id: "amazon-ads.budgetRulesRecommendation.sPGetBudgetRulesRecommendation",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "POST",
   path: "/sp/campaigns/budgetRules/recommendations",
   summary: "Gets a list of special events with suggested date range and suggested budget increase for a campaign specified by identifier.",
@@ -1776,7 +1776,7 @@ export const amazon_ads_budgetRulesRecommendation_sPGetBudgetRulesRecommendation
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRulesRecommendation.manage"],
+  capabilities: ["amazon-ads-sp.budgetRulesRecommendation.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1789,7 +1789,7 @@ export const amazon_ads_budgetRulesRecommendation_sPGetBudgetRulesRecommendation
 
 export const amazon_ads_budgetRules_updateBudgetRulesForSPCampaigns = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.updateBudgetRulesForSPCampaigns",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "PUT",
   path: "/sp/budgetRules",
   summary: "Updates one or more budget rules.",
@@ -1797,7 +1797,7 @@ export const amazon_ads_budgetRules_updateBudgetRulesForSPCampaigns = defineEndp
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.manage"],
+  capabilities: ["amazon-ads-sp.budgetRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1812,7 +1812,7 @@ export const amazon_ads_budgetRules_updateBudgetRulesForSPCampaigns = defineEndp
 
 export const amazon_ads_campaignOptimizationRules_updateOptimizationRule = defineEndpointDescriptor({
   id: "amazon-ads.campaignOptimizationRules.updateOptimizationRule",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "PUT",
   path: "/sp/rules/campaignOptimization",
   summary: "Updates a campaign optimization rule.",
@@ -1820,7 +1820,7 @@ export const amazon_ads_campaignOptimizationRules_updateOptimizationRule = defin
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaignOptimizationRules.manage"],
+  capabilities: ["amazon-ads-sp.campaignOptimizationRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1847,7 +1847,7 @@ export const amazon_ads_campaignOptimizationRules_updateOptimizationRule = defin
 
 export const amazon_ads_optimizationRules_updateOptimizationRules = defineEndpointDescriptor({
   id: "amazon-ads.optimizationRules.updateOptimizationRules",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "PUT",
   path: "/sp/rules/optimization",
   summary: "Updates one or more optimization rules.\n",
@@ -1855,7 +1855,7 @@ export const amazon_ads_optimizationRules_updateOptimizationRules = defineEndpoi
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.optimizationRules.manage"],
+  capabilities: ["amazon-ads-sp.optimizationRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1870,7 +1870,7 @@ export const amazon_ads_optimizationRules_updateOptimizationRules = defineEndpoi
 
 export const amazon_ads_adGroups_updateSponsoredProductsAdGroups = defineEndpointDescriptor({
   id: "amazon-ads.adGroups.updateSponsoredProductsAdGroups",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "PUT",
   path: "/sp/adGroups",
   summary: "UpdateSponsoredProductsAdGroups",
@@ -1878,7 +1878,7 @@ export const amazon_ads_adGroups_updateSponsoredProductsAdGroups = defineEndpoin
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.adGroups.manage"],
+  capabilities: ["amazon-ads-sp.adGroups.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1893,7 +1893,7 @@ export const amazon_ads_adGroups_updateSponsoredProductsAdGroups = defineEndpoin
 
 export const amazon_ads_campaignNegativeKeywords_updateSponsoredProductsCampaignNegativeKeywords = defineEndpointDescriptor({
   id: "amazon-ads.campaignNegativeKeywords.updateSponsoredProductsCampaignNegativeKeywords",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "PUT",
   path: "/sp/campaignNegativeKeywords",
   summary: "UpdateSponsoredProductsCampaignNegativeKeywords",
@@ -1901,7 +1901,7 @@ export const amazon_ads_campaignNegativeKeywords_updateSponsoredProductsCampaign
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaignNegativeKeywords.manage"],
+  capabilities: ["amazon-ads-sp.campaignNegativeKeywords.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1916,7 +1916,7 @@ export const amazon_ads_campaignNegativeKeywords_updateSponsoredProductsCampaign
 
 export const amazon_ads_campaignNegativeTargetingClauses_updateSponsoredProductsCampaignNegativeTargetingClauses = defineEndpointDescriptor({
   id: "amazon-ads.campaignNegativeTargetingClauses.updateSponsoredProductsCampaignNegativeTargetingClauses",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "PUT",
   path: "/sp/campaignNegativeTargets",
   summary: "UpdateSponsoredProductsCampaignNegativeTargetingClauses",
@@ -1924,7 +1924,7 @@ export const amazon_ads_campaignNegativeTargetingClauses_updateSponsoredProducts
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaignNegativeTargetingClauses.manage"],
+  capabilities: ["amazon-ads-sp.campaignNegativeTargetingClauses.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1939,7 +1939,7 @@ export const amazon_ads_campaignNegativeTargetingClauses_updateSponsoredProducts
 
 export const amazon_ads_campaigns_updateSponsoredProductsCampaigns = defineEndpointDescriptor({
   id: "amazon-ads.campaigns.updateSponsoredProductsCampaigns",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "PUT",
   path: "/sp/campaigns",
   summary: "UpdateSponsoredProductsCampaigns",
@@ -1947,7 +1947,7 @@ export const amazon_ads_campaigns_updateSponsoredProductsCampaigns = defineEndpo
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.campaigns.manage"],
+  capabilities: ["amazon-ads-sp.campaigns.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1962,7 +1962,7 @@ export const amazon_ads_campaigns_updateSponsoredProductsCampaigns = defineEndpo
 
 export const amazon_ads_keywords_updateSponsoredProductsKeywords = defineEndpointDescriptor({
   id: "amazon-ads.keywords.updateSponsoredProductsKeywords",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "PUT",
   path: "/sp/keywords",
   summary: "UpdateSponsoredProductsKeywords",
@@ -1970,7 +1970,7 @@ export const amazon_ads_keywords_updateSponsoredProductsKeywords = defineEndpoin
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.keywords.manage"],
+  capabilities: ["amazon-ads-sp.keywords.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -1985,7 +1985,7 @@ export const amazon_ads_keywords_updateSponsoredProductsKeywords = defineEndpoin
 
 export const amazon_ads_negativeKeywords_updateSponsoredProductsNegativeKeywords = defineEndpointDescriptor({
   id: "amazon-ads.negativeKeywords.updateSponsoredProductsNegativeKeywords",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "PUT",
   path: "/sp/negativeKeywords",
   summary: "UpdateSponsoredProductsNegativeKeywords",
@@ -1993,7 +1993,7 @@ export const amazon_ads_negativeKeywords_updateSponsoredProductsNegativeKeywords
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.negativeKeywords.manage"],
+  capabilities: ["amazon-ads-sp.negativeKeywords.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -2008,7 +2008,7 @@ export const amazon_ads_negativeKeywords_updateSponsoredProductsNegativeKeywords
 
 export const amazon_ads_negativeTargetingClauses_updateSponsoredProductsNegativeTargetingClauses = defineEndpointDescriptor({
   id: "amazon-ads.negativeTargetingClauses.updateSponsoredProductsNegativeTargetingClauses",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "PUT",
   path: "/sp/negativeTargets",
   summary: "UpdateSponsoredProductsNegativeTargetingClauses",
@@ -2016,7 +2016,7 @@ export const amazon_ads_negativeTargetingClauses_updateSponsoredProductsNegative
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.negativeTargetingClauses.manage"],
+  capabilities: ["amazon-ads-sp.negativeTargetingClauses.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -2031,7 +2031,7 @@ export const amazon_ads_negativeTargetingClauses_updateSponsoredProductsNegative
 
 export const amazon_ads_productAds_updateSponsoredProductsProductAds = defineEndpointDescriptor({
   id: "amazon-ads.productAds.updateSponsoredProductsProductAds",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "PUT",
   path: "/sp/productAds",
   summary: "UpdateSponsoredProductsProductAds",
@@ -2039,7 +2039,7 @@ export const amazon_ads_productAds_updateSponsoredProductsProductAds = defineEnd
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.productAds.manage"],
+  capabilities: ["amazon-ads-sp.productAds.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -2054,7 +2054,7 @@ export const amazon_ads_productAds_updateSponsoredProductsProductAds = defineEnd
 
 export const amazon_ads_targetingClauses_updateSponsoredProductsTargetingClauses = defineEndpointDescriptor({
   id: "amazon-ads.targetingClauses.updateSponsoredProductsTargetingClauses",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sp",
   method: "PUT",
   path: "/sp/targets",
   summary: "UpdateSponsoredProductsTargetingClauses",
@@ -2062,7 +2062,7 @@ export const amazon_ads_targetingClauses_updateSponsoredProductsTargetingClauses
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.targetingClauses.manage"],
+  capabilities: ["amazon-ads-sp.targetingClauses.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],

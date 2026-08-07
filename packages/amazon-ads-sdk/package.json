@@ -53,6 +53,30 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
+    },
+    "./sponsored-products/effect": {
+      "bun": "./src/generated/sponsored-products/effect/index.ts",
+      "types": "./dist/generated/sponsored-products/effect/index.d.ts",
+      "import": "./dist/generated/sponsored-products/effect/index.js",
+      "default": "./dist/generated/sponsored-products/effect/index.js"
+    },
+    "./sponsored-brands/effect": {
+      "bun": "./src/generated/sponsored-brands/effect/index.ts",
+      "types": "./dist/generated/sponsored-brands/effect/index.d.ts",
+      "import": "./dist/generated/sponsored-brands/effect/index.js",
+      "default": "./dist/generated/sponsored-brands/effect/index.js"
+    },
+    "./sponsored-display/effect": {
+      "bun": "./src/generated/sponsored-display/effect/index.ts",
+      "types": "./dist/generated/sponsored-display/effect/index.d.ts",
+      "import": "./dist/generated/sponsored-display/effect/index.js",
+      "default": "./dist/generated/sponsored-display/effect/index.js"
+    },
+    "./api/effect": {
+      "bun": "./src/generated/api/effect/index.ts",
+      "types": "./dist/generated/api/effect/index.d.ts",
+      "import": "./dist/generated/api/effect/index.js",
+      "default": "./dist/generated/api/effect/index.js"
     }
   },
   "dependencies": {

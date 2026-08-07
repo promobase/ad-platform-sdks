@@ -1,0 +1,49 @@
+---
+title: "Amazon Ads — Sponsored Display Brand Safety Request Results endpoints"
+description: "1 generated Amazon Ads — Sponsored Display endpoint contract for Brand Safety Request Results."
+generated: true
+platform: "amazon-ads-sd"
+sourceVersion: "v5"
+sidebar:
+  order: 101
+  label: "Brand Safety Request Results"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.brandSafetyRequestResults.getRequestResults
+
+`GET` `/sd/brandSafety/{requestId}/results`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getRequestResults)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sd.brandSafetyRequestResults.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetRequestResultsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `requestId` | `path` | `string` | Yes | No | The ID of the request previously submitted. |
+| `startIndex` | `query` | `number` | No | No | Optional. Sets a cursor into the requested set of results. Use in conjunction with the count parameter to control pagination of the returned array. 0-indexed record offset for the result set, defaults to 0. |
+| `count` | `query` | `number` | No | No | Optional. Sets the number of results in the returned array. Use in conjunction with the startIndex parameter to control pagination. For example, to return the first 1000 results set startIndex=0 and count=1000. To return the next 1000 results, set startIndex=1000 and count=1000, and so on. Defaults to max page size(1000). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

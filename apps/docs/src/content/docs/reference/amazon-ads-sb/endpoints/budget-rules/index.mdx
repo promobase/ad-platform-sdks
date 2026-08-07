@@ -1,0 +1,290 @@
+---
+title: "Amazon Ads — Sponsored Brands Budget Rules endpoints"
+description: "8 generated Amazon Ads — Sponsored Brands endpoint contracts for Budget Rules."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 105
+  label: "Budget Rules"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.budgetRules.createAssociatedBudgetRulesForSBCampaigns
+
+`POST` `/sb/campaigns/{campaignId}/budgetRules`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateAssociatedBudgetRulesForSBCampaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.budgetRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateAssociatedBudgetRulesForSBCampaignsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `path` | `number` | Yes | No | The campaign identifier. |
+| `budgetRuleIds` | `body` | `Array<string>` | No | No | A list of budget rule identifiers. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.budgetRules.createBudgetRulesForSBCampaigns
+
+`POST` `/sb/budgetRules`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateBudgetRulesForSBCampaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.budgetRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateBudgetRulesForSBCampaignsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesDetails` | `body` | `Array<Inline954>` | No | No | A list of budget rule details. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.budgetRules.disassociateAssociatedBudgetRuleForSBCampaigns
+
+`DELETE` `/sb/campaigns/{campaignId}/budgetRules/{budgetRuleId}`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (DisassociateAssociatedBudgetRuleForSBCampaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.budgetRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `DisassociateAssociatedBudgetRuleForSBCampaignsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `path` | `number` | Yes | No | The campaign identifier. |
+| `budgetRuleId` | `path` | `string` | Yes | No | The budget rule identifier. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.budgetRules.getBudgetRuleByRuleIdForSBCampaigns
+
+`GET` `/sb/budgetRules/{budgetRuleId}`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (GetBudgetRuleByRuleIdForSBCampaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sb.budgetRules.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetBudgetRuleByRuleIdForSBCampaignsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRuleId` | `path` | `string` | Yes | No | The budget rule identifier. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.budgetRules.getCampaignsAssociatedWithSBBudgetRule
+
+`GET` `/sb/budgetRules/{budgetRuleId}/campaigns`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (GetCampaignsAssociatedWithSBBudgetRule)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sb.budgetRules.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetCampaignsAssociatedWithSBBudgetRuleResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRuleId` | `path` | `string` | Yes | No | The budget rule identifier. |
+| `nextToken` | `query` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the `nextToken` field is empty, there are no further results. |
+| `pageSize` | `query` | `number` | Yes | No | Sets a limit on the number of results returned. Maximum limit of `pageSize` is 30. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.budgetRules.getSBBudgetRulesForAdvertiser
+
+`GET` `/sb/budgetRules`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (GetSBBudgetRulesForAdvertiser)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sb.budgetRules.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetSBBudgetRulesForAdvertiserResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `query` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the `nextToken` field is empty, there are no further results. |
+| `pageSize` | `query` | `number` | Yes | No | Sets a limit on the number of results returned. Maximum limit of `pageSize` is 30. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.budgetRules.listAssociatedBudgetRulesForSBCampaigns
+
+`GET` `/sb/campaigns/{campaignId}/budgetRules`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (ListAssociatedBudgetRulesForSBCampaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sb.budgetRules.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `ListAssociatedBudgetRulesForSBCampaignsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `path` | `number` | Yes | No | The campaign identifier. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.budgetRules.updateBudgetRulesForSBCampaigns
+
+`PUT` `/sb/budgetRules`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (UpdateBudgetRulesForSBCampaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.budgetRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `UpdateBudgetRulesForSBCampaignsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesDetails` | `body` | `Array<Inline966>` | No | No | A list of budget rule details. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

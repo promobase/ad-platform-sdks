@@ -22,14 +22,26 @@ const SPECS = [
     name: "Sponsored Products",
     file: "SponsoredProducts_prod_3p.json",
     outputDir: "sponsored-products",
+    platform: "amazon-ads-sp",
   },
-  { name: "Sponsored Brands", file: "SponsoredBrands_prod_3p.json", outputDir: "sponsored-brands" },
+  {
+    name: "Sponsored Brands",
+    file: "SponsoredBrands_prod_3p.json",
+    outputDir: "sponsored-brands",
+    platform: "amazon-ads-sb",
+  },
   {
     name: "Sponsored Display",
     file: "SponsoredDisplay_prod_3p.json",
     outputDir: "sponsored-display",
+    platform: "amazon-ads-sd",
   },
-  { name: "Amazon Ads API", file: "AmazonAdsAPI_prod_3p.json", outputDir: "api" },
+  {
+    name: "Amazon Ads API",
+    file: "AmazonAdsAPI_prod_3p.json",
+    outputDir: "api",
+    platform: "amazon-ads-api",
+  },
 ];
 
 async function main() {
@@ -95,7 +107,16 @@ async function main() {
     await writeEffectArtifacts({
       outputDir: join(apiDir, "effect"),
       docsOutputDir: join(import.meta.dir, "../../../../apps/docs/src/content/docs/reference"),
-      ir: amazonAdsCanonicalIr(spec.endpoints, spec.schemas, sourceRevision),
+      ir: amazonAdsCanonicalIr(
+        spec.endpoints,
+        spec.schemas,
+        sourceRevision,
+        specConfig.platform as
+          | "amazon-ads-sp"
+          | "amazon-ads-sb"
+          | "amazon-ads-sd"
+          | "amazon-ads-api",
+      ),
     });
   }
 

@@ -1,0 +1,559 @@
+---
+title: "Amazon Ads — Sponsored Products models: Sponsored Products Update Sponsored Products Negative Keywords Request Content – Values"
+description: "67 generated Amazon Ads — Sponsored Products model contracts, from SponsoredProductsUpdateSponsoredProductsNegativeKeywordsRequestContent through Values."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 1031
+  label: "Sponsored Products Update Sponsored Products Negative Keywords Request Content – Values"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## SponsoredProductsUpdateSponsoredProductsNegativeKeywordsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeKeywords` | `negativeKeywords` | `Array<Inline2508>` | Yes | No | An array of negativeKeywords with updated values. |
+
+## SponsoredProductsUpdateSponsoredProductsNegativeKeywordsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeKeywords` | `negativeKeywords` | `Inline2510` | Yes | No | — |
+
+## SponsoredProductsUpdateSponsoredProductsNegativeTargetingClausesRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeTargetingClauses` | `negativeTargetingClauses` | `Array<Inline2525>` | Yes | No | An array of negativeTargeting with updated values. |
+
+## SponsoredProductsUpdateSponsoredProductsNegativeTargetingClausesResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeTargetingClauses` | `negativeTargetingClauses` | `Inline2527` | Yes | No | — |
+
+## SponsoredProductsUpdateSponsoredProductsProductAdsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productAds` | `productAds` | `Array<Inline2544>` | Yes | No | An array of ads with updated values. |
+
+## SponsoredProductsUpdateSponsoredProductsProductAdsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productAds` | `productAds` | `Inline2546` | Yes | No | — |
+
+## SponsoredProductsUpdateSponsoredProductsTargetingClausesRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingClauses` | `targetingClauses` | `Array<Inline2565>` | Yes | No | An array of targetingClauses with updated values. |
+
+## SponsoredProductsUpdateSponsoredProductsTargetingClausesResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingClauses` | `targetingClauses` | `Inline2567` | Yes | No | — |
+
+## SponsoredProductsUpdateTargetingClause
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | The bid for ads sourced using the target. Targets that do not have bid values in listTargetingClauses will inherit the defaultBid from the adGroup level. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `expression` | `expression` | `Array<Inline2586>` | No | No | The targeting expression. |
+| `expressionType` | `expressionType` | `string` | No | No | — |
+| `state` | `state` | `string` | No | No | Entity state for create or update operation |
+| `targetId` | `targetId` | `string` | Yes | No | The target identifier |
+
+## SponsoredProductsValueLimitErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `INVALID_ENUM_VALUE`, `NOT_IN_LIST`, `TOO_HIGH`, `TOO_LOW`
+
+## SPRuleType
+
+`enum` model on the `json` wire format.
+
+**Values:** `PERFORMANCE`, `SCHEDULE`
+
+## SPTargetingCountryErrors
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | The HTTP status code of the response. |
+| `countryCodes` | `countryCodes` | `Array<string>` | No | No | List of country codes this error returned for. |
+| `message` | `message` | `string` | No | No | A human-readable description of the response. |
+
+## SPTargetingError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | The HTTP status code of the response. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## SPTORBudgetRecommendationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | The HTTP status code of the response. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## state
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACTIVE`, `PAUSED`
+
+## SuggestedBidValues
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<number>`
+
+## TargetableAsinCounts
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asinCounts` | `asinCounts` | `Inline2595` | No | No | — |
+
+## TargetableCategories
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categoryTree` | `categoryTree` | `string` | No | No | — |
+
+## TargetableCategoriesLoP
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categoryTree` | `categoryTree` | `string` | No | No | — |
+
+## TargetingExpression
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `string` | No | No | The targeting expression value. |
+
+## TargetingExpressionList
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline2600>`
+
+## TargetingExpressionListV4
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline2602>`
+
+## TargetingExpressionV4
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `string` | No | No | The targeting expression value. |
+
+## TargetingGroupBidRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `string` | No | No | Type of suggested action. |
+| `adGroupId` | `adGroupId` | `string` | No | No | The ad group identifier. |
+| `suggestedBid` | `suggestedBid` | `number` | No | No | The suggested bid value associated with this targeting. |
+| `targetId` | `targetId` | `string` | No | No | The target identifier. |
+| `targetingGroupExpression` | `targetingGroupExpression` | `string` | No | No | The type of targeting group expression. \| Value \| Description \| \| --- \| --- \| \| `LOOSE_MATCH` \| This will show your ad to shoppers who use search terms loosely related to your products.\| \| `CLOSE_MATCH` \| This will show your ad to shoppers who use search terms closely related to your products.\| \| `COMPLEMENTS` \| This will show your ad to shoppers who view the detail pages of products that complement your product.\| \| `SUBSTITUTES` \| This will show your ad to shoppers who use detail pages of products similar to yours.\| |
+
+## Theme
+
+`enum` model on the `json` wire format.
+
+**Values:** `BFCM_HOLIDAY`, `CONVERSION_OPPORTUNITIES`, `FALL_PRIME_DEAL_EVENT`, `PRIME_DAY`
+
+## ThemeBasedBidRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidRecommendationsForTargetingExpressions` | `bidRecommendationsForTargetingExpressions` | `Array<Inline2607>` | Yes | No | The bid recommendations for targeting expressions listed in the request. |
+| `impactMetrics` | `impactMetrics` | `Inline2609` | No | No | For the CONVERSION_OPPORTUNITIES theme, the impact metrics are weekly clicks and orders received for similar products. For other event-based themes, the impact metrics are clicks and orders received for similar products during the event days. &lt;br&gt; Note: This object is nullable |
+| `theme` | `theme` | `string` | Yes | No | The bid recommendation theme. This API currently supports `CONVERSION_OPPORTUNITIES`, `PRIME_DAY`, `FALL_PRIME_DEAL_EVENT`, and `BFCM_HOLIDAY` themes. |
+
+## ThemeBasedBidRecommendationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidRecommendations` | `bidRecommendations` | `Array<Inline2612>` | Yes | No | — |
+
+## ThemeBasedBidRecommendationResponseV4
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidRecommendations` | `bidRecommendations` | `Array<Inline2617>` | Yes | No | — |
+
+## ThemeBasedBidRecommendationResponseV5
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidRecommendations` | `bidRecommendations` | `Array<Inline2620>` | Yes | No | — |
+
+## ThemeBasedBidRecommendationV4
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidRecommendationsForTargetingExpressions` | `bidRecommendationsForTargetingExpressions` | `Array<Inline2629>` | Yes | No | The bid recommendations for targeting expressions listed in the request. |
+| `theme` | `theme` | `string` | Yes | No | The bid recommendation theme. This API currently supports `CONVERSION_OPPORTUNITIES`, `PRIME_DAY`, `FALL_PRIME_DEAL_EVENT`, and `BFCM_HOLIDAY` themes. |
+
+## ThemeBasedBidRecommendationV5
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidAnalysesForTargetingExpressions` | `bidAnalysesForTargetingExpressions` | `Array<Inline2632>` | No | No | The bid analyses for targeting expressions listed in the request. |
+| `bidRecommendationsForTargetingExpressions` | `bidRecommendationsForTargetingExpressions` | `Array<Inline2637>` | Yes | No | The bid recommendations for targeting expressions listed in the request. |
+| `theme` | `theme` | `string` | Yes | No | The bid recommendation theme. This API currently supports `CONVERSION_OPPORTUNITIES`, `PRIME_DAY`, `FALL_PRIME_DEAL_EVENT`, and `BFCM_HOLIDAY` themes. |
+
+## ThemedBid
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | The bid value for the keyword, in minor currency units (example: cents). The default value will be the suggested bid. |
+| `matchType` | `matchType` | `string` | No | No | Keyword match type. The default value will be BROAD. |
+| `rank` | `rank` | `number` | No | No | The keyword target rank. |
+| `suggestedBid` | `suggestedBid` | `Inline2641` | No | No | Suggested bid range |
+| `theme` | `theme` | `string` | No | No | The theme of the bid recommendation. The default theme is CONVERSION_OPPORTUNITIES. |
+
+## ThemeRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | A theme name representing the context around the recommended list of ASINs. |
+| `recommendedAsins` | `recommendedAsins` | `Array<string>` | No | No | List of recommended ASINs under current theme. |
+| `theme` | `theme` | `string` | No | No | A theme name representing the context around the recommended list of ASINs. |
+
+## ThrottlingException
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | The HTTP status code of the response. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## timeOfDay
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | No | No | The end time of intra-day budget rule window in the format 'hh:mm:ss'. Required to be greater than start-time. |
+| `startTime` | `startTime` | `string` | No | No | The start time of intra-day budget rule window in the format 'hh:mm:ss' |
+
+## UnauthorizedException
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | The HTTP status code of the response. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## UnprocessableEntityException
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | The HTTP status code of the response. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## UpdateBudgetRulesForSPCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesDetails` | `budgetRulesDetails` | `Array<Inline2700>` | No | No | A list of budget rule details. |
+
+## UpdateBudgetRulesForSPCampaignsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateBudgetRulesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `responses` | `responses` | `Array<Inline2648>` | No | No | — |
+
+## UpdateOptimizationRuleParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | Yes | No | A list of campaign ids |
+| `campaignOptimizationId` | `campaignOptimizationId` | `string` | Yes | No | The persistent rule identifier. |
+| `recurrence` | `recurrence` | `string` | Yes | No | The frequency of the rule application. |
+| `ruleAction` | `ruleAction` | `string` | Yes | No | The action taken when the campaign optimization rule is enabled. Defaults to adopt |
+| `ruleCondition` | `ruleCondition` | `Array<Inline2994>` | No | No | — |
+| `ruleName` | `ruleName` | `string` | No | No | The campaign optimization rule name. |
+| `ruleType` | `ruleType` | `string` | Yes | No | The type of the campaign optimization rule. Only Support BID as of now |
+
+## UpdateOptimizationRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline2996` | Yes | No | — |
+
+## UpdateOptimizationRulesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRules` | `optimizationRules` | `Array<Inline3025>` | Yes | No | — |
+
+## UpdateOptimizationRulesResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateSPBudgetRulesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesDetails` | `budgetRulesDetails` | `Array<Inline2650>` | No | No | A list of budget rule details. |
+
+## UpdateSPCampaignOptimizationRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignOptimizationId` | `campaignOptimizationId` | `string` | No | No | The persistent rule identifier. |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful |
+
+## UpdateSPCampaignOptimizationRulesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | Yes | No | A list of campaign ids |
+| `campaignOptimizationId` | `campaignOptimizationId` | `string` | Yes | No | The persistent rule identifier. |
+| `recurrence` | `recurrence` | `string` | Yes | No | The frequency of the rule application. |
+| `ruleAction` | `ruleAction` | `string` | Yes | No | The action taken when the campaign optimization rule is enabled. Defaults to adopt |
+| `ruleCondition` | `ruleCondition` | `Array<Inline2657>` | No | No | — |
+| `ruleName` | `ruleName` | `string` | No | No | The campaign optimization rule name. |
+| `ruleType` | `ruleType` | `string` | Yes | No | The type of the campaign optimization rule. Only Support BID as of now |
+
+## UpdateSponsoredProductsAdGroupsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `adGroups` | `Array<Inline2668>` | Yes | No | An array of adGroups with updated values. |
+
+## UpdateSponsoredProductsAdGroupsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateSponsoredProductsCampaignNegativeKeywordsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeKeywords` | `campaignNegativeKeywords` | `Array<Inline2740>` | Yes | No | An array of campaignNegativeKeywords with updated values. |
+
+## UpdateSponsoredProductsCampaignNegativeKeywordsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateSponsoredProductsCampaignNegativeTargetingClausesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeTargetingClauses` | `campaignNegativeTargetingClauses` | `Array<Inline2763>` | Yes | No | An array of Campaign Negative TargetingClauses with updated values. |
+
+## UpdateSponsoredProductsCampaignNegativeTargetingClausesResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateSponsoredProductsCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Array<Inline2796>` | Yes | No | An array of campaigns with updated values. Note: targetingType cannot be updated |
+
+## UpdateSponsoredProductsCampaignsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateSponsoredProductsKeywordsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywords` | `keywords` | `Array<Inline2886>` | Yes | No | An array of keywords with updated values. |
+
+## UpdateSponsoredProductsKeywordsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateSponsoredProductsNegativeKeywordsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeKeywords` | `negativeKeywords` | `Array<Inline2911>` | Yes | No | An array of negativeKeywords with updated values. |
+
+## UpdateSponsoredProductsNegativeKeywordsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateSponsoredProductsNegativeTargetingClausesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `negativeTargetingClauses` | `negativeTargetingClauses` | `Array<Inline2936>` | Yes | No | An array of negativeTargeting with updated values. |
+
+## UpdateSponsoredProductsNegativeTargetingClausesResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateSponsoredProductsProductAdsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productAds` | `productAds` | `Array<Inline2969>` | Yes | No | An array of ads with updated values. |
+
+## UpdateSponsoredProductsProductAdsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateSponsoredProductsTargetingClausesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingClauses` | `targetingClauses` | `Array<Inline3097>` | Yes | No | An array of targetingClauses with updated values. |
+
+## UpdateSponsoredProductsTargetingClausesResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## ValidationException
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | The HTTP status code of the response. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## Values
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `clicks` | `clicks` | `Inline2660` | No | No | Clicks benchmark. |
+| `conversions` | `conversions` | `Inline2661` | No | No | Conversions benchmark. |
+| `impressions` | `impressions` | `Inline2662` | No | No | Impressions benchmark. |

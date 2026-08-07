@@ -1,0 +1,366 @@
+---
+title: "Amazon Ads — Sponsored Brands models: Throttling Exception Response Content – Video Creative"
+description: "43 generated Amazon Ads — Sponsored Brands model contracts, from ThrottlingExceptionResponseContent through VideoCreative."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 1012
+  label: "Throttling Exception Response Content – Video Creative"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## ThrottlingExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | A human-readable description of the enumerated response code in the `code` field. |
+| `details` | `details` | `string` | Yes | No | An enumerated response code. |
+
+## timeOfDay
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | No | No | The end time of intra-day budget rule window in the format 'hh:mm:ss'. Required to be greater than start-time. |
+| `startTime` | `startTime` | `string` | No | No | The start time of intra-day budget rule window in the format 'hh:mm:ss' |
+
+## UnauthorizedErrorCode
+
+`enum` model on the `json` wire format.
+
+**Values:** `UNAUTHORIZED`
+
+## UnauthorizedExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | A human-readable description of the enumerated response code in the `code` field. |
+| `details` | `details` | `string` | Yes | No | An enumerated response code. |
+
+## UnsupportedMediaTypeErrorCode
+
+`enum` model on the `json` wire format.
+
+**Values:** `UNSUPPORTED_MEDIA_TYPE`
+
+## UnsupportedMediaTypeExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | A human-readable description of the enumerated response code in the `code` field. |
+| `details` | `details` | `string` | Yes | No | An enumerated response code. |
+
+## UpdateAd
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | Yes | No | The product ad identifier. |
+| `name` | `name` | `string` | No | No | The name of the ad. |
+| `state` | `state` | `string` | No | No | Entity state for create or update operation. |
+
+## UpdateAdGroup
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the keyword. |
+| `name` | `name` | `string` | No | No | The name of the ad group. |
+| `state` | `state` | `string` | No | No | Entity state for create or update operation. |
+
+## UpdateAutoCollectionAd
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | Yes | No | Entity object identifier. |
+| `creative` | `creative` | `Inline812` | Yes | No | — |
+
+## UpdateBudgetRulesForSBCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesDetails` | `budgetRulesDetails` | `Array<Inline959>` | No | No | A list of budget rule details. |
+
+## UpdateBudgetRulesForSBCampaignsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateBudgetRulesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `responses` | `responses` | `Array<Inline814>` | No | No | — |
+
+## UpdateCampaign
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidding` | `bidding` | `Inline816` | No | No | — |
+| `budget` | `budget` | `number` | No | No | The budget of the campaign. See https://advertising.amazon.com/help?entityId=ENTITYJDATFOIA05Q7#GE5QEBS6QRJJAT3A |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign. |
+| `endDate` | `endDate` | `string` | No | No | endDate is optional. If endDate is specified, startDate must be specified as well. |
+| `name` | `name` | `string` | No | No | The name of the campaign. |
+| `portfolioId` | `portfolioId` | `string` | No | No | The identifier of an existing portfolio to which the campaign is associated. |
+| `startDate` | `startDate` | `string` | No | No | startDate can only be changed if the current startDate is in the future. |
+| `state` | `state` | `string` | No | No | Entity state for create or update operation. |
+| `tags` | `tags` | `Inline819` | No | No | A list of advertiser-specified custom identifiers for the campaign. Each customer identifier is a key-value pair. You can specify a maximum of 50 identifiers. |
+
+## UpdateManualCollectionAd
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | Yes | No | Entity object identifier. |
+| `creative` | `creative` | `Inline821` | Yes | No | — |
+
+## UpdateOptimizationRule
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conditions` | `conditions` | `Array<Inline824>` | No | No | — |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | No | No | The identifier of the optimization rule. |
+
+## UpdateOptimizationRuleSuccessResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `number` | Yes | No | The index of the entityId in the array from the request body. |
+| `optimizationRule` | `optimizationRule` | `Inline826` | Yes | No | — |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | Yes | No | The identifier of the optimization rule. |
+
+## UpdateSBBudgetRulesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesDetails` | `budgetRulesDetails` | `Array<Inline828>` | No | No | A list of budget rule details. |
+
+## UpdateSponsoredBrandsAdGroupsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `adGroups` | `Array<Inline1081>` | Yes | No | An array of adGroups with updated values. |
+
+## UpdateSponsoredBrandsAdGroupsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `adGroups` | `Array<Inline834>` | Yes | No | An array of adGroups with updated values. |
+
+## UpdateSponsoredBrandsAdGroupsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateSponsoredBrandsAdGroupsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `adGroups` | `Inline836` | No | No | — |
+
+## UpdateSponsoredBrandsAdsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ads` | `ads` | `Array<Inline1100>` | Yes | No | An array of Ads with updated values. |
+
+## UpdateSponsoredBrandsAdsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ads` | `ads` | `Array<Inline842>` | Yes | No | An array of Ads with updated values. |
+
+## UpdateSponsoredBrandsAdsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateSponsoredBrandsAdsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ads` | `ads` | `Inline844` | No | No | — |
+
+## UpdateSponsoredBrandsAutoCollectionAdsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ads` | `ads` | `Array<Inline892>` | Yes | No | List of Auto Collection Ad Updates |
+
+## UpdateSponsoredBrandsAutoCollectionAdsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ads` | `ads` | `Array<Inline853>` | Yes | No | List of Auto Collection Ad Updates |
+
+## UpdateSponsoredBrandsAutoCollectionAdsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateSponsoredBrandsAutoCollectionAdsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creatives` | `creatives` | `Inline855` | No | No | — |
+
+## UpdateSponsoredBrandsCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Array<Inline1180>` | Yes | No | — |
+
+## UpdateSponsoredBrandsCampaignsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Array<Inline859>` | Yes | No | — |
+
+## UpdateSponsoredBrandsCampaignsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateSponsoredBrandsCampaignsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Inline864` | No | No | — |
+
+## UpdateSponsoredBrandsManualCollectionAdsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ads` | `ads` | `Array<Inline910>` | Yes | No | List of Manual Collection Ad Updates |
+
+## UpdateSponsoredBrandsManualCollectionAdsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ads` | `ads` | `Array<Inline877>` | Yes | No | List of Manual Collection Ad Updates |
+
+## UpdateSponsoredBrandsManualCollectionAdsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateSponsoredBrandsManualCollectionAdsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creatives` | `creatives` | `Inline880` | No | No | — |
+
+## UpdateSponsoredBrandsOptimizationRulesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRules` | `optimizationRules` | `Array<Inline1042>` | Yes | No | — |
+
+## UpdateSponsoredBrandsOptimizationRulesRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRules` | `optimizationRules` | `Array<Inline884>` | Yes | No | — |
+
+## UpdateSponsoredBrandsOptimizationRulesResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## UpdateSponsoredBrandsOptimizationRulesResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRules` | `optimizationRules` | `Inline886` | Yes | No | — |
+
+## ValueTypeRuleCriteria
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | No | No | Enum: "LESS_THAN_OR_EQUAL_TO" The comparision operator. |
+| `value` | `value` | `number` | No | No | The value of the threshold associated with the attribute. |
+
+## VideoCreative
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brandLogoAssetId` | `brandLogoAssetId` | `string` | No | No | The identifier of image/video asset from the store's asset library |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline890` | No | No | Asset cropping attributes |
+| `brandName` | `brandName` | `string` | No | No | The displayed brand name in the ad headline. Maximum length is 30 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `consentToTranslate` | `consentToTranslate` | `boolean` | No | No | If set to true and the headline and/or video are not in the marketplace's default language, Amazon will attempt to translate them to the marketplace's default language. If Amazon is unable to translate them, the ad will be rejected by moderation. We only support translating headlines and videos from English to German, French, Italian, Spanish, Japanese, and Dutch. See developer notes for more information. |
+| `headline` | `headline` | `string` | No | No | The headline text. Maximum length of the string is 50 characters for all marketplaces other than Japan, which has a maximum length of 35 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `videoAssetIds` | `videoAssetIds` | `Array<string>` | Yes | No | The assetIds of the original videos submitted by the advertiser. If 'consentToTranslate' is set to true and translation is SUCCESSFUL then 'videoAssetIds' will return translated video assetId whereas `originalVideoAssetIds` will return the original video assetId. In all other cases, `videoAssetIds` will return original video assetId. |

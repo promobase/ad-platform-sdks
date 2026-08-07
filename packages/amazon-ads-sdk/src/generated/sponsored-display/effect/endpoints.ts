@@ -5,7 +5,7 @@ import * as Models from "./schemas.ts";
 
 export const amazon_ads_budgetRules_createAssociatedBudgetRulesForSDCampaigns = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.createAssociatedBudgetRulesForSDCampaigns",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "POST",
   path: "/sd/campaigns/{campaignId}/budgetRules",
   summary: "Associates one or more budget rules to a campaign specified by identifer.",
@@ -13,7 +13,7 @@ export const amazon_ads_budgetRules_createAssociatedBudgetRulesForSDCampaigns = 
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.manage"],
+  capabilities: ["amazon-ads-sd.budgetRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -30,7 +30,7 @@ export const amazon_ads_budgetRules_createAssociatedBudgetRulesForSDCampaigns = 
 
 export const amazon_ads_brandSafetyDenyListDomains_createBrandSafetyDenyListDomains = defineEndpointDescriptor({
   id: "amazon-ads.brandSafetyDenyListDomains.createBrandSafetyDenyListDomains",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "POST",
   path: "/sd/brandSafety/deny",
   summary: "Creates one or more domains to add to a Brand Safety Deny List. The Brand Safety Deny List is at the advertiser level. It can take up to 15 minutes from the time a domain is added to the time it is reflected in the deny list.\n",
@@ -38,7 +38,7 @@ export const amazon_ads_brandSafetyDenyListDomains_createBrandSafetyDenyListDoma
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.brandSafetyDenyListDomains.manage"],
+  capabilities: ["amazon-ads-sd.brandSafetyDenyListDomains.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -53,7 +53,7 @@ export const amazon_ads_brandSafetyDenyListDomains_createBrandSafetyDenyListDoma
 
 export const amazon_ads_budgetRules_createBudgetRulesForSDCampaigns = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.createBudgetRulesForSDCampaigns",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "POST",
   path: "/sd/budgetRules",
   summary: "Creates one or more budget rules.",
@@ -61,7 +61,7 @@ export const amazon_ads_budgetRules_createBudgetRulesForSDCampaigns = defineEndp
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.manage"],
+  capabilities: ["amazon-ads-sd.budgetRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -76,7 +76,7 @@ export const amazon_ads_budgetRules_createBudgetRulesForSDCampaigns = defineEndp
 
 export const amazon_ads_snapshotAPIs_createSnapshot = defineEndpointDescriptor({
   id: "amazon-ads.snapshotAPIs.createSnapshot",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "POST",
   path: "/sd/{recordType}/snapshot",
   summary: "createSnapshot",
@@ -84,7 +84,7 @@ export const amazon_ads_snapshotAPIs_createSnapshot = defineEndpointDescriptor({
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.snapshotAPIs.manage"],
+  capabilities: ["amazon-ads-sd.snapshotAPIs.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -103,7 +103,7 @@ export const amazon_ads_snapshotAPIs_createSnapshot = defineEndpointDescriptor({
 
 export const amazon_ads_brandSafetyDenyListDomains_deleteBrandSafetyDenyList = defineEndpointDescriptor({
   id: "amazon-ads.brandSafetyDenyListDomains.deleteBrandSafetyDenyList",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "DELETE",
   path: "/sd/brandSafety/deny",
   summary: "Archives all of the domains in the Brand Safety Deny List. It can take several hours from the time a domain is deleted to the time it is reflected in the deny list. You can check the status of the delete request by calling GET /sd/brandSafety/{requestId}/status. If the status is \"COMPLETED\", you can call GET /sd/brandSafety/deny to validate that your deny list has been successfully deleted.\n",
@@ -111,7 +111,7 @@ export const amazon_ads_brandSafetyDenyListDomains_deleteBrandSafetyDenyList = d
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.brandSafetyDenyListDomains.manage"],
+  capabilities: ["amazon-ads-sd.brandSafetyDenyListDomains.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -124,7 +124,7 @@ export const amazon_ads_brandSafetyDenyListDomains_deleteBrandSafetyDenyList = d
 
 export const amazon_ads_budgetRules_disassociateAssociatedBudgetRuleForSDCampaigns = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.disassociateAssociatedBudgetRuleForSDCampaigns",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "DELETE",
   path: "/sd/campaigns/{campaignId}/budgetRules/{budgetRuleId}",
   summary: "Disassociates a budget rule specified by identifier from a campaign specified by identifier.",
@@ -132,7 +132,7 @@ export const amazon_ads_budgetRules_disassociateAssociatedBudgetRuleForSDCampaig
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.manage"],
+  capabilities: ["amazon-ads-sd.budgetRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -149,7 +149,7 @@ export const amazon_ads_budgetRules_disassociateAssociatedBudgetRuleForSDCampaig
 
 export const amazon_ads_snapshotAPIs_downloadSnapshotById = defineEndpointDescriptor({
   id: "amazon-ads.snapshotAPIs.downloadSnapshotById",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "GET",
   path: "/sd/snapshots/{snapshotId}/download",
   summary: "downloadSnapshotById",
@@ -157,7 +157,7 @@ export const amazon_ads_snapshotAPIs_downloadSnapshotById = defineEndpointDescri
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.snapshotAPIs.read"],
+  capabilities: ["amazon-ads-sd.snapshotAPIs.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -172,7 +172,7 @@ export const amazon_ads_snapshotAPIs_downloadSnapshotById = defineEndpointDescri
 
 export const amazon_ads_budgetRules_getBudgetRuleByRuleIdForSDCampaigns = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.getBudgetRuleByRuleIdForSDCampaigns",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "GET",
   path: "/sd/budgetRules/{budgetRuleId}",
   summary: "Gets a budget rule specified by identifier.",
@@ -180,7 +180,7 @@ export const amazon_ads_budgetRules_getBudgetRuleByRuleIdForSDCampaigns = define
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.read"],
+  capabilities: ["amazon-ads-sd.budgetRules.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -195,7 +195,7 @@ export const amazon_ads_budgetRules_getBudgetRuleByRuleIdForSDCampaigns = define
 
 export const amazon_ads_budgetRules_getCampaignsAssociatedWithSDBudgetRule = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.getCampaignsAssociatedWithSDBudgetRule",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "GET",
   path: "/sd/budgetRules/{budgetRuleId}/campaigns",
   summary: "Gets all the campaigns associated with a budget rule",
@@ -203,7 +203,7 @@ export const amazon_ads_budgetRules_getCampaignsAssociatedWithSDBudgetRule = def
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.read"],
+  capabilities: ["amazon-ads-sd.budgetRules.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -222,7 +222,7 @@ export const amazon_ads_budgetRules_getCampaignsAssociatedWithSDBudgetRule = def
 
 export const amazon_ads_recommendations_getHeadlineRecommendationsForSD = defineEndpointDescriptor({
   id: "amazon-ads.recommendations.getHeadlineRecommendationsForSD",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "POST",
   path: "/sd/recommendations/creative/headline",
   summary: "getHeadlineRecommendationsForSD",
@@ -230,7 +230,7 @@ export const amazon_ads_recommendations_getHeadlineRecommendationsForSD = define
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.recommendations.manage"],
+  capabilities: ["amazon-ads-sd.recommendations.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -249,7 +249,7 @@ export const amazon_ads_recommendations_getHeadlineRecommendationsForSD = define
 
 export const amazon_ads_brandSafetyRequestResults_getRequestResults = defineEndpointDescriptor({
   id: "amazon-ads.brandSafetyRequestResults.getRequestResults",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "GET",
   path: "/sd/brandSafety/{requestId}/results",
   summary: "Gets the results for the given request",
@@ -257,7 +257,7 @@ export const amazon_ads_brandSafetyRequestResults_getRequestResults = defineEndp
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.brandSafetyRequestResults.read"],
+  capabilities: ["amazon-ads-sd.brandSafetyRequestResults.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -276,7 +276,7 @@ export const amazon_ads_brandSafetyRequestResults_getRequestResults = defineEndp
 
 export const amazon_ads_brandSafetyRequestStatus_getRequestStatus = defineEndpointDescriptor({
   id: "amazon-ads.brandSafetyRequestStatus.getRequestStatus",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "GET",
   path: "/sd/brandSafety/{requestId}/status",
   summary: "Gets the status of the given request",
@@ -284,7 +284,7 @@ export const amazon_ads_brandSafetyRequestStatus_getRequestStatus = defineEndpoi
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.brandSafetyRequestStatus.read"],
+  capabilities: ["amazon-ads-sd.brandSafetyRequestStatus.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -299,7 +299,7 @@ export const amazon_ads_brandSafetyRequestStatus_getRequestStatus = defineEndpoi
 
 export const amazon_ads_budgetRecommendations_getSDBudgetRecommendations = defineEndpointDescriptor({
   id: "amazon-ads.budgetRecommendations.getSDBudgetRecommendations",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "POST",
   path: "/sd/campaigns/budgetRecommendations",
   summary: "Returns recommended daily budget and estimated missed opportunities for campaigns",
@@ -307,7 +307,7 @@ export const amazon_ads_budgetRecommendations_getSDBudgetRecommendations = defin
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRecommendations.manage"],
+  capabilities: ["amazon-ads-sd.budgetRecommendations.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -322,7 +322,7 @@ export const amazon_ads_budgetRecommendations_getSDBudgetRecommendations = defin
 
 export const amazon_ads_budgetRules_getSDBudgetRulesForAdvertiser = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.getSDBudgetRulesForAdvertiser",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "GET",
   path: "/sd/budgetRules",
   summary: "Get all budget rules created by an advertiser",
@@ -330,7 +330,7 @@ export const amazon_ads_budgetRules_getSDBudgetRulesForAdvertiser = defineEndpoi
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.read"],
+  capabilities: ["amazon-ads-sd.budgetRules.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -347,7 +347,7 @@ export const amazon_ads_budgetRules_getSDBudgetRulesForAdvertiser = defineEndpoi
 
 export const amazon_ads_snapshotAPIs_getSnapshotById = defineEndpointDescriptor({
   id: "amazon-ads.snapshotAPIs.getSnapshotById",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "GET",
   path: "/sd/snapshots/{snapshotId}",
   summary: "getSnapshotById",
@@ -355,7 +355,7 @@ export const amazon_ads_snapshotAPIs_getSnapshotById = defineEndpointDescriptor(
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.snapshotAPIs.read"],
+  capabilities: ["amazon-ads-sd.snapshotAPIs.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -370,7 +370,7 @@ export const amazon_ads_snapshotAPIs_getSnapshotById = defineEndpointDescriptor(
 
 export const amazon_ads_targetingRecommendations_getTargetBidRecommendations = defineEndpointDescriptor({
   id: "amazon-ads.targetingRecommendations.getTargetBidRecommendations",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "POST",
   path: "/sd/targets/bid/recommendations",
   summary: "Returns a set of bid recommendations for targeting clauses",
@@ -378,7 +378,7 @@ export const amazon_ads_targetingRecommendations_getTargetBidRecommendations = d
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.targetingRecommendations.manage"],
+  capabilities: ["amazon-ads-sd.targetingRecommendations.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -395,7 +395,7 @@ export const amazon_ads_targetingRecommendations_getTargetBidRecommendations = d
 
 export const amazon_ads_targetingRecommendations_getTargetRecommendations = defineEndpointDescriptor({
   id: "amazon-ads.targetingRecommendations.getTargetRecommendations",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "POST",
   path: "/sd/targets/recommendations",
   summary: "Returns a set of recommended products and categories to target",
@@ -403,7 +403,7 @@ export const amazon_ads_targetingRecommendations_getTargetRecommendations = defi
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.targetingRecommendations.manage"],
+  capabilities: ["amazon-ads-sd.targetingRecommendations.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -424,7 +424,7 @@ export const amazon_ads_targetingRecommendations_getTargetRecommendations = defi
 
 export const amazon_ads_budgetRules_listAssociatedBudgetRulesForSDCampaigns = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.listAssociatedBudgetRulesForSDCampaigns",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "GET",
   path: "/sd/campaigns/{campaignId}/budgetRules",
   summary: "Gets a list of budget rules associated to a campaign specified by identifier.",
@@ -432,7 +432,7 @@ export const amazon_ads_budgetRules_listAssociatedBudgetRulesForSDCampaigns = de
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.read"],
+  capabilities: ["amazon-ads-sd.budgetRules.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -447,7 +447,7 @@ export const amazon_ads_budgetRules_listAssociatedBudgetRulesForSDCampaigns = de
 
 export const amazon_ads_brandSafetyDenyListDomains_listDomains = defineEndpointDescriptor({
   id: "amazon-ads.brandSafetyDenyListDomains.listDomains",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "GET",
   path: "/sd/brandSafety/deny",
   summary: "Gets a list of websites/apps that are on the advertiser's Brand Safety Deny List.",
@@ -455,7 +455,7 @@ export const amazon_ads_brandSafetyDenyListDomains_listDomains = defineEndpointD
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.brandSafetyDenyListDomains.read"],
+  capabilities: ["amazon-ads-sd.brandSafetyDenyListDomains.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -472,7 +472,7 @@ export const amazon_ads_brandSafetyDenyListDomains_listDomains = defineEndpointD
 
 export const amazon_ads_brandSafetyRequestStatus_listRequestStatus = defineEndpointDescriptor({
   id: "amazon-ads.brandSafetyRequestStatus.listRequestStatus",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "GET",
   path: "/sd/brandSafety/status",
   summary: "List status of all requests",
@@ -480,7 +480,7 @@ export const amazon_ads_brandSafetyRequestStatus_listRequestStatus = defineEndpo
   execution: "inline",
   idempotency: "safe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.brandSafetyRequestStatus.read"],
+  capabilities: ["amazon-ads-sd.brandSafetyRequestStatus.read"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -493,7 +493,7 @@ export const amazon_ads_brandSafetyRequestStatus_listRequestStatus = defineEndpo
 
 export const amazon_ads_budgetUsage_sdCampaignsBudgetUsage = defineEndpointDescriptor({
   id: "amazon-ads.budgetUsage.sdCampaignsBudgetUsage",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "POST",
   path: "/sd/campaigns/budget/usage",
   summary: "Budget usage API for SD campaigns",
@@ -501,7 +501,7 @@ export const amazon_ads_budgetUsage_sdCampaignsBudgetUsage = defineEndpointDescr
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetUsage.manage"],
+  capabilities: ["amazon-ads-sd.budgetUsage.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],
@@ -516,7 +516,7 @@ export const amazon_ads_budgetUsage_sdCampaignsBudgetUsage = defineEndpointDescr
 
 export const amazon_ads_budgetRules_updateBudgetRulesForSDCampaigns = defineEndpointDescriptor({
   id: "amazon-ads.budgetRules.updateBudgetRulesForSDCampaigns",
-  platform: "amazon-ads",
+  platform: "amazon-ads-sd",
   method: "PUT",
   path: "/sd/budgetRules",
   summary: "Update one or more budget rules.",
@@ -524,7 +524,7 @@ export const amazon_ads_budgetRules_updateBudgetRulesForSDCampaigns = defineEndp
   execution: "durable",
   idempotency: "unsafe",
   requiredScopes: [],
-  capabilities: ["amazon-ads.budgetRules.manage"],
+  capabilities: ["amazon-ads-sd.budgetRules.manage"],
   rateLimitBucket: "amazon-ads-api",
   authSchemes: [],
   protocols: ["json"],

@@ -1,0 +1,953 @@
+---
+title: "Amazon Ads — Sponsored Brands models: Get Budget Recommendations Request Content – Inline1114"
+description: "100 generated Amazon Ads — Sponsored Brands model contracts, from GetBudgetRecommendationsRequestContent through Inline1114."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 1002
+  label: "Get Budget Recommendations Request Content – Inline1114"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## GetBudgetRecommendationsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | Yes | No | List of CampaignIds |
+
+## GetBudgetRecommendationsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## GetBudgetRecommendationsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline463>` | Yes | No | List of errors that occurred when generating budget recommendations. |
+| `success` | `success` | `Array<Inline464>` | Yes | No | List of successful budget recommendations for campaigns. |
+
+## GetBudgetRuleByRuleIdForSBCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRuleId` | `budgetRuleId` | `string` | Yes | No | The budget rule identifier. |
+
+## GetBudgetRuleByRuleIdForSBCampaignsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline972` | Yes | No | — |
+
+## GetCampaignsAssociatedWithSBBudgetRuleParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRuleId` | `budgetRuleId` | `string` | Yes | No | The budget rule identifier. |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the `nextToken` field is empty, there are no further results. |
+| `pageSize` | `pageSize` | `number` | Yes | No | Sets a limit on the number of results returned. Maximum limit of `pageSize` is 30. |
+
+## GetCampaignsAssociatedWithSBBudgetRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline979` | Yes | No | — |
+
+## GetHeadlineRecommendationsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adFormat` | `adFormat` | `string` | No | No | — |
+| `asins` | `asins` | `Array<string>` | No | No | An array of ASINs associated with the creative. Note do not pass an empty array, this results in an error. |
+| `maxNumSuggestions` | `maxNumSuggestions` | `number` | No | No | Maximum number of suggestions that API should return. Response will [0, maxNumSuggestions] suggestions (suggestions are not guaranteed). |
+| `storePages` | `storePages` | `Array<Inline1025>` | No | No | An array of Store Pages associated with SB Spotlight Creative. |
+
+## GetHeadlineRecommendationsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline1027` | Yes | No | — |
+
+## GetKeywordRecommendationsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `Inline1030 \| Inline1031` | Yes | No | — |
+
+## GetKeywordRecommendationsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## GetSBBudgetRuleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRule` | `budgetRule` | `Inline466` | No | No | — |
+
+## GetSBBudgetRulesForAdvertiserParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the `nextToken` field is empty, there are no further results. |
+| `pageSize` | `pageSize` | `number` | Yes | No | Sets a limit on the number of results returned. Maximum limit of `pageSize` is 30. |
+
+## GetSBBudgetRulesForAdvertiserResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRulesForAdvertiserResponse` | `budgetRulesForAdvertiserResponse` | `Array<Inline472>` | No | No | A list of rules created by the advertiser. |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the `nextToken` field is empty, there are no further results. |
+
+## GoalTypeFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## HeadlineSuggestionRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adFormat` | `adFormat` | `string` | No | No | — |
+| `asins` | `asins` | `Array<string>` | No | No | An array of ASINs associated with the creative. Note do not pass an empty array, this results in an error. |
+| `maxNumSuggestions` | `maxNumSuggestions` | `number` | No | No | Maximum number of suggestions that API should return. Response will [0, maxNumSuggestions] suggestions (suggestions are not guaranteed). |
+| `storePages` | `storePages` | `Array<Inline479>` | No | No | An array of Store Pages associated with SB Spotlight Creative. |
+
+## HeadlineSuggestionResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `requestId` | `requestId` | `string` | No | No | An identifier for request made which is generated by server. |
+| `suggestions` | `suggestions` | `Array<Inline481>` | No | No | Suggestions are sorted, i.e., more suitable headline has lesser array index value |
+
+## Inline100
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | Allowed values. |
+| `cause` | `cause` | `Inline100` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | Optional lower limit. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | Optional upper limit. |
+
+## Inline1001
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adFormat` | `adFormat` | `string` | Yes | No | Type of Ad format. |
+| `keywords` | `keywords` | `Array<Inline1001>` | No | No | — |
+
+## Inline1003
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `insights` | `insights` | `Array<Inline1003>` | No | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | Operations that return paginated results include a pagination token in this field. To retrieve the next page of results, call the same operation and specify this token in the request. If the `NextToken` field is empty, there are no further results. |
+
+## Inline1005
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adFormat` | `adFormat` | `string` | Yes | No | Type of Ad format. |
+| `keywords` | `keywords` | `Array<Inline1005>` | No | No | — |
+
+## Inline1006
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `adGroups` | `Array<Inline1006>` | Yes | No | — |
+| `budget` | `budget` | `number` | Yes | No | The amount of the budget. |
+| `budgetType` | `budgetType` | `string` | No | No | Budget can be set to DAILY or LIFETIME. \|BudgetType\|Description\| \|-----------\|-----------\| \|DAILY\| The amount that you're willing to spend on this campaign each day. If the campaign spends less than your daily budget, the unspent amount can be used to increase your daily budget on the other days of the calendar month.\| \|LIFETIME\| The total amount that you are willing to spend on this campaign.\| |
+| `endDate` | `endDate` | `string` | No | No | The YYYY-MM-DD end date for the campaign. Must be greater than the value for `startDate`. If not specified, the campaign has no end date and runs continuously. |
+| `forecastType` | `forecastType` | `string` | Yes | No | The forecast type. can be set to WEEKLY or MONTHLY. **If have not set the forecastType during campaign creation then use WEEKLY as goal value.** |
+| `goal` | `goal` | `string` | No | No | Goal will allow you to set goal type to help drive your campaign performance. **If have not set the goal during campaign creation then use PAGE_VISIT as goal type.** The goal type of the campaign. Initial launch only supports PAGE_VISIT. BRAND_IMPRESSION_SHARE - This goal is a PREVIEW ONLY and cannot be set currently. It will allow you grown your brand impression share on top of search placement. PAGE_VISIT - This goal drives traffic to your landing and detail pages through all placements. |
+| `optimizationRules` | `optimizationRules` | `Array<Inline1012>` | No | No | — |
+| `startDate` | `startDate` | `string` | No | No | The YYYY-MM-DD start date for the campaign. If this field is not set to a value, the current date is used. |
+
+## Inline1007
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `landingPageUrl` | `landingPageUrl` | `string` | No | No | Landing page information. |
+
+## Inline1008
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywordText` | `keywordText` | `string` | No | No | The keyword text. Maximum of 10 words. |
+| `matchType` | `matchType` | `string` | No | No | The negative match type. Valid value: NEGATIVE_EXACT, NEGATIVE_PHRASE. For more information, see [negative keyword match types](https://advertising.amazon.com/help#GHTRFDZRJPW6764R) in the Amazon Advertising support center. |
+
+## Inline1009
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expressions` | `expressions` | `Array<Inline1009>` | No | No | — |
+
+## Inline101
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad` | `ad` | `Inline101` | No | No | — |
+| `adId` | `adId` | `string` | No | No | the Ad ID. |
+| `index` | `index` | `number` | Yes | No | The index in the original list from the request. |
+
+## Inline1010
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | The associated bid. Note that this value must be less than the budget associated with the Advertiser account. |
+| `expressions` | `expressions` | `Array<Inline1010>` | No | No | — |
+
+## Inline1011
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | The associated bid. Note that this value must be less than the budget associated with the Advertiser account. |
+| `themeType` | `themeType` | `string` | No | No | The theme target type. Valid value: KEYWORDS_RELATED_TO_YOUR_BRAND, KEYWORDS_RELATED_TO_YOUR_LANDING_PAGES. KEYWORDS_RELATED_TO_YOUR_BRAND - keywords related to brands. KEYWORDS_RELATED_TO_YOUR_LANDING_PAGES - keywords related to your landing pages. |
+
+## Inline1012
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | Supported OptimizationRules metric attributeName. |
+| `criteria` | `criteria` | `Inline1012` | No | No | The rule Criteria associated with the optimizationRules. |
+
+## Inline1015
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `adGroups` | `Array<Inline1015>` | Yes | No | — |
+| `budget` | `budget` | `number` | Yes | No | The amount of the budget. |
+| `budgetType` | `budgetType` | `string` | No | No | Budget can be set to DAILY or LIFETIME. \|BudgetType\|Description\| \|-----------\|-----------\| \|DAILY\| The amount that you're willing to spend on this campaign each day. If the campaign spends less than your daily budget, the unspent amount can be used to increase your daily budget on the other days of the calendar month.\| \|LIFETIME\| The total amount that you are willing to spend on this campaign.\| |
+| `endDate` | `endDate` | `string` | No | No | The YYYY-MM-DD end date for the campaign. Must be greater than the value for `startDate`. If not specified, the campaign has no end date and runs continuously. |
+| `forecastType` | `forecastType` | `string` | Yes | No | The forecast type. can be set to WEEKLY or MONTHLY. **If have not set the forecastType during campaign creation then use WEEKLY as goal value.** |
+| `goal` | `goal` | `string` | No | No | Goal will allow you to set goal type to help drive your campaign performance. **If have not set the goal during campaign creation then use PAGE_VISIT as goal type.** The goal type of the campaign. Initial launch only supports PAGE_VISIT. BRAND_IMPRESSION_SHARE - This goal is a PREVIEW ONLY and cannot be set currently. It will allow you grown your brand impression share on top of search placement. PAGE_VISIT - This goal drives traffic to your landing and detail pages through all placements. |
+| `optimizationRules` | `optimizationRules` | `Array<Inline1021>` | No | No | — |
+| `startDate` | `startDate` | `string` | No | No | The YYYY-MM-DD start date for the campaign. If this field is not set to a value, the current date is used. |
+
+## Inline1016
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `landingPageUrl` | `landingPageUrl` | `string` | No | No | Landing page information. |
+
+## Inline1017
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywordText` | `keywordText` | `string` | No | No | The keyword text. Maximum of 10 words. |
+| `matchType` | `matchType` | `string` | No | No | The negative match type. Valid value: NEGATIVE_EXACT, NEGATIVE_PHRASE. For more information, see [negative keyword match types](https://advertising.amazon.com/help#GHTRFDZRJPW6764R) in the Amazon Advertising support center. |
+
+## Inline1018
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expressions` | `expressions` | `Array<Inline1018>` | No | No | — |
+
+## Inline1019
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | The associated bid. Note that this value must be less than the budget associated with the Advertiser account. |
+| `expressions` | `expressions` | `Array<Inline1019>` | No | No | — |
+
+## Inline102
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | — |
+| `left` | `left` | `number` | No | No | — |
+| `top` | `top` | `number` | No | No | — |
+| `width` | `width` | `number` | No | No | — |
+
+## Inline1020
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | The associated bid. Note that this value must be less than the budget associated with the Advertiser account. |
+| `themeType` | `themeType` | `string` | No | No | The theme target type. Valid value: KEYWORDS_RELATED_TO_YOUR_BRAND, KEYWORDS_RELATED_TO_YOUR_LANDING_PAGES. KEYWORDS_RELATED_TO_YOUR_BRAND - keywords related to brands. KEYWORDS_RELATED_TO_YOUR_LANDING_PAGES - keywords related to your landing pages. |
+
+## Inline1021
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | Supported OptimizationRules metric attributeName. |
+| `criteria` | `criteria` | `Inline1021` | No | No | The rule Criteria associated with the optimizationRules. |
+
+## Inline1023
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brands` | `brands` | `Array<Inline1023>` | No | No | List of Brands. |
+| `nextToken` | `nextToken` | `string` | No | No | Operations that return paginated results include a pagination token in this field. To retrieve the next page of results, call the same operation and specify this token in the request. If the `NextToken` field is empty, there are no further results. |
+
+## Inline1025
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `displayName` | `displayName` | `string` | No | No | Display Name of the store page shown on a store spotlight campaign. |
+| `primaryAsin` | `primaryAsin` | `string` | No | No | Selected asin from the store page which is displayed on the store spotlight campaign. |
+
+## Inline1027
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `requestId` | `requestId` | `string` | No | No | An identifier for request made which is generated by server. |
+| `suggestions` | `suggestions` | `Array<Inline1027>` | No | No | Suggestions are sorted, i.e., more suitable headline has lesser array index value |
+
+## Inline1029
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `displayName` | `displayName` | `string` | No | No | Display Name of the store page shown on a store spotlight campaign. |
+| `primaryAsin` | `primaryAsin` | `string` | No | No | Selected asin from the store page which is displayed on the store spotlight campaign. |
+
+## Inline103
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | No | No | — |
+| `crop` | `crop` | `Inline103` | No | No | The crop to apply to the selected Custom image. A Custom image must have a 1200x628 aspect ratio, with a .01 delta for floating point precision. If a customImageAssetId is supplied but a crop is not, the crop will be defaulted to the whole image. |
+| `url` | `url` | `string` | No | No | — |
+
+## Inline1030
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | — |
+| `creativeAsins` | `creativeAsins` | `Array<string>` | No | No | — |
+| `creativeType` | `creativeType` | `string` | No | No | Optional SB creative type used for generating static or video generated keyword recommendations. Inferred by asins if not included. \|Identifier\|Description\|Recommendations\| \|----------\|-----------\|-----------\| \|PRODUCT_COLLECTION\| Showcase multiple products within a branded shopping experience\|Static\| \|AUTHOR_COLLECTION\| Showcase books under your name that direct to your Book Brand landing page\|Static\| \|STORE_SPOTLIGHT\| Showcase your brand logo, headline, and up to 3 product categories or sub-pages\|Static\| \|VIDEO\| Display a video ad promoting a product that redirects to its landing page\|Video\| \|BRAND_VIDEO\| Display a branded video ad that redirects shoppers to your Brand Store landing page\|Video\| &lt;br/&gt; |
+| `goal` | `goal` | `string` | No | No | Optionally indicate the desired goal of your campaign. Different keyword recommendations will be provided depending on your specified goal. \|Identifier\|Description\| \|----------\|-----------\| \|PAGE_VISIT\| Boost the visits to your landing page\| \|BRAND_IMPRESSION_SHARE\| Facilitate consumers' awareness of your brand\|&lt;br/&gt; |
+| `locale` | `locale` | `string` | No | No | Optional locale to request keyword suggestion translations. For example, to request Simplified Chinese translations in US, provide locale “zh_CN”. Response will include both keyword suggestions and their translations. Supported locales include: Simplified Chinese (locale: “zh_CN”) for US, UK and CA. English (locale: “en_GB”) for DE, FR, IT and ES. |
+| `maxNumSuggestions` | `maxNumSuggestions` | `number` | No | No | Maximum number of suggestions to return. Max value is 1000. If not provided, default to 100. |
+
+## Inline1031
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creativeAsins` | `creativeAsins` | `Array<string>` | No | No | — |
+| `creativeType` | `creativeType` | `string` | No | No | Optional SB creative type used for generating static or video generated keyword recommendations. Inferred by asins if not included. \|Identifier\|Description\|Recommendations\| \|----------\|-----------\|-----------\| \|PRODUCT_COLLECTION\| Showcase multiple products within a branded shopping experience\|Static\| \|AUTHOR_COLLECTION\| Showcase books under your name that direct to your Book Brand landing page\|Static\| \|STORE_SPOTLIGHT\| Showcase your brand logo, headline, and up to 3 product categories or sub-pages\|Static\| \|VIDEO\| Display a video ad promoting a product that redirects to its landing page\|Video\| \|BRAND_VIDEO\| Display a branded video ad that redirects shoppers to your Brand Store landing page\|Video\| &lt;br/&gt; |
+| `goal` | `goal` | `string` | No | No | Optionally indicate the desired goal of your campaign. Different keyword recommendations will be provided depending on your specified goal. \|Identifier\|Description\| \|----------\|-----------\| \|PAGE_VISIT\| Boost the visits to your landing page\| \|BRAND_IMPRESSION_SHARE\| Facilitate consumers' awareness of your brand\|&lt;br/&gt; |
+| `locale` | `locale` | `string` | No | No | Optional locale to request keyword suggestion translations. For example, to request Simplified Chinese translations in US, provide locale “zh_CN”. Response will include both keyword suggestions and their translations. Supported locales include: Simplified Chinese (locale: “zh_CN”) for US, UK and CA. English (locale: “en_GB”) for DE, FR, IT and ES. |
+| `maxNumSuggestions` | `maxNumSuggestions` | `number` | No | No | Maximum number of suggestions to return. Max value is 1000. If not provided, default to 100. |
+| `url` | `url` | `string` | Yes | No | The URL of the Stores page, or, Vendors may also specify the URL of a custom landing page. |
+
+## Inline1034
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | ASIN(s) on the landingPage for pageType PRODUCT_LIST or DETAIL_PAGE. If pageType is DETAIL_PAGE, this field must contains a single asin. If pageType is PRODUCT_LIST, this field must contains at least 3 asins. For other pageTypes, this field must be null and the url field must be non null. |
+| `pageType` | `pageType` | `string` | No | No | The type of landing page, such as store page, product list (simple landing page), custom url. |
+| `url` | `url` | `string` | No | No | URL of a Store page. Vendors may also specify the URL of a custom landing page. If a custom URL is specified, the landing page must include the ASINs of at least three products that are advertised as part of the campaign. Do not include this property in the request if the asins property is also included, these properties are mutually exclusive. |
+
+## Inline1037
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | ASIN(s) on the landingPage for pageType PRODUCT_LIST or DETAIL_PAGE. If pageType is DETAIL_PAGE, this field must contains a single asin. If pageType is PRODUCT_LIST, this field must contains at least 3 asins. For other pageTypes, this field must be null and the url field must be non null. |
+| `pageType` | `pageType` | `string` | No | No | The type of landing page, such as store page, product list (simple landing page), custom url. |
+| `url` | `url` | `string` | No | No | URL of a Store page. Vendors may also specify the URL of a custom landing page. If a custom URL is specified, the landing page must include the ASINs of at least three products that are advertised as part of the campaign. Do not include this property in the request if the asins property is also included, these properties are mutually exclusive. |
+
+## Inline1038
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conditions` | `conditions` | `Array<Inline1038>` | No | No | — |
+| `entityId` | `entityId` | `string` | No | No | Entity object identifier. |
+| `entityType` | `entityType` | `string` | No | No | — |
+
+## Inline104
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asin` | `asin` | `string` | No | No | — |
+| `pageTitle` | `pageTitle` | `string` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+
+## Inline1041
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conditions` | `conditions` | `Array<Inline1041>` | No | No | — |
+| `entityId` | `entityId` | `string` | No | No | Entity object identifier. |
+| `entityType` | `entityType` | `string` | No | No | — |
+
+## Inline1042
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conditions` | `conditions` | `Array<Inline1042>` | No | No | — |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | No | No | The identifier of the optimization rule. |
+
+## Inline1045
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conditions` | `conditions` | `Array<Inline1045>` | No | No | — |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | No | No | The identifier of the optimization rule. |
+
+## Inline1046
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityId` | `entityId` | `string` | Yes | No | Entity object identifier. |
+| `entityType` | `entityType` | `string` | Yes | No | Enum: "CAMPAIGN" The type of entity passed. |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | Yes | No | The identifier of the optimization rule. |
+
+## Inline1049
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityId` | `entityId` | `string` | Yes | No | Entity object identifier. |
+| `entityType` | `entityType` | `string` | Yes | No | Enum: "CAMPAIGN" The type of entity passed. |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | Yes | No | The identifier of the optimization rule. |
+
+## Inline105
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDate` | `creationDate` | `number` | No | No | Creation date in epoch time. |
+| `lastUpdateDate` | `lastUpdateDate` | `number` | No | No | Date of last update in epoch time. |
+| `servingStatus` | `servingStatus` | `string` | No | No | The ad serving status determined by system. - AD_STATUS_LIVE - Ad's status is enabled. - AD_POLICING_PENDING_REVIEW - Ad is pending review because of policing reason. - AD_POLICING_SUSPENDED - Ad is suspended review because of policing reason. - AD_PAUSED - Ad's status is paused. - AD_CREATOR_CONTENT_LICENSE_EXPIRED - Ad is suspended because the creator content license has expired for the custom video/image content used in the Ad Creative. - AD_ARCHIVED - Ad's status is archived. - AD_GROUP_STATUS_ENABLED - Ad group's (parent) status is enabled. - AD_GROUP_PAUSED - Ad group's (parent) status is paused. - AD_GROUP_ARCHIVED - Ad group's (parent) status is archived. - AD_GROUP_INCOMPLETE - Ad group (parent) does not contain any ads or targeting clauses. - AD_GROUP_POLICING_PENDING_REVIEW - Ad group is pending review because of policing reason - AD_GROUP_POLICING_CREATIVE_REJECTED - Ad group is rejected due to creative because of policing reason - AD_GROUP_LOW_BID - Ad group is less than the minimum allowed bid in its marketplace - ADVERTISER_STATUS_ENABLED - Advertiser's status is enabled - ADVERTISER_POLICING_PENDING_REVIEW - Avertiser is pending review because of policing reason - ADVERTISER_POLICING_SUSPENDED - Advertiser's status is suspended because of policing reason - ADVERTISER_PAUSED - Advertiser's status is paused - ADVERTISER_ARCHIVED - Advertiser's status is archived - ADVERTISER_PAYMENT_FAILURE - Advertiser's internal status is suspended - ADVERTISER_ACCOUNT_OUT_OF_BUDGET - Advertiser is out of budget for all Sponsored Ads campaigns - ADVERTISER_OUT_OF_PREPAY_BALANCE - Advertiser is out of prepay balance for all Sponsored Ads campaigns - ADVERTISER_EXCEED_SPENDS_LIMIT - Advertiser spends over the daily limit - CAMPAIGN_STATUS_ENABLED - Campaign's (parent) status is enabled. - CAMPAIGN_PAUSED - Campaign's (parent) status is paused. - CAMPAIGN_ARCHIVED - Campaign's (parent) status is archived. - CAMPAIGN_INCOMPLETE - Campaign (parent) does not contain any ads or targeting clauses. - CAMPAIGN_OUT_OF_BUDGET - Campaign (parent) is out of budget. - PORTFOLIO_STATUS_ENABLED - Portfolio's (parent) status is enabled - PORTFOLIO_PAUSED - Portfolio's (parent) status is paused - PORTFOLIO_ARCHIVED - Portfolio's (parent) status is archived - PORTFOLIO_OUT_OF_BUDGET - Portfolio (parent) is out of budget - PORTFOLIO_PENDING_START_DATE - Portfolio's (parent) start date is in the future - PORTFOLIO_ENDED - Portfolio's (parent) end date is in the past. - INELIGIBLE - Ad is ineligible. - ELIGIBLE - Ad is eligible. - ENDED - Campaign's (parent) end date is in the past. - PENDING_REVIEW - Campaign (parent) is pending review. - PENDING_START_DATE - Campaign's (parent) start date is in the future. - REJECTED - Campaign (parent) is rejected by moderation process. - UNKNOWN - Serving status is unknown. Please contact us for support. |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<string>` | No | No | The serving status reasons of the Ad. |
+
+## Inline1050
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityId` | `entityId` | `string` | Yes | No | Entity object identifier. |
+| `entityType` | `entityType` | `string` | Yes | No | Enum: "CAMPAIGN" The type of entity passed. |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | Yes | No | The identifier of the optimization rule. |
+
+## Inline1053
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityId` | `entityId` | `string` | Yes | No | Entity object identifier. |
+| `entityType` | `entityType` | `string` | Yes | No | Enum: "CAMPAIGN" The type of entity passed. |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | Yes | No | The identifier of the optimization rule. |
+
+## Inline1054
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityId` | `entityId` | `string` | No | No | Entity object identifier. |
+| `entityType` | `entityType` | `string` | No | No | Enum: "CAMPAIGN" The type of entity passed. |
+
+## Inline1055
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## Inline1057
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `optimizationRules` | `optimizationRules` | `Array<Inline1057>` | Yes | No | — |
+| `totalCount` | `totalCount` | `number` | No | No | The total number of entities. |
+
+## Inline1059
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityId` | `entityId` | `string` | No | No | Entity object identifier. |
+| `entityType` | `entityType` | `string` | No | No | Enum: "CAMPAIGN" The type of entity passed. |
+
+## Inline106
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | ASIN(s) on the landingPage for pageType PRODUCT_LIST or DETAIL_PAGE. If pageType is DETAIL_PAGE, this field must contains a single asin. If pageType is PRODUCT_LIST, this field must contains at least 3 asins. For other pageTypes, this field must be null and the url field must be non null. |
+| `pageType` | `pageType` | `string` | No | No | The type of landing page, such as store page, product list (simple landing page), custom url. |
+| `url` | `url` | `string` | No | No | URL of a Store page. Vendors may also specify the URL of a custom landing page. If a custom URL is specified, the landing page must include the ASINs of at least three products that are advertised as part of the campaign. Do not include this property in the request if the asins property is also included, these properties are mutually exclusive. |
+
+## Inline1060
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## Inline1062
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categoryTree` | `categoryTree` | `Array<Inline1062>` | No | No | List of categories. |
+| `nextToken` | `nextToken` | `string` | No | No | Operations that return paginated results include a pagination token in this field. To retrieve the next page of results, call the same operation and specify this token in the request. If the `NextToken` field is empty, there are no further results. |
+
+## Inline1063
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max` | `max` | `number` | No | No | — |
+| `min` | `min` | `number` | No | No | — |
+
+## Inline1066
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ageRanges` | `ageRanges` | `Array<Inline1066>` | No | No | List of Age Ranges. Use /sb/targets/categories/&#123;categoryRefinementId&#125;/refinements to retrieve Age Ranges. Age Ranges are only available for categories related to children's toys and games. |
+| `brands` | `brands` | `Array<Inline1067>` | No | No | List of Brands. |
+| `genres` | `genres` | `Array<Inline1068>` | No | No | List of Genres. Use /sb/targets/categories/&#123;categoryRefinementId&#125;/refinements to retrieve Genre Node IDs. Genres are only available for categories related to books. |
+| `nextToken` | `nextToken` | `string` | No | No | Operations that return paginated results include a pagination token in this field. To retrieve the next page of results, call the same operation and specify this token in the request. If the `NextToken` field is empty, there are no further results. |
+
+## Inline1067
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brandRefinementId` | `brandRefinementId` | `string` | Yes | No | Id of brand. Use /sb/targets/categories/&#123;categoryRefinementId&#125;/refinements to retrieve Brand Refinement IDs. |
+| `name` | `name` | `string` | No | No | Name of brand. |
+
+## Inline1068
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `genreRefinementId` | `genreRefinementId` | `string` | Yes | No | Id of Genre. Use /sb/targets/categories/&#123;categoryRefinementId&#125;/refinements to retrieve Genre Refinement IDs. |
+| `name` | `name` | `string` | No | No | Name of Genre. |
+| `translatedName` | `translatedName` | `string` | No | No | Translated name of Genre based off locale sent in request. |
+
+## Inline1070
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max` | `max` | `number` | No | No | — |
+| `min` | `min` | `number` | No | No | — |
+
+## Inline1071
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max` | `max` | `number` | No | No | — |
+| `min` | `min` | `number` | No | No | — |
+
+## Inline1073
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asinCounts` | `asinCounts` | `Inline1073` | No | No | — |
+
+## Inline1075
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max` | `max` | `number` | No | No | — |
+| `min` | `min` | `number` | No | No | — |
+
+## Inline1076
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max` | `max` | `number` | No | No | — |
+| `min` | `min` | `number` | No | No | — |
+
+## Inline1077
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign to which the keyword is associated. |
+| `name` | `name` | `string` | Yes | No | The name of the ad group. |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation. |
+
+## Inline108
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline108>` | No | No | A list of validation errors |
+| `index` | `index` | `number` | Yes | No | the index of the optimization rule id/entity Id in the array from the request body. |
+
+## Inline1080
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign to which the keyword is associated. |
+| `name` | `name` | `string` | Yes | No | The name of the ad group. |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation. |
+
+## Inline1081
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the keyword. |
+| `name` | `name` | `string` | No | No | The name of the ad group. |
+| `state` | `state` | `string` | No | No | Entity state for create or update operation. |
+
+## Inline1084
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the keyword. |
+| `name` | `name` | `string` | No | No | The name of the ad group. |
+| `state` | `state` | `string` | No | No | Entity state for create or update operation. |
+
+## Inline1085
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## Inline1088
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## Inline1089
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## Inline109
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityId` | `entityId` | `string` | Yes | No | Entity object identifier. |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `index` | `index` | `number` | Yes | No | The index of the entityId/optimizationId in the array from the request body. |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | Yes | No | The identifier of the optimization rule. |
+
+## Inline1090
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## Inline1091
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+| `queryTermMatchType` | `queryTermMatchType` | `string` | No | No | Defines how would the string resource field (e.g. campaign name, ad group name) be matched with the query term in filter. |
+
+## Inline1092
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## Inline1094
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `adGroups` | `Array<Inline1094>` | No | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of entities. |
+
+## Inline1096
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## Inline1097
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## Inline1098
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+| `queryTermMatchType` | `queryTermMatchType` | `string` | No | No | Defines how would the string resource field (e.g. campaign name, ad group name) be matched with the query term in filter. |
+
+## Inline1099
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## Inline11
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error. |
+| `errorValue` | `errorValue` | `Inline11` | Yes | No | — |
+
+## Inline1100
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | Yes | No | The product ad identifier. |
+| `name` | `name` | `string` | No | No | The name of the ad. |
+| `state` | `state` | `string` | No | No | Entity state for create or update operation. |
+
+## Inline1103
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | Yes | No | The product ad identifier. |
+| `name` | `name` | `string` | No | No | The name of the ad. |
+| `state` | `state` | `string` | No | No | Entity state for create or update operation. |
+
+## Inline1104
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | Entity object identifier. |
+| `creative` | `creative` | `Inline1104` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation. |
+
+## Inline1107
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | Entity object identifier. |
+| `creative` | `creative` | `Inline1107` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation. |
+
+## Inline1108
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The adGroup identifier. |
+| `creative` | `creative` | `Inline1108` | Yes | No | — |
+| `landingPage` | `landingPage` | `Inline1109` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | The name of the ad. |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation. |
+
+## Inline1109
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | ASIN(s) on the landingPage for pageType PRODUCT_LIST or DETAIL_PAGE. If pageType is DETAIL_PAGE, this field must contains a single asin. If pageType is PRODUCT_LIST, this field must contains at least 3 asins. For other pageTypes, this field must be null and the url field must be non null. |
+| `pageType` | `pageType` | `string` | No | No | The type of landing page, such as store page, product list (simple landing page), custom url. |
+| `url` | `url` | `string` | No | No | URL of a Store page. Vendors may also specify the URL of a custom landing page. If a custom URL is specified, the landing page must include the ASINs of at least three products that are advertised as part of the campaign. Do not include this property in the request if the asins property is also included, these properties are mutually exclusive. |
+
+## Inline111
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline111>` | No | No | A list of validation errors. |
+| `index` | `index` | `number` | Yes | No | the index of the campaign in the array from the request body. |
+
+## Inline1112
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The adGroup identifier. |
+| `creative` | `creative` | `Inline1112` | Yes | No | — |
+| `landingPage` | `landingPage` | `Inline1113` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | The name of the ad. |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation. |
+
+## Inline1113
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | ASIN(s) on the landingPage for pageType PRODUCT_LIST or DETAIL_PAGE. If pageType is DETAIL_PAGE, this field must contains a single asin. If pageType is PRODUCT_LIST, this field must contains at least 3 asins. For other pageTypes, this field must be null and the url field must be non null. |
+| `pageType` | `pageType` | `string` | No | No | The type of landing page, such as store page, product list (simple landing page), custom url. |
+| `url` | `url` | `string` | No | No | URL of a Store page. Vendors may also specify the URL of a custom landing page. If a custom URL is specified, the landing page must include the ASINs of at least three products that are advertised as part of the campaign. Do not include this property in the request if the asins property is also included, these properties are mutually exclusive. |
+
+## Inline1114
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |

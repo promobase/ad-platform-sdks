@@ -1,0 +1,48 @@
+---
+title: "Amazon Ads — Sponsored Brands SB Optimization Recommendations endpoints"
+description: "1 generated Amazon Ads — Sponsored Brands endpoint contract for SB Optimization Recommendations."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 115
+  label: "SB Optimization Recommendations"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.sBOptimizationRecommendations.sBOptimizationRecommendation
+
+`POST` `/sb/recommendations/optimization`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (SBOptimizationRecommendation)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.sBOptimizationRecommendations.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `SBOptimizationRecommendationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `costControlMetric` | `body` | `string` | Yes | No | Cost control metric to retrieve recommended value for. Currently only COST_PER_CLICK is supported |
+| `landingPages` | `body` | `Array<Inline1037>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

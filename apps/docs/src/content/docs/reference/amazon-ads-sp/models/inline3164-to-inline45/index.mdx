@@ -1,0 +1,998 @@
+---
+title: "Amazon Ads — Sponsored Products models: Inline3164 – Inline45"
+description: "100 generated Amazon Ads — Sponsored Products model contracts, from Inline3164 through Inline45."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 1020
+  label: "Inline3164 – Inline45"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Inline3164
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `events` | `events` | `Array<Inline3164>` | No | No | A list of individual events with date range. |
+| `groupedEvents` | `groupedEvents` | `Array<Inline3165>` | No | No | A list of grouped events with date range. |
+
+## Inline3165
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The end date in ISO-8601 format. |
+| `groupedEventId` | `groupedEventId` | `string` | No | No | The grouped event identifier. |
+| `groupedEventName` | `groupedEventName` | `string` | No | No | The grouped event name. |
+| `startDate` | `startDate` | `string` | No | No | The start date in ISO-8601 format. |
+
+## Inline317
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline318
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline32
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `string` | No | No | The targeting expression value. |
+
+## Inline321
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful. |
+| `optimizationRule` | `optimizationRule` | `Inline321` | No | No | — |
+
+## Inline322
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline322 \| Inline323` | No | No | — |
+
+## Inline323
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline324
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline324` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline325>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## Inline325
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline327
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful. |
+| `optimizationRule` | `optimizationRule` | `Inline327` | No | No | — |
+
+## Inline328
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline328 \| Inline329` | No | No | Only Value Type Criteria is supported right now. |
+
+## Inline329
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline330
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline330` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline331>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## Inline331
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline332
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expressionTypes` | `expressionTypes` | `Array<string>` | Yes | No | — |
+| `lookbackDays` | `lookbackDays` | `number` | Yes | No | The number of days of data to look back on for the rule. |
+| `targetingType` | `targetingType` | `string` | Yes | No | The type of targets for the rule. |
+
+## Inline334
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actionDetails` | `actionDetails` | `Inline334` | Yes | No | Details of a rule action. |
+| `actionType` | `actionType` | `string` | Yes | No | The action taken when the optimization rule is enabled. Defaults to ADOPT. |
+
+## Inline335
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline335 \| Inline336` | No | No | Only Value Type Criteria is supported right now. |
+
+## Inline336
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline337
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline337` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline338>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## Inline338
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline339
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expressionTypes` | `expressionTypes` | `Array<string>` | Yes | No | — |
+| `lookbackDays` | `lookbackDays` | `number` | Yes | No | The number of days of data to look back on for the rule. |
+| `targetingType` | `targetingType` | `string` | Yes | No | The type of targets for the rule. |
+
+## Inline341
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actionDetails` | `actionDetails` | `Inline341` | Yes | No | Details of a rule action. |
+| `actionType` | `actionType` | `string` | Yes | No | The action taken when the optimization rule is enabled. Defaults to ADOPT. |
+
+## Inline342
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline342 \| Inline343` | No | No | — |
+
+## Inline343
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline344
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline344` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline345>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## Inline345
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline347
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actionDetails` | `actionDetails` | `Inline347` | Yes | No | Details of a rule action. |
+| `actionType` | `actionType` | `string` | Yes | No | The action taken when the optimization rule is enabled. Defaults to ADOPT. |
+
+## Inline348
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline348 \| Inline349` | No | No | Only Value Type Criteria is supported right now. |
+
+## Inline349
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline350
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline350` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline351>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## Inline351
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline352
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expressionTypes` | `expressionTypes` | `Array<string>` | Yes | No | — |
+| `lookbackDays` | `lookbackDays` | `number` | Yes | No | The number of days of data to look back on for the rule. |
+| `targetingType` | `targetingType` | `string` | Yes | No | The type of targets for the rule. |
+
+## Inline355
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actionOperator` | `actionOperator` | `string` | Yes | No | The action operation for the rule. |
+| `actionUnit` | `actionUnit` | `string` | Yes | No | — |
+| `value` | `value` | `number` | Yes | No | An integer between 1 & 100, representing the percent increase on base bid. |
+
+## Inline362
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `maxValue` | `maxValue` | `number` | Yes | No | — |
+| `minValue` | `minValue` | `number` | Yes | No | — |
+
+## Inline363
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline365
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `maxValue` | `maxValue` | `number` | Yes | No | — |
+| `minValue` | `minValue` | `number` | Yes | No | — |
+
+## Inline366
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline368
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `maxValue` | `maxValue` | `number` | Yes | No | — |
+| `minValue` | `minValue` | `number` | Yes | No | — |
+
+## Inline369
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline371
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | No | No | Time of optimization rule completion in ISO 8061. |
+| `eventId` | `eventId` | `string` | No | No | Identifier for the event during which the rule is applied. |
+| `eventName` | `eventName` | `string` | No | No | Name of the event during which the rule is applied. |
+| `startTime` | `startTime` | `string` | No | No | Time of optimization rule creation in ISO 8061. Not Required only when eventId present. |
+
+## Inline372
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline379
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `Inline379` | No | No | Filter type and value pair. |
+
+## Inline38
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `clicks` | `clicks` | `Inline38` | No | No | Clicks benchmark. |
+| `conversions` | `conversions` | `Inline39` | No | No | Conversions benchmark. |
+| `impressions` | `impressions` | `Inline40` | No | No | Impressions benchmark. |
+
+## Inline380
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRuleId` | `optimizationRuleId` | `Inline380` | No | No | Filter type and value pair. |
+| `ruleCategory` | `ruleCategory` | `Inline381` | No | No | Filter type and value pair. |
+| `ruleSubCategory` | `ruleSubCategory` | `Inline382` | No | No | Filter type and value pair. |
+
+## Inline381
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline382
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline384
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `Inline384` | No | No | Filter type and value pair. |
+
+## Inline385
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `optimizationRuleId` | `optimizationRuleId` | `Inline385` | No | No | Filter type and value pair. |
+| `ruleCategory` | `ruleCategory` | `Inline386` | No | No | Filter type and value pair. |
+| `ruleName` | `ruleName` | `Inline387` | No | No | Filter type and value pair. |
+| `ruleStatus` | `ruleStatus` | `Inline388` | No | No | Filter type and value pair. |
+| `ruleSubCategory` | `ruleSubCategory` | `Inline389` | No | No | Filter type and value pair. |
+
+## Inline386
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline387
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline388
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline389
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `filterType` | `filterType` | `string` | No | No | Types of filter used for search. |
+| `values` | `values` | `Array<string>` | No | No | — |
+
+## Inline39
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lower` | `lower` | `number` | No | No | lower bound. |
+| `upper` | `upper` | `number` | No | No | upper bound. |
+
+## Inline391
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `Inline391` | No | No | Action to be taken by the rule. |
+| `conditions` | `conditions` | `Array<Inline392>` | No | No | — |
+| `recurrence` | `recurrence` | `Inline394` | No | No | The recurrence of the optimization rule application. |
+| `ruleCategory` | `ruleCategory` | `string` | No | No | The type of the optimization rule. |
+| `ruleName` | `ruleName` | `string` | No | No | The rule name. |
+| `ruleSubCategory` | `ruleSubCategory` | `string` | No | No | The sub-category of the optimization rule. |
+| `status` | `status` | `string` | No | No | The status of a rule. Only ENABLED and PAUSED are accepted in requests. |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | No | No | The rule identifier. |
+
+## Inline392
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline392 \| Inline393` | No | No | — |
+
+## Inline393
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline394
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline394` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline395>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## Inline395
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline397
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `Inline397` | No | No | Action to be taken by the rule. |
+| `conditions` | `conditions` | `Array<Inline398>` | No | No | — |
+| `recurrence` | `recurrence` | `Inline400` | No | No | The recurrence of the optimization rule application. |
+| `ruleCategory` | `ruleCategory` | `string` | No | No | The type of the optimization rule. |
+| `ruleName` | `ruleName` | `string` | No | No | The rule name. |
+| `ruleSubCategory` | `ruleSubCategory` | `string` | No | No | The sub-category of the optimization rule. |
+| `status` | `status` | `string` | No | No | The status of a rule. Only ENABLED and PAUSED are accepted in requests. |
+| `targeting` | `targeting` | `Array<Inline402>` | No | No | — |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | No | No | The rule identifier. |
+
+## Inline398
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline398 \| Inline399` | No | No | Only Value Type Criteria is supported right now. |
+
+## Inline399
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline4
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | The bid value for the keyword, in minor currency units (example: cents). The default value will be the suggested bid. |
+| `keyword` | `keyword` | `string` | No | No | The keyword value |
+| `matchType` | `matchType` | `string` | No | No | Keyword match type. The default value will be BROAD. |
+| `userSelectedKeyword` | `userSelectedKeyword` | `boolean` | No | No | Flag that tells if keyword was selected by the user or was recommended by KRS |
+
+## Inline40
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lower` | `lower` | `number` | No | No | lower bound. |
+| `upper` | `upper` | `number` | No | No | upper bound. |
+
+## Inline400
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline400` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline401>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## Inline401
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline402
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expressionTypes` | `expressionTypes` | `Array<string>` | Yes | No | — |
+| `lookbackDays` | `lookbackDays` | `number` | Yes | No | The number of days of data to look back on for the rule. |
+| `targetingType` | `targetingType` | `string` | Yes | No | The type of targets for the rule. |
+
+## Inline405
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `Inline405` | No | No | Action to be taken by the rule. |
+| `conditions` | `conditions` | `Array<Inline406>` | No | No | — |
+| `recurrence` | `recurrence` | `Inline408` | No | No | The recurrence of the optimization rule application. |
+| `ruleCategory` | `ruleCategory` | `string` | No | No | The type of the optimization rule. |
+| `ruleName` | `ruleName` | `string` | No | No | The rule name. |
+| `ruleSubCategory` | `ruleSubCategory` | `string` | No | No | The sub-category of the optimization rule. |
+| `status` | `status` | `string` | No | No | The status of a rule. Only ENABLED and PAUSED are accepted in requests. |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | No | No | The rule identifier. |
+
+## Inline406
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline406 \| Inline407` | No | No | — |
+
+## Inline407
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline408
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline408` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline409>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## Inline409
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline411
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `Inline411` | No | No | Action to be taken by the rule. |
+| `conditions` | `conditions` | `Array<Inline412>` | No | No | — |
+| `recurrence` | `recurrence` | `Inline414` | No | No | The recurrence of the optimization rule application. |
+| `ruleCategory` | `ruleCategory` | `string` | No | No | The type of the optimization rule. |
+| `ruleName` | `ruleName` | `string` | No | No | The rule name. |
+| `ruleSubCategory` | `ruleSubCategory` | `string` | No | No | The sub-category of the optimization rule. |
+| `status` | `status` | `string` | No | No | The status of a rule. Only ENABLED and PAUSED are accepted in requests. |
+| `targeting` | `targeting` | `Array<Inline416>` | No | No | — |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | No | No | The rule identifier. |
+
+## Inline412
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline412 \| Inline413` | No | No | Only Value Type Criteria is supported right now. |
+
+## Inline413
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline414
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline414` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline415>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## Inline415
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline416
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expressionTypes` | `expressionTypes` | `Array<string>` | Yes | No | — |
+| `lookbackDays` | `lookbackDays` | `number` | Yes | No | The number of days of data to look back on for the rule. |
+| `targetingType` | `targetingType` | `string` | Yes | No | The type of targets for the rule. |
+
+## Inline42
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | Yes | No | — |
+| `impactMetrics` | `impactMetrics` | `Inline42` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | The type of bids in bid analyses. &lt;br&gt;`SUGGESTED_UPPER` - The upper bound for the suggested bid. &lt;br&gt;`SUGGESTED_LOWER` - The lower bound for the suggested bid. &lt;br&gt;`SUGGESTED` - The suggested bid value. &lt;br&gt;'ALTERNATIVE' - The alternative bids that is included in the bid analyses. |
+
+## Inline420
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `Inline420` | No | No | Action to be taken by the rule. |
+| `conditions` | `conditions` | `Array<Inline421>` | No | No | — |
+| `recurrence` | `recurrence` | `Inline423` | No | No | The recurrence of the optimization rule application. |
+| `ruleCategory` | `ruleCategory` | `string` | No | No | The type of the optimization rule. |
+| `ruleName` | `ruleName` | `string` | No | No | The rule name. |
+| `ruleSubCategory` | `ruleSubCategory` | `string` | No | No | The sub-category of the optimization rule. |
+| `status` | `status` | `string` | No | No | The status of a rule. Only ENABLED and PAUSED are accepted in requests. |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | No | No | The rule identifier. |
+
+## Inline421
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline421 \| Inline422` | No | No | — |
+
+## Inline422
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline423
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline423` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline424>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## Inline424
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline426
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `Inline426` | No | No | Action to be taken by the rule. |
+| `conditions` | `conditions` | `Array<Inline427>` | No | No | — |
+| `recurrence` | `recurrence` | `Inline429` | No | No | The recurrence of the optimization rule application. |
+| `ruleCategory` | `ruleCategory` | `string` | No | No | The type of the optimization rule. |
+| `ruleName` | `ruleName` | `string` | No | No | The rule name. |
+| `ruleSubCategory` | `ruleSubCategory` | `string` | No | No | The sub-category of the optimization rule. |
+| `status` | `status` | `string` | No | No | The status of a rule. Only ENABLED and PAUSED are accepted in requests. |
+| `targeting` | `targeting` | `Array<Inline431>` | No | No | — |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | No | No | The rule identifier. |
+
+## Inline427
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline427 \| Inline428` | No | No | Only Value Type Criteria is supported right now. |
+
+## Inline428
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline429
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline429` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline430>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## Inline430
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline431
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expressionTypes` | `expressionTypes` | `Array<string>` | Yes | No | — |
+| `lookbackDays` | `lookbackDays` | `number` | Yes | No | The number of days of data to look back on for the rule. |
+| `targetingType` | `targetingType` | `string` | Yes | No | The type of targets for the rule. |
+
+## Inline433
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | An enumerated success or error code for machine use. |
+| `details` | `details` | `string` | No | No | A human-readable description of the error, if unsuccessful. |
+| `optimizationRule` | `optimizationRule` | `Inline433` | No | No | — |
+
+## Inline434
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline434 \| Inline435` | No | No | Only Value Type Criteria is supported right now. |
+
+## Inline435
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline436
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline436` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline437>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## Inline437
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline438
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expressionTypes` | `expressionTypes` | `Array<string>` | Yes | No | — |
+| `lookbackDays` | `lookbackDays` | `number` | Yes | No | The number of days of data to look back on for the rule. |
+| `targetingType` | `targetingType` | `string` | Yes | No | The type of targets for the rule. |
+
+## Inline44
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | Yes | No | — |
+| `impactMetrics` | `impactMetrics` | `Inline44` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | The type of bids in bid analyses. &lt;br&gt;`SUGGESTED_UPPER` - The upper bound for the suggested bid. &lt;br&gt;`SUGGESTED_LOWER` - The lower bound for the suggested bid. &lt;br&gt;`SUGGESTED` - The suggested bid value. &lt;br&gt;'ALTERNATIVE' - The alternative bids that is included in the bid analyses. |
+
+## Inline446
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogSourceCountryCode` | `catalogSourceCountryCode` | `string` | No | No | Country code of source marketplace where seller has listed the product. Possible source country codes include US, UK, DE, JP, AE, and TR. |
+
+## Inline448
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asin` | `asin` | `string` | No | No | The identifier of the product. |
+| `globalStoreSetting` | `globalStoreSetting` | `Inline448` | No | No | This denotes the fields related to [GlobalStore Program](https://sellercentral.amazon.com/help/hub/reference/external/202139180). |
+
+## Inline45
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | Yes | No | — |
+| `impactMetrics` | `impactMetrics` | `Inline45` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | The type of bids in bid analyses. &lt;br&gt;`SUGGESTED_UPPER` - The upper bound for the suggested bid. &lt;br&gt;`SUGGESTED_LOWER` - The lower bound for the suggested bid. &lt;br&gt;`SUGGESTED` - The suggested bid value. &lt;br&gt;'ALTERNATIVE' - The alternative bids that is included in the bid analyses. |

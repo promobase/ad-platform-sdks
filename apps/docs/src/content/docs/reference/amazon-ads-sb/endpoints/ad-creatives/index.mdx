@@ -1,0 +1,227 @@
+---
+title: "Amazon Ads — Sponsored Brands Ad Creatives endpoints"
+description: "6 generated Amazon Ads — Sponsored Brands endpoint contracts for Ad Creatives."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 100
+  label: "Ad Creatives"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.adCreatives.createBrandVideoCreative
+
+`POST` `/sb/ads/creatives/brandVideo`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateBrandVideoCreative)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.adCreatives.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateBrandVideoCreativeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `body` | `string` | Yes | No | The unique ID of a Sponsored Brands ad. |
+| `creative` | `body` | `Inline901` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.adCreatives.createExtendedProductCollectionCreative
+
+`POST` `/sb/ads/creatives/productCollectionExtended`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateExtendedProductCollectionCreative)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.adCreatives.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateExtendedProductCollectionCreativeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `body` | `string` | Yes | No | The unique ID of a Sponsored Brands ad. |
+| `creative` | `body` | `Inline929` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.adCreatives.createProductCollectionCreative
+
+`POST` `/sb/ads/creatives/productCollection`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateProductCollectionCreative)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.adCreatives.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateProductCollectionCreativeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `body` | `string` | Yes | No | The unique ID of a Sponsored Brands ad. |
+| `creative` | `body` | `Inline921` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.adCreatives.createStoreSpotlightCreative
+
+`POST` `/sb/ads/creatives/storeSpotlight`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateStoreSpotlightCreative)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.adCreatives.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateStoreSpotlightCreativeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `body` | `string` | Yes | No | The unique ID of a Sponsored Brands ad. |
+| `creative` | `body` | `Inline938` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.adCreatives.createVideoCreative
+
+`POST` `/sb/ads/creatives/video`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateVideoCreative)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.adCreatives.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateVideoCreativeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `body` | `string` | Yes | No | The unique ID of a Sponsored Brands ad. |
+| `creative` | `body` | `Inline945` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.adCreatives.listCreatives
+
+`POST` `/sb/ads/creatives/list`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (ListCreatives)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.adCreatives.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `ListCreativesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `body` | `string` | Yes | No | The unique ID of a Sponsored Brands ad. |
+| `creativeStatusFilter` | `body` | `Array<string>` | No | No | Filters creatives by optional creative status. By default, you can list all creative versions regardless of creative status. |
+| `creativeTypeFilter` | `body` | `Array<string>` | No | No | Filters creatives by optional creative type. By default, you can list all creative versions regardless of creative type. |
+| `creativeVersionFilter` | `body` | `Array<string>` | No | No | Filters creatives by optional creative version. This means you can either list all creative versions without specific creative version filter, all just retrieve a single creative version by providing a specific version identifier. |
+| `maxResults` | `body` | `number` | No | No | Set a limit on the number of results returned by an operation. |
+| `nextToken` | `body` | `string` | No | No | Operations that return paginated results include a pagination token in this field. To retrieve the next page of results, call the same operation and specify this token in the request. If the `NextToken` field is empty, there are no further results. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

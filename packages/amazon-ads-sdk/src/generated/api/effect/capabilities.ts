@@ -2,42 +2,42 @@
 
 export const capabilities = [
   {
-    "id": "amazon-ads.adGroupForecasts.manage",
+    "id": "amazon-ads-api.adGroupForecasts.manage",
     "summary": "Manage AdGroupForecasts via Pinterest API",
     "requiredScopes": [
       "advertising::campaign_management"
     ]
   },
   {
-    "id": "amazon-ads.brandStoreEditionPublishVersions.manage",
+    "id": "amazon-ads-api.brandStoreEditionPublishVersions.manage",
     "summary": "Manage BrandStoreEditionPublishVersions via Pinterest API",
     "requiredScopes": [
       "advertising::campaign_management"
     ]
   },
   {
-    "id": "amazon-ads.brandStoreEditions.read",
+    "id": "amazon-ads-api.brandStoreEditions.read",
     "summary": "Read BrandStoreEditions via Pinterest API",
     "requiredScopes": [
       "advertising::campaign_management"
     ]
   },
   {
-    "id": "amazon-ads.brandStorePages.manage",
+    "id": "amazon-ads-api.brandStorePages.manage",
     "summary": "Manage BrandStorePages via Pinterest API",
     "requiredScopes": [
       "advertising::campaign_management"
     ]
   },
   {
-    "id": "amazon-ads.brandStores.manage",
+    "id": "amazon-ads-api.brandStores.manage",
     "summary": "Manage BrandStores via Pinterest API",
     "requiredScopes": [
       "advertising::campaign_management"
     ]
   },
   {
-    "id": "amazon-ads.campaignForecasts.manage",
+    "id": "amazon-ads-api.campaignForecasts.manage",
     "summary": "Manage CampaignForecasts via Pinterest API",
     "requiredScopes": [
       "advertising::campaign_management"

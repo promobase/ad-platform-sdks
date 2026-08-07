@@ -1,0 +1,963 @@
+---
+title: "Amazon Ads — Sponsored Brands models: Internal Server Exception Response Content – SB Forecasting Error Object"
+description: "100 generated Amazon Ads — Sponsored Brands model contracts, from InternalServerExceptionResponseContent through SBForecastingErrorObject."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 1010
+  label: "Internal Server Exception Response Content – SB Forecasting Error Object"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## InternalServerExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | A human-readable description of the enumerated response code in the `code` field. |
+| `details` | `details` | `string` | No | No | An enumerated response code. |
+
+## InvalidArgumentError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline486` | Yes | No | — |
+
+## InvalidArgumentErrorCode
+
+`enum` model on the `json` wire format.
+
+**Values:** `INVALID_ARGUMENT`
+
+## InvalidArgumentErrorSelector
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `otherError` | `otherError` | `Inline490` | No | No | Errors not related to any of the other error types. |
+| `rangeError` | `rangeError` | `Inline491` | No | No | Errors related to range constraints violations. |
+
+## InvalidArgumentExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | A human-readable description of the enumerated response code in the `code` field. |
+| `details` | `details` | `string` | Yes | No | An enumerated response code. |
+
+## LandingPage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | No | No | ASIN(s) on the landingPage for pageType PRODUCT_LIST or DETAIL_PAGE. If pageType is DETAIL_PAGE, this field must contains a single asin. If pageType is PRODUCT_LIST, this field must contains at least 3 asins. For other pageTypes, this field must be null and the url field must be non null. |
+| `pageType` | `pageType` | `string` | No | No | The type of landing page, such as store page, product list (simple landing page), custom url. |
+| `url` | `url` | `string` | No | No | URL of a Store page. Vendors may also specify the URL of a custom landing page. If a custom URL is specified, the landing page must include the ASINs of at least three products that are advertised as part of the campaign. Do not include this property in the request if the asins property is also included, these properties are mutually exclusive. |
+
+## LandingPageType
+
+`enum` model on the `json` wire format.
+
+**Values:** `CUSTOM_URL`, `DETAIL_PAGE`, `PRODUCT_LIST`, `STORE`
+
+## Layout
+
+`enum` model on the `json` wire format.
+
+**Values:** `BRAND_GALLERY`
+
+## ListAssociatedBudgetRulesForSBCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `number` | Yes | No | The campaign identifier. |
+
+## ListAssociatedBudgetRulesForSBCampaignsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline982` | Yes | No | — |
+
+## ListCreativesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | Yes | No | The unique ID of a Sponsored Brands ad. |
+| `creativeStatusFilter` | `creativeStatusFilter` | `Array<string>` | No | No | Filters creatives by optional creative status. By default, you can list all creative versions regardless of creative status. |
+| `creativeTypeFilter` | `creativeTypeFilter` | `Array<string>` | No | No | Filters creatives by optional creative type. By default, you can list all creative versions regardless of creative type. |
+| `creativeVersionFilter` | `creativeVersionFilter` | `Array<string>` | No | No | Filters creatives by optional creative version. This means you can either list all creative versions without specific creative version filter, all just retrieve a single creative version by providing a specific version identifier. |
+| `maxResults` | `maxResults` | `number` | No | No | Set a limit on the number of results returned by an operation. |
+| `nextToken` | `nextToken` | `string` | No | No | Operations that return paginated results include a pagination token in this field. To retrieve the next page of results, call the same operation and specify this token in the request. If the `NextToken` field is empty, there are no further results. |
+
+## ListCreativesRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | Yes | No | The unique ID of a Sponsored Brands ad. |
+| `creativeStatusFilter` | `creativeStatusFilter` | `Array<string>` | No | No | Filters creatives by optional creative status. By default, you can list all creative versions regardless of creative status. |
+| `creativeTypeFilter` | `creativeTypeFilter` | `Array<string>` | No | No | Filters creatives by optional creative type. By default, you can list all creative versions regardless of creative type. |
+| `creativeVersionFilter` | `creativeVersionFilter` | `Array<string>` | No | No | Filters creatives by optional creative version. This means you can either list all creative versions without specific creative version filter, all just retrieve a single creative version by providing a specific version identifier. |
+| `maxResults` | `maxResults` | `number` | No | No | Set a limit on the number of results returned by an operation. |
+| `nextToken` | `nextToken` | `string` | No | No | Operations that return paginated results include a pagination token in this field. To retrieve the next page of results, call the same operation and specify this token in the request. If the `NextToken` field is empty, there are no further results. |
+
+## ListCreativesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline904` | Yes | No | — |
+
+## ListCreativesResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creatives` | `creatives` | `Array<Inline498>` | No | No | A list of creatives |
+| `nextToken` | `nextToken` | `string` | No | No | Operations that return paginated results include a pagination token in this field. To retrieve the next page of results, call the same operation and specify this token in the request. If the `NextToken` field is empty, there are no further results. |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of results returned by an operation. |
+
+## ListCreativesResultEntry
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | No | No | The unique ID of a Sponsored Brands ad. |
+| `creationTime` | `creationTime` | `number` | No | No | — |
+| `creativeProperties` | `creativeProperties` | `Inline504` | No | No | Creative properties |
+| `creativeStatus` | `creativeStatus` | `string` | No | No | The lifecycle status of a creative |
+| `creativeType` | `creativeType` | `string` | No | No | The creative type of SB ad. |
+| `creativeVersion` | `creativeVersion` | `string` | No | No | The version identifier that helps you keep track of multiple versions of a submitted (non-draft) Sponsored Brands creative. |
+| `lastUpdateTime` | `lastUpdateTime` | `number` | No | No | — |
+
+## ListMigrationsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline1224` | No | No | Filter entities by the list of objectIds. |
+| `adIdFilter` | `adIdFilter` | `Inline1225` | No | No | Filter entities by the list of objectIds. |
+| `adStateFilter` | `adStateFilter` | `Inline1226` | No | No | Filter entities by state. |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline1227` | No | No | Filter entities by the list of objectIds. |
+| `maxResults` | `maxResults` | `number` | No | No | Default: 20, Max: 100. |
+| `migrationStatusFilter` | `migrationStatusFilter` | `Inline1228` | No | No | Filter migrations by option-level status. Returns migrations with at least one option matching the filter. |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+
+## ListMigrationsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline510` | No | No | Filter entities by the list of objectIds. |
+| `adIdFilter` | `adIdFilter` | `Inline511` | No | No | Filter entities by the list of objectIds. |
+| `adStateFilter` | `adStateFilter` | `Inline512` | No | No | Filter entities by state. |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline513` | No | No | Filter entities by the list of objectIds. |
+| `maxResults` | `maxResults` | `number` | No | No | Default: 20, Max: 100. |
+| `migrationStatusFilter` | `migrationStatusFilter` | `Inline514` | No | No | Filter migrations by option-level status. Returns migrations with at least one option matching the filter. |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+
+## ListMigrationsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline1230` | Yes | No | — |
+
+## ListMigrationsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `migrations` | `migrations` | `Array<Inline516>` | No | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `totalCount` | `totalCount` | `number` | No | No | The total number of entities. |
+
+## ListSponsoredBrandsAdGroupsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline1089` | No | No | Filter entities by the list of objectIds. |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline1090` | No | No | Filter entities by the list of objectIds. |
+| `includeExtendedDataFields` | `includeExtendedDataFields` | `boolean` | No | No | Setting to true will slow down performance because the API needs to retrieve extra information for each campaign. |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API. |
+| `nameFilter` | `nameFilter` | `Inline1091` | No | No | Filter entities by name. |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `stateFilter` | `stateFilter` | `Inline1092` | No | No | Filter entities by state. |
+
+## ListSponsoredBrandsAdGroupsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline524` | No | No | Filter entities by the list of objectIds. |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline525` | No | No | Filter entities by the list of objectIds. |
+| `includeExtendedDataFields` | `includeExtendedDataFields` | `boolean` | No | No | Setting to true will slow down performance because the API needs to retrieve extra information for each campaign. |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API. |
+| `nameFilter` | `nameFilter` | `Inline526` | No | No | Filter entities by name. |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `stateFilter` | `stateFilter` | `Inline527` | No | No | Filter entities by state. |
+
+## ListSponsoredBrandsAdGroupsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline1094` | Yes | No | — |
+
+## ListSponsoredBrandsAdGroupsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroups` | `adGroups` | `Array<Inline529>` | No | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of entities. |
+
+## ListSponsoredBrandsAdsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline1118` | No | No | Filter entities by the list of objectIds. |
+| `adIdFilter` | `adIdFilter` | `Inline1119` | No | No | Filter entities by the list of objectIds. |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline1120` | No | No | Filter entities by the list of objectIds. |
+| `creativeVersionToReturn` | `creativeVersionToReturn` | `string` | No | No | Retrieve the LATEST or PUBLISHED creative for each Ad. Returns LATEST if not specified. - LATEST - latest creative that could be moderation pending or rejected. - PUBLISHED - latest approved creative that is actively serving. |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API. |
+| `nameFilter` | `nameFilter` | `Inline1121` | No | No | Filter entities by name. |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `stateFilter` | `stateFilter` | `Inline1122` | No | No | Filter entities by state. |
+
+## ListSponsoredBrandsAdsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `adGroupIdFilter` | `Inline531` | No | No | Filter entities by the list of objectIds. |
+| `adIdFilter` | `adIdFilter` | `Inline532` | No | No | Filter entities by the list of objectIds. |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline533` | No | No | Filter entities by the list of objectIds. |
+| `creativeVersionToReturn` | `creativeVersionToReturn` | `string` | No | No | Retrieve the LATEST or PUBLISHED creative for each Ad. Returns LATEST if not specified. - LATEST - latest creative that could be moderation pending or rejected. - PUBLISHED - latest approved creative that is actively serving. |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API. |
+| `nameFilter` | `nameFilter` | `Inline534` | No | No | Filter entities by name. |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `stateFilter` | `stateFilter` | `Inline535` | No | No | Filter entities by state. |
+
+## ListSponsoredBrandsAdsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline1124` | Yes | No | — |
+
+## ListSponsoredBrandsAdsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ads` | `ads` | `Array<Inline537>` | No | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of entities. |
+
+## ListSponsoredBrandsCampaignsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline1194` | No | No | Filter entities by the list of objectIds. |
+| `goalTypeFilter` | `goalTypeFilter` | `Inline1195` | No | No | Filter entities by goal type. |
+| `includeExtendedDataFields` | `includeExtendedDataFields` | `boolean` | No | No | Setting to true will slow down performance because the API needs to retrieve extra information for each campaign. |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API. |
+| `nameFilter` | `nameFilter` | `Inline1196` | No | No | Filter entities by name. |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `portfolioIdFilter` | `portfolioIdFilter` | `Inline1197` | No | No | Filter entities by the list of objectIds. |
+| `stateFilter` | `stateFilter` | `Inline1198` | No | No | Filter entities by state. |
+
+## ListSponsoredBrandsCampaignsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIdFilter` | `campaignIdFilter` | `Inline544` | No | No | Filter entities by the list of objectIds. |
+| `goalTypeFilter` | `goalTypeFilter` | `Inline545` | No | No | Filter entities by goal type. |
+| `includeExtendedDataFields` | `includeExtendedDataFields` | `boolean` | No | No | Setting to true will slow down performance because the API needs to retrieve extra information for each campaign. |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API. |
+| `nameFilter` | `nameFilter` | `Inline546` | No | No | Filter entities by name. |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `portfolioIdFilter` | `portfolioIdFilter` | `Inline547` | No | No | Filter entities by the list of objectIds. |
+| `stateFilter` | `stateFilter` | `Inline548` | No | No | Filter entities by state. |
+
+## ListSponsoredBrandsCampaignsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline1200` | Yes | No | — |
+
+## ListSponsoredBrandsCampaignsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Array<Inline550>` | No | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `totalCount` | `totalCount` | `number` | No | No | The total number of entities. |
+
+## ListSponsoredBrandsOptimizationRulesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityFilter` | `entityFilter` | `Inline1054` | No | No | Filter optimization rules by entityId and entityType |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API. |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `optimizationRuleIdFilter` | `optimizationRuleIdFilter` | `Inline1055` | No | No | Filter optimization rules by the list of optmization rule ids. |
+
+## ListSponsoredBrandsOptimizationRulesRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityFilter` | `entityFilter` | `Inline557` | No | No | Filter optimization rules by entityId and entityType |
+| `maxResults` | `maxResults` | `number` | No | No | Number of records to include in the paginated response. Defaults to max page size for given API. |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `optimizationRuleIdFilter` | `optimizationRuleIdFilter` | `Inline558` | No | No | Filter optimization rules by the list of optmization rule ids. |
+
+## ListSponsoredBrandsOptimizationRulesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline1057` | Yes | No | — |
+
+## ListSponsoredBrandsOptimizationRulesResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+| `optimizationRules` | `optimizationRules` | `Array<Inline560>` | Yes | No | — |
+| `totalCount` | `totalCount` | `number` | No | No | The total number of entities. |
+
+## Migration
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `migrationEntity` | `migrationEntity` | `Inline562` | Yes | No | The source ad being migrated, enriched with campaign and ad group display names. |
+| `migrationId` | `migrationId` | `string` | Yes | No | Unique identifier for this migration. Currently equal to the source adId. |
+| `migrationOptions` | `migrationOptions` | `Array<Inline568>` | Yes | No | The replacement options offered (1-2 options: Manual Collection, Auto Collection). |
+
+## MigrationEntity
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad` | `ad` | `Inline570` | No | No | — |
+| `adGroupName` | `adGroupName` | `string` | No | No | Display name of the source ad group. |
+| `campaignName` | `campaignName` | `string` | No | No | Display name of the source campaign. |
+
+## MigrationJobResultsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `jobId` | `jobId` | `string` | Yes | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+
+## MigrationJobResultsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `jobId` | `jobId` | `string` | Yes | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+
+## MigrationJobResultsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline1216` | Yes | No | — |
+
+## MigrationJobResultsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Array<Inline578>` | No | No | — |
+| `jobId` | `jobId` | `string` | No | No | — |
+| `migrationJobStatus` | `migrationJobStatus` | `string` | No | No | Enumerated status code for migration job status \| Status \| Description \| \|----------------------------------------------------------\|--------------\| \| COMPLETE \| Migration job is complete \| \| FAILED \| Migration failed and no V3 campaigns were migrated \| \| IN_PROGRESS \| Migration job is running \| |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+
+## MigrationJobStatusParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `jobId` | `jobId` | `string` | Yes | No | — |
+
+## MigrationJobStatusRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `jobId` | `jobId` | `string` | Yes | No | — |
+
+## MigrationJobStatusResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline1219` | Yes | No | — |
+
+## MigrationJobStatusResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `jobId` | `jobId` | `string` | No | No | — |
+| `migrationJobStatus` | `migrationJobStatus` | `string` | No | No | Enumerated status code for migration job status \| Status \| Description \| \|----------------------------------------------------------\|--------------\| \| COMPLETE \| Migration job is complete \| \| FAILED \| Migration failed and no V3 campaigns were migrated \| \| IN_PROGRESS \| Migration job is running \| |
+| `migrationJobStatusReason` | `migrationJobStatusReason` | `string` | No | No | Status reason for the migration job status |
+
+## MigrationOption
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | No | No | The adGroupId of the created ad. Populated only after status = MIGRATED. |
+| `adId` | `adId` | `string` | No | No | The adId of the created ad. Populated only after status = MIGRATED. |
+| `asins` | `asins` | `Array<string>` | No | No | For MANUAL_COLLECTION: 3-10 recommended ASINs. For AUTO_COLLECTION: empty (system selects dynamically at serve time). |
+| `errorCode` | `errorCode` | `string` | No | No | Error code. Populated only when status = MIGRATION_FAILED. |
+| `errorMessage` | `errorMessage` | `string` | No | No | Error message. Populated only when status = MIGRATION_FAILED. |
+| `migrationType` | `migrationType` | `string` | No | No | The type of migration being offered for this option. - MIGRATE: Preserves the advertiser's original configuration as closely as possible. - IMPROVE: Optimizes the configuration for better performance. |
+| `optionType` | `optionType` | `string` | Yes | No | The type of SB Collection to migrate to. |
+| `rationale` | `rationale` | `string` | No | No | Rationale explaining why this migration option is being offered. |
+| `status` | `status` | `string` | No | No | The lifecycle status of a migration option. |
+
+## MigrationOptionType
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUTO_COLLECTION`, `MANUAL_COLLECTION`
+
+## MigrationResultsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+
+## MigrationResultsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+
+## MigrationResultsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline1222` | Yes | No | — |
+
+## MigrationResultsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Array<Inline585>` | No | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | Token value allowing to navigate to the next response page. |
+
+## MigrationStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACCEPTED`, `ELIGIBLE`, `MIGRATED`, `MIGRATION_FAILED`
+
+## MigrationStatusFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## MigrationType
+
+`enum` model on the `json` wire format.
+
+**Values:** `IMPROVE`, `MIGRATE`
+
+## ModerationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | The HTTP status code of the response. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## MultiAdGroupAd
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The adGroup identifier. |
+| `adId` | `adId` | `string` | Yes | No | The ad identifier. |
+| `campaignId` | `campaignId` | `string` | Yes | No | The campaign identifier. |
+| `creative` | `creative` | `Inline591` | No | No | — |
+| `extendedData` | `extendedData` | `Inline595` | No | No | — |
+| `landingPage` | `landingPage` | `Inline596` | No | No | — |
+| `name` | `name` | `string` | Yes | No | The name of the ad. |
+| `state` | `state` | `string` | Yes | No | The current resource state. |
+
+## NameFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+| `queryTermMatchType` | `queryTermMatchType` | `string` | No | No | Defines how would the string resource field (e.g. campaign name, ad group name) be matched with the query term in filter. |
+
+## NotFoundErrorCode
+
+`enum` model on the `json` wire format.
+
+**Values:** `NOT_FOUND`
+
+## NotFoundExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | — |
+
+## ObjectIdFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## OptimizationRule
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conditions` | `conditions` | `Array<Inline602>` | No | No | — |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | No | No | The identifier of the optimization rule. |
+
+## OptimizationRuleFailureResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline604>` | No | No | A list of validation errors |
+| `index` | `index` | `number` | Yes | No | the index of the optimization rule id/entity Id in the array from the request body. |
+
+## OptimizationRuleIdFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+
+## OptimizationRulesError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | The type of the error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+
+## OptimizationRuleToEntityMapping
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityId` | `entityId` | `string` | Yes | No | Entity object identifier. |
+| `entityType` | `entityType` | `string` | Yes | No | Enum: "CAMPAIGN" The type of entity passed. |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | Yes | No | The identifier of the optimization rule. |
+
+## OptimizationRuleToEntityMappingSuccessResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityId` | `entityId` | `string` | Yes | No | Entity object identifier. |
+| `entityType` | `entityType` | `string` | Yes | No | — |
+| `index` | `index` | `number` | Yes | No | The index of the entityId/optimizationId in the array from the request body. |
+| `optimizationRuleId` | `optimizationRuleId` | `string` | Yes | No | The identifier of the optimization rule. |
+
+## OtherError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline610` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## PerformanceMeasureConditionForSB
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## PerformanceMetricForSB
+
+`enum` model on the `json` wire format.
+
+**Values:** `IS`, `NTB`, `ROAS`
+
+## Placement
+
+`enum` model on the `json` wire format.
+
+**Values:** `DETAIL_PAGE`, `HOME`, `OTHER`, `TOP_OF_SEARCH`
+
+## ProductCollectionCreative
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asins` | `asins` | `Array<string>` | Yes | No | An array of ASINs associated with the creative. |
+| `brandLogoAssetId` | `brandLogoAssetId` | `string` | Yes | No | The identifier of the [brand logo](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#brandlogo) image from the brand store's asset library. Note that for campaigns created in the Amazon Advertising console prior to release of the brand store's assets library, responses will not include a value for this field. |
+| `brandLogoCrop` | `brandLogoCrop` | `Inline615` | No | No | Asset cropping attributes |
+| `brandName` | `brandName` | `string` | Yes | No | The displayed brand name in the ad headline. Maximum length is 30 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+| `customImageAssetId` | `customImageAssetId` | `string` | No | No | The identifier of the Custom image from the Store assets library. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#customimage) for more information on what constitutes a valid Custom image. |
+| `customImageCrop` | `customImageCrop` | `Inline616` | No | No | Asset cropping attributes |
+| `headline` | `headline` | `string` | Yes | No | The headline text. Maximum length of the string is 50 characters for all marketplaces other than Japan, which has a maximum length of 35 characters. See [the policy](https://advertising.amazon.com/resources/ad-policy/sponsored-ads-policies#headlines) for headline requirements. |
+
+## ProductLocation
+
+`enum` model on the `json` wire format.
+
+**Values:** `NOT_SOLD_ON_AMAZON`, `SOLD_ON_AMAZON`, `SOLD_ON_DTC`
+
+## QueryTermMatchType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BROAD_MATCH`, `EXACT_MATCH`
+
+## RangeError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowed` | `allowed` | `Array<string>` | No | No | Allowed values. |
+| `cause` | `cause` | `Inline620` | Yes | No | Structure describing error cause - location in the payload and data causing error. |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | Optional lower limit. |
+| `message` | `message` | `string` | Yes | No | Human readable error message. |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | Optional upper limit. |
+
+## Recurrence
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | Object representing days of the week for weekly type rule. It is not required for daily recurrence type |
+| `intraDaySchedule` | `intraDaySchedule` | `Array<Inline622>` | No | No | List of objects representing start and end time of desired intra-day budget rule window |
+| `type` | `type` | `string` | No | No | depicts the type of recurrence |
+
+## RecurrenceType
+
+`enum` model on the `json` wire format.
+
+**Values:** `DAILY`, `WEEKLY`
+
+## RuleBasedBudget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `applicableRuleId` | `applicableRuleId` | `string` | No | No | — |
+| `applicableRuleName` | `applicableRuleName` | `string` | No | No | — |
+| `isProcessing` | `isProcessing` | `boolean` | No | No | — |
+| `value` | `value` | `number` | No | No | — |
+
+## RuleCondition
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | Yes | No | Enum: "COST_PER_CLICK" "COST_PER_NEW_TO_BRAND_PURCHASES" The name of the attribute. Supported rule metrics and corresponding supported comparisonOperators: \| AttributeName \| ComparisonOperator \| Description \| \|------------------------------------\|---------------------------\|-----------------------------------------------------------------------------------------\| \| COST_PER_CLICK \| LESS_THAN_OR_EQUAL_TO \| Maximize page visits while cost per click less than or equal to threshold. \| \| COST_PER_NEW_TO_BRAND_PURCHASES \| LESS_THAN_OR_EQUAL_TO \| Maximize new to brand purchases while cost per purchase less than or equal to threshold.\| \| |
+| `criteria` | `criteria` | `Inline626` | Yes | No | — |
+
+## RuleDuration
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dateRangeTypeRuleDuration` | `dateRangeTypeRuleDuration` | `Inline628` | No | No | Object representing date range type rule duration. |
+| `eventTypeRuleDuration` | `eventTypeRuleDuration` | `Inline629` | No | No | Object representing event type rule duration. |
+
+## SBBudgetRule
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `createdDate` | `createdDate` | `number` | No | No | Epoch time of budget rule creation. Read-only. |
+| `lastUpdatedDate` | `lastUpdatedDate` | `number` | No | No | Epoch time of budget rule update. Read-only. |
+| `ruleDetails` | `ruleDetails` | `Inline631` | No | No | — |
+| `ruleId` | `ruleId` | `string` | Yes | No | The budget rule identifier. |
+| `ruleState` | `ruleState` | `string` | No | No | The budget rule state. |
+| `ruleStatus` | `ruleStatus` | `string` | No | No | The budget rule status. Read-only. |
+
+## SBBudgetRuleDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetIncreaseBy` | `budgetIncreaseBy` | `Inline637` | No | No | — |
+| `duration` | `duration` | `Inline638` | No | No | — |
+| `name` | `name` | `string` | No | No | The budget rule name. Required to be unique within a campaign. |
+| `performanceMeasureCondition` | `performanceMeasureCondition` | `Inline640` | No | No | — |
+| `recurrence` | `recurrence` | `Inline641` | No | No | — |
+| `ruleType` | `ruleType` | `string` | No | No | The type of budget rule. SCHEDULE: A budget rule based on a start and end date. PERFORMANCE: A budget rule based on advertising performance criteria. |
+
+## SBBudgetRulesRecommendationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | The HTTP status code of the response. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## SBBudgetRulesRecommendationEvent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The end date in YYYYMMDD format. |
+| `eventId` | `eventId` | `string` | No | No | The event identifier. |
+| `eventName` | `eventName` | `string` | No | No | The event name. |
+| `startDate` | `startDate` | `string` | No | No | The start date in YYYYMMDD format. |
+| `suggestedBudgetIncreasePercent` | `suggestedBudgetIncreasePercent` | `number` | No | No | The suggested budget increase expressed as a percent. |
+
+## SBBudgetRulesRecommendationEventRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The campaign identifier. |
+
+## SBBudgetRulesRecommendationEventResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendedBudgetRuleEvents` | `recommendedBudgetRuleEvents` | `Array<Inline646>` | No | No | A list of recommended special events with date range and suggested budget increase. |
+
+## SBCampaignBudgetRule
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `createdDate` | `createdDate` | `number` | No | No | Epoch time of budget rule creation. Read-only. |
+| `lastUpdatedDate` | `lastUpdatedDate` | `number` | No | No | Epoch time of budget rule update. Read-only. |
+| `ruleDetails` | `ruleDetails` | `Inline648` | No | No | — |
+| `ruleId` | `ruleId` | `string` | Yes | No | The budget rule identifier. |
+| `ruleState` | `ruleState` | `string` | No | No | The budget rule state. |
+| `ruleStatus` | `ruleStatus` | `string` | No | No | The budget rule evaluation status. Read-only. |
+
+## SBCampaignPerformanceForecastsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Array<Inline1006>` | Yes | No | — |
+
+## SBCampaignPerformanceForecastsRequestContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Array<Inline654>` | Yes | No | — |
+
+## SBCampaignPerformanceForecastsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## SBCampaignPerformanceForecastsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Inline662` | No | No | — |
+
+## SbCampaignsBudgetUsageParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | No | No | A list of campaign IDs |
+
+## SbCampaignsBudgetUsageResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## SBForecastingAccessDeniedExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | The HTTP status code of the response. |
+| `details` | `details` | `string` | Yes | No | A human-readable description of the response. |
+
+## SBForecastingAdGroup
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creativeAsins` | `creativeAsins` | `Array<string>` | No | No | — |
+| `creativeType` | `creativeType` | `string` | No | No | Supported CreativeTypes are PRODUCT_COLLECTION, STORE_SPOTLIGHT, VIDEO, BRAND_VIDEO. |
+| `keywords` | `keywords` | `Array<Inline666>` | No | No | — |
+| `landingPages` | `landingPages` | `Array<Inline667>` | No | No | — |
+| `negativeKeywords` | `negativeKeywords` | `Array<Inline668>` | No | No | — |
+| `negativeTargets` | `negativeTargets` | `Array<Inline669>` | No | No | — |
+| `targets` | `targets` | `Array<Inline670>` | No | No | — |
+| `themes` | `themes` | `Array<Inline671>` | No | No | — |
+
+## SBForecastingAttributeName
+
+`enum` model on the `json` wire format.
+
+**Values:** `COST_PER_CLICK`
+
+## SBForecastingBadRequestExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | The HTTP status code of the response. |
+| `details` | `details` | `string` | Yes | No | A human-readable description of the response. |
+
+## SBForecastingComparisonOperator
+
+`enum` model on the `json` wire format.
+
+**Values:** `LESS_THAN_OR_EQUAL_TO`
+
+## SBForecastingCreativeType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BRAND_VIDEO`, `PRODUCT_COLLECTION`, `STORE_SPOTLIGHT`, `VIDEO`
+
+## SBForecastingCriteria
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | No | No | OptimizationRules ComparisonOperator. |
+| `value` | `value` | `number` | No | No | The value of the threshold associated with the attribute and ComparisonOperator in optimizationRules. |
+
+## SBForecastingErrorObject
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | The forecast error code. |
+| `description` | `description` | `string` | No | No | The forecast error description. |
+| `index` | `index` | `number` | No | No | Correlates the campaign to the campaign list index specified in the request. Zero-based. |

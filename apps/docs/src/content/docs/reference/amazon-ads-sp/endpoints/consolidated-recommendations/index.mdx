@@ -1,0 +1,85 @@
+---
+title: "Amazon Ads — Sponsored Products Consolidated Recommendations endpoints"
+description: "2 generated Amazon Ads — Sponsored Products endpoint contracts for Consolidated Recommendations."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 110
+  label: "Consolidated Recommendations"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.consolidatedRecommendations.fetchCampaignRecommendations
+
+`POST` `/sp/campaign/recommendations`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (fetchCampaignRecommendations)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.consolidatedRecommendations.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `FetchCampaignRecommendationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `body` | `Array<Inline2735>` | Yes | No | List of campaigns with specific recommendation types requested. |
+| `maxResults` | `body` | `number` | No | No | Optional. Limits the number of items to return in the response. |
+| `nextToken` | `body` | `string` | No | No | Optional. Token to retrieve subsequent page of results. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.consolidatedRecommendations.getCampaignRecommendations
+
+`GET` `/sp/campaign/recommendations`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getCampaignRecommendations)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sp.consolidatedRecommendations.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetCampaignRecommendationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `query` | `Array<string>` | No | No | Optional. Returns or generates recommendations only for the specified campaignIds. |
+| `nextToken` | `query` | `string` | No | No | Optional. Token to retrieve subsequent page of results. |
+| `maxResults` | `query` | `string` | No | No | Optional. Limits the number of items to return in the response. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

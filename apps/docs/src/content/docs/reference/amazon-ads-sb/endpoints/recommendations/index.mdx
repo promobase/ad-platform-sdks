@@ -1,0 +1,50 @@
+---
+title: "Amazon Ads — Sponsored Brands Recommendations endpoints"
+description: "1 generated Amazon Ads — Sponsored Brands endpoint contract for Recommendations."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 114
+  label: "Recommendations"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.recommendations.getHeadlineRecommendations
+
+`POST` `/sb/recommendations/creative/headline`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (getHeadlineRecommendations)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.recommendations.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetHeadlineRecommendationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adFormat` | `body` | `string` | No | No | — |
+| `asins` | `body` | `Array<string>` | No | No | An array of ASINs associated with the creative. Note do not pass an empty array, this results in an error. |
+| `maxNumSuggestions` | `body` | `number` | No | No | Maximum number of suggestions that API should return. Response will [0, maxNumSuggestions] suggestions (suggestions are not guaranteed). |
+| `storePages` | `body` | `Array<Inline1029>` | No | No | An array of Store Pages associated with SB Spotlight Creative. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

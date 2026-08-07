@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "platform": "amazon-ads-sb",
+  "version": "v5",
+  "endpointCount": 56,
+  "modelCount": 1243,
+  "capabilityCount": 20,
+  "endpointPages": [
+    "endpoints/ad-creatives",
+    "endpoints/ad-groups",
+    "endpoints/ad-migrations",
+    "endpoints/ads",
+    "endpoints/budget-recommendations",
+    "endpoints/budget-rules",
+    "endpoints/budget-rules-recommendation",
+    "endpoints/budget-usage",
+    "endpoints/campaigns",
+    "endpoints/forecast",
+    "endpoints/insights",
+    "endpoints/keyword-recommendations",
+    "endpoints/optimization-rules",
+    "endpoints/product-targeting-categories",
+    "endpoints/recommendations",
+    "endpoints/sb-optimization-recommendations",
+    "endpoints/targeting-recommendations",
+    "endpoints/v3-campaign-migration"
+  ],
+  "modelPages": [
+    "models/accept-header-to-create-product-collection-creative",
+    "models/create-product-collection-creative-params-to-get-budget-recommendations-params",
+    "models/get-budget-recommendations-request-content-to-inline1114",
+    "models/inline1117-to-inline1233",
+    "models/inline1234-to-inline25",
+    "models/inline250-to-inline360",
+    "models/inline361-to-inline510",
+    "models/inline511-to-inline657",
+    "models/inline658-to-inline866",
+    "models/inline867-to-internal-server-error-code",
+    "models/internal-server-exception-response-content-to-sb-forecasting-error-object",
+    "models/sb-forecasting-internal-server-exception-response-conten-to-throttling-error-code",
+    "models/throttling-exception-response-content-to-video-creative"
+  ]
+}

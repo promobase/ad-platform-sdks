@@ -1,0 +1,988 @@
+---
+title: "Amazon Ads — Sponsored Products models: Inline2777 – Inline2900"
+description: "100 generated Amazon Ads — Sponsored Products model contracts, from Inline2777 through Inline2900."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 1017
+  label: "Inline2777 – Inline2900"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Inline2777
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDateTime` | `creationDateTime` | `string` | No | No | Creation date in ISO 8601. |
+| `lastUpdateDateTime` | `lastUpdateDateTime` | `string` | No | No | Last updated date in ISO 8601. |
+| `servingStatus` | `servingStatus` | `string` | No | No | — |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<Inline2777>` | No | No | The serving status reasons of the CampaignNegativeTargetingClause |
+
+## Inline2778
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | No | No | The type of nagative targeting expression. You can only specify values for the following predicates: \| Predicate \| Description \| \| --- \| --- \| \| `ASIN_BRAND_SAME_AS` \| Target the brand that is the same as the brand expressed. \| \| `ASIN_SAME_AS` \| Target an ASIN that is the same as the ASIN expressed. \| \| `OTHER` \| Other Type. \| |
+| `value` | `value` | `string` | No | No | The expression value |
+
+## Inline2780
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+| `queryTermMatchType` | `queryTermMatchType` | `string` | No | No | Match type for query filters. \| Value \| Description \| \|-----------\|------------\| \| `BROAD_MATCH` \| Match if the queried value contains the filter value (substring matching). Note: If queryTermMatchType is set to BROAD_MATCH, only matches for the first query included will be returned. \| \| `EXACT_MATCH` \| Match if the queried value is exactly equivalent to the filter value. \| |
+
+## Inline2781
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2782
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2783
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2784
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `autoManageCampaign` | `autoManageCampaign` | `boolean` | No | No | — |
+| `budget` | `budget` | `Inline2784` | Yes | No | — |
+| `dynamicBidding` | `dynamicBidding` | `Inline2785` | No | No | Specifies bidding controls. DynamicBidding is optional for both Create and Update requests. For Create Campaign requests, if you don't specify dynamicBidding, default strategy of `LEGACY_FOR_SALES` will be applied. |
+| `endDate` | `endDate` | `string` | No | No | The format of the date is YYYY-MM-DD. |
+| `name` | `name` | `string` | Yes | No | The name of the campaign. |
+| `offAmazonSettings` | `offAmazonSettings` | `Inline2787` | No | No | Settings that apply to ads served off Amazon. `OffAmazonSettings` is optional for both Create and Update requests. This field is upcoming and is not ready for use. |
+| `portfolioId` | `portfolioId` | `string` | No | No | The identifier of an existing portfolio to which the campaign is associated. |
+| `siteRestrictions` | `siteRestrictions` | `Array<string>` | No | No | Restrict the ad to a particular site. siteRestrictions is an optional field. If this field is not set, ads from the campaign will appear on Amazon - including both Amazon retail and Amazon Business - as well as select sites and apps off Amazon. Please note that: 1) AMAZON_BUSINESS option is only available for Amazon Business operated marketplaces (US, CA, MX, UK, DE, FR, IT, ES, IN, JP, AU), and AMAZON_HAUL option is only available in US; 2) siteRestrictions cannot be changed post campaign creation; 3) siteRestrictions don’t support shopperCohortBidding setting, SITE_AMAZON_BUSINESS placementBidding setting and offAmazonSettings; 4) Only AMAZON_BUSINESS option is ready for use at the moment. |
+| `startDate` | `startDate` | `string` | No | No | Default: today's date. The format of the date is YYYY-MM-DD. |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation |
+| `tags` | `tags` | `Inline2788` | No | No | A list of advertiser-specified custom identifiers for the campaign. Each customer identifier is a key-value pair. You can specify a maximum of 50 identifiers. |
+| `targetingType` | `targetingType` | `string` | Yes | No | — |
+
+## Inline2785
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placementBidding` | `placementBidding` | `Array<Inline2785>` | No | No | — |
+| `shopperCohortBidding` | `shopperCohortBidding` | `Array<Inline2786>` | No | No | Specifies Shopper Cohorts based bid adjustment controls. `shopperCohortBidding` is optional for both Create and Update requests. You can enable this control to adjust your bid based on the shopper cohorts. The percentage value set is the percentage of the original bid including any other bid adjustments such as `placementBidding`. For example, a `placementBidding` with 50% adjustment on a $1.00 bid would increase the bid to $1.50, and a `shopperCohortBidding` with 100% adjustment would further increase the bid to $3.00. |
+| `strategy` | `strategy` | `string` | No | No | The bidding strategy. `strategy` is required for create requests if dynamicBidding is provided, but is optional for update requests. \| Value \| Strategy name \| Description \| \|----------------\|---------------\|-------------\| \| `LEGACY_FOR_SALES` \| Dynamic bids - down only \| Lowers your bids in real time when your ad may be less likely to convert to a sale. Campaigns created before the release of the bidding controls feature used this setting by default. \| \| `AUTO_FOR_SALES` \| Dynamic bids - up and down \| Increases or decreases your bids in real time by a maximum of 100%. With this setting bids increase when your ad is more likely to convert to a sale, and bids decrease when less likely to convert to a sale. \| \| `MANUAL` \| Fixed bid \| Uses your exact bid and any placement adjustments you set, and is not subject to dynamic bidding. \| \| `RULE_BASED` \| Rule based bidding \| See Rule based bidding documentation https://advertising.amazon.com/API/docs/en-us/sponsored-products/rule-based-bidding/overview \| |
+
+## Inline2786
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceSegments` | `audienceSegments` | `Array<Inline2786>` | No | No | A list of Audience Segments. Shoppers belonging to these segments will be selected for applying the bid adjustments. This is a required field when using "AUDIENCE_SEGMENT" option for `shopperCohortType`. |
+| `percentage` | `percentage` | `number` | No | No | — |
+| `shopperCohortType` | `shopperCohortType` | `string` | Yes | No | This field specifies the type of shopper cohort used to apply bid adjustments. `AUDIENCE_SEGMENT` is the only supported type currently. \| Value \| Description \| \|-----------\|------------\| \| `AUDIENCE_SEGMENT` \| A predefined list of the shopper ids. \| |
+
+## Inline2787
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `offAmazonBudgetControlStrategy` | `offAmazonBudgetControlStrategy` | `string` | No | No | The budget control strategy for ads served off Amazon . `OffAmazonBudgetControlStrategy` is optional for create and update requests. Value \| Description \| \|-----------\|------------\| \| `MAXIMIZE_REACH` \| Prioritize more reach using your target settings. This setting may result in more impressions and opportunities for sales off Amazon. \| \| `MINIMIZE_SPEND` \| Optimize ad delivery to minimize spending. This setting may result in fewer impressions off Amazon, but it can help control spend. \| |
+
+## Inline2788
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline279
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `Inline279` | Yes | No | Action to be taken by the rule. |
+| `conditions` | `conditions` | `Array<Inline280>` | No | No | — |
+| `recurrence` | `recurrence` | `Inline282` | Yes | No | The recurrence of the optimization rule application. |
+| `ruleCategory` | `ruleCategory` | `string` | Yes | No | The type of the optimization rule. |
+| `ruleName` | `ruleName` | `string` | No | No | The rule name. |
+| `ruleSubCategory` | `ruleSubCategory` | `string` | Yes | No | The sub-category of the optimization rule. |
+| `status` | `status` | `string` | No | No | The status of a rule. Only ENABLED and PAUSED are accepted in requests. |
+
+## Inline2791
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `autoManageCampaign` | `autoManageCampaign` | `boolean` | No | No | — |
+| `budget` | `budget` | `Inline2791` | Yes | No | — |
+| `dynamicBidding` | `dynamicBidding` | `Inline2792` | No | No | Specifies bidding controls. DynamicBidding is optional for both Create and Update requests. For Create Campaign requests, if you don't specify dynamicBidding, default strategy of `LEGACY_FOR_SALES` will be applied. |
+| `endDate` | `endDate` | `string` | No | No | The format of the date is YYYY-MM-DD. |
+| `name` | `name` | `string` | Yes | No | The name of the campaign. |
+| `offAmazonSettings` | `offAmazonSettings` | `Inline2794` | No | No | Settings that apply to ads served off Amazon. `OffAmazonSettings` is optional for both Create and Update requests. This field is upcoming and is not ready for use. |
+| `portfolioId` | `portfolioId` | `string` | No | No | The identifier of an existing portfolio to which the campaign is associated. |
+| `siteRestrictions` | `siteRestrictions` | `Array<string>` | No | No | Restrict the ad to a particular site. siteRestrictions is an optional field. If this field is not set, ads from the campaign will appear on Amazon - including both Amazon retail and Amazon Business - as well as select sites and apps off Amazon. Please note that: 1) AMAZON_BUSINESS option is only available for Amazon Business operated marketplaces (US, CA, MX, UK, DE, FR, IT, ES, IN, JP, AU), and AMAZON_HAUL option is only available in US; 2) siteRestrictions cannot be changed post campaign creation; 3) siteRestrictions don’t support shopperCohortBidding setting, SITE_AMAZON_BUSINESS placementBidding setting and offAmazonSettings; 4) Only AMAZON_BUSINESS option is ready for use at the moment. |
+| `startDate` | `startDate` | `string` | No | No | Default: today's date. The format of the date is YYYY-MM-DD. |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation |
+| `tags` | `tags` | `Inline2795` | No | No | A list of advertiser-specified custom identifiers for the campaign. Each customer identifier is a key-value pair. You can specify a maximum of 50 identifiers. |
+| `targetingType` | `targetingType` | `string` | Yes | No | — |
+
+## Inline2792
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placementBidding` | `placementBidding` | `Array<Inline2792>` | No | No | — |
+| `shopperCohortBidding` | `shopperCohortBidding` | `Array<Inline2793>` | No | No | Specifies Shopper Cohorts based bid adjustment controls. `shopperCohortBidding` is optional for both Create and Update requests. You can enable this control to adjust your bid based on the shopper cohorts. The percentage value set is the percentage of the original bid including any other bid adjustments such as `placementBidding`. For example, a `placementBidding` with 50% adjustment on a $1.00 bid would increase the bid to $1.50, and a `shopperCohortBidding` with 100% adjustment would further increase the bid to $3.00. |
+| `strategy` | `strategy` | `string` | No | No | The bidding strategy. `strategy` is required for create requests if dynamicBidding is provided, but is optional for update requests. \| Value \| Strategy name \| Description \| \|----------------\|---------------\|-------------\| \| `LEGACY_FOR_SALES` \| Dynamic bids - down only \| Lowers your bids in real time when your ad may be less likely to convert to a sale. Campaigns created before the release of the bidding controls feature used this setting by default. \| \| `AUTO_FOR_SALES` \| Dynamic bids - up and down \| Increases or decreases your bids in real time by a maximum of 100%. With this setting bids increase when your ad is more likely to convert to a sale, and bids decrease when less likely to convert to a sale. \| \| `MANUAL` \| Fixed bid \| Uses your exact bid and any placement adjustments you set, and is not subject to dynamic bidding. \| \| `RULE_BASED` \| Rule based bidding \| See Rule based bidding documentation https://advertising.amazon.com/API/docs/en-us/sponsored-products/rule-based-bidding/overview \| |
+
+## Inline2793
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceSegments` | `audienceSegments` | `Array<Inline2793>` | No | No | A list of Audience Segments. Shoppers belonging to these segments will be selected for applying the bid adjustments. This is a required field when using "AUDIENCE_SEGMENT" option for `shopperCohortType`. |
+| `percentage` | `percentage` | `number` | No | No | — |
+| `shopperCohortType` | `shopperCohortType` | `string` | Yes | No | This field specifies the type of shopper cohort used to apply bid adjustments. `AUDIENCE_SEGMENT` is the only supported type currently. \| Value \| Description \| \|-----------\|------------\| \| `AUDIENCE_SEGMENT` \| A predefined list of the shopper ids. \| |
+
+## Inline2794
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `offAmazonBudgetControlStrategy` | `offAmazonBudgetControlStrategy` | `string` | No | No | The budget control strategy for ads served off Amazon . `OffAmazonBudgetControlStrategy` is optional for create and update requests. Value \| Description \| \|-----------\|------------\| \| `MAXIMIZE_REACH` \| Prioritize more reach using your target settings. This setting may result in more impressions and opportunities for sales off Amazon. \| \| `MINIMIZE_SPEND` \| Optimize ad delivery to minimize spending. This setting may result in fewer impressions off Amazon, but it can help control spend. \| |
+
+## Inline2795
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2796
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `Inline2796` | No | No | — |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign. |
+| `dynamicBidding` | `dynamicBidding` | `Inline2797` | No | No | Specifies bidding controls. DynamicBidding is optional for both Create and Update requests. For Create Campaign requests, if you don't specify dynamicBidding, default strategy of `LEGACY_FOR_SALES` will be applied. |
+| `endDate` | `endDate` | `string` | No | No | The format of the date is YYYY-MM-DD. |
+| `name` | `name` | `string` | No | No | The name of the campaign. |
+| `offAmazonSettings` | `offAmazonSettings` | `Inline2799` | No | No | Settings that apply to ads served off Amazon. `OffAmazonSettings` is optional for both Create and Update requests. This field is upcoming and is not ready for use. |
+| `portfolioId` | `portfolioId` | `string` | No | No | The identifier of an existing portfolio to which the campaign is associated. |
+| `siteRestrictions` | `siteRestrictions` | `Array<string>` | No | No | Restrict the ad to a particular site. siteRestrictions is an optional field. If this field is not set, ads from the campaign will appear on Amazon - including both Amazon retail and Amazon Business - as well as select sites and apps off Amazon. Please note that: 1) AMAZON_BUSINESS option is only available for Amazon Business operated marketplaces (US, CA, MX, UK, DE, FR, IT, ES, IN, JP, AU), and AMAZON_HAUL option is only available in US; 2) siteRestrictions cannot be changed post campaign creation; 3) siteRestrictions don’t support shopperCohortBidding setting, SITE_AMAZON_BUSINESS placementBidding setting and offAmazonSettings; 4) Only AMAZON_BUSINESS option is ready for use at the moment. |
+| `startDate` | `startDate` | `string` | No | No | The format of the date is YYYY-MM-DD. |
+| `state` | `state` | `string` | No | No | Entity state for create or update operation |
+| `tags` | `tags` | `Inline2800` | No | No | A list of advertiser-specified custom identifiers for the campaign. Each customer identifier is a key-value pair. You can specify a maximum of 50 identifiers. |
+| `targetingType` | `targetingType` | `string` | No | No | — |
+
+## Inline2797
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placementBidding` | `placementBidding` | `Array<Inline2797>` | No | No | — |
+| `shopperCohortBidding` | `shopperCohortBidding` | `Array<Inline2798>` | No | No | Specifies Shopper Cohorts based bid adjustment controls. `shopperCohortBidding` is optional for both Create and Update requests. You can enable this control to adjust your bid based on the shopper cohorts. The percentage value set is the percentage of the original bid including any other bid adjustments such as `placementBidding`. For example, a `placementBidding` with 50% adjustment on a $1.00 bid would increase the bid to $1.50, and a `shopperCohortBidding` with 100% adjustment would further increase the bid to $3.00. |
+| `strategy` | `strategy` | `string` | No | No | The bidding strategy. `strategy` is required for create requests if dynamicBidding is provided, but is optional for update requests. \| Value \| Strategy name \| Description \| \|----------------\|---------------\|-------------\| \| `LEGACY_FOR_SALES` \| Dynamic bids - down only \| Lowers your bids in real time when your ad may be less likely to convert to a sale. Campaigns created before the release of the bidding controls feature used this setting by default. \| \| `AUTO_FOR_SALES` \| Dynamic bids - up and down \| Increases or decreases your bids in real time by a maximum of 100%. With this setting bids increase when your ad is more likely to convert to a sale, and bids decrease when less likely to convert to a sale. \| \| `MANUAL` \| Fixed bid \| Uses your exact bid and any placement adjustments you set, and is not subject to dynamic bidding. \| \| `RULE_BASED` \| Rule based bidding \| See Rule based bidding documentation https://advertising.amazon.com/API/docs/en-us/sponsored-products/rule-based-bidding/overview \| |
+
+## Inline2798
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceSegments` | `audienceSegments` | `Array<Inline2798>` | No | No | A list of Audience Segments. Shoppers belonging to these segments will be selected for applying the bid adjustments. This is a required field when using "AUDIENCE_SEGMENT" option for `shopperCohortType`. |
+| `percentage` | `percentage` | `number` | No | No | — |
+| `shopperCohortType` | `shopperCohortType` | `string` | Yes | No | This field specifies the type of shopper cohort used to apply bid adjustments. `AUDIENCE_SEGMENT` is the only supported type currently. \| Value \| Description \| \|-----------\|------------\| \| `AUDIENCE_SEGMENT` \| A predefined list of the shopper ids. \| |
+
+## Inline2799
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `offAmazonBudgetControlStrategy` | `offAmazonBudgetControlStrategy` | `string` | No | No | The budget control strategy for ads served off Amazon . `OffAmazonBudgetControlStrategy` is optional for create and update requests. Value \| Description \| \|-----------\|------------\| \| `MAXIMIZE_REACH` \| Prioritize more reach using your target settings. This setting may result in more impressions and opportunities for sales off Amazon. \| \| `MINIMIZE_SPEND` \| Optimize ad delivery to minimize spending. This setting may result in fewer impressions off Amazon, but it can help control spend. \| |
+
+## Inline28
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `string` | No | No | The targeting expression value. |
+
+## Inline280
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline280 \| Inline281` | No | No | — |
+
+## Inline2800
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2803
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `Inline2803` | No | No | — |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign. |
+| `dynamicBidding` | `dynamicBidding` | `Inline2804` | No | No | Specifies bidding controls. DynamicBidding is optional for both Create and Update requests. For Create Campaign requests, if you don't specify dynamicBidding, default strategy of `LEGACY_FOR_SALES` will be applied. |
+| `endDate` | `endDate` | `string` | No | No | The format of the date is YYYY-MM-DD. |
+| `name` | `name` | `string` | No | No | The name of the campaign. |
+| `offAmazonSettings` | `offAmazonSettings` | `Inline2806` | No | No | Settings that apply to ads served off Amazon. `OffAmazonSettings` is optional for both Create and Update requests. This field is upcoming and is not ready for use. |
+| `portfolioId` | `portfolioId` | `string` | No | No | The identifier of an existing portfolio to which the campaign is associated. |
+| `siteRestrictions` | `siteRestrictions` | `Array<string>` | No | No | Restrict the ad to a particular site. siteRestrictions is an optional field. If this field is not set, ads from the campaign will appear on Amazon - including both Amazon retail and Amazon Business - as well as select sites and apps off Amazon. Please note that: 1) AMAZON_BUSINESS option is only available for Amazon Business operated marketplaces (US, CA, MX, UK, DE, FR, IT, ES, IN, JP, AU), and AMAZON_HAUL option is only available in US; 2) siteRestrictions cannot be changed post campaign creation; 3) siteRestrictions don’t support shopperCohortBidding setting, SITE_AMAZON_BUSINESS placementBidding setting and offAmazonSettings; 4) Only AMAZON_BUSINESS option is ready for use at the moment. |
+| `startDate` | `startDate` | `string` | No | No | The format of the date is YYYY-MM-DD. |
+| `state` | `state` | `string` | No | No | Entity state for create or update operation |
+| `tags` | `tags` | `Inline2807` | No | No | A list of advertiser-specified custom identifiers for the campaign. Each customer identifier is a key-value pair. You can specify a maximum of 50 identifiers. |
+| `targetingType` | `targetingType` | `string` | No | No | — |
+
+## Inline2804
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placementBidding` | `placementBidding` | `Array<Inline2804>` | No | No | — |
+| `shopperCohortBidding` | `shopperCohortBidding` | `Array<Inline2805>` | No | No | Specifies Shopper Cohorts based bid adjustment controls. `shopperCohortBidding` is optional for both Create and Update requests. You can enable this control to adjust your bid based on the shopper cohorts. The percentage value set is the percentage of the original bid including any other bid adjustments such as `placementBidding`. For example, a `placementBidding` with 50% adjustment on a $1.00 bid would increase the bid to $1.50, and a `shopperCohortBidding` with 100% adjustment would further increase the bid to $3.00. |
+| `strategy` | `strategy` | `string` | No | No | The bidding strategy. `strategy` is required for create requests if dynamicBidding is provided, but is optional for update requests. \| Value \| Strategy name \| Description \| \|----------------\|---------------\|-------------\| \| `LEGACY_FOR_SALES` \| Dynamic bids - down only \| Lowers your bids in real time when your ad may be less likely to convert to a sale. Campaigns created before the release of the bidding controls feature used this setting by default. \| \| `AUTO_FOR_SALES` \| Dynamic bids - up and down \| Increases or decreases your bids in real time by a maximum of 100%. With this setting bids increase when your ad is more likely to convert to a sale, and bids decrease when less likely to convert to a sale. \| \| `MANUAL` \| Fixed bid \| Uses your exact bid and any placement adjustments you set, and is not subject to dynamic bidding. \| \| `RULE_BASED` \| Rule based bidding \| See Rule based bidding documentation https://advertising.amazon.com/API/docs/en-us/sponsored-products/rule-based-bidding/overview \| |
+
+## Inline2805
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceSegments` | `audienceSegments` | `Array<Inline2805>` | No | No | A list of Audience Segments. Shoppers belonging to these segments will be selected for applying the bid adjustments. This is a required field when using "AUDIENCE_SEGMENT" option for `shopperCohortType`. |
+| `percentage` | `percentage` | `number` | No | No | — |
+| `shopperCohortType` | `shopperCohortType` | `string` | Yes | No | This field specifies the type of shopper cohort used to apply bid adjustments. `AUDIENCE_SEGMENT` is the only supported type currently. \| Value \| Description \| \|-----------\|------------\| \| `AUDIENCE_SEGMENT` \| A predefined list of the shopper ids. \| |
+
+## Inline2806
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `offAmazonBudgetControlStrategy` | `offAmazonBudgetControlStrategy` | `string` | No | No | The budget control strategy for ads served off Amazon . `OffAmazonBudgetControlStrategy` is optional for create and update requests. Value \| Description \| \|-----------\|------------\| \| `MAXIMIZE_REACH` \| Prioritize more reach using your target settings. This setting may result in more impressions and opportunities for sales off Amazon. \| \| `MINIMIZE_SPEND` \| Optimize ad delivery to minimize spending. This setting may result in fewer impressions off Amazon, but it can help control spend. \| |
+
+## Inline2807
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2809
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `associatedRules` | `associatedRules` | `Array<Inline2809>` | No | No | A list of associated budget rules. |
+
+## Inline281
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline2810
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dateRangeTypeRuleDuration` | `dateRangeTypeRuleDuration` | `Inline2810` | No | No | Object representing date range type rule duration. |
+| `eventTypeRuleDuration` | `eventTypeRuleDuration` | `Inline2811` | No | No | Object representing event type rule duration. |
+
+## Inline2811
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The event end date in YYYYMMDD format. Read-only. |
+| `eventId` | `eventId` | `string` | Yes | No | The event identifier. This value is available from the budget rules recommendation API. |
+| `eventName` | `eventName` | `string` | No | No | The event name. Read-only. |
+| `startDate` | `startDate` | `string` | No | No | The event start date in YYYYMMDD format. Read-only. Note that this field is present only for announced events. |
+
+## Inline2812
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `metricName` | `metricName` | `string` | Yes | No | The advertising performance metric. |
+| `threshold` | `threshold` | `number` | Yes | No | The performance threshold value. |
+
+## Inline2813
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | Object representing days of the week for weekly type rule. It is not required for daily recurrence type |
+| `intraDaySchedule` | `intraDaySchedule` | `Array<Inline2813>` | No | No | List of objects representing start and end time of desired intra-day budget rule window |
+| `type` | `type` | `string` | No | No | The frequency of the rule application. |
+
+## Inline2818
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline282
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline282` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline283>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## Inline2825
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRecommendationsErrorResults` | `budgetRecommendationsErrorResults` | `Array<Inline2825>` | Yes | No | List of errors that occured when generating bduget recommendation. |
+| `budgetRecommendationsSuccessResults` | `budgetRecommendationsSuccessResults` | `Array<Inline2826>` | Yes | No | List of successful budget recomendation for campagins. |
+
+## Inline2826
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetRuleRecommendation` | `budgetRuleRecommendation` | `Inline2826` | Yes | No | — |
+| `campaignId` | `campaignId` | `string` | Yes | No | encrypted campaignId |
+| `index` | `index` | `number` | Yes | No | Correlate the recommendation to the campaign index in the request. Zero-based |
+| `sevenDaysMissedOpportunities` | `sevenDaysMissedOpportunities` | `Inline2827` | Yes | No | — |
+| `suggestedBudget` | `suggestedBudget` | `number` | Yes | No | recommended budget for the campaign. |
+
+## Inline2827
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | End date of the date range for which missed opportunity metrics are provided (YYYYMMDD). Local time |
+| `estimatedMissedClicksLower` | `estimatedMissedClicksLower` | `number` | No | No | Lower bound estimate of the additional clicks the campaign might have generated if it had not run out of budget during the &#123;startDate&#125; to &#123;endDate&#125; period. |
+| `estimatedMissedClicksUpper` | `estimatedMissedClicksUpper` | `number` | No | No | Upper bound estimate of the additional clicks the campaign might have generated if it had not run out of budget during the &#123;startDate&#125; to &#123;endDate&#125; period. |
+| `estimatedMissedImpressionsLower` | `estimatedMissedImpressionsLower` | `number` | No | No | Lower bound estimate of the additional impressions the campaign might have generated if it had not run out of budget during the &#123;startDate&#125; to &#123;endDate&#125; period. |
+| `estimatedMissedImpressionsUpper` | `estimatedMissedImpressionsUpper` | `number` | No | No | Upper bound estimate of the additional impressions the campaign might have generated if it had not run out of budget during the &#123;startDate&#125; to &#123;endDate&#125; period. |
+| `estimatedMissedSalesLower` | `estimatedMissedSalesLower` | `number` | No | No | Lower bound estimate of the additional sales the campaign might have generated if it had not run out of budget during the &#123;startDate&#125; to &#123;endDate&#125; period. Provided in local currency. |
+| `estimatedMissedSalesUpper` | `estimatedMissedSalesUpper` | `number` | No | No | Upper bound estimate of the additional sales the campaign might have generated if it had not run out of budget during the &#123;startDate&#125; to &#123;endDate&#125; period. Provided in local currency. |
+| `percentTimeInBudget` | `percentTimeInBudget` | `number` | No | No | percentage of time the campaign is active with a budget. Provided as a decimal ranging from 0 to 1 (e.g. 0.76 means the campaign was in budget for 76% of the time between the startDate and endDate period) |
+| `startDate` | `startDate` | `string` | No | No | Starting date of the date range for which missed opportunity metrics are provided (YYYYMMDD). Local time |
+
+## Inline2829
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The campaign identifier. |
+
+## Inline283
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline2831
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendedBudgetRuleEvents` | `recommendedBudgetRuleEvents` | `Array<Inline2831>` | No | No | A list of recommended special events with date range and suggested budget increase. |
+
+## Inline2833
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2836
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2837
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | No | No | The ad group identifier. |
+| `asins` | `asins` | `Array<string>` | Yes | No | The list of ad ASINs in the ad group. |
+| `targetingExpressions` | `targetingExpressions` | `Array<Inline2837>` | Yes | No | The list of targeting expressions. Maximum of 100 per request. |
+
+## Inline2838
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adjustments` | `adjustments` | `Array<Inline2838>` | No | No | Placement adjustment configuration for the campaign. |
+| `strategy` | `strategy` | `string` | Yes | No | The bidding strategy selected for the campaign. Use LEGACY_FOR_SALES to lower your bid in real time when your ad may be less likely to convert to a sale. Use AUTO_FOR_SALES to increase your bid in real time when your ad may be more likely to convert to a sale or lower your bid when less likely to convert to a sale. Use MANUAL to use your exact bid along with any manual adjustments. |
+
+## Inline2840
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `benchmark` | `benchmark` | `Inline2840` | Yes | No | Forecasted impact metrics for next 7 days or during special days. |
+| `dailyBudget` | `dailyBudget` | `number` | Yes | No | Recommended daily budget for the new campaign. Note: value -1 means we don’t have enough information to provide a recommendation. |
+| `recommendationId` | `recommendationId` | `string` | No | No | Unique identifier for each recommendation. |
+| `specialEvents` | `specialEvents` | `Array<Inline2843>` | Yes | No | A list of special events around the start and end date of the campaign. |
+
+## Inline2841
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lower` | `lower` | `number` | No | No | lower bound. |
+| `upper` | `upper` | `number` | No | No | upper bound. |
+
+## Inline2842
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lower` | `lower` | `number` | No | No | lower bound. |
+| `upper` | `upper` | `number` | No | No | upper bound. |
+
+## Inline2843
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `benchmark` | `benchmark` | `Inline2843` | No | No | Forecasted impact metrics for next 7 days or during special days. |
+| `budgetModifier` | `budgetModifier` | `number` | No | No | Deprecated. The factor used to boost the recommended budget. |
+| `dailyBudget` | `dailyBudget` | `number` | No | No | Recommended daily budget for the new campaign during the special event period. |
+| `endDate` | `endDate` | `string` | No | No | The end date of the special event in YYYYMMDD format. |
+| `eventKey` | `eventKey` | `string` | No | No | The key of the special event. |
+| `eventName` | `eventName` | `string` | No | No | The name of the special event. |
+| `startDate` | `startDate` | `string` | No | No | The start date of the special event in YYYYMMDD format. |
+
+## Inline2844
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lower` | `lower` | `number` | No | No | lower bound. |
+| `upper` | `upper` | `number` | No | No | upper bound. |
+
+## Inline2845
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lower` | `lower` | `number` | No | No | lower bound. |
+| `upper` | `upper` | `number` | No | No | upper bound. |
+
+## Inline2847
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | No | No | The ad group identifier. |
+| `asins` | `asins` | `Array<string>` | Yes | No | The list of ad ASINs in the ad group. |
+| `targetingExpressions` | `targetingExpressions` | `Array<Inline2847>` | Yes | No | The list of targeting expressions. Maximum of 100 per request. |
+
+## Inline2848
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adjustments` | `adjustments` | `Array<Inline2848>` | No | No | Placement adjustment configuration for the campaign. |
+| `strategy` | `strategy` | `string` | Yes | No | The bidding strategy selected for the campaign. Use LEGACY_FOR_SALES to lower your bid in real time when your ad may be less likely to convert to a sale. Use AUTO_FOR_SALES to increase your bid in real time when your ad may be more likely to convert to a sale or lower your bid when less likely to convert to a sale. Use MANUAL to use your exact bid along with any manual adjustments. |
+
+## Inline2849
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline285
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `Inline285` | No | No | Action to be taken by the rule. |
+| `conditions` | `conditions` | `Array<Inline286>` | No | No | — |
+| `recurrence` | `recurrence` | `Inline288` | No | No | The recurrence of the optimization rule application. |
+| `ruleCategory` | `ruleCategory` | `string` | Yes | No | The type of the optimization rule. |
+| `ruleName` | `ruleName` | `string` | Yes | No | The rule name. |
+| `ruleSubCategory` | `ruleSubCategory` | `string` | Yes | No | The sub-category of the optimization rule. |
+| `status` | `status` | `string` | Yes | No | The status of a rule. Only ENABLED and PAUSED are accepted in requests. |
+| `targeting` | `targeting` | `Array<Inline290>` | No | No | — |
+
+## Inline2850
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2851
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+| `queryTermMatchType` | `queryTermMatchType` | `string` | No | No | Match type for query filters. \| Value \| Description \| \|-----------\|------------\| \| `BROAD_MATCH` \| Match if the queried value contains the filter value (substring matching). Note: If queryTermMatchType is set to BROAD_MATCH, only matches for the first query included will be returned. \| \| `EXACT_MATCH` \| Match if the queried value is exactly equivalent to the filter value. \| |
+
+## Inline2852
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2853
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2855
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Array<Inline2855>` | No | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of entities |
+
+## Inline2856
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placementBidding` | `placementBidding` | `Array<Inline2856>` | No | No | — |
+| `shopperCohortBidding` | `shopperCohortBidding` | `Array<Inline2857>` | No | No | Specifies Shopper Cohorts based bid adjustment controls. `shopperCohortBidding` is optional for both Create and Update requests. You can enable this control to adjust your bid based on the shopper cohorts. The percentage value set is the percentage of the original bid including any other bid adjustments such as `placementBidding`. For example, a `placementBidding` with 50% adjustment on a $1.00 bid would increase the bid to $1.50, and a `shopperCohortBidding` with 100% adjustment would further increase the bid to $3.00. |
+| `strategy` | `strategy` | `string` | Yes | No | The bidding strategy. \| Value \| Strategy name \| Description \| \|----------------\|---------------\|-------------\| \| `LEGACY_FOR_SALES` \| Dynamic bids - down only \| Lowers your bids in real time when your ad may be less likely to convert to a sale. Campaigns created before the release of the bidding controls feature used this setting by default. \| \| `AUTO_FOR_SALES` \| Dynamic bids - up and down \| Increases or decreases your bids in real time by a maximum of 100%. With this setting bids increase when your ad is more likely to convert to a sale, and bids decrease when less likely to convert to a sale. \| \| `MANUAL` \| Fixed bid \| Uses your exact bid and any placement adjustments you set, and is not subject to dynamic bidding. \| \| `RULE_BASED` \| Rule based bidding \| See Rule based bidding documentation https://advertising.amazon.com/API/docs/en-us/sponsored-products/rule-based-bidding/overview \| |
+
+## Inline2857
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceSegments` | `audienceSegments` | `Array<Inline2857>` | No | No | A list of Audience Segments. Shoppers belonging to these segments will be selected for applying the bid adjustments. This is a required field when using "AUDIENCE_SEGMENT" option for `shopperCohortType`. |
+| `percentage` | `percentage` | `number` | No | No | — |
+| `shopperCohortType` | `shopperCohortType` | `string` | Yes | No | This field specifies the type of shopper cohort used to apply bid adjustments. `AUDIENCE_SEGMENT` is the only supported type currently. \| Value \| Description \| \|-----------\|------------\| \| `AUDIENCE_SEGMENT` \| A predefined list of the shopper ids. \| |
+
+## Inline2858
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDateTime` | `creationDateTime` | `string` | No | No | Creation date in ISO 8601. |
+| `lastUpdateDateTime` | `lastUpdateDateTime` | `string` | No | No | Last updated date in ISO 8601. |
+| `servingStatus` | `servingStatus` | `string` | No | No | — |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<Inline2858>` | No | No | The serving status reasons of the Campaign |
+
+## Inline2859
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `offAmazonBudgetControlStrategy` | `offAmazonBudgetControlStrategy` | `string` | No | No | — |
+
+## Inline286
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributeName` | `attributeName` | `string` | No | No | The attribute of the rule. |
+| `criteria` | `criteria` | `Inline286 \| Inline287` | No | No | Only Value Type Criteria is supported right now. |
+
+## Inline2860
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2862
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2863
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2864
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+| `queryTermMatchType` | `queryTermMatchType` | `string` | No | No | Match type for query filters. \| Value \| Description \| \|-----------\|------------\| \| `BROAD_MATCH` \| Match if the queried value contains the filter value (substring matching). Note: If queryTermMatchType is set to BROAD_MATCH, only matches for the first query included will be returned. \| \| `EXACT_MATCH` \| Match if the queried value is exactly equivalent to the filter value. \| |
+
+## Inline2865
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2866
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2867
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The ad group identifier. |
+| `campaignId` | `campaignId` | `string` | Yes | No | The campaign identifier. |
+| `countryCodes` | `countryCodes` | `Array<string>` | No | No | A list of country codes. Supported country codes: \| Country Code \| Country \| \|-------------\|----------------------\| \| US \| United States \| \| CA \| Canada \| \| MX \| Mexico \| \| BR \| Brazil \| \| UK \| United Kingdom \| \| DE \| Germany \| \| FR \| France \| \| ES \| Spain \| \| IT \| Italy \| \| IN \| India \| \| AE \| United Arab Emirates \| \| SA \| Saudi Arabia \| \| NL \| Netherlands \| \| PL \| Poland \| \| BE \| Belgium \| \| SE \| Sweden \| \| TR \| Turkey \| \| EG \| Egypt \| \| JP \| Japan \| \| AU \| Australia \| \| SG \| Singapore \| |
+| `includeAnalysis` | `includeAnalysis` | `boolean` | No | No | Flag to include new bid analyzer data. |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The bid recommendation type. |
+| `targetingExpressions` | `targetingExpressions` | `Array<Inline2867>` | Yes | No | The list of targeting expressions. Maximum of 100 per request per country, use pagination for more if needed. |
+
+## Inline2868
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidding` | `bidding` | `Inline2868` | Yes | No | Bidding control configuration for the campaign. |
+| `countryCodes` | `countryCodes` | `Array<string>` | Yes | No | A list of country codes. Supported country codes: \| Country Code \| Country \| \|-------------\|----------------------\| \| US \| United States \| \| CA \| Canada \| \| MX \| Mexico \| \| BR \| Brazil \| \| UK \| United Kingdom \| \| DE \| Germany \| \| FR \| France \| \| ES \| Spain \| \| IT \| Italy \| \| IN \| India \| \| AE \| United Arab Emirates \| \| SA \| Saudi Arabia \| \| NL \| Netherlands \| \| PL \| Poland \| \| BE \| Belgium \| \| SE \| Sweden \| \| TR \| Turkey \| \| EG \| Egypt \| \| JP \| Japan \| \| AU \| Australia \| \| SG \| Singapore \| |
+| `includeAnalysis` | `includeAnalysis` | `boolean` | No | No | Flag to include new bid analyzer data. |
+| `products` | `products` | `Array<Inline2869>` | No | No | This represents the list of products in the request. |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The bid recommendation type. |
+| `targetingExpressions` | `targetingExpressions` | `Array<Inline2870>` | Yes | No | The list of targeting expressions. Maximum of 100 per request per country, use pagination for more if needed. |
+
+## Inline2869
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline287
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `comparisonOperator` | `comparisonOperator` | `string` | Yes | No | The comparison operator. |
+| `value` | `value` | `number` | Yes | No | — |
+
+## Inline2870
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `countryValues` | `countryValues` | `unknown` | No | No | — |
+| `type` | `type` | `string` | Yes | No | — |
+
+## Inline2872
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bidRecommendations` | `bidRecommendations` | `Array<Inline2872>` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline2874>` | No | No | List of errors occurred while processing multi country request. |
+
+## Inline2873
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `countrySuggestedBids` | `countrySuggestedBids` | `unknown` | Yes | No | — |
+| `expression` | `expression` | `Inline2873` | Yes | No | The targeting expression. The `type` property specifies the targeting option. Use `CLOSE_MATCH` to match your auto targeting ads closely to the specified value. Use `LOOSE_MATCH` to match your auto targeting ads broadly to the specified value. Use `SUBSTITUTES` to display your auto targeting ads along with substitutable products. Use `COMPLEMENTS` to display your auto targeting ads along with affiliated products. Use `KEYWORD_BROAD_MATCH` to broadly match your keyword targeting ads with search queries. Use `KEYWORD_EXACT_MATCH` to exactly match your keyword targeting ads with search queries. Use `KEYWORD_PHRASE_MATCH` to match your keyword targeting ads with search phrases. your keyword targeting ads with search phrases. Use `PAT_ASIN` to match your product attribute targeting ads with product ASIN. Use `PAT_CATEGORY` to match your product attribute targeting ads with product category. Use `PAT_CATEGORY_REFINEMENT` to match your product attribute targeting ads with product attribute, including brand, price, rating, prime shipping eligible, age range and genre. Use `KEYWORD_GROUP` to match your keyword targeting ads with keyword group. |
+
+## Inline2874
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | Machine readable error code. |
+| `countryCodes` | `countryCodes` | `Array<string>` | No | No | Countries where error have occurred |
+| `message` | `message` | `string` | No | No | Human readable 1 liner error message |
+
+## Inline2876
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `products` | `products` | `Array<Inline2876>` | No | No | It represents an array list of countryProducts. CountryProducts is a map representing same product in a different marketplaces. Key is a 2-letter country code, value is a product. |
+| `targets` | `targets` | `Array<Inline2877>` | No | No | An array list of countryTargets. CountryTarget is an object with CountryKeywords map representing same keyword in a different locales. Key is a 2-letter country code, value is a keyword object. |
+| `biddingStrategy` | `biddingStrategy` | `string` | No | No | The bid recommendations returned will depend on the bidding strategy. &lt;br&gt; LEGACY_FOR_SALES - Dynamic Bids (Down only) &lt;br&gt; AUTO_FOR_SALES - Dynamic Bids (Up or down) &lt;br&gt; MANUAL - Fixed Bids |
+| `bidsEnabled` | `bidsEnabled` | `boolean` | No | No | Set this parameter to false if you do not want to retrieve bid suggestions for your keyword targets. Defaults to true. |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The recommendationType to retrieve recommended keyword targets for a list of ASINs. |
+
+## Inline2877
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `countryKeywords` | `countryKeywords` | `Inline2877` | No | No | Map represents the same keyword in a different countries and locales. Key is a 2-letter country code, value is a keyword object with value and bid fields |
+| `matchType` | `matchType` | `string` | No | No | Keyword match type. The default value will be BROAD. |
+
+## Inline2878
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targets` | `targets` | `Array<Inline2878>` | No | No | A list of targets that need to be ranked |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the ad group |
+| `bidsEnabled` | `bidsEnabled` | `boolean` | No | No | Set this parameter to false if you do not want to retrieve bid suggestions for your keyword targets. Defaults to true. |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign |
+| `recommendationType` | `recommendationType` | `string` | Yes | No | The recommendationType to retrieve recommended keyword targets for an existing ad group. |
+
+## Inline288
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daysOfWeek` | `daysOfWeek` | `Array<string>` | No | No | A list of days of the week. |
+| `duration` | `duration` | `Inline288` | Yes | No | The duration of an optimization rule based on special events (example: Prime Day) or custom date ranges. |
+| `timesOfDay` | `timesOfDay` | `Array<Inline289>` | No | No | List of times of the day. |
+| `type` | `type` | `string` | Yes | No | The frequency of the optimization rule application. |
+
+## Inline2880
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `countryCodes` | `countryCodes` | `Inline2880` | No | No | — |
+
+## Inline2882
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the ad group to which this keyword is associated. |
+| `bid` | `bid` | `number` | No | No | Bid associated with this keyword. Applicable to biddable match types only. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifer of the campaign to which the keyword is associated. |
+| `keywordText` | `keywordText` | `string` | Yes | No | The keyword text. |
+| `matchType` | `matchType` | `string` | Yes | No | — |
+| `nativeLanguageKeyword` | `nativeLanguageKeyword` | `string` | No | No | The unlocalized keyword text in the preferred locale of the advertiser. |
+| `nativeLanguageLocale` | `nativeLanguageLocale` | `string` | No | No | The locale preference of the advertiser. For example, if the advertiser’s preferred language is Simplified Chinese, set the locale to zh_CN. Supported locales include: Simplified Chinese (locale: zh_CN) for US, UK and CA. English (locale: en_GB) for DE, FR, IT and ES. |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation |
+
+## Inline2885
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the ad group to which this keyword is associated. |
+| `bid` | `bid` | `number` | No | No | Bid associated with this keyword. Applicable to biddable match types only. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifer of the campaign to which the keyword is associated. |
+| `keywordText` | `keywordText` | `string` | Yes | No | The keyword text. |
+| `matchType` | `matchType` | `string` | Yes | No | — |
+| `nativeLanguageKeyword` | `nativeLanguageKeyword` | `string` | No | No | The unlocalized keyword text in the preferred locale of the advertiser. |
+| `nativeLanguageLocale` | `nativeLanguageLocale` | `string` | No | No | The locale preference of the advertiser. For example, if the advertiser’s preferred language is Simplified Chinese, set the locale to zh_CN. Supported locales include: Simplified Chinese (locale: zh_CN) for US, UK and CA. English (locale: en_GB) for DE, FR, IT and ES. |
+| `state` | `state` | `string` | Yes | No | Entity state for create or update operation |
+
+## Inline2886
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | Bid associated with this keyword. Applicable to biddable match types only. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `keywordId` | `keywordId` | `string` | Yes | No | The identifier of the keyword. |
+| `state` | `state` | `string` | No | No | Entity state for create or update operation |
+
+## Inline2889
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | Bid associated with this keyword. Applicable to biddable match types only. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `keywordId` | `keywordId` | `string` | Yes | No | The identifier of the keyword. |
+| `state` | `state` | `string` | No | No | Entity state for create or update operation |
+
+## Inline289
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endTime` | `endTime` | `string` | Yes | No | Time of the day in HH:00. |
+| `startTime` | `startTime` | `string` | Yes | No | Time of the day in HH:00. |
+
+## Inline2890
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2893
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2894
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2895
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2896
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline2897
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+| `queryTermMatchType` | `queryTermMatchType` | `string` | Yes | No | Match type for query filters. \| Value \| Description \| \|-----------\|------------\| \| `BROAD_MATCH` \| Match if the queried value contains the filter value (substring matching). Note: If queryTermMatchType is set to BROAD_MATCH, only matches for the first query included will be returned. \| \| `EXACT_MATCH` \| Match if the queried value is exactly equivalent to the filter value. \| |
+
+## Inline2898
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline290
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expressionTypes` | `expressionTypes` | `Array<string>` | Yes | No | — |
+| `lookbackDays` | `lookbackDays` | `number` | Yes | No | The number of days of data to look back on for the rule. |
+| `targetingType` | `targetingType` | `string` | Yes | No | The type of targets for the rule. |
+
+## Inline2900
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywords` | `keywords` | `Array<Inline2900>` | No | No | — |
+| `nextToken` | `nextToken` | `string` | No | No | token value allowing to navigate to the next response page |
+| `totalResults` | `totalResults` | `number` | No | No | The total number of entities |

@@ -1,0 +1,229 @@
+---
+title: "Amazon Ads — Sponsored Products Campaign Optimization Rules endpoints"
+description: "6 generated Amazon Ads — Sponsored Products endpoint contracts for Campaign Optimization Rules."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 108
+  label: "Campaign Optimization Rules"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.campaignOptimizationRules.createOptimizationRule
+
+`POST` `/sp/rules/campaignOptimization`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (CreateOptimizationRule)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.campaignOptimizationRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `CreateOptimizationRuleResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `body` | `Array<string>` | Yes | No | A list of campaign ids |
+| `recurrence` | `body` | `string` | Yes | No | The frequency of the rule application. |
+| `ruleAction` | `body` | `string` | Yes | No | The action taken when the campaign optimization rule is enabled. Defaults to adopt |
+| `ruleCondition` | `body` | `Array<Inline2993>` | No | No | — |
+| `ruleName` | `body` | `string` | No | No | The campaign optimization rule name. |
+| `ruleType` | `body` | `string` | Yes | No | The type of the campaign optimization rule. Only Support BID as of now |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.campaignOptimizationRules.deleteCampaignOptimizationRule
+
+`DELETE` `/sp/rules/campaignOptimization/{campaignOptimizationId}`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (DeleteCampaignOptimizationRule)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.campaignOptimizationRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `DeleteCampaignOptimizationRuleResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignOptimizationId` | `path` | `string` | Yes | No | The sp campaign optimization rule identifier. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.campaignOptimizationRules.getCampaignOptimizationRule
+
+`GET` `/sp/rules/campaignOptimization/{campaignOptimizationId}`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (GetCampaignOptimizationRule)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads-sp.campaignOptimizationRules.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetCampaignOptimizationRuleResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignOptimizationId` | `path` | `string` | Yes | No | The sp campaign optimization rule identifier. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.campaignOptimizationRules.getOptimizationRuleEligibility
+
+`POST` `/sp/rules/campaignOptimization/eligibility`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (GetOptimizationRuleEligibility)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.campaignOptimizationRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetOptimizationRuleEligibilityResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `body` | `Array<string>` | Yes | No | A list of campaign ids |
+| `requirePerformanceMetrics` | `body` | `boolean` | No | No | If set to false, eligible campaigns without a recommendation for performanceMetrics are also provided in response.Check performanceMetricsExists response field to know if performanceMetrics is available for eligible campaign. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.campaignOptimizationRules.getRuleNotification
+
+`POST` `/sp/rules/campaignOptimization/state`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (GetRuleNotification)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.campaignOptimizationRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `GetRuleNotificationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `body` | `Array<string>` | Yes | No | A list of campaign ids |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## amazon-ads.campaignOptimizationRules.updateOptimizationRule
+
+`PUT` `/sp/rules/campaignOptimization`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (UpdateOptimizationRule)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sp.campaignOptimizationRules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `UpdateOptimizationRuleResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `body` | `Array<string>` | Yes | No | A list of campaign ids |
+| `campaignOptimizationId` | `body` | `string` | Yes | No | The persistent rule identifier. |
+| `recurrence` | `body` | `string` | Yes | No | The frequency of the rule application. |
+| `ruleAction` | `body` | `string` | Yes | No | The action taken when the campaign optimization rule is enabled. Defaults to adopt |
+| `ruleCondition` | `body` | `Array<Inline2998>` | No | No | — |
+| `ruleName` | `body` | `string` | No | No | The campaign optimization rule name. |
+| `ruleType` | `body` | `string` | Yes | No | The type of the campaign optimization rule. Only Support BID as of now |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

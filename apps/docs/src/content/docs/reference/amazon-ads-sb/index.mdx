@@ -1,0 +1,95 @@
+---
+title: "Amazon Ads — Sponsored Brands SDK reference"
+description: "Generated reference for 56 Amazon Ads — Sponsored Brands endpoints and 1243 models."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 112
+  label: "Amazon Ads — Sponsored Brands"
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+Install the platform package and import either its high-level client or its generated Effect client.
+
+```bash
+bun add @mosaic/amazon-ads
+```
+
+```ts
+import { createEffectClient } from "@mosaic/amazon-ads/sponsored-brands/effect";
+
+const client = createEffectClient();
+```
+
+| Contract | Value |
+| --- | --- |
+| Platform | Amazon Ads — Sponsored Brands |
+| API version | `v5` |
+| Source | `openapi: https://github.com/pinterest/api-description` |
+| Endpoints | 56 |
+| Models | 1243 |
+| Capabilities | 20 |
+
+## Endpoints
+
+- [Ad Creatives](/reference/amazon-ads-sb/endpoints/ad-creatives)
+- [Ad Groups](/reference/amazon-ads-sb/endpoints/ad-groups)
+- [Ad Migrations](/reference/amazon-ads-sb/endpoints/ad-migrations)
+- [Ads](/reference/amazon-ads-sb/endpoints/ads)
+- [Budget Recommendations](/reference/amazon-ads-sb/endpoints/budget-recommendations)
+- [Budget Rules](/reference/amazon-ads-sb/endpoints/budget-rules)
+- [Budget Rules Recommendation](/reference/amazon-ads-sb/endpoints/budget-rules-recommendation)
+- [Budget Usage](/reference/amazon-ads-sb/endpoints/budget-usage)
+- [Campaigns](/reference/amazon-ads-sb/endpoints/campaigns)
+- [Forecast](/reference/amazon-ads-sb/endpoints/forecast)
+- [Insights](/reference/amazon-ads-sb/endpoints/insights)
+- [Keyword Recommendations](/reference/amazon-ads-sb/endpoints/keyword-recommendations)
+- [Optimization Rules](/reference/amazon-ads-sb/endpoints/optimization-rules)
+- [Product Targeting Categories](/reference/amazon-ads-sb/endpoints/product-targeting-categories)
+- [Recommendations](/reference/amazon-ads-sb/endpoints/recommendations)
+- [SB Optimization Recommendations](/reference/amazon-ads-sb/endpoints/sb-optimization-recommendations)
+- [Targeting Recommendations](/reference/amazon-ads-sb/endpoints/targeting-recommendations)
+- [V3 Campaign Migration](/reference/amazon-ads-sb/endpoints/v3-campaign-migration)
+
+## Models
+
+- [Accept Header – Create Product Collection Creative](/reference/amazon-ads-sb/models/accept-header-to-create-product-collection-creative)
+- [Create Product Collection Creative Params – Get Budget Recommendations Params](/reference/amazon-ads-sb/models/create-product-collection-creative-params-to-get-budget-recommendations-params)
+- [Get Budget Recommendations Request Content – Inline1114](/reference/amazon-ads-sb/models/get-budget-recommendations-request-content-to-inline1114)
+- [Inline1117 – Inline1233](/reference/amazon-ads-sb/models/inline1117-to-inline1233)
+- [Inline1234 – Inline25](/reference/amazon-ads-sb/models/inline1234-to-inline25)
+- [Inline250 – Inline360](/reference/amazon-ads-sb/models/inline250-to-inline360)
+- [Inline361 – Inline510](/reference/amazon-ads-sb/models/inline361-to-inline510)
+- [Inline511 – Inline657](/reference/amazon-ads-sb/models/inline511-to-inline657)
+- [Inline658 – Inline866](/reference/amazon-ads-sb/models/inline658-to-inline866)
+- [Inline867 – Internal Server Error Code](/reference/amazon-ads-sb/models/inline867-to-internal-server-error-code)
+- [Internal Server Exception Response Content – SB Forecasting Error Object](/reference/amazon-ads-sb/models/internal-server-exception-response-content-to-sb-forecasting-error-object)
+- [SB Forecasting Internal Server Exception Response Content – Throttling Error Code](/reference/amazon-ads-sb/models/sb-forecasting-internal-server-exception-response-conten-to-throttling-error-code)
+- [Throttling Exception Response Content – Video Creative](/reference/amazon-ads-sb/models/throttling-exception-response-content-to-video-creative)
+
+## Capabilities
+
+| Capability | Summary | Required scopes |
+| --- | --- | --- |
+| `amazon-ads-sb.adCreatives.manage` | Manage Ad Creatives via Pinterest API | None declared |
+| `amazon-ads-sb.adGroups.manage` | Manage AdGroups via Pinterest API | None declared |
+| `amazon-ads-sb.adMigrations.manage` | Manage Ad Migrations via Pinterest API | None declared |
+| `amazon-ads-sb.ads.manage` | Manage Ads via Pinterest API | None declared |
+| `amazon-ads-sb.budgetRecommendations.manage` | Manage Budget Recommendations via Pinterest API | None declared |
+| `amazon-ads-sb.budgetRules.manage` | Manage BudgetRules via Pinterest API | None declared |
+| `amazon-ads-sb.budgetRules.read` | Read BudgetRules via Pinterest API | None declared |
+| `amazon-ads-sb.budgetRulesRecommendation.manage` | Manage BudgetRulesRecommendation via Pinterest API | None declared |
+| `amazon-ads-sb.budgetUsage.manage` | Manage Budget Usage via Pinterest API | None declared |
+| `amazon-ads-sb.campaigns.manage` | Manage Campaigns via Pinterest API | None declared |
+| `amazon-ads-sb.forecast.manage` | Manage Forecast via Pinterest API | None declared |
+| `amazon-ads-sb.insights.manage` | Manage Insights via Pinterest API | None declared |
+| `amazon-ads-sb.keywordRecommendations.manage` | Manage Keyword Recommendations via Pinterest API | None declared |
+| `amazon-ads-sb.optimizationRules.manage` | Manage Optimization Rules via Pinterest API | None declared |
+| `amazon-ads-sb.productTargetingCategories.manage` | Manage Product targeting categories via Pinterest API | None declared |
+| `amazon-ads-sb.productTargetingCategories.read` | Read Product targeting categories via Pinterest API | None declared |
+| `amazon-ads-sb.recommendations.manage` | Manage Recommendations via Pinterest API | None declared |
+| `amazon-ads-sb.sBOptimizationRecommendations.manage` | Manage SB Optimization Recommendations via Pinterest API | None declared |
+| `amazon-ads-sb.targetingRecommendations.read` | Read Targeting recommendations via Pinterest API | None declared |
+| `amazon-ads-sb.v3CampaignMigration.manage` | Manage V3 Campaign Migration via Pinterest API | None declared |

@@ -1,0 +1,1379 @@
+---
+title: "Amazon Ads API models: Inline1095 – Inline1203"
+description: "100 generated Amazon Ads API model contracts, from Inline1095 through Inline1203."
+generated: true
+platform: "amazon-ads-api"
+sourceVersion: "v5"
+sidebar:
+  order: 1004
+  label: "Inline1095 – Inline1203"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Inline1095
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeImageWithTextTile` | `storeImageWithTextTile` | `Inline1095` | Yes | No | — |
+
+## Inline1096
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text for the image. |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier. |
+| `assetTags` | `assetTags` | `string` | No | No | Tags associated with the asset. |
+| `bleedImage` | `bleedImage` | `string` | No | No | **StoreBleedImageType Enum:** \| StoreBleedImageType \| Description \| \| --- \| --- \| \| `NONE` \| No image bleed \| \| `SIDE` \| Side image bleed \| \| `CORNER` \| Corner image bleed \| \| `ALL` \| All sides image bleed \| |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `canvasData` | `canvasData` | `Inline1096` | No | No | — |
+| `cropBoxData` | `cropBoxData` | `Inline1097` | No | No | — |
+| `customUrl` | `customUrl` | `string` | No | No | Custom URL. |
+| `hideTitle` | `hideTitle` | `boolean` | No | No | Whether to hide the title. |
+| `imageHeight` | `imageHeight` | `number` | No | No | Height of the image. |
+| `imageKey` | `imageKey` | `string` | No | No | Key identifier for the image. |
+| `imageOffsetLeft` | `imageOffsetLeft` | `number` | No | No | Left offset for image positioning. |
+| `imageOffsetTop` | `imageOffsetTop` | `number` | No | No | Top offset for image positioning. |
+| `imageUrl` | `imageUrl` | `string` | No | No | URL of the image. |
+| `imageWidth` | `imageWidth` | `number` | No | No | Width of the image. |
+| `isAiGen` | `isAiGen` | `boolean` | No | No | Whether the image is AI-generated. |
+| `layout` | `layout` | `string` | No | No | **StoreImageLayout Enum:** \| StoreImageLayout \| Description \| \| --- \| --- \| \| `COVER` \| Cover layout \| \| `CONTAIN` \| Contain layout \| \| `TEXT` \| Text layout \| |
+| `pageId` | `pageId` | `string` | No | No | Page identifier. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the image. |
+| `renderTileLayers` | `renderTileLayers` | `boolean` | No | No | Whether to render tile layers. |
+| `shape` | `shape` | `string` | No | No | **StoreImageShape Enum:** \| StoreImageShape \| Description \| \| --- \| --- \| \| `SQUARE` \| Square shape \| |
+| `text` | `text` | `string` | No | No | Text content. |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `textOption` | `textOption` | `string` | No | No | **StoreTextOption Enum:** \| StoreTextOption \| Description \| \| --- \| --- \| \| `TEXT_OVER_IMAGE` \| Text overlaid on image \| \| `TEXT_NEXT_TO_IMAGE` \| Text next to image \| |
+| `tileLayers` | `tileLayers` | `Array<Inline1098>` | No | No | Layer configuration for the tile. |
+| `title` | `title` | `string` | No | No | Title of the image. |
+| `verticalAlign` | `verticalAlign` | `string` | No | No | **StoreVerticalAlign Enum:** \| StoreVerticalAlign \| Description \| \| --- \| --- \| \| `TOP` \| Top alignment \| \| `MIDDLE` \| Middle alignment \| \| `BOTTOM` \| Bottom alignment \| |
+
+## Inline1097
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | Height of the crop box. |
+| `left` | `left` | `number` | No | No | Left position of the crop box. |
+| `top` | `top` | `number` | No | No | Top position of the crop box. |
+| `width` | `width` | `number` | No | No | Width of the crop box. |
+
+## Inline1098
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `colorPalette` | `colorPalette` | `string` | No | No | **StoreColorPalette Enum:** \| StoreColorPalette \| Description \| \| --- \| --- \| \| `DEFAULT` \| Default color scheme \| \| `DEFAULT_INVERTED` \| Inverted default color scheme \| \| `SOLID_WHITE` \| Solid white color scheme \| \| `SOLID_BLACK` \| Solid black color scheme \| \| `TRANSLUCENT_WHITE` \| Translucent white color scheme \| \| `TRANSLUCENT_BLACK` \| Translucent black color scheme \| \| `TRANSPARENT_BLACK` \| Transparent black color scheme \| \| `TRANSPARENT_WHITE` \| Transparent white color scheme \| |
+| `content` | `content` | `Inline1098` | No | No | — |
+| `coverTile` | `coverTile` | `boolean` | No | No | Whether the layer covers the entire tile. |
+| `margin` | `margin` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `opacity` | `opacity` | `number` | No | No | Opacity level of the layer. |
+| `outOfBounds` | `outOfBounds` | `boolean` | No | No | Whether the layer is out of bounds. |
+| `padding` | `padding` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `position` | `position` | `Inline1099` | No | No | — |
+| `tag` | `tag` | `string` | No | No | Unique tag for the tile layer to track performance. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline1099
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `x` | `x` | `string` | No | No | **HorizontalPosition Enum:** \| HorizontalPosition \| Description \| \| --- \| --- \| \| `LEFT` \| Left position \| \| `CENTER` \| Center position \| \| `RIGHT` \| Right position \| |
+| `y` | `y` | `string` | No | No | **VerticalPosition Enum:** \| VerticalPosition \| Description \| \| --- \| --- \| \| `TOP` \| Top position \| \| `MIDDLE` \| Middle position \| \| `BOTTOM` \| Bottom position \| |
+
+## Inline11
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `priorityAsins` | `priorityAsins` | `Array<Inline11>` | No | No | List of priority ASINs for ingredients with detailed product information |
+| `quantity` | `quantity` | `number` | No | No | Quantity amount for the ingredient |
+| `searchText` | `searchText` | `string` | No | No | Search text for ingredient metadata |
+| `translatedUnit` | `translatedUnit` | `string` | No | No | Translated unit of measurement |
+
+## Inline110
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline110` | Yes | No | — |
+| `content` | `content` | `Inline111` | No | No | — |
+
+## Inline1100
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text for the mobile image. |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier for mobile. |
+| `assetTags` | `assetTags` | `string` | No | No | Tags associated with the mobile asset. |
+| `bleedImage` | `bleedImage` | `string` | No | No | **StoreBleedImageType Enum:** \| StoreBleedImageType \| Description \| \| --- \| --- \| \| `NONE` \| No image bleed \| \| `SIDE` \| Side image bleed \| \| `CORNER` \| Corner image bleed \| \| `ALL` \| All sides image bleed \| |
+| `canvasData` | `canvasData` | `Inline1100` | No | No | — |
+| `cropBoxData` | `cropBoxData` | `Inline1101` | No | No | — |
+| `hideTitle` | `hideTitle` | `boolean` | No | No | Whether to hide the title on mobile. |
+| `imageHeight` | `imageHeight` | `number` | No | No | Height of the mobile image. |
+| `imageKey` | `imageKey` | `string` | No | No | Key identifier for the mobile image. |
+| `imageOffsetLeft` | `imageOffsetLeft` | `number` | No | No | Left offset for mobile image positioning. |
+| `imageOffsetTop` | `imageOffsetTop` | `number` | No | No | Top offset for mobile image positioning. |
+| `imageUrl` | `imageUrl` | `string` | No | No | URL of the mobile image. |
+| `imageWidth` | `imageWidth` | `number` | No | No | Width of the mobile image. |
+| `isAiGen` | `isAiGen` | `boolean` | No | No | Whether the mobile image is AI-generated. |
+| `layout` | `layout` | `string` | No | No | **StoreImageLayout Enum:** \| StoreImageLayout \| Description \| \| --- \| --- \| \| `COVER` \| Cover layout \| \| `CONTAIN` \| Contain layout \| \| `TEXT` \| Text layout \| |
+| `renderTileLayers` | `renderTileLayers` | `boolean` | No | No | Whether to render tile layers on mobile. |
+| `shape` | `shape` | `string` | No | No | **StoreImageShape Enum:** \| StoreImageShape \| Description \| \| --- \| --- \| \| `SQUARE` \| Square shape \| |
+| `text` | `text` | `string` | No | No | Text content for mobile. |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `textOption` | `textOption` | `string` | No | No | **StoreTextOption Enum:** \| StoreTextOption \| Description \| \| --- \| --- \| \| `TEXT_OVER_IMAGE` \| Text overlaid on image \| \| `TEXT_NEXT_TO_IMAGE` \| Text next to image \| |
+| `tileLayers` | `tileLayers` | `Array<Inline1102>` | No | No | Layer configuration for the mobile tile. |
+| `title` | `title` | `string` | No | No | Title for mobile display. |
+| `verticalAlign` | `verticalAlign` | `string` | No | No | **StoreVerticalAlign Enum:** \| StoreVerticalAlign \| Description \| \| --- \| --- \| \| `TOP` \| Top alignment \| \| `MIDDLE` \| Middle alignment \| \| `BOTTOM` \| Bottom alignment \| |
+
+## Inline1101
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | Height of the crop box. |
+| `left` | `left` | `number` | No | No | Left position of the crop box. |
+| `top` | `top` | `number` | No | No | Top position of the crop box. |
+| `width` | `width` | `number` | No | No | Width of the crop box. |
+
+## Inline1102
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `colorPalette` | `colorPalette` | `string` | No | No | **StoreColorPalette Enum:** \| StoreColorPalette \| Description \| \| --- \| --- \| \| `DEFAULT` \| Default color scheme \| \| `DEFAULT_INVERTED` \| Inverted default color scheme \| \| `SOLID_WHITE` \| Solid white color scheme \| \| `SOLID_BLACK` \| Solid black color scheme \| \| `TRANSLUCENT_WHITE` \| Translucent white color scheme \| \| `TRANSLUCENT_BLACK` \| Translucent black color scheme \| \| `TRANSPARENT_BLACK` \| Transparent black color scheme \| \| `TRANSPARENT_WHITE` \| Transparent white color scheme \| |
+| `content` | `content` | `Inline1102` | No | No | — |
+| `coverTile` | `coverTile` | `boolean` | No | No | Whether the layer covers the entire tile. |
+| `margin` | `margin` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `opacity` | `opacity` | `number` | No | No | Opacity level of the layer. |
+| `outOfBounds` | `outOfBounds` | `boolean` | No | No | Whether the layer is out of bounds. |
+| `padding` | `padding` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `position` | `position` | `Inline1103` | No | No | — |
+| `tag` | `tag` | `string` | No | No | Unique tag for the tile layer to track performance. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline1103
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `x` | `x` | `string` | No | No | **HorizontalPosition Enum:** \| HorizontalPosition \| Description \| \| --- \| --- \| \| `LEFT` \| Left position \| \| `CENTER` \| Center position \| \| `RIGHT` \| Right position \| |
+| `y` | `y` | `string` | No | No | **VerticalPosition Enum:** \| VerticalPosition \| Description \| \| --- \| --- \| \| `TOP` \| Top position \| \| `MIDDLE` \| Middle position \| \| `BOTTOM` \| Bottom position \| |
+
+## Inline1104
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeImageTile` | `storeImageTile` | `Inline1104` | Yes | No | — |
+
+## Inline1105
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text for the image. |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier. |
+| `assetTags` | `assetTags` | `string` | No | No | Tags associated with the asset. |
+| `bleedImage` | `bleedImage` | `string` | No | No | **StoreBleedImageType Enum:** \| StoreBleedImageType \| Description \| \| --- \| --- \| \| `NONE` \| No image bleed \| \| `SIDE` \| Side image bleed \| \| `CORNER` \| Corner image bleed \| \| `ALL` \| All sides image bleed \| |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `canvasData` | `canvasData` | `Inline1105` | No | No | — |
+| `cropBoxData` | `cropBoxData` | `Inline1106` | No | No | — |
+| `customUrl` | `customUrl` | `string` | No | No | Custom URL. |
+| `hideTitle` | `hideTitle` | `boolean` | No | No | Whether to hide the title. |
+| `imageHeight` | `imageHeight` | `number` | No | No | Height of the image. |
+| `imageKey` | `imageKey` | `string` | No | No | Key identifier for the image. |
+| `imageOffsetLeft` | `imageOffsetLeft` | `number` | No | No | Left offset for image positioning. |
+| `imageOffsetTop` | `imageOffsetTop` | `number` | No | No | Top offset for image positioning. |
+| `imageUrl` | `imageUrl` | `string` | No | No | URL of the image. |
+| `imageWidth` | `imageWidth` | `number` | No | No | Width of the image. |
+| `isAiGen` | `isAiGen` | `boolean` | No | No | Whether the image is AI-generated. |
+| `layout` | `layout` | `string` | No | No | **StoreImageLayout Enum:** \| StoreImageLayout \| Description \| \| --- \| --- \| \| `COVER` \| Cover layout \| \| `CONTAIN` \| Contain layout \| \| `TEXT` \| Text layout \| |
+| `pageId` | `pageId` | `string` | No | No | Page identifier. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the image. |
+| `text` | `text` | `string` | No | No | Text content. |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreImageTextAlign Enum:** \| StoreImageTextAlign \| Description \| \| --- \| --- \| \| `LEFT` \| Left text alignment \| \| `RIGHT` \| Right text alignment \| |
+| `tileLayers` | `tileLayers` | `Array<string>` | No | No | Layer configuration for the tile. |
+| `title` | `title` | `string` | No | No | Title of the image. |
+| `verticalAlign` | `verticalAlign` | `string` | No | No | **StoreVerticalAlign Enum:** \| StoreVerticalAlign \| Description \| \| --- \| --- \| \| `TOP` \| Top alignment \| \| `MIDDLE` \| Middle alignment \| \| `BOTTOM` \| Bottom alignment \| |
+
+## Inline1106
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | Height of the crop box. |
+| `left` | `left` | `number` | No | No | Left position of the crop box. |
+| `top` | `top` | `number` | No | No | Top position of the crop box. |
+| `width` | `width` | `number` | No | No | Width of the crop box. |
+
+## Inline1107
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text for the mobile image. |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier for mobile. |
+| `assetTags` | `assetTags` | `string` | No | No | Tags associated with the mobile asset. |
+| `bleedImage` | `bleedImage` | `string` | No | No | **StoreBleedImageType Enum:** \| StoreBleedImageType \| Description \| \| --- \| --- \| \| `NONE` \| No image bleed \| \| `SIDE` \| Side image bleed \| \| `CORNER` \| Corner image bleed \| \| `ALL` \| All sides image bleed \| |
+| `canvasData` | `canvasData` | `Inline1107` | No | No | — |
+| `cropBoxData` | `cropBoxData` | `Inline1108` | No | No | — |
+| `hideTitle` | `hideTitle` | `boolean` | No | No | Whether to hide the title on mobile. |
+| `imageHeight` | `imageHeight` | `number` | No | No | Height of the mobile image. |
+| `imageKey` | `imageKey` | `string` | No | No | Key identifier for the mobile image. |
+| `imageOffsetLeft` | `imageOffsetLeft` | `number` | No | No | Left offset for mobile image positioning. |
+| `imageOffsetTop` | `imageOffsetTop` | `number` | No | No | Top offset for mobile image positioning. |
+| `imageUrl` | `imageUrl` | `string` | No | No | URL of the mobile image. |
+| `imageWidth` | `imageWidth` | `number` | No | No | Width of the mobile image. |
+| `isAiGen` | `isAiGen` | `boolean` | No | No | Whether the mobile image is AI-generated. |
+| `layout` | `layout` | `string` | No | No | **StoreImageLayout Enum:** \| StoreImageLayout \| Description \| \| --- \| --- \| \| `COVER` \| Cover layout \| \| `CONTAIN` \| Contain layout \| \| `TEXT` \| Text layout \| |
+| `tileLayers` | `tileLayers` | `Array<string>` | No | No | Layer configuration for the mobile tile. |
+| `title` | `title` | `string` | No | No | Title for mobile display. |
+| `verticalAlign` | `verticalAlign` | `string` | No | No | **StoreVerticalAlign Enum:** \| StoreVerticalAlign \| Description \| \| --- \| --- \| \| `TOP` \| Top alignment \| \| `MIDDLE` \| Middle alignment \| \| `BOTTOM` \| Bottom alignment \| |
+
+## Inline1108
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | Height of the crop box. |
+| `left` | `left` | `number` | No | No | Left position of the crop box. |
+| `top` | `top` | `number` | No | No | Top position of the crop box. |
+| `width` | `width` | `number` | No | No | Width of the crop box. |
+
+## Inline1109
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeProductTile` | `storeProductTile` | `Inline1109` | Yes | No | — |
+
+## Inline111
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `croppedImage` | `croppedImage` | `Inline111` | No | No | — |
+| `points` | `points` | `Array<Inline113>` | No | No | Interactive points on the image. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the point. |
+| `renderTileLayers` | `renderTileLayers` | `boolean` | No | No | Whether to render tile layers. |
+| `textOption` | `textOption` | `string` | No | No | **StoreShoppableTextOption Enum:** \| StoreShoppableTextOption \| Description \| \| --- \| --- \| \| `TEXT_UNDER_INTERACTIVE_IMAGE` \| Text under interactive image \| \| `NO_TEXT_UNDER_INTERACTIVE_IMAGE` \| No text under interactive image \| \| `TEXT_OVER_IMAGE` \| Text over interactive image \| |
+| `tileLayers` | `tileLayers` | `Array<Inline114>` | No | No | Layer configuration for the tile. |
+
+## Inline1110
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bleedImage` | `bleedImage` | `string` | No | No | **StoreBleedImageType Enum:** \| StoreBleedImageType \| Description \| \| --- \| --- \| \| `NONE` \| No image bleed \| \| `SIDE` \| Side image bleed \| \| `CORNER` \| Corner image bleed \| \| `ALL` \| All sides image bleed \| |
+| `displayOutOfStockASIN` | `displayOutOfStockASIN` | `boolean` | No | No | Whether to display out of stock ASIN. |
+| `layout` | `layout` | `string` | No | No | **StoreLayoutType Enum:** \| StoreLayoutType \| Description \| \| --- \| --- \| \| `DEFAULT` \| Default layout configuration \| \| `SHOWCASE` \| Showcase layout configuration for featured display \| |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the product. |
+| `text` | `text` | `string` | No | No | Description text for the product. |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `title` | `title` | `string` | No | No | Title of the product. |
+
+## Inline1111
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeShoppableImageTile` | `storeShoppableImageTile` | `Inline1111` | Yes | No | — |
+
+## Inline1112
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `croppedImage` | `croppedImage` | `Inline1112` | No | No | — |
+| `points` | `points` | `Array<Inline1114>` | No | No | Interactive points on the image. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the point. |
+| `renderTileLayers` | `renderTileLayers` | `boolean` | No | No | Whether to render tile layers. |
+| `textOption` | `textOption` | `string` | No | No | **StoreShoppableTextOption Enum:** \| StoreShoppableTextOption \| Description \| \| --- \| --- \| \| `TEXT_UNDER_INTERACTIVE_IMAGE` \| Text under interactive image \| \| `NO_TEXT_UNDER_INTERACTIVE_IMAGE` \| No text under interactive image \| \| `TEXT_OVER_IMAGE` \| Text over interactive image \| |
+| `tileLayers` | `tileLayers` | `Array<Inline1115>` | No | No | Layer configuration for the tile. |
+
+## Inline1113
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | Height of the crop box. |
+| `left` | `left` | `number` | No | No | Left position of the crop box. |
+| `top` | `top` | `number` | No | No | Top position of the crop box. |
+| `width` | `width` | `number` | No | No | Width of the crop box. |
+
+## Inline1114
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `coordinates` | `coordinates` | `Inline1114` | Yes | No | — |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the point. |
+| `tag` | `tag` | `string` | No | No | Unique tag for the point. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline1115
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `colorPalette` | `colorPalette` | `string` | No | No | **StoreColorPalette Enum:** \| StoreColorPalette \| Description \| \| --- \| --- \| \| `DEFAULT` \| Default color scheme \| \| `DEFAULT_INVERTED` \| Inverted default color scheme \| \| `SOLID_WHITE` \| Solid white color scheme \| \| `SOLID_BLACK` \| Solid black color scheme \| \| `TRANSLUCENT_WHITE` \| Translucent white color scheme \| \| `TRANSLUCENT_BLACK` \| Translucent black color scheme \| \| `TRANSPARENT_BLACK` \| Transparent black color scheme \| \| `TRANSPARENT_WHITE` \| Transparent white color scheme \| |
+| `content` | `content` | `Inline1115` | No | No | — |
+| `coverTile` | `coverTile` | `boolean` | No | No | Whether the layer covers the entire tile. |
+| `margin` | `margin` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `opacity` | `opacity` | `number` | No | No | Opacity level of the layer. |
+| `outOfBounds` | `outOfBounds` | `boolean` | No | No | Whether the layer is out of bounds. |
+| `padding` | `padding` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `position` | `position` | `Inline1116` | No | No | — |
+| `tag` | `tag` | `string` | No | No | Unique tag for the tile layer to track performance. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline1116
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `x` | `x` | `string` | No | No | **HorizontalPosition Enum:** \| HorizontalPosition \| Description \| \| --- \| --- \| \| `LEFT` \| Left position \| \| `CENTER` \| Center position \| \| `RIGHT` \| Right position \| |
+| `y` | `y` | `string` | No | No | **VerticalPosition Enum:** \| VerticalPosition \| Description \| \| --- \| --- \| \| `TOP` \| Top position \| \| `MIDDLE` \| Middle position \| \| `BOTTOM` \| Bottom position \| |
+
+## Inline1117
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeTextTile` | `storeTextTile` | `Inline1117` | Yes | No | — |
+
+## Inline1118
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bold` | `bold` | `boolean` | Yes | No | Whether text should be bold. |
+| `bondCustomerServiceLink` | `bondCustomerServiceLink` | `boolean` | No | No | Whether to include customer service link. |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `customUrl` | `customUrl` | `string` | No | No | Custom URL for the content. |
+| `pageId` | `pageId` | `string` | No | No | Identifier for the page. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single product ASIN for the content. |
+| `text` | `text` | `string` | Yes | No | Main text content. |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `title` | `title` | `string` | Yes | No | Title of the content. |
+| `uppercase` | `uppercase` | `boolean` | Yes | No | Whether text should be uppercase. |
+
+## Inline1119
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeVideoTile` | `storeVideoTile` | `Inline1119` | Yes | No | — |
+
+## Inline112
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | Height of the crop box. |
+| `left` | `left` | `number` | No | No | Left position of the crop box. |
+| `top` | `top` | `number` | No | No | Top position of the crop box. |
+| `width` | `width` | `number` | No | No | Width of the crop box. |
+
+## Inline1120
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier. |
+| `assetTags` | `assetTags` | `string` | No | No | Tags associated with the asset. |
+| `autoPlay` | `autoPlay` | `boolean` | No | No | Whether video should auto-play. |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `canvasData` | `canvasData` | `Inline1120` | No | No | — |
+| `customUrl` | `customUrl` | `string` | No | No | Custom URL for the content. |
+| `imageHeight` | `imageHeight` | `number` | No | No | Height of the image. |
+| `imageKey` | `imageKey` | `string` | No | No | Key for the image asset. |
+| `imageOffsetLeft` | `imageOffsetLeft` | `number` | No | No | Left offset for image positioning. |
+| `imageOffsetTop` | `imageOffsetTop` | `number` | No | No | Top offset for image positioning. |
+| `imageUrl` | `imageUrl` | `string` | No | No | URL of the image. |
+| `imageWidth` | `imageWidth` | `number` | No | No | Width of the image. |
+| `mute` | `mute` | `boolean` | No | No | Whether video should be muted. |
+| `pageId` | `pageId` | `string` | No | No | Page identifier |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | List of product ASINs. |
+| `renderTileLayers` | `renderTileLayers` | `boolean` | No | No | Whether to render tile layers. |
+| `resourceId` | `resourceId` | `string` | No | No | Resource identifier. |
+| `text` | `text` | `string` | No | No | Text content. |
+| `textAlign` | `textAlign` | `string` | No | No | Text alignment. |
+| `textOption` | `textOption` | `string` | No | No | **StoreTextOptionType Enum:** \| StoreTextOptionType \| Description \| \| --- \| --- \| \| `NO_TEXT_OVER_VIDEO` \| No text overlay on video \| \| `TEXT_OVER_VIDEO` \| Text overlay on video \| |
+| `tileLayers` | `tileLayers` | `Array<Inline1121>` | No | No | Configuration for tile layers. |
+| `title` | `title` | `string` | No | No | Title of the content. |
+| `videoAssetId` | `videoAssetId` | `string` | No | No | Video asset identifier. |
+| `videoAssetTags` | `videoAssetTags` | `string` | No | No | Tags associated with the video asset. |
+| `videoDescription` | `videoDescription` | `string` | No | No | Description of the video. |
+| `videoKey` | `videoKey` | `string` | No | No | Key for the video asset. |
+| `videoName` | `videoName` | `string` | No | No | Name of the video. |
+| `videoSize` | `videoSize` | `number` | No | No | Size of the video in bytes. |
+| `videoUrl` | `videoUrl` | `string` | No | No | URL of the video. |
+
+## Inline1121
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `colorPalette` | `colorPalette` | `string` | No | No | **StoreColorPalette Enum:** \| StoreColorPalette \| Description \| \| --- \| --- \| \| `DEFAULT` \| Default color scheme \| \| `DEFAULT_INVERTED` \| Inverted default color scheme \| \| `SOLID_WHITE` \| Solid white color scheme \| \| `SOLID_BLACK` \| Solid black color scheme \| \| `TRANSLUCENT_WHITE` \| Translucent white color scheme \| \| `TRANSLUCENT_BLACK` \| Translucent black color scheme \| \| `TRANSPARENT_BLACK` \| Transparent black color scheme \| \| `TRANSPARENT_WHITE` \| Transparent white color scheme \| |
+| `content` | `content` | `Inline1121` | No | No | — |
+| `coverTile` | `coverTile` | `boolean` | No | No | Whether the layer covers the entire tile. |
+| `margin` | `margin` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `opacity` | `opacity` | `number` | No | No | Opacity level of the layer. |
+| `outOfBounds` | `outOfBounds` | `boolean` | No | No | Whether the layer is out of bounds. |
+| `padding` | `padding` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `position` | `position` | `Inline1122` | No | No | — |
+| `tag` | `tag` | `string` | No | No | Unique tag for the tile layer to track performance. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline1122
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `x` | `x` | `string` | No | No | **HorizontalPosition Enum:** \| HorizontalPosition \| Description \| \| --- \| --- \| \| `LEFT` \| Left position \| \| `CENTER` \| Center position \| \| `RIGHT` \| Right position \| |
+| `y` | `y` | `string` | No | No | **VerticalPosition Enum:** \| VerticalPosition \| Description \| \| --- \| --- \| \| `TOP` \| Top position \| \| `MIDDLE` \| Middle position \| \| `BOTTOM` \| Bottom position \| |
+
+## Inline1123
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeEmptyTile` | `storeEmptyTile` | `Inline1123` | Yes | No | — |
+
+## Inline1124
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bondCustomerServiceLink` | `bondCustomerServiceLink` | `boolean` | No | No | Whether to include a customer service link. |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `text` | `text` | `string` | No | No | Text content (must be empty). |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `title` | `title` | `string` | No | No | Title of the tile (must be empty). |
+
+## Inline1125
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeCustomCodeTile` | `storeCustomCodeTile` | `Inline1125` | Yes | No | — |
+
+## Inline1126
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `autoDimension` | `autoDimension` | `boolean` | No | No | Whether to use automatic dimensioning. |
+| `availableProductAsins` | `availableProductAsins` | `Array<string>` | No | No | List of available ASINs, maximum 500 unique items. |
+| `cti` | `cti` | `Inline1126` | No | No | — |
+| `embedCode` | `embedCode` | `string` | No | No | Embedded code content. |
+| `integrity` | `integrity` | `string` | No | No | Integrity hash for security. |
+| `widgetName` | `widgetName` | `string` | No | No | Name of the widget. |
+| `widgetTag` | `widgetTag` | `string` | No | No | Widget identifier. |
+
+## Inline1128
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bodyText` | `bodyText` | `string` | No | No | Body text for the layer. |
+| `bondCustomerServiceLink` | `bondCustomerServiceLink` | `boolean` | No | No | Whether to include a customer service link. |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text for the layer. |
+| `callToActionType` | `callToActionType` | `string` | No | No | **StoreCallToActionType Enum:** \| StoreCallToActionType \| Description \| \| --- \| --- \| \| `LINK` \| Link type call to action \| \| `BUTTON` \| Button type call to action \| |
+| `customUrl` | `customUrl` | `string` | No | No | Custom URL for the layer. |
+| `headerText` | `headerText` | `string` | No | No | Header text for the layer. |
+| `pageId` | `pageId` | `string` | No | No | Page identifier for the layer. |
+| `prefixText` | `prefixText` | `string` | No | No | Prefix text for the layer. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the layer. |
+| `tileTextAlignment` | `tileTextAlignment` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `tileTextSize` | `tileTextSize` | `string` | No | No | **StoreTileTextSize Enum:** \| StoreTileTextSize \| Description \| \| --- \| --- \| \| `MINI` \| Mini text size \| \| `SMALL` \| Small text size \| \| `MEDIUM` \| Medium text size \| \| `LARGE` \| Large text size \| |
+
+## Inline1129
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `x` | `x` | `string` | No | No | **HorizontalPosition Enum:** \| HorizontalPosition \| Description \| \| --- \| --- \| \| `LEFT` \| Left position \| \| `CENTER` \| Center position \| \| `RIGHT` \| Right position \| |
+| `y` | `y` | `string` | No | No | **VerticalPosition Enum:** \| VerticalPosition \| Description \| \| --- \| --- \| \| `TOP` \| Top position \| \| `MIDDLE` \| Middle position \| \| `BOTTOM` \| Bottom position \| |
+
+## Inline113
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `coordinates` | `coordinates` | `Inline113` | Yes | No | — |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the point. |
+| `tag` | `tag` | `string` | No | No | Unique tag for the point. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline1133
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sectionType` | `sectionType` | `string` | Yes | No | **StoreWidgetSectionType Enum:** \| StoreWidgetSectionType \| Description \| \| --- \| --- \| \| `HERO` \| Section type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `DEALS_AND_COUPONS` \| Section type for StoreDealsWidget and StoreDealsContent type \| \| `GALLERY` \| Section type for StoreGalleryWidget \| \| `PRODUCT_COLLECTION` \| Section type for StoreProductCollectionWidget \| \| `PRODUCT_GRID` \| Section type for StoreProductGridWidget and type for StoreProductCollectionASINGrid \| \| `SHOP_THE_LOOK_CAROUSEL` \| Section type for StoreShopTheLookWidget and type for StoreShopTheLookContent \| \| `MANUALLY_CURATED_PRODUCT_CAROUSEL` \| Section type for StoreManuallyCuratedProductCarouselWidget and StoreCarouselContent type \| \| `RECOMMENDED` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `PREMIUM_BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `LIVE_VIDEO` \| Section type for StoreLiveVideoWidget \| \| `BANNER` \| Section type for StoreBannerWidget \| |
+| `widgetTag` | `widgetTag` | `string` | Yes | No | The unique tag for the widget to help track on performance. |
+| `widgetType` | `widgetType` | `string` | Yes | No | **StoreWidgetType Enum:** \| StoreWidgetType \| Description \| \| --- \| --- \| \| `HERO` \| Widget type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `PRODUCT_GRID` \| Widget type for StoreProductGridWidget and StoreDealsWidget \| \| `GALLERY` \| Widget type for StoreGalleryWidget and StoreGalleryContent type \| \| `PRODUCT_COLLECTION` \| Widget type for StoreProductCollectionWidget and StoreProductCollection type \| \| `MULTI_MEDIA_CAROUSEL` \| Widget type for StoreShopTheLookWidget, StoreManuallyCuratedProductCarouselWidget and StoreProductCarouselWidget \| \| `PRODUCT_CAROUSEL` \| Widget type for StoreProductCarouselWidget \| \| `LIVE_VIDEO` \| Widget type and content type for StoreLiveVideoWidget \| \| `BANNER` \| Widget type and content type for StoreBannerWidget \| |
+
+## Inline1134
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeImageWithTextTile` | `storeImageWithTextTile` | `Inline1134` | Yes | No | — |
+
+## Inline1135
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text for the image. |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier. |
+| `assetTags` | `assetTags` | `string` | No | No | Tags associated with the asset. |
+| `bleedImage` | `bleedImage` | `string` | No | No | **StoreBleedImageType Enum:** \| StoreBleedImageType \| Description \| \| --- \| --- \| \| `NONE` \| No image bleed \| \| `SIDE` \| Side image bleed \| \| `CORNER` \| Corner image bleed \| \| `ALL` \| All sides image bleed \| |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `canvasData` | `canvasData` | `Inline1135` | No | No | — |
+| `cropBoxData` | `cropBoxData` | `Inline1136` | No | No | — |
+| `customUrl` | `customUrl` | `string` | No | No | Custom URL. |
+| `hideTitle` | `hideTitle` | `boolean` | No | No | Whether to hide the title. |
+| `imageHeight` | `imageHeight` | `number` | No | No | Height of the image. |
+| `imageKey` | `imageKey` | `string` | No | No | Key identifier for the image. |
+| `imageOffsetLeft` | `imageOffsetLeft` | `number` | No | No | Left offset for image positioning. |
+| `imageOffsetTop` | `imageOffsetTop` | `number` | No | No | Top offset for image positioning. |
+| `imageUrl` | `imageUrl` | `string` | No | No | URL of the image. |
+| `imageWidth` | `imageWidth` | `number` | No | No | Width of the image. |
+| `isAiGen` | `isAiGen` | `boolean` | No | No | Whether the image is AI-generated. |
+| `layout` | `layout` | `string` | No | No | **StoreImageLayout Enum:** \| StoreImageLayout \| Description \| \| --- \| --- \| \| `COVER` \| Cover layout \| \| `CONTAIN` \| Contain layout \| \| `TEXT` \| Text layout \| |
+| `pageId` | `pageId` | `string` | No | No | Page identifier. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the image. |
+| `renderTileLayers` | `renderTileLayers` | `boolean` | No | No | Whether to render tile layers. |
+| `shape` | `shape` | `string` | No | No | **StoreImageShape Enum:** \| StoreImageShape \| Description \| \| --- \| --- \| \| `SQUARE` \| Square shape \| |
+| `text` | `text` | `string` | No | No | Text content. |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `textOption` | `textOption` | `string` | No | No | **StoreTextOption Enum:** \| StoreTextOption \| Description \| \| --- \| --- \| \| `TEXT_OVER_IMAGE` \| Text overlaid on image \| \| `TEXT_NEXT_TO_IMAGE` \| Text next to image \| |
+| `tileLayers` | `tileLayers` | `Array<Inline1137>` | No | No | Layer configuration for the tile. |
+| `title` | `title` | `string` | No | No | Title of the image. |
+| `verticalAlign` | `verticalAlign` | `string` | No | No | **StoreVerticalAlign Enum:** \| StoreVerticalAlign \| Description \| \| --- \| --- \| \| `TOP` \| Top alignment \| \| `MIDDLE` \| Middle alignment \| \| `BOTTOM` \| Bottom alignment \| |
+
+## Inline1136
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | Height of the crop box. |
+| `left` | `left` | `number` | No | No | Left position of the crop box. |
+| `top` | `top` | `number` | No | No | Top position of the crop box. |
+| `width` | `width` | `number` | No | No | Width of the crop box. |
+
+## Inline1137
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `colorPalette` | `colorPalette` | `string` | No | No | **StoreColorPalette Enum:** \| StoreColorPalette \| Description \| \| --- \| --- \| \| `DEFAULT` \| Default color scheme \| \| `DEFAULT_INVERTED` \| Inverted default color scheme \| \| `SOLID_WHITE` \| Solid white color scheme \| \| `SOLID_BLACK` \| Solid black color scheme \| \| `TRANSLUCENT_WHITE` \| Translucent white color scheme \| \| `TRANSLUCENT_BLACK` \| Translucent black color scheme \| \| `TRANSPARENT_BLACK` \| Transparent black color scheme \| \| `TRANSPARENT_WHITE` \| Transparent white color scheme \| |
+| `content` | `content` | `Inline1137` | No | No | — |
+| `coverTile` | `coverTile` | `boolean` | No | No | Whether the layer covers the entire tile. |
+| `margin` | `margin` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `opacity` | `opacity` | `number` | No | No | Opacity level of the layer. |
+| `outOfBounds` | `outOfBounds` | `boolean` | No | No | Whether the layer is out of bounds. |
+| `padding` | `padding` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `position` | `position` | `Inline1138` | No | No | — |
+| `tag` | `tag` | `string` | No | No | Unique tag for the tile layer to track performance. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline1138
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `x` | `x` | `string` | No | No | **HorizontalPosition Enum:** \| HorizontalPosition \| Description \| \| --- \| --- \| \| `LEFT` \| Left position \| \| `CENTER` \| Center position \| \| `RIGHT` \| Right position \| |
+| `y` | `y` | `string` | No | No | **VerticalPosition Enum:** \| VerticalPosition \| Description \| \| --- \| --- \| \| `TOP` \| Top position \| \| `MIDDLE` \| Middle position \| \| `BOTTOM` \| Bottom position \| |
+
+## Inline1139
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text for the mobile image. |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier for mobile. |
+| `assetTags` | `assetTags` | `string` | No | No | Tags associated with the mobile asset. |
+| `bleedImage` | `bleedImage` | `string` | No | No | **StoreBleedImageType Enum:** \| StoreBleedImageType \| Description \| \| --- \| --- \| \| `NONE` \| No image bleed \| \| `SIDE` \| Side image bleed \| \| `CORNER` \| Corner image bleed \| \| `ALL` \| All sides image bleed \| |
+| `canvasData` | `canvasData` | `Inline1139` | No | No | — |
+| `cropBoxData` | `cropBoxData` | `Inline1140` | No | No | — |
+| `hideTitle` | `hideTitle` | `boolean` | No | No | Whether to hide the title on mobile. |
+| `imageHeight` | `imageHeight` | `number` | No | No | Height of the mobile image. |
+| `imageKey` | `imageKey` | `string` | No | No | Key identifier for the mobile image. |
+| `imageOffsetLeft` | `imageOffsetLeft` | `number` | No | No | Left offset for mobile image positioning. |
+| `imageOffsetTop` | `imageOffsetTop` | `number` | No | No | Top offset for mobile image positioning. |
+| `imageUrl` | `imageUrl` | `string` | No | No | URL of the mobile image. |
+| `imageWidth` | `imageWidth` | `number` | No | No | Width of the mobile image. |
+| `isAiGen` | `isAiGen` | `boolean` | No | No | Whether the mobile image is AI-generated. |
+| `layout` | `layout` | `string` | No | No | **StoreImageLayout Enum:** \| StoreImageLayout \| Description \| \| --- \| --- \| \| `COVER` \| Cover layout \| \| `CONTAIN` \| Contain layout \| \| `TEXT` \| Text layout \| |
+| `renderTileLayers` | `renderTileLayers` | `boolean` | No | No | Whether to render tile layers on mobile. |
+| `shape` | `shape` | `string` | No | No | **StoreImageShape Enum:** \| StoreImageShape \| Description \| \| --- \| --- \| \| `SQUARE` \| Square shape \| |
+| `text` | `text` | `string` | No | No | Text content for mobile. |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `textOption` | `textOption` | `string` | No | No | **StoreTextOption Enum:** \| StoreTextOption \| Description \| \| --- \| --- \| \| `TEXT_OVER_IMAGE` \| Text overlaid on image \| \| `TEXT_NEXT_TO_IMAGE` \| Text next to image \| |
+| `tileLayers` | `tileLayers` | `Array<Inline1141>` | No | No | Layer configuration for the mobile tile. |
+| `title` | `title` | `string` | No | No | Title for mobile display. |
+| `verticalAlign` | `verticalAlign` | `string` | No | No | **StoreVerticalAlign Enum:** \| StoreVerticalAlign \| Description \| \| --- \| --- \| \| `TOP` \| Top alignment \| \| `MIDDLE` \| Middle alignment \| \| `BOTTOM` \| Bottom alignment \| |
+
+## Inline114
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `colorPalette` | `colorPalette` | `string` | No | No | **StoreColorPalette Enum:** \| StoreColorPalette \| Description \| \| --- \| --- \| \| `DEFAULT` \| Default color scheme \| \| `DEFAULT_INVERTED` \| Inverted default color scheme \| \| `SOLID_WHITE` \| Solid white color scheme \| \| `SOLID_BLACK` \| Solid black color scheme \| \| `TRANSLUCENT_WHITE` \| Translucent white color scheme \| \| `TRANSLUCENT_BLACK` \| Translucent black color scheme \| \| `TRANSPARENT_BLACK` \| Transparent black color scheme \| \| `TRANSPARENT_WHITE` \| Transparent white color scheme \| |
+| `content` | `content` | `Inline114` | No | No | — |
+| `coverTile` | `coverTile` | `boolean` | No | No | Whether the layer covers the entire tile. |
+| `margin` | `margin` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `opacity` | `opacity` | `number` | No | No | Opacity level of the layer. |
+| `outOfBounds` | `outOfBounds` | `boolean` | No | No | Whether the layer is out of bounds. |
+| `padding` | `padding` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `position` | `position` | `Inline115` | No | No | — |
+| `tag` | `tag` | `string` | No | No | Unique tag for the tile layer to track performance. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline1140
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | Height of the crop box. |
+| `left` | `left` | `number` | No | No | Left position of the crop box. |
+| `top` | `top` | `number` | No | No | Top position of the crop box. |
+| `width` | `width` | `number` | No | No | Width of the crop box. |
+
+## Inline1141
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `colorPalette` | `colorPalette` | `string` | No | No | **StoreColorPalette Enum:** \| StoreColorPalette \| Description \| \| --- \| --- \| \| `DEFAULT` \| Default color scheme \| \| `DEFAULT_INVERTED` \| Inverted default color scheme \| \| `SOLID_WHITE` \| Solid white color scheme \| \| `SOLID_BLACK` \| Solid black color scheme \| \| `TRANSLUCENT_WHITE` \| Translucent white color scheme \| \| `TRANSLUCENT_BLACK` \| Translucent black color scheme \| \| `TRANSPARENT_BLACK` \| Transparent black color scheme \| \| `TRANSPARENT_WHITE` \| Transparent white color scheme \| |
+| `content` | `content` | `Inline1141` | No | No | — |
+| `coverTile` | `coverTile` | `boolean` | No | No | Whether the layer covers the entire tile. |
+| `margin` | `margin` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `opacity` | `opacity` | `number` | No | No | Opacity level of the layer. |
+| `outOfBounds` | `outOfBounds` | `boolean` | No | No | Whether the layer is out of bounds. |
+| `padding` | `padding` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `position` | `position` | `Inline1142` | No | No | — |
+| `tag` | `tag` | `string` | No | No | Unique tag for the tile layer to track performance. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline1142
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `x` | `x` | `string` | No | No | **HorizontalPosition Enum:** \| HorizontalPosition \| Description \| \| --- \| --- \| \| `LEFT` \| Left position \| \| `CENTER` \| Center position \| \| `RIGHT` \| Right position \| |
+| `y` | `y` | `string` | No | No | **VerticalPosition Enum:** \| VerticalPosition \| Description \| \| --- \| --- \| \| `TOP` \| Top position \| \| `MIDDLE` \| Middle position \| \| `BOTTOM` \| Bottom position \| |
+
+## Inline1143
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeImageTile` | `storeImageTile` | `Inline1143` | Yes | No | — |
+
+## Inline1144
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text for the image. |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier. |
+| `assetTags` | `assetTags` | `string` | No | No | Tags associated with the asset. |
+| `bleedImage` | `bleedImage` | `string` | No | No | **StoreBleedImageType Enum:** \| StoreBleedImageType \| Description \| \| --- \| --- \| \| `NONE` \| No image bleed \| \| `SIDE` \| Side image bleed \| \| `CORNER` \| Corner image bleed \| \| `ALL` \| All sides image bleed \| |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `canvasData` | `canvasData` | `Inline1144` | No | No | — |
+| `cropBoxData` | `cropBoxData` | `Inline1145` | No | No | — |
+| `customUrl` | `customUrl` | `string` | No | No | Custom URL. |
+| `hideTitle` | `hideTitle` | `boolean` | No | No | Whether to hide the title. |
+| `imageHeight` | `imageHeight` | `number` | No | No | Height of the image. |
+| `imageKey` | `imageKey` | `string` | No | No | Key identifier for the image. |
+| `imageOffsetLeft` | `imageOffsetLeft` | `number` | No | No | Left offset for image positioning. |
+| `imageOffsetTop` | `imageOffsetTop` | `number` | No | No | Top offset for image positioning. |
+| `imageUrl` | `imageUrl` | `string` | No | No | URL of the image. |
+| `imageWidth` | `imageWidth` | `number` | No | No | Width of the image. |
+| `isAiGen` | `isAiGen` | `boolean` | No | No | Whether the image is AI-generated. |
+| `layout` | `layout` | `string` | No | No | **StoreImageLayout Enum:** \| StoreImageLayout \| Description \| \| --- \| --- \| \| `COVER` \| Cover layout \| \| `CONTAIN` \| Contain layout \| \| `TEXT` \| Text layout \| |
+| `pageId` | `pageId` | `string` | No | No | Page identifier. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the image. |
+| `text` | `text` | `string` | No | No | Text content. |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreImageTextAlign Enum:** \| StoreImageTextAlign \| Description \| \| --- \| --- \| \| `LEFT` \| Left text alignment \| \| `RIGHT` \| Right text alignment \| |
+| `tileLayers` | `tileLayers` | `Array<string>` | No | No | Layer configuration for the tile. |
+| `title` | `title` | `string` | No | No | Title of the image. |
+| `verticalAlign` | `verticalAlign` | `string` | No | No | **StoreVerticalAlign Enum:** \| StoreVerticalAlign \| Description \| \| --- \| --- \| \| `TOP` \| Top alignment \| \| `MIDDLE` \| Middle alignment \| \| `BOTTOM` \| Bottom alignment \| |
+
+## Inline1145
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | Height of the crop box. |
+| `left` | `left` | `number` | No | No | Left position of the crop box. |
+| `top` | `top` | `number` | No | No | Top position of the crop box. |
+| `width` | `width` | `number` | No | No | Width of the crop box. |
+
+## Inline1146
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text for the mobile image. |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier for mobile. |
+| `assetTags` | `assetTags` | `string` | No | No | Tags associated with the mobile asset. |
+| `bleedImage` | `bleedImage` | `string` | No | No | **StoreBleedImageType Enum:** \| StoreBleedImageType \| Description \| \| --- \| --- \| \| `NONE` \| No image bleed \| \| `SIDE` \| Side image bleed \| \| `CORNER` \| Corner image bleed \| \| `ALL` \| All sides image bleed \| |
+| `canvasData` | `canvasData` | `Inline1146` | No | No | — |
+| `cropBoxData` | `cropBoxData` | `Inline1147` | No | No | — |
+| `hideTitle` | `hideTitle` | `boolean` | No | No | Whether to hide the title on mobile. |
+| `imageHeight` | `imageHeight` | `number` | No | No | Height of the mobile image. |
+| `imageKey` | `imageKey` | `string` | No | No | Key identifier for the mobile image. |
+| `imageOffsetLeft` | `imageOffsetLeft` | `number` | No | No | Left offset for mobile image positioning. |
+| `imageOffsetTop` | `imageOffsetTop` | `number` | No | No | Top offset for mobile image positioning. |
+| `imageUrl` | `imageUrl` | `string` | No | No | URL of the mobile image. |
+| `imageWidth` | `imageWidth` | `number` | No | No | Width of the mobile image. |
+| `isAiGen` | `isAiGen` | `boolean` | No | No | Whether the mobile image is AI-generated. |
+| `layout` | `layout` | `string` | No | No | **StoreImageLayout Enum:** \| StoreImageLayout \| Description \| \| --- \| --- \| \| `COVER` \| Cover layout \| \| `CONTAIN` \| Contain layout \| \| `TEXT` \| Text layout \| |
+| `tileLayers` | `tileLayers` | `Array<string>` | No | No | Layer configuration for the mobile tile. |
+| `title` | `title` | `string` | No | No | Title for mobile display. |
+| `verticalAlign` | `verticalAlign` | `string` | No | No | **StoreVerticalAlign Enum:** \| StoreVerticalAlign \| Description \| \| --- \| --- \| \| `TOP` \| Top alignment \| \| `MIDDLE` \| Middle alignment \| \| `BOTTOM` \| Bottom alignment \| |
+
+## Inline1147
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | Height of the crop box. |
+| `left` | `left` | `number` | No | No | Left position of the crop box. |
+| `top` | `top` | `number` | No | No | Top position of the crop box. |
+| `width` | `width` | `number` | No | No | Width of the crop box. |
+
+## Inline1148
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeProductTile` | `storeProductTile` | `Inline1148` | Yes | No | — |
+
+## Inline1149
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bleedImage` | `bleedImage` | `string` | No | No | **StoreBleedImageType Enum:** \| StoreBleedImageType \| Description \| \| --- \| --- \| \| `NONE` \| No image bleed \| \| `SIDE` \| Side image bleed \| \| `CORNER` \| Corner image bleed \| \| `ALL` \| All sides image bleed \| |
+| `displayOutOfStockASIN` | `displayOutOfStockASIN` | `boolean` | No | No | Whether to display out of stock ASIN. |
+| `layout` | `layout` | `string` | No | No | **StoreLayoutType Enum:** \| StoreLayoutType \| Description \| \| --- \| --- \| \| `DEFAULT` \| Default layout configuration \| \| `SHOWCASE` \| Showcase layout configuration for featured display \| |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the product. |
+| `text` | `text` | `string` | No | No | Description text for the product. |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `title` | `title` | `string` | No | No | Title of the product. |
+
+## Inline115
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `x` | `x` | `string` | No | No | **HorizontalPosition Enum:** \| HorizontalPosition \| Description \| \| --- \| --- \| \| `LEFT` \| Left position \| \| `CENTER` \| Center position \| \| `RIGHT` \| Right position \| |
+| `y` | `y` | `string` | No | No | **VerticalPosition Enum:** \| VerticalPosition \| Description \| \| --- \| --- \| \| `TOP` \| Top position \| \| `MIDDLE` \| Middle position \| \| `BOTTOM` \| Bottom position \| |
+
+## Inline1150
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeShoppableImageTile` | `storeShoppableImageTile` | `Inline1150` | Yes | No | — |
+
+## Inline1151
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `croppedImage` | `croppedImage` | `Inline1151` | No | No | — |
+| `points` | `points` | `Array<Inline1153>` | No | No | Interactive points on the image. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the point. |
+| `renderTileLayers` | `renderTileLayers` | `boolean` | No | No | Whether to render tile layers. |
+| `textOption` | `textOption` | `string` | No | No | **StoreShoppableTextOption Enum:** \| StoreShoppableTextOption \| Description \| \| --- \| --- \| \| `TEXT_UNDER_INTERACTIVE_IMAGE` \| Text under interactive image \| \| `NO_TEXT_UNDER_INTERACTIVE_IMAGE` \| No text under interactive image \| \| `TEXT_OVER_IMAGE` \| Text over interactive image \| |
+| `tileLayers` | `tileLayers` | `Array<Inline1154>` | No | No | Layer configuration for the tile. |
+
+## Inline1152
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `number` | No | No | Height of the crop box. |
+| `left` | `left` | `number` | No | No | Left position of the crop box. |
+| `top` | `top` | `number` | No | No | Top position of the crop box. |
+| `width` | `width` | `number` | No | No | Width of the crop box. |
+
+## Inline1153
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `coordinates` | `coordinates` | `Inline1153` | Yes | No | — |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the point. |
+| `tag` | `tag` | `string` | No | No | Unique tag for the point. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline1154
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `colorPalette` | `colorPalette` | `string` | No | No | **StoreColorPalette Enum:** \| StoreColorPalette \| Description \| \| --- \| --- \| \| `DEFAULT` \| Default color scheme \| \| `DEFAULT_INVERTED` \| Inverted default color scheme \| \| `SOLID_WHITE` \| Solid white color scheme \| \| `SOLID_BLACK` \| Solid black color scheme \| \| `TRANSLUCENT_WHITE` \| Translucent white color scheme \| \| `TRANSLUCENT_BLACK` \| Translucent black color scheme \| \| `TRANSPARENT_BLACK` \| Transparent black color scheme \| \| `TRANSPARENT_WHITE` \| Transparent white color scheme \| |
+| `content` | `content` | `Inline1154` | No | No | — |
+| `coverTile` | `coverTile` | `boolean` | No | No | Whether the layer covers the entire tile. |
+| `margin` | `margin` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `opacity` | `opacity` | `number` | No | No | Opacity level of the layer. |
+| `outOfBounds` | `outOfBounds` | `boolean` | No | No | Whether the layer is out of bounds. |
+| `padding` | `padding` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `position` | `position` | `Inline1155` | No | No | — |
+| `tag` | `tag` | `string` | No | No | Unique tag for the tile layer to track performance. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline1155
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `x` | `x` | `string` | No | No | **HorizontalPosition Enum:** \| HorizontalPosition \| Description \| \| --- \| --- \| \| `LEFT` \| Left position \| \| `CENTER` \| Center position \| \| `RIGHT` \| Right position \| |
+| `y` | `y` | `string` | No | No | **VerticalPosition Enum:** \| VerticalPosition \| Description \| \| --- \| --- \| \| `TOP` \| Top position \| \| `MIDDLE` \| Middle position \| \| `BOTTOM` \| Bottom position \| |
+
+## Inline1156
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeTextTile` | `storeTextTile` | `Inline1156` | Yes | No | — |
+
+## Inline1157
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bold` | `bold` | `boolean` | Yes | No | Whether text should be bold. |
+| `bondCustomerServiceLink` | `bondCustomerServiceLink` | `boolean` | No | No | Whether to include customer service link. |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `customUrl` | `customUrl` | `string` | No | No | Custom URL for the content. |
+| `pageId` | `pageId` | `string` | No | No | Identifier for the page. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single product ASIN for the content. |
+| `text` | `text` | `string` | Yes | No | Main text content. |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `title` | `title` | `string` | Yes | No | Title of the content. |
+| `uppercase` | `uppercase` | `boolean` | Yes | No | Whether text should be uppercase. |
+
+## Inline1158
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeVideoTile` | `storeVideoTile` | `Inline1158` | Yes | No | — |
+
+## Inline1159
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier. |
+| `assetTags` | `assetTags` | `string` | No | No | Tags associated with the asset. |
+| `autoPlay` | `autoPlay` | `boolean` | No | No | Whether video should auto-play. |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `canvasData` | `canvasData` | `Inline1159` | No | No | — |
+| `customUrl` | `customUrl` | `string` | No | No | Custom URL for the content. |
+| `imageHeight` | `imageHeight` | `number` | No | No | Height of the image. |
+| `imageKey` | `imageKey` | `string` | No | No | Key for the image asset. |
+| `imageOffsetLeft` | `imageOffsetLeft` | `number` | No | No | Left offset for image positioning. |
+| `imageOffsetTop` | `imageOffsetTop` | `number` | No | No | Top offset for image positioning. |
+| `imageUrl` | `imageUrl` | `string` | No | No | URL of the image. |
+| `imageWidth` | `imageWidth` | `number` | No | No | Width of the image. |
+| `mute` | `mute` | `boolean` | No | No | Whether video should be muted. |
+| `pageId` | `pageId` | `string` | No | No | Page identifier |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | List of product ASINs. |
+| `renderTileLayers` | `renderTileLayers` | `boolean` | No | No | Whether to render tile layers. |
+| `resourceId` | `resourceId` | `string` | No | No | Resource identifier. |
+| `text` | `text` | `string` | No | No | Text content. |
+| `textAlign` | `textAlign` | `string` | No | No | Text alignment. |
+| `textOption` | `textOption` | `string` | No | No | **StoreTextOptionType Enum:** \| StoreTextOptionType \| Description \| \| --- \| --- \| \| `NO_TEXT_OVER_VIDEO` \| No text overlay on video \| \| `TEXT_OVER_VIDEO` \| Text overlay on video \| |
+| `tileLayers` | `tileLayers` | `Array<Inline1160>` | No | No | Configuration for tile layers. |
+| `title` | `title` | `string` | No | No | Title of the content. |
+| `videoAssetId` | `videoAssetId` | `string` | No | No | Video asset identifier. |
+| `videoAssetTags` | `videoAssetTags` | `string` | No | No | Tags associated with the video asset. |
+| `videoDescription` | `videoDescription` | `string` | No | No | Description of the video. |
+| `videoKey` | `videoKey` | `string` | No | No | Key for the video asset. |
+| `videoName` | `videoName` | `string` | No | No | Name of the video. |
+| `videoSize` | `videoSize` | `number` | No | No | Size of the video in bytes. |
+| `videoUrl` | `videoUrl` | `string` | No | No | URL of the video. |
+
+## Inline116
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeCustomCodeWidget` | `storeCustomCodeWidget` | `Inline116` | Yes | No | — |
+
+## Inline1160
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `colorPalette` | `colorPalette` | `string` | No | No | **StoreColorPalette Enum:** \| StoreColorPalette \| Description \| \| --- \| --- \| \| `DEFAULT` \| Default color scheme \| \| `DEFAULT_INVERTED` \| Inverted default color scheme \| \| `SOLID_WHITE` \| Solid white color scheme \| \| `SOLID_BLACK` \| Solid black color scheme \| \| `TRANSLUCENT_WHITE` \| Translucent white color scheme \| \| `TRANSLUCENT_BLACK` \| Translucent black color scheme \| \| `TRANSPARENT_BLACK` \| Transparent black color scheme \| \| `TRANSPARENT_WHITE` \| Transparent white color scheme \| |
+| `content` | `content` | `Inline1160` | No | No | — |
+| `coverTile` | `coverTile` | `boolean` | No | No | Whether the layer covers the entire tile. |
+| `margin` | `margin` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `opacity` | `opacity` | `number` | No | No | Opacity level of the layer. |
+| `outOfBounds` | `outOfBounds` | `boolean` | No | No | Whether the layer is out of bounds. |
+| `padding` | `padding` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `position` | `position` | `Inline1161` | No | No | — |
+| `tag` | `tag` | `string` | No | No | Unique tag for the tile layer to track performance. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline1161
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `x` | `x` | `string` | No | No | **HorizontalPosition Enum:** \| HorizontalPosition \| Description \| \| --- \| --- \| \| `LEFT` \| Left position \| \| `CENTER` \| Center position \| \| `RIGHT` \| Right position \| |
+| `y` | `y` | `string` | No | No | **VerticalPosition Enum:** \| VerticalPosition \| Description \| \| --- \| --- \| \| `TOP` \| Top position \| \| `MIDDLE` \| Middle position \| \| `BOTTOM` \| Bottom position \| |
+
+## Inline1162
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeEmptyTile` | `storeEmptyTile` | `Inline1162` | Yes | No | — |
+
+## Inline1163
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bondCustomerServiceLink` | `bondCustomerServiceLink` | `boolean` | No | No | Whether to include a customer service link. |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `text` | `text` | `string` | No | No | Text content (must be empty). |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `title` | `title` | `string` | No | No | Title of the tile (must be empty). |
+
+## Inline1164
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeCustomCodeTile` | `storeCustomCodeTile` | `Inline1164` | Yes | No | — |
+
+## Inline1165
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `autoDimension` | `autoDimension` | `boolean` | No | No | Whether to use automatic dimensioning. |
+| `availableProductAsins` | `availableProductAsins` | `Array<string>` | No | No | List of available ASINs, maximum 500 unique items. |
+| `cti` | `cti` | `Inline1165` | No | No | — |
+| `embedCode` | `embedCode` | `string` | No | No | Embedded code content. |
+| `integrity` | `integrity` | `string` | No | No | Integrity hash for security. |
+| `widgetName` | `widgetName` | `string` | No | No | Name of the widget. |
+| `widgetTag` | `widgetTag` | `string` | No | No | Widget identifier. |
+
+## Inline1167
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `canvasHeight` | `canvasHeight` | `number` | No | No | Height in the canvas. |
+| `height` | `height` | `number` | No | No | Height in the canvas. |
+| `left` | `left` | `number` | No | No | Left position in the canvas. |
+| `naturalHeight` | `naturalHeight` | `number` | No | No | Natural height of the image. |
+| `naturalWidth` | `naturalWidth` | `number` | No | No | Natural width of the image. |
+| `top` | `top` | `number` | No | No | Top position in the canvas. |
+| `width` | `width` | `number` | No | No | Width in the canvas. |
+
+## Inline1168
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `colorPalette` | `colorPalette` | `string` | No | No | **StoreColorPalette Enum:** \| StoreColorPalette \| Description \| \| --- \| --- \| \| `DEFAULT` \| Default color scheme \| \| `DEFAULT_INVERTED` \| Inverted default color scheme \| \| `SOLID_WHITE` \| Solid white color scheme \| \| `SOLID_BLACK` \| Solid black color scheme \| \| `TRANSLUCENT_WHITE` \| Translucent white color scheme \| \| `TRANSLUCENT_BLACK` \| Translucent black color scheme \| \| `TRANSPARENT_BLACK` \| Transparent black color scheme \| \| `TRANSPARENT_WHITE` \| Transparent white color scheme \| |
+| `content` | `content` | `Inline1168` | No | No | — |
+| `coverTile` | `coverTile` | `boolean` | No | No | Whether the layer covers the entire tile. |
+| `margin` | `margin` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `opacity` | `opacity` | `number` | No | No | Opacity level of the layer. |
+| `outOfBounds` | `outOfBounds` | `boolean` | No | No | Whether the layer is out of bounds. |
+| `padding` | `padding` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `position` | `position` | `Inline1169` | No | No | — |
+| `tag` | `tag` | `string` | No | No | Unique tag for the tile layer to track performance. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline1169
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `x` | `x` | `string` | No | No | **HorizontalPosition Enum:** \| HorizontalPosition \| Description \| \| --- \| --- \| \| `LEFT` \| Left position \| \| `CENTER` \| Center position \| \| `RIGHT` \| Right position \| |
+| `y` | `y` | `string` | No | No | **VerticalPosition Enum:** \| VerticalPosition \| Description \| \| --- \| --- \| \| `TOP` \| Top position \| \| `MIDDLE` \| Middle position \| \| `BOTTOM` \| Bottom position \| |
+
+## Inline117
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline117` | Yes | No | — |
+| `content` | `content` | `Inline118` | No | No | — |
+
+## Inline1171
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | Yes | No | Unique identifier for the video asset |
+| `url` | `url` | `string` | Yes | No | URL of the video content |
+
+## Inline1172
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | Yes | No | Unique identifier for the video asset |
+| `url` | `url` | `string` | Yes | No | URL of the video content |
+
+## Inline1175
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `desktop` | `desktop` | `Inline1175` | Yes | No | Configuration for a single video reveal video asset |
+| `mobile` | `mobile` | `Inline1176` | Yes | No | Configuration for a single video reveal video asset |
+
+## Inline1176
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | Yes | No | Unique identifier for the video asset |
+| `url` | `url` | `string` | Yes | No | URL of the video content |
+
+## Inline1178
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `size` | `size` | `string` | Yes | No | **StoreTileSize Enum:** \| StoreTileSize \| Description \| \| --- \| --- \| \| `LARGE` \| Large tile size, StoreAWLSTile only uses LARGE \| \| `MEDIUM` \| Medium tile size \| \| `SMALL` \| Small tile size \| \| `MINI` \| Mini tile size \| |
+| `tag` | `tag` | `string` | Yes | No | The unique tag for the tile to help track on performance. |
+| `type` | `type` | `string` | Yes | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline1179
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier. |
+| `assetTags` | `assetTags` | `string` | No | No | Tags associated with the asset. |
+| `autoPlay` | `autoPlay` | `boolean` | No | No | Whether video should auto-play. |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `canvasData` | `canvasData` | `Inline1179` | No | No | — |
+| `customUrl` | `customUrl` | `string` | No | No | Custom URL for the content. |
+| `imageHeight` | `imageHeight` | `number` | No | No | Height of the image. |
+| `imageKey` | `imageKey` | `string` | No | No | Key for the image asset. |
+| `imageOffsetLeft` | `imageOffsetLeft` | `number` | No | No | Left offset for image positioning. |
+| `imageOffsetTop` | `imageOffsetTop` | `number` | No | No | Top offset for image positioning. |
+| `imageUrl` | `imageUrl` | `string` | No | No | URL of the image. |
+| `imageWidth` | `imageWidth` | `number` | No | No | Width of the image. |
+| `mute` | `mute` | `boolean` | No | No | Whether video should be muted. |
+| `pageId` | `pageId` | `string` | No | No | Page identifier |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | List of product ASINs. |
+| `renderTileLayers` | `renderTileLayers` | `boolean` | No | No | Whether to render tile layers. |
+| `resourceId` | `resourceId` | `string` | No | No | Resource identifier. |
+| `text` | `text` | `string` | No | No | Text content. |
+| `textAlign` | `textAlign` | `string` | No | No | Text alignment. |
+| `textOption` | `textOption` | `string` | No | No | **StoreTextOptionType Enum:** \| StoreTextOptionType \| Description \| \| --- \| --- \| \| `NO_TEXT_OVER_VIDEO` \| No text overlay on video \| \| `TEXT_OVER_VIDEO` \| Text overlay on video \| |
+| `tileLayers` | `tileLayers` | `Array<Inline1180>` | No | No | Configuration for tile layers. |
+| `title` | `title` | `string` | No | No | Title of the content. |
+| `videoAssetId` | `videoAssetId` | `string` | No | No | Video asset identifier. |
+| `videoAssetTags` | `videoAssetTags` | `string` | No | No | Tags associated with the video asset. |
+| `videoDescription` | `videoDescription` | `string` | No | No | Description of the video. |
+| `videoKey` | `videoKey` | `string` | No | No | Key for the video asset. |
+| `videoName` | `videoName` | `string` | No | No | Name of the video. |
+| `videoSize` | `videoSize` | `number` | No | No | Size of the video in bytes. |
+| `videoUrl` | `videoUrl` | `string` | No | No | URL of the video. |
+
+## Inline118
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `autoDimension` | `autoDimension` | `boolean` | No | No | Whether to use automatic dimensioning. |
+| `availableProductAsins` | `availableProductAsins` | `Array<string>` | No | No | List of available ASINs, maximum 500 unique items. |
+| `cti` | `cti` | `Inline118` | No | No | — |
+| `embedCode` | `embedCode` | `string` | No | No | Embedded code content. |
+| `integrity` | `integrity` | `string` | No | No | Integrity hash for security. |
+| `widgetName` | `widgetName` | `string` | No | No | Name of the widget. |
+| `widgetTag` | `widgetTag` | `string` | No | No | Widget identifier. |
+
+## Inline1180
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `colorPalette` | `colorPalette` | `string` | No | No | **StoreColorPalette Enum:** \| StoreColorPalette \| Description \| \| --- \| --- \| \| `DEFAULT` \| Default color scheme \| \| `DEFAULT_INVERTED` \| Inverted default color scheme \| \| `SOLID_WHITE` \| Solid white color scheme \| \| `SOLID_BLACK` \| Solid black color scheme \| \| `TRANSLUCENT_WHITE` \| Translucent white color scheme \| \| `TRANSLUCENT_BLACK` \| Translucent black color scheme \| \| `TRANSPARENT_BLACK` \| Transparent black color scheme \| \| `TRANSPARENT_WHITE` \| Transparent white color scheme \| |
+| `content` | `content` | `Inline1180` | No | No | — |
+| `coverTile` | `coverTile` | `boolean` | No | No | Whether the layer covers the entire tile. |
+| `margin` | `margin` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `opacity` | `opacity` | `number` | No | No | Opacity level of the layer. |
+| `outOfBounds` | `outOfBounds` | `boolean` | No | No | Whether the layer is out of bounds. |
+| `padding` | `padding` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `position` | `position` | `Inline1181` | No | No | — |
+| `tag` | `tag` | `string` | No | No | Unique tag for the tile layer to track performance. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline1181
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `x` | `x` | `string` | No | No | **HorizontalPosition Enum:** \| HorizontalPosition \| Description \| \| --- \| --- \| \| `LEFT` \| Left position \| \| `CENTER` \| Center position \| \| `RIGHT` \| Right position \| |
+| `y` | `y` | `string` | No | No | **VerticalPosition Enum:** \| VerticalPosition \| Description \| \| --- \| --- \| \| `TOP` \| Top position \| \| `MIDDLE` \| Middle position \| \| `BOTTOM` \| Bottom position \| |
+
+## Inline1183
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sectionType` | `sectionType` | `string` | Yes | No | **StoreWidgetSectionType Enum:** \| StoreWidgetSectionType \| Description \| \| --- \| --- \| \| `HERO` \| Section type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `DEALS_AND_COUPONS` \| Section type for StoreDealsWidget and StoreDealsContent type \| \| `GALLERY` \| Section type for StoreGalleryWidget \| \| `PRODUCT_COLLECTION` \| Section type for StoreProductCollectionWidget \| \| `PRODUCT_GRID` \| Section type for StoreProductGridWidget and type for StoreProductCollectionASINGrid \| \| `SHOP_THE_LOOK_CAROUSEL` \| Section type for StoreShopTheLookWidget and type for StoreShopTheLookContent \| \| `MANUALLY_CURATED_PRODUCT_CAROUSEL` \| Section type for StoreManuallyCuratedProductCarouselWidget and StoreCarouselContent type \| \| `RECOMMENDED` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `PREMIUM_BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `LIVE_VIDEO` \| Section type for StoreLiveVideoWidget \| \| `BANNER` \| Section type for StoreBannerWidget \| |
+| `widgetTag` | `widgetTag` | `string` | Yes | No | The unique tag for the widget to help track on performance. |
+| `widgetType` | `widgetType` | `string` | Yes | No | **StoreWidgetType Enum:** \| StoreWidgetType \| Description \| \| --- \| --- \| \| `HERO` \| Widget type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `PRODUCT_GRID` \| Widget type for StoreProductGridWidget and StoreDealsWidget \| \| `GALLERY` \| Widget type for StoreGalleryWidget and StoreGalleryContent type \| \| `PRODUCT_COLLECTION` \| Widget type for StoreProductCollectionWidget and StoreProductCollection type \| \| `MULTI_MEDIA_CAROUSEL` \| Widget type for StoreShopTheLookWidget, StoreManuallyCuratedProductCarouselWidget and StoreProductCarouselWidget \| \| `PRODUCT_CAROUSEL` \| Widget type for StoreProductCarouselWidget \| \| `LIVE_VIDEO` \| Widget type and content type for StoreLiveVideoWidget \| \| `BANNER` \| Widget type and content type for StoreBannerWidget \| |
+
+## Inline1184
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline1184` | Yes | No | — |
+| `content` | `content` | `Inline1185` | No | No | — |
+
+## Inline1185
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier. |
+| `assetTags` | `assetTags` | `string` | No | No | Tags associated with the asset. |
+| `autoPlay` | `autoPlay` | `boolean` | No | No | Whether video should auto-play. |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `canvasData` | `canvasData` | `Inline1185` | No | No | — |
+| `customUrl` | `customUrl` | `string` | No | No | Custom URL for the content. |
+| `imageHeight` | `imageHeight` | `number` | No | No | Height of the image. |
+| `imageKey` | `imageKey` | `string` | No | No | Key for the image asset. |
+| `imageOffsetLeft` | `imageOffsetLeft` | `number` | No | No | Left offset for image positioning. |
+| `imageOffsetTop` | `imageOffsetTop` | `number` | No | No | Top offset for image positioning. |
+| `imageUrl` | `imageUrl` | `string` | No | No | URL of the image. |
+| `imageWidth` | `imageWidth` | `number` | No | No | Width of the image. |
+| `mute` | `mute` | `boolean` | No | No | Whether video should be muted. |
+| `pageId` | `pageId` | `string` | No | No | Page identifier |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | List of product ASINs. |
+| `renderTileLayers` | `renderTileLayers` | `boolean` | No | No | Whether to render tile layers. |
+| `resourceId` | `resourceId` | `string` | No | No | Resource identifier. |
+| `text` | `text` | `string` | No | No | Text content. |
+| `textAlign` | `textAlign` | `string` | No | No | Text alignment. |
+| `textOption` | `textOption` | `string` | No | No | **StoreTextOptionType Enum:** \| StoreTextOptionType \| Description \| \| --- \| --- \| \| `NO_TEXT_OVER_VIDEO` \| No text overlay on video \| \| `TEXT_OVER_VIDEO` \| Text overlay on video \| |
+| `tileLayers` | `tileLayers` | `Array<Inline1186>` | No | No | Configuration for tile layers. |
+| `title` | `title` | `string` | No | No | Title of the content. |
+| `videoAssetId` | `videoAssetId` | `string` | No | No | Video asset identifier. |
+| `videoAssetTags` | `videoAssetTags` | `string` | No | No | Tags associated with the video asset. |
+| `videoDescription` | `videoDescription` | `string` | No | No | Description of the video. |
+| `videoKey` | `videoKey` | `string` | No | No | Key for the video asset. |
+| `videoName` | `videoName` | `string` | No | No | Name of the video. |
+| `videoSize` | `videoSize` | `number` | No | No | Size of the video in bytes. |
+| `videoUrl` | `videoUrl` | `string` | No | No | URL of the video. |
+
+## Inline1186
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `colorPalette` | `colorPalette` | `string` | No | No | **StoreColorPalette Enum:** \| StoreColorPalette \| Description \| \| --- \| --- \| \| `DEFAULT` \| Default color scheme \| \| `DEFAULT_INVERTED` \| Inverted default color scheme \| \| `SOLID_WHITE` \| Solid white color scheme \| \| `SOLID_BLACK` \| Solid black color scheme \| \| `TRANSLUCENT_WHITE` \| Translucent white color scheme \| \| `TRANSLUCENT_BLACK` \| Translucent black color scheme \| \| `TRANSPARENT_BLACK` \| Transparent black color scheme \| \| `TRANSPARENT_WHITE` \| Transparent white color scheme \| |
+| `content` | `content` | `Inline1186` | No | No | — |
+| `coverTile` | `coverTile` | `boolean` | No | No | Whether the layer covers the entire tile. |
+| `margin` | `margin` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `opacity` | `opacity` | `number` | No | No | Opacity level of the layer. |
+| `outOfBounds` | `outOfBounds` | `boolean` | No | No | Whether the layer is out of bounds. |
+| `padding` | `padding` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `position` | `position` | `Inline1187` | No | No | — |
+| `tag` | `tag` | `string` | No | No | Unique tag for the tile layer to track performance. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## Inline1187
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `x` | `x` | `string` | No | No | **HorizontalPosition Enum:** \| HorizontalPosition \| Description \| \| --- \| --- \| \| `LEFT` \| Left position \| \| `CENTER` \| Center position \| \| `RIGHT` \| Right position \| |
+| `y` | `y` | `string` | No | No | **VerticalPosition Enum:** \| VerticalPosition \| Description \| \| --- \| --- \| \| `TOP` \| Top position \| \| `MIDDLE` \| Middle position \| \| `BOTTOM` \| Bottom position \| |
+
+## Inline119
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `storeVideoWidget` | `storeVideoWidget` | `Inline119` | Yes | No | — |
+
+## Inline1193
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | **ErrorCode Enum:** \| ErrorCode \| Description \| \| --- \| --- \| \| `INTERNAL_ERROR` \| The server encountered an unexpected condition that prevented it from fulfilling the request. \| \| `UNAUTHORIZED` \| The request lacks the necessary credentials. \| \| `FORBIDDEN` \| The caller is not authorized to make the given request. \| \| `TOO_MANY_REQUESTS` \| There have been too many requests, please slow down your call rate. \| \| `NOT_FOUND` \| The requested resource does not exist. \| \| `BAD_REQUEST` \| The request is not valid considering the documented schema. \| \| `CONFLICT` \| Operation could not be completed due to a conflict. Please retry your request. \| \| `DUPLICATE_RESOURCE_ID_FOUND` \| Multiple resources share the same ID. Remove the duplicate ID. \| |
+| `fieldLocation` | `fieldLocation` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | — |
+
+## Inline12
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asinOverrides` | `asinOverrides` | `Array<string>` | No | No | List of ASIN overrides for the ingredient |
+| `brand` | `brand` | `string` | Yes | No | Brand name associated with the ingredient |
+| `displayText` | `displayText` | `string` | Yes | No | Formatted text for displaying the ingredient |
+| `isAsinRestricted` | `isAsinRestricted` | `boolean` | Yes | No | Flag indicating if ASIN is restricted for this ingredient |
+| `isBrandRestricted` | `isBrandRestricted` | `boolean` | Yes | No | Flag indicating if brand is restricted for this ingredient |
+| `isExclusiveOverride` | `isExclusiveOverride` | `boolean` | Yes | No | Flag indicating if this ingredient has exclusive override |
+| `name` | `name` | `string` | Yes | No | Name of the ingredient |
+| `quantityList` | `quantityList` | `Array<Inline12>` | No | No | List of quantity measurements for the ingredient |
+
+## Inline120
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline120` | Yes | No | — |
+| `content` | `content` | `Inline121` | No | No | — |
+
+## Inline1200
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hasHalfStar` | `hasHalfStar` | `boolean` | Yes | No | Flag indicating if the product has a half star in the rating |
+| `reviewCount` | `reviewCount` | `number` | Yes | No | Number of reviews for the product |
+| `wholeStars` | `wholeStars` | `number` | Yes | No | Number of whole stars in the rating |
+
+## Inline1202
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | — |
+
+## Inline1203
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | Yes | No | **PublishStatus Enum:** \| PublishStatus \| Description \| \| --- \| --- \| \| `DRAFT` \| Content is in draft state \| \| `REVIEW_IN_PROGRESS` \| Content is pending publication for review \| |

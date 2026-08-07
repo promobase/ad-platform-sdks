@@ -1,0 +1,53 @@
+---
+title: "Amazon Ads — Sponsored Brands Ad Migrations endpoints"
+description: "1 generated Amazon Ads — Sponsored Brands endpoint contract for Ad Migrations."
+generated: true
+platform: "amazon-ads-sb"
+sourceVersion: "v5"
+sidebar:
+  order: 102
+  label: "Ad Migrations"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.adMigrations.listMigrations
+
+`POST` `/sb/v4/migrations/list`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (ListMigrations)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads-sb.adMigrations.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `ListMigrationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupIdFilter` | `body` | `Inline1238` | No | No | Filter entities by the list of objectIds. |
+| `adIdFilter` | `body` | `Inline1239` | No | No | Filter entities by the list of objectIds. |
+| `adStateFilter` | `body` | `Inline1240` | No | No | Filter entities by state. |
+| `campaignIdFilter` | `body` | `Inline1241` | No | No | Filter entities by the list of objectIds. |
+| `maxResults` | `body` | `number` | No | No | Default: 20, Max: 100. |
+| `migrationStatusFilter` | `body` | `Inline1242` | No | No | Filter migrations by option-level status. Returns migrations with at least one option matching the filter. |
+| `nextToken` | `body` | `string` | No | No | Token value allowing to navigate to the next response page. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

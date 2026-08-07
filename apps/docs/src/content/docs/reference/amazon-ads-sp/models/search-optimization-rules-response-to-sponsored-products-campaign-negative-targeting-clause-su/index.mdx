@@ -1,0 +1,1004 @@
+---
+title: "Amazon Ads — Sponsored Products models: Search Optimization Rules Response – Sponsored Products Campaign Negative Targeting Clause Success Response Item"
+description: "100 generated Amazon Ads — Sponsored Products model contracts, from SearchOptimizationRulesResponse through SponsoredProductsCampaignNegativeTargetingClauseSuccessResponseItem."
+generated: true
+platform: "amazon-ads-sp"
+sourceVersion: "v5"
+sidebar:
+  order: 1027
+  label: "Search Optimization Rules Response – Sponsored Products Campaign Negative Targeting Clause Success Response Item"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## SearchOptimizationRulesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline3042` | Yes | No | — |
+
+## SevenDaysEstimatedOpportunities
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | End date of the opportunities date range in YYYY-MM-DDTHH:mm:ssZ format. |
+| `estimatedIncrementalClicksLower` | `estimatedIncrementalClicksLower` | `number` | No | No | Lower bound of the estimated incremental clicks that could be gained if all optimizations are made. |
+| `estimatedIncrementalClicksUpper` | `estimatedIncrementalClicksUpper` | `number` | No | No | Upper bound of the estimated incremental clicks that could be gained if all optimizations are made. |
+| `startDate` | `startDate` | `string` | No | No | Start date of the opportunities date range in YYYY-MM-DDTHH:mm:ssZ format. |
+
+## SevenDaysMissedOpportunities
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | End date of the date range for which missed opportunity metrics are provided (YYYYMMDD). Local time |
+| `estimatedMissedClicksLower` | `estimatedMissedClicksLower` | `number` | No | No | Lower bound estimate of the additional clicks the campaign might have generated if it had not run out of budget during the &#123;startDate&#125; to &#123;endDate&#125; period. |
+| `estimatedMissedClicksUpper` | `estimatedMissedClicksUpper` | `number` | No | No | Upper bound estimate of the additional clicks the campaign might have generated if it had not run out of budget during the &#123;startDate&#125; to &#123;endDate&#125; period. |
+| `estimatedMissedImpressionsLower` | `estimatedMissedImpressionsLower` | `number` | No | No | Lower bound estimate of the additional impressions the campaign might have generated if it had not run out of budget during the &#123;startDate&#125; to &#123;endDate&#125; period. |
+| `estimatedMissedImpressionsUpper` | `estimatedMissedImpressionsUpper` | `number` | No | No | Upper bound estimate of the additional impressions the campaign might have generated if it had not run out of budget during the &#123;startDate&#125; to &#123;endDate&#125; period. |
+| `estimatedMissedSalesLower` | `estimatedMissedSalesLower` | `number` | No | No | Lower bound estimate of the additional sales the campaign might have generated if it had not run out of budget during the &#123;startDate&#125; to &#123;endDate&#125; period. Provided in local currency. |
+| `estimatedMissedSalesUpper` | `estimatedMissedSalesUpper` | `number` | No | No | Upper bound estimate of the additional sales the campaign might have generated if it had not run out of budget during the &#123;startDate&#125; to &#123;endDate&#125; period. Provided in local currency. |
+| `percentTimeInBudget` | `percentTimeInBudget` | `number` | No | No | percentage of time the campaign is active with a budget. Provided as a decimal ranging from 0 to 1 (e.g. 0.76 means the campaign was in budget for 76% of the time between the startDate and endDate period) |
+| `startDate` | `startDate` | `string` | No | No | Starting date of the date range for which missed opportunity metrics are provided (YYYYMMDD). Local time |
+
+## ShopperCohortBiddingRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `string` | Yes | No | Recommended action for shopper cohort bidding. |
+| `audienceSegments` | `audienceSegments` | `Array<Inline515>` | Yes | No | List of audience segments for this recommendation. |
+| `percentage` | `percentage` | `number` | Yes | No | Bid adjustment percentage (basis points, e.g., 900 = 9%). |
+| `shopperCohortType` | `shopperCohortType` | `string` | Yes | No | Type of shopper cohort. |
+
+## SPBudgetRule
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `createdDate` | `createdDate` | `number` | No | No | Epoch time of budget rule creation. Read-only. |
+| `lastUpdatedDate` | `lastUpdatedDate` | `number` | No | No | Epoch time of budget rule update. Read-only. |
+| `ruleDetails` | `ruleDetails` | `Inline517` | No | No | Object representing details of a budget rule for SP campaign |
+| `ruleId` | `ruleId` | `string` | Yes | No | The budget rule identifier. |
+| `ruleState` | `ruleState` | `string` | No | No | The budget rule state. |
+| `ruleStatus` | `ruleStatus` | `string` | No | No | The budget rule status. Read-only. |
+
+## SPBudgetRuleDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetIncreaseBy` | `budgetIncreaseBy` | `Inline523` | No | No | — |
+| `duration` | `duration` | `Inline524` | No | No | — |
+| `name` | `name` | `string` | No | No | The budget rule name. Required to be unique within a campaign. |
+| `performanceMeasureCondition` | `performanceMeasureCondition` | `Inline526` | No | No | — |
+| `recurrence` | `recurrence` | `Inline527` | No | No | — |
+| `ruleType` | `ruleType` | `string` | No | No | The type of budget rule. SCHEDULE: A budget rule based on a start and end date. PERFORMANCE: A budget rule based on advertising performance criteria. |
+
+## SPBudgetRulesRecommendationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | The HTTP status code of the response. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## SPBudgetRulesRecommendationEvent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The end date in YYYYMMDD format. |
+| `eventId` | `eventId` | `string` | No | No | The event identifier. |
+| `eventName` | `eventName` | `string` | No | No | The event name. |
+| `startDate` | `startDate` | `string` | No | No | The start date in YYYYMMDD format. |
+| `suggestedBudgetIncreasePercent` | `suggestedBudgetIncreasePercent` | `number` | No | No | The suggested budget increase expressed as a percent. |
+
+## SPBudgetRulesRecommendationEventRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The campaign identifier. |
+
+## SPBudgetRulesRecommendationEventResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendedBudgetRuleEvents` | `recommendedBudgetRuleEvents` | `Array<Inline532>` | No | No | A list of recommended special events with date range and suggested budget increase. |
+
+## SPCampaignBudgetRule
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `createdDate` | `createdDate` | `number` | No | No | Epoch time of budget rule creation. Read-only. |
+| `lastUpdatedDate` | `lastUpdatedDate` | `number` | No | No | Epoch time of budget rule update. Read-only. |
+| `ruleDetails` | `ruleDetails` | `Inline534` | No | No | Object representing details of a budget rule for SP campaign |
+| `ruleId` | `ruleId` | `string` | Yes | No | The budget rule identifier. |
+| `ruleState` | `ruleState` | `string` | No | No | The budget rule state. |
+| `ruleStatus` | `ruleStatus` | `string` | No | No | The budget rule evaluation status. Read-only. |
+
+## SPCampaignOptimizationNotificationAPIRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | Yes | No | A list of campaign ids |
+
+## SPCampaignOptimizationNotificationAPIResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CampaignOptimizationNotifications` | `CampaignOptimizationNotifications` | `Array<Inline541>` | No | No | List of successful campaign optimization notifications for campaigns. |
+| `CampaignOptimizationRecommendationsError` | `CampaignOptimizationRecommendationsError` | `Array<Inline542>` | No | No | List of errors that occured when generating campaign optimization notifications. |
+
+## SPCampaignOptimizationRecommendationAPIResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CampaignOptimizationRecommendations` | `CampaignOptimizationRecommendations` | `Array<Inline544>` | No | No | List of campaigns eligible for optimization rule. |
+| `CampaignOptimizationRecommendationsError` | `CampaignOptimizationRecommendationsError` | `Array<Inline545>` | No | No | List of campaigns not eligible for optimization rule. |
+
+## SPCampaignOptimizationRecommendationsAPIRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | Yes | No | A list of campaign ids |
+| `requirePerformanceMetrics` | `requirePerformanceMetrics` | `boolean` | No | No | If set to false, eligible campaigns without a recommendation for performanceMetrics are also provided in response.Check performanceMetricsExists response field to know if performanceMetrics is available for eligible campaign. |
+
+## SpCampaignsBudgetUsageParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignIds` | `campaignIds` | `Array<string>` | No | No | A list of campaign IDs |
+
+## SpCampaignsBudgetUsageResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## SpecialEvent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `benchmark` | `benchmark` | `Inline548` | No | No | Forecasted impact metrics for next 7 days or during special days. |
+| `budgetModifier` | `budgetModifier` | `number` | No | No | Deprecated. The factor used to boost the recommended budget. |
+| `dailyBudget` | `dailyBudget` | `number` | No | No | Recommended daily budget for the new campaign during the special event period. |
+| `endDate` | `endDate` | `string` | No | No | The end date of the special event in YYYYMMDD format. |
+| `eventKey` | `eventKey` | `string` | No | No | The key of the special event. |
+| `eventName` | `eventName` | `string` | No | No | The name of the special event. |
+| `startDate` | `startDate` | `string` | No | No | The start date of the special event in YYYYMMDD format. |
+
+## SPGetAllRuleEventRequest
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## SPGetAllRuleEventResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `events` | `events` | `Array<Inline553>` | No | No | A list of individual events with date range. |
+| `groupedEvents` | `groupedEvents` | `Array<Inline554>` | No | No | A list of grouped events with date range. |
+
+## SPGetAllRuleEventsParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## SPGetAllRuleEventsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline3164` | Yes | No | — |
+
+## SPGetAssociatedCampaignsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `associatedCampaigns` | `associatedCampaigns` | `Array<Inline556>` | No | No | A list of campaigns that are associated to this budget rule. |
+| `nextToken` | `nextToken` | `string` | No | No | To retrieve the next page of results, call the same operation and specify this token in the request. If the `nextToken` field is empty, there are no further results. |
+
+## SPGetBudgetRulesRecommendationParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `Inline2829` | Yes | No | — |
+
+## SPGetBudgetRulesRecommendationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline2831` | Yes | No | — |
+
+## SPGetRuleEventError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | The HTTP status code of the response. |
+| `details` | `details` | `string` | No | No | A human-readable description of the response. |
+
+## SPGroupedEvent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The end date in ISO-8601 format. |
+| `groupedEventId` | `groupedEventId` | `string` | No | No | The grouped event identifier. |
+| `groupedEventName` | `groupedEventName` | `string` | No | No | The grouped event name. |
+| `startDate` | `startDate` | `string` | No | No | The start date in ISO-8601 format. |
+
+## SPIndividualEvent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `endDate` | `endDate` | `string` | No | No | The end date in ISO-8601 format. |
+| `eventId` | `eventId` | `string` | No | No | The event identifier. |
+| `eventName` | `eventName` | `string` | No | No | The event name. |
+| `startDate` | `startDate` | `string` | No | No | The start date in ISO-8601 format. |
+
+## SPKeywordGroupsException
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `details` | `details` | `string` | No | No | Human Readable message. |
+| `errors` | `errors` | `Array<Inline561>` | No | No | — |
+| `httpStatusCode` | `httpStatusCode` | `string` | No | No | http status code. |
+| `requestId` | `requestId` | `string` | No | No | — |
+
+## SPListAssociatedBudgetRulesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `associatedRules` | `associatedRules` | `Array<Inline563>` | No | No | A list of associated budget rules. |
+
+## SponsoredProductsAccessDeniedErrorCode
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACCESS_DENIED`
+
+## SponsoredProductsAccessDeniedExceptionCode
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACCESS_DENIED`
+
+## SponsoredProductsAccessDeniedExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+
+## SponsoredProductsAdEligibilityError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline572` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## SponsoredProductsAdEligibilityErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `AD_INELIGIBLE`
+
+## SponsoredProductsAdGroup
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | The identifier of the keyword. |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign to which the keyword is associated. |
+| `defaultBid` | `defaultBid` | `number` | Yes | No | A bid value for use when no bid is specified for keywords in the ad group. For more information about bid constraints by marketplace, see [bid limits](https://advertising.amazon.com/API/docs/en-us/concepts/limits#bid-constraints-by-marketplace). |
+| `extendedData` | `extendedData` | `Inline575` | No | No | — |
+| `globalAdGroupId` | `globalAdGroupId` | `string` | No | No | The global adGroup identifier that manages this marketplace adGroup. |
+| `name` | `name` | `string` | Yes | No | The name of the ad group. |
+| `state` | `state` | `string` | Yes | No | The current resource state. \| State \| Description \| \| --- \| --- \| \| `ENABLED` \| Enabled State \| \| `PAUSED` \| Paused State \| \| `PROPOSED` \| Proposed State (Upcoming Feature) \| \| `ARCHIVED` \| ARCHIVED State \| \| `ENABLING` \| State for Draft Entity Only \| \| `USER_DELETED` \| State for Draft Entity Only \| \| `OTHER` \| Read Only \| |
+
+## SponsoredProductsAdGroupAccessError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline577` | Yes | No | — |
+
+## SponsoredProductsAdGroupAccessErrorSelector
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityNotFoundError` | `entityNotFoundError` | `Inline586` | No | No | — |
+| `internalServerError` | `internalServerError` | `Inline587` | No | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+| `invalidInputError` | `invalidInputError` | `Inline588` | No | No | Errors related to ad eligibility |
+| `malformedValueError` | `malformedValueError` | `Inline589` | No | No | Errors being used to represent malformed values e.g. containing not allowed characters, not following patters etc |
+| `missingValueError` | `missingValueError` | `Inline590` | No | No | Error describing missing values in API payloads |
+| `otherError` | `otherError` | `Inline591` | No | No | Errors not related to any of the other error types |
+| `rangeError` | `rangeError` | `Inline592` | No | No | Errors related to range constraints violations |
+| `throttledError` | `throttledError` | `Inline593` | No | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## SponsoredProductsAdGroupAccessExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline595>` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+
+## SponsoredProductsAdGroupExtendedData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDateTime` | `creationDateTime` | `string` | No | No | Creation date in ISO 8601. |
+| `lastUpdateDateTime` | `lastUpdateDateTime` | `string` | No | No | Last updated date in ISO 8601. |
+| `servingStatus` | `servingStatus` | `string` | No | No | — |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<Inline604>` | No | No | The serving status reasons of the AdGroup |
+
+## SponsoredProductsAdGroupFailureResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline606>` | No | No | A list of validation errors |
+| `index` | `index` | `number` | Yes | No | the index of the adGroup in the array from the request body |
+
+## SponsoredProductsAdGroupMutationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline621` | Yes | No | — |
+
+## SponsoredProductsAdGroupMutationErrorSelector
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `applicableMarketplacesError` | `applicableMarketplacesError` | `Inline636` | No | No | Errors related to ad eligibility |
+| `biddingError` | `biddingError` | `Inline637` | No | No | Errors related to bids |
+| `billingError` | `billingError` | `Inline638` | No | No | Errors related to bids |
+| `duplicateValueError` | `duplicateValueError` | `Inline639` | No | No | — |
+| `entityNotFoundError` | `entityNotFoundError` | `Inline640` | No | No | — |
+| `entityQuotaError` | `entityQuotaError` | `Inline641` | No | No | Errors related to exceeding quota in campaign management service |
+| `entityStateError` | `entityStateError` | `Inline642` | No | No | entity state update errors |
+| `internalServerError` | `internalServerError` | `Inline643` | No | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+| `malformedValueError` | `malformedValueError` | `Inline644` | No | No | Errors being used to represent malformed values e.g. containing not allowed characters, not following patters etc |
+| `missingValueError` | `missingValueError` | `Inline645` | No | No | Error describing missing values in API payloads |
+| `otherError` | `otherError` | `Inline646` | No | No | Errors not related to any of the other error types |
+| `parentEntityError` | `parentEntityError` | `Inline647` | No | No | Errors related to parent entity |
+| `rangeError` | `rangeError` | `Inline648` | No | No | Errors related to range constraints violations |
+| `throttledError` | `throttledError` | `Inline649` | No | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## SponsoredProductsAdGroupMutationExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline651>` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+
+## SponsoredProductsAdGroupServingStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADVERTISER_ARCHIVED`, `ADVERTISER_EXCEED_SPENDS_LIMIT`, `ADVERTISER_OUT_OF_BUDGET`, `ADVERTISER_PAUSED`, `ADVERTISER_PAYMENT_FAILURE`, `ADVERTISER_POLICING_PENDING_REVIEW`, `ADVERTISER_POLICING_SUSPENDED`, `AD_GROUP_ARCHIVED`, `AD_GROUP_INCOMPLETE`, `AD_GROUP_LOW_BID`, `AD_GROUP_PAUSED`, `AD_GROUP_POLICING_CREATIVE_REJECTED`, `AD_GROUP_POLICING_PENDING_REVIEW`, `AD_GROUP_STATUS_ENABLED`, `CAMPAIGN_ARCHIVED`, `CAMPAIGN_INCOMPLETE`, `CAMPAIGN_OUT_OF_BUDGET`, `CAMPAIGN_PAUSED`, `CAMPAIGN_STATUS_ENABLED`, `ENDED`, `OTHER`, `PENDING_REVIEW`, `PENDING_START_DATE`, `PORTFOLIO_ARCHIVED`, `PORTFOLIO_ENDED`, `PORTFOLIO_OUT_OF_BUDGET`, `PORTFOLIO_PAUSED`, `PORTFOLIO_PENDING_START_DATE`, `PORTFOLIO_STATUS_ENABLED`, `REJECTED`
+
+## SponsoredProductsAdGroupServingStatusDetail
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `helpUrl` | `helpUrl` | `string` | No | No | A URL with additional information about the status identifier. |
+| `message` | `message` | `string` | No | No | A human-readable description of the status identifier specified in the name field. |
+| `name` | `name` | `string` | No | No | — |
+
+## SponsoredProductsAdGroupServingStatusReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADVERTISER_ARCHIVED_DETAIL`, `ADVERTISER_EXCEED_SPENDS_LIMIT_DETAIL`, `ADVERTISER_OUT_OF_BUDGET_DETAIL`, `ADVERTISER_PAUSED_DETAIL`, `ADVERTISER_PAYMENT_FAILURE_DETAIL`, `ADVERTISER_POLICING_PENDING_REVIEW_DETAIL`, `ADVERTISER_POLICING_SUSPENDED_DETAIL`, `AD_GROUP_ARCHIVED_DETAIL`, `AD_GROUP_INCOMPLETE_DETAIL`, `AD_GROUP_LOW_BID_DETAIL`, `AD_GROUP_PAUSED_DETAIL`, `AD_GROUP_POLICING_CREATIVE_REJECTED_DETAIL`, `AD_GROUP_POLICING_PENDING_REVIEW_DETAIL`, `AD_GROUP_STATUS_ENABLED_DETAIL`, `CAMPAIGN_ARCHIVED_DETAIL`, `CAMPAIGN_INCOMPLETE_DETAIL`, `CAMPAIGN_OUT_OF_BUDGET_DETAIL`, `CAMPAIGN_PAUSED_DETAIL`, `CAMPAIGN_STATUS_ENABLED_DETAIL`, `ENDED_DETAIL`, `OTHER`, `PENDING_REVIEW_DETAIL`, `PENDING_START_DATE_DETAIL`, `PORTFOLIO_ARCHIVED_DETAIL`, `PORTFOLIO_ENDED_DETAIL`, `PORTFOLIO_OUT_OF_BUDGET_DETAIL`, `PORTFOLIO_PAUSED_DETAIL`, `PORTFOLIO_PENDING_START_DATE_DETAIL`, `PORTFOLIO_STATUS_ENABLED_DETAIL`, `REJECTED_DETAIL`
+
+## SponsoredProductsAdGroupSuccessResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroup` | `adGroup` | `Inline669` | No | No | — |
+| `adGroupId` | `adGroupId` | `string` | No | No | the adGroup ID |
+| `index` | `index` | `number` | Yes | No | the index of the adGroup in the array from the request body |
+
+## SponsoredProductsAdServingStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACCOUNT_OUT_OF_BUDGET`, `ADVERTISER_ACCOUNT_OUT_OF_BUDGET`, `ADVERTISER_ARCHIVED`, `ADVERTISER_EXCEED_SPENDS_LIMIT`, `ADVERTISER_OUT_OF_BUDGET`, `ADVERTISER_PAUSED`, `ADVERTISER_PAYMENT_FAILURE`, `ADVERTISER_POLICING_PENDING_REVIEW`, `ADVERTISER_POLICING_SUSPENDED`, `ADVERTISER_STATUS_ENABLED`, `AD_ARCHIVED`, `AD_CREATION_FAILED`, `AD_CREATION_OFFLINE_FAILED`, `AD_CREATION_OFFLINE_IN_PROGRESS`, `AD_CREATION_OFFLINE_PENDING`, `AD_ELIGIBLE`, `AD_GROUP_ARCHIVED`, `AD_GROUP_INCOMPLETE`, `AD_GROUP_LOW_BID`, `AD_GROUP_PAUSED`, `AD_GROUP_POLICING_CREATIVE_REJECTED`, `AD_GROUP_POLICING_PENDING_REVIEW`, `AD_GROUP_STATUS_ENABLED`, `AD_INELIGIBLE`, `AD_LANDING_PAGE_NOT_AVAILABLE`, `AD_MISSING_DECORATION`, `AD_MISSING_IMAGE`, `AD_NOT_BUYABLE`, `AD_NOT_IN_BUYBOX`, `AD_NO_PURCHASABLE_OFFER`, `AD_OUT_OF_STOCK`, `AD_PAUSED`, `AD_POLICING_PENDING_REVIEW`, `AD_POLICING_SUSPENDED`, `AD_STATUS_LIVE`, `CAMPAIGN_ADS_NOT_DELIVERING`, `CAMPAIGN_ARCHIVED`, `CAMPAIGN_ENDED`, `CAMPAIGN_INCOMPLETE`, `CAMPAIGN_OUT_OF_BUDGET`, `CAMPAIGN_PAUSED`, `CAMPAIGN_PENDING_START_DATE`, `CAMPAIGN_STATUS_ENABLED`, `ELIGIBLE`, `ENDED`, `INELIGIBLE`, `LANDING_PAGE_NOT_AVAILABLE`, `MISSING_DECORATION`, `MISSING_IMAGE`, `NOT_BUYABLE`, `NOT_IN_BUYBOX`, `NO_INVENTORY`, `NO_PURCHASABLE_OFFER`, `OTHER`, `OUT_OF_STOCK`, `PENDING_REVIEW`, `PENDING_START_DATE`, `PIR_RULE_EXCLUDED`, `PORTFOLIO_ARCHIVED`, `PORTFOLIO_ENDED`, `PORTFOLIO_OUT_OF_BUDGET`, `PORTFOLIO_PAUSED`, `PORTFOLIO_PENDING_START_DATE`, `PORTFOLIO_STATUS_ENABLED`, `REJECTED`, `SECURITY_SCAN_PENDING_REVIEW`, `SECURITY_SCAN_REJECTED`, `STATUS_UNAVAILABLE`, `TARGETING_CLAUSE_ARCHIVED`, `TARGETING_CLAUSE_BLOCKED`, `TARGETING_CLAUSE_PAUSED`, `TARGETING_CLAUSE_POLICING_SUSPENDED`, `TARGETING_CLAUSE_STATUS_LIVE`
+
+## SponsoredProductsAdServingStatusDetail
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `helpUrl` | `helpUrl` | `string` | No | No | A URL with additional information about the status identifier. |
+| `message` | `message` | `string` | No | No | A human-readable description of the status identifier specified in the name field. |
+| `name` | `name` | `string` | No | No | — |
+
+## SponsoredProductsAdServingStatusReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACCOUNT_OUT_OF_BUDGET_DETAIL`, `ADULT_PRODUCT`, `ADVERTISER_ACCOUNT_OUT_OF_BUDGET_DETAIL`, `ADVERTISER_ARCHIVED_DETAIL`, `ADVERTISER_EXCEED_SPENDS_LIMIT_DETAIL`, `ADVERTISER_OUT_OF_BUDGET_DETAIL`, `ADVERTISER_PAUSED_DETAIL`, `ADVERTISER_PAYMENT_FAILURE_DETAIL`, `ADVERTISER_POLICING_PENDING_REVIEW_DETAIL`, `ADVERTISER_POLICING_SUSPENDED_DETAIL`, `ADVERTISER_STATUS_ENABLED_DETAIL`, `AD_ARCHIVED_DETAIL`, `AD_CREATION_OFFLINE_FAILED`, `AD_CREATION_OFFLINE_IN_PROGRESS`, `AD_CREATION_OFFLINE_PENDING`, `AD_GROUP_ARCHIVED_DETAIL`, `AD_GROUP_INCOMPLETE_DETAIL`, `AD_GROUP_LOW_BID_DETAIL`, `AD_GROUP_PAUSED_DETAIL`, `AD_GROUP_POLICING_CREATIVE_REJECTED_DETAIL`, `AD_GROUP_POLICING_PENDING_REVIEW_DETAIL`, `AD_GROUP_STATUS_ENABLED_DETAIL`, `AD_PAUSED_DETAIL`, `AD_POLICING_PENDING_REVIEW`, `AD_POLICING_PENDING_REVIEW_DETAIL`, `AD_POLICING_SUSPENDED_DETAIL`, `AD_STATUS_LIVE_DETAIL`, `ASIN_QUARANTINED`, `BRAND_REMOVED`, `CAMPAIGN_ADS_NOT_DELIVERING_DETAIL`, `CAMPAIGN_ARCHIVED_DETAIL`, `CAMPAIGN_INCOMPLETE_DETAIL`, `CAMPAIGN_OUT_OF_BUDGET_DETAIL`, `CAMPAIGN_PAUSED_DETAIL`, `CAMPAIGN_STATUS_ENABLED_DETAIL`, `CBA_NOT_SUPPORTED`, `CLOSED_GL`, `CP_INELIGIBLE`, `CP_INELIGIBLE_ASIN`, `CP_INELIGIBLE_UNKNOWN`, `CP_INELIGIBLE_VENDOR`, `ELIGIBLE_DETAIL`, `ENDED_DETAIL`, `INELIGIBLE_CONDITION`, `INVENTORY_INCOMPLETE`, `ITEM_MISSING`, `LANDING_PAGE_INELIGIBLE`, `LANDING_PAGE_NOT_AVAILABLE_DETAIL`, `MISSING_DECORATION_DETAIL`, `MISSING_IMAGE_DETAIL`, `MODERATION_ADULT_NOVELTY_PV_DETAIL`, `MODERATION_ADULT_PRODUCT_PV_DETAIL`, `MODERATION_ADULT_SOFTLINES_PV_DETAIL`, `MODERATION_CLAIM_WEIGHTLOSS_PV_DETAIL`, `MODERATION_CONTENT_NUDITY_PV_DETAIL`, `MODERATION_CONTENT_PROVOCATIVE_PV_DETAIL`, `MODERATION_CONTENT_SMOKING_PV_DETAIL`, `MODERATION_CRITICAL_EVENTS_PV_DETAIL`, `MODERATION_ERROR_404_PV_DETAIL`, `MODERATION_GRAPHICAL_SEXUAL_IMAGES_PV_DETAIL`, `MODERATION_HFSS_PRODUCT_PV_DETAIL`, `MODERATION_LANGUAGE_OFFENSIVE_PV_DETAIL`, `MODERATION_NOT_COMPLIANT_TO_AD_POLICY_PV_DETAIL`, `MODERATION_SMOKING_RELATED_PV_DETAIL`, `NOT_BUYABLE_DETAIL`, `NOT_IN_BUYBOX_DETAIL`, `NO_INVENTORY_DETAIL`, `NO_PURCHASABLE_OFFER_DETAIL`, `OFFER_MISSING_DETAIL`, `OTHER`, `OUT_OF_STOCK_DETAIL`, `PENDING_REVIEW_DETAIL`, `PENDING_START_DATE_DETAIL`, `PIR_RULE_EXCLUDED`, `PORTFOLIO_ARCHIVED_DETAIL`, `PORTFOLIO_ENDED_DETAIL`, `PORTFOLIO_OUT_OF_BUDGET_DETAIL`, `PORTFOLIO_PAUSED_DETAIL`, `PORTFOLIO_PENDING_START_DATE_DETAIL`, `PORTFOLIO_STATUS_ENABLED_DETAIL`, `REJECTED_DETAIL`, `RESTRICTED_GL`, `SECURITY_SCAN_PENDING_REVIEW`, `SECURITY_SCAN_REJECTED`, `SKU_DEFECTIVE`, `STATUS_UNAVAILABLE`, `TARGETING_CLAUSE_ARCHIVED_DETAIL`, `TARGETING_CLAUSE_BLOCKED_DETAIL`, `TARGETING_CLAUSE_PAUSED_DETAIL`, `TARGETING_CLAUSE_POLICING_SUSPENDED_DETAIL`, `TARGETING_CLAUSE_STATUS_LIVE_DETAIL`, `VARIATION_PARENT`
+
+## SponsoredProductsApplicableMarketplacesError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline674` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## SponsoredProductsApplicableMarketplacesErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `APPLICABLE_MARKETPLACES_MISMATCH_ERROR`
+
+## SponsoredProductsAsinFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `Array<string>` | No | No | — |
+| `queryTermMatchType` | `queryTermMatchType` | `string` | No | No | Match type for query filters. \| Value \| Description \| \|-----------\|------------\| \| `BROAD_MATCH` \| Match if the queried value contains the filter value (substring matching). Note: If queryTermMatchType is set to BROAD_MATCH, only matches for the first query included will be returned. \| \| `EXACT_MATCH` \| Match if the queried value is exactly equivalent to the filter value. \| |
+
+## SponsoredProductsAsinOwnershipError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline678` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## SponsoredProductsAsinOwnershipErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `ASIN_NOT_OWNED_BY_AUTHOR`
+
+## SponsoredProductsAudienceSegment
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceId` | `audienceId` | `string` | Yes | No | `audienceId` is specified based on the `audienceSegmentType` used. |
+| `audienceSegmentType` | `audienceSegmentType` | `string` | No | No | DEPRECATED: This field is no longer used and any provided value will be ignored. The audience type is automatically determined via the Discovery API [ListTargetableEntities](https://advertising.amazon.com/API/docs/en-us/targetable-entities#operation/ListTargetableEntities) by examining the Audience path. Audience IDs are guaranteed to be unique across all audience types, enabling this inference. \| Value \| Description\| \|---------------------\|------------\| \| `SPONSORED_ADS_AMC` \| This type refers to the Audience Segments created in AMC for Sponsored Ads. See [AMC API](https://advertising.amazon.com/API/docs/en-us/amc-rba#tag/Rule-based-audience) for details on how to create AMC Audiences. Once the AMC Audiences are created, the Audience Ids can be retrieved using the Discovery API [ListTargetableEntities](https://advertising.amazon.com/API/docs/en-us/targetable-entities#operation/ListTargetableEntities) with parameters; `adProduct`=`SPONSORED_PRODUCTS`, `targetTypeFilter`=`AUDIENCE` and `pathsFilter` = `[["Audience Category", "Custom-built", "AMC"]]`. Only the audiences retrieved using these filters are usable.\| \| `BEHAVIOR_DYNAMIC` \| This type refers to the Audience Segments created by Amazon for Sponsored Ads. The Audience Ids can be retrieved using the Discovery API [ListTargetableEntities](https://advertising.amazon.com/API/docs/en-us/targetable-entities#operation/ListTargetableEntities) with parameters; `adProduct`=`SPONSORED_PRODUCTS`, `targetTypeFilter`=`AUDIENCE` and `pathsFilter` = `[["Audience Category", "Custom-built", "Product"]]`. Only the audiences retrieved using these filters are usable.\| |
+
+## SponsoredProductsAudienceSegmentType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BEHAVIOR_DYNAMIC`, `SPONSORED_ADS_AMC`
+
+## SponsoredProductsBiddingError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline683` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | — |
+| `marketplace` | `marketplace` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | — |
+
+## SponsoredProductsBiddingErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `BID_AUDIENCES_MORE_THAN_ALLOWED`, `BID_GT_BUDGET`, `BID_INVALID_AUDIENCE_ID`, `BID_INVALID_AUDIENCE_SEGMENT_TYPE`, `BID_INVALID_PLACEMENT`, `BID_INVALID_SHOPPER_COHORT_TYPE`, `BID_MISSING_AUDIENCES`, `BID_OUT_OF_MARKET_PLACE_RANGE`, `BID_SHOPPER_COHORTS_MORE_THAN_ALLOWED`
+
+## SponsoredProductsBiddingStrategy
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUTO_FOR_SALES`, `LEGACY_FOR_SALES`, `MANUAL`, `OTHER`, `RULE_BASED`
+
+## SponsoredProductsBillingError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline687` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+
+## SponsoredProductsBillingErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADVERTISER_BILLING_SETUP_INCOMPLETE`, `ADVERTISER_SUSPENDED`, `BILLING_ACCOUNT_NOT_FOUND`, `EXPIRED_PAYMENT_METHOD`, `PAYMENT_PROFILE_NOT_FOUND`, `VETTING_FAILURE`
+
+## SponsoredProductsBudget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `number` | Yes | No | Monetary value |
+| `budgetType` | `budgetType` | `string` | Yes | No | — |
+| `effectiveBudget` | `effectiveBudget` | `number` | No | No | Monetary value |
+
+## SponsoredProductsBudgetError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cause` | `cause` | `Inline691` | No | No | Structure describing error cause - location in the payload and data causing error |
+| `lowerLimit` | `lowerLimit` | `string` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+| `reason` | `reason` | `string` | Yes | No | — |
+| `upperLimit` | `upperLimit` | `string` | No | No | — |
+
+## SponsoredProductsBudgetErrorReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `BUDGETING_POLICY_INVALID`, `BUDGET_CURRENCY_DOES_NOT_MATCH_MARKETPLACE_SETTINGS`, `BUDGET_LT_DEFAULT_BIDS`, `BUDGET_LT_KEYWORD_BIDS`, `BUDGET_LT_PREDEFINED_TARGET_BIDS`, `BUDGET_OUT_OF_MARKET_PLACE_RANGE`, `BUDGET_TOO_HIGH`, `BUDGET_TOO_LOW`, `MISSING_BUDGETING_POLICY`, `MISSING_IN_BUDGET_FLAG`
+
+## SponsoredProductsBudgetType
+
+`enum` model on the `json` wire format.
+
+**Values:** `DAILY`, `OTHER`
+
+## SponsoredProductsBulkAdGroupOperationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline695>` | No | No | — |
+| `success` | `success` | `Array<Inline709>` | No | No | — |
+
+## SponsoredProductsBulkCampaignNegativeKeywordOperationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline711>` | No | No | — |
+| `success` | `success` | `Array<Inline723>` | No | No | — |
+
+## SponsoredProductsBulkCampaignNegativeTargetingClauseOperationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline725>` | No | No | — |
+| `success` | `success` | `Array<Inline738>` | No | No | — |
+
+## SponsoredProductsBulkCampaignOperationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline742>` | No | No | — |
+| `success` | `success` | `Array<Inline758>` | No | No | — |
+
+## SponsoredProductsBulkKeywordOperationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline765>` | No | No | — |
+| `success` | `success` | `Array<Inline780>` | No | No | — |
+
+## SponsoredProductsBulkNegativeKeywordOperationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline782>` | No | No | — |
+| `success` | `success` | `Array<Inline795>` | No | No | — |
+
+## SponsoredProductsBulkNegativeTargetingClauseOperationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline797>` | No | No | — |
+| `success` | `success` | `Array<Inline810>` | No | No | — |
+
+## SponsoredProductsBulkProductAdOperationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline814>` | No | No | — |
+| `success` | `success` | `Array<Inline830>` | No | No | — |
+
+## SponsoredProductsBulkTargetingClauseOperationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline833>` | No | No | — |
+| `success` | `success` | `Array<Inline848>` | No | No | — |
+
+## SponsoredProductsCampaign
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `autoManageCampaign` | `autoManageCampaign` | `boolean` | No | No | — |
+| `budget` | `budget` | `Inline852` | Yes | No | — |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign. |
+| `dynamicBidding` | `dynamicBidding` | `Inline853` | No | No | — |
+| `endDate` | `endDate` | `string` | No | No | The format of the date is YYYY-MM-DD. |
+| `extendedData` | `extendedData` | `Inline855` | No | No | — |
+| `globalCampaignId` | `globalCampaignId` | `string` | No | No | The global campaign identifier that manages this marketplace campaign. |
+| `marketplaceBudgetAllocation` | `marketplaceBudgetAllocation` | `string` | No | No | Setting for distribution of global budget into marketplaces in global campaign. \| Value \| Description \| \| ---------------------- \| -------------------- \| \| `AUTO` \| Auto distribute global budget to marketplaces in global campaign. Budget updates for marketplaces are not allowed for AUTO campaigns. The budget can only be updated in global campaign for AUTO campaigns. \| \| `MANUAL` \| Manually distribute global budget to marketplaces in global campaign. \| |
+| `name` | `name` | `string` | Yes | No | The name of the campaign. |
+| `offAmazonSettings` | `offAmazonSettings` | `Inline856` | No | No | — |
+| `portfolioId` | `portfolioId` | `string` | No | No | The identifier of an existing portfolio to which the campaign is associated. |
+| `siteRestrictions` | `siteRestrictions` | `Array<string>` | No | No | — |
+| `startDate` | `startDate` | `string` | Yes | No | The format of the date is YYYY-MM-DD. |
+| `state` | `state` | `string` | Yes | No | The current resource state. \| State \| Description \| \| --- \| --- \| \| `ENABLED` \| Enabled State \| \| `PAUSED` \| Paused State \| \| `PROPOSED` \| Proposed State (Upcoming Feature) \| \| `ARCHIVED` \| ARCHIVED State \| \| `ENABLING` \| State for Draft Entity Only \| \| `USER_DELETED` \| State for Draft Entity Only \| \| `OTHER` \| Read Only \| |
+| `tags` | `tags` | `Inline857` | No | No | A list of advertiser-specified custom identifiers for the campaign. Each customer identifier is a key-value pair. You can specify a maximum of 50 identifiers. |
+| `targetingType` | `targetingType` | `string` | Yes | No | — |
+
+## SponsoredProductsCampaignAccessError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline859` | Yes | No | — |
+
+## SponsoredProductsCampaignAccessErrorSelector
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dateError` | `dateError` | `Inline869` | No | No | — |
+| `entityNotFoundError` | `entityNotFoundError` | `Inline870` | No | No | — |
+| `internalServerError` | `internalServerError` | `Inline871` | No | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+| `invalidInputError` | `invalidInputError` | `Inline872` | No | No | Errors related to ad eligibility |
+| `malformedValueError` | `malformedValueError` | `Inline873` | No | No | Errors being used to represent malformed values e.g. containing not allowed characters, not following patters etc |
+| `missingValueError` | `missingValueError` | `Inline874` | No | No | Error describing missing values in API payloads |
+| `otherError` | `otherError` | `Inline875` | No | No | Errors not related to any of the other error types |
+| `rangeError` | `rangeError` | `Inline876` | No | No | Errors related to range constraints violations |
+| `throttledError` | `throttledError` | `Inline877` | No | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## SponsoredProductsCampaignAccessExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline879>` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+
+## SponsoredProductsCampaignExtendedData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDateTime` | `creationDateTime` | `string` | No | No | Creation date in ISO 8601. |
+| `lastUpdateDateTime` | `lastUpdateDateTime` | `string` | No | No | Last updated date in ISO 8601. |
+| `servingStatus` | `servingStatus` | `string` | No | No | — |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<Inline889>` | No | No | The serving status reasons of the Campaign |
+
+## SponsoredProductsCampaignMutationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline891` | Yes | No | — |
+
+## SponsoredProductsCampaignMutationErrorSelector
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `biddingError` | `biddingError` | `Inline908` | No | No | Errors related to bids |
+| `billingError` | `billingError` | `Inline909` | No | No | Errors related to bids |
+| `budgetError` | `budgetError` | `Inline910` | No | No | — |
+| `currencyError` | `currencyError` | `Inline911` | No | No | Errors related to currency |
+| `dateError` | `dateError` | `Inline912` | No | No | — |
+| `duplicateValueError` | `duplicateValueError` | `Inline913` | No | No | — |
+| `entityNotFoundError` | `entityNotFoundError` | `Inline914` | No | No | — |
+| `entityQuotaError` | `entityQuotaError` | `Inline915` | No | No | Errors related to exceeding quota in campaign management service |
+| `entityStateError` | `entityStateError` | `Inline916` | No | No | entity state update errors |
+| `internalServerError` | `internalServerError` | `Inline917` | No | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+| `malformedValueError` | `malformedValueError` | `Inline918` | No | No | Errors being used to represent malformed values e.g. containing not allowed characters, not following patters etc |
+| `missingValueError` | `missingValueError` | `Inline919` | No | No | Error describing missing values in API payloads |
+| `otherError` | `otherError` | `Inline920` | No | No | Errors not related to any of the other error types |
+| `parentEntityError` | `parentEntityError` | `Inline921` | No | No | Errors related to parent entity |
+| `rangeError` | `rangeError` | `Inline922` | No | No | Errors related to range constraints violations |
+| `throttledError` | `throttledError` | `Inline923` | No | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## SponsoredProductsCampaignMutationExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline925>` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+
+## SponsoredProductsCampaignMutationFailureResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline942>` | No | No | A list of validation errors |
+| `index` | `index` | `number` | Yes | No | the index of the campaign in the array from the request body |
+
+## SponsoredProductsCampaignMutationSuccessResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign` | `campaign` | `Inline959` | No | No | — |
+| `campaignId` | `campaignId` | `string` | No | No | the campaign ID |
+| `index` | `index` | `number` | Yes | No | the index of the campaign in the array from the request body |
+
+## SponsoredProductsCampaignNegativeKeyword
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign to which the keyword is associated. |
+| `extendedData` | `extendedData` | `Inline966` | No | No | — |
+| `globalKeywordId` | `globalKeywordId` | `string` | No | No | The global keyword identifier that manages this marketplace keyword. |
+| `keywordId` | `keywordId` | `string` | Yes | No | The identifier of the keyword. |
+| `keywordText` | `keywordText` | `string` | Yes | No | The keyword text. |
+| `matchType` | `matchType` | `string` | Yes | No | — |
+| `state` | `state` | `string` | Yes | No | The current resource state. \| State \| Description \| \| --- \| --- \| \| `ENABLED` \| Enabled State \| \| `PAUSED` \| Paused State \| \| `PROPOSED` \| Proposed State (Upcoming Feature) \| \| `ARCHIVED` \| ARCHIVED State \| \| `ENABLING` \| State for Draft Entity Only \| \| `USER_DELETED` \| State for Draft Entity Only \| \| `OTHER` \| Read Only \| |
+
+## SponsoredProductsCampaignNegativeKeywordAccessError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline968` | Yes | No | — |
+
+## SponsoredProductsCampaignNegativeKeywordAccessErrorSelector
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entityNotFoundError` | `entityNotFoundError` | `Inline977` | No | No | — |
+| `internalServerError` | `internalServerError` | `Inline978` | No | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+| `invalidInputError` | `invalidInputError` | `Inline979` | No | No | Errors related to ad eligibility |
+| `malformedValueError` | `malformedValueError` | `Inline980` | No | No | Errors being used to represent malformed values e.g. containing not allowed characters, not following patters etc |
+| `missingValueError` | `missingValueError` | `Inline981` | No | No | Error describing missing values in API payloads |
+| `otherError` | `otherError` | `Inline982` | No | No | Errors not related to any of the other error types |
+| `rangeError` | `rangeError` | `Inline983` | No | No | Errors related to range constraints violations |
+| `throttledError` | `throttledError` | `Inline984` | No | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## SponsoredProductsCampaignNegativeKeywordAccessExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline986>` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+
+## SponsoredProductsCampaignNegativeKeywordExtendedData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDateTime` | `creationDateTime` | `string` | No | No | Creation date in ISO 8601. |
+| `lastUpdateDateTime` | `lastUpdateDateTime` | `string` | No | No | Last updated date in ISO 8601. |
+| `servingStatus` | `servingStatus` | `string` | No | No | — |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<Inline995>` | No | No | The serving status reasons of the Keyword |
+
+## SponsoredProductsCampaignNegativeKeywordFailureResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline997>` | No | No | A list of validation errors |
+| `index` | `index` | `number` | Yes | No | the index of the campaign in the array from the request body |
+
+## SponsoredProductsCampaignNegativeKeywordMutationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorType` | `errorType` | `string` | Yes | No | The type of the error |
+| `errorValue` | `errorValue` | `Inline1010` | Yes | No | — |
+
+## SponsoredProductsCampaignNegativeKeywordMutationErrorSelector
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `billingError` | `billingError` | `Inline1023` | No | No | Errors related to bids |
+| `duplicateValueError` | `duplicateValueError` | `Inline1024` | No | No | — |
+| `entityNotFoundError` | `entityNotFoundError` | `Inline1025` | No | No | — |
+| `entityQuotaError` | `entityQuotaError` | `Inline1026` | No | No | Errors related to exceeding quota in campaign management service |
+| `entityStateError` | `entityStateError` | `Inline1027` | No | No | entity state update errors |
+| `internalServerError` | `internalServerError` | `Inline1028` | No | No | Error that represents non-retryable API service error. Sending the same request will result in another error. |
+| `malformedValueError` | `malformedValueError` | `Inline1029` | No | No | Errors being used to represent malformed values e.g. containing not allowed characters, not following patters etc |
+| `missingValueError` | `missingValueError` | `Inline1030` | No | No | Error describing missing values in API payloads |
+| `otherError` | `otherError` | `Inline1031` | No | No | Errors not related to any of the other error types |
+| `parentEntityError` | `parentEntityError` | `Inline1032` | No | No | Errors related to parent entity |
+| `rangeError` | `rangeError` | `Inline1033` | No | No | Errors related to range constraints violations |
+| `throttledError` | `throttledError` | `Inline1034` | No | No | Error that represents failure due to API caller exceeding allowed service limits. |
+
+## SponsoredProductsCampaignNegativeKeywordMutationExceptionResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline1036>` | No | No | — |
+| `message` | `message` | `string` | Yes | No | Human readable error message |
+
+## SponsoredProductsCampaignNegativeKeywordSuccessResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeKeyword` | `campaignNegativeKeyword` | `Inline1049` | No | No | — |
+| `campaignNegativeKeywordId` | `campaignNegativeKeywordId` | `string` | No | No | the campaignNegativeKeyword ID |
+| `index` | `index` | `number` | Yes | No | the index of the campaign in the array from the request body |
+
+## SponsoredProductsCampaignNegativeTargetingClause
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The identifier of the campaign to which this target is associated. |
+| `expression` | `expression` | `Array<Inline1051>` | Yes | No | The CampaignNegativeTargetingClause expression. |
+| `extendedData` | `extendedData` | `Inline1052` | No | No | — |
+| `globalTargetId` | `globalTargetId` | `string` | No | No | The global target identifier that manages this marketplace target. |
+| `resolvedExpression` | `resolvedExpression` | `Array<Inline1053>` | Yes | No | The resolved CampaignNegativeTargetingClause expression. |
+| `state` | `state` | `string` | Yes | No | The current resource state. \| State \| Description \| \| --- \| --- \| \| `ENABLED` \| Enabled State \| \| `PAUSED` \| Paused State \| \| `PROPOSED` \| Proposed State (Upcoming Feature) \| \| `ARCHIVED` \| ARCHIVED State \| \| `ENABLING` \| State for Draft Entity Only \| \| `USER_DELETED` \| State for Draft Entity Only \| \| `OTHER` \| Read Only \| |
+| `targetId` | `targetId` | `string` | Yes | No | The target identifier |
+
+## SponsoredProductsCampaignNegativeTargetingClauseExtendedData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creationDateTime` | `creationDateTime` | `string` | No | No | Creation date in ISO 8601. |
+| `lastUpdateDateTime` | `lastUpdateDateTime` | `string` | No | No | Last updated date in ISO 8601. |
+| `servingStatus` | `servingStatus` | `string` | No | No | — |
+| `servingStatusDetails` | `servingStatusDetails` | `Array<Inline1055>` | No | No | The serving status reasons of the CampaignNegativeTargetingClause |
+
+## SponsoredProductsCampaignNegativeTargetingClauseFailureResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline1057>` | No | No | A list of validation errors |
+| `index` | `index` | `number` | Yes | No | the index of the CampaignNegativeTargets in the array from the request body |
+
+## SponsoredProductsCampaignNegativeTargetingClauseSuccessResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignNegativeTargetingClauseId` | `campaignNegativeTargetingClauseId` | `string` | No | No | the CampaignNegativeTargets ID |
+| `campaignNegativeTargetingClauses` | `campaignNegativeTargetingClauses` | `Inline1071` | No | No | — |
+| `index` | `index` | `number` | Yes | No | the index of the CampaignNegativeTargets in the array from the request body |
