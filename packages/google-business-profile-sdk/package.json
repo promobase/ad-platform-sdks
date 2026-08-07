@@ -1,5 +1,5 @@
 {
-  "name": "@mosaic/google-business-profile",
+  "name": "@openpromo/google-business-profile",
   "version": "0.4.0",
   "description": "Type-safe TypeScript SDK for Google Business Profile accounts, locations, posts, and performance",
   "keywords": [
@@ -43,11 +43,11 @@
     "typescript": ">=5.9.3 <8"
   },
   "dependencies": {
-    "@mosaic/sdk-runtime": "workspace:*",
+    "@openpromo/sdk-runtime": "workspace:*",
     "effect": "^3.22.1"
   },
   "devDependencies": {
-    "@mosaic/sdk-codegen": "workspace:*"
+    "@openpromo/sdk-codegen": "workspace:*"
   },
   "exports": {
     ".": {

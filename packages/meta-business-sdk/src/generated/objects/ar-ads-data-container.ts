@@ -1,4 +1,4 @@
-import type { ApiClient } from "@mosaic/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ArAdsDataContainerFields {
   camera_facing_override: string;

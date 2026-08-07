@@ -12,17 +12,17 @@ only ship one integration.
 ## Install
 
 ```bash
-bun add @mosaic/ad-platforms
+bun add @openpromo/ad-platforms
 ```
 
-Individual packages such as `@mosaic/meta`, `@mosaic/tiktok`, and `@mosaic/youtube` are
+Individual packages such as `@openpromo/meta`, `@openpromo/tiktok`, and `@openpromo/youtube` are
 available when bundle isolation matters.
 
 ## Create clients
 
 ```ts
-import { Meta, TikTok } from "@mosaic/ad-platforms";
-import { YouTube } from "@mosaic/ad-platforms/youtube";
+import { Meta, TikTok } from "@openpromo/ad-platforms";
+import { YouTube } from "@openpromo/ad-platforms/youtube";
 
 const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
 const instagram = Meta.Instagram.createClient({
@@ -48,10 +48,10 @@ bundle, repository, or generated configuration.
 | Need | Use |
 | --- | --- |
 | Provider-specific breadth | A platform client or generated Effect entrypoint |
-| Portable post metrics and agent actions | `@mosaic/ad-platforms/operations` |
-| AI SDK tools | `@mosaic/ad-platforms/operations/ai` |
-| Code Mode connector definitions | `@mosaic/ad-platforms/operations/codemode` |
-| Terminal or MCP access | `@mosaic/ad-platforms-cli` |
+| Portable post metrics and agent actions | `@openpromo/ad-platforms/operations` |
+| AI SDK tools | `@openpromo/ad-platforms/operations/ai` |
+| Code Mode connector definitions | `@openpromo/ad-platforms/operations/codemode` |
+| Terminal or MCP access | `@openpromo/ad-platforms-cli` |
 
 Continue with [authentication](/guides/authentication), then choose the [Promise and Effect
 runtime](/guides/promise-and-effect) or [operation catalog](/guides/agent-surfaces).

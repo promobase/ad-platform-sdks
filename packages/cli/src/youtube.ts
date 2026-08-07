@@ -1,4 +1,4 @@
-import { createYouTubeClient } from "@mosaic/youtube";
+import { createYouTubeClient } from "@openpromo/youtube";
 import type { Command } from "commander";
 import { z } from "zod";
 

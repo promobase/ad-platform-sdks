@@ -3,8 +3,8 @@
  * Combines Meta (Instagram, Facebook, Threads, campaigns) and TikTok tools
  * into a single tool set for agents.
  */
-import { createMetaTools } from "@mosaic/meta/ai";
-import { createTikTokTools } from "@mosaic/tiktok/ai";
+import { createMetaTools } from "@openpromo/meta/ai";
+import { createTikTokTools } from "@openpromo/tiktok/ai";
 
 type MetaApi = Parameters<typeof createMetaTools>[0]["api"];
 

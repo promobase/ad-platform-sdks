@@ -1,4 +1,4 @@
-import type { ApiClient } from "@mosaic/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { AdCampaignBudgetSchedulesPostFields } from "./ad-campaign-budget-schedules-post.ts";
 
 export interface AdCampaignBudgetSchedulesFields {

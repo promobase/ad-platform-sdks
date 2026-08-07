@@ -1,4 +1,4 @@
-# @mosaic/x
+# @openpromo/x
 
 Type-safe TypeScript SDK for X API v2 publishing, media upload, and user lookup.
 
@@ -27,7 +27,7 @@ Local generation uses Fern's Docker-backed generator and does not require a `FER
 ## Use
 
 ```ts
-import { X } from "@mosaic/x";
+import { X } from "@openpromo/x";
 
 const client = X.createClient({ token: process.env.X_ACCESS_TOKEN! });
 
@@ -38,5 +38,5 @@ const post = await client.posts.createPosts({
 console.log(post.data?.id);
 ```
 
-`client.tweets` and the `@mosaic/x/tweets` export remain as compatibility aliases for the
+`client.tweets` and the `@openpromo/x/tweets` export remain as compatibility aliases for the
 upstream `posts` resource name introduced in OpenAPI 2.167.

@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
 
-import { ApiError } from "@mosaic/sdk-runtime";
+import { ApiError } from "@openpromo/sdk-runtime";
 
 import { FacebookApiError } from "../../src/errors.ts";
 

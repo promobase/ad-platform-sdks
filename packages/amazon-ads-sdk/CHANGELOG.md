@@ -1,10 +1,10 @@
-# @mosaic/amazon-ads
+# @openpromo/amazon-ads
 
 ## 0.2.0
 
 ### Minor Changes
 
-- [`183e0c6`](https://github.com/promobase/ad-platform-sdks/commit/183e0c6bc05f66b365246da23844e04c9c502b73) Thanks [@rayli09](https://github.com/rayli09)! - Add Amazon Ads SDK (`@mosaic/amazon-ads`) with OpenAPI-driven codegen
+- [`183e0c6`](https://github.com/promobase/ad-platform-sdks/commit/183e0c6bc05f66b365246da23844e04c9c502b73) Thanks [@rayli09](https://github.com/rayli09)! - Add Amazon Ads SDK (`@openpromo/amazon-ads`) with OpenAPI-driven codegen
 
   New package with 166 generated endpoints across four official Amazon Ads API
   v3 specs (Sponsored Products 80, Sponsored Brands 56, Sponsored Display 22,
@@ -14,4 +14,4 @@
   region base URLs, vendored content-type handling (`application/vnd.spCampaign.v3+json`),
   and Effect-native contracts per spec. Type names collide across specs and are
   exposed namespaced (`SponsoredProductsTypes`, etc.). `sdk-codegen` gains the
-  `amazon-ads` platform id; `@mosaic/ad-platforms` re-exports the new namespace.
+  `amazon-ads` platform id; `@openpromo/ad-platforms` re-exports the new namespace.

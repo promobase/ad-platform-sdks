@@ -2,7 +2,7 @@ import {
   type EffectJsonRequestError,
   jsonRequestEffect,
   type RetryConfig,
-} from "@mosaic/sdk-runtime";
+} from "@openpromo/sdk-runtime";
 import { Data, Effect, Schema } from "effect";
 
 import { TikTokApiError } from "../errors.ts";

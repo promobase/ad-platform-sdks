@@ -13,7 +13,7 @@ mapping, decoder, and error model, so an application can adopt Effect incrementa
 import {
   createEffectClient,
   youtube_videos_list,
-} from "@mosaic/youtube/effect";
+} from "@openpromo/youtube/effect";
 
 const youtube = createEffectClient({
   baseUrl: "https://www.googleapis.com/",
@@ -37,6 +37,6 @@ Use Effect inside services that benefit from typed errors, interruption, composi
 resources. Use the Promise boundary at framework handlers or during incremental migration. An
 aborted Promise interrupts the underlying Effect fiber and fetch request.
 
-Imports stay platform-specific, for example `@mosaic/ad-platforms/meta/effect` and
-`@mosaic/ad-platforms/google-ads/v25/effect`. The shared `@mosaic/ad-platforms/effect`
+Imports stay platform-specific, for example `@openpromo/ad-platforms/meta/effect` and
+`@openpromo/ad-platforms/google-ads/v25/effect`. The shared `@openpromo/ad-platforms/effect`
 entrypoint does not eagerly load all provider schemas.

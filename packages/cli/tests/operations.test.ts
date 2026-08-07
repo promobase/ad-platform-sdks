@@ -1,7 +1,7 @@
 import { expect, test } from "bun:test";
 
-import { createOperationCatalog, defineOperation } from "@mosaic/ad-platforms/operations";
-import { createEndpointClient, defineEndpointDescriptor } from "@mosaic/sdk-runtime/effect";
+import { createOperationCatalog, defineOperation } from "@openpromo/ad-platforms/operations";
+import { createEndpointClient, defineEndpointDescriptor } from "@openpromo/sdk-runtime/effect";
 import { Command } from "commander";
 import { Schema } from "effect";
 import { z } from "zod";

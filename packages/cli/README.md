@@ -1,4 +1,4 @@
-# @mosaic/ad-platforms-cli
+# @openpromo/ad-platforms-cli
 
 Command-line interface for OpenPromo ad platform SDKs.
 
@@ -6,7 +6,7 @@ The CLI is intentionally separate from the SDK runtime packages. It can depend o
 Commander, Zod, and SDK peer dependencies while keeping normal SDK imports small.
 
 ```sh
-npx @mosaic/ad-platforms-cli meta --help
+npx @openpromo/ad-platforms-cli meta --help
 mosaic-ads meta instagram --help
 op-ads meta instagram media publish-photo --help
 mosaic-ads linkedin posts create-text --help

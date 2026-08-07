@@ -2,7 +2,7 @@ import type {
   AnyEndpointDescriptor,
   EndpointCatalog,
   EndpointSearchOptions,
-} from "@mosaic/sdk-runtime/effect";
+} from "@openpromo/sdk-runtime/effect";
 import { Schema } from "effect";
 
 import type {

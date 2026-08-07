@@ -1,4 +1,4 @@
-import type { ApiClient } from "@mosaic/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ProductDeliveryPreferenceFields {
   ad_object_id: string;

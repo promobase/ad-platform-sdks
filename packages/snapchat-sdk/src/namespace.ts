@@ -2,7 +2,7 @@
  * Namespaced API for the Snapchat Marketing SDK.
  *
  * Usage:
- *   import { Snapchat } from "@mosaic/snapchat";
+ *   import { Snapchat } from "@openpromo/snapchat";
  *
  *   // OAuth
  *   const oauth = Snapchat.OAuth({ clientId: "...", clientSecret: "...", redirectUri: "..." });

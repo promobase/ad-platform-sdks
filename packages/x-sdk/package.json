@@ -1,5 +1,5 @@
 {
-  "name": "@mosaic/x",
+  "name": "@openpromo/x",
   "version": "0.6.0",
   "description": "Type-safe TypeScript SDK for X API v2 publishing, media upload, and user lookup",
   "keywords": [
@@ -90,11 +90,11 @@
     }
   },
   "dependencies": {
-    "@mosaic/sdk-runtime": "workspace:*",
+    "@openpromo/sdk-runtime": "workspace:*",
     "effect": "^3.22.1"
   },
   "devDependencies": {
-    "@mosaic/sdk-codegen": "workspace:*"
+    "@openpromo/sdk-codegen": "workspace:*"
   },
   "engines": {
     "node": ">=18"

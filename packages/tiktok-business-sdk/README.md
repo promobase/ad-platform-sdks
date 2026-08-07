@@ -4,13 +4,13 @@
   <img src="https://openpromo.app/logo.svg" width="80" alt="openpromo" />
 </a>
 
-# @mosaic/tiktok
+# @openpromo/tiktok
 
 **Type-safe TypeScript SDK for the TikTok Business API.**
 
 Powering [**openpromo.app**](https://openpromo.app) — the AI-native social media workspace.
 
-[![npm](https://img.shields.io/npm/v/@mosaic/tiktok.svg?label=%40openpromo%2Ftiktok)](https://www.npmjs.com/package/@mosaic/tiktok)
+[![npm](https://img.shields.io/npm/v/@openpromo/tiktok.svg?label=%40openpromo%2Ftiktok)](https://www.npmjs.com/package/@openpromo/tiktok)
 [![CI](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml/badge.svg)](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
@@ -28,15 +28,15 @@ integration with runtime-agnostic `fetch` (Bun, Node, Deno, edge).
 ## Install
 
 ```bash
-bun add @mosaic/tiktok
+bun add @openpromo/tiktok
 # or
-npm install @mosaic/tiktok
+npm install @openpromo/tiktok
 ```
 
 ## Use
 
 ```ts
-import { TikTok } from "@mosaic/tiktok";
+import { TikTok } from "@openpromo/tiktok";
 
 const tiktok = TikTok.createClient({
   accessToken: process.env.TIKTOK_TOKEN!,
@@ -50,18 +50,18 @@ await tiktok.content.publishVideo({
 });
 
 // AI SDK tools
-import { createTikTokTools } from "@mosaic/tiktok/ai";
+import { createTikTokTools } from "@openpromo/tiktok/ai";
 const tools = createTikTokTools({ accessToken: "...", businessId: "biz_123" });
 ```
 
 ## Generated low-level API
 
-The full docs-generated surface is available from `@mosaic/tiktok/generated`. Category types are
-published under `@mosaic/tiktok/generated/types/*`.
+The full docs-generated surface is available from `@openpromo/tiktok/generated`. Category types are
+published under `@openpromo/tiktok/generated/types/*`.
 
 ```ts
-import { createAccounts } from "@mosaic/tiktok/generated";
-import type { BusinessVideoListParams } from "@mosaic/tiktok/generated/types/accounts";
+import { createAccounts } from "@openpromo/tiktok/generated";
+import type { BusinessVideoListParams } from "@openpromo/tiktok/generated/types/accounts";
 
 const accounts = createAccounts({ accessToken: process.env.TIKTOK_TOKEN! });
 const params: BusinessVideoListParams = {
@@ -83,7 +83,7 @@ const { videos } = await accounts.listVideo(params);
 
 ## Umbrella package
 
-For a single install covering Meta + TikTok + Google Ads, use [`@mosaic/ad-platforms`](https://www.npmjs.com/package/@mosaic/ad-platforms).
+For a single install covering Meta + TikTok + Google Ads, use [`@openpromo/ad-platforms`](https://www.npmjs.com/package/@openpromo/ad-platforms).
 
 ## License
 

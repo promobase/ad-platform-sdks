@@ -12,7 +12,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`24aa151`](https://github.com/promobase/ad-platform-sdks/commit/24aa1514bfad63fa817e9124ba8e0674d9951484)]:
-  - @mosaic/sdk-runtime@0.5.0
+  - @openpromo/sdk-runtime@0.5.0
 
 ## 0.5.0
 
@@ -25,7 +25,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`61c19de`](https://github.com/promobase/ad-platform-sdks/commit/61c19de459fc70eb32231a13022708ff69d743ea)]:
-  - @mosaic/sdk-runtime@0.4.0
+  - @openpromo/sdk-runtime@0.4.0
 
 ## 0.4.0
 
@@ -53,7 +53,7 @@
 
 ### Patch Changes
 
-- [`b40d994`](https://github.com/promobase/ad-platform-sdks/commit/b40d99483e033e530bc461737430c8fb786d88d8) Thanks [@rayli09](https://github.com/rayli09)! - Move the public package family to the OpenPromo `@mosaic/*` scope and update workspace imports, docs, and CLI branding.
+- [`b40d994`](https://github.com/promobase/ad-platform-sdks/commit/b40d99483e033e530bc461737430c8fb786d88d8) Thanks [@rayli09](https://github.com/rayli09)! - Move the public package family to the OpenPromo `@openpromo/*` scope and update workspace imports, docs, and CLI branding.
 
 ## 0.2.0
 

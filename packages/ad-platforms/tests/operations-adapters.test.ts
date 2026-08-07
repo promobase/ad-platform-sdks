@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
 
-import { createEndpointClient, defineEndpointDescriptor } from "@mosaic/sdk-runtime/effect";
+import { createEndpointClient, defineEndpointDescriptor } from "@openpromo/sdk-runtime/effect";
 import type { Tool } from "ai";
 import { Schema } from "effect";
 

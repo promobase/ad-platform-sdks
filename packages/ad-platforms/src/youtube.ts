@@ -5,7 +5,7 @@ export type {
   YouTubeUploadSession,
   YouTubeOAuthConfig,
   YouTubeOAuthTokenResponse,
-} from "@mosaic/youtube";
+} from "@openpromo/youtube";
 export {
   createYouTubeOAuth,
   createYouTubeClient,
@@ -13,4 +13,4 @@ export {
   YouTubeApiError,
   YouTubeClient,
   YouTubeUploadError,
-} from "@mosaic/youtube";
+} from "@openpromo/youtube";

@@ -1,4 +1,4 @@
-import { X } from "@mosaic/x";
+import { X } from "@openpromo/x";
 import type { Command } from "commander";
 import { z } from "zod";
 

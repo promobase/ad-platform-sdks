@@ -3,7 +3,7 @@ import {
   type EndpointIr,
   type SdkIr,
   type TypeRefIr,
-} from "@mosaic/sdk-codegen";
+} from "@openpromo/sdk-codegen";
 
 const stringType = { kind: "primitive", name: "string" } as const;
 const numberType = { kind: "primitive", name: "number" } as const;

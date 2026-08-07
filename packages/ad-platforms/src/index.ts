@@ -1,17 +1,17 @@
 /**
- * @mosaic/ad-platforms
+ * @openpromo/ad-platforms
  *
  * Unified SDK for all ad platforms. Single install, single namespace.
  *
  * Usage:
- *   import { Meta, TikTok } from "@mosaic/ad-platforms";
+ *   import { Meta, TikTok } from "@openpromo/ad-platforms";
  *
  *   const meta = Meta.createClient({ accessToken: "..." });
  *   const tiktok = TikTok.createClient({ accessToken: "..." });
  *   const linkedin = LinkedIn.createClient({ accessToken: "..." });
  *
  *   // Unified AI tools across all platforms
- *   import { createAllTools } from "@mosaic/ad-platforms/ai";
+ *   import { createAllTools } from "@openpromo/ad-platforms/ai";
  *   const tools = createAllTools({ meta: { api, igAccountId, ... }, tiktok: { ... } });
  */
 
@@ -21,14 +21,14 @@ export type {
   GoogleAdsErrorDetail,
   SearchRequest as GoogleAdsSearchRequest,
   SearchResponse as GoogleAdsSearchResponse,
-} from "@mosaic/google-ads";
+} from "@openpromo/google-ads";
 // --- Google Ads ---
 export {
   createClient as createGoogleAdsClient,
   Google,
   GoogleAdsError,
   paginate as googleAdsPaginate,
-} from "@mosaic/google-ads";
+} from "@openpromo/google-ads";
 
 export type {
   BusinessAccount,
@@ -38,20 +38,20 @@ export type {
   GoogleBusinessProfileOAuthConfig,
   LocalPost,
   LocalPostMetrics,
-} from "@mosaic/google-business-profile";
+} from "@openpromo/google-business-profile";
 
 export type {
   XDirectMessageEvent,
   XDirectMessageEventsResponse,
   XOAuthConfig,
   XOAuthTokenResponse,
-} from "@mosaic/x";
+} from "@openpromo/x";
 export {
   createPkcePair as createXPkcePair,
   createXDirectMessages,
   createXOAuth,
   X,
-} from "@mosaic/x";
+} from "@openpromo/x";
 
 export type {
   YouTubeClientOptions,
@@ -60,7 +60,7 @@ export type {
   YouTubeResumableUploadOptions,
   YouTubeUploadBody,
   YouTubeUploadSession,
-} from "@mosaic/youtube";
+} from "@openpromo/youtube";
 export {
   createYouTubeClient,
   createYouTubeOAuth,
@@ -68,14 +68,14 @@ export {
   YouTubeApiError,
   YouTubeClient,
   YouTubeUploadError,
-} from "@mosaic/youtube";
+} from "@openpromo/youtube";
 export {
   createGoogleBusinessProfileClient,
   createGoogleBusinessProfileOAuth,
   GoogleBusinessProfile,
   GoogleBusinessProfileApiError,
   GoogleBusinessProfileClient,
-} from "@mosaic/google-business-profile";
+} from "@openpromo/google-business-profile";
 
 export type {
   LinkedInCallToAction,
@@ -100,7 +100,7 @@ export type {
   LinkedInVideoUploadInstruction,
   LinkedInVideoUploadSession,
   LinkedInVisibility,
-} from "@mosaic/linkedin";
+} from "@openpromo/linkedin";
 // --- LinkedIn ---
 export {
   createClient as createLinkedInClient,
@@ -112,7 +112,7 @@ export {
   LinkedInApiError,
   LinkedInClient,
   LinkedInUploadError,
-} from "@mosaic/linkedin";
+} from "@openpromo/linkedin";
 
 export type {
   ApiClient,
@@ -126,7 +126,7 @@ export type {
   ThreadsClientOptions,
   ThreadsWebhookPayload,
   WebhookParseResult,
-} from "@mosaic/meta";
+} from "@openpromo/meta";
 // --- Platform namespaces ---
 // --- Meta: direct re-exports for tree-shaking ---
 export {
@@ -151,7 +151,7 @@ export {
   verifyWebhookChallenge,
   verifyWebhookSignature,
   WebhookParseError,
-} from "@mosaic/meta";
+} from "@openpromo/meta";
 export type {
   TikTokApiClientOptions,
   TikTokDeveloperClientOptions,
@@ -160,7 +160,7 @@ export type {
   TikTokDeveloperTokenResponse,
   TikTokDeveloperVideo,
   TikTokRateLimiterOptions,
-} from "@mosaic/tiktok";
+} from "@openpromo/tiktok";
 // --- TikTok: direct re-exports ---
 export {
   createTikTokClient,
@@ -173,7 +173,7 @@ export {
   TikTokApiClient,
   TikTokApiError,
   TikTokRateLimiter,
-} from "@mosaic/tiktok";
+} from "@openpromo/tiktok";
 
 // --- Snapchat ---
 export type {
@@ -181,7 +181,7 @@ export type {
   SnapchatOAuthConfig,
   SnapchatOAuthTokenResponse,
   SnapchatScope,
-} from "@mosaic/snapchat";
+} from "@openpromo/snapchat";
 export {
   createSnapchatOAuth,
   Snapchat,
@@ -189,7 +189,7 @@ export {
   SnapchatApiError,
   SnapchatCursor,
   SnapchatScopes,
-} from "@mosaic/snapchat";
+} from "@openpromo/snapchat";
 
 // --- Reddit ---
 export type {
@@ -197,14 +197,14 @@ export type {
   RedditOAuthConfig,
   RedditOAuthTokenResponse,
   RedditScope,
-} from "@mosaic/reddit";
+} from "@openpromo/reddit";
 export {
   createRedditOAuth,
   Reddit,
   RedditApiClient,
   RedditApiError,
   RedditScopes,
-} from "@mosaic/reddit";
+} from "@openpromo/reddit";
 
 // --- Pinterest ---
 export type {
@@ -212,14 +212,14 @@ export type {
   PinterestOAuthConfig,
   PinterestOAuthTokenResponse,
   PinterestScope,
-} from "@mosaic/pinterest";
+} from "@openpromo/pinterest";
 export {
   createPinterestOAuth,
   Pinterest,
   PinterestApiClient,
   PinterestApiError,
   PinterestScopes,
-} from "@mosaic/pinterest";
+} from "@openpromo/pinterest";
 
 // --- Amazon Ads ---
 export type {
@@ -227,7 +227,7 @@ export type {
   AmazonAdsOAuthConfig,
   AmazonAdsOAuthTokenResponse,
   AmazonAdsScope,
-} from "@mosaic/amazon-ads";
+} from "@openpromo/amazon-ads";
 export {
   AmazonAds,
   AmazonAdsApiClient,
@@ -235,8 +235,8 @@ export {
   AmazonAdsBaseUrls,
   createAmazonAdsOAuth,
   AmazonAdsScopes,
-} from "@mosaic/amazon-ads";
+} from "@openpromo/amazon-ads";
 
 // --- Bluesky ---
-export type { BlueskyApiClientOptions } from "@mosaic/bluesky";
-export { Bluesky, BlueskyApiClient, BlueskyApiError, createPostRecord } from "@mosaic/bluesky";
+export type { BlueskyApiClientOptions } from "@openpromo/bluesky";
+export { Bluesky, BlueskyApiClient, BlueskyApiError, createPostRecord } from "@openpromo/bluesky";

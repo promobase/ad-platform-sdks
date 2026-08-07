@@ -1,5 +1,5 @@
 {
-  "name": "@mosaic/ad-platforms",
+  "name": "@openpromo/ad-platforms",
   "version": "0.8.0",
   "description": "Unified type-safe TypeScript SDK for Meta (Facebook, Instagram, Threads), TikTok, LinkedIn, X, YouTube, and future ad platforms — single install, single namespace",
   "keywords": [
@@ -54,20 +54,20 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@mosaic/sdk-runtime": "workspace:*",
-    "@mosaic/meta": "workspace:*",
-    "@mosaic/tiktok": "workspace:*",
-    "@mosaic/google-ads": "workspace:*",
-    "@mosaic/google-business-profile": "workspace:*",
-    "@mosaic/linkedin": "workspace:*",
-    "@mosaic/x": "workspace:*",
-    "@mosaic/youtube": "workspace:*",
-    "@mosaic/snapchat": "workspace:*",
+    "@openpromo/sdk-runtime": "workspace:*",
+    "@openpromo/meta": "workspace:*",
+    "@openpromo/tiktok": "workspace:*",
+    "@openpromo/google-ads": "workspace:*",
+    "@openpromo/google-business-profile": "workspace:*",
+    "@openpromo/linkedin": "workspace:*",
+    "@openpromo/x": "workspace:*",
+    "@openpromo/youtube": "workspace:*",
+    "@openpromo/snapchat": "workspace:*",
     "effect": "^3.22.1",
-    "@mosaic/reddit": "workspace:*",
-    "@mosaic/pinterest": "workspace:*",
-    "@mosaic/amazon-ads": "workspace:*",
-    "@mosaic/bluesky": "workspace:*"
+    "@openpromo/reddit": "workspace:*",
+    "@openpromo/pinterest": "workspace:*",
+    "@openpromo/amazon-ads": "workspace:*",
+    "@openpromo/bluesky": "workspace:*"
   },
   "peerDependencies": {
     "typescript": ">=5.9.3 <8",

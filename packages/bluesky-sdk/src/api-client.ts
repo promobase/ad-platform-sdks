@@ -1,4 +1,4 @@
-import type { DelayFn, RateLimiter, RetryConfig } from "@mosaic/sdk-runtime";
+import type { DelayFn, RateLimiter, RetryConfig } from "@openpromo/sdk-runtime";
 
 import { BlueskyApiError } from "./errors.ts";
 

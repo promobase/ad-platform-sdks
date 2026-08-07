@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { mkdir, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
-import { writeEffectArtifacts } from "@mosaic/sdk-codegen";
+import { writeEffectArtifacts } from "@openpromo/sdk-codegen";
 
 import { emitBarrel, emitPage, pageToFileName } from "./emitter.ts";
 import { snapchatCanonicalIr } from "./ir.ts";

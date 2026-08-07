@@ -1,6 +1,6 @@
 import { expect, mock, test } from "bun:test";
 
-import { HttpClient } from "@mosaic/sdk-runtime";
+import { HttpClient } from "@openpromo/sdk-runtime";
 
 import { adGroups } from "../../src/clients/ad-groups.ts";
 

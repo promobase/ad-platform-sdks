@@ -2,7 +2,7 @@
  * Namespaced API for the Pinterest SDK.
  *
  * Usage:
- *   import { Pinterest } from "@mosaic/pinterest";
+ *   import { Pinterest } from "@openpromo/pinterest";
  *
  *   // OAuth
  *   const oauth = Pinterest.OAuth({ clientId, clientSecret, redirectUri });

@@ -1,4 +1,4 @@
-import { ApiError } from "@mosaic/sdk-runtime";
+import { ApiError } from "@openpromo/sdk-runtime";
 
 export class TikTokApiError extends ApiError {
   readonly code: number;

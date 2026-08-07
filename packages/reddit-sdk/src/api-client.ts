@@ -1,4 +1,4 @@
-import type { DelayFn, RateLimiter, RetryConfig } from "@mosaic/sdk-runtime";
+import type { DelayFn, RateLimiter, RetryConfig } from "@openpromo/sdk-runtime";
 
 import type { RedditEnvelope } from "./envelope.ts";
 import { RedditApiError } from "./errors.ts";

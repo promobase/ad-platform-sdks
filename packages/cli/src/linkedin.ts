@@ -1,4 +1,4 @@
-import { createClient, createLinkedInOAuth } from "@mosaic/linkedin";
+import { createClient, createLinkedInOAuth } from "@openpromo/linkedin";
 import type { Command } from "commander";
 import { z } from "zod";
 

@@ -6,7 +6,7 @@ import {
   createInstagramOAuth,
   createThreadsClient,
   createThreadsOAuth,
-} from "@mosaic/meta";
+} from "@openpromo/meta";
 
 import type { GraphAuthInput, OAuthConfigInput } from "../schemas.ts";
 

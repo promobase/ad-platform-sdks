@@ -1,5 +1,5 @@
-import type { ApiClient } from "@mosaic/sdk-runtime";
-import { Cursor } from "@mosaic/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
+import { Cursor } from "@openpromo/sdk-runtime";
 import { metaPagination } from "../../pagination.ts";
 import type { AdFields } from "./ad.ts";
 import type { AdCampaignFrequencyControlSpecsFields } from "./ad-campaign-frequency-control-specs.ts";

@@ -4,13 +4,13 @@
   <img src="https://openpromo.app/logo.svg" width="80" alt="openpromo" />
 </a>
 
-# @mosaic/google-ads
+# @openpromo/google-ads
 
 **Type-safe TypeScript SDK for the Google Ads API v25 — generated from protobuf, with a typed GAQL query builder.**
 
 Powering [**openpromo.app**](https://openpromo.app) — the AI-native social media workspace.
 
-[![npm](https://img.shields.io/npm/v/@mosaic/google-ads.svg?label=%40openpromo%2Fgoogle-ads)](https://www.npmjs.com/package/@mosaic/google-ads)
+[![npm](https://img.shields.io/npm/v/@openpromo/google-ads.svg?label=%40openpromo%2Fgoogle-ads)](https://www.npmjs.com/package/@openpromo/google-ads)
 [![CI](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml/badge.svg)](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
@@ -20,20 +20,20 @@ Powering [**openpromo.app**](https://openpromo.app) — the AI-native social med
 
 ## What
 
-A fetch-based, runtime-agnostic Google Ads v25 client generated from the official protos. 184 GAQL resources, 110 services, 558 enums, 282 metric fields, and 155 segment fields — all typed. Plus a customer-bound factory for campaign lifecycle flows and a typed GAQL query builder with field-literal autocomplete and row-level narrowing. The prior raw v23 surface remains available from `@mosaic/google-ads/v23`.
+A fetch-based, runtime-agnostic Google Ads v25 client generated from the official protos. 184 GAQL resources, 110 services, 558 enums, 282 metric fields, and 155 segment fields — all typed. Plus a customer-bound factory for campaign lifecycle flows and a typed GAQL query builder with field-literal autocomplete and row-level narrowing. The prior raw v23 surface remains available from `@openpromo/google-ads/v23`.
 
 ## Install
 
 ```bash
-bun add @mosaic/google-ads
+bun add @openpromo/google-ads
 # or
-npm install @mosaic/google-ads
+npm install @openpromo/google-ads
 ```
 
 ## Use
 
 ```ts
-import { Google } from "@mosaic/google-ads";
+import { Google } from "@openpromo/google-ads";
 
 const client = Google.createClient({
   getAccessToken: async () => db.getGoogleToken(userId),
@@ -84,7 +84,7 @@ const { rows } = await customer.gaql
 
 ## Umbrella package
 
-For a single install covering Meta + TikTok + Google Ads, use [`@mosaic/ad-platforms`](https://www.npmjs.com/package/@mosaic/ad-platforms).
+For a single install covering Meta + TikTok + Google Ads, use [`@openpromo/ad-platforms`](https://www.npmjs.com/package/@openpromo/ad-platforms).
 
 ## License
 

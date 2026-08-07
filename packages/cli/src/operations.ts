@@ -1,5 +1,5 @@
-import type { AnyOperation, OperationCatalog } from "@mosaic/ad-platforms/operations";
-import type { AnyEndpointDescriptor, EndpointCatalog } from "@mosaic/sdk-runtime/effect";
+import type { AnyOperation, OperationCatalog } from "@openpromo/ad-platforms/operations";
+import type { AnyEndpointDescriptor, EndpointCatalog } from "@openpromo/sdk-runtime/effect";
 import type { Command } from "commander";
 import { z } from "zod";
 

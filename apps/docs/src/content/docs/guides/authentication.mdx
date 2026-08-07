@@ -18,7 +18,7 @@ do not own tokens, OAuth storage, or tenant selection.
 | Google Business Profile | An access token; your application owns refresh and persistence |
 
 ```ts
-import { Google } from "@mosaic/ad-platforms";
+import { Google } from "@openpromo/ad-platforms";
 
 const google = Google.createClient({
   getAccessToken: async () => refreshGoogleAccessToken(workspaceId),

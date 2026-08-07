@@ -1,4 +1,4 @@
-import { ApiError } from "@mosaic/sdk-runtime";
+import { ApiError } from "@openpromo/sdk-runtime";
 
 /**
  * Error thrown for AT Protocol (Bluesky) failures.

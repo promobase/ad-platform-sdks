@@ -2,7 +2,7 @@
  * Namespaced API for the Bluesky SDK.
  *
  * Usage:
- *   import { Bluesky } from "@mosaic/bluesky";
+ *   import { Bluesky } from "@openpromo/bluesky";
  *
  *   // Auth: app passwords are the standard for bots and agents.
  *   // Create one at Settings → Security → App passwords.

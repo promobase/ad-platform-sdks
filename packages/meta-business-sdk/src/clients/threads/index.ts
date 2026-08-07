@@ -1,4 +1,4 @@
-import { ApiClient } from "@mosaic/sdk-runtime";
+import { ApiClient } from "@openpromo/sdk-runtime";
 
 import { createAccount } from "./account.ts";
 import { createContainers } from "./containers.ts";

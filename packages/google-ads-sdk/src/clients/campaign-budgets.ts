@@ -1,4 +1,4 @@
-import type { HttpClient } from "@mosaic/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 
 import type { CampaignBudget } from "../generated/v25/resources/CampaignBudget.ts";
 import { campaignBudgetService, googleAdsService } from "../generated/v25/services/index.ts";

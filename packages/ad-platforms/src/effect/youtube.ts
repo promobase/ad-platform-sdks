@@ -1,1 +1,1 @@
-export * from "@mosaic/youtube/effect";
+export * from "@openpromo/youtube/effect";

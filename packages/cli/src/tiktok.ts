@@ -3,7 +3,7 @@ import {
   createTikTokDiscovery,
   createTikTokOAuth,
   createTikTokWebhooks,
-} from "@mosaic/tiktok";
+} from "@openpromo/tiktok";
 import type { Command } from "commander";
 import { z } from "zod";
 

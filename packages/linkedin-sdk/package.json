@@ -1,5 +1,5 @@
 {
-  "name": "@mosaic/linkedin",
+  "name": "@openpromo/linkedin",
   "version": "0.7.0",
   "description": "Type-safe TypeScript SDK for LinkedIn organic publishing and OAuth",
   "keywords": [
@@ -48,11 +48,11 @@
     "typescript": ">=5.9.3 <8"
   },
   "dependencies": {
-    "@mosaic/sdk-runtime": "workspace:*",
+    "@openpromo/sdk-runtime": "workspace:*",
     "effect": "^3.22.1"
   },
   "devDependencies": {
-    "@mosaic/sdk-codegen": "workspace:*"
+    "@openpromo/sdk-codegen": "workspace:*"
   },
   "exports": {
     ".": {

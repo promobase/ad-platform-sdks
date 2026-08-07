@@ -13,7 +13,7 @@ capabilities, and `createEffectClient`.
 import {
   createEffectClient,
   youtube_videos_list,
-} from "@mosaic/youtube/effect";
+} from "@openpromo/youtube/effect";
 
 const youtube = createEffectClient({
   baseUrl: "https://www.googleapis.com/",
@@ -36,8 +36,8 @@ await youtube.dispose();
 ```
 
 The umbrella package exposes lazy platform subpaths such as
-`@mosaic/ad-platforms/youtube/effect`, `@mosaic/ad-platforms/meta/effect`, and
-`@mosaic/ad-platforms/google-ads/v25/effect`. `@mosaic/ad-platforms/effect` exports only the
+`@openpromo/ad-platforms/youtube/effect`, `@openpromo/ad-platforms/meta/effect`, and
+`@openpromo/ad-platforms/google-ads/v25/effect`. `@openpromo/ad-platforms/effect` exports only the
 shared runtime so importing it does not eagerly load every provider schema.
 
 Use `resolveRequest` when a provider requires protocol-specific serialization that cannot be
@@ -53,7 +53,7 @@ import { Effect, Schema } from "effect";
 import {
   createOperationCatalog,
   defineOperation,
-} from "@mosaic/ad-platforms/operations";
+} from "@openpromo/ad-platforms/operations";
 
 const getPost = defineOperation({
   id: "example.posts.get",

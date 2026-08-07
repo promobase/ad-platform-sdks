@@ -1,1 +1,1 @@
-export * from "@mosaic/linkedin/effect";
+export * from "@openpromo/linkedin/effect";

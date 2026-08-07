@@ -46,8 +46,8 @@ access, but existing connections can migrate without changing their authorizatio
 ## Recommended adapter shape
 
 ```ts
-import { Meta, TikTok } from "@mosaic/ad-platforms";
-import { createAdPlatforms } from "@mosaic/ad-platforms/operations";
+import { Meta, TikTok } from "@openpromo/ad-platforms";
+import { createAdPlatforms } from "@openpromo/ad-platforms/operations";
 
 export function createWorkspacePlatforms(credentials: {
   metaToken: string;

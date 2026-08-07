@@ -11,7 +11,7 @@ export interface HttpTransportService {
   readonly execute: (request: RuntimeHttpRequest) => Effect.Effect<Response, NetworkError>;
 }
 
-export class HttpTransport extends Context.Tag("@mosaic/sdk-runtime/HttpTransport")<
+export class HttpTransport extends Context.Tag("@openpromo/sdk-runtime/HttpTransport")<
   HttpTransport,
   HttpTransportService
 >() {}
@@ -50,7 +50,7 @@ export interface RuntimeRateLimiterService {
   ) => Effect.Effect<void>;
 }
 
-export class RuntimeRateLimiter extends Context.Tag("@mosaic/sdk-runtime/RateLimiter")<
+export class RuntimeRateLimiter extends Context.Tag("@openpromo/sdk-runtime/RateLimiter")<
   RuntimeRateLimiter,
   RuntimeRateLimiterService
 >() {}
@@ -91,7 +91,7 @@ export interface RuntimeTelemetryService {
   readonly emit: (event: RuntimeTelemetryEvent) => Effect.Effect<void>;
 }
 
-export class RuntimeTelemetry extends Context.Tag("@mosaic/sdk-runtime/Telemetry")<
+export class RuntimeTelemetry extends Context.Tag("@openpromo/sdk-runtime/Telemetry")<
   RuntimeTelemetry,
   RuntimeTelemetryService
 >() {}

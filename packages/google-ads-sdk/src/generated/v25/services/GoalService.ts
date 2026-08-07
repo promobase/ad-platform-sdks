@@ -1,5 +1,5 @@
 import type { MutateGoalsRequest, MutateGoalsResponse } from "../index.ts";
-import type { HttpClient } from "@mosaic/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 
 // Generated from google.ads.googleads.v25.services.GoalService. Do not edit by hand.
 export const goalService = {

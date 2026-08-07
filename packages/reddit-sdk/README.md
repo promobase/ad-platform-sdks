@@ -1,17 +1,17 @@
-# @mosaic/reddit
+# @openpromo/reddit
 
 Type-safe TypeScript SDK for the **Reddit Ads API v3** — accounts, campaigns, ad groups, ads, targeting, audiences, pixels, reporting, and conversions. Generated from the Reddit Ads API OpenAPI spec (itself derived from Reddit's official Postman collection), with Reddit OAuth built in.
 
 ## Install
 
 ```bash
-bun add @mosaic/reddit
+bun add @openpromo/reddit
 ```
 
 ## Quick start
 
 ```ts
-import { Reddit } from "@mosaic/reddit";
+import { Reddit } from "@openpromo/reddit";
 
 // OAuth — create an app at https://www.reddit.com/prefs/apps
 const oauth = Reddit.OAuth({

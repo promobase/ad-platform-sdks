@@ -1,4 +1,4 @@
-import type { ApiClient } from "@mosaic/sdk-runtime";
+import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { DayPartFields } from "./day-part.ts";
 import type { MetaMomentMakerConfigFields } from "./meta-moment-maker-config.ts";
 import type { ReachFrequencyActivityFields } from "./reach-frequency-activity.ts";

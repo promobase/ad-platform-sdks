@@ -1,7 +1,7 @@
 import { mkdir, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
-import { writeEffectArtifacts } from "@mosaic/sdk-codegen";
+import { writeEffectArtifacts } from "@openpromo/sdk-codegen";
 
 import { buildDepGraph, findCycles } from "./dep-graph.ts";
 import { type EmitContext, emitEnumType, emitObjectFile, specNameToFileName } from "./emitter.ts";
@@ -157,8 +157,10 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   const factoryLines: string[] = [];
   factoryLines.push("// Auto-generated client factory — do not edit");
   factoryLines.push("");
-  factoryLines.push(`import { ApiClient } from "@mosaic/sdk-runtime";`);
-  factoryLines.push(`import type { ApiClientOptions as BaseOptions } from "@mosaic/sdk-runtime";`);
+  factoryLines.push(`import { ApiClient } from "@openpromo/sdk-runtime";`);
+  factoryLines.push(
+    `import type { ApiClientOptions as BaseOptions } from "@openpromo/sdk-runtime";`,
+  );
   factoryLines.push(`import { FacebookApiError } from "../errors.ts";`);
   factoryLines.push(
     `import { BatchBuilder, executeBatch, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";`,
@@ -174,9 +176,9 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   );
   factoryLines.push("  baseUrl?: string;");
   factoryLines.push("  apiVersion?: string;");
-  factoryLines.push("  rateLimiter?: import('@mosaic/sdk-runtime').RateLimiter;");
-  factoryLines.push("  delay?: import('@mosaic/sdk-runtime').DelayFn;");
-  factoryLines.push("  retry?: Partial<import('@mosaic/sdk-runtime').RetryConfig>;");
+  factoryLines.push("  rateLimiter?: import('@openpromo/sdk-runtime').RateLimiter;");
+  factoryLines.push("  delay?: import('@openpromo/sdk-runtime').DelayFn;");
+  factoryLines.push("  retry?: Partial<import('@openpromo/sdk-runtime').RetryConfig>;");
   factoryLines.push("}");
   factoryLines.push("");
   factoryLines.push("export function createTypedClient(opts: MetaClientOptions) {");
@@ -233,8 +235,8 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   // Re-export createTypedClient as createClient
   barrelLines.push(`export { createTypedClient as createClient } from "./client-factory.ts";`);
   barrelLines.push(`export type { MetaClientOptions } from "./client-factory.ts";`);
-  barrelLines.push(`export type { ApiClient, ApiClientOptions } from "@mosaic/sdk-runtime";`);
-  barrelLines.push(`export { Cursor } from "@mosaic/sdk-runtime";`);
+  barrelLines.push(`export type { ApiClient, ApiClientOptions } from "@openpromo/sdk-runtime";`);
+  barrelLines.push(`export { Cursor } from "@openpromo/sdk-runtime";`);
   barrelLines.push(`export { FacebookApiError } from "../errors.ts";`);
   barrelLines.push(
     `export { BatchBuilder, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";`,

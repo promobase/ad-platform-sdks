@@ -1,31 +1,31 @@
-# @mosaic/ad-platforms-cli
+# @openpromo/ad-platforms-cli
 
 ## 0.6.2
 
 ### Patch Changes
 
 - Updated dependencies [[`183e0c6`](https://github.com/promobase/ad-platform-sdks/commit/183e0c6bc05f66b365246da23844e04c9c502b73), [`537365f`](https://github.com/promobase/ad-platform-sdks/commit/537365f101d89211713306e2ea4ad06df50b3e1f), [`0fdf7fb`](https://github.com/promobase/ad-platform-sdks/commit/0fdf7fb34547b1772b1ecb3467af3d9e38651739), [`fff8359`](https://github.com/promobase/ad-platform-sdks/commit/fff8359973103f9055727424b07f6c0242d0f105), [`fff8359`](https://github.com/promobase/ad-platform-sdks/commit/fff8359973103f9055727424b07f6c0242d0f105)]:
-  - @mosaic/ad-platforms@0.8.0
-  - @mosaic/google-ads@0.3.1
-  - @mosaic/linkedin@0.7.0
-  - @mosaic/meta@0.3.1
-  - @mosaic/tiktok@0.4.1
-  - @mosaic/x@0.6.0
-  - @mosaic/youtube@0.6.0
+  - @openpromo/ad-platforms@0.8.0
+  - @openpromo/google-ads@0.3.1
+  - @openpromo/linkedin@0.7.0
+  - @openpromo/meta@0.3.1
+  - @openpromo/tiktok@0.4.1
+  - @openpromo/x@0.6.0
+  - @openpromo/youtube@0.6.0
 
 ## 0.6.1
 
 ### Patch Changes
 
 - Updated dependencies [[`24aa151`](https://github.com/promobase/ad-platform-sdks/commit/24aa1514bfad63fa817e9124ba8e0674d9951484), [`24aa151`](https://github.com/promobase/ad-platform-sdks/commit/24aa1514bfad63fa817e9124ba8e0674d9951484)]:
-  - @mosaic/x@0.6.0
-  - @mosaic/youtube@0.6.0
-  - @mosaic/meta@0.3.1
-  - @mosaic/tiktok@0.4.1
-  - @mosaic/google-ads@0.3.1
-  - @mosaic/linkedin@0.7.0
-  - @mosaic/sdk-runtime@0.5.0
-  - @mosaic/ad-platforms@0.7.0
+  - @openpromo/x@0.6.0
+  - @openpromo/youtube@0.6.0
+  - @openpromo/meta@0.3.1
+  - @openpromo/tiktok@0.4.1
+  - @openpromo/google-ads@0.3.1
+  - @openpromo/linkedin@0.7.0
+  - @openpromo/sdk-runtime@0.5.0
+  - @openpromo/ad-platforms@0.7.0
 
 ## 0.6.0
 
@@ -38,27 +38,27 @@
 ### Patch Changes
 
 - Updated dependencies [[`61c19de`](https://github.com/promobase/ad-platform-sdks/commit/61c19de459fc70eb32231a13022708ff69d743ea)]:
-  - @mosaic/sdk-runtime@0.4.0
-  - @mosaic/meta@0.3.0
-  - @mosaic/tiktok@0.4.0
-  - @mosaic/google-ads@0.3.0
-  - @mosaic/linkedin@0.6.0
-  - @mosaic/x@0.5.0
-  - @mosaic/youtube@0.5.0
-  - @mosaic/ad-platforms@0.6.0
+  - @openpromo/sdk-runtime@0.4.0
+  - @openpromo/meta@0.3.0
+  - @openpromo/tiktok@0.4.0
+  - @openpromo/google-ads@0.3.0
+  - @openpromo/linkedin@0.6.0
+  - @openpromo/x@0.5.0
+  - @openpromo/youtube@0.5.0
+  - @openpromo/ad-platforms@0.6.0
 
 ## 0.5.1
 
 ### Patch Changes
 
 - Updated dependencies [[`a5574eb`](https://github.com/promobase/ad-platform-sdks/commit/a5574eb5e62e06f40667ca1984a9b3930d6a305b)]:
-  - @mosaic/ad-platforms@0.5.0
-  - @mosaic/linkedin@0.5.0
-  - @mosaic/meta@0.2.0
-  - @mosaic/tiktok@0.3.0
-  - @mosaic/x@0.4.0
-  - @mosaic/youtube@0.4.0
-  - @mosaic/google-ads@0.2.1
+  - @openpromo/ad-platforms@0.5.0
+  - @openpromo/linkedin@0.5.0
+  - @openpromo/meta@0.2.0
+  - @openpromo/tiktok@0.3.0
+  - @openpromo/x@0.4.0
+  - @openpromo/youtube@0.4.0
+  - @openpromo/google-ads@0.2.1
 
 ## 0.5.0
 
@@ -69,16 +69,16 @@
 ### Patch Changes
 
 - Updated dependencies [[`09f4d8a`](https://github.com/promobase/ad-platform-sdks/commit/09f4d8aa9470fa5fd081ae1321ed1dcc3fd2edb5)]:
-  - @mosaic/ad-platforms@0.4.0
+  - @openpromo/ad-platforms@0.4.0
 
 ## 0.4.1
 
 ### Patch Changes
 
 - Updated dependencies [[`6eb12ce`](https://github.com/promobase/ad-platform-sdks/commit/6eb12ce0741bd2412d661e699d9f8c5682d6d13c)]:
-  - @mosaic/linkedin@0.4.0
-  - @mosaic/tiktok@0.2.0
-  - @mosaic/ad-platforms@0.3.1
+  - @openpromo/linkedin@0.4.0
+  - @openpromo/tiktok@0.2.0
+  - @openpromo/ad-platforms@0.3.1
 
 ## 0.4.0
 
@@ -97,13 +97,13 @@
 - [#13](https://github.com/promobase/ad-platform-sdks/pull/13) [`c9b8e76`](https://github.com/promobase/ad-platform-sdks/commit/c9b8e761bf71e676985b00cbdccd930ad0fb50e7) Thanks [@rayli09](https://github.com/rayli09)! - Publish registry-safe dependency ranges instead of leaking `workspace:*` specifiers into npm metadata.
 
 - Updated dependencies [[`c9b8e76`](https://github.com/promobase/ad-platform-sdks/commit/c9b8e761bf71e676985b00cbdccd930ad0fb50e7), [`c9b8e76`](https://github.com/promobase/ad-platform-sdks/commit/c9b8e761bf71e676985b00cbdccd930ad0fb50e7), [`c9b8e76`](https://github.com/promobase/ad-platform-sdks/commit/c9b8e761bf71e676985b00cbdccd930ad0fb50e7)]:
-  - @mosaic/ad-platforms@0.3.0
-  - @mosaic/google-ads@0.2.0
-  - @mosaic/linkedin@0.3.0
-  - @mosaic/meta@0.1.0
-  - @mosaic/tiktok@0.1.0
-  - @mosaic/x@0.3.0
-  - @mosaic/youtube@0.3.0
+  - @openpromo/ad-platforms@0.3.0
+  - @openpromo/google-ads@0.2.0
+  - @openpromo/linkedin@0.3.0
+  - @openpromo/meta@0.1.0
+  - @openpromo/tiktok@0.1.0
+  - @openpromo/x@0.3.0
+  - @openpromo/youtube@0.3.0
 
 ## 0.3.0
 
@@ -119,8 +119,8 @@
 
 ### Patch Changes
 
-- [`b40d994`](https://github.com/promobase/ad-platform-sdks/commit/b40d99483e033e530bc461737430c8fb786d88d8) Thanks [@rayli09](https://github.com/rayli09)! - Move the public package family to the OpenPromo `@mosaic/*` scope and update workspace imports, docs, and CLI branding.
+- [`b40d994`](https://github.com/promobase/ad-platform-sdks/commit/b40d99483e033e530bc461737430c8fb786d88d8) Thanks [@rayli09](https://github.com/rayli09)! - Move the public package family to the OpenPromo `@openpromo/*` scope and update workspace imports, docs, and CLI branding.
 
 - Updated dependencies [[`b40d994`](https://github.com/promobase/ad-platform-sdks/commit/b40d99483e033e530bc461737430c8fb786d88d8)]:
-  - @mosaic/ad-platforms@0.2.1
-  - @mosaic/meta@0.0.5
+  - @openpromo/ad-platforms@0.2.1
+  - @openpromo/meta@0.0.5

@@ -1,4 +1,4 @@
-# @mosaic/google-business-profile
+# @openpromo/google-business-profile
 
 ## 0.4.0
 
@@ -12,7 +12,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`24aa151`](https://github.com/promobase/ad-platform-sdks/commit/24aa1514bfad63fa817e9124ba8e0674d9951484)]:
-  - @mosaic/sdk-runtime@0.5.0
+  - @openpromo/sdk-runtime@0.5.0
 
 ## 0.3.0
 
@@ -25,7 +25,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`61c19de`](https://github.com/promobase/ad-platform-sdks/commit/61c19de459fc70eb32231a13022708ff69d743ea)]:
-  - @mosaic/sdk-runtime@0.4.0
+  - @openpromo/sdk-runtime@0.4.0
 
 ## 0.2.0
 

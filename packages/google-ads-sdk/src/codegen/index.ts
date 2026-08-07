@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
-import { writeEffectArtifacts } from "@mosaic/sdk-codegen";
+import { writeEffectArtifacts } from "@openpromo/sdk-codegen";
 
 import { emitEnum, emitMessage, emitService } from "./emitter.ts";
 import { emitGaqlCatalog } from "./gaql-emitter.ts";

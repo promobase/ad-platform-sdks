@@ -1,5 +1,5 @@
 import type { MoveManagerLinkRequest, MoveManagerLinkResponse, MutateCustomerManagerLinkRequest, MutateCustomerManagerLinkResponse } from "../index.ts";
-import type { HttpClient } from "@mosaic/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 
 // Generated from google.ads.googleads.v25.services.CustomerManagerLinkService. Do not edit by hand.
 export const customerManagerLinkService = {

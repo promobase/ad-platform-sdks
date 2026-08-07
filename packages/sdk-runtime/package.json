@@ -1,5 +1,5 @@
 {
-  "name": "@mosaic/sdk-runtime",
+  "name": "@openpromo/sdk-runtime",
   "version": "0.5.0",
   "description": "Shared runtime primitives for @openpromo ad platform SDKs — fetch-based HttpClient, cursor pagination, rate limiter, retry.",
   "keywords": [

@@ -1,4 +1,4 @@
-import type { HttpClient } from "@mosaic/sdk-runtime";
+import type { HttpClient } from "@openpromo/sdk-runtime";
 
 import type { GaqlResource, ResourceFieldMap } from "../../generated/v25/gaql/resource-map.ts";
 import { QueryBuilder, type RowOf } from "./builder.ts";
