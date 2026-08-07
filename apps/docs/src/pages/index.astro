@@ -14,47 +14,67 @@ interface PlatformTile {
 }
 
 const platforms: PlatformTile[] = [
-  { name: "Facebook", icon: "facebook", color: "#0866FF", endpoints: 1451, package: "@mosaic/meta" },
-  { name: "Instagram", icon: "instagram", color: "#E4405F", endpoints: 1451, package: "@mosaic/meta" },
-  { name: "Threads", icon: "threads", color: "#999999", endpoints: 1451, package: "@mosaic/meta" },
-  { name: "TikTok", icon: "tiktok", color: "#25F4EE", endpoints: 531, package: "@mosaic/tiktok" },
-  { name: "Snapchat", icon: "snapchat", color: "#FFFC00", endpoints: 214, package: "@mosaic/snapchat" },
-  { name: "Reddit", icon: "reddit", color: "#FF4500", endpoints: 40, package: "@mosaic/reddit" },
-  { name: "Pinterest", icon: "pinterest", color: "#E60023", endpoints: 266, package: "@mosaic/pinterest" },
-  { name: "Amazon Ads", icon: "amazon", color: "#FF9900", endpoints: 166, package: "@mosaic/amazon-ads" },
-  { name: "Bluesky", icon: "bluesky", color: "#0285FF", endpoints: 197, package: "@mosaic/bluesky" },
-  { name: "LinkedIn", icon: "linkedin", color: "#0A66C2", endpoints: 303, package: "@mosaic/linkedin" },
-  { name: "X", icon: "x", color: "#D4D4D8", endpoints: 176, package: "@mosaic/x" },
-  { name: "YouTube", icon: "youtube", color: "#FF0000", endpoints: 98, package: "@mosaic/youtube" },
-  { name: "Google Ads", icon: "googleads", color: "#4285F4", endpoints: 169, package: "@mosaic/google-ads" },
-  { name: "Google Business Profile", icon: "google", color: "#4285F4", endpoints: 139, package: "@mosaic/google-business-profile" },
+  { name: "Facebook", icon: "facebook", color: "#0866FF", endpoints: 1451, package: "@openpromo/meta" },
+  { name: "Instagram", icon: "instagram", color: "#E4405F", endpoints: 1451, package: "@openpromo/meta" },
+  { name: "Threads", icon: "threads", color: "#999999", endpoints: 1451, package: "@openpromo/meta" },
+  { name: "TikTok", icon: "tiktok", color: "#25F4EE", endpoints: 531, package: "@openpromo/tiktok" },
+  { name: "Snapchat", icon: "snapchat", color: "#FFFC00", endpoints: 214, package: "@openpromo/snapchat" },
+  { name: "Reddit", icon: "reddit", color: "#FF4500", endpoints: 40, package: "@openpromo/reddit" },
+  { name: "Pinterest", icon: "pinterest", color: "#E60023", endpoints: 266, package: "@openpromo/pinterest" },
+  { name: "Amazon Ads", icon: "amazon", color: "#FF9900", endpoints: 166, package: "@openpromo/amazon-ads" },
+  { name: "Bluesky", icon: "bluesky", color: "#0285FF", endpoints: 197, package: "@openpromo/bluesky" },
+  { name: "LinkedIn", icon: "linkedin", color: "#0A66C2", endpoints: 303, package: "@openpromo/linkedin" },
+  { name: "X", icon: "x", color: "#D4D4D8", endpoints: 176, package: "@openpromo/x" },
+  { name: "YouTube", icon: "youtube", color: "#FF0000", endpoints: 98, package: "@openpromo/youtube" },
+  { name: "Google Ads", icon: "googleads", color: "#4285F4", endpoints: 169, package: "@openpromo/google-ads" },
+  { name: "Google Business Profile", icon: "google", color: "#4285F4", endpoints: 139, package: "@openpromo/google-business-profile" },
 ];
 
 const platformCount = new Set(platforms.map((p) => p.package)).size;
 const totalEndpoints = 3750;
 const totalModels = 27888;
 const totalCapabilities = 987;
+
+const features = [
+  {
+    title: "Multi-platform support",
+    description:
+      "Ship to every major ad and social platform from one codebase, without per-platform rewrites.",
+  },
+  {
+    title: "Generated from canonical contracts",
+    description:
+      "Official specs, lexicons, and Postman collections — never hand-maintained endpoints.",
+  },
+  {
+    title: "Agent-ready by default",
+    description:
+      "Effect schemas, AI SDK tools, MCP, Code Mode, and CLI all project from one contract.",
+  },
+] as const;
 ---
 
 <BaseLayout title={config.title} description={config.description}>
   <div class="min-h-screen bg-background text-foreground">
     <Header />
     <main id="main-content">
-      <section class="relative mx-auto max-w-6xl px-6 pb-16 pt-24 sm:pt-32">
-        <div class="max-w-4xl">
-          <p class="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
-            Open source · TypeScript · Effect native
-          </p>
-          <h1 class="text-5xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-7xl">
-            One typed SDK family.
-            <span class="text-muted-foreground"> Every platform.</span>
-          </h1>
-          <p class="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
-            {platformCount} ad and social platforms behind one install —
-            <code class="font-mono text-foreground">bun add @mosaic/ad-platforms</code>.
-            Provider-complete, generated from canonical contracts, agent-ready.
-          </p>
-          <div class="mt-9 flex flex-wrap gap-3">
+      <section class="mx-auto flex max-w-6xl flex-col items-center justify-center px-6 pb-16 pt-24 text-center sm:pt-32">
+        <p class="mb-6 font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
+          Open source · TypeScript · Effect native
+        </p>
+        <h1 class="max-w-5xl text-balance text-5xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-7xl">
+          One typed SDK family for every ad platform.
+        </h1>
+        <p class="mt-6 w-full max-w-2xl text-balance text-lg leading-8 text-muted-foreground sm:text-xl">
+          {platformCount} ad and social platforms behind one install. Provider-complete,
+          typed from canonical contracts, ready for humans and agents.
+        </p>
+        <div class="mt-10 flex flex-col items-center gap-4">
+          <div class="flex items-center gap-3 rounded-lg border border-border bg-card px-5 py-3 font-mono text-sm">
+            <span class="text-muted-foreground">$</span>
+            <span>bun add @openpromo/ad-platforms</span>
+          </div>
+          <div class="flex flex-wrap justify-center gap-3">
             <a
               href="/getting-started"
               class="rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground no-underline transition-colors hover:bg-primary-hover"
@@ -69,73 +89,70 @@ const totalCapabilities = 987;
             </a>
           </div>
         </div>
+      </section>
 
-        <div class="mt-16 grid grid-cols-3 gap-3 border-t border-border pt-8 sm:grid-cols-4 lg:grid-cols-7">
+      <section class="mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 py-20 text-center">
+        <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+          The platform-agnostic ad toolkit
+        </h2>
+        <p class="mx-auto max-w-3xl text-balance text-base leading-7 text-muted-foreground sm:text-lg">
+          One SDK family that runs on Meta, TikTok, Snapchat, Reddit, Pinterest, Amazon Ads,
+          Bluesky, LinkedIn, X, YouTube, Google Ads, and Google Business Profile — and more on the way.
+        </p>
+        <div class="mx-auto mt-4 flex max-w-2xl flex-wrap items-center justify-center gap-x-6 gap-y-5 sm:max-w-4xl sm:gap-x-8">
           {platforms.map((platform) => (
-            <span
-              class="platform-tile group flex flex-col items-center gap-2 rounded-xl border border-transparent px-2 py-4 text-center transition-colors hover:border-border hover:bg-card"
+            <a
+              aria-label={`${platform.name} — ${platform.endpoints} endpoints`}
+              class="platform-tile group flex flex-col items-center gap-2"
               style={`--pc: ${platform.color}`}
+              href="/reference"
               title={`${platform.package} — ${platform.endpoints} endpoints`}
             >
-              <PlatformIcon name={platform.icon} class="platform-icon h-7 w-7" />
-              <span class="text-xs leading-tight text-muted-foreground">{platform.name}</span>
-            </span>
+              <PlatformIcon name={platform.icon} class="platform-icon h-9 w-9" />
+              <span class="text-xs text-muted-foreground">{platform.name}</span>
+            </a>
           ))}
         </div>
       </section>
 
-      <section class="border-y border-border bg-muted/40">
-        <div class="mx-auto max-w-6xl px-6 py-20">
-          <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-            <div>
-              <p class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">Platform coverage</p>
-              <h2 class="mt-4 text-3xl font-semibold tracking-tight">Every major ad platform. One API shape.</h2>
-              <p class="mt-4 leading-7 text-muted-foreground">
-                {totalEndpoints.toLocaleString()} generated endpoints across {platformCount} packages —
-                campaigns, audiences, targeting, publishing, messaging, and metrics — each typed from
-                the provider's own canonical contracts.
-              </p>
-              <div class="mt-8 flex flex-wrap gap-2">
-                {[...new Set(platforms.map((p) => p.package))].map((pkg) => (
-                  <span class="rounded-full border border-border px-3 py-1.5 font-mono text-xs text-muted-foreground">{pkg}</span>
-                ))}
-              </div>
-            </div>
-            <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {platforms.map((platform) => (
-                <a
-                  href="/reference"
-                  class="group rounded-xl border border-border bg-card p-4 no-underline transition-colors hover:border-border-strong"
-                >
-                  <div class="flex items-center gap-3">
-                    <PlatformIcon name={platform.icon} class="h-6 w-6 shrink-0" style={`color: ${platform.color};`} />
-                    <span class="truncate text-sm font-medium text-foreground">{platform.name}</span>
-                  </div>
-                  <div class="mt-3 font-mono text-xs text-muted-foreground">
-                    {platform.endpoints.toLocaleString()} endpoints
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+      <section class="mx-auto max-w-6xl px-6 py-16">
+        <ul class="grid list-none grid-cols-12 gap-x-8 gap-y-10">
+          {features.map((feature) => (
+            <li class="col-span-12 flex flex-col gap-3 sm:col-span-6 lg:col-span-4">
+              <span class="text-lg font-medium text-foreground">{feature.title}</span>
+              <span class="text-balance text-sm leading-6 text-muted-foreground sm:max-w-sm">
+                {feature.description}
+              </span>
+            </li>
+          ))}
+        </ul>
       </section>
 
-      <section class="mx-auto max-w-6xl px-6 py-20">
-        <div class="grid border-y border-border sm:grid-cols-4">
-          <div class="py-6 sm:border-r sm:border-border sm:pr-8">
+      <section class="mx-auto max-w-6xl px-6 py-16">
+        <div class="grid items-end gap-x-8 gap-y-10 lg:grid-cols-12">
+          <h2 class="col-span-12 text-balance text-3xl font-semibold tracking-tight lg:col-span-4 lg:text-4xl">
+            Generated, not hand-written
+          </h2>
+          <p class="col-span-12 text-pretty text-base leading-7 text-muted-foreground lg:col-span-5 lg:col-start-8">
+            {totalEndpoints.toLocaleString()} endpoints and {totalModels.toLocaleString()} typed models
+            across {platformCount} packages — each generated from the provider's own canonical
+            contracts and verified against coverage ledgers on every change.
+          </p>
+        </div>
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-lg border border-border bg-card p-5">
             <div class="text-3xl font-semibold tracking-tight">{platformCount}</div>
             <div class="mt-1 text-sm text-muted-foreground">platform packages</div>
           </div>
-          <div class="border-t border-border py-6 sm:border-r sm:border-t-0 sm:px-8">
+          <div class="rounded-lg border border-border bg-card p-5">
             <div class="text-3xl font-semibold tracking-tight">{totalEndpoints.toLocaleString()}</div>
             <div class="mt-1 text-sm text-muted-foreground">generated endpoints</div>
           </div>
-          <div class="border-t border-border py-6 sm:border-r sm:border-t-0 sm:px-8">
+          <div class="rounded-lg border border-border bg-card p-5">
             <div class="text-3xl font-semibold tracking-tight">{totalModels.toLocaleString()}</div>
             <div class="mt-1 text-sm text-muted-foreground">typed models</div>
           </div>
-          <div class="border-t border-border py-6 sm:border-t-0 sm:pl-8">
+          <div class="rounded-lg border border-border bg-card p-5">
             <div class="text-3xl font-semibold tracking-tight">{totalCapabilities.toLocaleString()}</div>
             <div class="mt-1 text-sm text-muted-foreground">declared capabilities</div>
           </div>
@@ -174,16 +191,32 @@ const totalCapabilities = 987;
       </section>
 
       <section class="mx-auto max-w-6xl px-6 py-16">
-        <div class="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div class="flex flex-col items-center gap-4 text-center">
+          <h2 class="text-balance text-3xl font-semibold tracking-tight">Build with Mosaic today</h2>
+          <div class="flex items-center gap-3 rounded-lg border border-border bg-card px-5 py-3 font-mono text-sm">
+            <span class="text-muted-foreground">$</span>
+            <span>bun add @openpromo/ad-platforms</span>
+          </div>
+          <a
+            href="/getting-started"
+            class="mt-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground no-underline transition-colors hover:bg-primary-hover"
+          >
+            Visit Documentation
+          </a>
+        </div>
+      </section>
+
+      <section class="border-t border-border">
+        <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
           <div class="flex items-center gap-2 text-sm text-muted-foreground">
             <span class="mosaic-mark h-5 w-5 shrink-0"></span>
             <span>
               MIT licensed — built by <a class="text-foreground underline underline-offset-4" href="https://openpromo.app">OpenPromo</a>.
             </span>
           </div>
-          <div class="flex flex-wrap gap-2">
+          <div class="flex flex-wrap justify-center gap-3">
             {platforms.map((platform) => (
-              <span class="group flex items-center gap-1.5" title={platform.name}>
+              <span class="flex items-center" title={platform.name}>
                 <PlatformIcon name={platform.icon} class="h-4 w-4" style={`color: color-mix(in srgb, var(--foreground) 45%, transparent);`} />
               </span>
             ))}
@@ -195,7 +228,7 @@ const totalCapabilities = 987;
 </BaseLayout>
 
 <style is:global>
-  /* Brand-color hover for the hero icon strip: each tile sets --pc to its
+  /* Brand-color hover for the platform wall: each tile sets --pc to its
      brand color; icons are muted by default and light up on hover. */
   .platform-tile .platform-icon {
     color: color-mix(in srgb, var(--foreground) 55%, transparent);
@@ -204,5 +237,8 @@ const totalCapabilities = 987;
   .platform-tile:hover .platform-icon {
     color: var(--pc);
     transform: scale(1.12);
+  }
+  .platform-tile:hover .platform-icon + span {
+    color: var(--foreground);
   }
 </style>
