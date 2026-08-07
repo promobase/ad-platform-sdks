@@ -56,7 +56,8 @@
     }
   },
   "dependencies": {
-    "@mosaic/sdk-runtime": "workspace:*"
+    "@mosaic/sdk-runtime": "workspace:*",
+    "effect": "^3.22.1"
   },
   "devDependencies": {
     "@mosaic/sdk-codegen": "workspace:*"
