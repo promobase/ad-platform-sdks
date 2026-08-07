@@ -15,6 +15,7 @@ const manifests = [
   "packages/amazon-ads-sdk/src/generated/sponsored-brands/effect/manifest.json",
   "packages/amazon-ads-sdk/src/generated/sponsored-display/effect/manifest.json",
   "packages/amazon-ads-sdk/src/generated/api/effect/manifest.json",
+  "packages/bluesky-sdk/src/generated/effect/manifest.json",
 ];
 
 for (const path of manifests) {

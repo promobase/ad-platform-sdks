@@ -1,0 +1,866 @@
+---
+title: "Bluesky models: Get Account Infos Params – Get Relationships Response"
+description: "100 generated Bluesky model contracts, from GetAccountInfosParams through GetRelationshipsResponse."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 1003
+  label: "Get Account Infos Params – Get Relationships Response"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## GetAccountInfosParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dids` | `dids` | `Array<string>` | Yes | No | — |
+
+## GetAccountInfosResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline553` | Yes | No | — |
+
+## GetAccountInviteCodesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `includeUsed` | `includeUsed` | `boolean` | No | No | — |
+| `createAvailable` | `createAvailable` | `boolean` | No | No | — |
+
+## GetAccountInviteCodesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline667` | Yes | No | — |
+
+## GetActorFeedsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor` | `actor` | `string` | Yes | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetActorFeedsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline308` | Yes | No | — |
+
+## GetActorLikesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor` | `actor` | `string` | Yes | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetActorLikesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline311` | Yes | No | — |
+
+## GetActorStarterPacksParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor` | `actor` | `string` | Yes | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetActorStarterPacksResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline362` | Yes | No | — |
+
+## GetAgeAssuranceStateParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## GetAgeAssuranceStateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `AppBskyUnspeccedDefsAgeAssuranceState` | Yes | No | — |
+
+## GetAuthorFeedParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor` | `actor` | `string` | Yes | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `filter` | `filter` | `string` | No | No | — |
+| `includePins` | `includePins` | `boolean` | No | No | — |
+
+## GetAuthorFeedResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline314` | Yes | No | — |
+
+## GetBlobParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | Yes | No | — |
+
+## GetBlobResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## GetBlocksParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetBlocksResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline365` | Yes | No | — |
+
+## GetBookmarksParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetBookmarksResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline265` | Yes | No | — |
+
+## GetCheckoutParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+
+## GetCheckoutResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## GetConfigParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## GetConfigResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `AppBskyAgeassuranceDefsConfig` | Yes | No | — |
+
+## GetDraftsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetDraftsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline297` | Yes | No | — |
+
+## GetEmbedExternalViewParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url` | `url` | `string` | Yes | No | — |
+| `uris` | `uris` | `Array<string>` | Yes | No | — |
+
+## GetEmbedExternalViewResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline302` | Yes | No | — |
+
+## GetFeedGeneratorParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed` | `feed` | `string` | Yes | No | — |
+
+## GetFeedGeneratorResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline320` | Yes | No | — |
+
+## GetFeedGeneratorsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feeds` | `feeds` | `Array<string>` | Yes | No | — |
+
+## GetFeedGeneratorsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline323` | Yes | No | — |
+
+## GetFeedParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed` | `feed` | `string` | Yes | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetFeedResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline317` | Yes | No | — |
+
+## GetFeedSkeletonParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed` | `feed` | `string` | Yes | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetFeedSkeletonResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline326` | Yes | No | — |
+
+## GetFollowersParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor` | `actor` | `string` | Yes | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `sort` | `sort` | `string` | No | No | — |
+
+## GetFollowersResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline368` | Yes | No | — |
+
+## GetFollowsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor` | `actor` | `string` | Yes | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `sort` | `sort` | `string` | No | No | — |
+
+## GetFollowsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline371` | Yes | No | — |
+
+## GetHeadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+
+## GetHeadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline704` | Yes | No | — |
+
+## GetHostStatusParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hostname` | `hostname` | `string` | Yes | No | — |
+
+## GetHostStatusResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline707` | Yes | No | — |
+
+## GetInviteCodesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sort` | `sort` | `string` | No | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetInviteCodesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline556` | Yes | No | — |
+
+## GetJobStatusParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `jobId` | `jobId` | `string` | Yes | No | — |
+
+## GetJobStatusResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline534` | Yes | No | — |
+
+## GetKnownFollowersParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor` | `actor` | `string` | Yes | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetKnownFollowersResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline374` | Yes | No | — |
+
+## GetLatestCommitParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+
+## GetLatestCommitResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline710` | Yes | No | — |
+
+## GetLikesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | No | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetLikesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline329` | Yes | No | — |
+
+## GetListBlocksParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetListBlocksResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline380` | Yes | No | — |
+
+## GetListFeedParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `string` | Yes | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetListFeedResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline332` | Yes | No | — |
+
+## GetListMutesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetListMutesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline383` | Yes | No | — |
+
+## GetListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `string` | Yes | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline377` | Yes | No | — |
+
+## GetListsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor` | `actor` | `string` | Yes | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `purposes` | `purposes` | `Array<string>` | No | No | — |
+
+## GetListsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline386` | Yes | No | — |
+
+## GetListsWithMembershipParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor` | `actor` | `string` | Yes | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `purposes` | `purposes` | `Array<string>` | No | No | — |
+
+## GetListsWithMembershipResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline389` | Yes | No | — |
+
+## GetMatchesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetMatchesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline271` | Yes | No | — |
+
+## GetMutesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetMutesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline392` | Yes | No | — |
+
+## GetOnboardingSuggestedStarterPacksParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `limit` | `number` | No | No | — |
+
+## GetOnboardingSuggestedStarterPacksResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline454` | Yes | No | — |
+
+## GetOnboardingSuggestedStarterPacksSkeletonParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `viewer` | `viewer` | `string` | No | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+
+## GetOnboardingSuggestedStarterPacksSkeletonResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline457` | Yes | No | — |
+
+## GetOnboardingSuggestedUsersSkeletonParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `viewer` | `viewer` | `string` | No | No | — |
+| `category` | `category` | `string` | No | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+
+## GetOnboardingSuggestedUsersSkeletonResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline460` | Yes | No | — |
+
+## GetPopularFeedGeneratorsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `query` | `query` | `string` | No | No | — |
+
+## GetPopularFeedGeneratorsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline463` | Yes | No | — |
+
+## GetPostsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uris` | `uris` | `Array<string>` | Yes | No | — |
+
+## GetPostsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline335` | Yes | No | — |
+
+## GetPostThreadOtherV2Params
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `anchor` | `anchor` | `string` | Yes | No | — |
+
+## GetPostThreadOtherV2Response
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline466` | Yes | No | — |
+
+## GetPostThreadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `depth` | `depth` | `number` | No | No | — |
+| `parentHeight` | `parentHeight` | `number` | No | No | — |
+
+## GetPostThreadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline338` | Yes | No | — |
+
+## GetPostThreadV2Params
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `anchor` | `anchor` | `string` | Yes | No | — |
+| `above` | `above` | `boolean` | No | No | — |
+| `below` | `below` | `number` | No | No | — |
+| `branchingFactor` | `branchingFactor` | `number` | No | No | — |
+| `sort` | `sort` | `string` | No | No | — |
+
+## GetPostThreadV2Response
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline469` | Yes | No | — |
+
+## GetPreferencesParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## GetPreferencesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline235` | Yes | No | — |
+
+## GetProfileParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor` | `actor` | `string` | Yes | No | — |
+
+## GetProfileResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `AppBskyActorDefsProfileViewDetailed` | Yes | No | — |
+
+## GetProfilesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actors` | `actors` | `Array<string>` | Yes | No | — |
+
+## GetProfilesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline240` | Yes | No | — |
+
+## GetQuotesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | No | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+
+## GetQuotesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline341` | Yes | No | — |
+
+## GetRecommendedDidCredentialsParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## GetRecommendedDidCredentialsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline579` | Yes | No | — |
+
+## GetRecordParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `repo` | `repo` | `string` | Yes | No | — |
+| `collection` | `collection` | `string` | Yes | No | — |
+| `rkey` | `rkey` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | No | No | — |
+
+## GetRecordResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline622` | Yes | No | — |
+
+## GetRelationshipsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor` | `actor` | `string` | Yes | No | — |
+| `others` | `others` | `Array<string>` | No | No | — |
+
+## GetRelationshipsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline395` | Yes | No | — |

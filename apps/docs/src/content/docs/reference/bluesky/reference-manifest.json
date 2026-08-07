@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "platform": "bluesky",
+  "version": "lexicons",
+  "endpointCount": 197,
+  "modelCount": 752,
+  "capabilityCount": 37,
+  "endpointPages": [
+    "endpoints/actor",
+    "endpoints/admin",
+    "endpoints/ageassurance",
+    "endpoints/bookmark",
+    "endpoints/contact",
+    "endpoints/draft",
+    "endpoints/embed",
+    "endpoints/feed",
+    "endpoints/graph",
+    "endpoints/identity",
+    "endpoints/label",
+    "endpoints/labeler",
+    "endpoints/lexicon",
+    "endpoints/moderation",
+    "endpoints/notification",
+    "endpoints/repo",
+    "endpoints/server",
+    "endpoints/sync",
+    "endpoints/temp",
+    "endpoints/unspecced",
+    "endpoints/video"
+  ],
+  "modelPages": [
+    "models/activate-account-params-to-app-bsky-feed-defs-blocked-author",
+    "models/app-bsky-feed-defs-blocked-post-to-com-atproto-admin-defs-account-view",
+    "models/com-atproto-admin-defs-repo-blob-ref-to-get-account-info-response",
+    "models/get-account-infos-params-to-get-relationships-response",
+    "models/get-repo-params-to-inline320",
+    "models/inline323-to-inline686",
+    "models/inline691-to-search-posts-skeleton-response",
+    "models/search-posts-v2-params-to-verify-phone-response"
+  ]
+}

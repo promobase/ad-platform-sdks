@@ -1,0 +1,150 @@
+---
+title: "Bluesky Draft endpoints"
+description: "4 generated Bluesky endpoint contracts for Draft."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 105
+  label: "Draft"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## bluesky.draft.createDraft
+
+`POST` `/xrpc/app.bsky.draft.createDraft`
+
+Generated from the AT Protocol lexicon app.bsky.draft.createDraft
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.draft.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `CreateDraftResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `draft` | `body` | `AppBskyDraftDefsDraft` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.draft.deleteDraft
+
+`POST` `/xrpc/app.bsky.draft.deleteDraft`
+
+Generated from the AT Protocol lexicon app.bsky.draft.deleteDraft
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.draft.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `DeleteDraftResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.draft.getDrafts
+
+`GET` `/xrpc/app.bsky.draft.getDrafts`
+
+Generated from the AT Protocol lexicon app.bsky.draft.getDrafts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.draft.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetDraftsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.draft.updateDraft
+
+`POST` `/xrpc/app.bsky.draft.updateDraft`
+
+Generated from the AT Protocol lexicon app.bsky.draft.updateDraft
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.draft.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `UpdateDraftResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `draft` | `body` | `AppBskyDraftDefsDraftWithId` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

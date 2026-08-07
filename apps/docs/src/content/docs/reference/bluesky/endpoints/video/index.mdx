@@ -1,0 +1,103 @@
+---
+title: "Bluesky Video endpoints"
+description: "3 generated Bluesky endpoint contracts for Video."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 120
+  label: "Video"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## bluesky.video.getJobStatus
+
+`GET` `/xrpc/app.bsky.video.getJobStatus`
+
+Generated from the AT Protocol lexicon app.bsky.video.getJobStatus
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.video.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetJobStatusResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `jobId` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.video.getUploadLimits
+
+`GET` `/xrpc/app.bsky.video.getUploadLimits`
+
+Generated from the AT Protocol lexicon app.bsky.video.getUploadLimits
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.video.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetUploadLimitsResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.video.uploadVideo
+
+`POST` `/xrpc/app.bsky.video.uploadVideo`
+
+Generated from the AT Protocol lexicon app.bsky.video.uploadVideo
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.video.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `UploadVideoResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

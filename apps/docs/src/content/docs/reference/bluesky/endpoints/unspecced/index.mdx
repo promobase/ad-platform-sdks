@@ -1,0 +1,1063 @@
+---
+title: "Bluesky Unspecced endpoints"
+description: "30 generated Bluesky endpoint contracts for Unspecced."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 119
+  label: "Unspecced"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## bluesky.unspecced.getAgeAssuranceState
+
+`GET` `/xrpc/app.bsky.unspecced.getAgeAssuranceState`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getAgeAssuranceState
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetAgeAssuranceStateResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getConfig2
+
+`GET` `/xrpc/app.bsky.unspecced.getConfig`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getConfig
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetConfigResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getOnboardingSuggestedStarterPacks
+
+`GET` `/xrpc/app.bsky.unspecced.getOnboardingSuggestedStarterPacks`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getOnboardingSuggestedStarterPacks
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetOnboardingSuggestedStarterPacksResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getOnboardingSuggestedStarterPacksSkeleton
+
+`GET` `/xrpc/app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getOnboardingSuggestedStarterPacksSkeleton
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetOnboardingSuggestedStarterPacksSkeletonResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `viewer` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getOnboardingSuggestedUsersSkeleton
+
+`GET` `/xrpc/app.bsky.unspecced.getOnboardingSuggestedUsersSkeleton`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getOnboardingSuggestedUsersSkeleton
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetOnboardingSuggestedUsersSkeletonResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `viewer` | `query` | `string` | No | No | — |
+| `category` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getPopularFeedGenerators
+
+`GET` `/xrpc/app.bsky.unspecced.getPopularFeedGenerators`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getPopularFeedGenerators
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetPopularFeedGeneratorsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+| `query` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getPostThreadOtherV2
+
+`GET` `/xrpc/app.bsky.unspecced.getPostThreadOtherV2`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getPostThreadOtherV2
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetPostThreadOtherV2Response` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `anchor` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getPostThreadV2
+
+`GET` `/xrpc/app.bsky.unspecced.getPostThreadV2`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getPostThreadV2
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetPostThreadV2Response` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `anchor` | `query` | `string` | Yes | No | — |
+| `above` | `query` | `boolean` | No | No | — |
+| `below` | `query` | `number` | No | No | — |
+| `branchingFactor` | `query` | `number` | No | No | — |
+| `sort` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getSuggestedFeeds2
+
+`GET` `/xrpc/app.bsky.unspecced.getSuggestedFeeds`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getSuggestedFeeds
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSuggestedFeedsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getSuggestedFeedsSkeleton
+
+`GET` `/xrpc/app.bsky.unspecced.getSuggestedFeedsSkeleton`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getSuggestedFeedsSkeleton
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSuggestedFeedsSkeletonResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `viewer` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getSuggestedOnboardingUsers
+
+`GET` `/xrpc/app.bsky.unspecced.getSuggestedOnboardingUsers`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getSuggestedOnboardingUsers
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSuggestedOnboardingUsersResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getSuggestedStarterPacks
+
+`GET` `/xrpc/app.bsky.unspecced.getSuggestedStarterPacks`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getSuggestedStarterPacks
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSuggestedStarterPacksResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getSuggestedStarterPacksSkeleton
+
+`GET` `/xrpc/app.bsky.unspecced.getSuggestedStarterPacksSkeleton`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getSuggestedStarterPacksSkeleton
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSuggestedStarterPacksSkeletonResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `viewer` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getSuggestedUsers
+
+`GET` `/xrpc/app.bsky.unspecced.getSuggestedUsers`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getSuggestedUsers
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSuggestedUsersResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getSuggestedUsersForDiscover
+
+`GET` `/xrpc/app.bsky.unspecced.getSuggestedUsersForDiscover`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getSuggestedUsersForDiscover
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSuggestedUsersForDiscoverResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getSuggestedUsersForDiscoverSkeleton
+
+`GET` `/xrpc/app.bsky.unspecced.getSuggestedUsersForDiscoverSkeleton`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getSuggestedUsersForDiscoverSkeleton
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSuggestedUsersForDiscoverSkeletonResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `viewer` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getSuggestedUsersForExplore
+
+`GET` `/xrpc/app.bsky.unspecced.getSuggestedUsersForExplore`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getSuggestedUsersForExplore
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSuggestedUsersForExploreResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getSuggestedUsersForExploreSkeleton
+
+`GET` `/xrpc/app.bsky.unspecced.getSuggestedUsersForExploreSkeleton`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getSuggestedUsersForExploreSkeleton
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSuggestedUsersForExploreSkeletonResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `viewer` | `query` | `string` | No | No | — |
+| `category` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getSuggestedUsersForSeeMore
+
+`GET` `/xrpc/app.bsky.unspecced.getSuggestedUsersForSeeMore`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getSuggestedUsersForSeeMore
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSuggestedUsersForSeeMoreResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getSuggestedUsersForSeeMoreSkeleton
+
+`GET` `/xrpc/app.bsky.unspecced.getSuggestedUsersForSeeMoreSkeleton`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getSuggestedUsersForSeeMoreSkeleton
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSuggestedUsersForSeeMoreSkeletonResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `viewer` | `query` | `string` | No | No | — |
+| `category` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getSuggestedUsersSkeleton
+
+`GET` `/xrpc/app.bsky.unspecced.getSuggestedUsersSkeleton`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getSuggestedUsersSkeleton
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSuggestedUsersSkeletonResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `viewer` | `query` | `string` | No | No | — |
+| `category` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getSuggestionsSkeleton
+
+`GET` `/xrpc/app.bsky.unspecced.getSuggestionsSkeleton`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getSuggestionsSkeleton
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSuggestionsSkeletonResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `viewer` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+| `relativeToDid` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getTaggedSuggestions
+
+`GET` `/xrpc/app.bsky.unspecced.getTaggedSuggestions`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getTaggedSuggestions
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetTaggedSuggestionsResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getTrendingTopics
+
+`GET` `/xrpc/app.bsky.unspecced.getTrendingTopics`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getTrendingTopics
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetTrendingTopicsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `viewer` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getTrends
+
+`GET` `/xrpc/app.bsky.unspecced.getTrends`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getTrends
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetTrendsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.getTrendsSkeleton
+
+`GET` `/xrpc/app.bsky.unspecced.getTrendsSkeleton`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.getTrendsSkeleton
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetTrendsSkeletonResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `viewer` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.initAgeAssurance
+
+`POST` `/xrpc/app.bsky.unspecced.initAgeAssurance`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.initAgeAssurance
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.unspecced.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `InitAgeAssuranceResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `body` | `string` | Yes | No | The user's email address to receive assurance instructions. |
+| `language` | `body` | `string` | Yes | No | The user's preferred language for communication during the assurance process. |
+| `countryCode` | `body` | `string` | Yes | No | An ISO 3166-1 alpha-2 code of the user's location. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.searchActorsSkeleton
+
+`GET` `/xrpc/app.bsky.unspecced.searchActorsSkeleton`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.searchActorsSkeleton
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `SearchActorsSkeletonResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `q` | `query` | `string` | Yes | No | — |
+| `viewer` | `query` | `string` | No | No | — |
+| `typeahead` | `query` | `boolean` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.searchPostsSkeleton
+
+`GET` `/xrpc/app.bsky.unspecced.searchPostsSkeleton`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.searchPostsSkeleton
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `SearchPostsSkeletonResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `q` | `query` | `string` | Yes | No | — |
+| `sort` | `query` | `string` | No | No | — |
+| `since` | `query` | `string` | No | No | — |
+| `until` | `query` | `string` | No | No | — |
+| `mentions` | `query` | `string` | No | No | — |
+| `author` | `query` | `string` | No | No | — |
+| `lang` | `query` | `string` | No | No | — |
+| `domain` | `query` | `string` | No | No | — |
+| `url` | `query` | `string` | No | No | — |
+| `tag` | `query` | `Array<string>` | No | No | — |
+| `viewer` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.unspecced.searchStarterPacksSkeleton
+
+`GET` `/xrpc/app.bsky.unspecced.searchStarterPacksSkeleton`
+
+Generated from the AT Protocol lexicon app.bsky.unspecced.searchStarterPacksSkeleton
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.unspecced.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `SearchStarterPacksSkeletonResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `q` | `query` | `string` | Yes | No | — |
+| `viewer` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

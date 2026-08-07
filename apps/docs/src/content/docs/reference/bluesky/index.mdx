@@ -1,0 +1,110 @@
+---
+title: "Bluesky SDK reference"
+description: "Generated reference for 197 Bluesky endpoints and 752 models."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 120
+  label: "Bluesky"
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+Install the platform package and import either its high-level client or its generated Effect client.
+
+```bash
+bun add @openpromo/bluesky
+```
+
+```ts
+import { createEffectClient } from "@openpromo/bluesky/effect";
+
+const client = createEffectClient();
+```
+
+| Contract | Value |
+| --- | --- |
+| Platform | Bluesky |
+| API version | `lexicons` |
+| Source | `documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons` |
+| Endpoints | 197 |
+| Models | 752 |
+| Capabilities | 37 |
+
+## Endpoints
+
+- [Actor](/reference/bluesky/endpoints/actor)
+- [Admin](/reference/bluesky/endpoints/admin)
+- [Ageassurance](/reference/bluesky/endpoints/ageassurance)
+- [Bookmark](/reference/bluesky/endpoints/bookmark)
+- [Contact](/reference/bluesky/endpoints/contact)
+- [Draft](/reference/bluesky/endpoints/draft)
+- [Embed](/reference/bluesky/endpoints/embed)
+- [Feed](/reference/bluesky/endpoints/feed)
+- [Graph](/reference/bluesky/endpoints/graph)
+- [Identity](/reference/bluesky/endpoints/identity)
+- [Label](/reference/bluesky/endpoints/label)
+- [Labeler](/reference/bluesky/endpoints/labeler)
+- [Lexicon](/reference/bluesky/endpoints/lexicon)
+- [Moderation](/reference/bluesky/endpoints/moderation)
+- [Notification](/reference/bluesky/endpoints/notification)
+- [Repo](/reference/bluesky/endpoints/repo)
+- [Server](/reference/bluesky/endpoints/server)
+- [Sync](/reference/bluesky/endpoints/sync)
+- [Temp](/reference/bluesky/endpoints/temp)
+- [Unspecced](/reference/bluesky/endpoints/unspecced)
+- [Video](/reference/bluesky/endpoints/video)
+
+## Models
+
+- [Activate Account Params – App Bsky Feed Defs Blocked Author](/reference/bluesky/models/activate-account-params-to-app-bsky-feed-defs-blocked-author)
+- [App Bsky Feed Defs Blocked Post – Com Atproto Admin Defs Account View](/reference/bluesky/models/app-bsky-feed-defs-blocked-post-to-com-atproto-admin-defs-account-view)
+- [Com Atproto Admin Defs Repo Blob Ref – Get Account Info Response](/reference/bluesky/models/com-atproto-admin-defs-repo-blob-ref-to-get-account-info-response)
+- [Get Account Infos Params – Get Relationships Response](/reference/bluesky/models/get-account-infos-params-to-get-relationships-response)
+- [Get Repo Params – Inline320](/reference/bluesky/models/get-repo-params-to-inline320)
+- [Inline323 – Inline686](/reference/bluesky/models/inline323-to-inline686)
+- [Inline691 – Search Posts Skeleton Response](/reference/bluesky/models/inline691-to-search-posts-skeleton-response)
+- [Search Posts V2 Params – Verify Phone Response](/reference/bluesky/models/search-posts-v2-params-to-verify-phone-response)
+
+## Capabilities
+
+| Capability | Summary | Required scopes |
+| --- | --- | --- |
+| `bluesky.actor.manage` | Manage app.bsky.actor via AT Protocol | None declared |
+| `bluesky.actor.read` | Read app.bsky.actor via AT Protocol | None declared |
+| `bluesky.admin.manage` | Manage com.atproto.admin via AT Protocol | None declared |
+| `bluesky.admin.read` | Read com.atproto.admin via AT Protocol | None declared |
+| `bluesky.ageassurance.manage` | Manage app.bsky.ageassurance via AT Protocol | None declared |
+| `bluesky.ageassurance.read` | Read app.bsky.ageassurance via AT Protocol | None declared |
+| `bluesky.bookmark.manage` | Manage app.bsky.bookmark via AT Protocol | None declared |
+| `bluesky.bookmark.read` | Read app.bsky.bookmark via AT Protocol | None declared |
+| `bluesky.contact.manage` | Manage app.bsky.contact via AT Protocol | None declared |
+| `bluesky.contact.read` | Read app.bsky.contact via AT Protocol | None declared |
+| `bluesky.draft.manage` | Manage app.bsky.draft via AT Protocol | None declared |
+| `bluesky.draft.read` | Read app.bsky.draft via AT Protocol | None declared |
+| `bluesky.embed.read` | Read app.bsky.embed via AT Protocol | None declared |
+| `bluesky.feed.manage` | Manage app.bsky.feed via AT Protocol | None declared |
+| `bluesky.feed.read` | Read app.bsky.feed via AT Protocol | None declared |
+| `bluesky.graph.manage` | Manage app.bsky.graph via AT Protocol | None declared |
+| `bluesky.graph.read` | Read app.bsky.graph via AT Protocol | None declared |
+| `bluesky.identity.manage` | Manage com.atproto.identity via AT Protocol | None declared |
+| `bluesky.identity.read` | Read com.atproto.identity via AT Protocol | None declared |
+| `bluesky.label.read` | Read com.atproto.label via AT Protocol | None declared |
+| `bluesky.labeler.read` | Read app.bsky.labeler via AT Protocol | None declared |
+| `bluesky.lexicon.read` | Read com.atproto.lexicon via AT Protocol | None declared |
+| `bluesky.moderation.manage` | Manage com.atproto.moderation via AT Protocol | None declared |
+| `bluesky.notification.manage` | Manage app.bsky.notification via AT Protocol | None declared |
+| `bluesky.notification.read` | Read app.bsky.notification via AT Protocol | None declared |
+| `bluesky.repo.manage` | Manage com.atproto.repo via AT Protocol | None declared |
+| `bluesky.repo.read` | Read com.atproto.repo via AT Protocol | None declared |
+| `bluesky.server.manage` | Manage com.atproto.server via AT Protocol | None declared |
+| `bluesky.server.read` | Read com.atproto.server via AT Protocol | None declared |
+| `bluesky.sync.manage` | Manage com.atproto.sync via AT Protocol | None declared |
+| `bluesky.sync.read` | Read com.atproto.sync via AT Protocol | None declared |
+| `bluesky.temp.manage` | Manage com.atproto.temp via AT Protocol | None declared |
+| `bluesky.temp.read` | Read com.atproto.temp via AT Protocol | None declared |
+| `bluesky.unspecced.manage` | Manage app.bsky.unspecced via AT Protocol | None declared |
+| `bluesky.unspecced.read` | Read app.bsky.unspecced via AT Protocol | None declared |
+| `bluesky.video.manage` | Manage app.bsky.video via AT Protocol | None declared |
+| `bluesky.video.read` | Read app.bsky.video via AT Protocol | None declared |

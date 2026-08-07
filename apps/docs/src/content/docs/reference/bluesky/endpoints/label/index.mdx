@@ -1,0 +1,50 @@
+---
+title: "Bluesky Label endpoints"
+description: "1 generated Bluesky endpoint contract for Label."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 110
+  label: "Label"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## bluesky.label.queryLabels
+
+`GET` `/xrpc/com.atproto.label.queryLabels`
+
+Generated from the AT Protocol lexicon com.atproto.label.queryLabels
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.label.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `QueryLabelsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uriPatterns` | `query` | `Array<string>` | Yes | No | — |
+| `sources` | `query` | `Array<string>` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

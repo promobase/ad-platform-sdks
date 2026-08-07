@@ -1,0 +1,66 @@
+{
+  "name": "@openpromo/bluesky",
+  "version": "0.1.0",
+  "description": "Type-safe TypeScript SDK for Bluesky and the AT Protocol (posts, feeds, profiles, graphs, notifications)",
+  "keywords": [
+    "bluesky",
+    "atproto",
+    "bsky",
+    "at-protocol",
+    "social-media",
+    "publishing",
+    "typescript",
+    "type-safe",
+    "sdk"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/promobase/ad-platform-sdks",
+    "directory": "packages/bluesky-sdk"
+  },
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist/**/*",
+    "src/**/*",
+    "README.md"
+  ],
+  "scripts": {
+    "codegen": "bun src/codegen/index.ts",
+    "codegen:refresh": "bun scripts/refresh-lexicons.ts && bun run codegen",
+    "codegen:check": "bun run codegen && git -C ../.. diff --exit-code -- packages/bluesky-sdk/src/generated packages/bluesky-sdk/vendor apps/docs/src/content/docs/reference/bluesky",
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test tests/",
+    "prepublishOnly": "bun run clean && bun run build",
+    "prepack": "node ../../scripts/publish-manifest.mjs prepare",
+    "postpack": "node ../../scripts/publish-manifest.mjs restore"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "typescript": ">=5.9.3 <8"
+  },
+  "exports": {
+    ".": {
+      "bun": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "@openpromo/sdk-runtime": "workspace:*"
+  },
+  "devDependencies": {
+    "@openpromo/sdk-codegen": "workspace:*"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,721 @@
+---
+title: "Bluesky Feed endpoints"
+description: "19 generated Bluesky endpoint contracts for Feed."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 107
+  label: "Feed"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## bluesky.feed.describeFeedGenerator
+
+`GET` `/xrpc/app.bsky.feed.describeFeedGenerator`
+
+Generated from the AT Protocol lexicon app.bsky.feed.describeFeedGenerator
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `DescribeFeedGeneratorResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.getActorFeeds
+
+`GET` `/xrpc/app.bsky.feed.getActorFeeds`
+
+Generated from the AT Protocol lexicon app.bsky.feed.getActorFeeds
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetActorFeedsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor` | `query` | `string` | Yes | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.getActorLikes
+
+`GET` `/xrpc/app.bsky.feed.getActorLikes`
+
+Generated from the AT Protocol lexicon app.bsky.feed.getActorLikes
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetActorLikesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor` | `query` | `string` | Yes | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.getAuthorFeed
+
+`GET` `/xrpc/app.bsky.feed.getAuthorFeed`
+
+Generated from the AT Protocol lexicon app.bsky.feed.getAuthorFeed
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetAuthorFeedResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor` | `query` | `string` | Yes | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+| `filter` | `query` | `string` | No | No | — |
+| `includePins` | `query` | `boolean` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.getFeed
+
+`GET` `/xrpc/app.bsky.feed.getFeed`
+
+Generated from the AT Protocol lexicon app.bsky.feed.getFeed
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetFeedResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed` | `query` | `string` | Yes | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.getFeedGenerator
+
+`GET` `/xrpc/app.bsky.feed.getFeedGenerator`
+
+Generated from the AT Protocol lexicon app.bsky.feed.getFeedGenerator
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetFeedGeneratorResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.getFeedGenerators
+
+`GET` `/xrpc/app.bsky.feed.getFeedGenerators`
+
+Generated from the AT Protocol lexicon app.bsky.feed.getFeedGenerators
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetFeedGeneratorsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feeds` | `query` | `Array<string>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.getFeedSkeleton
+
+`GET` `/xrpc/app.bsky.feed.getFeedSkeleton`
+
+Generated from the AT Protocol lexicon app.bsky.feed.getFeedSkeleton
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetFeedSkeletonResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed` | `query` | `string` | Yes | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.getLikes
+
+`GET` `/xrpc/app.bsky.feed.getLikes`
+
+Generated from the AT Protocol lexicon app.bsky.feed.getLikes
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetLikesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `query` | `string` | Yes | No | — |
+| `cid` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.getListFeed
+
+`GET` `/xrpc/app.bsky.feed.getListFeed`
+
+Generated from the AT Protocol lexicon app.bsky.feed.getListFeed
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetListFeedResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `query` | `string` | Yes | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.getPosts
+
+`GET` `/xrpc/app.bsky.feed.getPosts`
+
+Generated from the AT Protocol lexicon app.bsky.feed.getPosts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetPostsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uris` | `query` | `Array<string>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.getPostThread
+
+`GET` `/xrpc/app.bsky.feed.getPostThread`
+
+Generated from the AT Protocol lexicon app.bsky.feed.getPostThread
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetPostThreadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `query` | `string` | Yes | No | — |
+| `depth` | `query` | `number` | No | No | — |
+| `parentHeight` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.getQuotes
+
+`GET` `/xrpc/app.bsky.feed.getQuotes`
+
+Generated from the AT Protocol lexicon app.bsky.feed.getQuotes
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetQuotesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `query` | `string` | Yes | No | — |
+| `cid` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.getRepostedBy
+
+`GET` `/xrpc/app.bsky.feed.getRepostedBy`
+
+Generated from the AT Protocol lexicon app.bsky.feed.getRepostedBy
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetRepostedByResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `query` | `string` | Yes | No | — |
+| `cid` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.getSuggestedFeeds
+
+`GET` `/xrpc/app.bsky.feed.getSuggestedFeeds`
+
+Generated from the AT Protocol lexicon app.bsky.feed.getSuggestedFeeds
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSuggestedFeedsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.getTimeline
+
+`GET` `/xrpc/app.bsky.feed.getTimeline`
+
+Generated from the AT Protocol lexicon app.bsky.feed.getTimeline
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetTimelineResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `algorithm` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.searchPosts
+
+`GET` `/xrpc/app.bsky.feed.searchPosts`
+
+Generated from the AT Protocol lexicon app.bsky.feed.searchPosts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `SearchPostsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `q` | `query` | `string` | Yes | No | — |
+| `sort` | `query` | `string` | No | No | — |
+| `since` | `query` | `string` | No | No | — |
+| `until` | `query` | `string` | No | No | — |
+| `mentions` | `query` | `string` | No | No | — |
+| `author` | `query` | `string` | No | No | — |
+| `lang` | `query` | `string` | No | No | — |
+| `domain` | `query` | `string` | No | No | — |
+| `url` | `query` | `string` | No | No | — |
+| `tag` | `query` | `Array<string>` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.searchPostsV2
+
+`GET` `/xrpc/app.bsky.feed.searchPostsV2`
+
+Generated from the AT Protocol lexicon app.bsky.feed.searchPostsV2
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.feed.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `SearchPostsV2Response` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `query` | `query` | `string` | No | No | — |
+| `sort` | `query` | `string` | No | No | — |
+| `authors` | `query` | `Array<string>` | No | No | — |
+| `mentions` | `query` | `Array<string>` | No | No | — |
+| `domains` | `query` | `Array<string>` | No | No | — |
+| `urls` | `query` | `Array<string>` | No | No | — |
+| `embeddedAtUris` | `query` | `Array<string>` | No | No | — |
+| `hashtags` | `query` | `Array<string>` | No | No | — |
+| `excludeAuthors` | `query` | `Array<string>` | No | No | — |
+| `excludeMentions` | `query` | `Array<string>` | No | No | — |
+| `excludeDomains` | `query` | `Array<string>` | No | No | — |
+| `excludeUrls` | `query` | `Array<string>` | No | No | — |
+| `excludeEmbeddedAtUris` | `query` | `Array<string>` | No | No | — |
+| `excludeHashtags` | `query` | `Array<string>` | No | No | — |
+| `since` | `query` | `string` | No | No | — |
+| `until` | `query` | `string` | No | No | — |
+| `allTime` | `query` | `boolean` | No | No | — |
+| `languages` | `query` | `Array<string>` | No | No | — |
+| `excludeLanguages` | `query` | `Array<string>` | No | No | — |
+| `hasMedia` | `query` | `boolean` | No | No | — |
+| `hasVideo` | `query` | `boolean` | No | No | — |
+| `replyParentUri` | `query` | `string` | No | No | — |
+| `threadRootUri` | `query` | `string` | No | No | — |
+| `excludeReplies` | `query` | `boolean` | No | No | — |
+| `repliesOnly` | `query` | `boolean` | No | No | — |
+| `following` | `query` | `boolean` | No | No | — |
+| `queryLanguage` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.feed.sendInteractions
+
+`POST` `/xrpc/app.bsky.feed.sendInteractions`
+
+Generated from the AT Protocol lexicon app.bsky.feed.sendInteractions
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.feed.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `SendInteractionsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed` | `body` | `string` | No | No | — |
+| `interactions` | `body` | `Array<AppBskyFeedDefsInteraction>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

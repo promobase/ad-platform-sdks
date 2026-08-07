@@ -1,0 +1,23 @@
+{
+  "platform": "bluesky",
+  "source": {
+    "kind": "documentation",
+    "location": "https://github.com/bluesky-social/atproto/tree/main/lexicons",
+    "revision": "0b9b9ab2642ce96d4ab04c024c57c341a12d3d20918adcdf132988730873eff7"
+  },
+  "version": "lexicons",
+  "counts": {
+    "models": 752,
+    "endpoints": 197,
+    "capabilities": 37
+  },
+  "coverage": {
+    "discoveredOperations": 197,
+    "excludedOperations": [],
+    "unresolvedSchemas": [],
+    "protocols": [
+      "json"
+    ],
+    "emittedOperations": 197
+  }
+}

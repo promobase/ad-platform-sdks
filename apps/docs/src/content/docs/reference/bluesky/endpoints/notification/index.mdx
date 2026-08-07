@@ -1,0 +1,373 @@
+---
+title: "Bluesky Notification endpoints"
+description: "10 generated Bluesky endpoint contracts for Notification."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 114
+  label: "Notification"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## bluesky.notification.getPreferences2
+
+`GET` `/xrpc/app.bsky.notification.getPreferences`
+
+Generated from the AT Protocol lexicon app.bsky.notification.getPreferences
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.notification.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetPreferencesResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.notification.getUnreadCount
+
+`GET` `/xrpc/app.bsky.notification.getUnreadCount`
+
+Generated from the AT Protocol lexicon app.bsky.notification.getUnreadCount
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.notification.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetUnreadCountResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `priority` | `query` | `boolean` | No | No | — |
+| `seenAt` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.notification.listActivitySubscriptions
+
+`GET` `/xrpc/app.bsky.notification.listActivitySubscriptions`
+
+Generated from the AT Protocol lexicon app.bsky.notification.listActivitySubscriptions
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.notification.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `ListActivitySubscriptionsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.notification.listNotifications
+
+`GET` `/xrpc/app.bsky.notification.listNotifications`
+
+Generated from the AT Protocol lexicon app.bsky.notification.listNotifications
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.notification.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `ListNotificationsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reasons` | `query` | `Array<string>` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `priority` | `query` | `boolean` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+| `seenAt` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.notification.putActivitySubscription
+
+`POST` `/xrpc/app.bsky.notification.putActivitySubscription`
+
+Generated from the AT Protocol lexicon app.bsky.notification.putActivitySubscription
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.notification.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `PutActivitySubscriptionResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `body` | `string` | Yes | No | — |
+| `activitySubscription` | `body` | `AppBskyNotificationDefsActivitySubscription` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.notification.putPreferences2
+
+`POST` `/xrpc/app.bsky.notification.putPreferences`
+
+Generated from the AT Protocol lexicon app.bsky.notification.putPreferences
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.notification.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `PutPreferencesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `priority` | `body` | `boolean` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.notification.putPreferencesV2
+
+`POST` `/xrpc/app.bsky.notification.putPreferencesV2`
+
+Generated from the AT Protocol lexicon app.bsky.notification.putPreferencesV2
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.notification.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `PutPreferencesV2Response` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `chat` | `body` | `AppBskyNotificationDefsChatPreference` | No | No | Deprecated: use chat.bsky.notification preferences instead. Setting this won't stick and the default values will be returned. |
+| `follow` | `body` | `AppBskyNotificationDefsFilterablePreference` | No | No | — |
+| `like` | `body` | `AppBskyNotificationDefsFilterablePreference` | No | No | — |
+| `likeViaRepost` | `body` | `AppBskyNotificationDefsFilterablePreference` | No | No | — |
+| `mention` | `body` | `AppBskyNotificationDefsFilterablePreference` | No | No | — |
+| `quote` | `body` | `AppBskyNotificationDefsFilterablePreference` | No | No | — |
+| `reply` | `body` | `AppBskyNotificationDefsFilterablePreference` | No | No | — |
+| `repost` | `body` | `AppBskyNotificationDefsFilterablePreference` | No | No | — |
+| `repostViaRepost` | `body` | `AppBskyNotificationDefsFilterablePreference` | No | No | — |
+| `starterpackJoined` | `body` | `AppBskyNotificationDefsPreference` | No | No | — |
+| `subscribedPost` | `body` | `AppBskyNotificationDefsPreference` | No | No | — |
+| `unverified` | `body` | `AppBskyNotificationDefsPreference` | No | No | — |
+| `verified` | `body` | `AppBskyNotificationDefsPreference` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.notification.registerPush
+
+`POST` `/xrpc/app.bsky.notification.registerPush`
+
+Generated from the AT Protocol lexicon app.bsky.notification.registerPush
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.notification.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `RegisterPushResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `serviceDid` | `body` | `string` | Yes | No | — |
+| `token` | `body` | `string` | Yes | No | — |
+| `platform` | `body` | `string` | Yes | No | — |
+| `appId` | `body` | `string` | Yes | No | — |
+| `ageRestricted` | `body` | `boolean` | No | No | Set to true when the actor is age restricted |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.notification.unregisterPush
+
+`POST` `/xrpc/app.bsky.notification.unregisterPush`
+
+Generated from the AT Protocol lexicon app.bsky.notification.unregisterPush
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.notification.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `UnregisterPushResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `serviceDid` | `body` | `string` | Yes | No | — |
+| `token` | `body` | `string` | Yes | No | — |
+| `platform` | `body` | `string` | Yes | No | — |
+| `appId` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.notification.updateSeen
+
+`POST` `/xrpc/app.bsky.notification.updateSeen`
+
+Generated from the AT Protocol lexicon app.bsky.notification.updateSeen
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.notification.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `UpdateSeenResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `seenAt` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

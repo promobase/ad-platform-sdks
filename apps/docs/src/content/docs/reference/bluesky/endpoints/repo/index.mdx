@@ -1,0 +1,367 @@
+---
+title: "Bluesky Repo endpoints"
+description: "10 generated Bluesky endpoint contracts for Repo."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 115
+  label: "Repo"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## bluesky.repo.applyWrites
+
+`POST` `/xrpc/com.atproto.repo.applyWrites`
+
+Generated from the AT Protocol lexicon com.atproto.repo.applyWrites
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.repo.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `ApplyWritesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `repo` | `body` | `string` | Yes | No | The handle or DID of the repo (aka, current account). |
+| `validate` | `body` | `boolean` | No | No | Can be set to 'false' to skip Lexicon schema validation of record data across all operations, 'true' to require it, or leave unset to validate only for known Lexicons. |
+| `writes` | `body` | `Array<ComAtprotoRepoApplyWritesCreate \| ComAtprotoRepoApplyWritesUpdate \| ComAtprotoRepoApplyWritesDelete>` | Yes | No | — |
+| `swapCommit` | `body` | `string` | No | No | If provided, the entire operation will fail if the current repo commit CID does not match this value. Used to prevent conflicting repo mutations. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.repo.createRecord
+
+`POST` `/xrpc/com.atproto.repo.createRecord`
+
+Generated from the AT Protocol lexicon com.atproto.repo.createRecord
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.repo.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `CreateRecordResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `repo` | `body` | `string` | Yes | No | The handle or DID of the repo (aka, current account). |
+| `collection` | `body` | `string` | Yes | No | The NSID of the record collection. |
+| `rkey` | `body` | `string` | No | No | The Record Key. |
+| `validate` | `body` | `boolean` | No | No | Can be set to 'false' to skip Lexicon schema validation of record data, 'true' to require it, or leave unset to validate only for known Lexicons. |
+| `record` | `body` | `unknown` | Yes | No | The record itself. Must contain a $type field. |
+| `swapCommit` | `body` | `string` | No | No | Compare and swap with the previous commit by CID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.repo.deleteRecord
+
+`POST` `/xrpc/com.atproto.repo.deleteRecord`
+
+Generated from the AT Protocol lexicon com.atproto.repo.deleteRecord
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.repo.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `DeleteRecordResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `repo` | `body` | `string` | Yes | No | The handle or DID of the repo (aka, current account). |
+| `collection` | `body` | `string` | Yes | No | The NSID of the record collection. |
+| `rkey` | `body` | `string` | Yes | No | The Record Key. |
+| `swapRecord` | `body` | `string` | No | No | Compare and swap with the previous record by CID. |
+| `swapCommit` | `body` | `string` | No | No | Compare and swap with the previous commit by CID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.repo.describeRepo
+
+`GET` `/xrpc/com.atproto.repo.describeRepo`
+
+Generated from the AT Protocol lexicon com.atproto.repo.describeRepo
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.repo.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `DescribeRepoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `repo` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.repo.getRecord
+
+`GET` `/xrpc/com.atproto.repo.getRecord`
+
+Generated from the AT Protocol lexicon com.atproto.repo.getRecord
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.repo.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetRecordResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `repo` | `query` | `string` | Yes | No | — |
+| `collection` | `query` | `string` | Yes | No | — |
+| `rkey` | `query` | `string` | Yes | No | — |
+| `cid` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.repo.importRepo
+
+`POST` `/xrpc/com.atproto.repo.importRepo`
+
+Generated from the AT Protocol lexicon com.atproto.repo.importRepo
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.repo.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `ImportRepoResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.repo.listMissingBlobs
+
+`GET` `/xrpc/com.atproto.repo.listMissingBlobs`
+
+Generated from the AT Protocol lexicon com.atproto.repo.listMissingBlobs
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.repo.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `ListMissingBlobsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.repo.listRecords
+
+`GET` `/xrpc/com.atproto.repo.listRecords`
+
+Generated from the AT Protocol lexicon com.atproto.repo.listRecords
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.repo.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `ListRecordsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `repo` | `query` | `string` | Yes | No | — |
+| `collection` | `query` | `string` | Yes | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+| `reverse` | `query` | `boolean` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.repo.putRecord
+
+`POST` `/xrpc/com.atproto.repo.putRecord`
+
+Generated from the AT Protocol lexicon com.atproto.repo.putRecord
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.repo.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `PutRecordResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `repo` | `body` | `string` | Yes | No | The handle or DID of the repo (aka, current account). |
+| `collection` | `body` | `string` | Yes | No | The NSID of the record collection. |
+| `rkey` | `body` | `string` | Yes | No | The Record Key. |
+| `validate` | `body` | `boolean` | No | No | Can be set to 'false' to skip Lexicon schema validation of record data, 'true' to require it, or leave unset to validate only for known Lexicons. |
+| `record` | `body` | `unknown` | Yes | No | The record to write. |
+| `swapRecord` | `body` | `string` | No | No | Compare and swap with the previous record by CID. WARNING: nullable and optional field; may cause problems with golang implementation |
+| `swapCommit` | `body` | `string` | No | No | Compare and swap with the previous commit by CID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.repo.uploadBlob
+
+`POST` `/xrpc/com.atproto.repo.uploadBlob`
+
+Generated from the AT Protocol lexicon com.atproto.repo.uploadBlob
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.repo.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `UploadBlobResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

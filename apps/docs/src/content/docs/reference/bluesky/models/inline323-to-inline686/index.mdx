@@ -1,0 +1,967 @@
+---
+title: "Bluesky models: Inline323 – Inline686"
+description: "100 generated Bluesky model contracts, from Inline323 through Inline686."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 1005
+  label: "Inline323 – Inline686"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## Inline323
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feeds` | `feeds` | `Array<AppBskyFeedDefsGeneratorView>` | Yes | No | — |
+
+## Inline326
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `feed` | `feed` | `Array<AppBskyFeedDefsSkeletonFeedPost>` | Yes | No | — |
+| `reqId` | `reqId` | `string` | No | No | Unique identifier per request that may be passed back alongside interactions. |
+
+## Inline329
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `likes` | `likes` | `Array<AppBskyFeedGetLikesLike>` | Yes | No | — |
+
+## Inline332
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `feed` | `feed` | `Array<AppBskyFeedDefsFeedViewPost>` | Yes | No | — |
+
+## Inline335
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `posts` | `posts` | `Array<AppBskyFeedDefsPostView>` | Yes | No | — |
+
+## Inline338
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `thread` | `thread` | `AppBskyFeedDefsThreadViewPost \| AppBskyFeedDefsNotFoundPost \| AppBskyFeedDefsBlockedPost` | Yes | No | — |
+| `threadgate` | `threadgate` | `AppBskyFeedDefsThreadgateView` | No | No | — |
+
+## Inline341
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `posts` | `posts` | `Array<AppBskyFeedDefsPostView>` | Yes | No | — |
+
+## Inline344
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | No | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `repostedBy` | `repostedBy` | `Array<AppBskyActorDefsProfileView>` | Yes | No | — |
+
+## Inline347
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `feeds` | `feeds` | `Array<AppBskyFeedDefsGeneratorView>` | Yes | No | — |
+
+## Inline350
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `feed` | `feed` | `Array<AppBskyFeedDefsFeedViewPost>` | Yes | No | — |
+
+## Inline353
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `hitsTotal` | `hitsTotal` | `number` | No | No | Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits. |
+| `posts` | `posts` | `Array<AppBskyFeedDefsPostView>` | Yes | No | — |
+
+## Inline356
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | Cursor for the next page of results. |
+| `hitsTotal` | `hitsTotal` | `number` | No | No | Estimated total number of matching hits. May be rounded or truncated. |
+| `posts` | `posts` | `Array<AppBskyFeedDefsPostView>` | Yes | No | Hydrated views of matching posts. |
+| `detectedQueryLanguages` | `detectedQueryLanguages` | `Array<string>` | No | No | Query languages detected for CJK, Thai, or Arabic text. Empty or omitted for other scripts. |
+
+## Inline359
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline362
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `starterPacks` | `starterPacks` | `Array<AppBskyGraphDefsStarterPackViewBasic>` | Yes | No | — |
+
+## Inline365
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `blocks` | `blocks` | `Array<AppBskyActorDefsProfileView>` | Yes | No | — |
+
+## Inline368
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `AppBskyActorDefsProfileView` | Yes | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `followers` | `followers` | `Array<AppBskyActorDefsProfileView>` | Yes | No | — |
+
+## Inline371
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `AppBskyActorDefsProfileView` | Yes | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `follows` | `follows` | `Array<AppBskyActorDefsProfileView>` | Yes | No | — |
+
+## Inline374
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `AppBskyActorDefsProfileView` | Yes | No | — |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `followers` | `followers` | `Array<AppBskyActorDefsProfileView>` | Yes | No | — |
+
+## Inline377
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `list` | `list` | `AppBskyGraphDefsListView` | Yes | No | — |
+| `items` | `items` | `Array<AppBskyGraphDefsListItemView>` | Yes | No | — |
+
+## Inline380
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `lists` | `lists` | `Array<AppBskyGraphDefsListView>` | Yes | No | — |
+
+## Inline383
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `lists` | `lists` | `Array<AppBskyGraphDefsListView>` | Yes | No | — |
+
+## Inline386
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `lists` | `lists` | `Array<AppBskyGraphDefsListView>` | Yes | No | — |
+
+## Inline389
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `listsWithMembership` | `listsWithMembership` | `Array<AppBskyGraphGetListsWithMembershipListWithMembership>` | Yes | No | — |
+
+## Inline392
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `mutes` | `mutes` | `Array<AppBskyActorDefsProfileView>` | Yes | No | — |
+
+## Inline395
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor` | `actor` | `string` | No | No | — |
+| `relationships` | `relationships` | `Array<AppBskyGraphDefsRelationship \| AppBskyGraphDefsNotFoundActor>` | Yes | No | — |
+
+## Inline398
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `starterPack` | `starterPack` | `AppBskyGraphDefsStarterPackView` | Yes | No | — |
+
+## Inline401
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `starterPacks` | `starterPacks` | `Array<AppBskyGraphDefsStarterPackViewBasic>` | Yes | No | — |
+
+## Inline404
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `starterPacksWithMembership` | `starterPacksWithMembership` | `Array<AppBskyGraphGetStarterPacksWithMembershipStarterPackWithMembership>` | Yes | No | — |
+
+## Inline407
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `suggestions` | `suggestions` | `Array<AppBskyActorDefsProfileView>` | Yes | No | — |
+| `recIdStr` | `recIdStr` | `string` | No | No | Snowflake for this recommendation, use when submitting recommendation events. |
+| `isFallback` | `isFallback` | `boolean` | No | No | DEPRECATED, unused. Previously: if true, response has fallen-back to generic results, and is not scoped using relativeToDid |
+| `recId` | `recId` | `number` | No | No | DEPRECATED: use recIdStr instead. |
+
+## Inline416
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `starterPacks` | `starterPacks` | `Array<AppBskyGraphDefsStarterPackViewBasic>` | Yes | No | — |
+
+## Inline419
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `hitsTotal` | `hitsTotal` | `number` | No | No | Estimated total number of matching hits. May be rounded or truncated. |
+| `starterPacks` | `starterPacks` | `Array<AppBskyGraphDefsStarterPackView>` | Yes | No | — |
+
+## Inline428
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `views` | `views` | `Array<AppBskyLabelerDefsLabelerView \| AppBskyLabelerDefsLabelerViewDetailed>` | Yes | No | — |
+
+## Inline431
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `count` | `count` | `number` | Yes | No | — |
+
+## Inline434
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `subscriptions` | `subscriptions` | `Array<AppBskyActorDefsProfileView>` | Yes | No | — |
+
+## Inline437
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `notifications` | `notifications` | `Array<AppBskyNotificationListNotificationsNotification>` | Yes | No | — |
+| `priority` | `priority` | `boolean` | No | No | — |
+| `seenAt` | `seenAt` | `string` | No | No | — |
+
+## Inline440
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `string` | Yes | No | — |
+| `activitySubscription` | `activitySubscription` | `AppBskyNotificationDefsActivitySubscription` | No | No | — |
+
+## Inline443
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `preferences` | `preferences` | `AppBskyNotificationDefsPreferences` | Yes | No | — |
+
+## Inline454
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `starterPacks` | `starterPacks` | `Array<AppBskyGraphDefsStarterPackView>` | Yes | No | — |
+
+## Inline457
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `starterPacks` | `starterPacks` | `Array<string>` | Yes | No | — |
+
+## Inline460
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dids` | `dids` | `Array<string>` | Yes | No | — |
+| `recId` | `recId` | `string` | No | No | DEPRECATED: use recIdStr instead. |
+| `recIdStr` | `recIdStr` | `string` | No | No | Snowflake for this recommendation, use when submitting recommendation events. |
+
+## Inline463
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `feeds` | `feeds` | `Array<AppBskyFeedDefsGeneratorView>` | Yes | No | — |
+
+## Inline466
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `thread` | `thread` | `Array<AppBskyUnspeccedGetPostThreadOtherV2ThreadItem>` | Yes | No | A flat list of other thread items. The depth of each item is indicated by the depth property inside the item. |
+
+## Inline469
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `thread` | `thread` | `Array<AppBskyUnspeccedGetPostThreadV2ThreadItem>` | Yes | No | A flat list of thread items. The depth of each item is indicated by the depth property inside the item. |
+| `threadgate` | `threadgate` | `AppBskyFeedDefsThreadgateView` | No | No | — |
+| `hasOtherReplies` | `hasOtherReplies` | `boolean` | Yes | No | Whether this thread has additional replies. If true, a call can be made to the `getPostThreadOtherV2` endpoint to retrieve them. |
+
+## Inline472
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feeds` | `feeds` | `Array<string>` | Yes | No | — |
+
+## Inline475
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actors` | `actors` | `Array<AppBskyActorDefsProfileView>` | Yes | No | — |
+| `recId` | `recId` | `string` | No | No | DEPRECATED: use recIdStr instead. |
+| `recIdStr` | `recIdStr` | `string` | No | No | Snowflake for this recommendation, use when submitting recommendation events. |
+
+## Inline478
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `starterPacks` | `starterPacks` | `Array<AppBskyGraphDefsStarterPackView>` | Yes | No | — |
+
+## Inline481
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `starterPacks` | `starterPacks` | `Array<string>` | Yes | No | — |
+
+## Inline484
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actors` | `actors` | `Array<AppBskyActorDefsProfileView>` | Yes | No | — |
+| `recId` | `recId` | `string` | No | No | DEPRECATED: use recIdStr instead. |
+| `recIdStr` | `recIdStr` | `string` | No | No | Snowflake for this recommendation, use when submitting recommendation events. |
+
+## Inline487
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actors` | `actors` | `Array<AppBskyActorDefsProfileView>` | Yes | No | — |
+| `recIdStr` | `recIdStr` | `string` | No | No | Snowflake for this recommendation, use when submitting recommendation events. |
+
+## Inline490
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dids` | `dids` | `Array<string>` | Yes | No | — |
+| `recIdStr` | `recIdStr` | `string` | No | No | Snowflake for this recommendation, use when submitting recommendation events. |
+
+## Inline493
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actors` | `actors` | `Array<AppBskyActorDefsProfileView>` | Yes | No | — |
+| `recIdStr` | `recIdStr` | `string` | No | No | Snowflake for this recommendation, use when submitting recommendation events. |
+
+## Inline496
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dids` | `dids` | `Array<string>` | Yes | No | — |
+| `recIdStr` | `recIdStr` | `string` | No | No | Snowflake for this recommendation, use when submitting recommendation events. |
+
+## Inline499
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actors` | `actors` | `Array<AppBskyActorDefsProfileView>` | Yes | No | — |
+| `recIdStr` | `recIdStr` | `string` | No | No | Snowflake for this recommendation, use when submitting recommendation events. |
+
+## Inline502
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dids` | `dids` | `Array<string>` | Yes | No | — |
+| `recIdStr` | `recIdStr` | `string` | No | No | Snowflake for this recommendation, use when submitting recommendation events. |
+
+## Inline505
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dids` | `dids` | `Array<string>` | Yes | No | — |
+| `recId` | `recId` | `string` | No | No | DEPRECATED: use recIdStr instead. |
+| `recIdStr` | `recIdStr` | `string` | No | No | Snowflake for this recommendation, use when submitting recommendation events. |
+
+## Inline508
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `actors` | `actors` | `Array<AppBskyUnspeccedDefsSkeletonSearchActor>` | Yes | No | — |
+| `relativeToDid` | `relativeToDid` | `string` | No | No | DID of the account these suggestions are relative to. If this is returned undefined, suggestions are based on the viewer. |
+| `recId` | `recId` | `number` | No | No | DEPRECATED: use recIdStr instead. |
+| `recIdStr` | `recIdStr` | `string` | No | No | Snowflake for this recommendation, use when submitting recommendation events. |
+
+## Inline511
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `suggestions` | `suggestions` | `Array<AppBskyUnspeccedGetTaggedSuggestionsSuggestion>` | Yes | No | — |
+
+## Inline514
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `topics` | `topics` | `Array<AppBskyUnspeccedDefsTrendingTopic>` | Yes | No | — |
+| `suggested` | `suggested` | `Array<AppBskyUnspeccedDefsTrendingTopic>` | Yes | No | — |
+
+## Inline517
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `trends` | `trends` | `Array<AppBskyUnspeccedDefsTrendView>` | Yes | No | — |
+| `recIdStr` | `recIdStr` | `string` | No | No | Snowflake for this recommendation, use when submitting recommendation events. |
+
+## Inline520
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `trends` | `trends` | `Array<AppBskyUnspeccedDefsSkeletonTrend>` | Yes | No | — |
+| `recIdStr` | `recIdStr` | `string` | No | No | Snowflake for this recommendation, use when submitting recommendation events. |
+
+## Inline525
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `hitsTotal` | `hitsTotal` | `number` | No | No | Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits. |
+| `actors` | `actors` | `Array<AppBskyUnspeccedDefsSkeletonSearchActor>` | Yes | No | — |
+
+## Inline528
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `hitsTotal` | `hitsTotal` | `number` | No | No | Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits. |
+| `posts` | `posts` | `Array<AppBskyUnspeccedDefsSkeletonSearchPost>` | Yes | No | — |
+
+## Inline531
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `hitsTotal` | `hitsTotal` | `number` | No | No | Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits. |
+| `starterPacks` | `starterPacks` | `Array<AppBskyUnspeccedDefsSkeletonSearchStarterPack>` | Yes | No | — |
+
+## Inline534
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `jobStatus` | `jobStatus` | `AppBskyVideoDefsJobStatus` | Yes | No | — |
+
+## Inline537
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `canUpload` | `canUpload` | `boolean` | Yes | No | — |
+| `remainingDailyVideos` | `remainingDailyVideos` | `number` | No | No | — |
+| `remainingDailyBytes` | `remainingDailyBytes` | `number` | No | No | — |
+| `message` | `message` | `string` | No | No | — |
+| `error` | `error` | `string` | No | No | — |
+
+## Inline540
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `jobStatus` | `jobStatus` | `AppBskyVideoDefsJobStatus` | Yes | No | — |
+
+## Inline553
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `infos` | `infos` | `Array<ComAtprotoAdminDefsAccountView>` | Yes | No | — |
+
+## Inline556
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `codes` | `codes` | `Array<ComAtprotoServerDefsInviteCode>` | Yes | No | — |
+
+## Inline559
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `ComAtprotoAdminDefsRepoRef \| ComAtprotoRepoStrongRef \| ComAtprotoAdminDefsRepoBlobRef` | Yes | No | — |
+| `takedown` | `takedown` | `ComAtprotoAdminDefsStatusAttr` | No | No | — |
+| `deactivated` | `deactivated` | `ComAtprotoAdminDefsStatusAttr` | No | No | — |
+
+## Inline562
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `accounts` | `accounts` | `Array<ComAtprotoAdminDefsAccountView>` | Yes | No | — |
+
+## Inline565
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sent` | `sent` | `boolean` | Yes | No | — |
+
+## Inline576
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `ComAtprotoAdminDefsRepoRef \| ComAtprotoRepoStrongRef \| ComAtprotoAdminDefsRepoBlobRef` | Yes | No | — |
+| `takedown` | `takedown` | `ComAtprotoAdminDefsStatusAttr` | No | No | — |
+
+## Inline579
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rotationKeys` | `rotationKeys` | `Array<string>` | No | No | Recommended rotation keys for PLC dids. Should be undefined (or ignored) for did:webs. |
+| `alsoKnownAs` | `alsoKnownAs` | `Array<string>` | No | No | — |
+| `verificationMethods` | `verificationMethods` | `unknown` | No | No | — |
+| `services` | `services` | `unknown` | No | No | — |
+
+## Inline586
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `didDoc` | `didDoc` | `unknown` | Yes | No | The complete DID document for the identity. |
+
+## Inline589
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+
+## Inline594
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operation` | `operation` | `unknown` | Yes | No | A signed DID PLC operation. |
+
+## Inline601
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `labels` | `labels` | `Array<ComAtprotoLabelDefsLabel>` | Yes | No | — |
+
+## Inline604
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cid` | `cid` | `string` | Yes | No | The CID of the lexicon schema record. |
+| `schema` | `schema` | `ComAtprotoLexiconSchema` | Yes | No | The resolved lexicon schema record. |
+| `uri` | `uri` | `string` | Yes | No | The AT-URI of the lexicon schema record. |
+
+## Inline607
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `number` | Yes | No | — |
+| `reasonType` | `reasonType` | `ComAtprotoModerationDefsReasonType` | Yes | No | — |
+| `reason` | `reason` | `string` | No | No | — |
+| `subject` | `subject` | `ComAtprotoAdminDefsRepoRef \| ComAtprotoRepoStrongRef` | Yes | No | — |
+| `reportedBy` | `reportedBy` | `string` | Yes | No | — |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+
+## Inline610
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commit` | `commit` | `ComAtprotoRepoDefsCommitMeta` | No | No | — |
+| `results` | `results` | `Array<ComAtprotoRepoApplyWritesCreateResult \| ComAtprotoRepoApplyWritesUpdateResult \| ComAtprotoRepoApplyWritesDeleteResult>` | No | No | — |
+
+## Inline613
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | Yes | No | — |
+| `commit` | `commit` | `ComAtprotoRepoDefsCommitMeta` | No | No | — |
+| `validationStatus` | `validationStatus` | `string` | No | No | — |
+
+## Inline616
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commit` | `commit` | `ComAtprotoRepoDefsCommitMeta` | No | No | — |
+
+## Inline619
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `handle` | `handle` | `string` | Yes | No | — |
+| `did` | `did` | `string` | Yes | No | — |
+| `didDoc` | `didDoc` | `unknown` | Yes | No | The complete DID document for this account. |
+| `collections` | `collections` | `Array<string>` | Yes | No | List of all the collections (NSIDs) for which this repo contains at least one record. |
+| `handleIsCorrect` | `handleIsCorrect` | `boolean` | Yes | No | Indicates if handle is currently valid (resolves bi-directionally) |
+
+## Inline622
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | No | No | — |
+| `value` | `value` | `unknown` | Yes | No | — |
+
+## Inline627
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `blobs` | `blobs` | `Array<ComAtprotoRepoListMissingBlobsRecordBlob>` | Yes | No | — |
+
+## Inline630
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cursor` | `cursor` | `string` | No | No | — |
+| `records` | `records` | `Array<ComAtprotoRepoListRecordsRecord>` | Yes | No | — |
+
+## Inline633
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | Yes | No | — |
+| `commit` | `commit` | `ComAtprotoRepoDefsCommitMeta` | No | No | — |
+| `validationStatus` | `validationStatus` | `string` | No | No | — |
+
+## Inline636
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `blob` | `blob` | `json` | Yes | No | — |
+
+## Inline641
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `activated` | `activated` | `boolean` | Yes | No | — |
+| `validDid` | `validDid` | `boolean` | Yes | No | — |
+| `repoCommit` | `repoCommit` | `string` | Yes | No | — |
+| `repoRev` | `repoRev` | `string` | Yes | No | — |
+| `repoBlocks` | `repoBlocks` | `number` | Yes | No | — |
+| `indexedRecords` | `indexedRecords` | `number` | Yes | No | — |
+| `privateStateValues` | `privateStateValues` | `number` | Yes | No | — |
+| `expectedBlobs` | `expectedBlobs` | `number` | Yes | No | — |
+| `importedBlobs` | `importedBlobs` | `number` | Yes | No | — |
+
+## Inline646
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accessJwt` | `accessJwt` | `string` | Yes | No | — |
+| `refreshJwt` | `refreshJwt` | `string` | Yes | No | — |
+| `handle` | `handle` | `string` | Yes | No | — |
+| `did` | `did` | `string` | Yes | No | The DID of the new account. |
+| `didDoc` | `didDoc` | `unknown` | No | No | Complete DID document. |
+
+## Inline651
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+
+## Inline654
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `codes` | `codes` | `Array<ComAtprotoServerCreateInviteCodesAccountCodes>` | Yes | No | — |
+
+## Inline657
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accessJwt` | `accessJwt` | `string` | Yes | No | — |
+| `refreshJwt` | `refreshJwt` | `string` | Yes | No | — |
+| `handle` | `handle` | `string` | Yes | No | — |
+| `did` | `did` | `string` | Yes | No | — |
+| `didDoc` | `didDoc` | `unknown` | No | No | — |
+| `email` | `email` | `string` | No | No | — |
+| `emailConfirmed` | `emailConfirmed` | `boolean` | No | No | — |
+| `emailAuthFactor` | `emailAuthFactor` | `boolean` | No | No | — |
+| `active` | `active` | `boolean` | No | No | — |
+| `status` | `status` | `string` | No | No | If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted. |
+
+## Inline664
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `inviteCodeRequired` | `inviteCodeRequired` | `boolean` | No | No | If true, an invite code must be supplied to create an account on this instance. |
+| `phoneVerificationRequired` | `phoneVerificationRequired` | `boolean` | No | No | If true, a phone verification token must be supplied to create an account on this instance. |
+| `blobUploadLimit` | `blobUploadLimit` | `number` | No | No | Maximum size of a blob that can be uploaded via com.atproto.repo.uploadBlob, in bytes. |
+| `availableUserDomains` | `availableUserDomains` | `Array<string>` | Yes | No | List of domain suffixes that can be used in account handles. |
+| `links` | `links` | `ComAtprotoServerDescribeServerLinks` | No | No | URLs of service policy documents. |
+| `contact` | `contact` | `ComAtprotoServerDescribeServerContact` | No | No | Contact information |
+| `did` | `did` | `string` | Yes | No | — |
+
+## Inline667
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `codes` | `codes` | `Array<ComAtprotoServerDefsInviteCode>` | Yes | No | — |
+
+## Inline670
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `token` | `token` | `string` | Yes | No | — |
+
+## Inline673
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `handle` | `handle` | `string` | Yes | No | — |
+| `did` | `did` | `string` | Yes | No | — |
+| `didDoc` | `didDoc` | `unknown` | No | No | — |
+| `email` | `email` | `string` | No | No | — |
+| `emailConfirmed` | `emailConfirmed` | `boolean` | No | No | — |
+| `emailAuthFactor` | `emailAuthFactor` | `boolean` | No | No | — |
+| `active` | `active` | `boolean` | No | No | — |
+| `status` | `status` | `string` | No | No | If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted. |
+
+## Inline676
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `passwords` | `passwords` | `Array<ComAtprotoServerListAppPasswordsAppPassword>` | Yes | No | — |
+
+## Inline679
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accessJwt` | `accessJwt` | `string` | Yes | No | — |
+| `refreshJwt` | `refreshJwt` | `string` | Yes | No | — |
+| `handle` | `handle` | `string` | Yes | No | — |
+| `did` | `did` | `string` | Yes | No | — |
+| `didDoc` | `didDoc` | `unknown` | No | No | — |
+| `email` | `email` | `string` | No | No | — |
+| `emailConfirmed` | `emailConfirmed` | `boolean` | No | No | — |
+| `emailAuthFactor` | `emailAuthFactor` | `boolean` | No | No | — |
+| `active` | `active` | `boolean` | No | No | — |
+| `status` | `status` | `string` | No | No | Hosting status of the account. If not specified, then assume 'active'. |
+
+## Inline686
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tokenRequired` | `tokenRequired` | `boolean` | Yes | No | — |

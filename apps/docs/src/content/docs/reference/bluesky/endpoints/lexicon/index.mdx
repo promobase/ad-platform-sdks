@@ -1,0 +1,47 @@
+---
+title: "Bluesky Lexicon endpoints"
+description: "1 generated Bluesky endpoint contract for Lexicon."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 112
+  label: "Lexicon"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## bluesky.lexicon.resolveLexicon
+
+`GET` `/xrpc/com.atproto.lexicon.resolveLexicon`
+
+Generated from the AT Protocol lexicon com.atproto.lexicon.resolveLexicon
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.lexicon.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `ResolveLexiconResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `nsid` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

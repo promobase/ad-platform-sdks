@@ -1,0 +1,955 @@
+---
+title: "Bluesky models: App Bsky Feed Defs Blocked Post – Com Atproto Admin Defs Account View"
+description: "100 generated Bluesky model contracts, from AppBskyFeedDefsBlockedPost through ComAtprotoAdminDefsAccountView."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 1001
+  label: "App Bsky Feed Defs Blocked Post – Com Atproto Admin Defs Account View"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## AppBskyFeedDefsBlockedPost
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyFeedDefsFeedViewPost
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `post` | `post` | `AppBskyFeedDefsPostView` | Yes | No | — |
+| `reply` | `reply` | `AppBskyFeedDefsReplyRef` | No | No | — |
+| `reason` | `reason` | `AppBskyFeedDefsReasonRepost \| AppBskyFeedDefsReasonPin` | No | No | — |
+| `feedContext` | `feedContext` | `string` | No | No | Context provided by feed generator that may be passed back alongside interactions. |
+| `reqId` | `reqId` | `string` | No | No | Unique identifier per request that may be passed back alongside interactions. |
+
+## AppBskyFeedDefsGeneratorView
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyFeedDefsGeneratorViewerState
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `like` | `like` | `string` | No | No | — |
+
+## AppBskyFeedDefsInteraction
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item` | `item` | `string` | No | No | — |
+| `event` | `event` | `string` | No | No | — |
+| `feedContext` | `feedContext` | `string` | No | No | Context on a feed item that was originally supplied by the feed generator on getFeedSkeleton. |
+| `reqId` | `reqId` | `string` | No | No | Unique identifier per request that may be passed back alongside interactions. |
+
+## AppBskyFeedDefsNotFoundPost
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyFeedDefsPostView
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyFeedDefsReasonPin
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyFeedDefsReasonRepost
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyFeedDefsReplyRef
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyFeedDefsSkeletonFeedPost
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `post` | `post` | `string` | Yes | No | — |
+| `reason` | `reason` | `AppBskyFeedDefsSkeletonReasonRepost \| AppBskyFeedDefsSkeletonReasonPin` | No | No | — |
+| `feedContext` | `feedContext` | `string` | No | No | Context that will be passed through to client and may be passed to feed generator back alongside interactions. |
+
+## AppBskyFeedDefsSkeletonReasonPin
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyFeedDefsSkeletonReasonRepost
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyFeedDefsThreadContext
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rootAuthorLike` | `rootAuthorLike` | `string` | No | No | — |
+
+## AppBskyFeedDefsThreadgateView
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | No | No | — |
+| `cid` | `cid` | `string` | No | No | — |
+| `record` | `record` | `unknown` | No | No | — |
+| `lists` | `lists` | `Array<AppBskyGraphDefsListViewBasic>` | No | No | — |
+
+## AppBskyFeedDefsThreadViewPost
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `post` | `post` | `AppBskyFeedDefsPostView` | Yes | No | — |
+| `parent` | `parent` | `AppBskyFeedDefsThreadViewPost \| AppBskyFeedDefsNotFoundPost \| AppBskyFeedDefsBlockedPost` | No | No | — |
+| `replies` | `replies` | `Array<AppBskyFeedDefsThreadViewPost \| AppBskyFeedDefsNotFoundPost \| AppBskyFeedDefsBlockedPost>` | No | No | — |
+| `threadContext` | `threadContext` | `AppBskyFeedDefsThreadContext` | No | No | — |
+
+## AppBskyFeedDefsViewerState
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `repost` | `repost` | `string` | No | No | — |
+| `like` | `like` | `string` | No | No | — |
+| `bookmarked` | `bookmarked` | `boolean` | No | No | — |
+| `threadMuted` | `threadMuted` | `boolean` | No | No | — |
+| `replyDisabled` | `replyDisabled` | `boolean` | No | No | — |
+| `embeddingDisabled` | `embeddingDisabled` | `boolean` | No | No | — |
+| `pinned` | `pinned` | `boolean` | No | No | — |
+
+## AppBskyFeedDescribeFeedGeneratorFeed
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+
+## AppBskyFeedDescribeFeedGeneratorLinks
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `privacyPolicy` | `privacyPolicy` | `string` | No | No | — |
+| `termsOfService` | `termsOfService` | `string` | No | No | — |
+
+## AppBskyFeedGenerator
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+| `displayName` | `displayName` | `string` | Yes | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `descriptionFacets` | `descriptionFacets` | `Array<AppBskyRichtextFacet>` | No | No | — |
+| `avatar` | `avatar` | `json` | No | No | — |
+| `acceptsInteractions` | `acceptsInteractions` | `boolean` | No | No | Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions |
+| `labels` | `labels` | `ComAtprotoLabelDefsSelfLabels` | No | No | Self-label values |
+| `contentMode` | `contentMode` | `string` | No | No | — |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+
+## AppBskyFeedGetLikesLike
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `indexedAt` | `indexedAt` | `string` | Yes | No | — |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+| `actor` | `actor` | `AppBskyActorDefsProfileView` | Yes | No | — |
+
+## AppBskyFeedLike
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `ComAtprotoRepoStrongRef` | Yes | No | — |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+| `via` | `via` | `ComAtprotoRepoStrongRef` | No | No | — |
+
+## AppBskyFeedPost
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `text` | `text` | `string` | Yes | No | The primary post content. May be an empty string, if there are embeds. |
+| `entities` | `entities` | `Array<AppBskyFeedPostEntity>` | No | No | DEPRECATED: replaced by app.bsky.richtext.facet. |
+| `facets` | `facets` | `Array<AppBskyRichtextFacet>` | No | No | Annotations of text (mentions, URLs, hashtags, etc) |
+| `reply` | `reply` | `AppBskyFeedPostReplyRef` | No | No | — |
+| `embed` | `embed` | `AppBskyEmbedImages \| AppBskyEmbedVideo \| AppBskyEmbedGallery \| AppBskyEmbedExternal \| AppBskyEmbedRecord \| AppBskyEmbedRecordWithMedia` | No | No | — |
+| `langs` | `langs` | `Array<string>` | No | No | Indicates human language of post primary text content. |
+| `labels` | `labels` | `ComAtprotoLabelDefsSelfLabels` | No | No | Self-label values for this post. Effectively content warnings. |
+| `tags` | `tags` | `Array<string>` | No | No | Additional hashtags, in addition to any included in post text and facets. |
+| `createdAt` | `createdAt` | `string` | Yes | No | Client-declared timestamp when this post was originally created. |
+
+## AppBskyFeedPostEntity
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `AppBskyFeedPostTextSlice` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | Expected values are 'mention' and 'link'. |
+| `value` | `value` | `string` | Yes | No | — |
+
+## AppBskyFeedPostgate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+| `post` | `post` | `string` | Yes | No | Reference (AT-URI) to the post record. |
+| `detachedEmbeddingUris` | `detachedEmbeddingUris` | `Array<string>` | No | No | List of AT-URIs embedding this post that the author has detached from. |
+| `embeddingRules` | `embeddingRules` | `Array<AppBskyFeedPostgateDisableRule>` | No | No | List of rules defining who can embed this post. If value is an empty array or is undefined, no particular rules apply and anyone can embed. |
+
+## AppBskyFeedPostgateDisableRule
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AppBskyFeedPostReplyRef
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `root` | `root` | `ComAtprotoRepoStrongRef` | Yes | No | — |
+| `parent` | `parent` | `ComAtprotoRepoStrongRef` | Yes | No | — |
+
+## AppBskyFeedPostTextSlice
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyFeedRepost
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `ComAtprotoRepoStrongRef` | Yes | No | — |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+| `via` | `via` | `ComAtprotoRepoStrongRef` | No | No | — |
+
+## AppBskyFeedThreadgate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `post` | `post` | `string` | Yes | No | Reference (AT-URI) to the post record. |
+| `allow` | `allow` | `Array<AppBskyFeedThreadgateMentionRule \| AppBskyFeedThreadgateFollowerRule \| AppBskyFeedThreadgateFollowingRule \| AppBskyFeedThreadgateListRule>` | No | No | List of rules defining who can reply to this post. If value is an empty array, no one can reply. If value is undefined, anyone can reply. |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+| `hiddenReplies` | `hiddenReplies` | `Array<string>` | No | No | List of hidden reply URIs. |
+
+## AppBskyFeedThreadgateFollowerRule
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AppBskyFeedThreadgateFollowingRule
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AppBskyFeedThreadgateListRule
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `string` | Yes | No | — |
+
+## AppBskyFeedThreadgateMentionRule
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AppBskyGraphBlock
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `string` | Yes | No | DID of the account to be blocked. |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+
+## AppBskyGraphDefsListItemView
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyGraphDefsListPurpose
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyGraphDefsListView
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyGraphDefsListViewBasic
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `purpose` | `purpose` | `AppBskyGraphDefsListPurpose` | Yes | No | — |
+| `avatar` | `avatar` | `string` | No | No | — |
+| `listItemCount` | `listItemCount` | `number` | No | No | — |
+| `labels` | `labels` | `Array<ComAtprotoLabelDefsLabel>` | No | No | — |
+| `viewer` | `viewer` | `AppBskyGraphDefsListViewerState` | No | No | — |
+| `indexedAt` | `indexedAt` | `string` | No | No | — |
+
+## AppBskyGraphDefsListViewerState
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyGraphDefsNotFoundActor
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actor` | `actor` | `string` | Yes | No | — |
+| `notFound` | `notFound` | `boolean` | Yes | No | — |
+
+## AppBskyGraphDefsRelationship
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+| `following` | `following` | `string` | No | No | if the actor follows this DID, this is the AT-URI of the follow record |
+| `followedBy` | `followedBy` | `string` | No | No | if the actor is followed by this DID, contains the AT-URI of the follow record |
+| `blocking` | `blocking` | `string` | No | No | if the actor blocks this DID, this is the AT-URI of the block record |
+| `blockedBy` | `blockedBy` | `string` | No | No | if the actor is blocked by this DID, contains the AT-URI of the block record |
+| `blockingByList` | `blockingByList` | `string` | No | No | if the actor blocks this DID via a block list, this is the AT-URI of the listblock record |
+| `blockedByList` | `blockedByList` | `string` | No | No | if the actor is blocked by this DID via a block list, contains the AT-URI of the listblock record |
+
+## AppBskyGraphDefsStarterPackView
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyGraphDefsStarterPackViewBasic
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyGraphFollow
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `string` | Yes | No | — |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+| `via` | `via` | `ComAtprotoRepoStrongRef` | No | No | — |
+
+## AppBskyGraphGetListsWithMembershipListWithMembership
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `AppBskyGraphDefsListView` | Yes | No | — |
+| `listItem` | `listItem` | `AppBskyGraphDefsListItemView` | No | No | — |
+
+## AppBskyGraphGetStarterPacksWithMembershipStarterPackWithMembership
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `starterPack` | `starterPack` | `AppBskyGraphDefsStarterPackView` | Yes | No | — |
+| `listItem` | `listItem` | `AppBskyGraphDefsListItemView` | No | No | — |
+
+## AppBskyGraphList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `purpose` | `purpose` | `AppBskyGraphDefsListPurpose` | Yes | No | Defines the purpose of the list (aka, moderation-oriented or curration-oriented) |
+| `name` | `name` | `string` | Yes | No | Display name for list; can not be empty. |
+| `description` | `description` | `string` | No | No | — |
+| `descriptionFacets` | `descriptionFacets` | `Array<AppBskyRichtextFacet>` | No | No | — |
+| `avatar` | `avatar` | `json` | No | No | — |
+| `labels` | `labels` | `ComAtprotoLabelDefsSelfLabels` | No | No | — |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+
+## AppBskyGraphListblock
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `string` | Yes | No | Reference (AT-URI) to the mod list record. |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+
+## AppBskyGraphListitem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `string` | Yes | No | The account which is included on the list. |
+| `list` | `list` | `string` | Yes | No | Reference (AT-URI) to the list record (app.bsky.graph.list). |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+
+## AppBskyGraphStarterpack
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | Display name for starter pack; can not be empty. |
+| `description` | `description` | `string` | No | No | — |
+| `descriptionFacets` | `descriptionFacets` | `Array<AppBskyRichtextFacet>` | No | No | — |
+| `list` | `list` | `string` | Yes | No | Reference (AT-URI) to the list record. |
+| `feeds` | `feeds` | `Array<AppBskyGraphStarterpackFeedItem>` | No | No | — |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+
+## AppBskyGraphStarterpackFeedItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+
+## AppBskyGraphVerification
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `string` | Yes | No | DID of the subject the verification applies to. |
+| `handle` | `handle` | `string` | Yes | No | Handle of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current handle matches the one at the time of verifying. |
+| `displayName` | `displayName` | `string` | Yes | No | Display name of the subject the verification applies to at the moment of verifying, which might not be the same at the time of viewing. The verification is only valid if the current displayName matches the one at the time of verifying. |
+| `createdAt` | `createdAt` | `string` | Yes | No | Date of when the verification was created. |
+
+## AppBskyLabelerDefsLabelerPolicies
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyLabelerDefsLabelerView
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyLabelerDefsLabelerViewDetailed
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | Yes | No | — |
+| `creator` | `creator` | `AppBskyActorDefsProfileView` | Yes | No | — |
+| `policies` | `policies` | `AppBskyLabelerDefsLabelerPolicies` | Yes | No | — |
+| `likeCount` | `likeCount` | `number` | No | No | — |
+| `viewer` | `viewer` | `AppBskyLabelerDefsLabelerViewerState` | No | No | — |
+| `indexedAt` | `indexedAt` | `string` | Yes | No | — |
+| `labels` | `labels` | `Array<ComAtprotoLabelDefsLabel>` | No | No | — |
+| `reasonTypes` | `reasonTypes` | `Array<ComAtprotoModerationDefsReasonType>` | No | No | The set of report reason 'codes' which are in-scope for this service to review and action. These usually align to policy categories. If not defined (distinct from empty array), all reason types are allowed. |
+| `subjectTypes` | `subjectTypes` | `Array<ComAtprotoModerationDefsSubjectType>` | No | No | The set of subject types (account, record, etc) this service accepts reports on. |
+| `subjectCollections` | `subjectCollections` | `Array<string>` | No | No | Set of record types (collection NSIDs) which can be reported to this service. If not defined (distinct from empty array), default is any record type. |
+
+## AppBskyLabelerDefsLabelerViewerState
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyLabelerService
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `policies` | `policies` | `AppBskyLabelerDefsLabelerPolicies` | Yes | No | — |
+| `labels` | `labels` | `ComAtprotoLabelDefsSelfLabels` | No | No | — |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+| `reasonTypes` | `reasonTypes` | `Array<ComAtprotoModerationDefsReasonType>` | No | No | The set of report reason 'codes' which are in-scope for this service to review and action. These usually align to policy categories. If not defined (distinct from empty array), all reason types are allowed. |
+| `subjectTypes` | `subjectTypes` | `Array<ComAtprotoModerationDefsSubjectType>` | No | No | The set of subject types (account, record, etc) this service accepts reports on. |
+| `subjectCollections` | `subjectCollections` | `Array<string>` | No | No | Set of record types (collection NSIDs) which can be reported to this service. If not defined (distinct from empty array), default is any record type. |
+
+## AppBskyNotificationDeclaration
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowSubscriptions` | `allowSubscriptions` | `string` | Yes | No | A declaration of the user's preference for allowing activity subscriptions from other users. Absence of a record implies 'followers'. |
+
+## AppBskyNotificationDefsActivitySubscription
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `post` | `post` | `boolean` | Yes | No | — |
+| `reply` | `reply` | `boolean` | Yes | No | — |
+
+## AppBskyNotificationDefsChatPreference
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `string` | Yes | No | — |
+| `push` | `push` | `boolean` | Yes | No | — |
+
+## AppBskyNotificationDefsFilterablePreference
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `include` | `include` | `string` | Yes | No | — |
+| `list` | `list` | `boolean` | Yes | No | — |
+| `push` | `push` | `boolean` | Yes | No | — |
+
+## AppBskyNotificationDefsPreference
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `boolean` | Yes | No | — |
+| `push` | `push` | `boolean` | Yes | No | — |
+
+## AppBskyNotificationDefsPreferences
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `chat` | `chat` | `AppBskyNotificationDefsChatPreference` | Yes | No | Deprecated: use chat.bsky.notification preferences instead. This will only return a default value. |
+| `follow` | `follow` | `AppBskyNotificationDefsFilterablePreference` | Yes | No | — |
+| `like` | `like` | `AppBskyNotificationDefsFilterablePreference` | Yes | No | — |
+| `likeViaRepost` | `likeViaRepost` | `AppBskyNotificationDefsFilterablePreference` | Yes | No | — |
+| `mention` | `mention` | `AppBskyNotificationDefsFilterablePreference` | Yes | No | — |
+| `quote` | `quote` | `AppBskyNotificationDefsFilterablePreference` | Yes | No | — |
+| `reply` | `reply` | `AppBskyNotificationDefsFilterablePreference` | Yes | No | — |
+| `repost` | `repost` | `AppBskyNotificationDefsFilterablePreference` | Yes | No | — |
+| `repostViaRepost` | `repostViaRepost` | `AppBskyNotificationDefsFilterablePreference` | Yes | No | — |
+| `starterpackJoined` | `starterpackJoined` | `AppBskyNotificationDefsPreference` | Yes | No | — |
+| `subscribedPost` | `subscribedPost` | `AppBskyNotificationDefsPreference` | Yes | No | — |
+| `unverified` | `unverified` | `AppBskyNotificationDefsPreference` | Yes | No | — |
+| `verified` | `verified` | `AppBskyNotificationDefsPreference` | Yes | No | — |
+
+## AppBskyNotificationDefsRecordDeleted
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AppBskyNotificationDefsSubjectActivitySubscription
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `string` | Yes | No | — |
+| `activitySubscription` | `activitySubscription` | `AppBskyNotificationDefsActivitySubscription` | Yes | No | — |
+
+## AppBskyNotificationListNotificationsNotification
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | Yes | No | — |
+| `author` | `author` | `AppBskyActorDefsProfileView` | Yes | No | — |
+| `reason` | `reason` | `string` | Yes | No | The reason why this notification was delivered - e.g. your post was liked, or you received a new follower. |
+| `reasonSubject` | `reasonSubject` | `string` | No | No | — |
+| `record` | `record` | `unknown` | Yes | No | — |
+| `starterPack` | `starterPack` | `AppBskyGraphDefsStarterPackViewBasic` | No | No | The starter pack associated with this notification. Present when the notification is for a follow originating from a starter pack. |
+| `isRead` | `isRead` | `boolean` | Yes | No | — |
+| `indexedAt` | `indexedAt` | `string` | Yes | No | — |
+| `labels` | `labels` | `Array<ComAtprotoLabelDefsLabel>` | No | No | — |
+
+## AppBskyRichtextFacet
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyRichtextFacetByteSlice
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `byteStart` | `byteStart` | `number` | Yes | No | — |
+| `byteEnd` | `byteEnd` | `number` | Yes | No | — |
+
+## AppBskyRichtextFacetLink
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+
+## AppBskyRichtextFacetMention
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+
+## AppBskyRichtextFacetTag
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tag` | `tag` | `string` | Yes | No | — |
+
+## AppBskyUnspeccedDefsAgeAssuranceEvent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `createdAt` | `createdAt` | `string` | Yes | No | The date and time of this write operation. |
+| `status` | `status` | `string` | Yes | No | The status of the age assurance process. |
+| `attemptId` | `attemptId` | `string` | Yes | No | The unique identifier for this instance of the age assurance flow, in UUID format. |
+| `email` | `email` | `string` | No | No | The email used for AA. |
+| `initIp` | `initIp` | `string` | No | No | The IP address used when initiating the AA flow. |
+| `initUa` | `initUa` | `string` | No | No | The user agent used when initiating the AA flow. |
+| `completeIp` | `completeIp` | `string` | No | No | The IP address used when completing the AA flow. |
+| `completeUa` | `completeUa` | `string` | No | No | The user agent used when completing the AA flow. |
+
+## AppBskyUnspeccedDefsAgeAssuranceState
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lastInitiatedAt` | `lastInitiatedAt` | `string` | No | No | The timestamp when this state was last updated. |
+| `status` | `status` | `string` | Yes | No | The status of the age assurance process. |
+
+## AppBskyUnspeccedDefsSkeletonSearchActor
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+
+## AppBskyUnspeccedDefsSkeletonSearchPost
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+
+## AppBskyUnspeccedDefsSkeletonSearchStarterPack
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+
+## AppBskyUnspeccedDefsSkeletonTrend
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `topic` | `topic` | `string` | Yes | No | — |
+| `displayName` | `displayName` | `string` | Yes | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `link` | `link` | `string` | Yes | No | — |
+| `startedAt` | `startedAt` | `string` | Yes | No | — |
+| `postCount` | `postCount` | `number` | Yes | No | — |
+| `status` | `status` | `string` | No | No | — |
+| `category` | `category` | `string` | No | No | — |
+| `dids` | `dids` | `Array<string>` | Yes | No | — |
+
+## AppBskyUnspeccedDefsThreadItemBlocked
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `author` | `author` | `AppBskyFeedDefsBlockedAuthor` | Yes | No | — |
+
+## AppBskyUnspeccedDefsThreadItemNotFound
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AppBskyUnspeccedDefsThreadItemNoUnauthenticated
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AppBskyUnspeccedDefsThreadItemPost
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `post` | `post` | `AppBskyFeedDefsPostView` | Yes | No | — |
+| `moreParents` | `moreParents` | `boolean` | Yes | No | This post has more parents that were not present in the response. This is just a boolean, without the number of parents. |
+| `moreReplies` | `moreReplies` | `number` | Yes | No | This post has more replies that were not present in the response. This is a numeric value, which is best-effort and might not be accurate. |
+| `opThread` | `opThread` | `boolean` | Yes | No | This post is part of a contiguous thread by the OP from the thread root. Sub-threads by OP deeper in the tree are not considered an OP thread. |
+| `opThreadPostIndex` | `opThreadPostIndex` | `number` | No | No | The 1-indexed position of this post within the contiguous OP thread. Only present when this post is part of the OP thread (see `opThread`). |
+| `opThreadPostCount` | `opThreadPostCount` | `number` | No | No | The total number of posts in the contiguous OP thread that this post belongs to. Only present when this post is part of the OP thread (see `opThread`). |
+| `hiddenByThreadgate` | `hiddenByThreadgate` | `boolean` | Yes | No | The threadgate created by the author indicates this post as a reply to be hidden for everyone consuming the thread. |
+| `mutedByViewer` | `mutedByViewer` | `boolean` | Yes | No | This is by an account muted by the viewer requesting it. |
+
+## AppBskyUnspeccedDefsTrendingTopic
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `topic` | `topic` | `string` | Yes | No | — |
+| `displayName` | `displayName` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `link` | `link` | `string` | Yes | No | — |
+
+## AppBskyUnspeccedDefsTrendView
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `topic` | `topic` | `string` | Yes | No | — |
+| `displayName` | `displayName` | `string` | Yes | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `link` | `link` | `string` | Yes | No | — |
+| `startedAt` | `startedAt` | `string` | Yes | No | — |
+| `postCount` | `postCount` | `number` | Yes | No | — |
+| `status` | `status` | `string` | No | No | — |
+| `category` | `category` | `string` | No | No | — |
+| `actors` | `actors` | `Array<AppBskyActorDefsProfileViewBasic>` | Yes | No | — |
+
+## AppBskyUnspeccedGetConfigLiveNowConfig
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+| `domains` | `domains` | `Array<string>` | Yes | No | — |
+
+## AppBskyUnspeccedGetPostThreadOtherV2ThreadItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `depth` | `depth` | `number` | Yes | No | The nesting level of this item in the thread. Depth 0 means the anchor item. Items above have negative depths, items below have positive depths. |
+| `value` | `value` | `AppBskyUnspeccedDefsThreadItemPost` | Yes | No | — |
+
+## AppBskyUnspeccedGetPostThreadV2ThreadItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `depth` | `depth` | `number` | Yes | No | The nesting level of this item in the thread. Depth 0 means the anchor item. Items above have negative depths, items below have positive depths. |
+| `value` | `value` | `AppBskyUnspeccedDefsThreadItemPost \| AppBskyUnspeccedDefsThreadItemNoUnauthenticated \| AppBskyUnspeccedDefsThreadItemNotFound \| AppBskyUnspeccedDefsThreadItemBlocked` | Yes | No | — |
+
+## AppBskyUnspeccedGetTaggedSuggestionsSuggestion
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tag` | `tag` | `string` | Yes | No | — |
+| `subjectType` | `subjectType` | `string` | Yes | No | — |
+| `subject` | `subject` | `string` | Yes | No | — |
+
+## AppBskyVideoDefsJobStatus
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `jobId` | `jobId` | `string` | Yes | No | — |
+| `did` | `did` | `string` | Yes | No | — |
+| `state` | `state` | `string` | Yes | No | The state of the video processing job. All values not listed as a known value indicate that the job is in process. |
+| `progress` | `progress` | `number` | No | No | Progress within the current processing state. |
+| `blob` | `blob` | `json` | No | No | — |
+| `error` | `error` | `string` | No | No | — |
+| `failureCode` | `failureCode` | `string` | No | No | A machine-readable code for why the video processing job failed. |
+| `message` | `message` | `string` | No | No | — |
+
+## ApplyWritesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `repo` | `repo` | `string` | Yes | No | The handle or DID of the repo (aka, current account). |
+| `validate` | `validate` | `boolean` | No | No | Can be set to 'false' to skip Lexicon schema validation of record data across all operations, 'true' to require it, or leave unset to validate only for known Lexicons. |
+| `writes` | `writes` | `Array<ComAtprotoRepoApplyWritesCreate \| ComAtprotoRepoApplyWritesUpdate \| ComAtprotoRepoApplyWritesDelete>` | Yes | No | — |
+| `swapCommit` | `swapCommit` | `string` | No | No | If provided, the entire operation will fail if the current repo commit CID does not match this value. Used to prevent conflicting repo mutations. |
+
+## ApplyWritesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline610` | Yes | No | — |
+
+## BeginParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `email` | `string` | Yes | No | The user's email address to receive Age Assurance instructions. |
+| `language` | `language` | `string` | Yes | No | The user's preferred language for communication during the Age Assurance process. |
+| `countryCode` | `countryCode` | `string` | Yes | No | An ISO 3166-1 alpha-2 code of the user's location. |
+| `regionCode` | `regionCode` | `string` | No | No | An optional ISO 3166-2 code of the user's region or state within the country. |
+
+## BeginResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `AppBskyAgeassuranceDefsState` | Yes | No | — |
+
+## CheckAccountStatusParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CheckAccountStatusResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline641` | Yes | No | — |
+
+## CheckHandleAvailabilityParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `handle` | `handle` | `string` | Yes | No | — |
+| `email` | `email` | `string` | No | No | — |
+| `birthDate` | `birthDate` | `string` | No | No | — |
+
+## CheckHandleAvailabilityResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline737` | Yes | No | — |
+
+## CheckSignupQueueParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CheckSignupQueueResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline740` | Yes | No | — |
+
+## ComAtprotoAdminDefsAccountView
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+| `handle` | `handle` | `string` | Yes | No | — |
+| `email` | `email` | `string` | No | No | — |
+| `relatedRecords` | `relatedRecords` | `Array<unknown>` | No | No | — |
+| `indexedAt` | `indexedAt` | `string` | Yes | No | — |
+| `invitedBy` | `invitedBy` | `ComAtprotoServerDefsInviteCode` | No | No | — |
+| `invites` | `invites` | `Array<ComAtprotoServerDefsInviteCode>` | No | No | — |
+| `invitesDisabled` | `invitesDisabled` | `boolean` | No | No | — |
+| `emailConfirmedAt` | `emailConfirmedAt` | `string` | No | No | — |
+| `inviteNote` | `inviteNote` | `string` | No | No | — |
+| `deactivatedAt` | `deactivatedAt` | `string` | No | No | — |
+| `threatSignatures` | `threatSignatures` | `Array<ComAtprotoAdminDefsThreatSignature>` | No | No | — |

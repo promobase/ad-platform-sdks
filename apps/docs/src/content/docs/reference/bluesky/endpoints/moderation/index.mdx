@@ -1,0 +1,50 @@
+---
+title: "Bluesky Moderation endpoints"
+description: "1 generated Bluesky endpoint contract for Moderation."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 113
+  label: "Moderation"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## bluesky.moderation.createReport
+
+`POST` `/xrpc/com.atproto.moderation.createReport`
+
+Generated from the AT Protocol lexicon com.atproto.moderation.createReport
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.moderation.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `CreateReportResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reasonType` | `body` | `ComAtprotoModerationDefsReasonType` | Yes | No | Indicates the broad category of violation the report is for. |
+| `reason` | `body` | `string` | No | No | Additional context about the content and violation. |
+| `subject` | `body` | `ComAtprotoAdminDefsRepoRef \| ComAtprotoRepoStrongRef` | Yes | No | — |
+| `modTool` | `body` | `ComAtprotoModerationCreateReportModTool` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

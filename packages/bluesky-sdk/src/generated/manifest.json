@@ -1,0 +1,92 @@
+{
+  "source": "https://github.com/bluesky-social/atproto/tree/main/lexicons",
+  "commit": "b66870d5a1efbcfa0cc07498c7cfcf3f0f243e86",
+  "lexicons": 253,
+  "endpoints": 197,
+  "sections": [
+    {
+      "name": "actor",
+      "endpoints": 7
+    },
+    {
+      "name": "ageassurance",
+      "endpoints": 3
+    },
+    {
+      "name": "bookmark",
+      "endpoints": 3
+    },
+    {
+      "name": "contact",
+      "endpoints": 8
+    },
+    {
+      "name": "draft",
+      "endpoints": 4
+    },
+    {
+      "name": "embed",
+      "endpoints": 1
+    },
+    {
+      "name": "feed",
+      "endpoints": 19
+    },
+    {
+      "name": "graph",
+      "endpoints": 24
+    },
+    {
+      "name": "labeler",
+      "endpoints": 1
+    },
+    {
+      "name": "notification",
+      "endpoints": 10
+    },
+    {
+      "name": "unspecced",
+      "endpoints": 30
+    },
+    {
+      "name": "video",
+      "endpoints": 3
+    },
+    {
+      "name": "admin",
+      "endpoints": 15
+    },
+    {
+      "name": "identity",
+      "endpoints": 9
+    },
+    {
+      "name": "label",
+      "endpoints": 1
+    },
+    {
+      "name": "lexicon",
+      "endpoints": 1
+    },
+    {
+      "name": "moderation",
+      "endpoints": 1
+    },
+    {
+      "name": "repo",
+      "endpoints": 10
+    },
+    {
+      "name": "server",
+      "endpoints": 25
+    },
+    {
+      "name": "sync",
+      "endpoints": 15
+    },
+    {
+      "name": "temp",
+      "endpoints": 7
+    }
+  ]
+}

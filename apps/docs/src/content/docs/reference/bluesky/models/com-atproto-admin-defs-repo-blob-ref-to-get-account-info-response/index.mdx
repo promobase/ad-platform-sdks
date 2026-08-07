@@ -1,0 +1,857 @@
+---
+title: "Bluesky models: Com Atproto Admin Defs Repo Blob Ref – Get Account Info Response"
+description: "100 generated Bluesky model contracts, from ComAtprotoAdminDefsRepoBlobRef through GetAccountInfoResponse."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 1002
+  label: "Com Atproto Admin Defs Repo Blob Ref – Get Account Info Response"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## ComAtprotoAdminDefsRepoBlobRef
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | Yes | No | — |
+| `recordUri` | `recordUri` | `string` | No | No | — |
+
+## ComAtprotoAdminDefsRepoRef
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+
+## ComAtprotoAdminDefsStatusAttr
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `applied` | `applied` | `boolean` | Yes | No | — |
+| `ref` | `ref` | `string` | No | No | — |
+
+## ComAtprotoAdminDefsThreatSignature
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## ComAtprotoIdentityDefsIdentityInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+| `handle` | `handle` | `string` | Yes | No | The validated handle of the account; or 'handle.invalid' if the handle did not bi-directionally match the DID document. |
+| `didDoc` | `didDoc` | `unknown` | Yes | No | The complete DID document for the identity. |
+
+## ComAtprotoLabelDefsLabel
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## ComAtprotoLabelDefsLabelValue
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## ComAtprotoLabelDefsLabelValueDefinition
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identifier` | `identifier` | `string` | Yes | No | The value of the label being defined. Must only include lowercase ascii and the '-' character ([a-z-]+). |
+| `severity` | `severity` | `string` | Yes | No | How should a client visually convey this label? 'inform' means neutral and informational; 'alert' means negative and warning; 'none' means show nothing. |
+| `blurs` | `blurs` | `string` | Yes | No | What should this label hide in the UI, if applied? 'content' hides all of the target; 'media' hides the images/video/audio; 'none' hides nothing. |
+| `defaultSetting` | `defaultSetting` | `string` | No | No | The default setting for this label. |
+| `adultOnly` | `adultOnly` | `boolean` | No | No | Does the user need to have adult content enabled in order to configure this label? |
+| `locales` | `locales` | `Array<ComAtprotoLabelDefsLabelValueDefinitionStrings>` | Yes | No | — |
+
+## ComAtprotoLabelDefsLabelValueDefinitionStrings
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## ComAtprotoLabelDefsSelfLabel
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `val` | `val` | `string` | Yes | No | The short string name of the value or type of this label. |
+
+## ComAtprotoLabelDefsSelfLabels
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## ComAtprotoLabelSubscribeLabelsInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | — |
+| `message` | `message` | `string` | No | No | — |
+
+## ComAtprotoLabelSubscribeLabelsLabels
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `seq` | `seq` | `number` | Yes | No | — |
+| `labels` | `labels` | `Array<ComAtprotoLabelDefsLabel>` | Yes | No | — |
+
+## ComAtprotoLexiconSchema
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lexicon` | `lexicon` | `number` | Yes | No | Indicates the 'version' of the Lexicon language. Must be '1' for the current atproto/Lexicon schema system. |
+
+## ComAtprotoModerationCreateReportModTool
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | Name/identifier of the source (e.g., 'bsky-app/android', 'bsky-web/chrome') |
+| `meta` | `meta` | `unknown` | No | No | Additional arbitrary metadata about the source |
+
+## ComAtprotoModerationDefsReasonType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## ComAtprotoModerationDefsSubjectType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## ComAtprotoRepoApplyWritesCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `collection` | `collection` | `string` | Yes | No | — |
+| `rkey` | `rkey` | `string` | No | No | NOTE: maxLength is redundant with record-key format. Keeping it temporarily to ensure backwards compatibility. |
+| `value` | `value` | `unknown` | Yes | No | — |
+
+## ComAtprotoRepoApplyWritesCreateResult
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | Yes | No | — |
+| `validationStatus` | `validationStatus` | `string` | No | No | — |
+
+## ComAtprotoRepoApplyWritesDelete
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `collection` | `collection` | `string` | Yes | No | — |
+| `rkey` | `rkey` | `string` | Yes | No | — |
+
+## ComAtprotoRepoApplyWritesDeleteResult
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## ComAtprotoRepoApplyWritesUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `collection` | `collection` | `string` | Yes | No | — |
+| `rkey` | `rkey` | `string` | Yes | No | — |
+| `value` | `value` | `unknown` | Yes | No | — |
+
+## ComAtprotoRepoApplyWritesUpdateResult
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | Yes | No | — |
+| `validationStatus` | `validationStatus` | `string` | No | No | — |
+
+## ComAtprotoRepoDefsCommitMeta
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cid` | `cid` | `string` | Yes | No | — |
+| `rev` | `rev` | `string` | Yes | No | — |
+
+## ComAtprotoRepoDefsStrongRef
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | Yes | No | — |
+
+## ComAtprotoRepoListMissingBlobsRecordBlob
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cid` | `cid` | `string` | Yes | No | — |
+| `recordUri` | `recordUri` | `string` | Yes | No | — |
+
+## ComAtprotoRepoListRecordsRecord
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | Yes | No | — |
+| `value` | `value` | `unknown` | Yes | No | — |
+
+## ComAtprotoRepoStrongRef
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## ComAtprotoServerCreateAppPasswordAppPassword
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | — |
+| `password` | `password` | `string` | Yes | No | — |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+| `privileged` | `privileged` | `boolean` | No | No | — |
+
+## ComAtprotoServerCreateInviteCodesAccountCodes
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account` | `account` | `string` | Yes | No | — |
+| `codes` | `codes` | `Array<string>` | Yes | No | — |
+
+## ComAtprotoServerDefsInviteCode
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## ComAtprotoServerDefsInviteCodeUse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `usedBy` | `usedBy` | `string` | Yes | No | — |
+| `usedAt` | `usedAt` | `string` | Yes | No | — |
+
+## ComAtprotoServerDescribeServerContact
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `email` | `string` | No | No | — |
+
+## ComAtprotoServerDescribeServerLinks
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `privacyPolicy` | `privacyPolicy` | `string` | No | No | — |
+| `termsOfService` | `termsOfService` | `string` | No | No | — |
+
+## ComAtprotoServerListAppPasswordsAppPassword
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | — |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+| `privileged` | `privileged` | `boolean` | No | No | — |
+
+## ComAtprotoSyncDefsHostStatus
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## ComAtprotoSyncListHostsHost
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hostname` | `hostname` | `string` | Yes | No | hostname of server; not a URL (no scheme) |
+| `seq` | `seq` | `number` | No | No | Recent repo stream event sequence number. May be delayed from actual stream processing (eg, persisted cursor not in-memory cursor). |
+| `accountCount` | `accountCount` | `number` | No | No | — |
+| `status` | `status` | `ComAtprotoSyncDefsHostStatus` | No | No | — |
+
+## ComAtprotoSyncListReposByCollectionRepo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+
+## ComAtprotoSyncListReposRepo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+| `head` | `head` | `string` | Yes | No | Current repo commit CID |
+| `rev` | `rev` | `string` | Yes | No | — |
+| `active` | `active` | `boolean` | No | No | — |
+| `status` | `status` | `string` | No | No | If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted. |
+
+## ComAtprotoSyncSubscribeReposAccount
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `seq` | `seq` | `number` | Yes | No | — |
+| `did` | `did` | `string` | Yes | No | — |
+| `time` | `time` | `string` | Yes | No | — |
+| `active` | `active` | `boolean` | Yes | No | Indicates that the account has a repository which can be fetched from the host that emitted this event. |
+| `status` | `status` | `string` | No | No | If active=false, this optional field indicates a reason for why the account is not active. |
+
+## ComAtprotoSyncSubscribeReposCommit
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `seq` | `seq` | `number` | Yes | No | The stream sequence number of this message. |
+| `rebase` | `rebase` | `boolean` | Yes | No | DEPRECATED -- unused |
+| `tooBig` | `tooBig` | `boolean` | Yes | No | DEPRECATED -- replaced by #sync event and data limits. Indicates that this commit contained too many ops, or data size was too large. Consumers will need to make a separate request to get missing data. |
+| `repo` | `repo` | `string` | Yes | No | The repo this event comes from. Note that all other message types name this field 'did'. |
+| `commit` | `commit` | `string` | Yes | No | Repo commit object CID. |
+| `rev` | `rev` | `string` | Yes | No | The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event. |
+| `since` | `since` | `string` | Yes | No | The rev of the last emitted commit from this repo (if any). |
+| `blocks` | `blocks` | `string` | Yes | No | CAR file containing relevant blocks, as a diff since the previous repo state. The commit must be included as a block, and the commit block CID must be the first entry in the CAR header 'roots' list. |
+| `ops` | `ops` | `Array<ComAtprotoSyncSubscribeReposRepoOp>` | Yes | No | — |
+| `blobs` | `blobs` | `Array<string>` | Yes | No | — |
+| `prevData` | `prevData` | `string` | No | No | The root CID of the MST tree for the previous commit from this repo (indicated by the 'since' revision field in this message). Corresponds to the 'data' field in the repo commit object. NOTE: this field is effectively required for the 'inductive' version of firehose. |
+| `time` | `time` | `string` | Yes | No | Timestamp of when this message was originally broadcast. |
+
+## ComAtprotoSyncSubscribeReposIdentity
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `seq` | `seq` | `number` | Yes | No | — |
+| `did` | `did` | `string` | Yes | No | — |
+| `time` | `time` | `string` | Yes | No | — |
+| `handle` | `handle` | `string` | No | No | The current handle for the account, or 'handle.invalid' if validation fails. This field is optional, might have been validated or passed-through from an upstream source. Semantics and behaviors for PDS vs Relay may evolve in the future; see atproto specs for more details. |
+
+## ComAtprotoSyncSubscribeReposInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | — |
+| `message` | `message` | `string` | No | No | — |
+
+## ComAtprotoSyncSubscribeReposRepoOp
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## ComAtprotoSyncSubscribeReposSync
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `seq` | `seq` | `number` | Yes | No | The stream sequence number of this message. |
+| `did` | `did` | `string` | Yes | No | The account this repo event corresponds to. Must match that in the commit object. |
+| `blocks` | `blocks` | `string` | Yes | No | CAR file containing the commit, as a block. The CAR header must include the commit block CID as the first 'root'. |
+| `rev` | `rev` | `string` | Yes | No | The rev of the commit. This value must match that in the commit object. |
+| `time` | `time` | `string` | Yes | No | Timestamp of when this message was originally broadcast. |
+
+## ComAtprotoTempCheckHandleAvailabilityResultAvailable
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## ComAtprotoTempCheckHandleAvailabilityResultUnavailable
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `suggestions` | `suggestions` | `Array<ComAtprotoTempCheckHandleAvailabilitySuggestion>` | Yes | No | List of suggested handles based on the provided inputs. |
+
+## ComAtprotoTempCheckHandleAvailabilitySuggestion
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## ConfirmEmailParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `email` | `string` | Yes | No | — |
+| `token` | `token` | `string` | Yes | No | — |
+
+## ConfirmEmailResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateAccountParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `email` | `string` | No | No | — |
+| `handle` | `handle` | `string` | Yes | No | Requested handle for the account. |
+| `did` | `did` | `string` | No | No | Pre-existing atproto DID, being imported to a new account. |
+| `inviteCode` | `inviteCode` | `string` | No | No | — |
+| `verificationCode` | `verificationCode` | `string` | No | No | — |
+| `verificationPhone` | `verificationPhone` | `string` | No | No | — |
+| `password` | `password` | `string` | No | No | Initial account password. May need to meet instance-specific password strength requirements. |
+| `recoveryKey` | `recoveryKey` | `string` | No | No | DID PLC rotation key (aka, recovery key) to be included in PLC creation operation. |
+| `plcOp` | `plcOp` | `unknown` | No | No | A signed DID PLC operation to be submitted as part of importing an existing account to this instance. NOTE: this optional field may be updated when full account migration is implemented. |
+
+## CreateAccountResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline646` | Yes | No | — |
+
+## CreateAppPasswordParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | A short name for the App Password, to help distinguish them. |
+| `privileged` | `privileged` | `boolean` | No | No | If an app password has 'privileged' access to possibly sensitive account state. Meant for use with trusted clients. |
+
+## CreateAppPasswordResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `ComAtprotoServerCreateAppPasswordAppPassword` | Yes | No | — |
+
+## CreateBookmarkParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `cid` | `cid` | `string` | Yes | No | — |
+
+## CreateBookmarkResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreateDraftParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `draft` | `draft` | `AppBskyDraftDefsDraft` | Yes | No | — |
+
+## CreateDraftResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline292` | Yes | No | — |
+
+## CreateInviteCodeParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `useCount` | `useCount` | `number` | Yes | No | — |
+| `forAccount` | `forAccount` | `string` | No | No | — |
+
+## CreateInviteCodeResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline651` | Yes | No | — |
+
+## CreateInviteCodesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `codeCount` | `codeCount` | `number` | Yes | No | — |
+| `useCount` | `useCount` | `number` | Yes | No | — |
+| `forAccounts` | `forAccounts` | `Array<string>` | No | No | — |
+
+## CreateInviteCodesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline654` | Yes | No | — |
+
+## CreateRecordParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `repo` | `repo` | `string` | Yes | No | The handle or DID of the repo (aka, current account). |
+| `collection` | `collection` | `string` | Yes | No | The NSID of the record collection. |
+| `rkey` | `rkey` | `string` | No | No | The Record Key. |
+| `validate` | `validate` | `boolean` | No | No | Can be set to 'false' to skip Lexicon schema validation of record data, 'true' to require it, or leave unset to validate only for known Lexicons. |
+| `record` | `record` | `unknown` | Yes | No | The record itself. Must contain a $type field. |
+| `swapCommit` | `swapCommit` | `string` | No | No | Compare and swap with the previous commit by CID. |
+
+## CreateRecordResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline613` | Yes | No | — |
+
+## CreateReportParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reasonType` | `reasonType` | `ComAtprotoModerationDefsReasonType` | Yes | No | Indicates the broad category of violation the report is for. |
+| `reason` | `reason` | `string` | No | No | Additional context about the content and violation. |
+| `subject` | `subject` | `ComAtprotoAdminDefsRepoRef \| ComAtprotoRepoStrongRef` | Yes | No | — |
+| `modTool` | `modTool` | `ComAtprotoModerationCreateReportModTool` | No | No | — |
+
+## CreateReportResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline607` | Yes | No | — |
+
+## CreateSessionParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identifier` | `identifier` | `string` | Yes | No | Handle or other identifier supported by the server for the authenticating user. |
+| `password` | `password` | `string` | Yes | No | — |
+| `authFactorToken` | `authFactorToken` | `string` | No | No | — |
+| `allowTakendown` | `allowTakendown` | `boolean` | No | No | When true, instead of throwing error for takendown accounts, a valid response with a narrow scoped token will be returned |
+
+## CreateSessionResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline657` | Yes | No | — |
+
+## DeactivateAccountParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deleteAfter` | `deleteAfter` | `string` | No | No | A recommendation to server as to how long they should hold onto the deactivated account before deleting. |
+
+## DeactivateAccountResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DeleteAccountParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+
+## DeleteAccountResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DeleteBookmarkParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+
+## DeleteBookmarkResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DeleteDraftParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+
+## DeleteDraftResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DeleteRecordParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `repo` | `repo` | `string` | Yes | No | The handle or DID of the repo (aka, current account). |
+| `collection` | `collection` | `string` | Yes | No | The NSID of the record collection. |
+| `rkey` | `rkey` | `string` | Yes | No | The Record Key. |
+| `swapRecord` | `swapRecord` | `string` | No | No | Compare and swap with the previous record by CID. |
+| `swapCommit` | `swapCommit` | `string` | No | No | Compare and swap with the previous commit by CID. |
+
+## DeleteRecordResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline616` | Yes | No | — |
+
+## DeleteSessionParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DeleteSessionResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DereferenceScopeParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `scope` | `scope` | `string` | Yes | No | — |
+
+## DereferenceScopeResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline743` | Yes | No | — |
+
+## DescribeFeedGeneratorParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DescribeFeedGeneratorResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline305` | Yes | No | — |
+
+## DescribeRepoParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `repo` | `repo` | `string` | Yes | No | — |
+
+## DescribeRepoResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline619` | Yes | No | — |
+
+## DescribeServerParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DescribeServerResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline664` | Yes | No | — |
+
+## DisableAccountInvitesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account` | `account` | `string` | Yes | No | — |
+| `note` | `note` | `string` | No | No | Optional reason for disabled invites. |
+
+## DisableAccountInvitesResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DisableInviteCodesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `codes` | `codes` | `Array<string>` | No | No | — |
+| `accounts` | `accounts` | `Array<string>` | No | No | — |
+
+## DisableInviteCodesResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## DismissMatchParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `string` | Yes | No | The subject's DID to dismiss the match with. |
+
+## DismissMatchResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline268` | Yes | No | — |
+
+## EnableAccountInvitesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account` | `account` | `string` | Yes | No | — |
+| `note` | `note` | `string` | No | No | Optional reason for enabled invites. |
+
+## EnableAccountInvitesResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## FetchLabelsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `since` | `since` | `number` | No | No | — |
+| `limit` | `limit` | `number` | No | No | — |
+
+## FetchLabelsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline746` | Yes | No | — |
+
+## GetAccountInfoParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+
+## GetAccountInfoResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `ComAtprotoAdminDefsAccountView` | Yes | No | — |

@@ -1,0 +1,277 @@
+---
+title: "Bluesky Contact endpoints"
+description: "8 generated Bluesky endpoint contracts for Contact."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 104
+  label: "Contact"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## bluesky.contact.dismissMatch
+
+`POST` `/xrpc/app.bsky.contact.dismissMatch`
+
+Generated from the AT Protocol lexicon app.bsky.contact.dismissMatch
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.contact.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `DismissMatchResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `body` | `string` | Yes | No | The subject's DID to dismiss the match with. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.contact.getMatches
+
+`GET` `/xrpc/app.bsky.contact.getMatches`
+
+Generated from the AT Protocol lexicon app.bsky.contact.getMatches
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.contact.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetMatchesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.contact.getSyncStatus
+
+`GET` `/xrpc/app.bsky.contact.getSyncStatus`
+
+Generated from the AT Protocol lexicon app.bsky.contact.getSyncStatus
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.contact.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSyncStatusResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.contact.importContacts
+
+`POST` `/xrpc/app.bsky.contact.importContacts`
+
+Generated from the AT Protocol lexicon app.bsky.contact.importContacts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.contact.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `ImportContactsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `token` | `body` | `string` | Yes | No | JWT to authenticate the call. Use the JWT received as a response to the call to `app.bsky.contact.verifyPhone`. |
+| `contacts` | `body` | `Array<string>` | Yes | No | List of phone numbers in global E.164 format (e.g., '+12125550123'). Phone numbers that cannot be normalized into a valid phone number will be discarded. Should not repeat the 'phone' input used in `app.bsky.contact.verifyPhone`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.contact.removeData
+
+`POST` `/xrpc/app.bsky.contact.removeData`
+
+Generated from the AT Protocol lexicon app.bsky.contact.removeData
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.contact.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `RemoveDataResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.contact.sendNotification
+
+`POST` `/xrpc/app.bsky.contact.sendNotification`
+
+Generated from the AT Protocol lexicon app.bsky.contact.sendNotification
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.contact.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `SendNotificationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `from` | `body` | `string` | Yes | No | The DID of who this notification comes from. |
+| `to` | `body` | `string` | Yes | No | The DID of who this notification should go to. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.contact.startPhoneVerification
+
+`POST` `/xrpc/app.bsky.contact.startPhoneVerification`
+
+Generated from the AT Protocol lexicon app.bsky.contact.startPhoneVerification
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.contact.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `StartPhoneVerificationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `phone` | `body` | `string` | Yes | No | The phone number to receive the code via SMS. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.contact.verifyPhone
+
+`POST` `/xrpc/app.bsky.contact.verifyPhone`
+
+Generated from the AT Protocol lexicon app.bsky.contact.verifyPhone
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.contact.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `VerifyPhoneResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `phone` | `body` | `string` | Yes | No | The phone number to verify. Should be the same as the one passed to `app.bsky.contact.startPhoneVerification`. |
+| `code` | `body` | `string` | Yes | No | The code received via SMS as a result of the call to `app.bsky.contact.startPhoneVerification`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

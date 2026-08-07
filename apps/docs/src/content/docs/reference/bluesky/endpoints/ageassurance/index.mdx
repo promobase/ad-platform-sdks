@@ -1,0 +1,113 @@
+---
+title: "Bluesky Ageassurance endpoints"
+description: "3 generated Bluesky endpoint contracts for Ageassurance."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 102
+  label: "Ageassurance"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## bluesky.ageassurance.begin
+
+`POST` `/xrpc/app.bsky.ageassurance.begin`
+
+Generated from the AT Protocol lexicon app.bsky.ageassurance.begin
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.ageassurance.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `BeginResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `body` | `string` | Yes | No | The user's email address to receive Age Assurance instructions. |
+| `language` | `body` | `string` | Yes | No | The user's preferred language for communication during the Age Assurance process. |
+| `countryCode` | `body` | `string` | Yes | No | An ISO 3166-1 alpha-2 code of the user's location. |
+| `regionCode` | `body` | `string` | No | No | An optional ISO 3166-2 code of the user's region or state within the country. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.ageassurance.getConfig
+
+`GET` `/xrpc/app.bsky.ageassurance.getConfig`
+
+Generated from the AT Protocol lexicon app.bsky.ageassurance.getConfig
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.ageassurance.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetConfigResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.ageassurance.getState
+
+`GET` `/xrpc/app.bsky.ageassurance.getState`
+
+Generated from the AT Protocol lexicon app.bsky.ageassurance.getState
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.ageassurance.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetStateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `countryCode` | `query` | `string` | Yes | No | — |
+| `regionCode` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

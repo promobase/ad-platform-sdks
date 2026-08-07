@@ -236,3 +236,7 @@ export {
   createAmazonAdsOAuth,
   AmazonAdsScopes,
 } from "@openpromo/amazon-ads";
+
+// --- Bluesky ---
+export type { BlueskyApiClientOptions } from "@openpromo/bluesky";
+export { Bluesky, BlueskyApiClient, BlueskyApiError, createPostRecord } from "@openpromo/bluesky";

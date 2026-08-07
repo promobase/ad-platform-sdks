@@ -44,6 +44,7 @@
       "version": "0.7.0",
       "dependencies": {
         "@openpromo/amazon-ads": "workspace:*",
+        "@openpromo/bluesky": "workspace:*",
         "@openpromo/google-ads": "workspace:*",
         "@openpromo/google-business-profile": "workspace:*",
         "@openpromo/linkedin": "workspace:*",
@@ -74,6 +75,19 @@
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "yaml": "^2.8.0",
+      },
+      "devDependencies": {
+        "@openpromo/sdk-codegen": "workspace:*",
+      },
+      "peerDependencies": {
+        "typescript": ">=5.9.3 <8",
+      },
+    },
+    "packages/bluesky-sdk": {
+      "name": "@openpromo/bluesky",
+      "version": "0.1.0",
+      "dependencies": {
+        "@openpromo/sdk-runtime": "workspace:*",
       },
       "devDependencies": {
         "@openpromo/sdk-codegen": "workspace:*",
@@ -629,6 +643,8 @@
     "@openpromo/ad-platforms-cli": ["@openpromo/ad-platforms-cli@workspace:packages/cli"],
 
     "@openpromo/amazon-ads": ["@openpromo/amazon-ads@workspace:packages/amazon-ads-sdk"],
+
+    "@openpromo/bluesky": ["@openpromo/bluesky@workspace:packages/bluesky-sdk"],
 
     "@openpromo/google-ads": ["@openpromo/google-ads@workspace:packages/google-ads-sdk"],
 

@@ -1,0 +1,248 @@
+---
+title: "Bluesky Temp endpoints"
+description: "7 generated Bluesky endpoint contracts for Temp."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 118
+  label: "Temp"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## bluesky.temp.addReservedHandle
+
+`POST` `/xrpc/com.atproto.temp.addReservedHandle`
+
+Generated from the AT Protocol lexicon com.atproto.temp.addReservedHandle
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.temp.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `AddReservedHandleResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `handle` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.temp.checkHandleAvailability
+
+`GET` `/xrpc/com.atproto.temp.checkHandleAvailability`
+
+Generated from the AT Protocol lexicon com.atproto.temp.checkHandleAvailability
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.temp.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `CheckHandleAvailabilityResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `handle` | `query` | `string` | Yes | No | — |
+| `email` | `query` | `string` | No | No | — |
+| `birthDate` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.temp.checkSignupQueue
+
+`GET` `/xrpc/com.atproto.temp.checkSignupQueue`
+
+Generated from the AT Protocol lexicon com.atproto.temp.checkSignupQueue
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.temp.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `CheckSignupQueueResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.temp.dereferenceScope
+
+`GET` `/xrpc/com.atproto.temp.dereferenceScope`
+
+Generated from the AT Protocol lexicon com.atproto.temp.dereferenceScope
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.temp.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `DereferenceScopeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `scope` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.temp.fetchLabels
+
+`GET` `/xrpc/com.atproto.temp.fetchLabels`
+
+Generated from the AT Protocol lexicon com.atproto.temp.fetchLabels
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.temp.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `FetchLabelsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `since` | `query` | `number` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.temp.requestPhoneVerification
+
+`POST` `/xrpc/com.atproto.temp.requestPhoneVerification`
+
+Generated from the AT Protocol lexicon com.atproto.temp.requestPhoneVerification
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.temp.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `RequestPhoneVerificationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `phoneNumber` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.temp.revokeAccountCredentials
+
+`POST` `/xrpc/com.atproto.temp.revokeAccountCredentials`
+
+Generated from the AT Protocol lexicon com.atproto.temp.revokeAccountCredentials
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.temp.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `RevokeAccountCredentialsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

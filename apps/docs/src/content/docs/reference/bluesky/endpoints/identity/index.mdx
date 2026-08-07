@@ -1,0 +1,311 @@
+---
+title: "Bluesky Identity endpoints"
+description: "9 generated Bluesky endpoint contracts for Identity."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 109
+  label: "Identity"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## bluesky.identity.getRecommendedDidCredentials
+
+`GET` `/xrpc/com.atproto.identity.getRecommendedDidCredentials`
+
+Generated from the AT Protocol lexicon com.atproto.identity.getRecommendedDidCredentials
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.identity.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetRecommendedDidCredentialsResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.identity.refreshIdentity
+
+`POST` `/xrpc/com.atproto.identity.refreshIdentity`
+
+Generated from the AT Protocol lexicon com.atproto.identity.refreshIdentity
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.identity.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `RefreshIdentityResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identifier` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.identity.requestPlcOperationSignature
+
+`POST` `/xrpc/com.atproto.identity.requestPlcOperationSignature`
+
+Generated from the AT Protocol lexicon com.atproto.identity.requestPlcOperationSignature
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.identity.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `RequestPlcOperationSignatureResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.identity.resolveDid
+
+`GET` `/xrpc/com.atproto.identity.resolveDid`
+
+Generated from the AT Protocol lexicon com.atproto.identity.resolveDid
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.identity.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `ResolveDidResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.identity.resolveHandle
+
+`GET` `/xrpc/com.atproto.identity.resolveHandle`
+
+Generated from the AT Protocol lexicon com.atproto.identity.resolveHandle
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.identity.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `ResolveHandleResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `handle` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.identity.resolveIdentity
+
+`GET` `/xrpc/com.atproto.identity.resolveIdentity`
+
+Generated from the AT Protocol lexicon com.atproto.identity.resolveIdentity
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.identity.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `ResolveIdentityResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identifier` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.identity.signPlcOperation
+
+`POST` `/xrpc/com.atproto.identity.signPlcOperation`
+
+Generated from the AT Protocol lexicon com.atproto.identity.signPlcOperation
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.identity.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `SignPlcOperationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `token` | `body` | `string` | No | No | A token received through com.atproto.identity.requestPlcOperationSignature |
+| `rotationKeys` | `body` | `Array<string>` | No | No | — |
+| `alsoKnownAs` | `body` | `Array<string>` | No | No | — |
+| `verificationMethods` | `body` | `unknown` | No | No | — |
+| `services` | `body` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.identity.submitPlcOperation
+
+`POST` `/xrpc/com.atproto.identity.submitPlcOperation`
+
+Generated from the AT Protocol lexicon com.atproto.identity.submitPlcOperation
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.identity.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `SubmitPlcOperationResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operation` | `body` | `unknown` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.identity.updateHandle
+
+`POST` `/xrpc/com.atproto.identity.updateHandle`
+
+Generated from the AT Protocol lexicon com.atproto.identity.updateHandle
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.identity.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `UpdateHandleResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `handle` | `body` | `string` | Yes | No | The new handle. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

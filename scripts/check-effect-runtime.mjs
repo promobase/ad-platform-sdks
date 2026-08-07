@@ -112,6 +112,14 @@ const entries = [
     750,
     6,
   ],
+  [
+    "bluesky",
+    "packages/bluesky-sdk/src/generated/effect/index.ts",
+    "packages/bluesky-sdk/src/generated/effect/manifest.json",
+    800_000,
+    750,
+    150,
+  ],
 ];
 
 let failed = false;

@@ -1,0 +1,827 @@
+---
+title: "Bluesky Server endpoints"
+description: "25 generated Bluesky endpoint contracts for Server."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 116
+  label: "Server"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## bluesky.server.activateAccount
+
+`POST` `/xrpc/com.atproto.server.activateAccount`
+
+Generated from the AT Protocol lexicon com.atproto.server.activateAccount
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `ActivateAccountResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.checkAccountStatus
+
+`GET` `/xrpc/com.atproto.server.checkAccountStatus`
+
+Generated from the AT Protocol lexicon com.atproto.server.checkAccountStatus
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.server.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `CheckAccountStatusResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.confirmEmail
+
+`POST` `/xrpc/com.atproto.server.confirmEmail`
+
+Generated from the AT Protocol lexicon com.atproto.server.confirmEmail
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `ConfirmEmailResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `body` | `string` | Yes | No | — |
+| `token` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.createAccount
+
+`POST` `/xrpc/com.atproto.server.createAccount`
+
+Generated from the AT Protocol lexicon com.atproto.server.createAccount
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `CreateAccountResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `body` | `string` | No | No | — |
+| `handle` | `body` | `string` | Yes | No | Requested handle for the account. |
+| `did` | `body` | `string` | No | No | Pre-existing atproto DID, being imported to a new account. |
+| `inviteCode` | `body` | `string` | No | No | — |
+| `verificationCode` | `body` | `string` | No | No | — |
+| `verificationPhone` | `body` | `string` | No | No | — |
+| `password` | `body` | `string` | No | No | Initial account password. May need to meet instance-specific password strength requirements. |
+| `recoveryKey` | `body` | `string` | No | No | DID PLC rotation key (aka, recovery key) to be included in PLC creation operation. |
+| `plcOp` | `body` | `unknown` | No | No | A signed DID PLC operation to be submitted as part of importing an existing account to this instance. NOTE: this optional field may be updated when full account migration is implemented. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.createAppPassword
+
+`POST` `/xrpc/com.atproto.server.createAppPassword`
+
+Generated from the AT Protocol lexicon com.atproto.server.createAppPassword
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `CreateAppPasswordResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `body` | `string` | Yes | No | A short name for the App Password, to help distinguish them. |
+| `privileged` | `body` | `boolean` | No | No | If an app password has 'privileged' access to possibly sensitive account state. Meant for use with trusted clients. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.createInviteCode
+
+`POST` `/xrpc/com.atproto.server.createInviteCode`
+
+Generated from the AT Protocol lexicon com.atproto.server.createInviteCode
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `CreateInviteCodeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `useCount` | `body` | `number` | Yes | No | — |
+| `forAccount` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.createInviteCodes
+
+`POST` `/xrpc/com.atproto.server.createInviteCodes`
+
+Generated from the AT Protocol lexicon com.atproto.server.createInviteCodes
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `CreateInviteCodesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `codeCount` | `body` | `number` | Yes | No | — |
+| `useCount` | `body` | `number` | Yes | No | — |
+| `forAccounts` | `body` | `Array<string>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.createSession
+
+`POST` `/xrpc/com.atproto.server.createSession`
+
+Generated from the AT Protocol lexicon com.atproto.server.createSession
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `CreateSessionResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `identifier` | `body` | `string` | Yes | No | Handle or other identifier supported by the server for the authenticating user. |
+| `password` | `body` | `string` | Yes | No | — |
+| `authFactorToken` | `body` | `string` | No | No | — |
+| `allowTakendown` | `body` | `boolean` | No | No | When true, instead of throwing error for takendown accounts, a valid response with a narrow scoped token will be returned |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.deactivateAccount
+
+`POST` `/xrpc/com.atproto.server.deactivateAccount`
+
+Generated from the AT Protocol lexicon com.atproto.server.deactivateAccount
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `DeactivateAccountResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deleteAfter` | `body` | `string` | No | No | A recommendation to server as to how long they should hold onto the deactivated account before deleting. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.deleteAccount2
+
+`POST` `/xrpc/com.atproto.server.deleteAccount`
+
+Generated from the AT Protocol lexicon com.atproto.server.deleteAccount
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `DeleteAccountResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `body` | `string` | Yes | No | — |
+| `password` | `body` | `string` | Yes | No | — |
+| `token` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.deleteSession
+
+`POST` `/xrpc/com.atproto.server.deleteSession`
+
+Generated from the AT Protocol lexicon com.atproto.server.deleteSession
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `DeleteSessionResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.describeServer
+
+`GET` `/xrpc/com.atproto.server.describeServer`
+
+Generated from the AT Protocol lexicon com.atproto.server.describeServer
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.server.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `DescribeServerResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.getAccountInviteCodes
+
+`GET` `/xrpc/com.atproto.server.getAccountInviteCodes`
+
+Generated from the AT Protocol lexicon com.atproto.server.getAccountInviteCodes
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.server.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetAccountInviteCodesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `includeUsed` | `query` | `boolean` | No | No | — |
+| `createAvailable` | `query` | `boolean` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.getServiceAuth
+
+`GET` `/xrpc/com.atproto.server.getServiceAuth`
+
+Generated from the AT Protocol lexicon com.atproto.server.getServiceAuth
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.server.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetServiceAuthResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `aud` | `query` | `string` | Yes | No | — |
+| `exp` | `query` | `number` | No | No | — |
+| `lxm` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.getSession
+
+`GET` `/xrpc/com.atproto.server.getSession`
+
+Generated from the AT Protocol lexicon com.atproto.server.getSession
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.server.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSessionResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.listAppPasswords
+
+`GET` `/xrpc/com.atproto.server.listAppPasswords`
+
+Generated from the AT Protocol lexicon com.atproto.server.listAppPasswords
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.server.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `ListAppPasswordsResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.refreshSession
+
+`POST` `/xrpc/com.atproto.server.refreshSession`
+
+Generated from the AT Protocol lexicon com.atproto.server.refreshSession
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `RefreshSessionResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.requestAccountDelete
+
+`POST` `/xrpc/com.atproto.server.requestAccountDelete`
+
+Generated from the AT Protocol lexicon com.atproto.server.requestAccountDelete
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `RequestAccountDeleteResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.requestEmailConfirmation
+
+`POST` `/xrpc/com.atproto.server.requestEmailConfirmation`
+
+Generated from the AT Protocol lexicon com.atproto.server.requestEmailConfirmation
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `RequestEmailConfirmationResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.requestEmailUpdate
+
+`POST` `/xrpc/com.atproto.server.requestEmailUpdate`
+
+Generated from the AT Protocol lexicon com.atproto.server.requestEmailUpdate
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `RequestEmailUpdateResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.requestPasswordReset
+
+`POST` `/xrpc/com.atproto.server.requestPasswordReset`
+
+Generated from the AT Protocol lexicon com.atproto.server.requestPasswordReset
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `RequestPasswordResetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.reserveSigningKey
+
+`POST` `/xrpc/com.atproto.server.reserveSigningKey`
+
+Generated from the AT Protocol lexicon com.atproto.server.reserveSigningKey
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `ReserveSigningKeyResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `body` | `string` | No | No | The DID to reserve a key for. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.resetPassword
+
+`POST` `/xrpc/com.atproto.server.resetPassword`
+
+Generated from the AT Protocol lexicon com.atproto.server.resetPassword
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `ResetPasswordResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `token` | `body` | `string` | Yes | No | — |
+| `password` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.revokeAppPassword
+
+`POST` `/xrpc/com.atproto.server.revokeAppPassword`
+
+Generated from the AT Protocol lexicon com.atproto.server.revokeAppPassword
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `RevokeAppPasswordResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.server.updateEmail
+
+`POST` `/xrpc/com.atproto.server.updateEmail`
+
+Generated from the AT Protocol lexicon com.atproto.server.updateEmail
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.server.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `UpdateEmailResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `body` | `string` | Yes | No | — |
+| `emailAuthFactor` | `body` | `boolean` | No | No | — |
+| `token` | `body` | `string` | No | No | Requires a token from com.atproto.sever.requestEmailUpdate if the account's email has been confirmed. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

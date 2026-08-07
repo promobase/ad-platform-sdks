@@ -1,0 +1,824 @@
+---
+title: "Bluesky models: Activate Account Params – App Bsky Feed Defs Blocked Author"
+description: "100 generated Bluesky model contracts, from ActivateAccountParams through AppBskyFeedDefsBlockedAuthor."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 1000
+  label: "Activate Account Params – App Bsky Feed Defs Blocked Author"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## ActivateAccountParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## ActivateAccountResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AddReservedHandleParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `handle` | `handle` | `string` | Yes | No | — |
+
+## AddReservedHandleResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline734` | Yes | No | — |
+
+## AppBskyActorDefsAdultContentPref
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsBskyAppProgressGuide
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `guide` | `guide` | `string` | Yes | No | — |
+
+## AppBskyActorDefsBskyAppStatePref
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsContentLabelPref
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsDeclaredAgePref
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsFeedViewPref
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsHiddenPostsPref
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsInterestsPref
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsKnownFollowers
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `count` | `count` | `number` | Yes | No | — |
+| `followers` | `followers` | `Array<AppBskyActorDefsProfileViewBasic>` | Yes | No | — |
+
+## AppBskyActorDefsLabelerPrefItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+
+## AppBskyActorDefsLabelersPref
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsLiveEventPreferences
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsMutedWord
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `value` | `value` | `string` | Yes | No | The muted word itself. |
+| `targets` | `targets` | `Array<AppBskyActorDefsMutedWordTarget>` | Yes | No | The intended targets of the muted word. |
+| `actorTarget` | `actorTarget` | `string` | No | No | Groups of users to apply the muted word to. If undefined, applies to all users. |
+| `expiresAt` | `expiresAt` | `string` | No | No | The date and time at which the muted word will expire and no longer be applied. |
+
+## AppBskyActorDefsMutedWordsPref
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsMutedWordTarget
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## AppBskyActorDefsNux
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `completed` | `completed` | `boolean` | Yes | No | — |
+| `data` | `data` | `string` | No | No | Arbitrary data for the NUX. The structure is defined by the NUX itself. Limited to 300 characters. |
+| `expiresAt` | `expiresAt` | `string` | No | No | The date and time at which the NUX will expire and should be considered completed. |
+
+## AppBskyActorDefsPersonalDetailsPref
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsPostInteractionSettingsPref
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsPreferences
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<AppBskyActorDefsAdultContentPref \| AppBskyActorDefsContentLabelPref \| AppBskyActorDefsSavedFeedsPref \| AppBskyActorDefsSavedFeedsPrefV2 \| AppBskyActorDefsPersonalDetailsPref \| AppBskyActorDefsDeclaredAgePref \| AppBskyActorDefsFeedViewPref \| AppBskyActorDefsThreadViewPref \| AppBskyActorDefsInterestsPref \| AppBskyActorDefsMutedWordsPref \| AppBskyActorDefsHiddenPostsPref \| AppBskyActorDefsBskyAppStatePref \| AppBskyActorDefsLabelersPref \| AppBskyActorDefsPostInteractionSettingsPref \| AppBskyActorDefsVerificationPrefs \| AppBskyActorDefsLiveEventPreferences>`
+
+## AppBskyActorDefsProfileAssociated
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsProfileAssociatedActivitySubscription
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowSubscriptions` | `allowSubscriptions` | `string` | Yes | No | — |
+
+## AppBskyActorDefsProfileAssociatedChat
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allowIncoming` | `allowIncoming` | `string` | Yes | No | — |
+| `allowGroupInvites` | `allowGroupInvites` | `string` | No | No | — |
+
+## AppBskyActorDefsProfileAssociatedGerm
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `messageMeUrl` | `messageMeUrl` | `string` | Yes | No | — |
+| `showButtonTo` | `showButtonTo` | `string` | Yes | No | — |
+
+## AppBskyActorDefsProfileView
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsProfileViewBasic
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsProfileViewDetailed
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `did` | `string` | Yes | No | — |
+| `handle` | `handle` | `string` | Yes | No | — |
+| `displayName` | `displayName` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `pronouns` | `pronouns` | `string` | No | No | — |
+| `website` | `website` | `string` | No | No | — |
+| `avatar` | `avatar` | `string` | No | No | — |
+| `banner` | `banner` | `string` | No | No | — |
+| `followersCount` | `followersCount` | `number` | No | No | — |
+| `followsCount` | `followsCount` | `number` | No | No | — |
+| `postsCount` | `postsCount` | `number` | No | No | — |
+| `associated` | `associated` | `AppBskyActorDefsProfileAssociated` | No | No | — |
+| `joinedViaStarterPack` | `joinedViaStarterPack` | `AppBskyGraphDefsStarterPackViewBasic` | No | No | — |
+| `indexedAt` | `indexedAt` | `string` | No | No | — |
+| `createdAt` | `createdAt` | `string` | No | No | — |
+| `viewer` | `viewer` | `AppBskyActorDefsViewerState` | No | No | — |
+| `labels` | `labels` | `Array<ComAtprotoLabelDefsLabel>` | No | No | — |
+| `pinnedPost` | `pinnedPost` | `ComAtprotoRepoStrongRef` | No | No | — |
+| `verification` | `verification` | `AppBskyActorDefsVerificationState` | No | No | — |
+| `status` | `status` | `AppBskyActorDefsStatusView` | No | No | — |
+| `debug` | `debug` | `unknown` | No | No | Debug information for internal development |
+
+## AppBskyActorDefsSavedFeed
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | — |
+| `value` | `value` | `string` | Yes | No | — |
+| `pinned` | `pinned` | `boolean` | Yes | No | — |
+
+## AppBskyActorDefsSavedFeedsPref
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsSavedFeedsPrefV2
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsStatusView
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsThreadViewPref
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsVerificationPrefs
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsVerificationState
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorDefsVerificationView
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `issuer` | `issuer` | `string` | Yes | No | The user who issued this verification. |
+| `issuerDisplayName` | `issuerDisplayName` | `string` | No | No | The display name of the issuer. |
+| `issuerHandle` | `issuerHandle` | `string` | No | No | The handle of the issuer. |
+| `uri` | `uri` | `string` | Yes | No | The AT-URI of the verification record. |
+| `isValid` | `isValid` | `boolean` | Yes | No | True if the verification passes validation, otherwise false. |
+| `createdAt` | `createdAt` | `string` | Yes | No | Timestamp when the verification was created. |
+
+## AppBskyActorDefsViewerState
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyActorProfile
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `displayName` | `displayName` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | Free-form profile description text. |
+| `pronouns` | `pronouns` | `string` | No | No | Free-form pronouns text. |
+| `website` | `website` | `string` | No | No | — |
+| `avatar` | `avatar` | `json` | No | No | Small image to be displayed next to posts from account. AKA, 'profile picture' |
+| `banner` | `banner` | `json` | No | No | Larger horizontal image to display behind profile view. |
+| `labels` | `labels` | `ComAtprotoLabelDefsSelfLabels` | No | No | Self-label values, specific to the Bluesky application, on the overall account. |
+| `joinedViaStarterPack` | `joinedViaStarterPack` | `ComAtprotoRepoStrongRef` | No | No | — |
+| `pinnedPost` | `pinnedPost` | `ComAtprotoRepoStrongRef` | No | No | — |
+| `createdAt` | `createdAt` | `string` | No | No | — |
+
+## AppBskyActorStatus
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `string` | Yes | No | The status for the account. |
+| `embed` | `embed` | `AppBskyEmbedExternal` | No | No | An optional embed associated with the status. |
+| `durationMinutes` | `durationMinutes` | `number` | No | No | The duration of the status in minutes. Applications can choose to impose minimum and maximum limits. |
+| `createdAt` | `createdAt` | `string` | Yes | No | — |
+
+## AppBskyAgeassuranceDefsAccess
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## AppBskyAgeassuranceDefsConfig
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `regions` | `regions` | `Array<AppBskyAgeassuranceDefsConfigRegion>` | Yes | No | The per-region Age Assurance configuration. |
+
+## AppBskyAgeassuranceDefsConfigRegion
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyAgeassuranceDefsConfigRegionRuleDefault
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `access` | `access` | `AppBskyAgeassuranceDefsAccess` | Yes | No | — |
+
+## AppBskyAgeassuranceDefsConfigRegionRuleIfAccountNewerThan
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date` | `date` | `string` | Yes | No | The date threshold as a datetime string. |
+| `access` | `access` | `AppBskyAgeassuranceDefsAccess` | Yes | No | — |
+
+## AppBskyAgeassuranceDefsConfigRegionRuleIfAccountOlderThan
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date` | `date` | `string` | Yes | No | The date threshold as a datetime string. |
+| `access` | `access` | `AppBskyAgeassuranceDefsAccess` | Yes | No | — |
+
+## AppBskyAgeassuranceDefsConfigRegionRuleIfAssuredOverAge
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age` | `age` | `number` | Yes | No | The age threshold as a whole integer. |
+| `access` | `access` | `AppBskyAgeassuranceDefsAccess` | Yes | No | — |
+
+## AppBskyAgeassuranceDefsConfigRegionRuleIfAssuredUnderAge
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age` | `age` | `number` | Yes | No | The age threshold as a whole integer. |
+| `access` | `access` | `AppBskyAgeassuranceDefsAccess` | Yes | No | — |
+
+## AppBskyAgeassuranceDefsConfigRegionRuleIfDeclaredOverAge
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age` | `age` | `number` | Yes | No | The age threshold as a whole integer. |
+| `access` | `access` | `AppBskyAgeassuranceDefsAccess` | Yes | No | — |
+
+## AppBskyAgeassuranceDefsConfigRegionRuleIfDeclaredUnderAge
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age` | `age` | `number` | Yes | No | The age threshold as a whole integer. |
+| `access` | `access` | `AppBskyAgeassuranceDefsAccess` | Yes | No | — |
+
+## AppBskyAgeassuranceDefsEvent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `createdAt` | `createdAt` | `string` | Yes | No | The date and time of this write operation. |
+| `attemptId` | `attemptId` | `string` | Yes | No | The unique identifier for this instance of the Age Assurance flow, in UUID format. |
+| `status` | `status` | `string` | Yes | No | The status of the Age Assurance process. |
+| `access` | `access` | `string` | Yes | No | The access level granted based on Age Assurance data we've processed. |
+| `countryCode` | `countryCode` | `string` | Yes | No | The ISO 3166-1 alpha-2 country code provided when beginning the Age Assurance flow. |
+| `regionCode` | `regionCode` | `string` | No | No | The ISO 3166-2 region code provided when beginning the Age Assurance flow. |
+| `email` | `email` | `string` | No | No | The email used for Age Assurance. |
+| `initIp` | `initIp` | `string` | No | No | The IP address used when initiating the Age Assurance flow. |
+| `initUa` | `initUa` | `string` | No | No | The user agent used when initiating the Age Assurance flow. |
+| `completeIp` | `completeIp` | `string` | No | No | The IP address used when completing the Age Assurance flow. |
+| `completeUa` | `completeUa` | `string` | No | No | The user agent used when completing the Age Assurance flow. |
+
+## AppBskyAgeassuranceDefsState
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lastInitiatedAt` | `lastInitiatedAt` | `string` | No | No | The timestamp when this state was last updated. |
+| `status` | `status` | `AppBskyAgeassuranceDefsStatus` | Yes | No | — |
+| `access` | `access` | `AppBskyAgeassuranceDefsAccess` | Yes | No | — |
+
+## AppBskyAgeassuranceDefsStateMetadata
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountCreatedAt` | `accountCreatedAt` | `string` | No | No | The account creation timestamp. |
+
+## AppBskyAgeassuranceDefsStatus
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## AppBskyBookmarkDefsBookmark
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `ComAtprotoRepoStrongRef` | Yes | No | A strong ref to the record to be bookmarked. Currently, only `app.bsky.feed.post` records are supported. |
+
+## AppBskyBookmarkDefsBookmarkView
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `subject` | `ComAtprotoRepoStrongRef` | Yes | No | A strong ref to the bookmarked record. |
+| `createdAt` | `createdAt` | `string` | No | No | — |
+| `item` | `item` | `AppBskyFeedDefsBlockedPost \| AppBskyFeedDefsNotFoundPost \| AppBskyFeedDefsPostView` | Yes | No | — |
+
+## AppBskyContactDefsMatchAndContactIndex
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `match` | `match` | `AppBskyActorDefsProfileView` | Yes | No | Profile of the matched user. |
+| `contactIndex` | `contactIndex` | `number` | Yes | No | The index of this match in the import contact input. |
+
+## AppBskyContactDefsNotification
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `from` | `from` | `string` | Yes | No | The DID of who this notification comes from. |
+| `to` | `to` | `string` | Yes | No | The DID of who this notification should go to. |
+
+## AppBskyContactDefsSyncStatus
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `syncedAt` | `syncedAt` | `string` | Yes | No | Last date when contacts where imported. |
+| `matchesCount` | `matchesCount` | `number` | Yes | No | Number of existing contact matches resulting of the user imports and of their imported contacts having imported the user. Matches stop being counted when the user either follows the matched contact or dismisses the match. |
+
+## AppBskyDraftDefsDraft
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyDraftDefsDraftEmbedCaption
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lang` | `lang` | `string` | Yes | No | — |
+| `content` | `content` | `string` | Yes | No | — |
+
+## AppBskyDraftDefsDraftEmbedExternal
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyDraftDefsDraftEmbedGallery
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyDraftDefsDraftEmbedGalleryItems
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<AppBskyDraftDefsDraftEmbedImage>`
+
+## AppBskyDraftDefsDraftEmbedImage
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyDraftDefsDraftEmbedLocalRef
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `path` | `path` | `string` | Yes | No | Local, on-device ref to file to be embedded. Embeds are currently device-bound for drafts. |
+
+## AppBskyDraftDefsDraftEmbedRecord
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyDraftDefsDraftEmbedVideo
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyDraftDefsDraftPost
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `text` | `text` | `string` | Yes | No | The primary post content. It has a higher limit than post contents to allow storing a larger text that can later be refined into smaller posts. |
+| `labels` | `labels` | `ComAtprotoLabelDefsSelfLabels` | No | No | Self-label values for this post. Effectively content warnings. |
+| `embedImages` | `embedImages` | `Array<AppBskyDraftDefsDraftEmbedImage>` | No | No | — |
+| `embedGallery` | `embedGallery` | `AppBskyDraftDefsDraftEmbedGallery` | No | No | — |
+| `embedVideos` | `embedVideos` | `Array<AppBskyDraftDefsDraftEmbedVideo>` | No | No | — |
+| `embedExternals` | `embedExternals` | `Array<AppBskyDraftDefsDraftEmbedExternal>` | No | No | — |
+| `embedRecords` | `embedRecords` | `Array<AppBskyDraftDefsDraftEmbedRecord>` | No | No | — |
+
+## AppBskyDraftDefsDraftView
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | A TID to be used as a draft identifier. |
+| `draft` | `draft` | `AppBskyDraftDefsDraft` | Yes | No | — |
+| `createdAt` | `createdAt` | `string` | Yes | No | The time the draft was created. |
+| `updatedAt` | `updatedAt` | `string` | Yes | No | The time the draft was last updated. |
+
+## AppBskyDraftDefsDraftWithId
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | A TID to be used as a draft identifier. |
+| `draft` | `draft` | `AppBskyDraftDefsDraft` | Yes | No | — |
+
+## AppBskyEmbedDefsAspectRatio
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `width` | `width` | `number` | Yes | No | — |
+| `height` | `height` | `number` | Yes | No | — |
+
+## AppBskyEmbedExternal
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyEmbedExternalColorRGB
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyEmbedExternalExternal
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `title` | `title` | `string` | Yes | No | — |
+| `description` | `description` | `string` | Yes | No | — |
+| `thumb` | `thumb` | `json` | No | No | — |
+| `associatedRefs` | `associatedRefs` | `Array<ComAtprotoRepoStrongRef>` | No | No | StrongRefs (uri+cid) of the Atmosphere records that backed this view. |
+
+## AppBskyEmbedExternalView
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyEmbedExternalViewExternal
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uri` | `uri` | `string` | Yes | No | — |
+| `title` | `title` | `string` | Yes | No | — |
+| `description` | `description` | `string` | Yes | No | — |
+| `thumb` | `thumb` | `string` | No | No | — |
+| `createdAt` | `createdAt` | `string` | No | No | When the external content was created, if available. Example: a publication date, for an article. |
+| `updatedAt` | `updatedAt` | `string` | No | No | When the external content was updated, if available. |
+| `readingTime` | `readingTime` | `number` | No | No | Estimated reading time in minutes, if applicable and available. |
+| `labels` | `labels` | `Array<ComAtprotoLabelDefsLabel>` | No | No | — |
+| `source` | `source` | `AppBskyEmbedExternalViewExternalSource` | No | No | — |
+| `associatedRefs` | `associatedRefs` | `Array<ComAtprotoRepoStrongRef>` | No | No | StrongRefs (uri+cid) of the Atmosphere records that backed this view. |
+| `associatedProfiles` | `associatedProfiles` | `Array<AppBskyActorDefsProfileViewBasic>` | No | No | Profiles of the owners of the Atmosphere records that backed this view. |
+
+## AppBskyEmbedExternalViewExternalSource
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyEmbedExternalViewExternalSourceTheme
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backgroundRGB` | `backgroundRGB` | `AppBskyEmbedExternalColorRGB` | No | No | — |
+| `foregroundRGB` | `foregroundRGB` | `AppBskyEmbedExternalColorRGB` | No | No | — |
+| `accentRGB` | `accentRGB` | `AppBskyEmbedExternalColorRGB` | No | No | — |
+| `accentForegroundRGB` | `accentForegroundRGB` | `AppBskyEmbedExternalColorRGB` | No | No | — |
+
+## AppBskyEmbedGallery
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<AppBskyEmbedGalleryImage>` | Yes | No | The schema-level maxLength of 20 is a future-proof ceiling. Clients should currently enforce a soft limit of 10 items in authoring UIs. |
+
+## AppBskyEmbedGalleryImage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image` | `image` | `json` | Yes | No | — |
+| `alt` | `alt` | `string` | Yes | No | Alt text description of the image, for accessibility. |
+| `aspectRatio` | `aspectRatio` | `AppBskyEmbedDefsAspectRatio` | Yes | No | — |
+
+## AppBskyEmbedGalleryView
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<AppBskyEmbedGalleryViewImage>` | Yes | No | — |
+
+## AppBskyEmbedGalleryViewImage
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyEmbedImages
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `images` | `images` | `Array<AppBskyEmbedImagesImage>` | Yes | No | — |
+
+## AppBskyEmbedImagesImage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image` | `image` | `json` | Yes | No | The raw image file. May be up to 2 MB, formerly limited to 1 MB. |
+| `alt` | `alt` | `string` | Yes | No | Alt text description of the image, for accessibility. |
+| `aspectRatio` | `aspectRatio` | `AppBskyEmbedDefsAspectRatio` | No | No | — |
+
+## AppBskyEmbedImagesView
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `images` | `images` | `Array<AppBskyEmbedImagesViewImage>` | Yes | No | — |
+
+## AppBskyEmbedImagesViewImage
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyEmbedRecord
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `record` | `record` | `ComAtprotoRepoStrongRef` | Yes | No | — |
+
+## AppBskyEmbedRecordView
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `record` | `record` | `AppBskyEmbedRecordViewRecord \| AppBskyEmbedRecordViewNotFound \| AppBskyEmbedRecordViewBlocked \| AppBskyEmbedRecordViewDetached \| AppBskyFeedDefsGeneratorView \| AppBskyGraphDefsListView \| AppBskyLabelerDefsLabelerView \| AppBskyGraphDefsStarterPackViewBasic` | Yes | No | — |
+
+## AppBskyEmbedRecordViewBlocked
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyEmbedRecordViewDetached
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyEmbedRecordViewNotFound
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyEmbedRecordViewRecord
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyEmbedRecordWithMedia
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `record` | `record` | `AppBskyEmbedRecord` | Yes | No | — |
+| `media` | `media` | `AppBskyEmbedImages \| AppBskyEmbedVideo \| AppBskyEmbedGallery \| AppBskyEmbedExternal` | Yes | No | — |
+
+## AppBskyEmbedRecordWithMediaView
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `record` | `record` | `AppBskyEmbedRecordView` | Yes | No | — |
+| `media` | `media` | `AppBskyEmbedImagesView \| AppBskyEmbedVideoView \| AppBskyEmbedGalleryView \| AppBskyEmbedExternalView` | Yes | No | — |
+
+## AppBskyEmbedVideo
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyEmbedVideoCaption
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lang` | `lang` | `string` | Yes | No | — |
+| `file` | `file` | `json` | Yes | No | — |
+
+## AppBskyEmbedVideoView
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AppBskyFeedDefsBlockedAuthor
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`

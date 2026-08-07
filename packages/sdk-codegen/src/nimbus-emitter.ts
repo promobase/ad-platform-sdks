@@ -82,6 +82,12 @@ const PLATFORM_DETAILS: Record<
     effectImport: "@openpromo/amazon-ads/effect",
     order: 110,
   },
+  bluesky: {
+    label: "Bluesky",
+    packageName: "@openpromo/bluesky",
+    effectImport: "@openpromo/bluesky/effect",
+    order: 120,
+  },
   facebook: {
     label: "Facebook",
     packageName: "@openpromo/meta",

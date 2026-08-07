@@ -1,0 +1,542 @@
+---
+title: "Bluesky Admin endpoints"
+description: "15 generated Bluesky endpoint contracts for Admin."
+generated: true
+platform: "bluesky"
+sourceVersion: "lexicons"
+sidebar:
+  order: 101
+  label: "Admin"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://github.com/bluesky-social/atproto/tree/main/lexicons). Do not edit by hand. */}
+
+## bluesky.admin.deleteAccount
+
+`POST` `/xrpc/com.atproto.admin.deleteAccount`
+
+Generated from the AT Protocol lexicon com.atproto.admin.deleteAccount
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.admin.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `DeleteAccountResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.admin.disableAccountInvites
+
+`POST` `/xrpc/com.atproto.admin.disableAccountInvites`
+
+Generated from the AT Protocol lexicon com.atproto.admin.disableAccountInvites
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.admin.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `DisableAccountInvitesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account` | `body` | `string` | Yes | No | — |
+| `note` | `body` | `string` | No | No | Optional reason for disabled invites. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.admin.disableInviteCodes
+
+`POST` `/xrpc/com.atproto.admin.disableInviteCodes`
+
+Generated from the AT Protocol lexicon com.atproto.admin.disableInviteCodes
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.admin.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `DisableInviteCodesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `codes` | `body` | `Array<string>` | No | No | — |
+| `accounts` | `body` | `Array<string>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.admin.enableAccountInvites
+
+`POST` `/xrpc/com.atproto.admin.enableAccountInvites`
+
+Generated from the AT Protocol lexicon com.atproto.admin.enableAccountInvites
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.admin.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `EnableAccountInvitesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account` | `body` | `string` | Yes | No | — |
+| `note` | `body` | `string` | No | No | Optional reason for enabled invites. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.admin.getAccountInfo
+
+`GET` `/xrpc/com.atproto.admin.getAccountInfo`
+
+Generated from the AT Protocol lexicon com.atproto.admin.getAccountInfo
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.admin.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetAccountInfoResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.admin.getAccountInfos
+
+`GET` `/xrpc/com.atproto.admin.getAccountInfos`
+
+Generated from the AT Protocol lexicon com.atproto.admin.getAccountInfos
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.admin.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetAccountInfosResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dids` | `query` | `Array<string>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.admin.getInviteCodes
+
+`GET` `/xrpc/com.atproto.admin.getInviteCodes`
+
+Generated from the AT Protocol lexicon com.atproto.admin.getInviteCodes
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.admin.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetInviteCodesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sort` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.admin.getSubjectStatus
+
+`GET` `/xrpc/com.atproto.admin.getSubjectStatus`
+
+Generated from the AT Protocol lexicon com.atproto.admin.getSubjectStatus
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.admin.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `GetSubjectStatusResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `query` | `string` | No | No | — |
+| `uri` | `query` | `string` | No | No | — |
+| `blob` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.admin.searchAccounts
+
+`GET` `/xrpc/com.atproto.admin.searchAccounts`
+
+Generated from the AT Protocol lexicon com.atproto.admin.searchAccounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `bluesky.admin.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `SearchAccountsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `query` | `string` | No | No | — |
+| `cursor` | `query` | `string` | No | No | — |
+| `limit` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.admin.sendEmail
+
+`POST` `/xrpc/com.atproto.admin.sendEmail`
+
+Generated from the AT Protocol lexicon com.atproto.admin.sendEmail
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.admin.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `SendEmailResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recipientDid` | `body` | `string` | Yes | No | — |
+| `content` | `body` | `string` | Yes | No | — |
+| `subject` | `body` | `string` | No | No | — |
+| `senderDid` | `body` | `string` | Yes | No | — |
+| `comment` | `body` | `string` | No | No | Additional comment by the sender that won't be used in the email itself but helpful to provide more context for moderators/reviewers |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.admin.updateAccountEmail
+
+`POST` `/xrpc/com.atproto.admin.updateAccountEmail`
+
+Generated from the AT Protocol lexicon com.atproto.admin.updateAccountEmail
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.admin.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `UpdateAccountEmailResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account` | `body` | `string` | Yes | No | The handle or DID of the repo. |
+| `email` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.admin.updateAccountHandle
+
+`POST` `/xrpc/com.atproto.admin.updateAccountHandle`
+
+Generated from the AT Protocol lexicon com.atproto.admin.updateAccountHandle
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.admin.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `UpdateAccountHandleResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `body` | `string` | Yes | No | — |
+| `handle` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.admin.updateAccountPassword
+
+`POST` `/xrpc/com.atproto.admin.updateAccountPassword`
+
+Generated from the AT Protocol lexicon com.atproto.admin.updateAccountPassword
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.admin.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `UpdateAccountPasswordResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `body` | `string` | Yes | No | — |
+| `password` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.admin.updateAccountSigningKey
+
+`POST` `/xrpc/com.atproto.admin.updateAccountSigningKey`
+
+Generated from the AT Protocol lexicon com.atproto.admin.updateAccountSigningKey
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.admin.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `UpdateAccountSigningKeyResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `did` | `body` | `string` | Yes | No | — |
+| `signingKey` | `body` | `string` | Yes | No | Did-key formatted public key |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## bluesky.admin.updateSubjectStatus
+
+`POST` `/xrpc/com.atproto.admin.updateSubjectStatus`
+
+Generated from the AT Protocol lexicon com.atproto.admin.updateSubjectStatus
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `bluesky.admin.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `atproto` |
+| Output | `UpdateSubjectStatusResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subject` | `body` | `ComAtprotoAdminDefsRepoRef \| ComAtprotoRepoStrongRef \| ComAtprotoAdminDefsRepoBlobRef` | Yes | No | — |
+| `takedown` | `body` | `ComAtprotoAdminDefsStatusAttr` | No | No | — |
+| `deactivated` | `body` | `ComAtprotoAdminDefsStatusAttr` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
