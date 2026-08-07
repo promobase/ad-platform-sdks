@@ -2,31 +2,32 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import PlatformIcon from "../components/PlatformIcon.astro";
+import type { PlatformIconName } from "../lib/platform-icons.ts";
 import { config } from "virtual:nimbus/config";
 
 interface PlatformTile {
   name: string;
-  icon: string;
+  icon: PlatformIconName;
   color: string;
   endpoints: number;
   package: string;
 }
 
 const platforms: PlatformTile[] = [
-  { name: "Facebook", icon: "simple-icons:facebook", color: "#0866FF", endpoints: 1451, package: "@mosaic/meta" },
-  { name: "Instagram", icon: "simple-icons:instagram", color: "#E4405F", endpoints: 1451, package: "@mosaic/meta" },
-  { name: "Threads", icon: "simple-icons:threads", color: "#999999", endpoints: 1451, package: "@mosaic/meta" },
-  { name: "TikTok", icon: "simple-icons:tiktok", color: "#25F4EE", endpoints: 531, package: "@mosaic/tiktok" },
-  { name: "Snapchat", icon: "simple-icons:snapchat", color: "#FFFC00", endpoints: 214, package: "@mosaic/snapchat" },
-  { name: "Reddit", icon: "simple-icons:reddit", color: "#FF4500", endpoints: 40, package: "@mosaic/reddit" },
-  { name: "Pinterest", icon: "simple-icons:pinterest", color: "#E60023", endpoints: 266, package: "@mosaic/pinterest" },
-  { name: "Amazon Ads", icon: "simple-icons:amazon", color: "#FF9900", endpoints: 166, package: "@mosaic/amazon-ads" },
-  { name: "Bluesky", icon: "simple-icons:bluesky", color: "#0285FF", endpoints: 197, package: "@mosaic/bluesky" },
-  { name: "LinkedIn", icon: "simple-icons:linkedin", color: "#0A66C2", endpoints: 303, package: "@mosaic/linkedin" },
-  { name: "X", icon: "simple-icons:x", color: "#D4D4D8", endpoints: 176, package: "@mosaic/x" },
-  { name: "YouTube", icon: "simple-icons:youtube", color: "#FF0000", endpoints: 98, package: "@mosaic/youtube" },
-  { name: "Google Ads", icon: "simple-icons:googleads", color: "#4285F4", endpoints: 169, package: "@mosaic/google-ads" },
-  { name: "Google Business Profile", icon: "simple-icons:google", color: "#4285F4", endpoints: 139, package: "@mosaic/google-business-profile" },
+  { name: "Facebook", icon: "facebook", color: "#0866FF", endpoints: 1451, package: "@mosaic/meta" },
+  { name: "Instagram", icon: "instagram", color: "#E4405F", endpoints: 1451, package: "@mosaic/meta" },
+  { name: "Threads", icon: "threads", color: "#999999", endpoints: 1451, package: "@mosaic/meta" },
+  { name: "TikTok", icon: "tiktok", color: "#25F4EE", endpoints: 531, package: "@mosaic/tiktok" },
+  { name: "Snapchat", icon: "snapchat", color: "#FFFC00", endpoints: 214, package: "@mosaic/snapchat" },
+  { name: "Reddit", icon: "reddit", color: "#FF4500", endpoints: 40, package: "@mosaic/reddit" },
+  { name: "Pinterest", icon: "pinterest", color: "#E60023", endpoints: 266, package: "@mosaic/pinterest" },
+  { name: "Amazon Ads", icon: "amazon", color: "#FF9900", endpoints: 166, package: "@mosaic/amazon-ads" },
+  { name: "Bluesky", icon: "bluesky", color: "#0285FF", endpoints: 197, package: "@mosaic/bluesky" },
+  { name: "LinkedIn", icon: "linkedin", color: "#0A66C2", endpoints: 303, package: "@mosaic/linkedin" },
+  { name: "X", icon: "x", color: "#D4D4D8", endpoints: 176, package: "@mosaic/x" },
+  { name: "YouTube", icon: "youtube", color: "#FF0000", endpoints: 98, package: "@mosaic/youtube" },
+  { name: "Google Ads", icon: "googleads", color: "#4285F4", endpoints: 169, package: "@mosaic/google-ads" },
+  { name: "Google Business Profile", icon: "google", color: "#4285F4", endpoints: 139, package: "@mosaic/google-business-profile" },
 ];
 
 const platformCount = new Set(platforms.map((p) => p.package)).size;
