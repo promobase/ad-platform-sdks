@@ -1,0 +1,47 @@
+---
+title: "Reddit Ads Bid Suggestions endpoints"
+description: "1 generated Reddit Ads endpoint contract for Bid Suggestions."
+generated: true
+platform: "reddit"
+sourceVersion: "v3"
+sidebar:
+  order: 103
+  label: "Bid Suggestions"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/nanobanana123/reddit-ads-api). Do not edit by hand. */}
+
+## reddit.bidSuggestions.getBidSuggestion
+
+`POST` `/accounts/{account_id}/bid_suggestion`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (getBidSuggestion)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `reddit.bidSuggestions.manage` |
+| Required scopes | `adsedit` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `GetBidSuggestionResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

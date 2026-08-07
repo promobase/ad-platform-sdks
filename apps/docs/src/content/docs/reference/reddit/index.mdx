@@ -1,0 +1,79 @@
+---
+title: "Reddit Ads SDK reference"
+description: "Generated reference for 40 Reddit Ads endpoints and 164 models."
+generated: true
+platform: "reddit"
+sourceVersion: "v3"
+sidebar:
+  order: 90
+  label: "Reddit Ads"
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/nanobanana123/reddit-ads-api). Do not edit by hand. */}
+
+Install the platform package and import either its high-level client or its generated Effect client.
+
+```bash
+bun add @openpromo/reddit
+```
+
+```ts
+import { createEffectClient } from "@openpromo/reddit/effect";
+
+const client = createEffectClient();
+```
+
+| Contract | Value |
+| --- | --- |
+| Platform | Reddit Ads |
+| API version | `v3` |
+| Source | `openapi: https://github.com/nanobanana123/reddit-ads-api` |
+| Endpoints | 40 |
+| Models | 164 |
+| Capabilities | 20 |
+
+## Endpoints
+
+- [Accounts](/reference/reddit/endpoints/accounts)
+- [Ad Groups](/reference/reddit/endpoints/ad-groups)
+- [Ads](/reference/reddit/endpoints/ads)
+- [Bid Suggestions](/reference/reddit/endpoints/bid-suggestions)
+- [Campaigns](/reference/reddit/endpoints/campaigns)
+- [Conversions](/reference/reddit/endpoints/conversions)
+- [Custom Audiences](/reference/reddit/endpoints/custom-audiences)
+- [Funding Instruments](/reference/reddit/endpoints/funding-instruments)
+- [Pixels](/reference/reddit/endpoints/pixels)
+- [Reports](/reference/reddit/endpoints/reports)
+- [Saved Audiences](/reference/reddit/endpoints/saved-audiences)
+- [Structured Posts](/reference/reddit/endpoints/structured-posts)
+- [Targeting](/reference/reddit/endpoints/targeting)
+
+## Models
+
+- [Account – Inline159](/reference/reddit/models/account-to-inline159)
+- [Inline162 – Validate Geolocations Response](/reference/reddit/models/inline162-to-validate-geolocations-response)
+
+## Capabilities
+
+| Capability | Summary | Required scopes |
+| --- | --- | --- |
+| `reddit.accounts.manage` | Manage Accounts via Reddit Ads API | `adsedit` |
+| `reddit.accounts.read` | Read Accounts via Reddit Ads API | `adsread` |
+| `reddit.adGroups.manage` | Manage Ad Groups via Reddit Ads API | `adsedit` |
+| `reddit.adGroups.read` | Read Ad Groups via Reddit Ads API | `adsread` |
+| `reddit.ads.manage` | Manage Ads via Reddit Ads API | `adsedit` |
+| `reddit.ads.read` | Read Ads via Reddit Ads API | `adsread` |
+| `reddit.bidSuggestions.manage` | Manage Bid Suggestions via Reddit Ads API | `adsedit` |
+| `reddit.campaigns.manage` | Manage Campaigns via Reddit Ads API | `adsedit` |
+| `reddit.campaigns.read` | Read Campaigns via Reddit Ads API | `adsread` |
+| `reddit.conversions.manage` | Manage Conversions via Reddit Ads API | `adsedit` |
+| `reddit.customAudiences.manage` | Manage Custom Audiences via Reddit Ads API | `adsedit` |
+| `reddit.customAudiences.read` | Read Custom Audiences via Reddit Ads API | `adsread` |
+| `reddit.fundingInstruments.read` | Read Funding Instruments via Reddit Ads API | `adsread` |
+| `reddit.pixels.read` | Read Pixels via Reddit Ads API | `adsread` |
+| `reddit.reports.manage` | Manage Reports via Reddit Ads API | `adsedit` |
+| `reddit.savedAudiences.read` | Read Saved Audiences via Reddit Ads API | `adsread` |
+| `reddit.structuredPosts.manage` | Manage Structured Posts via Reddit Ads API | `adsedit` |
+| `reddit.structuredPosts.read` | Read Structured Posts via Reddit Ads API | `adsread` |
+| `reddit.targeting.manage` | Manage Targeting via Reddit Ads API | `adsedit` |
+| `reddit.targeting.read` | Read Targeting via Reddit Ads API | `adsread` |

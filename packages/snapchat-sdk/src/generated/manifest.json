@@ -1,0 +1,187 @@
+{
+  "source": "https://developers.snap.com/marketing-api",
+  "docPages": 101,
+  "endpoints": 214,
+  "pages": [
+    {
+      "docId": "Ads-API-ad-accounts",
+      "fileName": "ad-accounts",
+      "endpoints": 4
+    },
+    {
+      "docId": "Ads-API-ad-squad-outcomes",
+      "fileName": "ad-squad-outcomes",
+      "endpoints": 1
+    },
+    {
+      "docId": "Ads-API-ad-squad-ui-render-data",
+      "fileName": "ad-squad-ui-render-data",
+      "endpoints": 3
+    },
+    {
+      "docId": "Ads-API-ad-squads",
+      "fileName": "ad-squads",
+      "endpoints": 9
+    },
+    {
+      "docId": "Ads-API-ads",
+      "fileName": "ads",
+      "endpoints": 8
+    },
+    {
+      "docId": "Ads-API-audience-creation-customer-lists",
+      "fileName": "audience-creation-customer-lists",
+      "endpoints": 8
+    },
+    {
+      "docId": "Ads-API-audience-creation-lookalikes",
+      "fileName": "audience-creation-lookalikes",
+      "endpoints": 1
+    },
+    {
+      "docId": "Ads-API-audience-creation-profile-engagement",
+      "fileName": "audience-creation-profile-engagement",
+      "endpoints": 2
+    },
+    {
+      "docId": "Ads-API-audience-insights",
+      "fileName": "audience-insights",
+      "endpoints": 1
+    },
+    {
+      "docId": "Ads-API-audience-size",
+      "fileName": "audience-size",
+      "endpoints": 3
+    },
+    {
+      "docId": "Ads-API-audit-logs",
+      "fileName": "audit-logs",
+      "endpoints": 5
+    },
+    {
+      "docId": "Ads-API-authentication",
+      "fileName": "authentication",
+      "endpoints": 2
+    },
+    {
+      "docId": "Ads-API-bid-estimate",
+      "fileName": "bid-estimate",
+      "endpoints": 2
+    },
+    {
+      "docId": "Ads-API-billing-centers",
+      "fileName": "billing-centers",
+      "endpoints": 4
+    },
+    {
+      "docId": "Ads-API-campaigns",
+      "fileName": "campaigns",
+      "endpoints": 6
+    },
+    {
+      "docId": "Ads-API-creatives",
+      "fileName": "creatives",
+      "endpoints": 15
+    },
+    {
+      "docId": "Ads-API-dynamic-collections-ads",
+      "fileName": "dynamic-collections-ads",
+      "endpoints": 7
+    },
+    {
+      "docId": "Ads-API-dynamic-product-ads",
+      "fileName": "dynamic-product-ads",
+      "endpoints": 25
+    },
+    {
+      "docId": "Ads-API-dynamic-story-ads",
+      "fileName": "dynamic-story-ads",
+      "endpoints": 5
+    },
+    {
+      "docId": "Ads-API-event-details",
+      "fileName": "event-details",
+      "endpoints": 4
+    },
+    {
+      "docId": "Ads-API-funding-sources",
+      "fileName": "funding-sources",
+      "endpoints": 2
+    },
+    {
+      "docId": "Ads-API-interaction-zones",
+      "fileName": "interaction-zones",
+      "endpoints": 2
+    },
+    {
+      "docId": "Ads-API-invoices",
+      "fileName": "invoices",
+      "endpoints": 2
+    },
+    {
+      "docId": "Ads-API-lead-generation-ads",
+      "fileName": "lead-generation-ads",
+      "endpoints": 2
+    },
+    {
+      "docId": "Ads-API-lenses",
+      "fileName": "lenses",
+      "endpoints": 9
+    },
+    {
+      "docId": "Ads-API-measurement",
+      "fileName": "measurement",
+      "endpoints": 14
+    },
+    {
+      "docId": "Ads-API-media",
+      "fileName": "media",
+      "endpoints": 11
+    },
+    {
+      "docId": "Ads-API-members",
+      "fileName": "members",
+      "endpoints": 4
+    },
+    {
+      "docId": "Ads-API-organizations",
+      "fileName": "organizations",
+      "endpoints": 3
+    },
+    {
+      "docId": "Ads-API-reach-and-frequency",
+      "fileName": "reach-and-frequency",
+      "endpoints": 4
+    },
+    {
+      "docId": "Ads-API-roles",
+      "fileName": "roles",
+      "endpoints": 9
+    },
+    {
+      "docId": "Ads-API-snap-app-id",
+      "fileName": "snap-app-id",
+      "endpoints": 3
+    },
+    {
+      "docId": "Ads-API-snap-pixel",
+      "fileName": "snap-pixel",
+      "endpoints": 10
+    },
+    {
+      "docId": "Ads-API-targeting",
+      "fileName": "targeting",
+      "endpoints": 22
+    },
+    {
+      "docId": "Ads-API-transactions",
+      "fileName": "transactions",
+      "endpoints": 1
+    },
+    {
+      "docId": "Ads-API-user",
+      "fileName": "user",
+      "endpoints": 1
+    }
+  ]
+}

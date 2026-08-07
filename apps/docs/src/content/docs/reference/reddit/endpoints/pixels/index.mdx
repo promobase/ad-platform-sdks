@@ -1,0 +1,149 @@
+---
+title: "Reddit Ads Pixels endpoints"
+description: "4 generated Reddit Ads endpoint contracts for Pixels."
+generated: true
+platform: "reddit"
+sourceVersion: "v3"
+sidebar:
+  order: 108
+  label: "Pixels"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/nanobanana123/reddit-ads-api). Do not edit by hand. */}
+
+## reddit.pixels.getPixelAppLastFiredAt
+
+`GET` `/pixels/{pixel_id}/app_last_fired_at`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (getPixelAppLastFiredAt)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reddit.pixels.read` |
+| Required scopes | `adsread` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `GetPixelAppLastFiredAtResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pixelId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reddit.pixels.getPixelLastFiredAt
+
+`GET` `/pixels/{pixel_id}/last_fired_at`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (getPixelLastFiredAt)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reddit.pixels.read` |
+| Required scopes | `adsread` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `GetPixelLastFiredAtResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pixelId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reddit.pixels.listPixelsByAccount
+
+`GET` `/accounts/{account_id}/pixels`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (listPixelsByAccount)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reddit.pixels.read` |
+| Required scopes | `adsread` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `ListPixelsByAccountResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reddit.pixels.listPixelsByBusiness
+
+`GET` `/businesses/{business_id}/pixels`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (listPixelsByBusiness)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reddit.pixels.read` |
+| Required scopes | `adsread` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `ListPixelsByBusinessResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

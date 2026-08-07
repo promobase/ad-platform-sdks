@@ -1,0 +1,150 @@
+---
+title: "Reddit Ads Custom Audiences endpoints"
+description: "4 generated Reddit Ads endpoint contracts for Custom Audiences."
+generated: true
+platform: "reddit"
+sourceVersion: "v3"
+sidebar:
+  order: 106
+  label: "Custom Audiences"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/nanobanana123/reddit-ads-api). Do not edit by hand. */}
+
+## reddit.customAudiences.createCustomAudience
+
+`POST` `/accounts/{account_id}/custom_audiences`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (createCustomAudience)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `reddit.customAudiences.manage` |
+| Required scopes | `adsedit` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `CreateCustomAudienceResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reddit.customAudiences.getCustomAudience
+
+`GET` `/accounts/{account_id}/custom_audiences/{audience_id}`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (getCustomAudience)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reddit.customAudiences.read` |
+| Required scopes | `adsread` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `GetCustomAudienceResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `path` | `string` | Yes | No | — |
+| `audienceId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reddit.customAudiences.listCustomAudiences
+
+`GET` `/accounts/{account_id}/custom_audiences`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (listCustomAudiences)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reddit.customAudiences.read` |
+| Required scopes | `adsread` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `ListCustomAudiencesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reddit.customAudiences.updateCustomAudienceUsers
+
+`PATCH` `/custom_audiences/{audience_id}/users`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (updateCustomAudienceUsers)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `reddit.customAudiences.manage` |
+| Required scopes | `adsedit` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `UpdateCustomAudienceUsersResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

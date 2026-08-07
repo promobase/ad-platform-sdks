@@ -1,0 +1,32 @@
+{
+  "platform": "snapchat",
+  "source": {
+    "kind": "documentation",
+    "location": "https://developers.snap.com/marketing-api",
+    "revision": "2afce4002ffdb72724692d1fb3f5d86a1d8621d017a400824e6aebdefc6ed9c3"
+  },
+  "version": "v1",
+  "counts": {
+    "models": 216,
+    "endpoints": 214,
+    "capabilities": 2
+  },
+  "coverage": {
+    "discoveredOperations": 214,
+    "excludedOperations": [],
+    "unresolvedSchemas": [
+      "message",
+      "rotation",
+      "integrated_loudness",
+      "true_peak",
+      "pixel_id",
+      "daily_budget_micro",
+      "conversion_window"
+    ],
+    "protocols": [
+      "json",
+      "multipart"
+    ],
+    "emittedOperations": 214
+  }
+}

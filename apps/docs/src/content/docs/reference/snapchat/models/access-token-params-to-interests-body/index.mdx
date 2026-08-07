@@ -1,0 +1,1120 @@
+---
+title: "Snapchat models: Access Token Params – Interests Body"
+description: "100 generated Snapchat model contracts, from AccessTokenParams through InterestsBody."
+generated: true
+platform: "snapchat"
+sourceVersion: "v1"
+sidebar:
+  order: 1000
+  label: "Access Token Params – Interests Body"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://developers.snap.com/marketing-api). Do not edit by hand. */}
+
+## AccessTokenParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expires_in` | `expires_in` | `number` | Yes | No | — |
+| `token_type` | `token_type` | `string` | Yes | No | — |
+| `refresh_token` | `refresh_token` | `string` | Yes | No | — |
+| `access_token` | `access_token` | `string` | Yes | No | — |
+
+## AccessTokenResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `client_id` | `client_id` | `string` | No | No | Client ID |
+| `client_secret` | `client_secret` | `string` | No | No | Client Secret |
+| `code` | `code` | `string` | No | No | One-time Use Code from User Redirect or Refresh Token |
+| `grant_type` | `grant_type` | `string` | No | No | "authorization_code" |
+| `redirect_uri` | `redirect_uri` | `string` | No | No | URLEncoded Redirect URI. Required when grant_type=authorization_code. Must match redirect_uri from the previous /authorize call |
+
+## AdaccountParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+
+## AdaccountResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | — |
+| `status` | `status` | `string` | Yes | No | — |
+| `organization_id` | `organization_id` | `string` | Yes | No | — |
+| `funding_source_ids` | `funding_source_ids` | `Array<unknown>` | Yes | No | — |
+| `currency` | `currency` | `string` | Yes | No | — |
+| `timezone` | `timezone` | `string` | Yes | No | — |
+| `advertiser` | `advertiser` | `string` | Yes | No | — |
+
+## AdaccountsBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | — |
+| `status` | `status` | `string` | Yes | No | — |
+| `organization_id` | `organization_id` | `string` | Yes | No | — |
+| `funding_source_ids` | `funding_source_ids` | `Array<unknown>` | Yes | No | — |
+| `currency` | `currency` | `string` | Yes | No | — |
+| `billing_type` | `billing_type` | `string` | Yes | No | — |
+| `billing_center_id` | `billing_center_id` | `string` | Yes | No | — |
+| `lifetime_spend_cap_micro` | `lifetime_spend_cap_micro` | `string` | Yes | No | — |
+| `timezone` | `timezone` | `string` | Yes | No | — |
+| `advertiser` | `advertiser` | `string` | Yes | No | — |
+
+## AdditionalMediaBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url` | `url` | `string` | Yes | No | — |
+| `tags` | `tags` | `Array<unknown>` | Yes | No | — |
+
+## AddressBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `line` | `line` | `string` | Yes | No | — |
+| `line2` | `line2` | `string` | Yes | No | — |
+| `locality` | `locality` | `string` | Yes | No | — |
+| `postal_code` | `postal_code` | `string` | Yes | No | — |
+| `region` | `region` | `string` | Yes | No | — |
+| `country_code` | `country_code` | `string` | Yes | No | — |
+
+## AdParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `entity_ids` | `entity_ids` | `Array<EntityIdsBody>` | Yes | No | — |
+
+## AdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `ad_squad_id` | `ad_squad_id` | `string` | Yes | No | — |
+| `creative_id` | `creative_id` | `string` | Yes | No | — |
+| `status` | `status` | `string` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | — |
+| `render_type` | `render_type` | `string` | Yes | No | — |
+| `review_status` | `review_status` | `string` | Yes | No | — |
+| `delivery_status` | `delivery_status` | `Array<unknown>` | Yes | No | — |
+
+## AdsBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `ad_squad_id` | `ad_squad_id` | `string` | Yes | No | — |
+| `creative_id` | `creative_id` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | — |
+| `status` | `status` | `string` | Yes | No | — |
+| `third_party_paid_impression_tracking_urls` | `third_party_paid_impression_tracking_urls` | `Array<unknown>` | Yes | No | — |
+| `third_party_on_swipe_tracking_urls` | `third_party_on_swipe_tracking_urls` | `Array<unknown>` | Yes | No | — |
+
+## AdSquadOutcomeEstimatesV2Body
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `placement_v2` | `placement_v2` | `PlacementV2Body` | Yes | No | — |
+| `status` | `status` | `string` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | — |
+| `targeting` | `targeting` | `TargetingBody` | Yes | No | — |
+| `bid_strategy` | `bid_strategy` | `string` | Yes | No | — |
+| `daily_budget_micro` | `daily_budget_micro` | `number` | Yes | No | — |
+| `delivery_constraint` | `delivery_constraint` | `string` | Yes | No | — |
+| `start_time` | `start_time` | `string` | Yes | No | — |
+| `optimization_goal` | `optimization_goal` | `string` | Yes | No | — |
+| `forced_view_setting` | `forced_view_setting` | `string` | Yes | No | — |
+| `estimate_ad_types` | `estimate_ad_types` | `Array<unknown>` | Yes | No | — |
+| `pixel_id` | `pixel_id` | `string` | Yes | No | — |
+
+## AdSquadOutcomeEstimateV2Params
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `ad_squad_outcome_estimates_v2` | `ad_squad_outcome_estimates_v2` | `Array<AdSquadOutcomeEstimatesV2Body>` | Yes | No | — |
+
+## AdSquadOutcomeEstimateV2Response
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request_id` | `request_id` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | — |
+| `error_code` | `error_code` | `string` | Yes | No | — |
+| `daily` | `daily` | `DailyBody` | Yes | No | — |
+| `weekly` | `weekly` | `WeeklyBody` | Yes | No | — |
+| `use_case` | `use_case` | `string` | Yes | No | — |
+
+## AdsquadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `entity_ids` | `entity_ids` | `Array<EntityIdsBody>` | Yes | No | — |
+
+## AdsquadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `status` | `status` | `string` | Yes | No | — |
+| `campaign_id` | `campaign_id` | `string` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | — |
+| `targeting` | `targeting` | `TargetingBody` | Yes | No | — |
+| `placement_v2` | `placement_v2` | `PlacementV2Body` | Yes | No | — |
+| `billing_event` | `billing_event` | `string` | Yes | No | — |
+| `auto_bid` | `auto_bid` | `boolean` | Yes | No | — |
+| `target_bid` | `target_bid` | `boolean` | Yes | No | — |
+| `bid_strategy` | `bid_strategy` | `string` | Yes | No | — |
+| `daily_budget_micro` | `daily_budget_micro` | `number` | Yes | No | — |
+| `start_time` | `start_time` | `string` | Yes | No | — |
+| `optimization_goal` | `optimization_goal` | `string` | Yes | No | — |
+
+## AdsquadsBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | — |
+| `status` | `status` | `string` | Yes | No | — |
+| `campaign_id` | `campaign_id` | `string` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | — |
+| `placement` | `placement` | `string` | Yes | No | — |
+| `billing_event` | `billing_event` | `string` | Yes | No | — |
+| `bid_micro` | `bid_micro` | `string` | Yes | No | — |
+| `daily_budget_micro` | `daily_budget_micro` | `string` | Yes | No | — |
+| `start_time` | `start_time` | `string` | Yes | No | — |
+| `end_time` | `end_time` | `string` | Yes | No | — |
+| `optimization_goal` | `optimization_goal` | `string` | Yes | No | — |
+| `targeting` | `targeting` | `TargetingBody` | Yes | No | — |
+| `pixel_id` | `pixel_id` | `string` | Yes | No | — |
+
+## AdSquadUiRenderDataBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversion_location` | `conversion_location` | `string` | Yes | No | — |
+
+## AdSquadUiRenderDataParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `limit` | `limit` | `string` | No | No | value between 50 - 1000 |
+
+## AdSquadUiRenderDataResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `ad_squad_id` | `ad_squad_id` | `string` | Yes | No | — |
+| `conversion_location` | `conversion_location` | `string` | Yes | No | — |
+
+## AdvancedDemographicsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `Get a specific Ad Squad by ID` | `Get a specific Ad Squad by ID` | `string` | No | No | — |
+| `Get all Ad Squads under a Campaign` | `Get all Ad Squads under a Campaign` | `string` | No | No | — |
+| `Get a specific Targeting Spec by ID` | `Get a specific Targeting Spec by ID` | `string` | No | No | — |
+| `Get all Targeting Specs under an Ad Squad` | `Get all Targeting Specs under an Ad Squad` | `string` | No | No | — |
+
+## AdvancedDemographicsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | — |
+| `id` | `id` | `string` | Yes | No | — |
+
+## AgeGroupParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `min_age` | `min_age` | `string` | No | No | 35+ is deprecated but may be found in existing ad squads |
+| `max_age` | `max_age` | `MaxAgeEnum` | No | No | integer, defines the maximum age targeted. If you want no maximum cap, do not set a max_age |
+| `Get a specific Ad Squad by ID` | `Get a specific Ad Squad by ID` | `string` | No | No | — |
+| `Get all Ad Squads under a Campaign` | `Get all Ad Squads under a Campaign` | `string` | No | No | — |
+| `Get a specific Targeting Spec by ID` | `Get a specific Targeting Spec by ID` | `string` | No | No | — |
+| `Get all Targeting Specs under an Ad Squad` | `Get all Targeting Specs under an Ad Squad` | `string` | No | No | — |
+
+## AgeGroupResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | — |
+| `id` | `id` | `string` | Yes | No | — |
+
+## AndroidAppLinkBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url` | `url` | `string` | Yes | No | — |
+| `package` | `package` | `string` | Yes | No | — |
+| `app_name` | `app_name` | `string` | Yes | No | — |
+
+## AsyncStatsReportParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `async_format` | `async_format` | `string` | No | No | — |
+| `start_time` | `start_time` | `string` | No | No | Start time in ISO format |
+| `end_time` | `end_time` | `string` | No | No | End time in ISO format |
+
+## AsyncStatsReportResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `report_run_id` | `report_run_id` | `string` | Yes | No | — |
+| `async_status` | `async_status` | `string` | Yes | No | — |
+
+## AudienceSizeParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `geos` | `geos` | `Array<GeosBody>` | Yes | No | — |
+| `demographics` | `demographics` | `Array<DemographicsBody>` | Yes | No | — |
+
+## AudienceSizeResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AudienceSizeV2Params
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `status` | `status` | `string` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | — |
+| `targeting` | `targeting` | `TargetingBody` | Yes | No | — |
+| `placement` | `placement` | `string` | Yes | No | — |
+| `bid_micro` | `bid_micro` | `number` | Yes | No | — |
+| `auto_bid` | `auto_bid` | `boolean` | Yes | No | — |
+| `daily_budget_micro` | `daily_budget_micro` | `number` | Yes | No | — |
+| `delivery_constraint` | `delivery_constraint` | `string` | Yes | No | — |
+| `optimization_goal` | `optimization_goal` | `string` | Yes | No | — |
+| `included_content_types` | `included_content_types` | `Array<unknown>` | Yes | No | — |
+
+## AudienceSizeV2Response
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AVAILABILITYBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `EQ` | `EQ` | `string` | Yes | No | — |
+
+## BaseSpecBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `interests` | `interests` | `Array<InterestsBody>` | Yes | No | — |
+| `geos` | `geos` | `Array<GeosBody>` | Yes | No | — |
+
+## BidEstimateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `optimization_goal` | `optimization_goal` | `string` | Yes | No | — |
+| `targeting` | `targeting` | `TargetingBody` | Yes | No | — |
+
+## BidEstimateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## BillingcenterParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `billingCenterId` | `billingCenterId` | `string` | Yes | No | — |
+
+## BillingcenterResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `organization_id` | `organization_id` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `email_address` | `email_address` | `string` | Yes | No | — |
+| `address_line_1` | `address_line_1` | `string` | Yes | No | — |
+| `locality` | `locality` | `string` | Yes | No | — |
+| `administrative_district_level_1` | `administrative_district_level_1` | `string` | Yes | No | — |
+| `country` | `country` | `string` | Yes | No | — |
+| `postal_code` | `postal_code` | `string` | Yes | No | — |
+| `alternative_email_addresses` | `alternative_email_addresses` | `Array<unknown>` | Yes | No | — |
+
+## BillingcentersBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organization_id` | `organization_id` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `email_address` | `email_address` | `string` | Yes | No | — |
+| `address_line_1` | `address_line_1` | `string` | Yes | No | — |
+| `locality` | `locality` | `string` | Yes | No | — |
+| `administrative_district_level_1` | `administrative_district_level_1` | `string` | Yes | No | — |
+| `country` | `country` | `string` | Yes | No | — |
+| `postal_code` | `postal_code` | `string` | Yes | No | — |
+| `alternative_email_addresses` | `alternative_email_addresses` | `Array<unknown>` | Yes | No | — |
+
+## CampaignParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `entity_ids` | `entity_ids` | `Array<EntityIdsBody>` | Yes | No | — |
+
+## CampaignResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `ad_account_id` | `ad_account_id` | `string` | Yes | No | — |
+| `status` | `status` | `string` | Yes | No | — |
+| `objective` | `objective` | `string` | Yes | No | — |
+| `start_time` | `start_time` | `string` | Yes | No | — |
+| `buy_model` | `buy_model` | `string` | Yes | No | — |
+| `delivery_status` | `delivery_status` | `Array<unknown>` | Yes | No | — |
+| `creation_state` | `creation_state` | `string` | Yes | No | — |
+| `objective_v2_properties` | `objective_v2_properties` | `ObjectiveV2PropertiesBody` | Yes | No | — |
+| `pacing_properties_version` | `pacing_properties_version` | `number` | Yes | No | — |
+
+## CampaignsBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | — |
+| `ad_account_id` | `ad_account_id` | `string` | Yes | No | — |
+| `status` | `status` | `string` | Yes | No | — |
+| `start_time` | `start_time` | `string` | Yes | No | — |
+| `buy_model` | `buy_model` | `string` | Yes | No | — |
+| `creation_state` | `creation_state` | `string` | Yes | No | — |
+| `objective_v2_properties` | `objective_v2_properties` | `ObjectiveV2PropertiesBody` | Yes | No | — |
+
+## CarrierParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `oSTYPE` | `oSTYPE` | `string` | Yes | No | — |
+| `Get a specific Ad Squad by ID` | `Get a specific Ad Squad by ID` | `string` | No | No | — |
+| `Get all Ad Squads under a Campaign` | `Get all Ad Squads under a Campaign` | `string` | No | No | — |
+| `Get a specific Targeting Spec by ID` | `Get a specific Targeting Spec by ID` | `string` | No | No | — |
+| `Get all Targeting Specs under an Ad Squad` | `Get all Targeting Specs under an Ad Squad` | `string` | No | No | — |
+
+## CarrierResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `valid_country` | `valid_country` | `string` | Yes | No | — |
+
+## CatalogParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogId` | `catalogId` | `string` | Yes | No | — |
+
+## CatalogResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+| `id` | `id` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `organization_id` | `organization_id` | `string` | Yes | No | — |
+| `event_sources` | `event_sources` | `Array<EventSourcesBody>` | Yes | No | — |
+| `default_product_set_id` | `default_product_set_id` | `string` | Yes | No | — |
+| `vertical` | `vertical` | `string` | Yes | No | — |
+
+## CatalogsBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organization_id` | `organization_id` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `vertical` | `vertical` | `string` | Yes | No | — |
+| `event_sources` | `event_sources` | `Array<EventSourcesBody>` | Yes | No | — |
+
+## CategoriesLoiParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `proximity` | `proximity` | `string` | Yes | No | Proximity to selected location categories |
+| `proximity_unit` | `proximity_unit` | `string` | Yes | No | Unit to be used for radius |
+| `Get a specific Ad Squad by ID` | `Get a specific Ad Squad by ID` | `string` | No | No | — |
+| `Get all Ad Squads under a Campaign` | `Get all Ad Squads under a Campaign` | `string` | No | No | — |
+| `Get a specific Targeting Spec by ID` | `Get a specific Targeting Spec by ID` | `string` | No | No | — |
+| `Get all Targeting Specs under an Ad Squad` | `Get all Targeting Specs under an Ad Squad` | `string` | No | No | — |
+
+## CategoriesLoiResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `proximity` | `proximity` | `string` | Yes | No | Proximity to selected location categories |
+| `proximity_unit` | `proximity_unit` | `string` | Yes | No | Unit to be used for radius |
+
+## ChangelogParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | Yes | No | — |
+| `limit` | `limit` | `string` | No | No | — |
+
+## ChangelogResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `action` | `action` | `string` | Yes | No | — |
+| `user_id` | `user_id` | `string` | Yes | No | — |
+| `email` | `email` | `string` | Yes | No | — |
+| `event_at` | `event_at` | `string` | Yes | No | — |
+| `app_id` | `app_id` | `string` | Yes | No | — |
+| `app_name` | `app_name` | `string` | Yes | No | — |
+| `entity_id` | `entity_id` | `string` | Yes | No | — |
+| `entity_type` | `entity_type` | `string` | Yes | No | — |
+| `update_value_records` | `update_value_records` | `UpdateValueRecordsBody` | Yes | No | — |
+
+## CollectionPropertiesDefaultFallbackInteractionTypeEnum
+
+`enum` model on the `json` wire format.
+
+**Values:** `WEB_VIEW`, `APP_INSTALL`, `DEEP_LINK`
+
+## ContinentBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+
+## CountryBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `code` | `code` | `string` | Yes | No | — |
+| `code2` | `code2` | `string` | Yes | No | — |
+
+## CountryParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `Get a specific Ad Squad by ID` | `Get a specific Ad Squad by ID` | `string` | No | No | — |
+| `Get all Ad Squads under a Campaign` | `Get all Ad Squads under a Campaign` | `string` | No | No | — |
+| `Get a specific Targeting Spec by ID` | `Get a specific Targeting Spec by ID` | `string` | No | No | — |
+| `Get all Targeting Specs under an Ad Squad` | `Get all Targeting Specs under an Ad Squad` | `string` | No | No | — |
+
+## CountryResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreativeElementParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | Creative Element name |
+| `type` | `type` | `TypeEnum` | Yes | No | — |
+| `title` | `title` | `string` | No | No | Creative Element title |
+| `description` | `description` | `string` | No | No | Creative Element description |
+| `interaction_type` | `interaction_type` | `InteractionTypeEnum` | Yes | No | Defines the behaviour of the Creative Elements |
+| `render_type` | `render_type` | `RenderTypeEnum` | Yes | No | — |
+
+## CreativeElementResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `ad_account_id` | `ad_account_id` | `string` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | — |
+| `interaction_type` | `interaction_type` | `string` | Yes | No | — |
+| `render_type` | `render_type` | `string` | Yes | No | — |
+
+## CreativeParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | Creative name |
+| `ad_account_id` | `ad_account_id` | `string` | Yes | No | Ad Account ID |
+| `type` | `type` | `TypeEnum` | Yes | No | Creative type |
+| `shareable` | `shareable` | `string` | No | No | Allows sharing of the Story Ad on iOS, Android sharing is currently not available |
+| `render_type` | `render_type` | `RenderTypeEnum` | Yes | No | — |
+| `preview_properties.preview_media_id` | `preview_properties.preview_media_id` | `string` | No | No | Preview Media ID, required when render_type is STATIC |
+| `preview_properties.logo_media_id` | `preview_properties.logo_media_id` | `string` | No | No | Logo Media ID |
+| `preview_properties.preview_headline` | `preview_properties.preview_headline` | `string` | Yes | No | 55 Character limit, emoji unicode characters allowed |
+| `dynamic_render_properties.dynamic_template_id` | `dynamic_render_properties.dynamic_template_id` | `string` | No | No | Must match Dynamic Template ID set on the Composite creative, required when render_type is DYNAMIC |
+| `dynamic_render_properties.product_set_id` | `dynamic_render_properties.product_set_id` | `string` | No | No | Must match Product Set ID set at Ad Squad level, required when render_type is DYNAMIC |
+
+## CreativePreviewParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creativeId` | `creativeId` | `string` | Yes | No | — |
+
+## CreativePreviewResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CreativeResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `ad_account_id` | `ad_account_id` | `string` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | — |
+| `packaging_status` | `packaging_status` | `string` | Yes | No | — |
+| `review_status` | `review_status` | `string` | Yes | No | — |
+| `shareable` | `shareable` | `boolean` | Yes | No | — |
+| `render_type` | `render_type` | `string` | Yes | No | — |
+| `top_snap_crop_position` | `top_snap_crop_position` | `string` | Yes | No | — |
+| `preview_properties` | `preview_properties` | `PreviewPropertiesBody` | Yes | No | — |
+| `ad_product` | `ad_product` | `string` | Yes | No | — |
+
+## CreativesBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | Yes | No | — |
+| `top_snap_media_id` | `top_snap_media_id` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `profile_properties` | `profile_properties` | `ProfilePropertiesBody` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | — |
+| `headline` | `headline` | `string` | Yes | No | — |
+| `shareable` | `shareable` | `boolean` | Yes | No | — |
+
+## CustomerBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | — |
+| `netsuite_id` | `netsuite_id` | `string` | Yes | No | — |
+
+## DailyBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversions_lower` | `conversions_lower` | `number` | Yes | No | — |
+| `conversions_upper` | `conversions_upper` | `number` | Yes | No | — |
+| `reaches_lower` | `reaches_lower` | `number` | Yes | No | — |
+| `reaches_upper` | `reaches_upper` | `number` | Yes | No | — |
+| `impressions_lower` | `impressions_lower` | `number` | Yes | No | — |
+| `impressions_upper` | `impressions_upper` | `number` | Yes | No | — |
+| `is_budget_hit` | `is_budget_hit` | `boolean` | Yes | No | — |
+| `budget_left` | `budget_left` | `number` | Yes | No | — |
+| `budget_spent_ratio` | `budget_spent_ratio` | `number` | Yes | No | — |
+
+## DemographicsBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age_groups` | `age_groups` | `Array<unknown>` | Yes | No | — |
+
+## DimensionEnum
+
+`enum` model on the `json` wire format.
+
+**Values:** `GEO`, `DEMO`, `INTEREST`, `DEVICE`
+
+## DlxcParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `Get a specific Ad Squad by ID` | `Get a specific Ad Squad by ID` | `string` | No | No | — |
+| `Get all Ad Squads under a Campaign` | `Get all Ad Squads under a Campaign` | `string` | No | No | — |
+| `Get a specific Targeting Spec by ID` | `Get a specific Targeting Spec by ID` | `string` | No | No | — |
+| `Get all Targeting Specs under an Ad Squad` | `Get all Targeting Specs under an Ad Squad` | `string` | No | No | — |
+
+## DlxcResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | — |
+| `id` | `id` | `string` | Yes | No | — |
+
+## DlxpParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `Get a specific Ad Squad by ID` | `Get a specific Ad Squad by ID` | `string` | No | No | — |
+| `Get all Ad Squads under a Campaign` | `Get all Ad Squads under a Campaign` | `string` | No | No | — |
+| `Get a specific Targeting Spec by ID` | `Get a specific Targeting Spec by ID` | `string` | No | No | — |
+| `Get all Targeting Specs under an Ad Squad` | `Get all Targeting Specs under an Ad Squad` | `string` | No | No | — |
+
+## DlxpResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+
+## DlxsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `Get a specific Ad Squad by ID` | `Get a specific Ad Squad by ID` | `string` | No | No | — |
+| `Get all Ad Squads under a Campaign` | `Get all Ad Squads under a Campaign` | `string` | No | No | — |
+| `Get a specific Targeting Spec by ID` | `Get a specific Targeting Spec by ID` | `string` | No | No | — |
+| `Get all Targeting Specs under an Ad Squad` | `Get all Targeting Specs under an Ad Squad` | `string` | No | No | — |
+
+## DlxsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | — |
+| `id` | `id` | `string` | Yes | No | — |
+
+## DynamicTemplateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `dynamic_templates` | `dynamic_templates` | `Array<DynamicTemplatesBody>` | Yes | No | — |
+
+## DynamicTemplateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `ad_account_id` | `ad_account_id` | `string` | Yes | No | — |
+| `ios_url` | `ios_url` | `string` | Yes | No | — |
+| `android_url` | `android_url` | `string` | Yes | No | — |
+| `layout` | `layout` | `string` | Yes | No | — |
+| `text_fields` | `text_fields` | `Array<unknown>` | Yes | No | — |
+
+## DynamicTemplatesBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `ios_url` | `ios_url` | `string` | Yes | No | — |
+| `android_url` | `android_url` | `string` | Yes | No | — |
+| `layout` | `layout` | `string` | Yes | No | — |
+| `text_fields` | `text_fields` | `Array<unknown>` | Yes | No | — |
+
+## EcidStatuParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `snapAppId` | `snapAppId` | `string` | Yes | No | — |
+
+## EcidStatuResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## EntityIdsBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+
+## EventDetailParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Ad Account ID |
+
+## EventDetailResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `event_name` | `event_name` | `string` | Yes | No | — |
+| `event_start_time` | `event_start_time` | `string` | Yes | No | — |
+| `event_time_zone` | `event_time_zone` | `string` | Yes | No | — |
+| `ad_account_id` | `ad_account_id` | `string` | Yes | No | — |
+
+## EventSourcesBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | — |
+
+## FacetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogId` | `catalogId` | `string` | Yes | No | — |
+| `facets` | `facets` | `Array<FacetsBody>` | Yes | No | — |
+| `filter` | `filter` | `FilterBody` | Yes | No | — |
+
+## FacetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `property` | `property` | `string` | Yes | No | — |
+
+## FacetsBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `property` | `property` | `string` | Yes | No | — |
+
+## FeedUploadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productFeedId` | `productFeedId` | `string` | Yes | No | — |
+
+## FeedUploadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+| `id` | `id` | `string` | Yes | No | — |
+| `feed_id` | `feed_id` | `string` | Yes | No | — |
+| `summary` | `summary` | `SummaryBody` | Yes | No | — |
+| `url` | `url` | `string` | Yes | No | — |
+| `update_type` | `update_type` | `string` | Yes | No | — |
+| `status` | `status` | `string` | Yes | No | — |
+
+## FilterBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AVAILABILITY` | `AVAILABILITY` | `AVAILABILITYBody` | Yes | No | — |
+
+## FormFieldsBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `type` | `type` | `string` | Yes | No | — |
+
+## FundingsourceParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `fundingSourceId` | `fundingSourceId` | `string` | Yes | No | — |
+
+## FundingsourceResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | — |
+| `organization_id` | `organization_id` | `string` | Yes | No | — |
+| `currency` | `currency` | `string` | Yes | No | — |
+
+## GenderParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `Get a specific Ad Squad by ID` | `Get a specific Ad Squad by ID` | `string` | No | No | — |
+| `Get all Ad Squads under a Campaign` | `Get all Ad Squads under a Campaign` | `string` | No | No | — |
+| `Get a specific Targeting Spec by ID` | `Get a specific Targeting Spec by ID` | `string` | No | No | — |
+| `Get all Targeting Specs under an Ad Squad` | `Get all Targeting Specs under an Ad Squad` | `string` | No | No | — |
+
+## GenderResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | — |
+| `id` | `id` | `string` | Yes | No | — |
+
+## GeographicCoordinatesBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `longitude` | `longitude` | `number` | Yes | No | — |
+| `latitude` | `latitude` | `number` | Yes | No | — |
+
+## GeosBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country_code` | `country_code` | `string` | Yes | No | — |
+
+## GranularityEnum
+
+`enum` model on the `json` wire format.
+
+**Values:** `TOTAL`, `DAY`, `HOUR`, `LIFETIME`
+
+## GuestRatingsBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rating_system` | `rating_system` | `string` | Yes | No | — |
+| `score` | `score` | `string` | Yes | No | — |
+| `max_score` | `max_score` | `string` | Yes | No | — |
+| `number_of_reviewers` | `number_of_reviewers` | `string` | Yes | No | — |
+
+## HeadlineEnum
+
+`enum` model on the `json` wire format.
+
+**Values:** `APPLY_NOW`, `BOOK_NOW`, `BUY_TICKETS`, `DONATE`, `DOWNLOAD`, `GET_NOW`, `INSTALL_NOW`, `LISTEN`, `MORE`, `OPEN_APP`, `ORDER_NOW`, `PLAY`, `READ`, `RESPOND`, `SHOP_NOW`, `SHOW`, `SHOWTIMES`, `SIGN_UP`, `TRY`, `USE_APP`, `VIEW`, `WATCH`
+
+## InteractionTypeEnum
+
+`enum` model on the `json` wire format.
+
+**Values:** `WEB_VIEW`, `APP_INSTALL`, `DEEP_LINK`
+
+## InteractionZoneParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | Interaction Zone name |
+| `render_type` | `render_type` | `RenderTypeEnum` | Yes | No | — |
+| `creative_elements` | `creative_elements` | `string` | Yes | No | An array of 2-4 Creative Element ids, these elements should be of the same interaction_type |
+| `headline` | `headline` | `HeadlineEnum` | Yes | No | This is used as the CTA for the Collection Ad |
+
+## InteractionZoneResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `ad_account_id` | `ad_account_id` | `string` | Yes | No | — |
+| `headline` | `headline` | `string` | Yes | No | — |
+| `creative_element_ids` | `creative_element_ids` | `Array<unknown>` | Yes | No | — |
+| `render_type` | `render_type` | `string` | Yes | No | — |
+
+## InterestsBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category_id` | `category_id` | `Array<unknown>` | Yes | No | — |

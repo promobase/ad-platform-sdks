@@ -1,0 +1,872 @@
+---
+title: "Reddit Ads models: Account – Inline159"
+description: "100 generated Reddit Ads model contracts, from Account through Inline159."
+generated: true
+platform: "reddit"
+sourceVersion: "v3"
+sidebar:
+  order: 1000
+  label: "Account – Inline159"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/nanobanana123/reddit-ads-api). Do not edit by hand. */}
+
+## Account
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Account ID (e.g., `t2_abc123`) |
+| `name` | `name` | `string` | No | No | — |
+| `attribution_type` | `attribution_type` | `string` | No | No | — |
+| `click_attribution_window` | `click_attribution_window` | `string` | No | No | — |
+| `view_attribution_window` | `view_attribution_window` | `string` | No | No | — |
+| `currency` | `currency` | `string` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+| `time_zone_id` | `time_zone_id` | `string` | No | No | — |
+| `created_at` | `created_at` | `string` | No | No | — |
+
+## AccountUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribution_type` | `attribution_type` | `string` | No | No | — |
+| `click_attribution_window` | `click_attribution_window` | `string` | No | No | — |
+| `view_attribution_window` | `view_attribution_window` | `string` | No | No | — |
+
+## ActionSource
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## Ad
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `account_id` | `account_id` | `string` | No | No | — |
+| `campaign_id` | `campaign_id` | `string` | No | No | — |
+| `ad_group_id` | `ad_group_id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `configured_status` | `configured_status` | `ConfiguredStatus` | No | No | — |
+| `effective_status` | `effective_status` | `AdEffectiveStatus` | No | No | — |
+| `post_id` | `post_id` | `string` | No | No | Reddit post ID (for promoted posts) |
+| `click_url` | `click_url` | `string` | No | No | — |
+| `click_url_query_parameters` | `click_url_query_parameters` | `string` | No | No | — |
+| `preview_expiry` | `preview_expiry` | `string` | No | No | — |
+| `delivery_status` | `delivery_status` | `string` | No | No | — |
+| `created_at` | `created_at` | `string` | No | No | — |
+
+## AdCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_id` | `ad_group_id` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `configured_status` | `configured_status` | `ConfiguredStatus` | Yes | No | — |
+| `post_id` | `post_id` | `string` | No | No | — |
+| `click_url` | `click_url` | `string` | Yes | No | — |
+| `click_url_query_parameters` | `click_url_query_parameters` | `string` | No | No | — |
+| `call_to_action` | `call_to_action` | `CallToAction` | No | No | — |
+
+## AdEffectiveStatus
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## AdGroup
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `account_id` | `account_id` | `string` | No | No | — |
+| `campaign_id` | `campaign_id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `configured_status` | `configured_status` | `ConfiguredStatus` | No | No | — |
+| `effective_status` | `effective_status` | `CampaignEffectiveStatus` | No | No | — |
+| `bid_strategy` | `bid_strategy` | `BidStrategy` | No | No | — |
+| `bid_value` | `bid_value` | `number` | No | No | Bid amount in microcurrency |
+| `goal_type` | `goal_type` | `GoalType` | No | No | — |
+| `optimization_goal` | `optimization_goal` | `OptimizationGoal` | No | No | — |
+| `conversion_pixel_id` | `conversion_pixel_id` | `string` | No | No | Pixel ID for conversion tracking (added Oct 2025) |
+| `start_time` | `start_time` | `string` | No | No | — |
+| `end_time` | `end_time` | `string` | No | No | — |
+| `delivery_status` | `delivery_status` | `string` | No | No | — |
+| `targeting` | `targeting` | `Targeting` | No | No | — |
+| `created_at` | `created_at` | `string` | No | No | — |
+
+## AdGroupCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_id` | `campaign_id` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `configured_status` | `configured_status` | `ConfiguredStatus` | Yes | No | — |
+| `bid_strategy` | `bid_strategy` | `BidStrategy` | Yes | No | — |
+| `bid_value` | `bid_value` | `number` | No | No | — |
+| `goal_type` | `goal_type` | `GoalType` | Yes | No | — |
+| `optimization_goal` | `optimization_goal` | `OptimizationGoal` | No | No | — |
+| `conversion_pixel_id` | `conversion_pixel_id` | `string` | No | No | — |
+| `start_time` | `start_time` | `string` | Yes | No | — |
+| `end_time` | `end_time` | `string` | No | No | — |
+| `targeting` | `targeting` | `Targeting` | Yes | No | — |
+
+## AdGroupUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | — |
+| `configured_status` | `configured_status` | `ConfiguredStatus` | No | No | — |
+| `bid_strategy` | `bid_strategy` | `BidStrategy` | No | No | — |
+| `bid_value` | `bid_value` | `number` | No | No | — |
+| `goal_type` | `goal_type` | `GoalType` | No | No | — |
+| `optimization_goal` | `optimization_goal` | `OptimizationGoal` | No | No | — |
+| `conversion_pixel_id` | `conversion_pixel_id` | `string` | No | No | — |
+| `start_time` | `start_time` | `string` | No | No | — |
+| `end_time` | `end_time` | `string` | No | No | — |
+| `targeting` | `targeting` | `Targeting` | No | No | — |
+
+## AdUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | — |
+| `configured_status` | `configured_status` | `ConfiguredStatus` | No | No | — |
+| `click_url` | `click_url` | `string` | No | No | — |
+| `click_url_query_parameters` | `click_url_query_parameters` | `string` | No | No | — |
+| `call_to_action` | `call_to_action` | `CallToAction` | No | No | — |
+
+## ApiResponse_Account
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Account` | No | No | — |
+
+## ApiResponse_AccountList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Account>` | No | No | — |
+
+## ApiResponse_Ad
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Ad` | No | No | — |
+
+## ApiResponse_AdGroup
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `AdGroup` | No | No | — |
+
+## ApiResponse_AdGroupList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<AdGroup>` | No | No | — |
+
+## ApiResponse_AdList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Ad>` | No | No | — |
+
+## ApiResponse_BidSuggestion
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `BidSuggestion` | No | No | — |
+
+## ApiResponse_Campaign
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Campaign` | No | No | — |
+
+## ApiResponse_CampaignList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Campaign>` | No | No | — |
+
+## ApiResponse_CustomAudience
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CustomAudience` | No | No | — |
+
+## ApiResponse_CustomAudienceList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<CustomAudience>` | No | No | — |
+
+## ApiResponse_FundingInstrumentList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<FundingInstrument>` | No | No | — |
+
+## ApiResponse_GeolocationValidation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline33` | No | No | — |
+
+## ApiResponse_PixelLastFired
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline35` | No | No | — |
+
+## ApiResponse_PixelList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Pixel>` | No | No | — |
+
+## ApiResponse_Report
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<ReportRow>` | No | No | — |
+
+## ApiResponse_SavedAudience
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `SavedAudience` | No | No | — |
+
+## ApiResponse_SavedAudienceList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<SavedAudience>` | No | No | — |
+
+## ApiResponse_StructuredPost
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `StructuredPost` | No | No | — |
+
+## ApiResponse_StructuredPostList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<StructuredPost>` | No | No | — |
+
+## ApiResponse_Success
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline47` | No | No | — |
+
+## ApiResponse_TargetingOptions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline49>` | No | No | — |
+
+## ApiResponse_User
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `User` | No | No | — |
+
+## AudienceUserAction
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## BidStrategy
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## BidSuggestion
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## BidSuggestionRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targeting` | `targeting` | `Targeting` | No | No | — |
+| `objective` | `objective` | `CampaignObjective` | No | No | — |
+| `goal_type` | `goal_type` | `GoalType` | No | No | — |
+
+## CallToAction
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## Campaign
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## CampaignCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | — |
+| `objective` | `objective` | `CampaignObjective` | Yes | No | — |
+| `configured_status` | `configured_status` | `ConfiguredStatus` | Yes | No | — |
+| `funding_instrument_id` | `funding_instrument_id` | `string` | Yes | No | Required since Jul 2024 |
+| `spend_cap` | `spend_cap` | `number` | No | No | — |
+| `goal_type` | `goal_type` | `GoalType` | No | No | — |
+| `app_id` | `app_id` | `string` | No | No | — |
+| `start_time` | `start_time` | `string` | No | No | — |
+| `end_time` | `end_time` | `string` | No | No | — |
+| `invoice_label` | `invoice_label` | `string` | No | No | — |
+
+## CampaignEffectiveStatus
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## CampaignObjective
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## CampaignUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | No | No | — |
+| `configured_status` | `configured_status` | `ConfiguredStatus` | No | No | — |
+| `spend_cap` | `spend_cap` | `number` | No | No | — |
+| `goal_type` | `goal_type` | `GoalType` | No | No | — |
+| `start_time` | `start_time` | `string` | No | No | — |
+| `end_time` | `end_time` | `string` | No | No | — |
+| `invoice_label` | `invoice_label` | `string` | No | No | — |
+
+## ConfiguredStatus
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## ConversionEvent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `event_at` | `event_at` | `number` | Yes | No | Event timestamp in milliseconds since epoch |
+| `action_source` | `action_source` | `ActionSource` | Yes | No | — |
+| `click_id` | `click_id` | `string` | No | No | Reddit click ID (`rdt_cid` value) |
+| `type` | `type` | `ConversionEventType` | Yes | No | — |
+| `user` | `user` | `ConversionUser` | No | No | — |
+| `metadata` | `metadata` | `ConversionMetadata` | No | No | — |
+
+## ConversionEventsRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `events` | `events` | `Array<ConversionEvent>` | Yes | No | — |
+
+## ConversionEventsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline63` | No | No | — |
+
+## ConversionEventType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## ConversionMetadata
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## ConversionUser
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## CreateAdGroupParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `accountId` | `string` | Yes | No | — |
+| `body` | `body` | `AdGroupCreate` | Yes | No | — |
+
+## CreateAdGroupResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `AdGroup` | Yes | No | — |
+
+## CreateAdParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `accountId` | `string` | Yes | No | — |
+| `body` | `body` | `AdCreate` | Yes | No | — |
+
+## CreateAdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Ad` | Yes | No | — |
+
+## CreateCampaignParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `accountId` | `string` | Yes | No | — |
+| `body` | `body` | `CampaignCreate` | Yes | No | — |
+
+## CreateCampaignResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Campaign` | Yes | No | — |
+
+## CreateCustomAudienceParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `accountId` | `string` | Yes | No | — |
+| `body` | `body` | `CustomAudienceCreate` | Yes | No | — |
+
+## CreateCustomAudienceResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CustomAudience` | Yes | No | — |
+
+## CreateReportParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `accountId` | `string` | Yes | No | — |
+| `body` | `body` | `ReportRequest` | Yes | No | — |
+
+## CreateReportResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<ReportRow>` | Yes | No | — |
+
+## CreateStructuredPostParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `accountId` | `string` | Yes | No | — |
+| `body` | `body` | `StructuredPostCreate` | Yes | No | — |
+
+## CreateStructuredPostResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `StructuredPost` | Yes | No | — |
+
+## CustomAudience
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## CustomAudienceCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | e.g., CUSTOMER_LIST |
+
+## CustomAudienceUsersUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `users` | `users` | `Array<Inline66>` | Yes | No | — |
+| `action` | `action` | `AudienceUserAction` | Yes | No | — |
+
+## DeleteCampaignParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `accountId` | `string` | Yes | No | — |
+| `campaignId` | `campaignId` | `string` | Yes | No | — |
+
+## DeleteCampaignResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## FundingInstrument
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## Geolocation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | No | No | — |
+| `region` | `region` | `string` | No | No | — |
+| `city` | `city` | `string` | No | No | — |
+| `dma` | `dma` | `string` | No | No | — |
+| `postal_code` | `postal_code` | `string` | No | No | — |
+
+## GeolocationValidateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `geolocations` | `geolocations` | `Array<Geolocation>` | No | No | — |
+
+## GetAccountParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `accountId` | `string` | Yes | No | — |
+
+## GetAccountResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Account` | Yes | No | — |
+
+## GetAdGroupParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `accountId` | `string` | Yes | No | — |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | — |
+
+## GetAdGroupResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `AdGroup` | Yes | No | — |
+
+## GetAdParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `accountId` | `string` | Yes | No | — |
+| `adId` | `adId` | `string` | Yes | No | — |
+
+## GetAdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Ad` | Yes | No | — |
+
+## GetBidSuggestionParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `accountId` | `string` | Yes | No | — |
+| `body` | `body` | `BidSuggestionRequest` | Yes | No | — |
+
+## GetBidSuggestionResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `BidSuggestion` | Yes | No | — |
+
+## GetCampaignParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `accountId` | `string` | Yes | No | — |
+| `campaignId` | `campaignId` | `string` | Yes | No | — |
+
+## GetCampaignResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Campaign` | Yes | No | — |
+
+## GetCustomAudienceParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `accountId` | `string` | Yes | No | — |
+| `audienceId` | `audienceId` | `string` | Yes | No | — |
+
+## GetCustomAudienceResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `CustomAudience` | Yes | No | — |
+
+## GetMeParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## GetMeResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `User` | Yes | No | — |
+
+## GetPixelAppLastFiredAtParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pixelId` | `pixelId` | `string` | Yes | No | — |
+
+## GetPixelAppLastFiredAtResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline139` | Yes | No | — |
+
+## GetPixelLastFiredAtParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pixelId` | `pixelId` | `string` | Yes | No | — |
+
+## GetPixelLastFiredAtResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline144` | Yes | No | — |
+
+## GetSavedAudienceParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `accountId` | `string` | Yes | No | — |
+| `audienceId` | `audienceId` | `string` | Yes | No | — |
+
+## GetSavedAudienceResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `SavedAudience` | Yes | No | — |
+
+## GoalType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## IdentifierType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `unknown`
+
+## Inline134
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message` | `message` | `string` | No | No | — |
+
+## Inline139
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `last_fired_at` | `last_fired_at` | `string` | No | No | — |
+
+## Inline144
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `last_fired_at` | `last_fired_at` | `string` | No | No | — |
+
+## Inline147
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline150
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline153
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline156
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline159
+
+`object` model on the `json` wire format.
+
+No fields are declared.

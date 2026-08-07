@@ -1,0 +1,192 @@
+---
+title: "Snapchat models: Total Stat Params – Weekly Body"
+description: "16 generated Snapchat model contracts, from TotalStatParams through WeeklyBody."
+generated: true
+platform: "snapchat"
+sourceVersion: "v1"
+sidebar:
+  order: 1002
+  label: "Total Stat Params – Weekly Body"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://developers.snap.com/marketing-api). Do not edit by hand. */}
+
+## TotalStatParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `breakdown` | `breakdown` | `string` | No | No | Object-level breakdown |
+| `async` | `async` | `string` | No | No | Designates processing of report to be asynchronous |
+| `async_format` | `async_format` | `string` | No | No | Designates the response format of asynchronous reporting, can be either a csv or excel file |
+| `fields` | `fields` | `string` | No | No | Metrics requested (comma-separated) |
+| `end_time` | `end_time` | `string` | No | No | End Time (ISO 8601) |
+| `start_time` | `start_time` | `string` | No | No | Start Time (ISO 8601) |
+| `granularity` | `granularity` | `GranularityEnum` | Yes | No | Metrics granularity |
+| `test` | `test` | `string` | No | No | Return Sample (fake) Stats |
+| `dimension` | `dimension` | `DimensionEnum` | No | No | Insight-level breakdown |
+| `pivot` | `pivot` | `string` | No | No | The pivot to be used for insights breakdown |
+| `action_report_time` | `action_report_time` | `string` | No | No | Specifies the principle for conversion reporting |
+| `swipe_up_attribution_window` | `swipe_up_attribution_window` | `string` | No | No | Attribution window for swipe ups |
+| `view_attribution_window` | `view_attribution_window` | `string` | No | No | Attribution window for views |
+| `position_stats` | `position_stats` | `string` | No | No | Position metric breakdown for Snap Ads within a Story Ad |
+| `omit_empty` | `omit_empty` | `string` | No | No | Omits records with zero data for all metrics for a given date/entity. If there is data for any metric for a given date/entity, all metrics for that date/entity are returned |
+| `conversion_source_types` | `conversion_source_types` | `string` | No | No | Conversion source breakout by platform |
+| `limit` | `limit` | `string` | No | No | The limit parameter specifies how many entities should be returned per page |
+
+## TotalStatResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `type` | `type` | `string` | Yes | No | — |
+| `granularity` | `granularity` | `string` | Yes | No | — |
+| `stats` | `stats` | `StatsBody` | Yes | No | — |
+| `finalized_data_end_time` | `finalized_data_end_time` | `string` | Yes | No | — |
+
+## TransactionParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organizationId` | `organizationId` | `string` | Yes | No | — |
+| `start_time` | `start_time` | `string` | No | No | Start time of transactions in UTC yyyy-mm-ddThh:mm :ss |
+| `end_time` | `end_time` | `string` | No | No | End time of transactions in UTC yyyy-mm-ddThh:mm :ss |
+
+## TransactionResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `account_id` | `account_id` | `string` | Yes | No | — |
+| `payment_items` | `payment_items` | `Array<PaymentItemsBody>` | Yes | No | — |
+| `payment_action_id` | `payment_action_id` | `string` | Yes | No | — |
+| `payment_action_type` | `payment_action_type` | `string` | Yes | No | — |
+| `credential_type` | `credential_type` | `string` | Yes | No | — |
+| `credential_id` | `credential_id` | `string` | Yes | No | — |
+| `payment_method_id` | `payment_method_id` | `string` | Yes | No | — |
+| `total_amount` | `total_amount` | `TotalAmountBody` | Yes | No | — |
+| `status` | `status` | `string` | Yes | No | — |
+| `created_time` | `created_time` | `string` | Yes | No | — |
+| `last_update_time` | `last_update_time` | `string` | Yes | No | — |
+
+## TypeEnum
+
+`enum` model on the `json` wire format.
+
+**Values:** `PREVIEW`
+
+## UpdateValueRecordsBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `StatusBody` | Yes | No | — |
+
+## UserParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `segmentId` | `segmentId` | `string` | Yes | No | — |
+| `users` | `users` | `Array<UsersBody>` | Yes | No | — |
+
+## UserResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `number_uploaded_users` | `number_uploaded_users` | `number` | Yes | No | — |
+
+## UsersBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `schema` | `schema` | `Array<unknown>` | Yes | No | — |
+| `data` | `data` | `string` | Yes | No | — |
+
+## V1Params
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `memberId` | `memberId` | `string` | Yes | No | — |
+| `member_id` | `member_id` | `string` | No | No | Member ID |
+
+## V1Response
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## VacParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country_code` | `country_code` | `string` | No | No | ISO ALPHA-2 Country Code (lowercase) |
+| `is_hec` | `is_hec` | `string` | No | No | optional parameter, returns interest targeting that is safe to use when advertising Housing, Credit and Employment (only available for US) |
+| `limit` | `limit` | `string` | No | No | integer, min 50, max 1000 |
+| `Get a specific Ad Squad by ID` | `Get a specific Ad Squad by ID` | `string` | No | No | — |
+| `Get all Ad Squads under a Campaign` | `Get all Ad Squads under a Campaign` | `string` | No | No | — |
+| `Get a specific Targeting Spec by ID` | `Get a specific Targeting Spec by ID` | `string` | No | No | — |
+| `Get all Targeting Specs under an Ad Squad` | `Get all Targeting Specs under an Ad Squad` | `string` | No | No | — |
+
+## VacResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country_code` | `country_code` | `string` | No | No | ISO ALPHA-2 Country Code (lowercase) |
+| `is_hec` | `is_hec` | `string` | No | No | optional parameter, returns interest targeting that is safe to use when advertising Housing, Credit and Employment (only available for US) |
+| `limit` | `limit` | `string` | No | No | integer, min 50, max 1000 |
+
+## WebViewPropertiesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `creatives` | `creatives` | `Array<CreativesBody>` | Yes | No | — |
+
+## WebViewPropertiesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url` | `url` | `string` | Yes | No | — |
+| `block_preload` | `block_preload` | `boolean` | Yes | No | — |
+
+## WeeklyBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversions_lower` | `conversions_lower` | `number` | Yes | No | — |
+| `conversions_upper` | `conversions_upper` | `number` | Yes | No | — |
+| `reaches_lower` | `reaches_lower` | `number` | Yes | No | — |
+| `reaches_upper` | `reaches_upper` | `number` | Yes | No | — |
+| `impressions_lower` | `impressions_lower` | `number` | Yes | No | — |
+| `impressions_upper` | `impressions_upper` | `number` | Yes | No | — |
+| `is_budget_hit` | `is_budget_hit` | `boolean` | Yes | No | — |
+| `budget_left` | `budget_left` | `number` | Yes | No | — |
+| `budget_spent_ratio` | `budget_spent_ratio` | `number` | Yes | No | — |

@@ -8,6 +8,8 @@ const manifests = [
   "packages/meta-business-sdk/src/generated/effect/manifest.json",
   "packages/tiktok-business-sdk/src/generated/effect/manifest.json",
   "packages/google-ads-sdk/src/generated/v25/effect/manifest.json",
+  "packages/snapchat-sdk/src/generated/effect/manifest.json",
+  "packages/reddit-sdk/src/generated/effect/manifest.json",
 ];
 
 for (const path of manifests) {

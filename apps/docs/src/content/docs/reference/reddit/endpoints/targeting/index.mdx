@@ -1,0 +1,187 @@
+---
+title: "Reddit Ads Targeting endpoints"
+description: "6 generated Reddit Ads endpoint contracts for Targeting."
+generated: true
+platform: "reddit"
+sourceVersion: "v3"
+sidebar:
+  order: 112
+  label: "Targeting"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/nanobanana123/reddit-ads-api). Do not edit by hand. */}
+
+## reddit.targeting.listGeolocations
+
+`GET` `/targeting/geolocations`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (listGeolocations)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reddit.targeting.read` |
+| Required scopes | `adsread` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `ListGeolocationsResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reddit.targeting.listTargetingCarriers
+
+`GET` `/targeting/carriers`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (listTargetingCarriers)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reddit.targeting.read` |
+| Required scopes | `adsread` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `ListTargetingCarriersResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reddit.targeting.listTargetingCommunities
+
+`GET` `/targeting/communities`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (listTargetingCommunities)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reddit.targeting.read` |
+| Required scopes | `adsread` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `ListTargetingCommunitiesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `q` | `query` | `string` | No | No | Search query for communities |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reddit.targeting.listTargetingDevices
+
+`GET` `/targeting/devices`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (listTargetingDevices)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reddit.targeting.read` |
+| Required scopes | `adsread` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `ListTargetingDevicesResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reddit.targeting.listTargetingInterests
+
+`GET` `/targeting/interests`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (listTargetingInterests)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reddit.targeting.read` |
+| Required scopes | `adsread` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `ListTargetingInterestsResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reddit.targeting.validateGeolocations
+
+`POST` `/targeting/geolocations/validate`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (validateGeolocations)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `reddit.targeting.manage` |
+| Required scopes | `adsedit` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `ValidateGeolocationsResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

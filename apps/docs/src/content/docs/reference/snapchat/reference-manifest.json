@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "platform": "snapchat",
+  "version": "v1",
+  "endpointCount": 214,
+  "modelCount": 216,
+  "capabilityCount": 2,
+  "endpointPages": [
+    "endpoints/ads-api-access-token-to-creative13",
+    "endpoints/ads-api-creative14-to-organization2",
+    "endpoints/ads-api-organization3-to-web-view-properties"
+  ],
+  "modelPages": [
+    "models/access-token-params-to-interests-body",
+    "models/invoice-params-to-total-amount-body",
+    "models/total-stat-params-to-weekly-body"
+  ]
+}

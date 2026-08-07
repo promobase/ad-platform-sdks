@@ -1,0 +1,81 @@
+---
+title: "Reddit Ads Structured Posts endpoints"
+description: "2 generated Reddit Ads endpoint contracts for Structured Posts."
+generated: true
+platform: "reddit"
+sourceVersion: "v3"
+sidebar:
+  order: 111
+  label: "Structured Posts"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/nanobanana123/reddit-ads-api). Do not edit by hand. */}
+
+## reddit.structuredPosts.createStructuredPost
+
+`POST` `/accounts/{account_id}/structured_posts`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (createStructuredPost)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `reddit.structuredPosts.manage` |
+| Required scopes | `adsedit` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `CreateStructuredPostResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reddit.structuredPosts.listStructuredPosts
+
+`GET` `/accounts/{account_id}/structured_posts`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (listStructuredPosts)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reddit.structuredPosts.read` |
+| Required scopes | `adsread` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `ListStructuredPostsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

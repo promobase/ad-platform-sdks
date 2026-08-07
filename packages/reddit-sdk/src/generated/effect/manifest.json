@@ -1,0 +1,23 @@
+{
+  "platform": "reddit",
+  "source": {
+    "kind": "openapi",
+    "location": "https://github.com/nanobanana123/reddit-ads-api",
+    "revision": "db14c4b0d950c7a10bc432de4bce7c00f6f3c103146af950e749f4cc4ad76e05"
+  },
+  "version": "v3",
+  "counts": {
+    "models": 164,
+    "endpoints": 40,
+    "capabilities": 20
+  },
+  "coverage": {
+    "discoveredOperations": 40,
+    "excludedOperations": [],
+    "unresolvedSchemas": [],
+    "protocols": [
+      "json"
+    ],
+    "emittedOperations": 40
+  }
+}

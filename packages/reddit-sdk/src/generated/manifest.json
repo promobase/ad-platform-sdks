@@ -1,0 +1,60 @@
+{
+  "source": "https://github.com/nanobanana123/reddit-ads-api",
+  "specSha256": "db14c4b0d950c7a10bc432de4bce7c00f6f3c103146af950e749f4cc4ad76e05",
+  "endpoints": 40,
+  "tags": [
+    {
+      "name": "Accounts",
+      "endpoints": 4
+    },
+    {
+      "name": "Ad Groups",
+      "endpoints": 4
+    },
+    {
+      "name": "Ads",
+      "endpoints": 4
+    },
+    {
+      "name": "Bid Suggestions",
+      "endpoints": 1
+    },
+    {
+      "name": "Campaigns",
+      "endpoints": 5
+    },
+    {
+      "name": "Custom Audiences",
+      "endpoints": 4
+    },
+    {
+      "name": "Funding Instruments",
+      "endpoints": 2
+    },
+    {
+      "name": "Pixels",
+      "endpoints": 4
+    },
+    {
+      "name": "Reports",
+      "endpoints": 1
+    },
+    {
+      "name": "Saved Audiences",
+      "endpoints": 2
+    },
+    {
+      "name": "Structured Posts",
+      "endpoints": 2
+    },
+    {
+      "name": "Conversions",
+      "endpoints": 1
+    },
+    {
+      "name": "Targeting",
+      "endpoints": 6
+    }
+  ],
+  "schemas": 69
+}

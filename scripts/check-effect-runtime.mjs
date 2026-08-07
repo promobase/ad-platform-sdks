@@ -56,6 +56,22 @@ const entries = [
     750,
     11,
   ],
+  [
+    "snapchat",
+    "packages/snapchat-sdk/src/generated/effect/index.ts",
+    "packages/snapchat-sdk/src/generated/effect/manifest.json",
+    700_000,
+    750,
+    100,
+  ],
+  [
+    "reddit",
+    "packages/reddit-sdk/src/generated/effect/index.ts",
+    "packages/reddit-sdk/src/generated/effect/manifest.json",
+    500_000,
+    750,
+    30,
+  ],
 ];
 
 let failed = false;

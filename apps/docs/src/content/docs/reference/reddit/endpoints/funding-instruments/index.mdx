@@ -1,0 +1,81 @@
+---
+title: "Reddit Ads Funding Instruments endpoints"
+description: "2 generated Reddit Ads endpoint contracts for Funding Instruments."
+generated: true
+platform: "reddit"
+sourceVersion: "v3"
+sidebar:
+  order: 107
+  label: "Funding Instruments"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/nanobanana123/reddit-ads-api). Do not edit by hand. */}
+
+## reddit.fundingInstruments.listFundingInstrumentsByAccount
+
+`GET` `/accounts/{account_id}/funding_instruments`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (listFundingInstrumentsByAccount)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reddit.fundingInstruments.read` |
+| Required scopes | `adsread` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `ListFundingInstrumentsByAccountResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accountId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## reddit.fundingInstruments.listFundingInstrumentsByBusiness
+
+`GET` `/businesses/{business_id}/funding_instruments`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (listFundingInstrumentsByBusiness)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reddit.fundingInstruments.read` |
+| Required scopes | `adsread` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `ListFundingInstrumentsByBusinessResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

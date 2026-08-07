@@ -1,7 +1,7 @@
 {
   "name": "@openpromo/ad-platforms",
   "version": "0.7.0",
-  "description": "Unified type-safe TypeScript SDK for Meta (Facebook, Instagram, Threads), TikTok, LinkedIn, X, YouTube, and future ad platforms — single install, single namespace",
+  "description": "Unified type-safe TypeScript SDK for Meta (Facebook, Instagram, Threads), TikTok, LinkedIn, X, YouTube, and future ad platforms \u2014 single install, single namespace",
   "keywords": [
     "meta",
     "facebook",
@@ -62,7 +62,9 @@
     "@openpromo/linkedin": "workspace:*",
     "@openpromo/x": "workspace:*",
     "@openpromo/youtube": "workspace:*",
-    "effect": "^3.22.1"
+    "@openpromo/snapchat": "workspace:*",
+    "effect": "^3.22.1",
+    "@openpromo/reddit": "workspace:*"
   },
   "peerDependencies": {
     "typescript": ">=5.9.3 <8",

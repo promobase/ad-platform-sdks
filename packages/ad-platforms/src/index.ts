@@ -174,3 +174,34 @@ export {
   TikTokApiError,
   TikTokRateLimiter,
 } from "@openpromo/tiktok";
+
+// --- Snapchat ---
+export type {
+  SnapchatApiClientOptions,
+  SnapchatOAuthConfig,
+  SnapchatOAuthTokenResponse,
+  SnapchatScope,
+} from "@openpromo/snapchat";
+export {
+  createSnapchatOAuth,
+  Snapchat,
+  SnapchatApiClient,
+  SnapchatApiError,
+  SnapchatCursor,
+  SnapchatScopes,
+} from "@openpromo/snapchat";
+
+// --- Reddit ---
+export type {
+  RedditApiClientOptions,
+  RedditOAuthConfig,
+  RedditOAuthTokenResponse,
+  RedditScope,
+} from "@openpromo/reddit";
+export {
+  createRedditOAuth,
+  Reddit,
+  RedditApiClient,
+  RedditApiError,
+  RedditScopes,
+} from "@openpromo/reddit";

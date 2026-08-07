@@ -58,6 +58,18 @@ const PLATFORM_DETAILS: Record<
     effectImport: "@openpromo/youtube/effect",
     order: 70,
   },
+  snapchat: {
+    label: "Snapchat",
+    packageName: "@openpromo/snapchat",
+    effectImport: "@openpromo/snapchat/effect",
+    order: 80,
+  },
+  reddit: {
+    label: "Reddit Ads",
+    packageName: "@openpromo/reddit",
+    effectImport: "@openpromo/reddit/effect",
+    order: 90,
+  },
   facebook: {
     label: "Facebook",
     packageName: "@openpromo/meta",

@@ -1,0 +1,1846 @@
+openapi: 3.1.0
+info:
+  title: Reddit Ads API
+  description: |
+    Unofficial OpenAPI specification for the Reddit Ads API v3.
+
+    This spec is community-maintained and based on publicly available documentation,
+    the official Postman collection, third-party integration docs, and the Reddit Ads
+    API changelog.
+
+    **Official Resources:**
+    - [Reddit Ads API Docs](https://business.reddithelp.com/s/article/Reddit-Ads-API)
+    - [Postman Collection](https://www.postman.com/reddit-ads-api/reddit-ads-api-v3/overview)
+    - [API Terms](https://business.reddithelp.com/s/article/Reddit-Ads-API-Terms)
+  version: 0.1.0
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  contact:
+    name: Community Maintained
+    url: https://github.com/user/reddit-ads-sdk
+
+servers:
+  - url: https://ads-api.reddit.com/api/v3
+    description: Reddit Ads API v3 (Production)
+
+security:
+  - oauth2: [adsread, adsedit]
+
+tags:
+  - name: Accounts
+    description: Ad account management
+  - name: Campaigns
+    description: Campaign CRUD operations
+  - name: Ad Groups
+    description: Ad group management
+  - name: Ads
+    description: Ad creative management
+  - name: Reports
+    description: Performance reporting
+  - name: Conversions
+    description: Conversions API (CAPI) for server-side event tracking
+  - name: Pixels
+    description: Pixel management and status
+  - name: Custom Audiences
+    description: Custom audience management
+  - name: Saved Audiences
+    description: Saved audience retrieval
+  - name: Targeting
+    description: Targeting lookups (geolocations, devices, interests, communities)
+  - name: Funding Instruments
+    description: Billing and funding instrument management
+  - name: Bid Suggestions
+    description: Bid recommendation
+  - name: Structured Posts
+    description: Structured post creation and listing
+
+paths:
+  # ── Accounts ──────────────────────────────────────────────
+  /me:
+    get:
+      operationId: getMe
+      summary: Get authenticated user
+      description: Returns the authenticated user's information.
+      tags: [Accounts]
+      responses:
+        "200":
+          description: Authenticated user info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_User"
+
+  /accounts:
+    get:
+      operationId: listAccounts
+      summary: List ad accounts
+      description: Lists all ad accounts accessible to the authenticated user.
+      tags: [Accounts]
+      responses:
+        "200":
+          description: List of ad accounts
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_AccountList"
+
+  /accounts/{account_id}:
+    get:
+      operationId: getAccount
+      summary: Get ad account
+      description: Retrieves a specific ad account by ID.
+      tags: [Accounts]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+      responses:
+        "200":
+          description: Ad account details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_Account"
+    patch:
+      operationId: updateAccount
+      summary: Update ad account
+      description: Updates an ad account's settings (e.g., attribution settings).
+      tags: [Accounts]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountUpdate"
+      responses:
+        "200":
+          description: Updated account
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_Account"
+
+  # ── Campaigns ─────────────────────────────────────────────
+  /accounts/{account_id}/campaigns:
+    get:
+      operationId: listCampaigns
+      summary: List campaigns
+      description: Lists all campaigns for an ad account.
+      tags: [Campaigns]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+      responses:
+        "200":
+          description: List of campaigns
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_CampaignList"
+    post:
+      operationId: createCampaign
+      summary: Create campaign
+      description: Creates a new campaign in the ad account.
+      tags: [Campaigns]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CampaignCreate"
+      responses:
+        "201":
+          description: Created campaign
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_Campaign"
+
+  /accounts/{account_id}/campaigns/{campaign_id}:
+    get:
+      operationId: getCampaign
+      summary: Get campaign
+      description: Retrieves a specific campaign by ID.
+      tags: [Campaigns]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+        - $ref: "#/components/parameters/CampaignId"
+      responses:
+        "200":
+          description: Campaign details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_Campaign"
+    patch:
+      operationId: updateCampaign
+      summary: Update campaign
+      description: Updates an existing campaign.
+      tags: [Campaigns]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+        - $ref: "#/components/parameters/CampaignId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CampaignUpdate"
+      responses:
+        "200":
+          description: Updated campaign
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_Campaign"
+    delete:
+      operationId: deleteCampaign
+      summary: Delete campaign
+      description: Deletes a campaign.
+      tags: [Campaigns]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+        - $ref: "#/components/parameters/CampaignId"
+      responses:
+        "204":
+          description: Campaign deleted
+
+  # ── Ad Groups ─────────────────────────────────────────────
+  /accounts/{account_id}/ad_groups:
+    get:
+      operationId: listAdGroups
+      summary: List ad groups
+      description: Lists ad groups for an account, optionally filtered by campaign.
+      tags: [Ad Groups]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+        - name: campaign_id
+          in: query
+          description: Filter by campaign ID
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of ad groups
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_AdGroupList"
+    post:
+      operationId: createAdGroup
+      summary: Create ad group
+      description: Creates a new ad group.
+      tags: [Ad Groups]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdGroupCreate"
+      responses:
+        "201":
+          description: Created ad group
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_AdGroup"
+
+  /accounts/{account_id}/ad_groups/{ad_group_id}:
+    get:
+      operationId: getAdGroup
+      summary: Get ad group
+      description: Retrieves a specific ad group by ID.
+      tags: [Ad Groups]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+        - $ref: "#/components/parameters/AdGroupId"
+      responses:
+        "200":
+          description: Ad group details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_AdGroup"
+    patch:
+      operationId: updateAdGroup
+      summary: Update ad group
+      description: Updates an existing ad group.
+      tags: [Ad Groups]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+        - $ref: "#/components/parameters/AdGroupId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdGroupUpdate"
+      responses:
+        "200":
+          description: Updated ad group
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_AdGroup"
+
+  # ── Ads ───────────────────────────────────────────────────
+  /accounts/{account_id}/ads:
+    get:
+      operationId: listAds
+      summary: List ads
+      description: Lists ads for an account, optionally filtered by ad group.
+      tags: [Ads]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+        - name: ad_group_id
+          in: query
+          description: Filter by ad group ID
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of ads
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_AdList"
+    post:
+      operationId: createAd
+      summary: Create ad
+      description: Creates a new ad in an ad group.
+      tags: [Ads]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdCreate"
+      responses:
+        "201":
+          description: Created ad
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_Ad"
+
+  /accounts/{account_id}/ads/{ad_id}:
+    get:
+      operationId: getAd
+      summary: Get ad
+      description: Retrieves a specific ad by ID.
+      tags: [Ads]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+        - $ref: "#/components/parameters/AdId"
+      responses:
+        "200":
+          description: Ad details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_Ad"
+    patch:
+      operationId: updateAd
+      summary: Update ad
+      description: Updates an existing ad.
+      tags: [Ads]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+        - $ref: "#/components/parameters/AdId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdUpdate"
+      responses:
+        "200":
+          description: Updated ad
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_Ad"
+
+  # ── Reports ───────────────────────────────────────────────
+  /accounts/{account_id}/reports:
+    post:
+      operationId: createReport
+      summary: Generate performance report
+      description: |
+        Generates a performance report with custom metrics and breakdowns.
+        Supports campaign, ad group, and ad level reporting.
+      tags: [Reports]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReportRequest"
+      responses:
+        "200":
+          description: Report data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_Report"
+
+  # ── Conversions API (CAPI) ────────────────────────────────
+  /pixels/{pixel_id}/conversion_events:
+    post:
+      operationId: postConversionEvents
+      summary: Post conversion events
+      description: |
+        Sends server-side conversion events to Reddit for attribution.
+        Supports batch sending up to 1,000 events per request.
+
+        **Authentication:** Uses a separate Conversion Access Token (not OAuth2).
+        Generate it in Reddit Ads Events Manager → Conversions API → Generate Access Token.
+
+        **Deduplication:** Use `conversion_id` for reliable deduplication.
+        Events should be sent within 2 days for optimal matching, max 7 days.
+      tags: [Conversions]
+      security:
+        - conversionToken: []
+      parameters:
+        - $ref: "#/components/parameters/PixelId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ConversionEventsRequest"
+      responses:
+        "200":
+          description: Events processed successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConversionEventsResponse"
+
+  # ── Pixels ────────────────────────────────────────────────
+  /accounts/{account_id}/pixels:
+    get:
+      operationId: listPixelsByAccount
+      summary: List pixels by account
+      description: Lists pixels associated with an ad account.
+      tags: [Pixels]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+      responses:
+        "200":
+          description: List of pixels
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_PixelList"
+
+  /businesses/{business_id}/pixels:
+    get:
+      operationId: listPixelsByBusiness
+      summary: List pixels by business
+      description: Lists pixels associated with a business.
+      tags: [Pixels]
+      parameters:
+        - $ref: "#/components/parameters/BusinessId"
+      responses:
+        "200":
+          description: List of pixels
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_PixelList"
+
+  /pixels/{pixel_id}/last_fired_at:
+    get:
+      operationId: getPixelLastFiredAt
+      summary: Get pixel last fired time
+      description: Returns when the pixel was last fired.
+      tags: [Pixels]
+      parameters:
+        - $ref: "#/components/parameters/PixelId"
+      responses:
+        "200":
+          description: Last fired timestamp
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_PixelLastFired"
+
+  /pixels/{pixel_id}/app_last_fired_at:
+    get:
+      operationId: getPixelAppLastFiredAt
+      summary: Get pixel app last fired time
+      description: Returns when the pixel was last fired from an app context.
+      tags: [Pixels]
+      parameters:
+        - $ref: "#/components/parameters/PixelId"
+      responses:
+        "200":
+          description: App last fired timestamp
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_PixelLastFired"
+
+  # ── Custom Audiences ──────────────────────────────────────
+  /accounts/{account_id}/custom_audiences:
+    get:
+      operationId: listCustomAudiences
+      summary: List custom audiences
+      description: Lists custom audiences for an account.
+      tags: [Custom Audiences]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+      responses:
+        "200":
+          description: List of custom audiences
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_CustomAudienceList"
+    post:
+      operationId: createCustomAudience
+      summary: Create custom audience
+      description: Creates a new custom audience.
+      tags: [Custom Audiences]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CustomAudienceCreate"
+      responses:
+        "201":
+          description: Created custom audience
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_CustomAudience"
+
+  /accounts/{account_id}/custom_audiences/{audience_id}:
+    get:
+      operationId: getCustomAudience
+      summary: Get custom audience
+      description: Retrieves a specific custom audience.
+      tags: [Custom Audiences]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+        - $ref: "#/components/parameters/AudienceId"
+      responses:
+        "200":
+          description: Custom audience details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_CustomAudience"
+
+  /custom_audiences/{audience_id}/users:
+    patch:
+      operationId: updateCustomAudienceUsers
+      summary: Add or remove users from audience
+      description: |
+        Adds or removes users from a custom audience using hashed identifiers.
+        Supported identifier types: EMAIL_SHA256, MAID_SHA256.
+      tags: [Custom Audiences]
+      parameters:
+        - $ref: "#/components/parameters/AudienceId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CustomAudienceUsersUpdate"
+      responses:
+        "200":
+          description: Users updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_Success"
+
+  # ── Saved Audiences ───────────────────────────────────────
+  /accounts/{account_id}/saved_audiences:
+    get:
+      operationId: listSavedAudiences
+      summary: List saved audiences
+      description: Lists saved audiences for an account.
+      tags: [Saved Audiences]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+      responses:
+        "200":
+          description: List of saved audiences
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_SavedAudienceList"
+
+  /accounts/{account_id}/saved_audiences/{audience_id}:
+    get:
+      operationId: getSavedAudience
+      summary: Get saved audience
+      description: Retrieves a specific saved audience.
+      tags: [Saved Audiences]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+        - $ref: "#/components/parameters/AudienceId"
+      responses:
+        "200":
+          description: Saved audience details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_SavedAudience"
+
+  # ── Targeting Lookups ─────────────────────────────────────
+  /targeting/devices:
+    get:
+      operationId: listTargetingDevices
+      summary: List targetable devices
+      tags: [Targeting]
+      responses:
+        "200":
+          description: List of devices
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_TargetingOptions"
+
+  /targeting/carriers:
+    get:
+      operationId: listTargetingCarriers
+      summary: List targetable carriers
+      tags: [Targeting]
+      responses:
+        "200":
+          description: List of carriers
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_TargetingOptions"
+
+  /targeting/geolocations:
+    get:
+      operationId: listGeolocations
+      summary: List geolocations
+      tags: [Targeting]
+      responses:
+        "200":
+          description: List of geolocations
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_TargetingOptions"
+
+  /targeting/geolocations/validate:
+    post:
+      operationId: validateGeolocations
+      summary: Validate geolocations
+      description: Validates geolocation targeting values (city, country, DMA, postal code, region).
+      tags: [Targeting]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GeolocationValidateRequest"
+      responses:
+        "200":
+          description: Validation results
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_GeolocationValidation"
+
+  /targeting/communities:
+    get:
+      operationId: listTargetingCommunities
+      summary: List community suggestions
+      description: Returns subreddit suggestions for targeting.
+      tags: [Targeting]
+      parameters:
+        - name: q
+          in: query
+          description: Search query for communities
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Community suggestions
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_TargetingOptions"
+
+  /targeting/interests:
+    get:
+      operationId: listTargetingInterests
+      summary: List interest categories
+      tags: [Targeting]
+      responses:
+        "200":
+          description: Interest categories
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_TargetingOptions"
+
+  # ── Funding Instruments ───────────────────────────────────
+  /businesses/{business_id}/funding_instruments:
+    get:
+      operationId: listFundingInstrumentsByBusiness
+      summary: List funding instruments by business
+      tags: [Funding Instruments]
+      parameters:
+        - $ref: "#/components/parameters/BusinessId"
+      responses:
+        "200":
+          description: List of funding instruments
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_FundingInstrumentList"
+
+  /accounts/{account_id}/funding_instruments:
+    get:
+      operationId: listFundingInstrumentsByAccount
+      summary: List funding instruments by account
+      tags: [Funding Instruments]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+      responses:
+        "200":
+          description: List of funding instruments
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_FundingInstrumentList"
+
+  # ── Bid Suggestions ───────────────────────────────────────
+  /accounts/{account_id}/bid_suggestion:
+    post:
+      operationId: getBidSuggestion
+      summary: Get bid suggestion
+      description: Generates a bid suggestion based on targeting and objective.
+      tags: [Bid Suggestions]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BidSuggestionRequest"
+      responses:
+        "200":
+          description: Bid suggestion
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_BidSuggestion"
+
+  # ── Structured Posts ──────────────────────────────────────
+  /accounts/{account_id}/structured_posts:
+    get:
+      operationId: listStructuredPosts
+      summary: List structured posts
+      description: Lists structured posts for an account. Released Jan 6, 2026.
+      tags: [Structured Posts]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+      responses:
+        "200":
+          description: List of structured posts
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_StructuredPostList"
+    post:
+      operationId: createStructuredPost
+      summary: Create structured post
+      description: Creates a new structured post. Released Jan 6, 2026.
+      tags: [Structured Posts]
+      parameters:
+        - $ref: "#/components/parameters/AccountId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StructuredPostCreate"
+      responses:
+        "201":
+          description: Created structured post
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse_StructuredPost"
+
+components:
+  # ── Security Schemes ──────────────────────────────────────
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: |
+        Reddit OAuth2 authentication. Create an app at https://www.reddit.com/prefs/apps
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.reddit.com/api/v1/authorize
+          tokenUrl: https://www.reddit.com/api/v1/access_token
+          scopes:
+            adsread: Read access to ads data
+            adsedit: Write/edit access to ads
+            history: Access to historical data
+    conversionToken:
+      type: http
+      scheme: bearer
+      description: |
+        Non-expiring Conversion Access Token for the Conversions API (CAPI).
+        Generate in Reddit Ads Events Manager → Conversions API → Generate Access Token.
+
+  # ── Parameters ────────────────────────────────────────────
+  parameters:
+    AccountId:
+      name: account_id
+      in: path
+      required: true
+      description: Ad account ID (e.g., `t2_abc123`)
+      schema:
+        type: string
+    CampaignId:
+      name: campaign_id
+      in: path
+      required: true
+      description: Campaign ID
+      schema:
+        type: string
+    AdGroupId:
+      name: ad_group_id
+      in: path
+      required: true
+      description: Ad group ID
+      schema:
+        type: string
+    AdId:
+      name: ad_id
+      in: path
+      required: true
+      description: Ad ID
+      schema:
+        type: string
+    PixelId:
+      name: pixel_id
+      in: path
+      required: true
+      description: Pixel ID
+      schema:
+        type: string
+    BusinessId:
+      name: business_id
+      in: path
+      required: true
+      description: Business ID
+      schema:
+        type: string
+    AudienceId:
+      name: audience_id
+      in: path
+      required: true
+      description: Audience ID
+      schema:
+        type: string
+
+  # ── Schemas ───────────────────────────────────────────────
+  schemas:
+    # ── Enums ─────────────────────────────────────────────
+    CampaignObjective:
+      type: string
+      enum:
+        - BRAND_AWARENESS
+        - TRAFFIC
+        - CONVERSIONS
+        - VIDEO_VIEWS
+        - APP_INSTALLS
+        - CATALOG_SALES
+        - LEAD_GENERATION
+
+    ConfiguredStatus:
+      type: string
+      enum:
+        - ACTIVE
+        - PAUSED
+
+    CampaignEffectiveStatus:
+      type: string
+      enum:
+        - ACTIVE
+        - PAUSED
+        - PROCESSING
+        - MISSING_PERMISSIONS
+
+    AdEffectiveStatus:
+      type: string
+      enum:
+        - ACTIVE
+        - PAUSED
+        - PROCESSING
+        - MISSING_PERMISSIONS
+        - PENDING_REVIEW
+        - REJECTED
+
+    BidStrategy:
+      type: string
+      enum:
+        - LOWEST_COST
+        - COST_CAP
+        - MANUAL
+
+    GoalType:
+      type: string
+      enum:
+        - CPC
+        - CPM
+        - CPV
+        - CPA
+
+    OptimizationGoal:
+      type: string
+      enum:
+        - PURCHASE
+        - LEAD
+        - SIGN_UP
+        - ADD_TO_CART
+        - VIDEO_VIEWS
+
+    ReportLevel:
+      type: string
+      enum:
+        - ACCOUNT
+        - CAMPAIGN
+        - AD_GROUP
+        - AD
+
+    TrackingType:
+      type: string
+      enum:
+        - PAGE_VISIT
+        - VIEW_CONTENT
+        - SEARCH
+        - ADD_TO_CART
+        - ADD_TO_WISHLIST
+        - PURCHASE
+        - LEAD
+        - SIGN_UP
+        - CUSTOM
+
+    ActionSource:
+      type: string
+      enum:
+        - web
+        - app
+        - offline
+
+    IdentifierType:
+      type: string
+      enum:
+        - EMAIL_SHA256
+        - MAID_SHA256
+
+    AudienceUserAction:
+      type: string
+      enum:
+        - ADD
+        - REMOVE
+
+    CallToAction:
+      type: string
+      enum:
+        - SHOP_NOW
+        - SIGN_UP
+        - DOWNLOAD
+        - INSTALL
+        - LEARN_MORE
+        - GET_STARTED
+        - APPLY_NOW
+        - BOOK_NOW
+        - CONTACT_US
+        - PLAY_NOW
+        - WATCH_NOW
+        - SEE_MENU
+        - ORDER_NOW
+
+    # ── Core Models ───────────────────────────────────────
+    Account:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Account ID (e.g., `t2_abc123`)
+        name:
+          type: string
+        attribution_type:
+          type: string
+        click_attribution_window:
+          type: string
+        view_attribution_window:
+          type: string
+        currency:
+          type: string
+        status:
+          type: string
+        time_zone_id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+
+    AccountUpdate:
+      type: object
+      properties:
+        attribution_type:
+          type: string
+        click_attribution_window:
+          type: string
+        view_attribution_window:
+          type: string
+
+    Campaign:
+      type: object
+      properties:
+        id:
+          type: string
+        account_id:
+          type: string
+        name:
+          type: string
+        objective:
+          $ref: "#/components/schemas/CampaignObjective"
+        configured_status:
+          $ref: "#/components/schemas/ConfiguredStatus"
+        effective_status:
+          $ref: "#/components/schemas/CampaignEffectiveStatus"
+        funding_instrument_id:
+          type: string
+        spend_cap:
+          type: number
+          description: Lifetime budget cap in microcurrency
+        goal_type:
+          $ref: "#/components/schemas/GoalType"
+        app_id:
+          type: string
+          description: Required for app campaigns (set at campaign level since May 2025)
+        is_processing:
+          type: boolean
+        invoice_label:
+          type: string
+          description: Invoice label (added Dec 2025)
+        delivery_status:
+          type: string
+          description: Delivery status (added Nov 2025)
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+
+    CampaignCreate:
+      type: object
+      required:
+        - name
+        - objective
+        - configured_status
+        - funding_instrument_id
+      properties:
+        name:
+          type: string
+        objective:
+          $ref: "#/components/schemas/CampaignObjective"
+        configured_status:
+          $ref: "#/components/schemas/ConfiguredStatus"
+        funding_instrument_id:
+          type: string
+          description: Required since Jul 2024
+        spend_cap:
+          type: number
+        goal_type:
+          $ref: "#/components/schemas/GoalType"
+        app_id:
+          type: string
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        invoice_label:
+          type: string
+
+    CampaignUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        configured_status:
+          $ref: "#/components/schemas/ConfiguredStatus"
+        spend_cap:
+          type: number
+        goal_type:
+          $ref: "#/components/schemas/GoalType"
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        invoice_label:
+          type: string
+
+    Targeting:
+      type: object
+      description: Targeting configuration for ad groups
+      properties:
+        geolocations:
+          type: array
+          items:
+            $ref: "#/components/schemas/Geolocation"
+        communities:
+          type: array
+          items:
+            type: string
+          description: Subreddit names (e.g., `r/technology`)
+        interests:
+          type: array
+          items:
+            type: string
+        keywords:
+          type: array
+          items:
+            type: string
+        devices:
+          type: array
+          items:
+            type: string
+            enum: [DESKTOP, MOBILE, TABLET]
+        carriers:
+          type: array
+          items:
+            type: string
+        os:
+          type: array
+          items:
+            type: string
+            enum: [IOS, ANDROID]
+        expansion:
+          type: boolean
+          description: Enable targeting expansion
+        gender:
+          type: string
+          enum: [ALL, MALE, FEMALE]
+        age_groups:
+          type: array
+          items:
+            type: string
+          description: "e.g., 18-24, 25-34, 35-44, 45-54, 55-64, 65+"
+        custom_audience_ids:
+          type: array
+          items:
+            type: string
+        saved_audience_id:
+          type: string
+        excluded_communities:
+          type: array
+          items:
+            type: string
+        excluded_custom_audience_ids:
+          type: array
+          items:
+            type: string
+
+    Geolocation:
+      type: object
+      properties:
+        country:
+          type: string
+        region:
+          type: string
+        city:
+          type: string
+        dma:
+          type: string
+        postal_code:
+          type: string
+
+    AdGroup:
+      type: object
+      properties:
+        id:
+          type: string
+        account_id:
+          type: string
+        campaign_id:
+          type: string
+        name:
+          type: string
+        configured_status:
+          $ref: "#/components/schemas/ConfiguredStatus"
+        effective_status:
+          $ref: "#/components/schemas/CampaignEffectiveStatus"
+        bid_strategy:
+          $ref: "#/components/schemas/BidStrategy"
+        bid_value:
+          type: number
+          description: Bid amount in microcurrency
+        goal_type:
+          $ref: "#/components/schemas/GoalType"
+        optimization_goal:
+          $ref: "#/components/schemas/OptimizationGoal"
+        conversion_pixel_id:
+          type: string
+          description: Pixel ID for conversion tracking (added Oct 2025)
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        delivery_status:
+          type: string
+        targeting:
+          $ref: "#/components/schemas/Targeting"
+        created_at:
+          type: string
+          format: date-time
+
+    AdGroupCreate:
+      type: object
+      required:
+        - campaign_id
+        - name
+        - configured_status
+        - bid_strategy
+        - goal_type
+        - start_time
+        - targeting
+      properties:
+        campaign_id:
+          type: string
+        name:
+          type: string
+        configured_status:
+          $ref: "#/components/schemas/ConfiguredStatus"
+        bid_strategy:
+          $ref: "#/components/schemas/BidStrategy"
+        bid_value:
+          type: number
+        goal_type:
+          $ref: "#/components/schemas/GoalType"
+        optimization_goal:
+          $ref: "#/components/schemas/OptimizationGoal"
+        conversion_pixel_id:
+          type: string
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        targeting:
+          $ref: "#/components/schemas/Targeting"
+
+    AdGroupUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        configured_status:
+          $ref: "#/components/schemas/ConfiguredStatus"
+        bid_strategy:
+          $ref: "#/components/schemas/BidStrategy"
+        bid_value:
+          type: number
+        goal_type:
+          $ref: "#/components/schemas/GoalType"
+        optimization_goal:
+          $ref: "#/components/schemas/OptimizationGoal"
+        conversion_pixel_id:
+          type: string
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        targeting:
+          $ref: "#/components/schemas/Targeting"
+
+    Ad:
+      type: object
+      properties:
+        id:
+          type: string
+        account_id:
+          type: string
+        campaign_id:
+          type: string
+        ad_group_id:
+          type: string
+        name:
+          type: string
+        configured_status:
+          $ref: "#/components/schemas/ConfiguredStatus"
+        effective_status:
+          $ref: "#/components/schemas/AdEffectiveStatus"
+        post_id:
+          type: string
+          description: Reddit post ID (for promoted posts)
+        click_url:
+          type: string
+          format: uri
+        click_url_query_parameters:
+          type: string
+        preview_expiry:
+          type: string
+          format: date-time
+        delivery_status:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+
+    AdCreate:
+      type: object
+      required:
+        - ad_group_id
+        - name
+        - configured_status
+        - click_url
+      properties:
+        ad_group_id:
+          type: string
+        name:
+          type: string
+        configured_status:
+          $ref: "#/components/schemas/ConfiguredStatus"
+        post_id:
+          type: string
+        click_url:
+          type: string
+          format: uri
+        click_url_query_parameters:
+          type: string
+        call_to_action:
+          $ref: "#/components/schemas/CallToAction"
+
+    AdUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        configured_status:
+          $ref: "#/components/schemas/ConfiguredStatus"
+        click_url:
+          type: string
+          format: uri
+        click_url_query_parameters:
+          type: string
+        call_to_action:
+          $ref: "#/components/schemas/CallToAction"
+
+    # ── Reports ───────────────────────────────────────────
+    ReportRequest:
+      type: object
+      required:
+        - start_date
+        - end_date
+        - level
+        - metrics
+      properties:
+        start_date:
+          type: string
+          format: date
+          description: Start date (YYYY-MM-DD)
+        end_date:
+          type: string
+          format: date
+          description: End date (YYYY-MM-DD)
+        level:
+          $ref: "#/components/schemas/ReportLevel"
+        metrics:
+          type: array
+          items:
+            type: string
+          description: |
+            Metrics to include. Available metrics:
+            - Core: impressions, reach, clicks, spend, ecpm, ctr, cpc
+            - Video: video_started, video_watched_3_seconds, video_watched_5_seconds,
+              video_watched_25_percent, video_watched_50_percent, video_watched_75_percent,
+              video_watched_100_percent, video_watched_6_seconds_rate, video_watched_15_seconds_rate
+            - Engagement: comments_page_views, comment_upvotes, comment_downvotes, viewer_comments
+            - Conversions: conversion_roas, total_items, total_value, avg_value,
+              click_through_conversion_attribution_window_day/week/month,
+              view_through_conversion_attribution_window_day/week/month
+        breakdowns:
+          type: array
+          items:
+            type: string
+          description: |
+            Breakdown dimensions. Available:
+            date, HOUR, country, region, community, placement, device_os,
+            gender, interest, keyword, carousel_card, gallery_item
+
+    ReportRow:
+      type: object
+      additionalProperties: true
+      description: A row of report data. Fields depend on requested metrics and breakdowns.
+
+    # ── Conversions (CAPI) ────────────────────────────────
+    ConversionEventsRequest:
+      type: object
+      required:
+        - events
+      properties:
+        events:
+          type: array
+          maxItems: 1000
+          items:
+            $ref: "#/components/schemas/ConversionEvent"
+
+    ConversionEvent:
+      type: object
+      required:
+        - event_at
+        - action_source
+        - type
+      properties:
+        event_at:
+          type: integer
+          format: int64
+          description: Event timestamp in milliseconds since epoch
+        action_source:
+          $ref: "#/components/schemas/ActionSource"
+        click_id:
+          type: string
+          description: Reddit click ID (`rdt_cid` value)
+        type:
+          $ref: "#/components/schemas/ConversionEventType"
+        user:
+          $ref: "#/components/schemas/ConversionUser"
+        metadata:
+          $ref: "#/components/schemas/ConversionMetadata"
+
+    ConversionEventType:
+      type: object
+      required:
+        - tracking_type
+      properties:
+        tracking_type:
+          $ref: "#/components/schemas/TrackingType"
+        custom_event_name:
+          type: string
+          maxLength: 64
+          description: Required when tracking_type is CUSTOM
+
+    ConversionUser:
+      type: object
+      properties:
+        ip_address:
+          type: string
+        user_agent:
+          type: string
+        screen_dimensions:
+          type: object
+          properties:
+            width:
+              type: integer
+            height:
+              type: integer
+        uuid:
+          type: string
+          description: Reddit pixel UUID
+        email:
+          type: string
+          description: SHA-256 hashed email (lowercase, dots removed, plus-addressing removed)
+        phone_number:
+          type: string
+          description: SHA-256 hashed phone number
+        external_id:
+          type: string
+          description: SHA-256 hashed external identifier
+        idfa:
+          type: string
+          description: IDFA (raw uppercase hex or SHA-256 hashed)
+        aaid:
+          type: string
+          description: AAID (raw lowercase hex or SHA-256 hashed)
+        opt_out:
+          type: boolean
+        data_processing_options:
+          type: object
+          properties:
+            modes:
+              type: array
+              items:
+                type: string
+            country:
+              type: string
+            region:
+              type: string
+
+    ConversionMetadata:
+      type: object
+      properties:
+        item_count:
+          type: integer
+        currency:
+          type: string
+        value:
+          type: number
+        value_decimal:
+          type: number
+        conversion_id:
+          type: string
+          description: Unique ID for deduplication (recommended)
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              category:
+                type: string
+
+    ConversionEventsResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            message:
+              type: string
+
+    # ── Pixels ────────────────────────────────────────────
+    Pixel:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+
+    # ── Custom Audiences ──────────────────────────────────
+    CustomAudience:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Audience ID (e.g., `ca.xxxxxxxxxxx`)
+        name:
+          type: string
+        type:
+          type: string
+        delivery_status:
+          type: string
+        matched_user_count:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+
+    CustomAudienceCreate:
+      type: object
+      required:
+        - name
+        - type
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+          description: e.g., CUSTOMER_LIST
+
+    CustomAudienceUsersUpdate:
+      type: object
+      required:
+        - users
+        - action
+      properties:
+        users:
+          type: array
+          items:
+            type: object
+            required:
+              - identifier_type
+              - identifier
+            properties:
+              identifier_type:
+                $ref: "#/components/schemas/IdentifierType"
+              identifier:
+                type: string
+        action:
+          $ref: "#/components/schemas/AudienceUserAction"
+
+    # ── Saved Audiences ───────────────────────────────────
+    SavedAudience:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        targeting:
+          $ref: "#/components/schemas/Targeting"
+
+    # ── Funding Instruments ───────────────────────────────
+    FundingInstrument:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        status:
+          type: string
+
+    # ── Structured Posts ──────────────────────────────────
+    StructuredPost:
+      type: object
+      properties:
+        id:
+          type: string
+        account_id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+
+    StructuredPostCreate:
+      type: object
+      description: Schema for structured post creation (released Jan 6, 2026). Exact fields TBD from official docs.
+
+    # ── Bid Suggestions ───────────────────────────────────
+    BidSuggestionRequest:
+      type: object
+      properties:
+        targeting:
+          $ref: "#/components/schemas/Targeting"
+        objective:
+          $ref: "#/components/schemas/CampaignObjective"
+        goal_type:
+          $ref: "#/components/schemas/GoalType"
+
+    BidSuggestion:
+      type: object
+      properties:
+        suggested_bid:
+          type: number
+        min_bid:
+          type: number
+        max_bid:
+          type: number
+
+    # ── Geolocation Validation ────────────────────────────
+    GeolocationValidateRequest:
+      type: object
+      properties:
+        geolocations:
+          type: array
+          items:
+            $ref: "#/components/schemas/Geolocation"
+
+    # ── User (from /me) ──────────────────────────────────
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+
+    # ── Generic API Response Wrappers ─────────────────────
+    ApiResponse_User:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/User"
+
+    ApiResponse_Account:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/Account"
+
+    ApiResponse_AccountList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/Account"
+
+    ApiResponse_Campaign:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/Campaign"
+
+    ApiResponse_CampaignList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/Campaign"
+
+    ApiResponse_AdGroup:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/AdGroup"
+
+    ApiResponse_AdGroupList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/AdGroup"
+
+    ApiResponse_Ad:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/Ad"
+
+    ApiResponse_AdList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/Ad"
+
+    ApiResponse_Report:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/ReportRow"
+
+    ApiResponse_PixelList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/Pixel"
+
+    ApiResponse_PixelLastFired:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            last_fired_at:
+              type: string
+              format: date-time
+
+    ApiResponse_CustomAudience:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/CustomAudience"
+
+    ApiResponse_CustomAudienceList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/CustomAudience"
+
+    ApiResponse_SavedAudience:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/SavedAudience"
+
+    ApiResponse_SavedAudienceList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/SavedAudience"
+
+    ApiResponse_FundingInstrumentList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/FundingInstrument"
+
+    ApiResponse_TargetingOptions:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+
+    ApiResponse_GeolocationValidation:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties: true
+
+    ApiResponse_BidSuggestion:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/BidSuggestion"
+
+    ApiResponse_StructuredPost:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/StructuredPost"
+
+    ApiResponse_StructuredPostList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/StructuredPost"
+
+    ApiResponse_Success:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            message:
+              type: string

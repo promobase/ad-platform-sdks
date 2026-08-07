@@ -41,13 +41,15 @@
     },
     "packages/ad-platforms": {
       "name": "@openpromo/ad-platforms",
-      "version": "0.6.0",
+      "version": "0.7.0",
       "dependencies": {
         "@openpromo/google-ads": "workspace:*",
         "@openpromo/google-business-profile": "workspace:*",
         "@openpromo/linkedin": "workspace:*",
         "@openpromo/meta": "workspace:*",
+        "@openpromo/reddit": "workspace:*",
         "@openpromo/sdk-runtime": "workspace:*",
+        "@openpromo/snapchat": "workspace:*",
         "@openpromo/tiktok": "workspace:*",
         "@openpromo/x": "workspace:*",
         "@openpromo/youtube": "workspace:*",
@@ -66,7 +68,7 @@
     },
     "packages/cli": {
       "name": "@openpromo/ad-platforms-cli",
-      "version": "0.6.0",
+      "version": "0.6.1",
       "bin": {
         "openpromo-ads": "./dist/index.js",
         "openpromo-ads-mcp": "./dist/mcp.js",
@@ -96,7 +98,7 @@
     },
     "packages/google-ads-sdk": {
       "name": "@openpromo/google-ads",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -110,7 +112,7 @@
     },
     "packages/google-business-profile-sdk": {
       "name": "@openpromo/google-business-profile",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -124,7 +126,7 @@
     },
     "packages/linkedin-sdk": {
       "name": "@openpromo/linkedin",
-      "version": "0.6.0",
+      "version": "0.7.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -138,7 +140,7 @@
     },
     "packages/meta-business-sdk": {
       "name": "@openpromo/meta",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -156,9 +158,23 @@
         "ai",
       ],
     },
+    "packages/reddit-sdk": {
+      "name": "@openpromo/reddit",
+      "version": "0.1.0",
+      "dependencies": {
+        "@openpromo/sdk-runtime": "workspace:*",
+        "yaml": "^2.8.0",
+      },
+      "devDependencies": {
+        "@openpromo/sdk-codegen": "workspace:*",
+      },
+      "peerDependencies": {
+        "typescript": ">=5.9.3 <8",
+      },
+    },
     "packages/sdk-codegen": {
       "name": "@openpromo/sdk-codegen",
-      "version": "0.0.0",
+      "version": "0.1.0",
       "dependencies": {
         "effect": "^3.22.1",
       },
@@ -168,7 +184,7 @@
     },
     "packages/sdk-runtime": {
       "name": "@openpromo/sdk-runtime",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "dependencies": {
         "effect": "^3.22.1",
       },
@@ -179,9 +195,22 @@
         "typescript": ">=5.9.3 <8",
       },
     },
+    "packages/snapchat-sdk": {
+      "name": "@openpromo/snapchat",
+      "version": "0.1.0",
+      "dependencies": {
+        "@openpromo/sdk-runtime": "workspace:*",
+      },
+      "devDependencies": {
+        "@openpromo/sdk-codegen": "workspace:*",
+      },
+      "peerDependencies": {
+        "typescript": ">=5.9.3 <8",
+      },
+    },
     "packages/tiktok-business-sdk": {
       "name": "@openpromo/tiktok",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -201,7 +230,7 @@
     },
     "packages/x-sdk": {
       "name": "@openpromo/x",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -215,7 +244,7 @@
     },
     "packages/youtube-sdk": {
       "name": "@openpromo/youtube",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -577,9 +606,13 @@
 
     "@openpromo/meta": ["@openpromo/meta@workspace:packages/meta-business-sdk"],
 
+    "@openpromo/reddit": ["@openpromo/reddit@workspace:packages/reddit-sdk"],
+
     "@openpromo/sdk-codegen": ["@openpromo/sdk-codegen@workspace:packages/sdk-codegen"],
 
     "@openpromo/sdk-runtime": ["@openpromo/sdk-runtime@workspace:packages/sdk-runtime"],
+
+    "@openpromo/snapchat": ["@openpromo/snapchat@workspace:packages/snapchat-sdk"],
 
     "@openpromo/tiktok": ["@openpromo/tiktok@workspace:packages/tiktok-business-sdk"],
 

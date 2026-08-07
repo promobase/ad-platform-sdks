@@ -1,0 +1,2812 @@
+---
+title: "Snapchat Ads API: Access Token – Creative13 endpoints"
+description: "75 generated Snapchat endpoint contracts for Ads API: Access Token – Creative13."
+generated: true
+platform: "snapchat"
+sourceVersion: "v1"
+sidebar:
+  order: 100
+  label: "Ads API: Access Token – Creative13"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://developers.snap.com/marketing-api). Do not edit by hand. */}
+
+## snapchat.adsAPI.accessToken
+
+`POST` `https://accounts.snapchat.com/login/oauth2/access_token`
+
+Generated from Snapchat Marketing API documentation (Ads-API-authentication)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AccessTokenResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `expires_in` | `body` | `number` | Yes | No | — |
+| `token_type` | `body` | `string` | Yes | No | — |
+| `refresh_token` | `body` | `string` | Yes | No | — |
+| `access_token` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.accessToken2
+
+`POST` `https://accounts.snapchat.com/login/oauth2/access_token`
+
+Generated from Snapchat Marketing API documentation (Ads-API-authentication)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AccessTokenResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `access_token` | `body` | `string` | Yes | No | — |
+| `token_type` | `body` | `string` | Yes | No | — |
+| `expires_in` | `body` | `number` | Yes | No | — |
+| `refresh_token` | `body` | `string` | Yes | No | — |
+| `scope` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.ad
+
+`POST` `/v1/{ad_account_id}/get_ads_by_ids`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `entity_ids` | `body` | `Array<EntityIdsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.ad10
+
+`GET` `/v1/campaigns/{campaign_id}/ads`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `path` | `string` | Yes | No | — |
+| `limit` | `query` | `string` | No | No | Parameter for pagination, sets the number of Ads returned per page |
+| `sort` | `query` | `string` | No | No | optional parameter, sorts the resulting Ads in descending order, either by when the Ads were last updated or by when they were created. |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `ads`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.ad2
+
+`GET` `/v1/adaccounts/{ad_account_id}/ads`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `read_deleted_entities` | `query` | `string` | No | No | optional parameter, this param will return the deleted attribute on deleted Ad entities |
+| `limit` | `query` | `string` | No | No | Parameter for pagination, sets the number of Ads returned per page |
+| `sort` | `query` | `string` | No | No | optional parameter, sorts the resulting Ads in descending order, either by when they were last updated or by when they were created, this parameter can be combined with limit, but cannot be combined with read_deleted_entities |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `ads`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.ad3
+
+`GET` `/v1/ads/{ad_id}`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `path` | `string` | Yes | No | — |
+| `read_deleted_entities` | `query` | `string` | No | No | optional parameter, this param will return the deleted attribute on deleted Ad entities |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.ad4
+
+`DELETE` `/v1/ads/{ad_id}`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `path` | `string` | Yes | No | — |
+| `ads` | `body` | `Array<AdsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.ad5
+
+`POST` `/v1/adsquads/{ad_squad_id}/ads`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adSquadId` | `path` | `string` | Yes | No | — |
+| `ads` | `body` | `Array<AdsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.ad6
+
+`PUT` `/v1/adsquads/{ad_squad_id}/ads`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adSquadId` | `path` | `string` | Yes | No | — |
+| `ads` | `body` | `Array<AdsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.ad7
+
+`GET` `/v1/adsquads/{ad_squad_id}/ads`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adSquadId` | `path` | `string` | Yes | No | — |
+| `limit` | `query` | `string` | No | No | Parameter for pagination, sets the number of Ads returned per page |
+| `sort` | `query` | `string` | No | No | optional parameter, sorts the resulting Ads in descending order, either by when the Ads were last updated or by when they were created. |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `ads`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.ad8
+
+`POST` `/v1/adsquads/{ad_squad_id}/ads`
+
+Generated from Snapchat Marketing API documentation (Ads-API-dynamic-story-ads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adSquadId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.ad9
+
+`POST` `/v1/adsquads/{ad_squad_id}/ads`
+
+Generated from Snapchat Marketing API documentation (Ads-API-lenses)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adSquadId` | `path` | `string` | Yes | No | — |
+| `ads` | `body` | `Array<AdsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adaccount
+
+`GET` `/v1/adaccounts/{ad_account_id}`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ad-accounts)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdaccountResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adaccount2
+
+`POST` `/v1/organizations/{organization_id}/adaccounts`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ad-accounts)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdaccountResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organizationId` | `path` | `string` | Yes | No | — |
+| `adaccounts` | `body` | `Array<AdaccountsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adaccount3
+
+`PUT` `/v1/organizations/{organization_id}/adaccounts`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ad-accounts)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdaccountResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organizationId` | `path` | `string` | Yes | No | — |
+| `adaccounts` | `body` | `Array<AdaccountsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adaccount4
+
+`GET` `/v1/organizations/{organization-id}/adaccounts`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ad-accounts)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdaccountResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organizationId` | `path` | `string` | Yes | No | — |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `adaccounts`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adsquad
+
+`POST` `/v1/{ad_account_id}/get_adsquads_by_ids`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ad-squads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdsquadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `entity_ids` | `body` | `Array<EntityIdsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adsquad10
+
+`POST` `/v1/campaigns/{campaign_id}/adsquads`
+
+Generated from Snapchat Marketing API documentation (Ads-API-reach-and-frequency)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdsquadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `path` | `string` | Yes | No | — |
+| `campaign_id` | `body` | `string` | No | No | Campaign ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adsquad11
+
+`PUT` `/v1/campaigns/{campaign_id}/adsquads`
+
+Generated from Snapchat Marketing API documentation (Ads-API-reach-and-frequency)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdsquadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `path` | `string` | Yes | No | — |
+| `campaign_id` | `body` | `string` | No | No | Campaign ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adsquad12
+
+`GET` `/v1/mobile_apps/{mobile_app_id}/skadnetwork_adsquads`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ad-squads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdsquadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mobileAppId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adsquad2
+
+`GET` `/v1/adaccounts/{ad_account_id}/adsquads`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ad-squads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdsquadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `limit` | `query` | `LimitEnum` | No | No | Parameter for pagination, sets the number of Ad Squads returned per page |
+| `sort` | `query` | `string` | No | No | optional parameter, sorts the resulting Ad Squads in descending order, either by when they were last updated or by when they were created, this parameter can be combined with limit, but cannot be combined with read_deleted_entities |
+| `return_placement_v2` | `query` | `string` | No | No | optional parameter for retrieving placement_v2 attribute |
+| `read_deleted_entities` | `query` | `string` | No | No | optional parameter, this param will return the deleted attribute on deleted Ad Squad entities |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `adsquads`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adsquad3
+
+`PUT` `/v1/adaccounts/{ad_account_id}/pixels`
+
+Generated from Snapchat Marketing API documentation (Ads-API-snap-pixel)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdsquadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `adsquads` | `body` | `Array<AdsquadsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adsquad4
+
+`GET` `/v1/adsquads/{ad_squad_id}`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ad-squads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdsquadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adSquadId` | `path` | `string` | Yes | No | — |
+| `return_placement_v2` | `query` | `string` | No | No | optional parameter for retrieving placement_v2 attribute |
+| `read_deleted_entities` | `query` | `string` | No | No | optional parameter, this param will return the deleted attribute on deleted Ad Squad entities |
+| `targeting_v2` | `query` | `TargetingV2Enum` | No | No | optional parameter, returns the targeting part of the Ad Squad in compact format |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adsquad5
+
+`DELETE` `/v1/adsquads/{ID}`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ad-squads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdsquadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `ID` | `body` | `string` | No | No | The ID of the adsquad to delete |
+| `e` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adsquad6
+
+`POST` `/v1/campaigns/{campaign_id}/adsquads`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ad-squads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdsquadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `path` | `string` | Yes | No | — |
+| `adsquads` | `body` | `Array<AdsquadsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adsquad7
+
+`PUT` `/v1/campaigns/{campaign_id}/adsquads`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ad-squads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdsquadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `path` | `string` | Yes | No | — |
+| `status` | `body` | `string` | Yes | No | — |
+| `request_id` | `body` | `string` | Yes | No | — |
+| `adsquads` | `body` | `Array<AdsquadsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adsquad8
+
+`GET` `/v1/campaigns/{campaign_id}/adsquads`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ad-squads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdsquadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `path` | `string` | Yes | No | — |
+| `limit` | `query` | `LimitEnum` | No | No | Parameter for pagination, sets the number of Ad Squads returned per page |
+| `sort` | `query` | `string` | No | No | optional parameter, sorts the resulting Ad Squads in descending order, either by when they were last updated or by when they were created |
+| `return_placement_v2` | `query` | `string` | No | No | optional parameter for retrieving placement_v2 attribute |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `adsquads`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adsquad9
+
+`POST` `/v1/campaigns/{campaign_id}/adsquads`
+
+Generated from Snapchat Marketing API documentation (Ads-API-lenses)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdsquadResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `path` | `string` | Yes | No | — |
+| `adsquads` | `body` | `Array<AdsquadsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adSquadOutcomeEstimateV2
+
+`POST` `/v1/adaccounts/{ad_account_id}/ad_squad_outcome_estimates_v2`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ad-squad-outcomes)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdSquadOutcomeEstimateV2Response` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `ad_squad_outcome_estimates_v2` | `body` | `Array<AdSquadOutcomeEstimatesV2Body>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adSquadUiRenderData
+
+`GET` `/v1/adaccounts/{ad_account_id}/ad_squad_ui_render_data`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ad-squad-ui-render-data)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdSquadUiRenderDataResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `limit` | `query` | `string` | No | No | value between 50 - 1000 |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `ad_squad_ui_render_data`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adSquadUiRenderData2
+
+`GET` `/v1/adaccounts/{ad_account_id}/ad_squad_ui_render_data`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ad-squad-ui-render-data)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdSquadUiRenderDataResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `ids` | `query` | `string` | No | No | — |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `ad_squad_ui_render_data`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.adSquadUiRenderData3
+
+`POST` `/v1/adsquads/{ad_squad_id}/ads`
+
+Generated from Snapchat Marketing API documentation (Ads-API-ad-squad-ui-render-data)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdSquadUiRenderDataResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adSquadId` | `path` | `string` | Yes | No | — |
+| `ad_squad_ui_render_data` | `body` | `Array<AdSquadUiRenderDataBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.advancedDemographics
+
+`GET` `/v1/targeting/demographics/advanced_demographics`
+
+Generated from Snapchat Marketing API documentation (Ads-API-targeting)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AdvancedDemographicsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `Get a specific Ad Squad by ID` | `query` | `string` | No | No | — |
+| `Get all Ad Squads under a Campaign` | `query` | `string` | No | No | — |
+| `Get a specific Targeting Spec by ID` | `query` | `string` | No | No | — |
+| `Get all Targeting Specs under an Ad Squad` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.ageGroup
+
+`GET` `/v1/targeting/demographics/age_group`
+
+Generated from Snapchat Marketing API documentation (Ads-API-targeting)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AgeGroupResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `min_age` | `query` | `string` | No | No | 35+ is deprecated but may be found in existing ad squads |
+| `max_age` | `query` | `MaxAgeEnum` | No | No | integer, defines the maximum age targeted. If you want no maximum cap, do not set a max_age |
+| `Get a specific Ad Squad by ID` | `query` | `string` | No | No | — |
+| `Get all Ad Squads under a Campaign` | `query` | `string` | No | No | — |
+| `Get a specific Targeting Spec by ID` | `query` | `string` | No | No | — |
+| `Get all Targeting Specs under an Ad Squad` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.asyncStatsReport
+
+`POST` `/v1/adaccounts/{ad_account_id}/leads_report`
+
+Generated from Snapchat Marketing API documentation (Ads-API-measurement)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AsyncStatsReportResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `async_format` | `body` | `string` | No | No | — |
+| `start_time` | `body` | `string` | No | No | Start time in ISO format |
+| `end_time` | `body` | `string` | No | No | End time in ISO format |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.asyncStatsReport2
+
+`GET` `/v1/adaccounts/{ad_account_id}/leads_report`
+
+Generated from Snapchat Marketing API documentation (Ads-API-measurement)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AsyncStatsReportResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `breakdown` | `query` | `string` | No | No | Object-level breakdown |
+| `async` | `query` | `string` | No | No | Designates processing of report to be asynchronous |
+| `async_format` | `query` | `string` | No | No | Designates the response format of asynchronous reporting, can be either a csv or excel file |
+| `fields` | `query` | `string` | No | No | Metrics requested (comma-separated) |
+| `end_time` | `query` | `string` | No | No | End Time (ISO 8601) |
+| `start_time` | `query` | `string` | No | No | Start Time (ISO 8601) |
+| `granularity` | `query` | `GranularityEnum` | Yes | No | Metrics granularity |
+| `test` | `query` | `string` | No | No | Return Sample (fake) Stats |
+| `dimension` | `query` | `DimensionEnum` | No | No | Insight-level breakdown |
+| `pivot` | `query` | `string` | No | No | The pivot to be used for insights breakdown |
+| `action_report_time` | `query` | `string` | No | No | Specifies the principle for conversion reporting |
+| `swipe_up_attribution_window` | `query` | `string` | No | No | Attribution window for swipe ups |
+| `view_attribution_window` | `query` | `string` | No | No | Attribution window for views |
+| `position_stats` | `query` | `string` | No | No | Position metric breakdown for Snap Ads within a Story Ad |
+| `omit_empty` | `query` | `string` | No | No | Omits records with zero data for all metrics for a given date/entity. If there is data for any metric for a given date/entity, all metrics for that date/entity are returned |
+| `conversion_source_types` | `query` | `string` | No | No | Conversion source breakout by platform |
+| `limit` | `query` | `string` | No | No | The limit parameter specifies how many entities should be returned per page |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.asyncStatsReport3
+
+`GET` `/v1/adaccounts/{ad_account_id}/stats`
+
+Generated from Snapchat Marketing API documentation (Ads-API-measurement)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AsyncStatsReportResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `breakdown` | `query` | `string` | No | No | Object-level breakdown |
+| `async` | `query` | `string` | No | No | Designates processing of report to be asynchronous |
+| `async_format` | `query` | `string` | No | No | Designates the response format of asynchronous reporting, can be either a csv or excel file |
+| `fields` | `query` | `string` | No | No | Metrics requested (comma-separated) |
+| `end_time` | `query` | `string` | No | No | End Time (ISO 8601) |
+| `start_time` | `query` | `string` | No | No | Start Time (ISO 8601) |
+| `granularity` | `query` | `GranularityEnum` | Yes | No | Metrics granularity |
+| `test` | `query` | `string` | No | No | Return Sample (fake) Stats |
+| `dimension` | `query` | `DimensionEnum` | No | No | Insight-level breakdown |
+| `pivot` | `query` | `string` | No | No | The pivot to be used for insights breakdown |
+| `action_report_time` | `query` | `string` | No | No | Specifies the principle for conversion reporting |
+| `swipe_up_attribution_window` | `query` | `string` | No | No | Attribution window for swipe ups |
+| `view_attribution_window` | `query` | `string` | No | No | Attribution window for views |
+| `position_stats` | `query` | `string` | No | No | Position metric breakdown for Snap Ads within a Story Ad |
+| `omit_empty` | `query` | `string` | No | No | Omits records with zero data for all metrics for a given date/entity. If there is data for any metric for a given date/entity, all metrics for that date/entity are returned |
+| `conversion_source_types` | `query` | `string` | No | No | Conversion source breakout by platform |
+| `limit` | `query` | `string` | No | No | The limit parameter specifies how many entities should be returned per page |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.asyncStatsReport4
+
+`GET` `/v1/adaccounts/{ad_account_id}/stats_report`
+
+Generated from Snapchat Marketing API documentation (Ads-API-measurement)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AsyncStatsReportResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `breakdown` | `query` | `string` | No | No | Object-level breakdown |
+| `async` | `query` | `string` | No | No | Designates processing of report to be asynchronous |
+| `async_format` | `query` | `string` | No | No | Designates the response format of asynchronous reporting, can be either a csv or excel file |
+| `fields` | `query` | `string` | No | No | Metrics requested (comma-separated) |
+| `end_time` | `query` | `string` | No | No | End Time (ISO 8601) |
+| `start_time` | `query` | `string` | No | No | Start Time (ISO 8601) |
+| `granularity` | `query` | `GranularityEnum` | Yes | No | Metrics granularity |
+| `test` | `query` | `string` | No | No | Return Sample (fake) Stats |
+| `dimension` | `query` | `DimensionEnum` | No | No | Insight-level breakdown |
+| `pivot` | `query` | `string` | No | No | The pivot to be used for insights breakdown |
+| `action_report_time` | `query` | `string` | No | No | Specifies the principle for conversion reporting |
+| `swipe_up_attribution_window` | `query` | `string` | No | No | Attribution window for swipe ups |
+| `view_attribution_window` | `query` | `string` | No | No | Attribution window for views |
+| `position_stats` | `query` | `string` | No | No | Position metric breakdown for Snap Ads within a Story Ad |
+| `omit_empty` | `query` | `string` | No | No | Omits records with zero data for all metrics for a given date/entity. If there is data for any metric for a given date/entity, all metrics for that date/entity are returned |
+| `conversion_source_types` | `query` | `string` | No | No | Conversion source breakout by platform |
+| `limit` | `query` | `string` | No | No | The limit parameter specifies how many entities should be returned per page |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.asyncStatsReport5
+
+`GET` `/v1/adaccounts/{ad_account_id}/stats`
+
+Generated from Snapchat Marketing API documentation (Ads-API-measurement)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AsyncStatsReportResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `overlap` | `query` | `boolean` | No | No | — |
+| `overlap_type` | `query` | `string` | No | No | — |
+| `ids` | `query` | `string` | No | No | — |
+| `start_time` | `query` | `string` | No | No | — |
+| `end_time` | `query` | `string` | No | No | — |
+| `async_format` | `query` | `string` | No | No | — |
+| `1` | `query` | `string` | No | No | — |
+| `2` | `query` | `string` | No | No | — |
+| `3` | `query` | `string` | No | No | — |
+| `4` | `query` | `string` | No | No | — |
+| `5` | `query` | `string` | No | No | — |
+| `6` | `query` | `string` | No | No | — |
+| `7` | `query` | `string` | No | No | — |
+| `8` | `query` | `string` | No | No | — |
+| `9` | `query` | `string` | No | No | — |
+| `breakdown` | `query` | `string` | No | No | Object-level breakdown |
+| `async` | `query` | `string` | No | No | Designates processing of report to be asynchronous |
+| `fields` | `query` | `string` | No | No | Metrics requested (comma-separated) |
+| `granularity` | `query` | `GranularityEnum` | Yes | No | Metrics granularity |
+| `test` | `query` | `string` | No | No | Return Sample (fake) Stats |
+| `dimension` | `query` | `DimensionEnum` | No | No | Insight-level breakdown |
+| `pivot` | `query` | `string` | No | No | The pivot to be used for insights breakdown |
+| `action_report_time` | `query` | `string` | No | No | Specifies the principle for conversion reporting |
+| `swipe_up_attribution_window` | `query` | `string` | No | No | Attribution window for swipe ups |
+| `view_attribution_window` | `query` | `string` | No | No | Attribution window for views |
+| `position_stats` | `query` | `string` | No | No | Position metric breakdown for Snap Ads within a Story Ad |
+| `omit_empty` | `query` | `string` | No | No | Omits records with zero data for all metrics for a given date/entity. If there is data for any metric for a given date/entity, all metrics for that date/entity are returned |
+| `conversion_source_types` | `query` | `string` | No | No | Conversion source breakout by platform |
+| `limit` | `query` | `string` | No | No | The limit parameter specifies how many entities should be returned per page |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `async_stats_reports`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.audienceSize
+
+`POST` `/v1/adaccounts/{ID}/audience_size`
+
+Generated from Snapchat Marketing API documentation (Ads-API-audience-size)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AudienceSizeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `geos` | `body` | `Array<GeosBody>` | Yes | No | — |
+| `demographics` | `body` | `Array<DemographicsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.audienceSizeV2
+
+`POST` `/v1/adaccounts/{ad_account_id}/audience_size_v2`
+
+Generated from Snapchat Marketing API documentation (Ads-API-audience-size)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AudienceSizeV2Response` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `name` | `body` | `string` | Yes | No | — |
+| `status` | `body` | `string` | Yes | No | — |
+| `type` | `body` | `string` | Yes | No | — |
+| `targeting` | `body` | `TargetingBody` | Yes | No | — |
+| `placement` | `body` | `string` | Yes | No | — |
+| `bid_micro` | `body` | `number` | Yes | No | — |
+| `auto_bid` | `body` | `boolean` | Yes | No | — |
+| `daily_budget_micro` | `body` | `number` | Yes | No | — |
+| `delivery_constraint` | `body` | `string` | Yes | No | — |
+| `optimization_goal` | `body` | `string` | Yes | No | — |
+| `included_content_types` | `body` | `Array<unknown>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.audienceSizeV22
+
+`GET` `/v1/adsquads/{ad_squad_id}/audience_size_v2`
+
+Generated from Snapchat Marketing API documentation (Ads-API-audience-size)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `AudienceSizeV2Response` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adSquadId` | `path` | `string` | Yes | No | — |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `audience_size_v2`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.bidEstimate
+
+`POST` `/v1/adaccounts/{ID}/bid_estimate`
+
+Generated from Snapchat Marketing API documentation (Ads-API-bid-estimate)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `BidEstimateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `optimization_goal` | `body` | `string` | Yes | No | — |
+| `targeting` | `body` | `TargetingBody` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.bidEstimate2
+
+`GET` `/v1/adsquads/{ID}/bid_estimate`
+
+Generated from Snapchat Marketing API documentation (Ads-API-bid-estimate)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `BidEstimateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `bid_estimate`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.billingcenter
+
+`GET` `/v1/billingcenters/{billing_center_id}`
+
+Generated from Snapchat Marketing API documentation (Ads-API-billing-centers)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `BillingcenterResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `billingCenterId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.billingcenter2
+
+`GET` `/v1/organizations/{organization_id}/billingcenters`
+
+Generated from Snapchat Marketing API documentation (Ads-API-billing-centers)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `BillingcenterResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organizationId` | `path` | `string` | Yes | No | — |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `billingcenters`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.billingcenter3
+
+`POST` `/v1/organizations/{organization_id}/billingcenters`
+
+Generated from Snapchat Marketing API documentation (Ads-API-billing-centers)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `BillingcenterResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organizationId` | `path` | `string` | Yes | No | — |
+| `billingcenters` | `body` | `Array<BillingcentersBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.billingcenter4
+
+`PUT` `/v1/organizations/{organization_id}/billingcenters`
+
+Generated from Snapchat Marketing API documentation (Ads-API-billing-centers)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `BillingcenterResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organizationId` | `path` | `string` | Yes | No | — |
+| `billing_center_id` | `body` | `string` | No | No | Billing Center ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.campaign
+
+`POST` `/v1/{ad_account_id}/get_campaigns_by_ids`
+
+Generated from Snapchat Marketing API documentation (Ads-API-campaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CampaignResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `entity_ids` | `body` | `Array<EntityIdsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.campaign2
+
+`POST` `/v1/adaccounts/{ad_account_id}/campaigns`
+
+Generated from Snapchat Marketing API documentation (Ads-API-campaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CampaignResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `campaigns` | `body` | `Array<CampaignsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.campaign3
+
+`PUT` `/v1/adaccounts/{ad_account_id}/campaigns`
+
+Generated from Snapchat Marketing API documentation (Ads-API-campaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CampaignResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `ad_account_id` | `body` | `string` | No | No | Ad Account ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.campaign4
+
+`GET` `/v1/adaccounts/{ad_account_id}/campaigns`
+
+Generated from Snapchat Marketing API documentation (Ads-API-campaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CampaignResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `limit` | `query` | `LimitEnum` | No | No | Parameter for pagination, sets the number of Campaigns returned per page |
+| `sort` | `query` | `string` | No | No | optional parameter, sorts the resulting Campaigns in descending order, either by when they were last updated or by when they were created, this parameter can be combined with limit, but cannot be combined with read_deleted_entities |
+| `read_deleted_entities` | `query` | `string` | No | No | optional parameter, this param will return the deleted attribute on deleted Campaign entities |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `campaigns`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.campaign5
+
+`POST` `/v1/adaccounts/{ad_account_id}/campaigns`
+
+Generated from Snapchat Marketing API documentation (Ads-API-lenses)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CampaignResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `campaigns` | `body` | `Array<CampaignsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.campaign6
+
+`POST` `/v1/adaccounts/{ad_account_id}/campaigns`
+
+Generated from Snapchat Marketing API documentation (Ads-API-reach-and-frequency)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CampaignResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `campaigns` | `body` | `Array<CampaignsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.campaign7
+
+`GET` `/v1/campaigns/{campaign_id}`
+
+Generated from Snapchat Marketing API documentation (Ads-API-campaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CampaignResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `path` | `string` | Yes | No | — |
+| `read_deleted_entities` | `query` | `string` | No | No | optional parameter, this param will return the deleted attribute on deleted Campaign entities |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.campaign8
+
+`DELETE` `/v1/campaigns/{ID}`
+
+Generated from Snapchat Marketing API documentation (Ads-API-campaigns)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CampaignResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `ID` | `body` | `string` | No | No | The ID of the campaign to delete |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.carrier
+
+`GET` `/v1/targeting/device/{OS_TYPE}/os_version`
+
+Generated from Snapchat Marketing API documentation (Ads-API-targeting)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CarrierResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `oSTYPE` | `path` | `string` | Yes | No | — |
+| `Get a specific Ad Squad by ID` | `query` | `string` | No | No | — |
+| `Get all Ad Squads under a Campaign` | `query` | `string` | No | No | — |
+| `Get a specific Targeting Spec by ID` | `query` | `string` | No | No | — |
+| `Get all Targeting Specs under an Ad Squad` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.carrier2
+
+`GET` `/v1/targeting/device/carrier`
+
+Generated from Snapchat Marketing API documentation (Ads-API-targeting)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CarrierResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `Get a specific Ad Squad by ID` | `query` | `string` | No | No | — |
+| `Get all Ad Squads under a Campaign` | `query` | `string` | No | No | — |
+| `Get a specific Targeting Spec by ID` | `query` | `string` | No | No | — |
+| `Get all Targeting Specs under an Ad Squad` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.catalog
+
+`GET` `/v1/catalogs/{catalog_id}`
+
+Generated from Snapchat Marketing API documentation (Ads-API-dynamic-product-ads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CatalogResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.catalog2
+
+`DELETE` `/v1/catalogs/{catalog_id}`
+
+Generated from Snapchat Marketing API documentation (Ads-API-dynamic-product-ads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CatalogResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogId` | `path` | `string` | Yes | No | — |
+| `catalog_id` | `body` | `string` | No | No | Catalog ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.catalog3
+
+`POST` `/v1/organizations/{organization_id}/catalogs`
+
+Generated from Snapchat Marketing API documentation (Ads-API-dynamic-product-ads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CatalogResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organizationId` | `path` | `string` | Yes | No | — |
+| `catalogs` | `body` | `Array<CatalogsBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.catalog4
+
+`PUT` `/v1/organizations/{organization_id}/catalogs`
+
+Generated from Snapchat Marketing API documentation (Ads-API-dynamic-product-ads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CatalogResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organizationId` | `path` | `string` | Yes | No | — |
+| `organization_id` | `body` | `string` | No | No | Organization ID |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.catalog5
+
+`GET` `/v1/organizations/{organization_id}/catalogs`
+
+Generated from Snapchat Marketing API documentation (Ads-API-dynamic-product-ads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CatalogResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `organizationId` | `path` | `string` | Yes | No | — |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `catalogs`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.categoriesLoi
+
+`GET` `/v1/targeting/location/categories_loi`
+
+Generated from Snapchat Marketing API documentation (Ads-API-targeting)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CategoriesLoiResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `proximity` | `query` | `string` | Yes | No | Proximity to selected location categories |
+| `proximity_unit` | `query` | `string` | Yes | No | Unit to be used for radius |
+| `Get a specific Ad Squad by ID` | `query` | `string` | No | No | — |
+| `Get all Ad Squads under a Campaign` | `query` | `string` | No | No | — |
+| `Get a specific Targeting Spec by ID` | `query` | `string` | No | No | — |
+| `Get all Targeting Specs under an Ad Squad` | `query` | `string` | No | No | — |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `categories_loi`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.changelog
+
+`GET` `/v1/ads/{ad_id}/external_changelogs`
+
+Generated from Snapchat Marketing API documentation (Ads-API-audit-logs)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `ChangelogResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `path` | `string` | Yes | No | — |
+| `limit` | `query` | `string` | No | No | — |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `changelogs`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.changelog2
+
+`GET` `/v1/adsquads/{adsquad_id}/external_changelogs`
+
+Generated from Snapchat Marketing API documentation (Ads-API-audit-logs)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `ChangelogResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adsquadId` | `path` | `string` | Yes | No | — |
+| `limit` | `query` | `string` | No | No | — |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `changelogs`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.changelog3
+
+`GET` `/v1/campaigns/{campaign_id}/external_changelogs`
+
+Generated from Snapchat Marketing API documentation (Ads-API-audit-logs)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `ChangelogResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `path` | `string` | Yes | No | — |
+| `limit` | `query` | `string` | No | No | — |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `changelogs`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.changelog4
+
+`GET` `/v1/creatives/{creative_id}/external_changelogs`
+
+Generated from Snapchat Marketing API documentation (Ads-API-audit-logs)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `ChangelogResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creativeId` | `path` | `string` | Yes | No | — |
+| `limit` | `query` | `string` | No | No | — |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `changelogs`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.changelog5
+
+`GET` `/v1/dynamic_templates/{dynamic_template_id}/external_changelogs`
+
+Generated from Snapchat Marketing API documentation (Ads-API-audit-logs)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `ChangelogResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dynamicTemplateId` | `path` | `string` | Yes | No | — |
+| `limit` | `query` | `string` | No | No | — |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `changelogs`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.country
+
+`GET` `/v1/targeting/geo/country`
+
+Generated from Snapchat Marketing API documentation (Ads-API-targeting)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CountryResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `Get a specific Ad Squad by ID` | `query` | `string` | No | No | — |
+| `Get all Ad Squads under a Campaign` | `query` | `string` | No | No | — |
+| `Get a specific Targeting Spec by ID` | `query` | `string` | No | No | — |
+| `Get all Targeting Specs under an Ad Squad` | `query` | `string` | No | No | — |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `country`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.creative
+
+`POST` `/v1/{ad_account_id}/creatives`
+
+Generated from Snapchat Marketing API documentation (Ads-API-dynamic-story-ads)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CreativeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `name` | `body` | `string` | Yes | No | Creative name |
+| `ad_account_id` | `body` | `string` | Yes | No | Ad Account ID |
+| `type` | `body` | `TypeEnum` | Yes | No | Creative type |
+| `shareable` | `body` | `string` | No | No | Allows sharing of the Story Ad on iOS, Android sharing is currently not available |
+| `render_type` | `body` | `RenderTypeEnum` | Yes | No | — |
+| `preview_properties.preview_media_id` | `body` | `string` | No | No | Preview Media ID, required when render_type is STATIC |
+| `preview_properties.logo_media_id` | `body` | `string` | No | No | Logo Media ID |
+| `preview_properties.preview_headline` | `body` | `string` | Yes | No | 55 Character limit, emoji unicode characters allowed |
+| `dynamic_render_properties.dynamic_template_id` | `body` | `string` | No | No | Must match Dynamic Template ID set on the Composite creative, required when render_type is DYNAMIC |
+| `dynamic_render_properties.product_set_id` | `body` | `string` | No | No | Must match Product Set ID set at Ad Squad level, required when render_type is DYNAMIC |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.creative10
+
+`POST` `/v1/adaccounts/{ad_account_id}/creatives`
+
+Generated from Snapchat Marketing API documentation (Ads-API-creatives)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CreativeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `creatives` | `body` | `Array<CreativesBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.creative11
+
+`POST` `/v1/adaccounts/{ad_account_id}/creatives`
+
+Generated from Snapchat Marketing API documentation (Ads-API-creatives)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CreativeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `creatives` | `body` | `Array<CreativesBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.creative12
+
+`POST` `/v1/adaccounts/{ad_account_id}/creatives`
+
+Generated from Snapchat Marketing API documentation (Ads-API-creatives)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adsAPI.manage` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CreativeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `creatives` | `body` | `Array<CreativesBody>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## snapchat.adsAPI.creative13
+
+`GET` `/v1/adaccounts/{ad_account_id}/creatives`
+
+Generated from Snapchat Marketing API documentation (Ads-API-creatives)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsAPI.read` |
+| Required scopes | `snapchat-marketing-api` |
+| Rate-limit bucket | `snapchat-ads-api` |
+| Output | `CreativeResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `sort` | `query` | `string` | No | No | Sorts the resulting Creatives in descending order, either by when they were last updated or by when they were created, this parameter can be combined with limit, but cannot be combined with type or review_status |
+| `limit` | `query` | `LimitEnum` | No | No | URL Parameter for pagination, sets the number of Creatives per page returned |
+| `review_status` | `query` | `ReviewStatusEnum` | No | No | URL Parameter to select Creatives based on their review_status |
+| `type` | `query` | `TypeEnum` | No | No | URL Parameter to select Creatives based on their type |
+
+**Pagination:** `cursor` using request field `cursor`, response field `next_link`, and items field `creatives`.
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

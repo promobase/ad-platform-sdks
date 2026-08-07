@@ -7,6 +7,8 @@ export const PlatformIdSchema = Schema.Literal(
   "instagram",
   "linkedin",
   "meta",
+  "reddit",
+  "snapchat",
   "threads",
   "tiktok",
   "x",

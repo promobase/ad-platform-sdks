@@ -1,0 +1,47 @@
+---
+title: "Reddit Ads Conversions endpoints"
+description: "1 generated Reddit Ads endpoint contract for Conversions."
+generated: true
+platform: "reddit"
+sourceVersion: "v3"
+sidebar:
+  order: 105
+  label: "Conversions"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/nanobanana123/reddit-ads-api). Do not edit by hand. */}
+
+## reddit.conversions.postConversionEvents
+
+`POST` `/pixels/{pixel_id}/conversion_events`
+
+Generated from the Reddit Ads API v3 OpenAPI spec (postConversionEvents)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `reddit.conversions.manage` |
+| Required scopes | `adsedit` |
+| Rate-limit bucket | `reddit-ads-api` |
+| Output | `PostConversionEventsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pixelId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

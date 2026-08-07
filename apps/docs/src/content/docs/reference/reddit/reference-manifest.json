@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "platform": "reddit",
+  "version": "v3",
+  "endpointCount": 40,
+  "modelCount": 164,
+  "capabilityCount": 20,
+  "endpointPages": [
+    "endpoints/accounts",
+    "endpoints/ad-groups",
+    "endpoints/ads",
+    "endpoints/bid-suggestions",
+    "endpoints/campaigns",
+    "endpoints/conversions",
+    "endpoints/custom-audiences",
+    "endpoints/funding-instruments",
+    "endpoints/pixels",
+    "endpoints/reports",
+    "endpoints/saved-audiences",
+    "endpoints/structured-posts",
+    "endpoints/targeting"
+  ],
+  "modelPages": [
+    "models/account-to-inline159",
+    "models/inline162-to-validate-geolocations-response"
+  ]
+}

@@ -1,0 +1,52 @@
+---
+title: "Snapchat SDK reference"
+description: "Generated reference for 214 Snapchat endpoints and 216 models."
+generated: true
+platform: "snapchat"
+sourceVersion: "v1"
+sidebar:
+  order: 80
+  label: "Snapchat"
+---
+
+{/* Generated from canonical SdkIr (documentation: https://developers.snap.com/marketing-api). Do not edit by hand. */}
+
+Install the platform package and import either its high-level client or its generated Effect client.
+
+```bash
+bun add @openpromo/snapchat
+```
+
+```ts
+import { createEffectClient } from "@openpromo/snapchat/effect";
+
+const client = createEffectClient();
+```
+
+| Contract | Value |
+| --- | --- |
+| Platform | Snapchat |
+| API version | `v1` |
+| Source | `documentation: https://developers.snap.com/marketing-api` |
+| Endpoints | 214 |
+| Models | 216 |
+| Capabilities | 2 |
+
+## Endpoints
+
+- [Ads API: Access Token – Creative13](/reference/snapchat/endpoints/ads-api-access-token-to-creative13)
+- [Ads API: Creative14 – Organization2](/reference/snapchat/endpoints/ads-api-creative14-to-organization2)
+- [Ads API: Organization3 – Web View Properties](/reference/snapchat/endpoints/ads-api-organization3-to-web-view-properties)
+
+## Models
+
+- [Access Token Params – Interests Body](/reference/snapchat/models/access-token-params-to-interests-body)
+- [Invoice Params – Total Amount Body](/reference/snapchat/models/invoice-params-to-total-amount-body)
+- [Total Stat Params – Weekly Body](/reference/snapchat/models/total-stat-params-to-weekly-body)
+
+## Capabilities
+
+| Capability | Summary | Required scopes |
+| --- | --- | --- |
+| `adsAPI.manage` | Manage Ads API via Snapchat Marketing API | `snapchat-marketing-api` |
+| `adsAPI.read` | Read Ads API via Snapchat Marketing API | `snapchat-marketing-api` |
