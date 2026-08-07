@@ -6,6 +6,14 @@
 
 # Mosaic — Ad Platform SDKs
 
+```
+ __  __                 _      
+|  \/  | ___  ___  __ _(_) ___ 
+| |\/| |/ _ \/ __|/ _` | |/ __|
+| |  | | (_) \__ \ (_| | | (__ 
+|_|  |_|\___/|___/\__,_|_|\___|
+```
+
 **Mosaic: one type-safe TypeScript SDK family for every ad platform. AI-agent ready.**
 
 Powering [**OpenPromo**](https://openpromo.app) — the AI-native social media workspace.
