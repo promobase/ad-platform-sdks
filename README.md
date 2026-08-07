@@ -72,6 +72,11 @@ await generateText({
 - **985 typed Meta Graph API objects** with 503 real enum values (not `string`)
 - **Google Ads API v25** with typed GAQL, plus a retained raw v23 compatibility export
 - **531 generated TikTok Marketing API endpoints** across 71 current documentation categories
+- **Snapchat Marketing API** — 214 endpoints generated from the official docs (campaigns, media uploads, targeting, stats)
+- **Reddit Ads API v3** — 40 endpoints from a pinned OpenAPI spec (accounts, campaigns, ad groups, audiences)
+- **Pinterest REST API v5** — 266 endpoints from Pinterest's official spec (ads, boards, pins, catalogs)
+- **Amazon Ads API v3** — 166 endpoints across Sponsored Products, Sponsored Brands, and Sponsored Display
+- **Bluesky + AT Protocol** — 197 endpoints from the official lexicons (posts, feeds, graphs, notifications)
 - **Field-level type narrowing** — `Pick<CampaignFields, "id" | "name">` on every query
 - **Publishing clients** for Instagram, Facebook, Threads, and TikTok (photo, video/reel, carousel, story)
 - **Full inbox** — DMs, comments, private replies with Zod-validated webhook payloads
@@ -104,6 +109,11 @@ See [the Effect migration guide](./docs/effect-migration.md),
 | [`@openpromo/linkedin`](./packages/linkedin-sdk/)                               | LinkedIn organic publishing, media, organizations, and OAuth    |
 | [`@openpromo/x`](./packages/x-sdk/)                                             | X posts, media upload, and user lookup                          |
 | [`@openpromo/youtube`](./packages/youtube-sdk/)                                 | YouTube Data API v3 and resumable uploads                       |
+| [`@openpromo/snapchat`](./packages/snapchat-sdk/)                             | Snapchat Marketing API — 214 docs-generated endpoints           |
+| [`@openpromo/reddit`](./packages/reddit-sdk/)                                 | Reddit Ads API v3 — 40 endpoints from a pinned spec             |
+| [`@openpromo/pinterest`](./packages/pinterest-sdk/)                           | Pinterest REST API v5 — 266 endpoints from the official spec    |
+| [`@openpromo/amazon-ads`](./packages/amazon-ads-sdk/)                         | Amazon Ads API v3 — 166 endpoints across SP, SB, and SD         |
+| [`@openpromo/bluesky`](./packages/bluesky-sdk/)                               | Bluesky + AT Protocol — 197 lexicon-generated endpoints         |
 | [`@openpromo/ad-platforms-cli`](./packages/cli/)                                | Agent-discoverable CLI and MCP server                           |
 | [`@openpromo/sdk-runtime`](./packages/sdk-runtime/)                             | Shared HTTP, pagination, retry, and rate-limit runtime          |
 
@@ -133,6 +143,11 @@ bun run test
 (cd packages/meta-business-sdk && bun run codegen)
 (cd packages/google-ads-sdk && bun run codegen)
 (cd packages/tiktok-business-sdk && bun run codegen:refresh)
+(cd packages/snapchat-sdk && bun run codegen)
+(cd packages/reddit-sdk && bun run codegen)
+(cd packages/pinterest-sdk && bun run codegen)
+(cd packages/amazon-ads-sdk && bun run codegen)
+(cd packages/bluesky-sdk && bun run codegen)
 ```
 
 ## License
