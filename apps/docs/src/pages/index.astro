@@ -1,97 +1,141 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
+import PlatformIcon from "../components/PlatformIcon.astro";
 import { config } from "virtual:nimbus/config";
 
-const platforms = ["Meta", "TikTok", "Google Ads", "Business Profile", "LinkedIn", "X", "YouTube"];
+interface PlatformTile {
+  name: string;
+  icon: string;
+  color: string;
+  endpoints: number;
+  package: string;
+}
+
+const platforms: PlatformTile[] = [
+  { name: "Facebook", icon: "simple-icons:facebook", color: "#0866FF", endpoints: 1451, package: "@openpromo/meta" },
+  { name: "Instagram", icon: "simple-icons:instagram", color: "#E4405F", endpoints: 1451, package: "@openpromo/meta" },
+  { name: "Threads", icon: "simple-icons:threads", color: "#999999", endpoints: 1451, package: "@openpromo/meta" },
+  { name: "TikTok", icon: "simple-icons:tiktok", color: "#25F4EE", endpoints: 531, package: "@openpromo/tiktok" },
+  { name: "Snapchat", icon: "simple-icons:snapchat", color: "#FFFC00", endpoints: 214, package: "@openpromo/snapchat" },
+  { name: "Reddit", icon: "simple-icons:reddit", color: "#FF4500", endpoints: 40, package: "@openpromo/reddit" },
+  { name: "Pinterest", icon: "simple-icons:pinterest", color: "#E60023", endpoints: 266, package: "@openpromo/pinterest" },
+  { name: "Amazon Ads", icon: "simple-icons:amazon", color: "#FF9900", endpoints: 166, package: "@openpromo/amazon-ads" },
+  { name: "Bluesky", icon: "simple-icons:bluesky", color: "#0285FF", endpoints: 197, package: "@openpromo/bluesky" },
+  { name: "LinkedIn", icon: "simple-icons:linkedin", color: "#0A66C2", endpoints: 303, package: "@openpromo/linkedin" },
+  { name: "X", icon: "simple-icons:x", color: "#D4D4D8", endpoints: 176, package: "@openpromo/x" },
+  { name: "YouTube", icon: "simple-icons:youtube", color: "#FF0000", endpoints: 98, package: "@openpromo/youtube" },
+  { name: "Google Ads", icon: "simple-icons:googleads", color: "#4285F4", endpoints: 169, package: "@openpromo/google-ads" },
+  { name: "Google Business Profile", icon: "simple-icons:google", color: "#4285F4", endpoints: 139, package: "@openpromo/google-business-profile" },
+];
+
+const platformCount = new Set(platforms.map((p) => p.package)).size;
+const totalEndpoints = 3750;
+const totalModels = 27888;
+const totalCapabilities = 987;
 ---
 
 <BaseLayout title={config.title} description={config.description}>
   <div class="min-h-screen bg-background text-foreground">
     <Header />
     <main id="main-content">
-      <section class="mx-auto max-w-6xl px-6 pb-20 pt-24 sm:pt-32">
-        <div class="grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-20">
-          <div class="max-w-4xl">
-            <p class="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
-              Open source · TypeScript · Effect native
-            </p>
-            <h1 class="text-5xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-7xl">
-              One typed foundation for every platform integration.
-            </h1>
-            <p class="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
-              Provider-complete SDKs, a portable operation catalog, and agent-ready tools—generated
-              from canonical contracts without hiding the native APIs.
-            </p>
-            <div class="mt-9 flex flex-wrap gap-3">
-              <a
-                href="/getting-started"
-                class="rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground no-underline transition-colors hover:bg-primary-hover"
-              >
-                Get started
-              </a>
-              <a
-                href="/reference"
-                class="rounded-md border border-border-strong px-5 py-3 text-sm font-medium text-foreground no-underline transition-colors hover:bg-accent"
-              >
-                Browse API reference
-              </a>
-            </div>
+      <section class="relative mx-auto max-w-6xl px-6 pb-16 pt-24 sm:pt-32">
+        <div class="max-w-4xl">
+          <p class="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
+            Open source · TypeScript · Effect native
+          </p>
+          <h1 class="text-5xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-7xl">
+            One typed SDK family.
+            <span class="text-muted-foreground"> Every platform.</span>
+          </h1>
+          <p class="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
+            {platformCount} ad and social platforms behind one install —
+            <code class="font-mono text-foreground">bun add @openpromo/ad-platforms</code>.
+            Provider-complete, generated from canonical contracts, agent-ready.
+          </p>
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a
+              href="/getting-started"
+              class="rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground no-underline transition-colors hover:bg-primary-hover"
+            >
+              Get started
+            </a>
+            <a
+              href="/reference"
+              class="rounded-md border border-border-strong px-5 py-3 text-sm font-medium text-foreground no-underline transition-colors hover:bg-accent"
+            >
+              Browse API reference
+            </a>
           </div>
-
-          <a
-            href="https://openpromo.app"
-            aria-label="OpenPromo — marketing infrastructure for small businesses"
-            class="sdk-brand-panel group relative mx-auto block aspect-square w-full max-w-72 overflow-hidden rounded-[2rem] border border-border-strong bg-card text-foreground no-underline shadow-sm lg:justify-self-end"
-          >
-            <span class="absolute inset-6 rounded-full border border-border" aria-hidden="true"></span>
-            <span class="absolute inset-12 rounded-full border border-border" aria-hidden="true"></span>
-            <span class="absolute inset-x-6 top-7 flex flex-col items-center text-center">
-              <img
-                src="/openpromo-logo.svg"
-                alt=""
-                width="56"
-                height="56"
-                class="openpromo-mark h-14 w-14 transition-transform duration-300 group-hover:scale-105"
-              />
-              <span class="relative mt-3 block h-12 w-[11.5rem] overflow-hidden transition-transform duration-300 group-hover:scale-[1.03]">
-                <img
-                  src="/openpromo-wordmark-light.svg"
-                  alt="OpenPromo"
-                  width="667"
-                  height="175"
-                  class="openpromo-wordmark-light h-12 w-auto max-w-none"
-                />
-                <img
-                  src="/openpromo-wordmark-dark.svg"
-                  alt=""
-                  width="667"
-                  height="175"
-                  class="openpromo-wordmark-dark h-12 w-auto max-w-none"
-                />
-              </span>
-              <span class="mt-2 block font-mono text-[0.625rem] uppercase tracking-[0.2em] text-muted-foreground">
-                Ad Platform SDKs
-              </span>
-            </span>
-            <span class="absolute inset-x-6 bottom-6 flex items-center justify-between gap-4 border-t border-border pt-4">
-              <span class="text-xs text-muted-foreground">Open source foundation</span>
-              <span class="font-mono text-xs text-muted-foreground">7 platforms</span>
-            </span>
-          </a>
         </div>
 
-        <div class="mt-20 grid border-y border-border sm:grid-cols-3">
+        <div class="mt-16 grid grid-cols-3 gap-3 border-t border-border pt-8 sm:grid-cols-4 lg:grid-cols-7">
+          {platforms.map((platform) => (
+            <span
+              class="platform-tile group flex flex-col items-center gap-2 rounded-xl border border-transparent px-2 py-4 text-center transition-colors hover:border-border hover:bg-card"
+              style={`--pc: ${platform.color}`}
+              title={`${platform.package} — ${platform.endpoints} endpoints`}
+            >
+              <PlatformIcon name={platform.icon} class="platform-icon h-7 w-7" />
+              <span class="text-xs leading-tight text-muted-foreground">{platform.name}</span>
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <section class="border-y border-border bg-muted/40">
+        <div class="mx-auto max-w-6xl px-6 py-20">
+          <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+            <div>
+              <p class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">Platform coverage</p>
+              <h2 class="mt-4 text-3xl font-semibold tracking-tight">Every major ad platform. One API shape.</h2>
+              <p class="mt-4 leading-7 text-muted-foreground">
+                {totalEndpoints.toLocaleString()} generated endpoints across {platformCount} packages —
+                campaigns, audiences, targeting, publishing, messaging, and metrics — each typed from
+                the provider's own canonical contracts.
+              </p>
+              <div class="mt-8 flex flex-wrap gap-2">
+                {[...new Set(platforms.map((p) => p.package))].map((pkg) => (
+                  <span class="rounded-full border border-border px-3 py-1.5 font-mono text-xs text-muted-foreground">{pkg}</span>
+                ))}
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {platforms.map((platform) => (
+                <a
+                  href="/reference"
+                  class="group rounded-xl border border-border bg-card p-4 no-underline transition-colors hover:border-border-strong"
+                >
+                  <div class="flex items-center gap-3">
+                    <PlatformIcon name={platform.icon} class="h-6 w-6 shrink-0" style={`color: ${platform.color};`} />
+                    <span class="truncate text-sm font-medium text-foreground">{platform.name}</span>
+                  </div>
+                  <div class="mt-3 font-mono text-xs text-muted-foreground">
+                    {platform.endpoints.toLocaleString()} endpoints
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-6 py-20">
+        <div class="grid border-y border-border sm:grid-cols-4">
           <div class="py-6 sm:border-r sm:border-border sm:pr-8">
-            <div class="text-3xl font-semibold tracking-tight">2,227</div>
+            <div class="text-3xl font-semibold tracking-tight">{platformCount}</div>
+            <div class="mt-1 text-sm text-muted-foreground">platform packages</div>
+          </div>
+          <div class="border-t border-border py-6 sm:border-r sm:border-t-0 sm:px-8">
+            <div class="text-3xl font-semibold tracking-tight">{totalEndpoints.toLocaleString()}</div>
             <div class="mt-1 text-sm text-muted-foreground">generated endpoints</div>
           </div>
           <div class="border-t border-border py-6 sm:border-r sm:border-t-0 sm:px-8">
-            <div class="text-3xl font-semibold tracking-tight">7,207</div>
+            <div class="text-3xl font-semibold tracking-tight">{totalModels.toLocaleString()}</div>
             <div class="mt-1 text-sm text-muted-foreground">typed models</div>
           </div>
           <div class="border-t border-border py-6 sm:border-t-0 sm:pl-8">
-            <div class="text-3xl font-semibold tracking-tight">682</div>
+            <div class="text-3xl font-semibold tracking-tight">{totalCapabilities.toLocaleString()}</div>
             <div class="mt-1 text-sm text-muted-foreground">declared capabilities</div>
           </div>
         </div>
@@ -128,29 +172,36 @@ const platforms = ["Meta", "TikTok", "Google Ads", "Business Profile", "LinkedIn
         </div>
       </section>
 
-      <section class="mx-auto max-w-6xl px-6 py-20">
-        <p class="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">Platform coverage</p>
-        <div class="mt-7 flex flex-wrap gap-2">
-          {platforms.map((platform) => (
-            <span class="rounded-full border border-border px-4 py-2 text-sm text-muted-foreground">{platform}</span>
-          ))}
-        </div>
-        <div class="mt-14 flex items-center gap-2 border-t border-border pt-8 text-sm text-muted-foreground">
-          <img src="/openpromo-logo.svg" alt="" width="20" height="20" class="openpromo-mark h-5 w-5" />
-          <span>
-            MIT licensed and powering <a class="text-foreground underline underline-offset-4" href="https://openpromo.app">OpenPromo</a>.
-          </span>
+      <section class="mx-auto max-w-6xl px-6 py-16">
+        <div class="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex items-center gap-2 text-sm text-muted-foreground">
+            <img src="/openpromo-logo.svg" alt="" width="20" height="20" class="openpromo-mark h-5 w-5" />
+            <span>
+              MIT licensed and powering <a class="text-foreground underline underline-offset-4" href="https://openpromo.app">OpenPromo</a>.
+            </span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {platforms.map((platform) => (
+              <span class="group flex items-center gap-1.5" title={platform.name}>
+                <PlatformIcon name={platform.icon} class="h-4 w-4" style={`color: color-mix(in srgb, var(--foreground) 45%, transparent);`} />
+              </span>
+            ))}
+          </div>
         </div>
       </section>
     </main>
   </div>
 </BaseLayout>
 
-<style>
-  .sdk-brand-panel {
-    background-image:
-      linear-gradient(color-mix(in oklch, var(--nb-border) 55%, transparent) 1px, transparent 1px),
-      linear-gradient(90deg, color-mix(in oklch, var(--nb-border) 55%, transparent) 1px, transparent 1px);
-    background-size: 1.5rem 1.5rem;
+<style is:global>
+  /* Brand-color hover for the hero icon strip: each tile sets --pc to its
+     brand color; icons are muted by default and light up on hover. */
+  .platform-tile .platform-icon {
+    color: color-mix(in srgb, var(--foreground) 55%, transparent);
+    transition: color 200ms ease, transform 200ms ease;
+  }
+  .platform-tile:hover .platform-icon {
+    color: var(--pc);
+    transform: scale(1.12);
   }
 </style>
