@@ -3,7 +3,7 @@
   "name": "mosaic-docs",
   "compatibility_date": "2026-08-03",
   "workers_dev": true,
-  "routes": [{ "pattern": "chat-sdk.dev", "custom_domain": true }],
+  "routes": [{ "pattern": "mosaic.openpromo.app", "custom_domain": true }],
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page",

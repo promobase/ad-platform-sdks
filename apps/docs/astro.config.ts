@@ -5,7 +5,7 @@ import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 
 const nimbusConfig = defineNimbusConfig({
-  site: "https://chat-sdk.dev",
+  site: "https://mosaic.openpromo.app",
   title: "Mosaic SDKs",
   description: "Mosaic — one type-safe SDK family for every major ad and social platform.",
   locale: "en",
