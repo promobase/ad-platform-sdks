@@ -1,0 +1,1049 @@
+---
+title: "Pinterest models: Inline9379 – Inline9502"
+description: "100 generated Pinterest model contracts, from Inline9379 through Inline9502."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1103
+  label: "Inline9379 – Inline9502"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Inline9379
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline938
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CURRENCY` | `CURRENCY` | `Inline938` | Yes | No | A currency filter. This filter cannot be negated |
+
+## Inline9381
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | — |
+| `items` | `items` | `Array<Inline9381>` | Yes | No | — |
+
+## Inline9382
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `email` | `string` | No | No | Email of the business member/partner. |
+| `id` | `id` | `string` | No | No | Unique identifier of the business member/partner. |
+| `username` | `username` | `string` | No | No | Username of the business member/partner. |
+
+## Inline9384
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id` | `asset_id` | `string` | Yes | No | Unique identifier of the business asset. |
+| `partner_id` | `partner_id` | `string` | Yes | No | Unique identifier of a business partner to update asset access to. |
+| `permissions` | `permissions` | `Array<string>` | Yes | No | A non-empty array of permissions to assign to the partner. |
+
+## Inline9386
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline9386>` | No | No | List of assigned/updated partner asset access. |
+
+## Inline9388
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id` | `asset_id` | `string` | Yes | No | Unique identifier of the business asset. |
+| `partner_id` | `partner_id` | `string` | Yes | No | Unique identifier of a business partner to update asset access to. |
+| `permissions` | `permissions` | `Array<string>` | Yes | No | A non-empty array of permissions to assign to the partner. |
+
+## Inline9389
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id` | `asset_id` | `string` | Yes | No | Unique identifier of the business asset. |
+| `partner_id` | `partner_id` | `string` | Yes | No | Unique identifier of a business partner to update asset access to. |
+| `partner_type` | `partner_type` | `string` | No | No | If partner_type=INTERNAL, the deleted asset access is for the access the partner has to your business asset. If partner_type=EXTERNAL, the deleted asset access is for the access you have to the partner's business asset. |
+
+## Inline939
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ITEM_ID` | `ITEM_ID` | `Inline939` | Yes | No | — |
+
+## Inline9391
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline9391>` | No | No | List of terminated partner asset accesses. |
+
+## Inline9393
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id` | `asset_id` | `string` | Yes | No | Unique identifier of the business asset. |
+| `partner_id` | `partner_id` | `string` | Yes | No | Unique identifier of a business partner to update asset access to. |
+| `partner_type` | `partner_type` | `string` | No | No | If partner_type=INTERNAL, the deleted asset access is for the access the partner has to your business asset. If partner_type=EXTERNAL, the deleted asset access is for the access you have to the partner's business asset. |
+
+## Inline9394
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id_to_permissions` | `asset_id_to_permissions` | `Inline9394` | Yes | No | An object mapping asset ids to lists of business permissions. This can be used to setting/requesting permissions on various assets. If accepting an invite or request, this object would be used to grant asset permissions to the member or partner. |
+| `partner_id` | `partner_id` | `string` | Yes | No | Unique identifier of a business partner to request asset access to. |
+
+## Inline9396
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `exceptions` | `exceptions` | `Array<Inline9396>` | No | No | A list of errors associated with the asset access requests. Will be returned if there is an error. |
+| `invites` | `invites` | `Inline9397` | No | No | An object mapping each partner id to the asset access request id. Only one request id is returned per partner. |
+
+## Inline9397
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline9399
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id_to_permissions` | `asset_id_to_permissions` | `Inline9399` | Yes | No | An object mapping asset ids to lists of business permissions. This can be used to setting/requesting permissions on various assets. If accepting an invite or request, this object would be used to grant asset permissions to the member or partner. |
+| `partner_id` | `partner_id` | `string` | Yes | No | Unique identifier of a business partner to request asset access to. |
+
+## Inline94
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline940
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AVAILABILITY` | `AVAILABILITY` | `Inline940` | Yes | No | — |
+
+## Inline9403
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | — |
+| `items` | `items` | `Array<Inline9403>` | Yes | No | — |
+
+## Inline9404
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Unique identifier of a business asset. |
+| `permissions` | `permissions` | `Array<string>` | No | No | Permission levels member or partner has on an asset. |
+
+## Inline9405
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `email` | `string` | No | No | Email of the business member/partner. |
+| `id` | `id` | `string` | No | No | Unique identifier of the business member/partner. |
+| `username` | `username` | `string` | No | No | Username of the business member/partner. |
+
+## Inline9406
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `email` | `string` | No | No | Email of the business member/partner. |
+| `id` | `id` | `string` | No | No | Unique identifier of the business member/partner. |
+| `username` | `username` | `string` | No | No | Username of the business member/partner. |
+
+## Inline9407
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `email` | `string` | No | No | Email of the business member/partner. |
+| `id` | `id` | `string` | No | No | Unique identifier of the business member/partner. |
+| `username` | `username` | `string` | No | No | Username of the business member/partner. |
+
+## Inline9409
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `Inline9409` | Yes | No | — |
+| `invite_id` | `invite_id` | `string` | Yes | No | Unique identifier of an invite. |
+
+## Inline941
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `BRAND` | `BRAND` | `Inline941` | Yes | No | — |
+
+## Inline9411
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline9411>` | No | No | List of invite/request accept/decline status. If there is an error, an exception object will be returned. If the invite/request was successfully accepted/declined, an invite object will be returned. |
+
+## Inline9412
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Unique identifier of the invite/request. |
+| `invite_data` | `invite_data` | `Inline9412` | No | No | Metadata for the invite/request. |
+| `is_received_invite` | `is_received_invite` | `boolean` | No | No | Indicates whether the invite/request was received. |
+| `user` | `user` | `Inline9413` | No | No | Metadata for the member/partner that was sent the invite/request. |
+
+## Inline9413
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `email` | `string` | No | No | Email of the business member/partner. |
+| `id` | `id` | `string` | No | No | Unique identifier of the business member/partner. |
+| `username` | `username` | `string` | No | No | Username of the business member/partner. |
+
+## Inline9415
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `Inline9415` | Yes | No | — |
+| `invite_id` | `invite_id` | `string` | Yes | No | Unique identifier of an invite. |
+
+## Inline9417
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | — |
+| `items` | `items` | `Array<Inline9417>` | Yes | No | — |
+
+## Inline942
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CONDITION` | `CONDITION` | `Inline942` | Yes | No | — |
+
+## Inline9420
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | Type of the catalog entity. |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `id` | `id` | `string` | Yes | No | ID of the catalog entity. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a catalog entity. |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+
+## Inline9422
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline9422` | Yes | No | Local inventory attributes for retail items (required fields for create/upsert) |
+| `item_id` | `item_id` | `string` | Yes | No | Catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `store_code` | `store_code` | `string` | Yes | No | Store code for the local inventory item |
+
+## Inline9423
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline9423` | Yes | No | Local inventory attributes for retail items (all fields optional for update/get) |
+| `item_id` | `item_id` | `string` | Yes | No | Catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `store_code` | `store_code` | `string` | Yes | No | Store code for the local inventory item |
+
+## Inline9424
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline9424` | Yes | No | Local inventory attributes for retail items (required fields for create/upsert) |
+| `item_id` | `item_id` | `string` | Yes | No | Catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `store_code` | `store_code` | `string` | Yes | No | Store code for the local inventory item |
+
+## Inline9425
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | Yes | No | Catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `store_code` | `store_code` | `string` | Yes | No | Store code for the local inventory item |
+
+## Inline9427
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `batch_id` | `batch_id` | `string` | Yes | No | Id of the batch operation |
+| `completed_time` | `completed_time` | `string` | No | No | Date and time (UTC) of the batch completion: YYYY-MM-DD'T'hh:mm:ss |
+| `created_time` | `created_time` | `string` | Yes | No | Date and time (UTC) of the batch creation: YYYY-MM-DD'T'hh:mm:ss |
+| `operation_results` | `operation_results` | `Array<Inline9427>` | Yes | No | Array of operation results |
+| `status` | `status` | `Inline9430` | Yes | No | Status of the batch: PROCESSING, COMPLETED, FAILED |
+
+## Inline9428
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline9429
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute` | `attribute` | `string` | Yes | No | The item attribute referenced by the validation event eg. price, availability, ad_link |
+| `code` | `code` | `number` | Yes | No | The event code that the item validation event references |
+| `message` | `message` | `string` | Yes | No | Title message describing the item validation event |
+
+## Inline943
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_0` | `CUSTOM_LABEL_0` | `Inline943` | Yes | No | — |
+
+## Inline9430
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline9432
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline9432` | Yes | No | Local inventory attributes for retail items (required fields for create/upsert) |
+| `item_id` | `item_id` | `string` | Yes | No | Catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `store_code` | `store_code` | `string` | Yes | No | Store code for the local inventory item |
+
+## Inline9433
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline9433` | Yes | No | Local inventory attributes for retail items (all fields optional for update/get) |
+| `item_id` | `item_id` | `string` | Yes | No | Catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `store_code` | `store_code` | `string` | Yes | No | Store code for the local inventory item |
+
+## Inline9434
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline9434` | Yes | No | Local inventory attributes for retail items (required fields for create/upsert) |
+| `item_id` | `item_id` | `string` | Yes | No | Catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `store_code` | `store_code` | `string` | Yes | No | Store code for the local inventory item |
+
+## Inline9435
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | Yes | No | Catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `store_code` | `store_code` | `string` | Yes | No | Store code for the local inventory item |
+
+## Inline9436
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | Yes | No | Catalog item id in the merchant namespace |
+| `store_code` | `store_code` | `string` | Yes | No | Store code for the local inventory item |
+
+## Inline9438
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline9438>` | Yes | No | Array of local inventory items |
+
+## Inline9439
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `geohash` | `geohash` | `string` | No | No | Geohash of the store location |
+| `latitude` | `latitude` | `number` | No | No | Geographic latitude coordinate of the store |
+| `longitude` | `longitude` | `number` | No | No | Geographic longitude coordinate of the store |
+| `store_code` | `store_code` | `string` | No | No | Merchant provided store code |
+| `store_id` | `store_id` | `string` | No | No | Internal store code |
+| `store_name` | `store_name` | `string` | No | No | Store name |
+
+## Inline944
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_1` | `CUSTOM_LABEL_1` | `Inline944` | Yes | No | — |
+
+## Inline9441
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | Yes | No | Catalog item id in the merchant namespace |
+| `store_code` | `store_code` | `string` | Yes | No | Store code for the local inventory item |
+
+## Inline9443
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | — |
+| `items` | `items` | `Array<Inline9443>` | Yes | No | — |
+
+## Inline9445
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `address_primary` | `address_primary` | `string` | No | No | Primary address line of the store. |
+| `address_secondary` | `address_secondary` | `string` | No | No | Secondary address line of the store. |
+| `city` | `city` | `string` | No | No | City where the store is located. |
+| `country` | `country` | `Inline9445` | Yes | No | Country code where the store is located. |
+| `latitude` | `latitude` | `number` | No | No | Geographic latitude coordinate of the store. |
+| `longitude` | `longitude` | `number` | No | No | Geographic longitude coordinate of the store. |
+| `name` | `name` | `string` | Yes | No | The name of the local store. |
+| `postal_code` | `postal_code` | `string` | No | No | Postal or ZIP code of the store. |
+| `region` | `region` | `string` | No | No | State or region code where the store is located. |
+| `store_code` | `store_code` | `string` | Yes | No | Merchant provided code for the local store. Unique within the merchant's catalog. |
+
+## Inline9447
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9447 \| Inline9448` | Yes | No | Created/updated resource on success or error details on failure |
+
+## Inline9448
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | The ID of the local store. |
+| `exceptions` | `exceptions` | `unknown` | Yes | No | — |
+
+## Inline945
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_2` | `CUSTOM_LABEL_2` | `Inline945` | Yes | No | — |
+
+## Inline9450
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `address_primary` | `address_primary` | `string` | No | No | Primary address line of the store. |
+| `address_secondary` | `address_secondary` | `string` | No | No | Secondary address line of the store. |
+| `city` | `city` | `string` | No | No | City where the store is located. |
+| `country` | `country` | `Inline9450` | No | No | Country code where the store is located. |
+| `id` | `id` | `string` | Yes | No | The ID of the local store. |
+| `latitude` | `latitude` | `number` | No | No | Geographic latitude coordinate of the store. |
+| `longitude` | `longitude` | `number` | No | No | Geographic longitude coordinate of the store. |
+| `name` | `name` | `string` | No | No | The name of the local store. |
+| `postal_code` | `postal_code` | `string` | No | No | Postal or ZIP code of the store. |
+| `region` | `region` | `string` | No | No | State or region code where the store is located. |
+| `store_code` | `store_code` | `string` | No | No | Merchant provided code for the local store. Unique within the merchant's catalog. |
+
+## Inline9452
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9452 \| Inline9453` | Yes | No | Created/updated resource on success or error details on failure |
+
+## Inline9453
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | The ID of the local store. |
+| `exceptions` | `exceptions` | `unknown` | Yes | No | — |
+
+## Inline9456
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | The ID of the local store. |
+| `status` | `status` | `unknown \| unknown` | Yes | No | — |
+
+## Inline9459
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `batch_id` | `batch_id` | `string` | Yes | No | Id of the batch operation |
+| `completed_time` | `completed_time` | `string` | No | No | Date and time (UTC) of the batch completion: YYYY-MM-DD'T'hh:mm:ss |
+| `created_time` | `created_time` | `string` | Yes | No | Date and time (UTC) of the batch creation: YYYY-MM-DD'T'hh:mm:ss |
+| `operation_results` | `operation_results` | `Array<Inline9459>` | Yes | No | Array of operation results |
+| `status` | `status` | `Inline9462` | Yes | No | Status of the batch: PROCESSING, COMPLETED, FAILED |
+
+## Inline946
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_3` | `CUSTOM_LABEL_3` | `Inline946` | Yes | No | — |
+
+## Inline9460
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline9461
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute` | `attribute` | `string` | Yes | No | The item attribute referenced by the validation event eg. price, availability, ad_link |
+| `code` | `code` | `number` | Yes | No | The event code that the item validation event references |
+| `message` | `message` | `string` | Yes | No | Title message describing the item validation event |
+
+## Inline9462
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline9465
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `filter_values` | `filter_values` | `Inline9465` | Yes | No | A map of filter attributes to their available values. |
+
+## Inline9466
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `filter_values` | `filter_values` | `Inline9466` | Yes | No | A map of filter attributes to their available values. |
+
+## Inline9467
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `filter_values` | `filter_values` | `Inline9467` | Yes | No | A map of filter attributes to their available values. |
+
+## Inline947
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_4` | `CUSTOM_LABEL_4` | `Inline947` | Yes | No | — |
+
+## Inline9470
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | — |
+| `items` | `items` | `Array<Inline9470 \| Inline9472 \| Inline9474>` | Yes | No | — |
+
+## Inline9471
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `time` | `time` | `string` | Yes | No | A time in format HH:MM with leading 0 (zero) |
+| `timezone` | `timezone` | `Inline9471` | Yes | No | The timezone considered for the processing schedule time. |
+
+## Inline9472
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog id pertaining to the feed. If not provided, feed will use a default catalog based on type. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline9472` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string` | Yes | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `id` | `id` | `string` | Yes | No | ID of the feed entity. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. This value is currently nullable due to historical reasons. It is expected to become non-nullable in the future. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline9473` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `string` | Yes | No | Status for catalogs entities. Present in catalogs_feed values. When a feed is deleted, the response will inform DELETED as status. |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+
+## Inline9473
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `time` | `time` | `string` | Yes | No | A time in format HH:MM with leading 0 (zero) |
+| `timezone` | `timezone` | `Inline9473` | Yes | No | The timezone considered for the processing schedule time. |
+
+## Inline9474
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog id pertaining to the feed. If not provided, feed will use a default catalog based on type. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline9474` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_country` | `default_country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string` | Yes | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `id` | `id` | `string` | Yes | No | ID of the feed entity. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. This value is currently nullable due to historical reasons. It is expected to become non-nullable in the future. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline9475` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `string` | Yes | No | Status for catalogs entities. Present in catalogs_feed values. When a feed is deleted, the response will inform DELETED as status. |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+
+## Inline9475
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `time` | `time` | `string` | Yes | No | A time in format HH:MM with leading 0 (zero) |
+| `timezone` | `timezone` | `Inline9475` | Yes | No | The timezone considered for the processing schedule time. |
+
+## Inline9477
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog id pertaining to the feed. If not provided, feed will use a default catalog based on type. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline9477` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_availability` | `default_availability` | `string` | No | No | Default availability for products in a feed. |
+| `default_country` | `default_country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string \| string` | Yes | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline9478` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `Inline9479` | No | No | — |
+
+## Inline9478
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `time` | `time` | `string` | Yes | No | A time in format HH:MM with leading 0 (zero) |
+| `timezone` | `timezone` | `Inline9478` | Yes | No | The timezone considered for the processing schedule time. |
+
+## Inline9479
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline948
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ITEM_GROUP_ID` | `ITEM_GROUP_ID` | `Inline948` | Yes | No | — |
+
+## Inline9480
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog id pertaining to the feed. If not provided, feed will use a default catalog based on type. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline9480` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string \| string` | Yes | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline9481` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `Inline9482` | No | No | — |
+
+## Inline9481
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `time` | `time` | `string` | Yes | No | A time in format HH:MM with leading 0 (zero) |
+| `timezone` | `timezone` | `Inline9481` | Yes | No | The timezone considered for the processing schedule time. |
+
+## Inline9482
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline9483
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog id pertaining to the feed. If not provided, feed will use a default catalog based on type. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline9483` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_country` | `default_country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string \| string` | Yes | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline9484` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `Inline9485` | No | No | — |
+
+## Inline9484
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `time` | `time` | `string` | Yes | No | A time in format HH:MM with leading 0 (zero) |
+| `timezone` | `timezone` | `Inline9484` | Yes | No | The timezone considered for the processing schedule time. |
+
+## Inline9485
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline9486
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `credentials` | `credentials` | `Inline9486` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_availability` | `default_availability` | `string` | No | No | Default availability for products in a feed. |
+| `default_country` | `default_country` | `string` | No | No | Country ID from ISO 3166-1 alpha-2. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string \| string` | No | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline9487` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `Inline9488` | No | No | — |
+
+## Inline9487
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `time` | `time` | `string` | Yes | No | A time in format HH:MM with leading 0 (zero) |
+| `timezone` | `timezone` | `Inline9487` | Yes | No | The timezone considered for the processing schedule time. |
+
+## Inline9488
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline949
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GENDER` | `GENDER` | `Inline949` | Yes | No | — |
+
+## Inline9490
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline9490` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_availability` | `default_availability` | `string` | No | No | Default availability for products in a feed. |
+| `default_country` | `default_country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string` | Yes | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `id` | `id` | `string` | Yes | No | ID of the feed entity. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. This value is currently nullable due to historical reasons. It is expected to become non-nullable in the future. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline9491` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `string` | Yes | No | Status for catalogs entities. Present in catalogs_feed values. When a feed is deleted, the response will inform DELETED as status. |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+
+## Inline9491
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `time` | `time` | `string` | Yes | No | A time in format HH:MM with leading 0 (zero) |
+| `timezone` | `timezone` | `Inline9491` | Yes | No | The timezone considered for the processing schedule time. |
+
+## Inline9492
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog id pertaining to the feed. If not provided, feed will use a default catalog based on type. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline9492` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string` | Yes | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `id` | `id` | `string` | Yes | No | ID of the feed entity. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. This value is currently nullable due to historical reasons. It is expected to become non-nullable in the future. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline9493` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `string` | Yes | No | Status for catalogs entities. Present in catalogs_feed values. When a feed is deleted, the response will inform DELETED as status. |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+
+## Inline9493
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `time` | `time` | `string` | Yes | No | A time in format HH:MM with leading 0 (zero) |
+| `timezone` | `timezone` | `Inline9493` | Yes | No | The timezone considered for the processing schedule time. |
+
+## Inline9494
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog id pertaining to the feed. If not provided, feed will use a default catalog based on type. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline9494` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_country` | `default_country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string` | Yes | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `id` | `id` | `string` | Yes | No | ID of the feed entity. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. This value is currently nullable due to historical reasons. It is expected to become non-nullable in the future. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline9495` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `string` | Yes | No | Status for catalogs entities. Present in catalogs_feed values. When a feed is deleted, the response will inform DELETED as status. |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+
+## Inline9495
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `time` | `time` | `string` | Yes | No | A time in format HH:MM with leading 0 (zero) |
+| `timezone` | `timezone` | `Inline9495` | Yes | No | The timezone considered for the processing schedule time. |
+
+## Inline9498
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline9498` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_availability` | `default_availability` | `string` | No | No | Default availability for products in a feed. |
+| `default_country` | `default_country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string` | Yes | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `id` | `id` | `string` | Yes | No | ID of the feed entity. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. This value is currently nullable due to historical reasons. It is expected to become non-nullable in the future. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline9499` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `string` | Yes | No | Status for catalogs entities. Present in catalogs_feed values. When a feed is deleted, the response will inform DELETED as status. |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+
+## Inline9499
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `time` | `time` | `string` | Yes | No | A time in format HH:MM with leading 0 (zero) |
+| `timezone` | `timezone` | `Inline9499` | Yes | No | The timezone considered for the processing schedule time. |
+
+## Inline95
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_verification` | `audience_verification` | `Array<string>` | No | No | — |
+| `buyable_button` | `buyable_button` | `Array<string>` | No | No | — |
+| `click` | `click` | `Array<string>` | No | No | — |
+| `engagement` | `engagement` | `Array<string>` | No | No | — |
+| `impression` | `impression` | `Array<string>` | No | No | — |
+
+## Inline950
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `MEDIA_TYPE` | `MEDIA_TYPE` | `Inline950` | Yes | No | — |
+
+## Inline9500
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog id pertaining to the feed. If not provided, feed will use a default catalog based on type. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline9500` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string` | Yes | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `id` | `id` | `string` | Yes | No | ID of the feed entity. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. This value is currently nullable due to historical reasons. It is expected to become non-nullable in the future. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline9501` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `string` | Yes | No | Status for catalogs entities. Present in catalogs_feed values. When a feed is deleted, the response will inform DELETED as status. |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+
+## Inline9501
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `time` | `time` | `string` | Yes | No | A time in format HH:MM with leading 0 (zero) |
+| `timezone` | `timezone` | `Inline9501` | Yes | No | The timezone considered for the processing schedule time. |
+
+## Inline9502
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog id pertaining to the feed. If not provided, feed will use a default catalog based on type. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline9502` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_country` | `default_country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string` | Yes | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `id` | `id` | `string` | Yes | No | ID of the feed entity. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. This value is currently nullable due to historical reasons. It is expected to become non-nullable in the future. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline9503` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `string` | Yes | No | Status for catalogs entities. Present in catalogs_feed values. When a feed is deleted, the response will inform DELETED as status. |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |

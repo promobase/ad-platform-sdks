@@ -1,0 +1,49 @@
+---
+title: "Pinterest Conversion Events endpoints"
+description: "1 generated Pinterest endpoint contract for Conversion Events."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 122
+  label: "Conversion Events"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.conversionEvents.eventsCreate
+
+`POST` `/ad_accounts/{ad_account_id}/events`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (events/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.conversionEvents.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `EventsCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `test` | `query` | `boolean` | No | No | Include query param ?test=true to mark the request as a test request. The events will not be recorded but the API will still return the same response messages. Use this mode to verify your requests are working and your events are constructed correctly. Warning: If you use this query parameter, be certain that it is off (set to false or deleted) before sending a legitimate (non-testing) request. |
+| `data` | `body` | `Array<Inline8811>` | Yes | No | A list of events (one or more) encapsulated by a data object. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

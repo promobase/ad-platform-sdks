@@ -1,0 +1,300 @@
+---
+title: "Pinterest Catalog Feeds endpoints"
+description: "8 generated Pinterest endpoint contracts for Catalog Feeds."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 114
+  label: "Catalog Feeds"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.catalogFeeds.feedProcessingResultsList
+
+`GET` `/catalogs/feeds/{feed_id}/processing_results`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (feed_processing_results/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.catalogFeeds.read` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `FeedProcessingResultsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feedId` | `path` | `string` | Yes | No | Unique identifier of a feed. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogFeeds.feedsCreate
+
+`POST` `/catalogs/feeds`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (feeds/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogFeeds.manage` |
+| Required scopes | `catalogs:read`<br />`catalogs:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `FeedsCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogFeeds.feedsDelete
+
+`DELETE` `/catalogs/feeds/{feed_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (feeds/delete)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogFeeds.manage` |
+| Required scopes | `catalogs:read`<br />`catalogs:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `FeedsDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feedId` | `path` | `string` | Yes | No | Unique identifier of a feed. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogFeeds.feedsGet
+
+`GET` `/catalogs/feeds/{feed_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (feeds/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.catalogFeeds.read` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `FeedsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feedId` | `path` | `string` | Yes | No | Unique identifier of a feed. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogFeeds.feedsIngest
+
+`POST` `/catalogs/feeds/{feed_id}/ingest`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (feeds/ingest)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogFeeds.manage` |
+| Required scopes | `catalogs:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `FeedsIngestResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feedId` | `path` | `string` | Yes | No | Unique identifier of a feed. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogFeeds.feedsList
+
+`GET` `/catalogs/feeds`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (feeds/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.catalogFeeds.read` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `FeedsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogId` | `query` | `string` | No | No | Filter entities for a given catalog_id. If not given, all catalogs are considered. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogFeeds.feedsUpdate
+
+`PATCH` `/catalogs/feeds/{feed_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (feeds/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogFeeds.manage` |
+| Required scopes | `catalogs:read`<br />`catalogs:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `FeedsUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feedId` | `path` | `string` | Yes | No | Unique identifier of a feed. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogFeeds.itemsIssuesList
+
+`GET` `/catalogs/processing_results/{processing_result_id}/item_issues`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (items_issues/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.catalogFeeds.read` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `ItemsIssuesListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `processingResultId` | `path` | `string` | Yes | No | Unique identifier of a feed processing result. It can be acquired from the "id" field of the "items" array within the response of the List processing results for a given feed. |
+| `itemNumbers` | `query` | `Array<number>` | No | No | Item number based on order of appearance in the Catalogs Feed. For example, '0' refers to first item found in a feed that was downloaded from a 'location' specified during feed creation. |
+| `itemValidationIssue` | `query` | `string` | No | No | Filter item validation issues that have a given type of item validation issue. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

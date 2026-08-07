@@ -1,0 +1,1139 @@
+---
+title: "Pinterest models: Inline9605 – Inline9699"
+description: "100 generated Pinterest model contracts, from Inline9605 through Inline9699."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1105
+  label: "Inline9605 – Inline9699"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Inline9605
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline9605>` | No | No | Array with the validation errors for the item processing record. A non empty errors list causes the item processing to fail. |
+| `hotel_id` | `hotel_id` | `string` | No | No | The catalog hotel id in the merchant namespace |
+| `status` | `status` | `string` | No | No | The status of the item processing record |
+| `warnings` | `warnings` | `Array<Inline9606>` | No | No | Array with the validation warnings for the item processing record |
+
+## Inline9606
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute` | `attribute` | `string` | No | No | The attribute that the item validation event references |
+| `code` | `code` | `number` | No | No | The event code that the item validation event references |
+| `message` | `message` | `string` | No | No | Title message describing the item validation event |
+
+## Inline9607
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `batch_id` | `batch_id` | `Inline9607` | No | No | Id of the catalogs items batch |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `completed_time` | `completed_time` | `string` | No | No | Date and time (UTC) of the batch completion: YYYY-MM-DD'T'hh:mm:ss |
+| `created_time` | `created_time` | `string` | No | No | Date and time (UTC) of the batch creation: YYYY-MM-DD'T'hh:mm:ss |
+| `items` | `items` | `Array<Inline9608>` | No | No | Array with the catalogs items processing records part of the catalogs items batch |
+| `status` | `status` | `string` | No | No | The status of the operation performed by the batch |
+
+## Inline9608
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creative_assets_id` | `creative_assets_id` | `string` | No | No | The catalog creative assets id in the merchant namespace |
+| `errors` | `errors` | `Array<Inline9608>` | No | No | Array with the validation errors for the item processing record. A non empty errors list causes the item processing to fail. |
+| `status` | `status` | `string` | No | No | The status of the item processing record |
+| `warnings` | `warnings` | `Array<Inline9609>` | No | No | Array with the validation warnings for the item processing record |
+
+## Inline9609
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute` | `attribute` | `string` | No | No | The attribute that the item validation event references |
+| `code` | `code` | `number` | No | No | The event code that the item validation event references |
+| `message` | `message` | `string` | No | No | Title message describing the item validation event |
+
+## Inline961
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_1` | `GOOGLE_PRODUCT_CATEGORY_1` | `Inline961` | Yes | No | — |
+
+## Inline9612
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `batch_id` | `batch_id` | `Inline9612` | No | No | Id of the catalogs items batch |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `completed_time` | `completed_time` | `string` | No | No | Date and time (UTC) of the batch completion: YYYY-MM-DD'T'hh:mm:ss |
+| `created_time` | `created_time` | `string` | Yes | No | Date and time (UTC) of the batch creation: YYYY-MM-DD'T'hh:mm:ss. If null, batch creation was skipped due to a recent duplicate ingestion. |
+| `items` | `items` | `Array<Inline9613>` | No | No | Array with the catalogs items processing records part of the catalogs items batch |
+| `status` | `status` | `string` | No | No | The status of the operation performed by the batch |
+
+## Inline9613
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline9613>` | No | No | Array with the validation errors for the item processing record. A non empty errors list causes the item processing to fail. |
+| `item_id` | `item_id` | `string` | No | No | The catalog item id in the merchant namespace |
+| `status` | `status` | `string` | No | No | The status of the item processing record |
+| `warnings` | `warnings` | `Array<Inline9614>` | No | No | Array with the validation warnings for the item processing record |
+
+## Inline9614
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute` | `attribute` | `string` | No | No | The attribute that the item validation event references |
+| `code` | `code` | `number` | No | No | The event code that the item validation event references |
+| `message` | `message` | `string` | No | No | Title message describing the item validation event |
+
+## Inline9615
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `batch_id` | `batch_id` | `Inline9615` | No | No | Id of the catalogs items batch |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `completed_time` | `completed_time` | `string` | No | No | Date and time (UTC) of the batch completion: YYYY-MM-DD'T'hh:mm:ss |
+| `created_time` | `created_time` | `string` | No | No | Date and time (UTC) of the batch creation: YYYY-MM-DD'T'hh:mm:ss |
+| `items` | `items` | `Array<Inline9616>` | No | No | Array with the catalogs items processing records part of the catalogs items batch |
+| `status` | `status` | `string` | No | No | The status of the operation performed by the batch |
+
+## Inline9616
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline9616>` | No | No | Array with the validation errors for the item processing record. A non empty errors list causes the item processing to fail. |
+| `hotel_id` | `hotel_id` | `string` | No | No | The catalog hotel id in the merchant namespace |
+| `status` | `status` | `string` | No | No | The status of the item processing record |
+| `warnings` | `warnings` | `Array<Inline9617>` | No | No | Array with the validation warnings for the item processing record |
+
+## Inline9617
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute` | `attribute` | `string` | No | No | The attribute that the item validation event references |
+| `code` | `code` | `number` | No | No | The event code that the item validation event references |
+| `message` | `message` | `string` | No | No | Title message describing the item validation event |
+
+## Inline9618
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `batch_id` | `batch_id` | `Inline9618` | No | No | Id of the catalogs items batch |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `completed_time` | `completed_time` | `string` | No | No | Date and time (UTC) of the batch completion: YYYY-MM-DD'T'hh:mm:ss |
+| `created_time` | `created_time` | `string` | No | No | Date and time (UTC) of the batch creation: YYYY-MM-DD'T'hh:mm:ss |
+| `items` | `items` | `Array<Inline9619>` | No | No | Array with the catalogs items processing records part of the catalogs items batch |
+| `status` | `status` | `string` | No | No | The status of the operation performed by the batch |
+
+## Inline9619
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creative_assets_id` | `creative_assets_id` | `string` | No | No | The catalog creative assets id in the merchant namespace |
+| `errors` | `errors` | `Array<Inline9619>` | No | No | Array with the validation errors for the item processing record. A non empty errors list causes the item processing to fail. |
+| `status` | `status` | `string` | No | No | The status of the item processing record |
+| `warnings` | `warnings` | `Array<Inline9620>` | No | No | Array with the validation warnings for the item processing record |
+
+## Inline962
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_0` | `GOOGLE_PRODUCT_CATEGORY_0` | `Inline962` | Yes | No | — |
+
+## Inline9620
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute` | `attribute` | `string` | No | No | The attribute that the item validation event references |
+| `code` | `code` | `number` | No | No | The event code that the item validation event references |
+| `message` | `message` | `string` | No | No | Title message describing the item validation event |
+
+## Inline9623
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | — |
+| `items` | `items` | `Array<Inline9623>` | Yes | No | — |
+
+## Inline9624
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9624` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9625
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9625` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9626
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9626` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9627
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9627` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9628
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9628` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9629
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9629` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline963
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_0` | `CUSTOM_NUMBER_0` | `Inline963` | Yes | No | — |
+
+## Inline9630
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9630` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9631
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9631` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9632
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9632` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9633
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9633` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9634
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9634` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9635
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9635` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9636
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9636` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9637
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9637` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9638
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9638` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9639
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9639` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline964
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_1` | `CUSTOM_NUMBER_1` | `Inline964` | Yes | No | — |
+
+## Inline9640
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9640` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9641
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9641` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9642
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9642` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9643
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9643` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9644
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9644` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9645
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9645` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9646
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AD_IMAGE_0_LINK_DUPLICATED` | `AD_IMAGE_0_LINK_DUPLICATED` | `Inline9646` | No | No | ad_image_0_link is duplicated with another ad image link. |
+| `AD_IMAGE_0_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_0_LINK_LENGTH_TOO_LONG` | `Inline9647` | No | No | Ad image link 0 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_0_LINK_REQUIRED` | `AD_IMAGE_0_LINK_REQUIRED` | `Inline9648` | No | No | Ad image link 0 is required because an image tag was provided. |
+| `AD_IMAGE_0_LINK_WARNING` | `AD_IMAGE_0_LINK_WARNING` | `Inline9649` | No | No | Ad image link 0 format is unsupported. |
+| `AD_IMAGE_0_TAG_DUPLICATED` | `AD_IMAGE_0_TAG_DUPLICATED` | `Inline9650` | No | No | ad_image_0_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_0_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_0_TAG_LENGTH_TOO_LONG` | `Inline9651` | No | No | Ad image tag 0 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_0_TAG_REQUIRED` | `AD_IMAGE_0_TAG_REQUIRED` | `Inline9652` | No | No | Ad image tag 0 is required because an image link was provided. |
+| `AD_IMAGE_10_LINK_DUPLICATED` | `AD_IMAGE_10_LINK_DUPLICATED` | `Inline9653` | No | No | ad_image_10_link is duplicated with another ad image link. |
+| `AD_IMAGE_10_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_10_LINK_LENGTH_TOO_LONG` | `Inline9654` | No | No | Ad image link 10 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_10_LINK_REQUIRED` | `AD_IMAGE_10_LINK_REQUIRED` | `Inline9655` | No | No | Ad image link 10 is required because an image tag was provided. |
+| `AD_IMAGE_10_LINK_WARNING` | `AD_IMAGE_10_LINK_WARNING` | `Inline9656` | No | No | Ad image link 10 format is unsupported. |
+| `AD_IMAGE_10_TAG_DUPLICATED` | `AD_IMAGE_10_TAG_DUPLICATED` | `Inline9657` | No | No | ad_image_10_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_10_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_10_TAG_LENGTH_TOO_LONG` | `Inline9658` | No | No | Ad image tag 10 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_10_TAG_REQUIRED` | `AD_IMAGE_10_TAG_REQUIRED` | `Inline9659` | No | No | Ad image tag 10 is required because an image link was provided. |
+| `AD_IMAGE_11_LINK_DUPLICATED` | `AD_IMAGE_11_LINK_DUPLICATED` | `Inline9660` | No | No | ad_image_11_link is duplicated with another ad image link. |
+| `AD_IMAGE_11_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_11_LINK_LENGTH_TOO_LONG` | `Inline9661` | No | No | Ad image link 11 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_11_LINK_REQUIRED` | `AD_IMAGE_11_LINK_REQUIRED` | `Inline9662` | No | No | Ad image link 11 is required because an image tag was provided. |
+| `AD_IMAGE_11_LINK_WARNING` | `AD_IMAGE_11_LINK_WARNING` | `Inline9663` | No | No | Ad image link 11 format is unsupported. |
+| `AD_IMAGE_11_TAG_DUPLICATED` | `AD_IMAGE_11_TAG_DUPLICATED` | `Inline9664` | No | No | ad_image_11_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_11_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_11_TAG_LENGTH_TOO_LONG` | `Inline9665` | No | No | Ad image tag 11 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_11_TAG_REQUIRED` | `AD_IMAGE_11_TAG_REQUIRED` | `Inline9666` | No | No | Ad image tag 11 is required because an image link was provided. |
+| `AD_IMAGE_12_LINK_DUPLICATED` | `AD_IMAGE_12_LINK_DUPLICATED` | `Inline9667` | No | No | ad_image_12_link is duplicated with another ad image link. |
+| `AD_IMAGE_12_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_12_LINK_LENGTH_TOO_LONG` | `Inline9668` | No | No | Ad image link 12 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_12_LINK_REQUIRED` | `AD_IMAGE_12_LINK_REQUIRED` | `Inline9669` | No | No | Ad image link 12 is required because an image tag was provided. |
+| `AD_IMAGE_12_LINK_WARNING` | `AD_IMAGE_12_LINK_WARNING` | `Inline9670` | No | No | Ad image link 12 format is unsupported. |
+| `AD_IMAGE_12_TAG_DUPLICATED` | `AD_IMAGE_12_TAG_DUPLICATED` | `Inline9671` | No | No | ad_image_12_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_12_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_12_TAG_LENGTH_TOO_LONG` | `Inline9672` | No | No | Ad image tag 12 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_12_TAG_REQUIRED` | `AD_IMAGE_12_TAG_REQUIRED` | `Inline9673` | No | No | Ad image tag 12 is required because an image link was provided. |
+| `AD_IMAGE_13_LINK_DUPLICATED` | `AD_IMAGE_13_LINK_DUPLICATED` | `Inline9674` | No | No | ad_image_13_link is duplicated with another ad image link. |
+| `AD_IMAGE_13_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_13_LINK_LENGTH_TOO_LONG` | `Inline9675` | No | No | Ad image link 13 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_13_LINK_REQUIRED` | `AD_IMAGE_13_LINK_REQUIRED` | `Inline9676` | No | No | Ad image link 13 is required because an image tag was provided. |
+| `AD_IMAGE_13_LINK_WARNING` | `AD_IMAGE_13_LINK_WARNING` | `Inline9677` | No | No | Ad image link 13 format is unsupported. |
+| `AD_IMAGE_13_TAG_DUPLICATED` | `AD_IMAGE_13_TAG_DUPLICATED` | `Inline9678` | No | No | ad_image_13_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_13_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_13_TAG_LENGTH_TOO_LONG` | `Inline9679` | No | No | Ad image tag 13 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_13_TAG_REQUIRED` | `AD_IMAGE_13_TAG_REQUIRED` | `Inline9680` | No | No | Ad image tag 13 is required because an image link was provided. |
+| `AD_IMAGE_14_LINK_DUPLICATED` | `AD_IMAGE_14_LINK_DUPLICATED` | `Inline9681` | No | No | ad_image_14_link is duplicated with another ad image link. |
+| `AD_IMAGE_14_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_14_LINK_LENGTH_TOO_LONG` | `Inline9682` | No | No | Ad image link 14 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_14_LINK_REQUIRED` | `AD_IMAGE_14_LINK_REQUIRED` | `Inline9683` | No | No | Ad image link 14 is required because an image tag was provided. |
+| `AD_IMAGE_14_LINK_WARNING` | `AD_IMAGE_14_LINK_WARNING` | `Inline9684` | No | No | Ad image link 14 format is unsupported. |
+| `AD_IMAGE_14_TAG_DUPLICATED` | `AD_IMAGE_14_TAG_DUPLICATED` | `Inline9685` | No | No | ad_image_14_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_14_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_14_TAG_LENGTH_TOO_LONG` | `Inline9686` | No | No | Ad image tag 14 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_14_TAG_REQUIRED` | `AD_IMAGE_14_TAG_REQUIRED` | `Inline9687` | No | No | Ad image tag 14 is required because an image link was provided. |
+| `AD_IMAGE_15_LINK_DUPLICATED` | `AD_IMAGE_15_LINK_DUPLICATED` | `Inline9688` | No | No | ad_image_15_link is duplicated with another ad image link. |
+| `AD_IMAGE_15_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_15_LINK_LENGTH_TOO_LONG` | `Inline9689` | No | No | Ad image link 15 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_15_LINK_REQUIRED` | `AD_IMAGE_15_LINK_REQUIRED` | `Inline9690` | No | No | Ad image link 15 is required because an image tag was provided. |
+| `AD_IMAGE_15_LINK_WARNING` | `AD_IMAGE_15_LINK_WARNING` | `Inline9691` | No | No | Ad image link 15 format is unsupported. |
+| `AD_IMAGE_15_TAG_DUPLICATED` | `AD_IMAGE_15_TAG_DUPLICATED` | `Inline9692` | No | No | ad_image_15_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_15_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_15_TAG_LENGTH_TOO_LONG` | `Inline9693` | No | No | Ad image tag 15 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_15_TAG_REQUIRED` | `AD_IMAGE_15_TAG_REQUIRED` | `Inline9694` | No | No | Ad image tag 15 is required because an image link was provided. |
+| `AD_IMAGE_16_LINK_DUPLICATED` | `AD_IMAGE_16_LINK_DUPLICATED` | `Inline9695` | No | No | ad_image_16_link is duplicated with another ad image link. |
+| `AD_IMAGE_16_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_16_LINK_LENGTH_TOO_LONG` | `Inline9696` | No | No | Ad image link 16 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_16_LINK_REQUIRED` | `AD_IMAGE_16_LINK_REQUIRED` | `Inline9697` | No | No | Ad image link 16 is required because an image tag was provided. |
+| `AD_IMAGE_16_LINK_WARNING` | `AD_IMAGE_16_LINK_WARNING` | `Inline9698` | No | No | Ad image link 16 format is unsupported. |
+| `AD_IMAGE_16_TAG_DUPLICATED` | `AD_IMAGE_16_TAG_DUPLICATED` | `Inline9699` | No | No | ad_image_16_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_16_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_16_TAG_LENGTH_TOO_LONG` | `Inline9700` | No | No | Ad image tag 16 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_16_TAG_REQUIRED` | `AD_IMAGE_16_TAG_REQUIRED` | `Inline9701` | No | No | Ad image tag 16 is required because an image link was provided. |
+| `AD_IMAGE_17_LINK_DUPLICATED` | `AD_IMAGE_17_LINK_DUPLICATED` | `Inline9702` | No | No | ad_image_17_link is duplicated with another ad image link. |
+| `AD_IMAGE_17_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_17_LINK_LENGTH_TOO_LONG` | `Inline9703` | No | No | Ad image link 17 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_17_LINK_REQUIRED` | `AD_IMAGE_17_LINK_REQUIRED` | `Inline9704` | No | No | Ad image link 17 is required because an image tag was provided. |
+| `AD_IMAGE_17_LINK_WARNING` | `AD_IMAGE_17_LINK_WARNING` | `Inline9705` | No | No | Ad image link 17 format is unsupported. |
+| `AD_IMAGE_17_TAG_DUPLICATED` | `AD_IMAGE_17_TAG_DUPLICATED` | `Inline9706` | No | No | ad_image_17_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_17_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_17_TAG_LENGTH_TOO_LONG` | `Inline9707` | No | No | Ad image tag 17 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_17_TAG_REQUIRED` | `AD_IMAGE_17_TAG_REQUIRED` | `Inline9708` | No | No | Ad image tag 17 is required because an image link was provided. |
+| `AD_IMAGE_18_LINK_DUPLICATED` | `AD_IMAGE_18_LINK_DUPLICATED` | `Inline9709` | No | No | ad_image_18_link is duplicated with another ad image link. |
+| `AD_IMAGE_18_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_18_LINK_LENGTH_TOO_LONG` | `Inline9710` | No | No | Ad image link 18 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_18_LINK_REQUIRED` | `AD_IMAGE_18_LINK_REQUIRED` | `Inline9711` | No | No | Ad image link 18 is required because an image tag was provided. |
+| `AD_IMAGE_18_LINK_WARNING` | `AD_IMAGE_18_LINK_WARNING` | `Inline9712` | No | No | Ad image link 18 format is unsupported. |
+| `AD_IMAGE_18_TAG_DUPLICATED` | `AD_IMAGE_18_TAG_DUPLICATED` | `Inline9713` | No | No | ad_image_18_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_18_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_18_TAG_LENGTH_TOO_LONG` | `Inline9714` | No | No | Ad image tag 18 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_18_TAG_REQUIRED` | `AD_IMAGE_18_TAG_REQUIRED` | `Inline9715` | No | No | Ad image tag 18 is required because an image link was provided. |
+| `AD_IMAGE_19_LINK_DUPLICATED` | `AD_IMAGE_19_LINK_DUPLICATED` | `Inline9716` | No | No | ad_image_19_link is duplicated with another ad image link. |
+| `AD_IMAGE_19_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_19_LINK_LENGTH_TOO_LONG` | `Inline9717` | No | No | Ad image link 19 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_19_LINK_REQUIRED` | `AD_IMAGE_19_LINK_REQUIRED` | `Inline9718` | No | No | Ad image link 19 is required because an image tag was provided. |
+| `AD_IMAGE_19_LINK_WARNING` | `AD_IMAGE_19_LINK_WARNING` | `Inline9719` | No | No | Ad image link 19 format is unsupported. |
+| `AD_IMAGE_19_TAG_DUPLICATED` | `AD_IMAGE_19_TAG_DUPLICATED` | `Inline9720` | No | No | ad_image_19_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_19_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_19_TAG_LENGTH_TOO_LONG` | `Inline9721` | No | No | Ad image tag 19 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_19_TAG_REQUIRED` | `AD_IMAGE_19_TAG_REQUIRED` | `Inline9722` | No | No | Ad image tag 19 is required because an image link was provided. |
+| `AD_IMAGE_1_LINK_DUPLICATED` | `AD_IMAGE_1_LINK_DUPLICATED` | `Inline9723` | No | No | ad_image_1_link is duplicated with another ad image link. |
+| `AD_IMAGE_1_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_1_LINK_LENGTH_TOO_LONG` | `Inline9724` | No | No | Ad image link 1 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_1_LINK_REQUIRED` | `AD_IMAGE_1_LINK_REQUIRED` | `Inline9725` | No | No | Ad image link 1 is required because an image tag was provided. |
+| `AD_IMAGE_1_LINK_WARNING` | `AD_IMAGE_1_LINK_WARNING` | `Inline9726` | No | No | Ad image link 1 format is unsupported. |
+| `AD_IMAGE_1_TAG_DUPLICATED` | `AD_IMAGE_1_TAG_DUPLICATED` | `Inline9727` | No | No | ad_image_1_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_1_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_1_TAG_LENGTH_TOO_LONG` | `Inline9728` | No | No | Ad image tag 1 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_1_TAG_REQUIRED` | `AD_IMAGE_1_TAG_REQUIRED` | `Inline9729` | No | No | Ad image tag 1 is required because an image link was provided. |
+| `AD_IMAGE_2_LINK_DUPLICATED` | `AD_IMAGE_2_LINK_DUPLICATED` | `Inline9730` | No | No | ad_image_2_link is duplicated with another ad image link. |
+| `AD_IMAGE_2_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_2_LINK_LENGTH_TOO_LONG` | `Inline9731` | No | No | Ad image link 2 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_2_LINK_REQUIRED` | `AD_IMAGE_2_LINK_REQUIRED` | `Inline9732` | No | No | Ad image link 2 is required because an image tag was provided. |
+| `AD_IMAGE_2_LINK_WARNING` | `AD_IMAGE_2_LINK_WARNING` | `Inline9733` | No | No | Ad image link 2 format is unsupported. |
+| `AD_IMAGE_2_TAG_DUPLICATED` | `AD_IMAGE_2_TAG_DUPLICATED` | `Inline9734` | No | No | ad_image_2_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_2_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_2_TAG_LENGTH_TOO_LONG` | `Inline9735` | No | No | Ad image tag 2 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_2_TAG_REQUIRED` | `AD_IMAGE_2_TAG_REQUIRED` | `Inline9736` | No | No | Ad image tag 2 is required because an image link was provided. |
+| `AD_IMAGE_3_LINK_DUPLICATED` | `AD_IMAGE_3_LINK_DUPLICATED` | `Inline9737` | No | No | ad_image_3_link is duplicated with another ad image link. |
+| `AD_IMAGE_3_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_3_LINK_LENGTH_TOO_LONG` | `Inline9738` | No | No | Ad image link 3 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_3_LINK_REQUIRED` | `AD_IMAGE_3_LINK_REQUIRED` | `Inline9739` | No | No | Ad image link 3 is required because an image tag was provided. |
+| `AD_IMAGE_3_LINK_WARNING` | `AD_IMAGE_3_LINK_WARNING` | `Inline9740` | No | No | Ad image link 3 format is unsupported. |
+| `AD_IMAGE_3_TAG_DUPLICATED` | `AD_IMAGE_3_TAG_DUPLICATED` | `Inline9741` | No | No | ad_image_3_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_3_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_3_TAG_LENGTH_TOO_LONG` | `Inline9742` | No | No | Ad image tag 3 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_3_TAG_REQUIRED` | `AD_IMAGE_3_TAG_REQUIRED` | `Inline9743` | No | No | Ad image tag 3 is required because an image link was provided. |
+| `AD_IMAGE_4_LINK_DUPLICATED` | `AD_IMAGE_4_LINK_DUPLICATED` | `Inline9744` | No | No | ad_image_4_link is duplicated with another ad image link. |
+| `AD_IMAGE_4_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_4_LINK_LENGTH_TOO_LONG` | `Inline9745` | No | No | Ad image link 4 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_4_LINK_REQUIRED` | `AD_IMAGE_4_LINK_REQUIRED` | `Inline9746` | No | No | Ad image link 4 is required because an image tag was provided. |
+| `AD_IMAGE_4_LINK_WARNING` | `AD_IMAGE_4_LINK_WARNING` | `Inline9747` | No | No | Ad image link 4 format is unsupported. |
+| `AD_IMAGE_4_TAG_DUPLICATED` | `AD_IMAGE_4_TAG_DUPLICATED` | `Inline9748` | No | No | ad_image_4_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_4_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_4_TAG_LENGTH_TOO_LONG` | `Inline9749` | No | No | Ad image tag 4 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_4_TAG_REQUIRED` | `AD_IMAGE_4_TAG_REQUIRED` | `Inline9750` | No | No | Ad image tag 4 is required because an image link was provided. |
+| `AD_IMAGE_5_LINK_DUPLICATED` | `AD_IMAGE_5_LINK_DUPLICATED` | `Inline9751` | No | No | ad_image_5_link is duplicated with another ad image link. |
+| `AD_IMAGE_5_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_5_LINK_LENGTH_TOO_LONG` | `Inline9752` | No | No | Ad image link 5 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_5_LINK_REQUIRED` | `AD_IMAGE_5_LINK_REQUIRED` | `Inline9753` | No | No | Ad image link 5 is required because an image tag was provided. |
+| `AD_IMAGE_5_LINK_WARNING` | `AD_IMAGE_5_LINK_WARNING` | `Inline9754` | No | No | Ad image link 5 format is unsupported. |
+| `AD_IMAGE_5_TAG_DUPLICATED` | `AD_IMAGE_5_TAG_DUPLICATED` | `Inline9755` | No | No | ad_image_5_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_5_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_5_TAG_LENGTH_TOO_LONG` | `Inline9756` | No | No | Ad image tag 5 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_5_TAG_REQUIRED` | `AD_IMAGE_5_TAG_REQUIRED` | `Inline9757` | No | No | Ad image tag 5 is required because an image link was provided. |
+| `AD_IMAGE_6_LINK_DUPLICATED` | `AD_IMAGE_6_LINK_DUPLICATED` | `Inline9758` | No | No | ad_image_6_link is duplicated with another ad image link. |
+| `AD_IMAGE_6_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_6_LINK_LENGTH_TOO_LONG` | `Inline9759` | No | No | Ad image link 6 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_6_LINK_REQUIRED` | `AD_IMAGE_6_LINK_REQUIRED` | `Inline9760` | No | No | Ad image link 6 is required because an image tag was provided. |
+| `AD_IMAGE_6_LINK_WARNING` | `AD_IMAGE_6_LINK_WARNING` | `Inline9761` | No | No | Ad image link 6 format is unsupported. |
+| `AD_IMAGE_6_TAG_DUPLICATED` | `AD_IMAGE_6_TAG_DUPLICATED` | `Inline9762` | No | No | ad_image_6_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_6_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_6_TAG_LENGTH_TOO_LONG` | `Inline9763` | No | No | Ad image tag 6 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_6_TAG_REQUIRED` | `AD_IMAGE_6_TAG_REQUIRED` | `Inline9764` | No | No | Ad image tag 6 is required because an image link was provided. |
+| `AD_IMAGE_7_LINK_DUPLICATED` | `AD_IMAGE_7_LINK_DUPLICATED` | `Inline9765` | No | No | ad_image_7_link is duplicated with another ad image link. |
+| `AD_IMAGE_7_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_7_LINK_LENGTH_TOO_LONG` | `Inline9766` | No | No | Ad image link 7 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_7_LINK_REQUIRED` | `AD_IMAGE_7_LINK_REQUIRED` | `Inline9767` | No | No | Ad image link 7 is required because an image tag was provided. |
+| `AD_IMAGE_7_LINK_WARNING` | `AD_IMAGE_7_LINK_WARNING` | `Inline9768` | No | No | Ad image link 7 format is unsupported. |
+| `AD_IMAGE_7_TAG_DUPLICATED` | `AD_IMAGE_7_TAG_DUPLICATED` | `Inline9769` | No | No | ad_image_7_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_7_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_7_TAG_LENGTH_TOO_LONG` | `Inline9770` | No | No | Ad image tag 7 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_7_TAG_REQUIRED` | `AD_IMAGE_7_TAG_REQUIRED` | `Inline9771` | No | No | Ad image tag 7 is required because an image link was provided. |
+| `AD_IMAGE_8_LINK_DUPLICATED` | `AD_IMAGE_8_LINK_DUPLICATED` | `Inline9772` | No | No | ad_image_8_link is duplicated with another ad image link. |
+| `AD_IMAGE_8_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_8_LINK_LENGTH_TOO_LONG` | `Inline9773` | No | No | Ad image link 8 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_8_LINK_REQUIRED` | `AD_IMAGE_8_LINK_REQUIRED` | `Inline9774` | No | No | Ad image link 8 is required because an image tag was provided. |
+| `AD_IMAGE_8_LINK_WARNING` | `AD_IMAGE_8_LINK_WARNING` | `Inline9775` | No | No | Ad image link 8 format is unsupported. |
+| `AD_IMAGE_8_TAG_DUPLICATED` | `AD_IMAGE_8_TAG_DUPLICATED` | `Inline9776` | No | No | ad_image_8_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_8_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_8_TAG_LENGTH_TOO_LONG` | `Inline9777` | No | No | Ad image tag 8 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_8_TAG_REQUIRED` | `AD_IMAGE_8_TAG_REQUIRED` | `Inline9778` | No | No | Ad image tag 8 is required because an image link was provided. |
+| `AD_IMAGE_9_LINK_DUPLICATED` | `AD_IMAGE_9_LINK_DUPLICATED` | `Inline9779` | No | No | ad_image_9_link is duplicated with another ad image link. |
+| `AD_IMAGE_9_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_9_LINK_LENGTH_TOO_LONG` | `Inline9780` | No | No | Ad image link 9 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_9_LINK_REQUIRED` | `AD_IMAGE_9_LINK_REQUIRED` | `Inline9781` | No | No | Ad image link 9 is required because an image tag was provided. |
+| `AD_IMAGE_9_LINK_WARNING` | `AD_IMAGE_9_LINK_WARNING` | `Inline9782` | No | No | Ad image link 9 format is unsupported. |
+| `AD_IMAGE_9_TAG_DUPLICATED` | `AD_IMAGE_9_TAG_DUPLICATED` | `Inline9783` | No | No | ad_image_9_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_9_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_9_TAG_LENGTH_TOO_LONG` | `Inline9784` | No | No | Ad image tag 9 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_9_TAG_REQUIRED` | `AD_IMAGE_9_TAG_REQUIRED` | `Inline9785` | No | No | Ad image tag 9 is required because an image link was provided. |
+| `AD_LINK_FORMAT_WARNING` | `AD_LINK_FORMAT_WARNING` | `Inline9786` | No | No | Item has an ad link that is formatted incorrectly. |
+| `AD_LINK_SAME_AS_LINK` | `AD_LINK_SAME_AS_LINK` | `Inline9787` | No | No | Item has an ad link URL that is duplicate of the link URL. |
+| `AD_VIDEO_0_LINK_DUPLICATED` | `AD_VIDEO_0_LINK_DUPLICATED` | `Inline9788` | No | No | ad_video_0_link is duplicated with another ad video link. |
+| `AD_VIDEO_0_LINK_LENGTH_TOO_LONG` | `AD_VIDEO_0_LINK_LENGTH_TOO_LONG` | `Inline9789` | No | No | ad_video_0_link length is too long. The maximum length is 511 characters. |
+| `AD_VIDEO_0_LINK_REQUIRED` | `AD_VIDEO_0_LINK_REQUIRED` | `Inline9790` | No | No | ad_video_0_link is required for this item because ad_video_0_tag was provided. |
+| `AD_VIDEO_0_LINK_WARNING` | `AD_VIDEO_0_LINK_WARNING` | `Inline9791` | No | No | ad_video_0_link is formatted incorrectly and will not be published with your items. |
+| `AD_VIDEO_0_TAG_DUPLICATED` | `AD_VIDEO_0_TAG_DUPLICATED` | `Inline9792` | No | No | ad_video_0_tag is duplicated with another ad video tag. |
+| `AD_VIDEO_0_TAG_LENGTH_TOO_LONG` | `AD_VIDEO_0_TAG_LENGTH_TOO_LONG` | `Inline9793` | No | No | ad_video_0_tag length is too long. The maximum length is 511 characters. |
+| `AD_VIDEO_0_TAG_REQUIRED` | `AD_VIDEO_0_TAG_REQUIRED` | `Inline9794` | No | No | ad_video_0_tag is required because ad_video_0_link was provided. |
+| `AD_VIDEO_1_LINK_DUPLICATED` | `AD_VIDEO_1_LINK_DUPLICATED` | `Inline9795` | No | No | ad_video_1_link is duplicated with another ad video link. |
+| `AD_VIDEO_1_LINK_LENGTH_TOO_LONG` | `AD_VIDEO_1_LINK_LENGTH_TOO_LONG` | `Inline9796` | No | No | ad_video_1_link length is too long. The maximum length is 511 characters. |
+| `AD_VIDEO_1_LINK_REQUIRED` | `AD_VIDEO_1_LINK_REQUIRED` | `Inline9797` | No | No | ad_video_1_link is required for this item because ad_video_1_tag was provided. |
+| `AD_VIDEO_1_LINK_WARNING` | `AD_VIDEO_1_LINK_WARNING` | `Inline9798` | No | No | ad_video_1_link is formatted incorrectly and will not be published with your items. |
+| `AD_VIDEO_1_TAG_DUPLICATED` | `AD_VIDEO_1_TAG_DUPLICATED` | `Inline9799` | No | No | ad_video_1_tag is duplicated with another ad video tag. |
+| `AD_VIDEO_1_TAG_LENGTH_TOO_LONG` | `AD_VIDEO_1_TAG_LENGTH_TOO_LONG` | `Inline9800` | No | No | ad_video_1_tag length is too long. The maximum length is 511 characters. |
+| `AD_VIDEO_1_TAG_REQUIRED` | `AD_VIDEO_1_TAG_REQUIRED` | `Inline9801` | No | No | ad_video_1_tag is required because ad_video_1_link was provided. |
+| `AD_VIDEO_2_LINK_DUPLICATED` | `AD_VIDEO_2_LINK_DUPLICATED` | `Inline9802` | No | No | ad_video_2_link is duplicated with another ad video link. |
+| `AD_VIDEO_2_LINK_LENGTH_TOO_LONG` | `AD_VIDEO_2_LINK_LENGTH_TOO_LONG` | `Inline9803` | No | No | ad_video_2_link length is too long. The maximum length is 511 characters. |
+| `AD_VIDEO_2_LINK_REQUIRED` | `AD_VIDEO_2_LINK_REQUIRED` | `Inline9804` | No | No | ad_video_2_link is required for this item because ad_video_2_tag was provided. |
+| `AD_VIDEO_2_LINK_WARNING` | `AD_VIDEO_2_LINK_WARNING` | `Inline9805` | No | No | ad_video_2_link is formatted incorrectly and will not be published with your items. |
+| `AD_VIDEO_2_TAG_DUPLICATED` | `AD_VIDEO_2_TAG_DUPLICATED` | `Inline9806` | No | No | ad_video_2_tag is duplicated with another ad video tag. |
+| `AD_VIDEO_2_TAG_LENGTH_TOO_LONG` | `AD_VIDEO_2_TAG_LENGTH_TOO_LONG` | `Inline9807` | No | No | ad_video_2_tag length is too long. The maximum length is 511 characters. |
+| `AD_VIDEO_2_TAG_REQUIRED` | `AD_VIDEO_2_TAG_REQUIRED` | `Inline9808` | No | No | ad_video_2_tag is required because ad_video_2_link was provided. |
+| `ADDITIONAL_IMAGE_LINK_LENGTH_TOO_LONG` | `ADDITIONAL_IMAGE_LINK_LENGTH_TOO_LONG` | `Inline9809` | No | No | Item has an additional_image_link URL that contains too many characters, so the item will not be published. |
+| `ADDITIONAL_IMAGE_LINK_WARNING` | `ADDITIONAL_IMAGE_LINK_WARNING` | `Inline9810` | No | No | Item has additional_image_link URLs that are formatted incorrectly and will not be published with your items. |
+| `ADWORDS_FORMAT_WARNING` | `ADWORDS_FORMAT_WARNING` | `Inline9811` | No | No | Item has an adwords_redirect link that is formatted incorrectly. |
+| `ADWORDS_SAME_AS_LINK` | `ADWORDS_SAME_AS_LINK` | `Inline9812` | No | No | Item has an adwords_redirect URL that is duplicate of the link URL. |
+| `AGE_GROUP_INVALID` | `AGE_GROUP_INVALID` | `Inline9813` | No | No | Item has an age group value that is formatted incorrectly, which may limit visibility in recommendations, search results and shopping experiences. |
+| `ANDROID_DEEP_LINK_INVALID` | `ANDROID_DEEP_LINK_INVALID` | `Inline9814` | No | No | Item includes an invalid android_deep_link. |
+| `AVAILABILITY_DATE_INVALID` | `AVAILABILITY_DATE_INVALID` | `Inline9815` | No | No | Item has an availability_date value that is formatted incorrectly, this item will be published without an availability date. |
+| `COUNTRY_DOES_NOT_MAP_TO_CURRENCY` | `COUNTRY_DOES_NOT_MAP_TO_CURRENCY` | `Inline9816` | No | No | Item includes a currency that doesn't match the usual currency for the location where the product is sold or shipped. |
+| `CUSTOM_LABEL_LENGTH_TOO_LONG` | `CUSTOM_LABEL_LENGTH_TOO_LONG` | `Inline9817` | No | No | Item has a custom_label value that is too long, this item will be published without that custom label. |
+| `DESCRIPTION_LENGTH_TOO_LONG` | `DESCRIPTION_LENGTH_TOO_LONG` | `Inline9818` | No | No | The description for this item was truncated because it contains too many characters. |
+| `EXPIRATION_DATE_INVALID` | `EXPIRATION_DATE_INVALID` | `Inline9819` | No | No | Item has an expiration_date value that is formatted incorrectly, this item will be published without an expiration date. |
+| `GENDER_INVALID` | `GENDER_INVALID` | `Inline9820` | No | No | Item has a gender value that is formatted incorrectly, which may limit visibility in recommendations, search results and shopping experiences. |
+| `GTIN_INVALID` | `GTIN_INVALID` | `Inline9821` | No | No | Item has a GTIN value that is formatted incorrectly. |
+| `IMAGE_LINK_WARNING` | `IMAGE_LINK_WARNING` | `Inline9822` | No | No | Item has an image_link URL that is formatted incorrectly and will not be published. |
+| `IOS_DEEP_LINK_INVALID` | `IOS_DEEP_LINK_INVALID` | `Inline9823` | No | No | Item includes an invalid ios_deep_link value. |
+| `IS_BUNDLE_INVALID` | `IS_BUNDLE_INVALID` | `Inline9824` | No | No | Item has an is_bundle value that is formatted incorrectly, this item will be published without being bundled with other products. |
+| `ITEM_ADDITIONAL_IMAGE_DOWNLOAD_FAILURE` | `ITEM_ADDITIONAL_IMAGE_DOWNLOAD_FAILURE` | `Inline9825` | No | No | Item includes additional_image_links that can't be found. |
+| `LINK_FORMAT_WARNING` | `LINK_FORMAT_WARNING` | `Inline9826` | No | No | Item has an invalid product link which contains invalid UTM tracking paramaters. |
+| `MIN_AD_PRICE_INVALID` | `MIN_AD_PRICE_INVALID` | `Inline9827` | No | No | Item includes a min_ad_price value that is formatted incorrectly. |
+| `MPN_INVALID` | `MPN_INVALID` | `Inline9828` | No | No | Item has a MPN value that is formatted incorrectly. |
+| `MULTIPACK_INVALID` | `MULTIPACK_INVALID` | `Inline9829` | No | No | Item has an invalid multipack value. |
+| `OPTIONAL_CONDITION_INVALID` | `OPTIONAL_CONDITION_INVALID` | `Inline9830` | No | No | Item includes a condition value that is formatted incorrectly, which may limit visibility in recommendations, search results and shopping experiences. |
+| `OPTIONAL_CONDITION_MISSING` | `OPTIONAL_CONDITION_MISSING` | `Inline9831` | No | No | Item is missing condition value, which may limit visibility in recommendations, search results and shopping experiences. |
+| `OPTIONAL_PRODUCT_CATEGORY_INVALID` | `OPTIONAL_PRODUCT_CATEGORY_INVALID` | `Inline9832` | No | No | Item includes a google_product_category value that is not formatted correctly according to the GPC taxonomy. |
+| `OPTIONAL_PRODUCT_CATEGORY_MISSING` | `OPTIONAL_PRODUCT_CATEGORY_MISSING` | `Inline9833` | No | No | Item is missing google_product_category. |
+| `PRODUCT_CATEGORY_DEPTH_WARNING` | `PRODUCT_CATEGORY_DEPTH_WARNING` | `Inline9834` | No | No | Item only has 1 or 2 levels of google_product_category value, which may limit visibility in recommendations, search results and shopping experiences. |
+| `PRODUCT_TYPE_LENGTH_TOO_LONG` | `PRODUCT_TYPE_LENGTH_TOO_LONG` | `Inline9835` | No | No | Item has a product_type value that is too long, this item will be published without that product type. |
+| `SALE_DATE_INVALID` | `SALE_DATE_INVALID` | `Inline9836` | No | No | Item has a sale_price_effective_date value that is formatted incorrectly, this item will be published without a sale date. |
+| `SALES_PRICE_INVALID` | `SALES_PRICE_INVALID` | `Inline9837` | No | No | Item has an incorrectly formatted sales price. |
+| `SALES_PRICE_TOO_HIGH` | `SALES_PRICE_TOO_HIGH` | `Inline9838` | No | No | Item has a sale price value that is higher than the original price of the item. |
+| `SALES_PRICE_TOO_LOW` | `SALES_PRICE_TOO_LOW` | `Inline9839` | No | No | Item has a sale price value that is discounted very low compared to the price. |
+| `SHIPPING_HEIGHT_INVALID` | `SHIPPING_HEIGHT_INVALID` | `Inline9840` | No | No | Item has an incorrectly formatted shipping_height value. The value must first contain a numeric value then a valid dimension unit type. |
+| `SHIPPING_INVALID` | `SHIPPING_INVALID` | `Inline9841` | No | No | Item has a shipping value that is formatted incorrectly. |
+| `SHIPPING_WEIGHT_INVALID` | `SHIPPING_WEIGHT_INVALID` | `Inline9842` | No | No | Item has an invalid shipping_weight value. |
+| `SHIPPING_WIDTH_INVALID` | `SHIPPING_WIDTH_INVALID` | `Inline9843` | No | No | Item has an incorrectly formatted shipping_width value. The value must first contain a numeric value then a valid dimension unit type. |
+| `SIZE_SYSTEM_INVALID` | `SIZE_SYSTEM_INVALID` | `Inline9844` | No | No | Some items have size system values which are not one of the supported size systems. |
+| `SIZE_TYPE_INVALID` | `SIZE_TYPE_INVALID` | `Inline9845` | No | No | Item has a size type value that is formatted incorrectly, which may limit visibility in recommendations, search results and shopping experiences. |
+| `TAX_INVALID` | `TAX_INVALID` | `Inline9846` | No | No | Item has a tax value that is formatted incorrectly. |
+| `TITLE_LENGTH_TOO_LONG` | `TITLE_LENGTH_TOO_LONG` | `Inline9847` | No | No | The title for the item was truncated because it contains too many characters. |
+| `TOO_MANY_ADDITIONAL_IMAGE_LINKS` | `TOO_MANY_ADDITIONAL_IMAGE_LINKS` | `Inline9848` | No | No | Item has a additional_image_link value that exceed the limit for additional images, this item will be published without some of your images. |
+| `UTM_SOURCE_AUTO_CORRECTED` | `UTM_SOURCE_AUTO_CORRECTED` | `Inline9849` | No | No | Item includes an utm_source value that is formatted incorrectly and has been automatically corrected. |
+| `VIDEO_REQUIRED_WHEN_AD_VIDEO_PROVIDED` | `VIDEO_REQUIRED_WHEN_AD_VIDEO_PROVIDED` | `Inline9850` | No | No | A video is required in the item when ad_video fields are provided. |
+| `WEIGHT_UNIT_INVALID` | `WEIGHT_UNIT_INVALID` | `Inline9851` | No | No | Item has a weight_unit value that is formatted incorrectly, this item will be published without a weight unit. |
+
+## Inline9647
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9647` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9648
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9648` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9649
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9649` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline965
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_2` | `CUSTOM_NUMBER_2` | `Inline965` | Yes | No | — |
+
+## Inline9650
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9650` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9651
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9651` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9652
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9652` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9653
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9653` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9654
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9654` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9655
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9655` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9656
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9656` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9657
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9657` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9658
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9658` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9659
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9659` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline966
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_3` | `CUSTOM_NUMBER_3` | `Inline966` | Yes | No | — |
+
+## Inline9660
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9660` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9661
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9661` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9662
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9662` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9663
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9663` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9664
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9664` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9665
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9665` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9666
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9666` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9667
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9667` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9668
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9668` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9669
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9669` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline967
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_4` | `CUSTOM_NUMBER_4` | `Inline967` | Yes | No | — |
+
+## Inline9670
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9670` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9671
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9671` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9672
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9672` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9673
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9673` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9674
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9674` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9675
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9675` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9676
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9676` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9677
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9677` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9678
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9678` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9679
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9679` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline968
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `TITLE_KEYWORDS` | `TITLE_KEYWORDS` | `Inline968` | Yes | No | — |
+
+## Inline9680
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9680` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9681
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9681` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9682
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9682` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9683
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9683` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9684
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9684` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9685
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9685` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9686
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9686` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9687
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9687` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9688
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9688` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9689
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9689` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline969
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `PINTEREST_PRODUCT_CATEGORIES` | `PINTEREST_PRODUCT_CATEGORIES` | `Inline969` | Yes | No | — |
+
+## Inline9690
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9690` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9691
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9691` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9692
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9692` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9693
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9693` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9694
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9694` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9695
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9695` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9696
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9696` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9697
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9697` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9698
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9698` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline9699
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline9699` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |

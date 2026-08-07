@@ -1,0 +1,1369 @@
+---
+title: "Pinterest models: Catalogs Ai Content Disclosure Label – Catalogs Items Update Batch Request"
+description: "100 generated Pinterest model contracts, from CatalogsAiContentDisclosureLabel through CatalogsItemsUpdateBatchRequest."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1005
+  label: "Catalogs Ai Content Disclosure Label – Catalogs Items Update Batch Request"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## CatalogsAiContentDisclosureLabel
+
+`enum` model on the `json` wire format.
+
+**Values:** `ai_modified`, `synthetic_performer`
+
+## CatalogsAvailableFilterValues
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2275 \| Inline2276 \| Inline2277`
+
+## CatalogsAvailableFilterValuesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogId` | `catalogId` | `string` | Yes | No | Filter entities for a given catalog_id. |
+| `feedId` | `feedId` | `string` | No | No | Filter entities for a given feed_id. If not given, all feeds are considered. |
+| `country` | `country` | `string` | No | No | Country for the Catalogs Items |
+| `language` | `language` | `string` | No | No | Language for the Catalogs Items |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+
+## CatalogsAvailableFilterValuesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9465 \| Inline9466 \| Inline9467` | Yes | No | — |
+
+## CatalogsBaseFilterKeys
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2279 \| Inline2280 \| Inline2281 \| Inline2282 \| Inline2283 \| Inline2284 \| Inline2285 \| Inline2286 \| Inline2287 \| Inline2288 \| Inline2289 \| Inline2290 \| Inline2291 \| Inline2292 \| Inline2293 \| Inline2294 \| Inline2295 \| Inline2296 \| Inline2297 \| Inline2298 \| Inline2299 \| Inline2300 \| Inline2301 \| Inline2302 \| Inline2303 \| Inline2304 \| Inline2305 \| Inline2306 \| Inline2307 \| Inline2308 \| Inline2309 \| Inline2310 \| Inline2311 \| Inline2312`
+
+## CatalogsBaseFiltersAllOf
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `all_of` | `all_of` | `Array<Inline2314 \| Inline2315 \| Inline2316 \| Inline2317 \| Inline2318 \| Inline2319 \| Inline2320 \| Inline2321 \| Inline2322 \| Inline2323 \| Inline2324 \| Inline2325 \| Inline2326 \| Inline2327 \| Inline2328 \| Inline2329 \| Inline2330 \| Inline2331 \| Inline2332 \| Inline2333 \| Inline2334 \| Inline2335 \| Inline2336 \| Inline2337 \| Inline2338 \| Inline2339 \| Inline2340 \| Inline2341 \| Inline2342 \| Inline2343 \| Inline2344 \| Inline2345 \| Inline2346 \| Inline2347>` | Yes | No | — |
+
+## CatalogsBaseFiltersAnyOf
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `any_of` | `any_of` | `Array<Inline2349 \| Inline2350 \| Inline2351 \| Inline2352 \| Inline2353 \| Inline2354 \| Inline2355 \| Inline2356 \| Inline2357 \| Inline2358 \| Inline2359 \| Inline2360 \| Inline2361 \| Inline2362 \| Inline2363 \| Inline2364 \| Inline2365 \| Inline2366 \| Inline2367 \| Inline2368 \| Inline2369 \| Inline2370 \| Inline2371 \| Inline2372 \| Inline2373 \| Inline2374 \| Inline2375 \| Inline2376 \| Inline2377 \| Inline2378 \| Inline2379 \| Inline2380 \| Inline2381 \| Inline2382>` | Yes | No | — |
+
+## CatalogsCreateCreativeAssetsItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline2384` | Yes | No | — |
+| `creative_assets_id` | `creative_assets_id` | `string` | Yes | No | The catalog creative assets id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## CatalogsCreateHotelItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline2386` | Yes | No | — |
+| `hotel_id` | `hotel_id` | `string` | Yes | No | The catalog hotel id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## CatalogsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | Type of the catalog entity. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a catalog entity. |
+
+## CatalogsCreateReportResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `token` | `token` | `string` | No | No | Token to be used to get the report |
+
+## CatalogsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9420` | Yes | No | — |
+
+## CatalogsCreateRetailItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline2392` | Yes | No | — |
+| `item_id` | `item_id` | `string` | Yes | No | The catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## CatalogsCreativeAssetsAttributes
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ai_disclosures` | `ai_disclosures` | `Array<Inline2394>` | No | No | AI content disclosures for individual assets (image_link or video_link) on this creative assets item. Each entry declares which disclosure types apply to a single asset URL. |
+| `image_link` | `image_link` | `string` | No | No | The creative assets image. |
+| `video_link` | `video_link` | `string` | No | No | The creative assets video. |
+| `android_deep_link` | `android_deep_link` | `string` | No | No | Link to the creative assets page. |
+| `custom_label_0` | `custom_label_0` | `string` | No | No | Custom grouping of creative assets. |
+| `custom_label_1` | `custom_label_1` | `string` | No | No | Custom grouping of creative assets. |
+| `custom_label_2` | `custom_label_2` | `string` | No | No | Custom grouping of creative assets. |
+| `custom_label_3` | `custom_label_3` | `string` | No | No | Custom grouping of creative assets. |
+| `custom_label_4` | `custom_label_4` | `string` | No | No | Custom grouping of creative assets. |
+| `description` | `description` | `string` | No | No | Brief description of the creative assets. |
+| `google_product_category` | `google_product_category` | `string` | No | No | The categorization of the product based on the standardized Google Product Taxonomy. This is a set taxonomy. Both the text values and numeric codes are accepted. |
+| `ios_deep_link` | `ios_deep_link` | `string` | No | No | IOS deep link to the creative assets page. |
+| `link` | `link` | `string` | No | No | Link to the creative assets page. |
+| `title` | `title` | `string` | No | No | The name of the creative assets. |
+| `visibility` | `visibility` | `string` | No | No | Visibility of the creative assets. Must be one of the following values (upper or lowercase): 'visible', 'hidden'. |
+
+## CatalogsCreativeAssetsAvailableFilterValues
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `filter_values` | `filter_values` | `Inline2396` | Yes | No | A map of filter attributes to their available values. |
+
+## CatalogsCreativeAssetsBatchItem
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2398 \| Inline2399 \| Inline2400 \| Inline2401`
+
+## CatalogsCreativeAssetsBatchRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `Inline2403` | No | No | Catalog id pertaining to the creative assets item. If not provided, default to oldest creative assets catalog |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline2404 \| Inline2405 \| Inline2406 \| Inline2407>` | Yes | No | Array with creative assets item operations |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+
+## CatalogsCreativeAssetsFeed
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog id pertaining to the feed. If not provided, feed will use a default catalog based on type. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline2409` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_country` | `default_country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string` | Yes | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `id` | `id` | `string` | Yes | No | ID of the feed entity. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. This value is currently nullable due to historical reasons. It is expected to become non-nullable in the future. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline2410` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `string` | Yes | No | Status for catalogs entities. Present in catalogs_feed values. When a feed is deleted, the response will inform DELETED as status. |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+
+## CatalogsCreativeAssetsFeedsCreateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog id pertaining to the feed. If not provided, feed will use a default catalog based on type. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline2412` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_country` | `default_country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string \| string` | Yes | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline2413` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `Inline2414` | No | No | — |
+
+## CatalogsCreativeAssetsFeedsUpdateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline2416` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `format` | `format` | `string` | No | No | The file format of a feed. |
+| `location` | `location` | `string` | No | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | No | No | A human-friendly name associated to a given feed. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline2417` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `string` | No | No | Status for catalogs entities. Present in catalogs_feed values. When a feed is deleted, the response will inform DELETED as status. |
+
+## CatalogsCreativeAssetsFilterValuesMap
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_label_0` | `custom_label_0` | `Array<string>` | No | No | — |
+| `custom_label_1` | `custom_label_1` | `Array<string>` | No | No | — |
+| `custom_label_2` | `custom_label_2` | `Array<string>` | No | No | — |
+| `custom_label_3` | `custom_label_3` | `Array<string>` | No | No | — |
+| `custom_label_4` | `custom_label_4` | `Array<string>` | No | No | — |
+| `google_product_category_0` | `google_product_category_0` | `Array<string>` | No | No | — |
+| `google_product_category_1` | `google_product_category_1` | `Array<string>` | No | No | — |
+| `google_product_category_2` | `google_product_category_2` | `Array<string>` | No | No | — |
+| `google_product_category_3` | `google_product_category_3` | `Array<string>` | No | No | — |
+| `google_product_category_4` | `google_product_category_4` | `Array<string>` | No | No | — |
+| `google_product_category_5` | `google_product_category_5` | `Array<string>` | No | No | — |
+| `google_product_category_6` | `google_product_category_6` | `Array<string>` | No | No | — |
+| `media_type` | `media_type` | `Array<string>` | No | No | — |
+
+## CatalogsCreativeAssetsItemErrorResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `creative_assets_id` | `creative_assets_id` | `string` | No | No | The catalog creative assets id in the merchant namespace |
+| `errors` | `errors` | `Array<Inline2420>` | Yes | No | Array with the errors for the item id requested |
+| `item_response_kind` | `item_response_kind` | `string` | Yes | No | Discriminator literal identifying this leaf inside an `ItemResponse` payload. |
+
+## CatalogsCreativeAssetsItemResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline2422` | No | No | — |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `creative_assets_id` | `creative_assets_id` | `string` | No | No | The catalog creative assets id in the merchant namespace |
+| `item_response_kind` | `item_response_kind` | `string` | Yes | No | Discriminator literal identifying this leaf inside an `ItemResponse` payload. |
+| `pins` | `pins` | `Array<Inline2423>` | No | No | The pins mapped to the item |
+
+## CatalogsCreativeAssetsItemsBatch
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `batch_id` | `batch_id` | `Inline2429` | No | No | Id of the catalogs items batch |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `completed_time` | `completed_time` | `string` | No | No | Date and time (UTC) of the batch completion: YYYY-MM-DD'T'hh:mm:ss |
+| `created_time` | `created_time` | `string` | No | No | Date and time (UTC) of the batch creation: YYYY-MM-DD'T'hh:mm:ss |
+| `items` | `items` | `Array<Inline2430>` | No | No | Array with the catalogs items processing records part of the catalogs items batch |
+| `status` | `status` | `string` | No | No | The status of the operation performed by the batch |
+
+## CatalogsCreativeAssetsItemsPostFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog id pertaining to the creative assets item. If not provided, default to oldest creative assets catalog |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `creative_assets_ids` | `creative_assets_ids` | `Array<string>` | Yes | No | — |
+
+## CatalogsCreativeAssetsListProductsByCatalogBasedFilterRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `Inline2434` | Yes | No | Catalog ID pertaining to the product group. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `filters` | `filters` | `Inline2435 \| Inline2451` | Yes | No | Object holding a group of filters for a creative assets product group |
+
+## CatalogsCreativeAssetsProduct
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `metadata` | `metadata` | `Inline2468` | Yes | No | Creative assets product metadata entity |
+| `pin` | `pin` | `Inline2469` | Yes | No | Pin model containing properties related to a Pinterest Pin. |
+
+## CatalogsCreativeAssetsProductGroup
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `Inline2475` | Yes | No | Catalog ID pertaining to the product group. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `number` | No | No | Unix timestamp in seconds of when catalog product group was created. |
+| `description` | `description` | `string` | No | No | — |
+| `filters` | `filters` | `Inline2476 \| Inline2492` | Yes | No | Object holding a group of filters for a creative assets product group |
+| `id` | `id` | `Inline2508` | Yes | No | ID of the catalog product group. |
+| `name` | `name` | `string` | No | No | Name of catalog product group |
+| `updated_at` | `updated_at` | `number` | No | No | Unix timestamp in seconds of last time catalog product group was updated. |
+
+## CatalogsCreativeAssetsProductGroupCreateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `Inline2510` | Yes | No | Catalog ID pertaining to the product group. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `filters` | `filters` | `Inline2511 \| Inline2527` | Yes | No | Object holding a group of filters for a creative assets product group |
+| `name` | `name` | `string` | Yes | No | — |
+
+## CatalogsCreativeAssetsProductGroupFilterKeys
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2544 \| Inline2545 \| Inline2546 \| Inline2547 \| Inline2548 \| Inline2549 \| Inline2550 \| Inline2551 \| Inline2552 \| Inline2553 \| Inline2554 \| Inline2555 \| Inline2556 \| Inline2557 \| Inline2558 \| Inline2559`
+
+## CatalogsCreativeAssetsProductGroupFilters
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2561 \| Inline2577`
+
+## CatalogsCreativeAssetsProductGroupFiltersAllOf
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `all_of` | `all_of` | `Array<Inline2594 \| Inline2595 \| Inline2596 \| Inline2597 \| Inline2598 \| Inline2599 \| Inline2600 \| Inline2601 \| Inline2602 \| Inline2603 \| Inline2604 \| Inline2605 \| Inline2606 \| Inline2607 \| Inline2608 \| Inline2609>` | Yes | No | — |
+
+## CatalogsCreativeAssetsProductGroupFiltersAnyOf
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `any_of` | `any_of` | `Array<Inline2611 \| Inline2612 \| Inline2613 \| Inline2614 \| Inline2615 \| Inline2616 \| Inline2617 \| Inline2618 \| Inline2619 \| Inline2620 \| Inline2621 \| Inline2622 \| Inline2623 \| Inline2624 \| Inline2625 \| Inline2626>` | Yes | No | — |
+
+## CatalogsCreativeAssetsProductGroupProductCounts
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_links` | `app_links` | `number` | Yes | No | — |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `images` | `images` | `number` | Yes | No | — |
+| `total` | `total` | `number` | Yes | No | — |
+| `videos` | `videos` | `number` | Yes | No | — |
+
+## CatalogsCreativeAssetsProductGroupUpdateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `filters` | `filters` | `Inline2629 \| Inline2645` | No | No | Object holding a group of filters for a creative assets product group |
+| `name` | `name` | `string` | No | No | Name of catalog product group |
+
+## CatalogsCreativeAssetsProductMetadata
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creative_assets_id` | `creative_assets_id` | `string` | Yes | No | The user-created unique ID that represents the creative assets item. |
+| `visibility` | `visibility` | `string` | Yes | No | Creative assets visibility. |
+
+## CatalogsDeleteCreativeAssetsItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creative_assets_id` | `creative_assets_id` | `string` | Yes | No | The catalog creative assets id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## CatalogsDeleteHotelItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hotel_id` | `hotel_id` | `string` | Yes | No | The catalog hotel id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## CatalogsDeleteRetailItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | Yes | No | The catalog item id in the merchant namespace |
+| `last_updated_time` | `last_updated_time` | `number` | No | No | The millisecond timestamp when the item was lastly modified by the merchant. |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## CatalogsFeed
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2666 \| Inline2668 \| Inline2670`
+
+## CatalogsFeedCreateRequestSchema
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2673 \| Inline2676 \| Inline2679 \| Inline2682`
+
+## CatalogsFeedCredentials
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `password` | `password` | `string` | Yes | No | The required password for downloading a feed. |
+| `username` | `username` | `string` | Yes | No | The required username for downloading a feed. |
+
+## CatalogsFeedIngestion
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | `created_at` | `string` | Yes | No | Timestamp of the feed ingestion. |
+| `feed_id` | `feed_id` | `string` | Yes | No | Catalog Feed id pertaining to the feed ingestion. |
+| `id` | `id` | `string` | Yes | No | Unique identifier of a feed ingestion. |
+| `status` | `status` | `Inline2687` | Yes | No | Status of the feed ingestion. |
+
+## CatalogsFeedIngestionDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Inline2689` | Yes | No | — |
+| `info` | `info` | `Inline2690` | Yes | No | — |
+| `warnings` | `warnings` | `Inline2691` | Yes | No | — |
+
+## CatalogsFeedIngestionErrors
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ACCOUNT_FLAGGED` | `ACCOUNT_FLAGGED` | `number` | No | No | We detected an issue with your account and are not currently ingesting your items. Please review our policies at policy.pinterest.com/community-guidelines#section-spam or contact us at help.pinterest.com/contact for more information. |
+| `FETCH_GOOGLE_SHEET_NOT_SHARED` | `FETCH_GOOGLE_SHEET_NOT_SHARED` | `number` | No | No | Update your Google Sheets sharing settings to 'Anyone with link' as a Viewer so that Pinterest can access your file. |
+| `IMAGE_FILE_NOT_ACCESSIBLE` | `IMAGE_FILE_NOT_ACCESSIBLE` | `number` | No | No | Image files are unreadable. Please upload new files to continue. |
+| `IMAGE_FILE_NOT_FOUND` | `IMAGE_FILE_NOT_FOUND` | `number` | No | No | Image files are unreadable. Please upload new files to continue. |
+| `IMAGE_INVALID_FILE` | `IMAGE_INVALID_FILE` | `number` | No | No | Image files are unreadable. Please upload new files to continue. |
+| `IMAGE_LEVEL_INTERNAL_ERROR` | `IMAGE_LEVEL_INTERNAL_ERROR` | `number` | No | No | We experienced a technical difficulty and were unable to download some images. The next download attempt will happen in 24 hours. |
+| `IMAGE_MALFORMED_URL` | `IMAGE_MALFORMED_URL` | `number` | No | No | Image files are unreadable. Please check your link and upload new files to continue. |
+| `LARGE_PRODUCT_COUNT_DECREASE` | `LARGE_PRODUCT_COUNT_DECREASE` | `number` | No | No | The product count has decreased by more than 99% compared to the last successful ingestion. |
+| `LINE_LEVEL_INTERNAL_ERROR` | `LINE_LEVEL_INTERNAL_ERROR` | `number` | No | No | We experienced a technical difficulty and were unable to ingest this some items. The next ingestion will happen in 24 hours. |
+
+## CatalogsFeedIngestionInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `IN_STOCK` | `IN_STOCK` | `number` | No | No | The number of ingested products that are in stock. |
+| `OUT_OF_STOCK` | `OUT_OF_STOCK` | `number` | No | No | The number of ingested products that are in out of stock. |
+| `PREORDER` | `PREORDER` | `number` | No | No | The number of ingested products that are in preorder. |
+
+## CatalogsFeedIngestionWarnings
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AD_IMAGE_DOWNLOAD_CONTENT_READ_ERROR` | `AD_IMAGE_DOWNLOAD_CONTENT_READ_ERROR` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_DNS_LOOKUP_ERROR` | `AD_IMAGE_DOWNLOAD_DNS_LOOKUP_ERROR` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_FILE_NOT_ACCESSIBLE` | `AD_IMAGE_DOWNLOAD_FILE_NOT_ACCESSIBLE` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_FILE_NOT_FOUND` | `AD_IMAGE_DOWNLOAD_FILE_NOT_FOUND` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_HTTP_STATUS_400` | `AD_IMAGE_DOWNLOAD_HTTP_STATUS_400` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_HTTP_STATUS_403` | `AD_IMAGE_DOWNLOAD_HTTP_STATUS_403` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_HTTP_STATUS_404` | `AD_IMAGE_DOWNLOAD_HTTP_STATUS_404` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_HTTP_STATUS_405` | `AD_IMAGE_DOWNLOAD_HTTP_STATUS_405` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_HTTP_STATUS_410` | `AD_IMAGE_DOWNLOAD_HTTP_STATUS_410` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_HTTP_STATUS_429` | `AD_IMAGE_DOWNLOAD_HTTP_STATUS_429` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_HTTP_STATUS_500` | `AD_IMAGE_DOWNLOAD_HTTP_STATUS_500` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_HTTP_STATUS_502` | `AD_IMAGE_DOWNLOAD_HTTP_STATUS_502` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_HTTP_STATUS_503` | `AD_IMAGE_DOWNLOAD_HTTP_STATUS_503` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_HTTP_STATUS_504` | `AD_IMAGE_DOWNLOAD_HTTP_STATUS_504` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_HTTP_STATUS_507` | `AD_IMAGE_DOWNLOAD_HTTP_STATUS_507` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_HTTP_STATUS_508` | `AD_IMAGE_DOWNLOAD_HTTP_STATUS_508` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_HTTP_STATUS_520` | `AD_IMAGE_DOWNLOAD_HTTP_STATUS_520` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_HTTP_STATUS_521` | `AD_IMAGE_DOWNLOAD_HTTP_STATUS_521` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_HTTP_STATUS_522` | `AD_IMAGE_DOWNLOAD_HTTP_STATUS_522` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_HTTP_STATUS_525` | `AD_IMAGE_DOWNLOAD_HTTP_STATUS_525` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_INTERNAL_CONFIGURATION_ERROR` | `AD_IMAGE_DOWNLOAD_INTERNAL_CONFIGURATION_ERROR` | `number` | No | No | We experienced a technical difficulty and were unable to download some additional images. The next download attempt will happen in 24 hours. |
+| `AD_IMAGE_DOWNLOAD_INTERNAL_ERROR` | `AD_IMAGE_DOWNLOAD_INTERNAL_ERROR` | `number` | No | No | We experienced a technical difficulty and were unable to download some additional images. The next download attempt will happen in 24 hours. |
+| `AD_IMAGE_DOWNLOAD_INTERNAL_FAILED_TO_DOWNLOAD` | `AD_IMAGE_DOWNLOAD_INTERNAL_FAILED_TO_DOWNLOAD` | `number` | No | No | We experienced a technical difficulty and were unable to download some additional images. The next download attempt will happen in 24 hours. |
+| `AD_IMAGE_DOWNLOAD_INTERNAL_MALFORMED_URL` | `AD_IMAGE_DOWNLOAD_INTERNAL_MALFORMED_URL` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_INTERNAL_RATE_LIMITED` | `AD_IMAGE_DOWNLOAD_INTERNAL_RATE_LIMITED` | `number` | No | No | We experienced a technical difficulty and were unable to download some additional images. The next download attempt will happen in 24 hours. |
+| `AD_IMAGE_DOWNLOAD_INTERNAL_REQUEST_EXPIRED` | `AD_IMAGE_DOWNLOAD_INTERNAL_REQUEST_EXPIRED` | `number` | No | No | We experienced a technical difficulty and were unable to download some additional images. The next download attempt will happen in 24 hours. |
+| `AD_IMAGE_DOWNLOAD_INVALID_FILE` | `AD_IMAGE_DOWNLOAD_INVALID_FILE` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_SITE_ERROR` | `AD_IMAGE_DOWNLOAD_SITE_ERROR` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_SITE_TIMEOUT` | `AD_IMAGE_DOWNLOAD_SITE_TIMEOUT` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_SSL_ERROR` | `AD_IMAGE_DOWNLOAD_SSL_ERROR` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_DOWNLOAD_SSL_HANDSHAKE_ERROR` | `AD_IMAGE_DOWNLOAD_SSL_HANDSHAKE_ERROR` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_PROCESSING_EMPTY_FILE` | `AD_IMAGE_PROCESSING_EMPTY_FILE` | `number` | No | No | Ad image files are unreadable. Please check your link and upload new files to continue. |
+| `AD_IMAGE_PROCESSING_HEIGHT_TOO_SMALL` | `AD_IMAGE_PROCESSING_HEIGHT_TOO_SMALL` | `number` | No | No | Ad images must have a height larger than 75 pixels |
+| `AD_IMAGE_PROCESSING_TOO_MANY_PIXELS` | `AD_IMAGE_PROCESSING_TOO_MANY_PIXELS` | `number` | No | No | Ad images must have a maximum area (width x height) of less than 89478485 pixels |
+| `AD_IMAGE_PROCESSING_TYPE_MISMATCH` | `AD_IMAGE_PROCESSING_TYPE_MISMATCH` | `number` | No | No | Some ad images could not be processed due to a file type mismatch. |
+| `AD_IMAGE_PROCESSING_WIDTH_TOO_SMALL` | `AD_IMAGE_PROCESSING_WIDTH_TOO_SMALL` | `number` | No | No | Ad images must have a width larger than 75 pixels |
+| `AD_VIDEO_DOWNLOAD_CONTENT_READ_ERROR` | `AD_VIDEO_DOWNLOAD_CONTENT_READ_ERROR` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_DNS_LOOKUP_ERROR` | `AD_VIDEO_DOWNLOAD_DNS_LOOKUP_ERROR` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_FILE_NOT_ACCESSIBLE` | `AD_VIDEO_DOWNLOAD_FILE_NOT_ACCESSIBLE` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_FILE_NOT_FOUND` | `AD_VIDEO_DOWNLOAD_FILE_NOT_FOUND` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_HTTP_STATUS_400` | `AD_VIDEO_DOWNLOAD_HTTP_STATUS_400` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_HTTP_STATUS_403` | `AD_VIDEO_DOWNLOAD_HTTP_STATUS_403` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_HTTP_STATUS_404` | `AD_VIDEO_DOWNLOAD_HTTP_STATUS_404` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_HTTP_STATUS_405` | `AD_VIDEO_DOWNLOAD_HTTP_STATUS_405` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_HTTP_STATUS_410` | `AD_VIDEO_DOWNLOAD_HTTP_STATUS_410` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_HTTP_STATUS_429` | `AD_VIDEO_DOWNLOAD_HTTP_STATUS_429` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_HTTP_STATUS_500` | `AD_VIDEO_DOWNLOAD_HTTP_STATUS_500` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_HTTP_STATUS_502` | `AD_VIDEO_DOWNLOAD_HTTP_STATUS_502` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_HTTP_STATUS_503` | `AD_VIDEO_DOWNLOAD_HTTP_STATUS_503` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_HTTP_STATUS_504` | `AD_VIDEO_DOWNLOAD_HTTP_STATUS_504` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_HTTP_STATUS_507` | `AD_VIDEO_DOWNLOAD_HTTP_STATUS_507` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_HTTP_STATUS_508` | `AD_VIDEO_DOWNLOAD_HTTP_STATUS_508` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_HTTP_STATUS_520` | `AD_VIDEO_DOWNLOAD_HTTP_STATUS_520` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_HTTP_STATUS_521` | `AD_VIDEO_DOWNLOAD_HTTP_STATUS_521` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_HTTP_STATUS_522` | `AD_VIDEO_DOWNLOAD_HTTP_STATUS_522` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_HTTP_STATUS_525` | `AD_VIDEO_DOWNLOAD_HTTP_STATUS_525` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_INTERNAL_CONFIGURATION_ERROR` | `AD_VIDEO_DOWNLOAD_INTERNAL_CONFIGURATION_ERROR` | `number` | No | No | We experienced a technical difficulty and were unable to download some additional images. The next download attempt will happen in 24 hours. |
+| `AD_VIDEO_DOWNLOAD_INTERNAL_ERROR` | `AD_VIDEO_DOWNLOAD_INTERNAL_ERROR` | `number` | No | No | We experienced a technical difficulty and were unable to download some additional images. The next download attempt will happen in 24 hours. |
+| `AD_VIDEO_DOWNLOAD_INTERNAL_FAILED_TO_DOWNLOAD` | `AD_VIDEO_DOWNLOAD_INTERNAL_FAILED_TO_DOWNLOAD` | `number` | No | No | We experienced a technical difficulty and were unable to download some additional images. The next download attempt will happen in 24 hours. |
+| `AD_VIDEO_DOWNLOAD_INTERNAL_MALFORMED_URL` | `AD_VIDEO_DOWNLOAD_INTERNAL_MALFORMED_URL` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_INTERNAL_RATE_LIMITED` | `AD_VIDEO_DOWNLOAD_INTERNAL_RATE_LIMITED` | `number` | No | No | We experienced a technical difficulty and were unable to download some additional images. The next download attempt will happen in 24 hours. |
+| `AD_VIDEO_DOWNLOAD_INTERNAL_REQUEST_EXPIRED` | `AD_VIDEO_DOWNLOAD_INTERNAL_REQUEST_EXPIRED` | `number` | No | No | We experienced a technical difficulty and were unable to download some additional images. The next download attempt will happen in 24 hours. |
+| `AD_VIDEO_DOWNLOAD_INVALID_FILE` | `AD_VIDEO_DOWNLOAD_INVALID_FILE` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_SITE_ERROR` | `AD_VIDEO_DOWNLOAD_SITE_ERROR` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_SITE_TIMEOUT` | `AD_VIDEO_DOWNLOAD_SITE_TIMEOUT` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_SSL_ERROR` | `AD_VIDEO_DOWNLOAD_SSL_ERROR` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_DOWNLOAD_SSL_HANDSHAKE_ERROR` | `AD_VIDEO_DOWNLOAD_SSL_HANDSHAKE_ERROR` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_LENGTH_TOO_SHORT` | `AD_VIDEO_LENGTH_TOO_SHORT` | `number` | No | No | Ad videos length is too short. Please ensure that all ad videos are at least 4 seconds long. |
+| `AD_VIDEO_PROCESSING_EMPTY_FILE` | `AD_VIDEO_PROCESSING_EMPTY_FILE` | `number` | No | No | Ad video files are unreadable. Please check your link and upload new files to continue. |
+| `AD_VIDEO_PROCESSING_HEIGHT_TOO_SMALL` | `AD_VIDEO_PROCESSING_HEIGHT_TOO_SMALL` | `number` | No | No | Ad videos must have a height larger than 75 pixels |
+| `AD_VIDEO_PROCESSING_TOO_MANY_PIXELS` | `AD_VIDEO_PROCESSING_TOO_MANY_PIXELS` | `number` | No | No | Ad videos must have a maximum area (width x height) of less than 89478485 pixels |
+| `AD_VIDEO_PROCESSING_TYPE_MISMATCH` | `AD_VIDEO_PROCESSING_TYPE_MISMATCH` | `number` | No | No | Some ad videos could not be processed due to a file type mismatch. |
+| `AD_VIDEO_PROCESSING_WIDTH_TOO_SMALL` | `AD_VIDEO_PROCESSING_WIDTH_TOO_SMALL` | `number` | No | No | Ad videos must have a width larger than 75 pixels |
+| `ADDITIONAL_IMAGE_FILE_NOT_ACCESSIBLE` | `ADDITIONAL_IMAGE_FILE_NOT_ACCESSIBLE` | `number` | No | No | Additional image files are unreadable. Please upload new files to continue. |
+| `ADDITIONAL_IMAGE_FILE_NOT_FOUND` | `ADDITIONAL_IMAGE_FILE_NOT_FOUND` | `number` | No | No | Additional image files are unreadable. Please upload new files to continue. |
+| `ADDITIONAL_IMAGE_INVALID_FILE` | `ADDITIONAL_IMAGE_INVALID_FILE` | `number` | No | No | Additional image files are unreadable. Please upload new files to continue. |
+| `ADDITIONAL_IMAGE_LEVEL_INTERNAL_ERROR` | `ADDITIONAL_IMAGE_LEVEL_INTERNAL_ERROR` | `number` | No | No | We experienced a technical difficulty and were unable to download some additional images. The next download attempt will happen in 24 hours. |
+| `ADDITIONAL_IMAGE_MALFORMED_URL` | `ADDITIONAL_IMAGE_MALFORMED_URL` | `number` | No | No | Additional image files are unreadable. Please check your link and upload new files to continue. |
+| `FETCH_GOOGLE_SHEET_PUBLIC_CAN_EDIT` | `FETCH_GOOGLE_SHEET_PUBLIC_CAN_EDIT` | `number` | No | No | Update your Google Sheets sharing settings from 'Editor' to 'Viewer'. |
+| `HOTEL_PRICE_HEADER_IS_PRESENT` | `HOTEL_PRICE_HEADER_IS_PRESENT` | `number` | No | No | Price is not a supported column. Use base_price and sale_price instead. |
+| `VIDEO_DOWNLOAD_VIDEO_TOO_SHORT` | `VIDEO_DOWNLOAD_VIDEO_TOO_SHORT` | `number` | No | No | Video length is too short. Please ensure that the main video is at least 4 seconds long. |
+| `VIDEO_FILE_NOT_ACCESSIBLE` | `VIDEO_FILE_NOT_ACCESSIBLE` | `number` | No | No | Video files are unreadable. Please upload new files to continue. |
+| `VIDEO_FILE_NOT_FOUND` | `VIDEO_FILE_NOT_FOUND` | `number` | No | No | Video files are unreadable. Please upload new files to continue. |
+| `VIDEO_INVALID_FILE` | `VIDEO_INVALID_FILE` | `number` | No | No | Video files are unreadable. Please upload new files to continue. |
+| `VIDEO_LEVEL_INTERNAL_ERROR` | `VIDEO_LEVEL_INTERNAL_ERROR` | `number` | No | No | We experienced a technical difficulty and were unable to download some additional videos. The next download attempt will happen in 24 hours. |
+| `VIDEO_MALFORMED_URL` | `VIDEO_MALFORMED_URL` | `number` | No | No | Video files are unreadable. Please check your link and upload new files to continue. |
+
+## CatalogsFeedProcessingResult
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `id` | `id` | `string` | Yes | No | ID of the feed processing result. |
+| `ingestion_details` | `ingestion_details` | `Inline2696` | Yes | No | — |
+| `product_counts` | `product_counts` | `Inline2699` | Yes | No | The counts can be null early in the process. |
+| `status` | `status` | `string` | Yes | No | — |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+| `validation_details` | `validation_details` | `Inline2700` | Yes | No | — |
+| `video_counts` | `video_counts` | `Inline2702` | No | No | Counts of total, ingested, and not ingested videos in the feed file. The counts may not appear early in the process. |
+
+## CatalogsFeedProcessingSchedule
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `time` | `time` | `string` | Yes | No | A time in format HH:MM with leading 0 (zero) |
+| `timezone` | `timezone` | `Inline2704` | Yes | No | The timezone considered for the processing schedule time. |
+
+## CatalogsFeedProcessingScheduleTimezone
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## CatalogsFeedProcessingStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `COMPLETED`, `FAILED`, `PROCESSING`
+
+## CatalogsFeedProductCounts
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ingested` | `ingested` | `number` | No | No | The number of products successfully ingested from the feed file. |
+| `original` | `original` | `number` | No | No | The number of products in the feed file. |
+
+## CatalogsFeedsCreateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `credentials` | `credentials` | `Inline2709` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_availability` | `default_availability` | `string` | No | No | Default availability for products in a feed. |
+| `default_country` | `default_country` | `string` | No | No | Country ID from ISO 3166-1 alpha-2. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string \| string` | No | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline2710` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `Inline2711` | No | No | — |
+
+## CatalogsFeedsUpdateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `credentials` | `credentials` | `Inline2713` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_availability` | `default_availability` | `string` | No | No | Default availability for products in a feed. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `format` | `format` | `string` | No | No | The file format of a feed. |
+| `location` | `location` | `string` | No | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | No | No | A human-friendly name associated to a given feed. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline2714` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `string` | No | No | Status for catalogs entities. Present in catalogs_feed values. When a feed is deleted, the response will inform DELETED as status. |
+
+## CatalogsFeedUpdateRequestSchema
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2716 \| Inline2718 \| Inline2720 \| Inline2722`
+
+## CatalogsFeedValidationDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Inline2725` | Yes | No | — |
+| `warnings` | `warnings` | `Inline2726` | Yes | No | — |
+
+## CatalogsFeedValidationErrors
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ADULT_INVALID` | `ADULT_INVALID` | `number` | No | No | Some items have invalid adult values. |
+| `ADWORDS_FORMAT_INVALID` | `ADWORDS_FORMAT_INVALID` | `number` | No | No | Some adwords links contain too many characters. |
+| `AVAILABILITY_INVALID` | `AVAILABILITY_INVALID` | `number` | No | No | Some items are missing an availability value in their product metadata, those items will not be published. |
+| `BLOCKLISTED_IMAGE_SIGNATURE` | `BLOCKLISTED_IMAGE_SIGNATURE` | `number` | No | No | Some items were not published because they don't meet Pinterest's Merchant Guidelines. |
+| `DELIMITER_ERROR` | `DELIMITER_ERROR` | `number` | No | No | Your feed includes data with formatting errors. |
+| `DESCRIPTION_MISSING` | `DESCRIPTION_MISSING` | `number` | No | No | Some items are missing a description in their product metadata, those items will not be published. |
+| `DUPLICATE_PRODUCTS` | `DUPLICATE_PRODUCTS` | `number` | No | No | Some products are duplicated. |
+| `ENCODING_ERROR` | `ENCODING_ERROR` | `number` | No | No | Your feed includes data with an unsupported encoding format. |
+| `FEED_LENGTH_TOO_LONG` | `FEED_LENGTH_TOO_LONG` | `number` | No | No | Your feed contains too many items, some items will not be published. |
+| `FEED_TOO_SMALL` | `FEED_TOO_SMALL` | `number` | No | No | Your feed couldn't be validated because the file doesn't contain the minimum number of lines required. |
+| `FETCH_ERROR` | `FETCH_ERROR` | `number` | No | No | Pinterest couldn't download your feed. |
+| `FETCH_INACTIVE_FEED_ERROR` | `FETCH_INACTIVE_FEED_ERROR` | `number` | No | No | Your feed wasn't ingested because it hasn't changed in the previous 90 days. |
+| `IMAGE_LINK_INVALID` | `IMAGE_LINK_INVALID` | `number` | No | No | Some image links are formatted incorrectly. |
+| `IMAGE_LINK_LENGTH_TOO_LONG` | `IMAGE_LINK_LENGTH_TOO_LONG` | `number` | No | No | Some items have image_link URLs that contain too many characters, so those items will not be published. |
+| `IMAGE_LINK_MISSING` | `IMAGE_LINK_MISSING` | `number` | No | No | Some items are missing an image link URL in their product metadata, those items will not be published. |
+| `INTERNAL_SERVICE_ERROR` | `INTERNAL_SERVICE_ERROR` | `number` | No | No | We experienced a technical difficulty and were unable to ingest your feed. The next ingestion will happen in 24 hours. |
+| `INVALID_DOMAIN` | `INVALID_DOMAIN` | `number` | No | No | Some of your product link values don't match the verified domain associated with this account. |
+| `ITEM_MAIN_IMAGE_DOWNLOAD_FAILURE` | `ITEM_MAIN_IMAGE_DOWNLOAD_FAILURE` | `number` | No | No | Some items' main images can't be found. |
+| `ITEMID_MISSING` | `ITEMID_MISSING` | `number` | No | No | Some items are missing an item id in their product metadata, those items will not be published. |
+| `LINK_FORMAT_INVALID` | `LINK_FORMAT_INVALID` | `number` | No | No | Some link values are formatted incorrectly. |
+| `LINK_LENGTH_TOO_LONG` | `LINK_LENGTH_TOO_LONG` | `number` | No | No | Some product links contain too many characters, those items will not be published. |
+| `LIST_PRICE_INVALID` | `LIST_PRICE_INVALID` | `number` | No | No | Some items have list price formatting errors in their product metadata, those items will not be published. |
+| `MALFORMED_XML` | `MALFORMED_XML` | `number` | No | No | Your feed couldn't be validated because the xml file is formatted incorrectly. |
+| `MAX_ITEMS_PER_ITEM_GROUP_EXCEEDED` | `MAX_ITEMS_PER_ITEM_GROUP_EXCEEDED` | `number` | No | No | Some items exceed the maximum number of items per item group, those items will not be published. |
+| `NO_VERIFIED_DOMAIN` | `NO_VERIFIED_DOMAIN` | `number` | No | No | Your merchant domain needs to be claimed. |
+| `PARSE_LINE_ERROR` | `PARSE_LINE_ERROR` | `number` | No | No | Your feed contains formatting errors for some items. |
+| `PINJOIN_CONTENT_UNSAFE` | `PINJOIN_CONTENT_UNSAFE` | `number` | No | No | Some items were not published because they don't meet Pinterest's Merchant Guidelines. |
+| `PRICE_CANNOT_BE_DETERMINED` | `PRICE_CANNOT_BE_DETERMINED` | `number` | No | No | Some items were not published because price cannot be determined. The price, list price, and sale price are all different, so those items will not be published. |
+| `PRICE_MISSING` | `PRICE_MISSING` | `number` | No | No | Some products are missing a price, those items will not be published. |
+| `PRODUCT_LINK_MISSING` | `PRODUCT_LINK_MISSING` | `number` | No | No | Some items are missing a link URL in their product metadata, those items will not be published. |
+| `PRODUCT_PRICE_INVALID` | `PRODUCT_PRICE_INVALID` | `number` | No | No | Some items have price formatting errors in their product metadata, those items will not be published. |
+| `REQUIRED_COLUMNS_MISSING` | `REQUIRED_COLUMNS_MISSING` | `number` | No | No | Your feed is missing some required column headers. |
+| `TITLE_MISSING` | `TITLE_MISSING` | `number` | No | No | Some items are missing a title in their product metadata, those items will not be published. |
+
+## CatalogsFeedValidationWarnings
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AD_IMAGE_0_LINK_DUPLICATED` | `AD_IMAGE_0_LINK_DUPLICATED` | `number` | No | No | ad_image_0_link is duplicated with another ad image link. |
+| `AD_IMAGE_0_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_0_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 0 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_0_LINK_REQUIRED` | `AD_IMAGE_0_LINK_REQUIRED` | `number` | No | No | Ad image link 0 is required because an image tag was provided. |
+| `AD_IMAGE_0_LINK_WARNING` | `AD_IMAGE_0_LINK_WARNING` | `number` | No | No | Ad image link 0 format is unsupported. |
+| `AD_IMAGE_0_TAG_DUPLICATED` | `AD_IMAGE_0_TAG_DUPLICATED` | `number` | No | No | ad_image_0_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_0_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_0_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 0 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_0_TAG_REQUIRED` | `AD_IMAGE_0_TAG_REQUIRED` | `number` | No | No | Ad image tag 0 is required because an image link was provided. |
+| `AD_IMAGE_10_LINK_DUPLICATED` | `AD_IMAGE_10_LINK_DUPLICATED` | `number` | No | No | ad_image_10_link is duplicated with another ad image link. |
+| `AD_IMAGE_10_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_10_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 10 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_10_LINK_REQUIRED` | `AD_IMAGE_10_LINK_REQUIRED` | `number` | No | No | Ad image link 10 is required because an image tag was provided. |
+| `AD_IMAGE_10_LINK_WARNING` | `AD_IMAGE_10_LINK_WARNING` | `number` | No | No | Ad image link 10 format is unsupported. |
+| `AD_IMAGE_10_TAG_DUPLICATED` | `AD_IMAGE_10_TAG_DUPLICATED` | `number` | No | No | ad_image_10_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_10_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_10_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 10 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_10_TAG_REQUIRED` | `AD_IMAGE_10_TAG_REQUIRED` | `number` | No | No | Ad image tag 10 is required because an image link was provided. |
+| `AD_IMAGE_11_LINK_DUPLICATED` | `AD_IMAGE_11_LINK_DUPLICATED` | `number` | No | No | ad_image_11_link is duplicated with another ad image link. |
+| `AD_IMAGE_11_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_11_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 11 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_11_LINK_REQUIRED` | `AD_IMAGE_11_LINK_REQUIRED` | `number` | No | No | Ad image link 11 is required because an image tag was provided. |
+| `AD_IMAGE_11_LINK_WARNING` | `AD_IMAGE_11_LINK_WARNING` | `number` | No | No | Ad image link 11 format is unsupported. |
+| `AD_IMAGE_11_TAG_DUPLICATED` | `AD_IMAGE_11_TAG_DUPLICATED` | `number` | No | No | ad_image_11_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_11_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_11_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 11 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_11_TAG_REQUIRED` | `AD_IMAGE_11_TAG_REQUIRED` | `number` | No | No | Ad image tag 11 is required because an image link was provided. |
+| `AD_IMAGE_12_LINK_DUPLICATED` | `AD_IMAGE_12_LINK_DUPLICATED` | `number` | No | No | ad_image_12_link is duplicated with another ad image link. |
+| `AD_IMAGE_12_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_12_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 12 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_12_LINK_REQUIRED` | `AD_IMAGE_12_LINK_REQUIRED` | `number` | No | No | Ad image link 12 is required because an image tag was provided. |
+| `AD_IMAGE_12_LINK_WARNING` | `AD_IMAGE_12_LINK_WARNING` | `number` | No | No | Ad image link 12 format is unsupported. |
+| `AD_IMAGE_12_TAG_DUPLICATED` | `AD_IMAGE_12_TAG_DUPLICATED` | `number` | No | No | ad_image_12_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_12_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_12_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 12 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_12_TAG_REQUIRED` | `AD_IMAGE_12_TAG_REQUIRED` | `number` | No | No | Ad image tag 12 is required because an image link was provided. |
+| `AD_IMAGE_13_LINK_DUPLICATED` | `AD_IMAGE_13_LINK_DUPLICATED` | `number` | No | No | ad_image_13_link is duplicated with another ad image link. |
+| `AD_IMAGE_13_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_13_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 13 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_13_LINK_REQUIRED` | `AD_IMAGE_13_LINK_REQUIRED` | `number` | No | No | Ad image link 13 is required because an image tag was provided. |
+| `AD_IMAGE_13_LINK_WARNING` | `AD_IMAGE_13_LINK_WARNING` | `number` | No | No | Ad image link 13 format is unsupported. |
+| `AD_IMAGE_13_TAG_DUPLICATED` | `AD_IMAGE_13_TAG_DUPLICATED` | `number` | No | No | ad_image_13_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_13_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_13_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 13 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_13_TAG_REQUIRED` | `AD_IMAGE_13_TAG_REQUIRED` | `number` | No | No | Ad image tag 13 is required because an image link was provided. |
+| `AD_IMAGE_14_LINK_DUPLICATED` | `AD_IMAGE_14_LINK_DUPLICATED` | `number` | No | No | ad_image_14_link is duplicated with another ad image link. |
+| `AD_IMAGE_14_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_14_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 14 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_14_LINK_REQUIRED` | `AD_IMAGE_14_LINK_REQUIRED` | `number` | No | No | Ad image link 14 is required because an image tag was provided. |
+| `AD_IMAGE_14_LINK_WARNING` | `AD_IMAGE_14_LINK_WARNING` | `number` | No | No | Ad image link 14 format is unsupported. |
+| `AD_IMAGE_14_TAG_DUPLICATED` | `AD_IMAGE_14_TAG_DUPLICATED` | `number` | No | No | ad_image_14_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_14_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_14_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 14 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_14_TAG_REQUIRED` | `AD_IMAGE_14_TAG_REQUIRED` | `number` | No | No | Ad image tag 14 is required because an image link was provided. |
+| `AD_IMAGE_15_LINK_DUPLICATED` | `AD_IMAGE_15_LINK_DUPLICATED` | `number` | No | No | ad_image_15_link is duplicated with another ad image link. |
+| `AD_IMAGE_15_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_15_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 15 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_15_LINK_REQUIRED` | `AD_IMAGE_15_LINK_REQUIRED` | `number` | No | No | Ad image link 15 is required because an image tag was provided. |
+| `AD_IMAGE_15_LINK_WARNING` | `AD_IMAGE_15_LINK_WARNING` | `number` | No | No | Ad image link 15 format is unsupported. |
+| `AD_IMAGE_15_TAG_DUPLICATED` | `AD_IMAGE_15_TAG_DUPLICATED` | `number` | No | No | ad_image_15_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_15_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_15_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 15 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_15_TAG_REQUIRED` | `AD_IMAGE_15_TAG_REQUIRED` | `number` | No | No | Ad image tag 15 is required because an image link was provided. |
+| `AD_IMAGE_16_LINK_DUPLICATED` | `AD_IMAGE_16_LINK_DUPLICATED` | `number` | No | No | ad_image_16_link is duplicated with another ad image link. |
+| `AD_IMAGE_16_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_16_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 16 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_16_LINK_REQUIRED` | `AD_IMAGE_16_LINK_REQUIRED` | `number` | No | No | Ad image link 16 is required because an image tag was provided. |
+| `AD_IMAGE_16_LINK_WARNING` | `AD_IMAGE_16_LINK_WARNING` | `number` | No | No | Ad image link 16 format is unsupported. |
+| `AD_IMAGE_16_TAG_DUPLICATED` | `AD_IMAGE_16_TAG_DUPLICATED` | `number` | No | No | ad_image_16_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_16_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_16_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 16 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_16_TAG_REQUIRED` | `AD_IMAGE_16_TAG_REQUIRED` | `number` | No | No | Ad image tag 16 is required because an image link was provided. |
+| `AD_IMAGE_17_LINK_DUPLICATED` | `AD_IMAGE_17_LINK_DUPLICATED` | `number` | No | No | ad_image_17_link is duplicated with another ad image link. |
+| `AD_IMAGE_17_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_17_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 17 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_17_LINK_REQUIRED` | `AD_IMAGE_17_LINK_REQUIRED` | `number` | No | No | Ad image link 17 is required because an image tag was provided. |
+| `AD_IMAGE_17_LINK_WARNING` | `AD_IMAGE_17_LINK_WARNING` | `number` | No | No | Ad image link 17 format is unsupported. |
+| `AD_IMAGE_17_TAG_DUPLICATED` | `AD_IMAGE_17_TAG_DUPLICATED` | `number` | No | No | ad_image_17_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_17_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_17_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 17 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_17_TAG_REQUIRED` | `AD_IMAGE_17_TAG_REQUIRED` | `number` | No | No | Ad image tag 17 is required because an image link was provided. |
+| `AD_IMAGE_18_LINK_DUPLICATED` | `AD_IMAGE_18_LINK_DUPLICATED` | `number` | No | No | ad_image_18_link is duplicated with another ad image link. |
+| `AD_IMAGE_18_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_18_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 18 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_18_LINK_REQUIRED` | `AD_IMAGE_18_LINK_REQUIRED` | `number` | No | No | Ad image link 18 is required because an image tag was provided. |
+| `AD_IMAGE_18_LINK_WARNING` | `AD_IMAGE_18_LINK_WARNING` | `number` | No | No | Ad image link 18 format is unsupported. |
+| `AD_IMAGE_18_TAG_DUPLICATED` | `AD_IMAGE_18_TAG_DUPLICATED` | `number` | No | No | ad_image_18_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_18_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_18_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 18 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_18_TAG_REQUIRED` | `AD_IMAGE_18_TAG_REQUIRED` | `number` | No | No | Ad image tag 18 is required because an image link was provided. |
+| `AD_IMAGE_19_LINK_DUPLICATED` | `AD_IMAGE_19_LINK_DUPLICATED` | `number` | No | No | ad_image_19_link is duplicated with another ad image link. |
+| `AD_IMAGE_19_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_19_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 19 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_19_LINK_REQUIRED` | `AD_IMAGE_19_LINK_REQUIRED` | `number` | No | No | Ad image link 19 is required because an image tag was provided. |
+| `AD_IMAGE_19_LINK_WARNING` | `AD_IMAGE_19_LINK_WARNING` | `number` | No | No | Ad image link 19 format is unsupported. |
+| `AD_IMAGE_19_TAG_DUPLICATED` | `AD_IMAGE_19_TAG_DUPLICATED` | `number` | No | No | ad_image_19_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_19_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_19_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 19 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_19_TAG_REQUIRED` | `AD_IMAGE_19_TAG_REQUIRED` | `number` | No | No | Ad image tag 19 is required because an image link was provided. |
+| `AD_IMAGE_1_LINK_DUPLICATED` | `AD_IMAGE_1_LINK_DUPLICATED` | `number` | No | No | ad_image_1_link is duplicated with another ad image link. |
+| `AD_IMAGE_1_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_1_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 1 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_1_LINK_REQUIRED` | `AD_IMAGE_1_LINK_REQUIRED` | `number` | No | No | Ad image link 1 is required because an image tag was provided. |
+| `AD_IMAGE_1_LINK_WARNING` | `AD_IMAGE_1_LINK_WARNING` | `number` | No | No | Ad image link 1 format is unsupported. |
+| `AD_IMAGE_1_TAG_DUPLICATED` | `AD_IMAGE_1_TAG_DUPLICATED` | `number` | No | No | ad_image_1_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_1_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_1_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 1 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_1_TAG_REQUIRED` | `AD_IMAGE_1_TAG_REQUIRED` | `number` | No | No | Ad image tag 1 is required because an image link was provided. |
+| `AD_IMAGE_2_LINK_DUPLICATED` | `AD_IMAGE_2_LINK_DUPLICATED` | `number` | No | No | ad_image_2_link is duplicated with another ad image link. |
+| `AD_IMAGE_2_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_2_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 2 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_2_LINK_REQUIRED` | `AD_IMAGE_2_LINK_REQUIRED` | `number` | No | No | Ad image link 2 is required because an image tag was provided. |
+| `AD_IMAGE_2_LINK_WARNING` | `AD_IMAGE_2_LINK_WARNING` | `number` | No | No | Ad image link 2 format is unsupported. |
+| `AD_IMAGE_2_TAG_DUPLICATED` | `AD_IMAGE_2_TAG_DUPLICATED` | `number` | No | No | ad_image_2_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_2_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_2_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 2 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_2_TAG_REQUIRED` | `AD_IMAGE_2_TAG_REQUIRED` | `number` | No | No | Ad image tag 2 is required because an image link was provided. |
+| `AD_IMAGE_3_LINK_DUPLICATED` | `AD_IMAGE_3_LINK_DUPLICATED` | `number` | No | No | ad_image_3_link is duplicated with another ad image link. |
+| `AD_IMAGE_3_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_3_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 3 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_3_LINK_REQUIRED` | `AD_IMAGE_3_LINK_REQUIRED` | `number` | No | No | Ad image link 3 is required because an image tag was provided. |
+| `AD_IMAGE_3_LINK_WARNING` | `AD_IMAGE_3_LINK_WARNING` | `number` | No | No | Ad image link 3 format is unsupported. |
+| `AD_IMAGE_3_TAG_DUPLICATED` | `AD_IMAGE_3_TAG_DUPLICATED` | `number` | No | No | ad_image_3_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_3_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_3_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 3 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_3_TAG_REQUIRED` | `AD_IMAGE_3_TAG_REQUIRED` | `number` | No | No | Ad image tag 3 is required because an image link was provided. |
+| `AD_IMAGE_4_LINK_DUPLICATED` | `AD_IMAGE_4_LINK_DUPLICATED` | `number` | No | No | ad_image_4_link is duplicated with another ad image link. |
+| `AD_IMAGE_4_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_4_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 4 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_4_LINK_REQUIRED` | `AD_IMAGE_4_LINK_REQUIRED` | `number` | No | No | Ad image link 4 is required because an image tag was provided. |
+| `AD_IMAGE_4_LINK_WARNING` | `AD_IMAGE_4_LINK_WARNING` | `number` | No | No | Ad image link 4 format is unsupported. |
+| `AD_IMAGE_4_TAG_DUPLICATED` | `AD_IMAGE_4_TAG_DUPLICATED` | `number` | No | No | ad_image_4_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_4_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_4_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 4 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_4_TAG_REQUIRED` | `AD_IMAGE_4_TAG_REQUIRED` | `number` | No | No | Ad image tag 4 is required because an image link was provided. |
+| `AD_IMAGE_5_LINK_DUPLICATED` | `AD_IMAGE_5_LINK_DUPLICATED` | `number` | No | No | ad_image_5_link is duplicated with another ad image link. |
+| `AD_IMAGE_5_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_5_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 5 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_5_LINK_REQUIRED` | `AD_IMAGE_5_LINK_REQUIRED` | `number` | No | No | Ad image link 5 is required because an image tag was provided. |
+| `AD_IMAGE_5_LINK_WARNING` | `AD_IMAGE_5_LINK_WARNING` | `number` | No | No | Ad image link 5 format is unsupported. |
+| `AD_IMAGE_5_TAG_DUPLICATED` | `AD_IMAGE_5_TAG_DUPLICATED` | `number` | No | No | ad_image_5_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_5_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_5_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 5 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_5_TAG_REQUIRED` | `AD_IMAGE_5_TAG_REQUIRED` | `number` | No | No | Ad image tag 5 is required because an image link was provided. |
+| `AD_IMAGE_6_LINK_DUPLICATED` | `AD_IMAGE_6_LINK_DUPLICATED` | `number` | No | No | ad_image_6_link is duplicated with another ad image link. |
+| `AD_IMAGE_6_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_6_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 6 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_6_LINK_REQUIRED` | `AD_IMAGE_6_LINK_REQUIRED` | `number` | No | No | Ad image link 6 is required because an image tag was provided. |
+| `AD_IMAGE_6_LINK_WARNING` | `AD_IMAGE_6_LINK_WARNING` | `number` | No | No | Ad image link 6 format is unsupported. |
+| `AD_IMAGE_6_TAG_DUPLICATED` | `AD_IMAGE_6_TAG_DUPLICATED` | `number` | No | No | ad_image_6_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_6_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_6_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 6 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_6_TAG_REQUIRED` | `AD_IMAGE_6_TAG_REQUIRED` | `number` | No | No | Ad image tag 6 is required because an image link was provided. |
+| `AD_IMAGE_7_LINK_DUPLICATED` | `AD_IMAGE_7_LINK_DUPLICATED` | `number` | No | No | ad_image_7_link is duplicated with another ad image link. |
+| `AD_IMAGE_7_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_7_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 7 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_7_LINK_REQUIRED` | `AD_IMAGE_7_LINK_REQUIRED` | `number` | No | No | Ad image link 7 is required because an image tag was provided. |
+| `AD_IMAGE_7_LINK_WARNING` | `AD_IMAGE_7_LINK_WARNING` | `number` | No | No | Ad image link 7 format is unsupported. |
+| `AD_IMAGE_7_TAG_DUPLICATED` | `AD_IMAGE_7_TAG_DUPLICATED` | `number` | No | No | ad_image_7_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_7_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_7_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 7 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_7_TAG_REQUIRED` | `AD_IMAGE_7_TAG_REQUIRED` | `number` | No | No | Ad image tag 7 is required because an image link was provided. |
+| `AD_IMAGE_8_LINK_DUPLICATED` | `AD_IMAGE_8_LINK_DUPLICATED` | `number` | No | No | ad_image_8_link is duplicated with another ad image link. |
+| `AD_IMAGE_8_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_8_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 8 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_8_LINK_REQUIRED` | `AD_IMAGE_8_LINK_REQUIRED` | `number` | No | No | Ad image link 8 is required because an image tag was provided. |
+| `AD_IMAGE_8_LINK_WARNING` | `AD_IMAGE_8_LINK_WARNING` | `number` | No | No | Ad image link 8 format is unsupported. |
+| `AD_IMAGE_8_TAG_DUPLICATED` | `AD_IMAGE_8_TAG_DUPLICATED` | `number` | No | No | ad_image_8_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_8_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_8_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 8 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_8_TAG_REQUIRED` | `AD_IMAGE_8_TAG_REQUIRED` | `number` | No | No | Ad image tag 8 is required because an image link was provided. |
+| `AD_IMAGE_9_LINK_DUPLICATED` | `AD_IMAGE_9_LINK_DUPLICATED` | `number` | No | No | ad_image_9_link is duplicated with another ad image link. |
+| `AD_IMAGE_9_LINK_LENGTH_TOO_LONG` | `AD_IMAGE_9_LINK_LENGTH_TOO_LONG` | `number` | No | No | Ad image link 9 length is too long. The maximum length is 2047 characters. |
+| `AD_IMAGE_9_LINK_REQUIRED` | `AD_IMAGE_9_LINK_REQUIRED` | `number` | No | No | Ad image link 9 is required because an image tag was provided. |
+| `AD_IMAGE_9_LINK_WARNING` | `AD_IMAGE_9_LINK_WARNING` | `number` | No | No | Ad image link 9 format is unsupported. |
+| `AD_IMAGE_9_TAG_DUPLICATED` | `AD_IMAGE_9_TAG_DUPLICATED` | `number` | No | No | ad_image_9_tag is duplicated with another ad image tag. |
+| `AD_IMAGE_9_TAG_LENGTH_TOO_LONG` | `AD_IMAGE_9_TAG_LENGTH_TOO_LONG` | `number` | No | No | Ad image tag 9 length is too long. The maximum length is 511 characters. |
+| `AD_IMAGE_9_TAG_REQUIRED` | `AD_IMAGE_9_TAG_REQUIRED` | `number` | No | No | Ad image tag 9 is required because an image link was provided. |
+| `AD_LINK_FORMAT_WARNING` | `AD_LINK_FORMAT_WARNING` | `number` | No | No | Some items have ad links that are formatted incorrectly. |
+| `AD_LINK_SAME_AS_LINK` | `AD_LINK_SAME_AS_LINK` | `number` | No | No | Some items have ad link URLs that are duplicates of the link URLs for those items. |
+| `AD_VIDEO_0_LINK_DUPLICATED` | `AD_VIDEO_0_LINK_DUPLICATED` | `number` | No | No | ad_video_0_link is duplicated with another ad video link. |
+| `AD_VIDEO_0_LINK_LENGTH_TOO_LONG` | `AD_VIDEO_0_LINK_LENGTH_TOO_LONG` | `number` | No | No | ad_video_0_link length is too long. The maximum length is 511 characters. |
+| `AD_VIDEO_0_LINK_REQUIRED` | `AD_VIDEO_0_LINK_REQUIRED` | `number` | No | No | ad_video_0_link is required for this item because ad_video_0_tag was provided. |
+| `AD_VIDEO_0_LINK_WARNING` | `AD_VIDEO_0_LINK_WARNING` | `number` | No | No | ad_video_0_link is formatted incorrectly and will not be published with your items. |
+| `AD_VIDEO_0_TAG_DUPLICATED` | `AD_VIDEO_0_TAG_DUPLICATED` | `number` | No | No | ad_video_0_tag is duplicated with another ad video tag. |
+| `AD_VIDEO_0_TAG_LENGTH_TOO_LONG` | `AD_VIDEO_0_TAG_LENGTH_TOO_LONG` | `number` | No | No | ad_video_0_tag length is too long. The maximum length is 511 characters. |
+| `AD_VIDEO_0_TAG_REQUIRED` | `AD_VIDEO_0_TAG_REQUIRED` | `number` | No | No | ad_video_0_tag is required because ad_video_0_link was provided. |
+| `AD_VIDEO_1_LINK_DUPLICATED` | `AD_VIDEO_1_LINK_DUPLICATED` | `number` | No | No | ad_video_1_link is duplicated with another ad video link. |
+| `AD_VIDEO_1_LINK_LENGTH_TOO_LONG` | `AD_VIDEO_1_LINK_LENGTH_TOO_LONG` | `number` | No | No | ad_video_1_link length is too long. The maximum length is 511 characters. |
+| `AD_VIDEO_1_LINK_REQUIRED` | `AD_VIDEO_1_LINK_REQUIRED` | `number` | No | No | ad_video_1_link is required for this item because ad_video_1_tag was provided. |
+| `AD_VIDEO_1_LINK_WARNING` | `AD_VIDEO_1_LINK_WARNING` | `number` | No | No | ad_video_1_link is formatted incorrectly and will not be published with your items. |
+| `AD_VIDEO_1_TAG_DUPLICATED` | `AD_VIDEO_1_TAG_DUPLICATED` | `number` | No | No | ad_video_1_tag is duplicated with another ad video tag. |
+| `AD_VIDEO_1_TAG_LENGTH_TOO_LONG` | `AD_VIDEO_1_TAG_LENGTH_TOO_LONG` | `number` | No | No | ad_video_1_tag length is too long. The maximum length is 511 characters. |
+| `AD_VIDEO_1_TAG_REQUIRED` | `AD_VIDEO_1_TAG_REQUIRED` | `number` | No | No | ad_video_1_tag is required because ad_video_1_link was provided. |
+| `AD_VIDEO_2_LINK_DUPLICATED` | `AD_VIDEO_2_LINK_DUPLICATED` | `number` | No | No | ad_video_2_link is duplicated with another ad video link. |
+| `AD_VIDEO_2_LINK_LENGTH_TOO_LONG` | `AD_VIDEO_2_LINK_LENGTH_TOO_LONG` | `number` | No | No | ad_video_2_link length is too long. The maximum length is 511 characters. |
+| `AD_VIDEO_2_LINK_REQUIRED` | `AD_VIDEO_2_LINK_REQUIRED` | `number` | No | No | ad_video_2_link is required for this item because ad_video_2_tag was provided. |
+| `AD_VIDEO_2_LINK_WARNING` | `AD_VIDEO_2_LINK_WARNING` | `number` | No | No | ad_video_2_link is formatted incorrectly and will not be published with your items. |
+| `AD_VIDEO_2_TAG_DUPLICATED` | `AD_VIDEO_2_TAG_DUPLICATED` | `number` | No | No | ad_video_2_tag is duplicated with another ad video tag. |
+| `AD_VIDEO_2_TAG_LENGTH_TOO_LONG` | `AD_VIDEO_2_TAG_LENGTH_TOO_LONG` | `number` | No | No | ad_video_2_tag length is too long. The maximum length is 511 characters. |
+| `AD_VIDEO_2_TAG_REQUIRED` | `AD_VIDEO_2_TAG_REQUIRED` | `number` | No | No | ad_video_2_tag is required because ad_video_2_link was provided. |
+| `ADDITIONAL_IMAGE_LINK_LENGTH_TOO_LONG` | `ADDITIONAL_IMAGE_LINK_LENGTH_TOO_LONG` | `number` | No | No | Some items have additional_image_link URLs that contain too many characters, so those items will not be published. |
+| `ADDITIONAL_IMAGE_LINK_WARNING` | `ADDITIONAL_IMAGE_LINK_WARNING` | `number` | No | No | Some items have additional_image_link URLs that are formatted incorrectly and will not be published with your items. |
+| `ADWORDS_FORMAT_WARNING` | `ADWORDS_FORMAT_WARNING` | `number` | No | No | Some items have adwords_redirect links that are formatted incorrectly. |
+| `ADWORDS_SAME_AS_LINK` | `ADWORDS_SAME_AS_LINK` | `number` | No | No | Some items have adwords_redirect URLs that are duplicates of the link URLs for those items. |
+| `AGE_GROUP_INVALID` | `AGE_GROUP_INVALID` | `number` | No | No | Some items have age group values that are formatted incorrectly, which may limit visibility in recommendations, search results and shopping experiences. |
+| `ANDROID_DEEP_LINK_INVALID` | `ANDROID_DEEP_LINK_INVALID` | `number` | No | No | Some items include invalid android_deep_link. |
+| `AVAILABILITY_DATE_INVALID` | `AVAILABILITY_DATE_INVALID` | `number` | No | No | Some items have availability_date values that are formatted incorrectly, those items will be published without an availability date. |
+| `COUNTRY_DOES_NOT_MAP_TO_CURRENCY` | `COUNTRY_DOES_NOT_MAP_TO_CURRENCY` | `number` | No | No | Some items include a currency that doesn't match the usual currency for the location where that product is sold or shipped. |
+| `CUSTOM_LABEL_LENGTH_TOO_LONG` | `CUSTOM_LABEL_LENGTH_TOO_LONG` | `number` | No | No | Some items have custom_label values that are too long, those items will be published without that custom label. |
+| `DESCRIPTION_LENGTH_TOO_LONG` | `DESCRIPTION_LENGTH_TOO_LONG` | `number` | No | No | The description for some items were truncated because they contain too many characters. |
+| `DUPLICATE_HEADERS` | `DUPLICATE_HEADERS` | `number` | No | No | Your feed contains duplicate headers. |
+| `EXPIRATION_DATE_INVALID` | `EXPIRATION_DATE_INVALID` | `number` | No | No | Some items have expiration_date values that are formatted incorrectly, those items will be published without an expiration date. |
+| `FETCH_SAME_SIGNATURE` | `FETCH_SAME_SIGNATURE` | `number` | No | No | Ingestion completed early because there are no changes to your feed since the last successful update. |
+| `GENDER_INVALID` | `GENDER_INVALID` | `number` | No | No | Some items have gender values that are formatted incorrectly, which may limit visibility in recommendations, search results and shopping experiences. |
+| `GTIN_INVALID` | `GTIN_INVALID` | `number` | No | No | Some items include incorrectly formatted GTINs. |
+| `IMAGE_LINK_WARNING` | `IMAGE_LINK_WARNING` | `number` | No | No | Some items have image_link URLs that are formatted incorrectly and will not be published with those items. |
+| `INCONSISTENT_CURRENCY_VALUES` | `INCONSISTENT_CURRENCY_VALUES` | `number` | No | No | Some items include inconsistent currencies in price fields. |
+| `INDEXED_PRODUCT_COUNT_LARGE_DELTA` | `INDEXED_PRODUCT_COUNT_LARGE_DELTA` | `number` | No | No | The product count has increased or decreased significantly compared to the last successful ingestion. |
+| `IOS_DEEP_LINK_INVALID` | `IOS_DEEP_LINK_INVALID` | `number` | No | No | Some items include invalid ios_deep_link values. |
+| `IS_BUNDLE_INVALID` | `IS_BUNDLE_INVALID` | `number` | No | No | Some items have is_bundle values that are formatted incorrectly, those items will be published without being bundled with other products. |
+| `ITEM_ADDITIONAL_IMAGE_DOWNLOAD_FAILURE` | `ITEM_ADDITIONAL_IMAGE_DOWNLOAD_FAILURE` | `number` | No | No | Some items include additional_image_links that can't be found. |
+| `LINK_FORMAT_WARNING` | `LINK_FORMAT_WARNING` | `number` | No | No | Some items have an invalid product link which contains invalid UTM tracking paramaters. |
+| `MIN_AD_PRICE_INVALID` | `MIN_AD_PRICE_INVALID` | `number` | No | No | Some items include min_ad_price values that are formatted incorrectly. |
+| `MPN_INVALID` | `MPN_INVALID` | `number` | No | No | Some items include incorrectly formatted MPNs. |
+| `MULTIPACK_INVALID` | `MULTIPACK_INVALID` | `number` | No | No | Some items have invalid multipack values. |
+| `OPTIONAL_CONDITION_INVALID` | `OPTIONAL_CONDITION_INVALID` | `number` | No | No | Some items include condition values that are formatted incorrectly, which may limit visibility in recommendations, search results and shopping experiences. |
+| `OPTIONAL_CONDITION_MISSING` | `OPTIONAL_CONDITION_MISSING` | `number` | No | No | Some items are missing a condition value, which may limit visibility in recommendations, search results and shopping experiences. |
+| `OPTIONAL_PRODUCT_CATEGORY_INVALID` | `OPTIONAL_PRODUCT_CATEGORY_INVALID` | `number` | No | No | Some items include google_product_category values that are not formatted correctly according to the GPC taxonomy. |
+| `OPTIONAL_PRODUCT_CATEGORY_MISSING` | `OPTIONAL_PRODUCT_CATEGORY_MISSING` | `number` | No | No | Some items are missing a google_product_category. |
+| `PRODUCT_CATEGORY_DEPTH_WARNING` | `PRODUCT_CATEGORY_DEPTH_WARNING` | `number` | No | No | Some items only have 1 or 2 levels of google_product_category values, which may limit visibility in recommendations, search results and shopping experiences. |
+| `PRODUCT_TYPE_LENGTH_TOO_LONG` | `PRODUCT_TYPE_LENGTH_TOO_LONG` | `number` | No | No | Some items have product_type values that are too long, those items will be published without that product type. |
+| `SALE_DATE_INVALID` | `SALE_DATE_INVALID` | `number` | No | No | Some items have sale_price_effective_date values that are formatted incorrectly, those items will be published without a sale date. |
+| `SALES_PRICE_INVALID` | `SALES_PRICE_INVALID` | `number` | No | No | Some items have sale price values that are higher than the original price of the item. |
+| `SALES_PRICE_TOO_HIGH` | `SALES_PRICE_TOO_HIGH` | `number` | No | No | Some items include a sales price that is higher than the list price. The sales price has been defaulted to the list price. |
+| `SALES_PRICE_TOO_LOW` | `SALES_PRICE_TOO_LOW` | `number` | No | No | Some items include sales price that is much lower than the list price. |
+| `SHIPPING_HEIGHT_INVALID` | `SHIPPING_HEIGHT_INVALID` | `number` | No | No | Some items include incorrectly formatted shipping_height. |
+| `SHIPPING_INVALID` | `SHIPPING_INVALID` | `number` | No | No | Some items have shipping values that are formatted incorrectly. |
+| `SHIPPING_WEIGHT_INVALID` | `SHIPPING_WEIGHT_INVALID` | `number` | No | No | Some items have invalid shipping_weight values. |
+| `SHIPPING_WIDTH_INVALID` | `SHIPPING_WIDTH_INVALID` | `number` | No | No | Some items include incorrectly formatted shipping_width. |
+| `SIZE_SYSTEM_INVALID` | `SIZE_SYSTEM_INVALID` | `number` | No | No | Some items have size system values which are not one of the supported size systems. |
+| `SIZE_TYPE_INVALID` | `SIZE_TYPE_INVALID` | `number` | No | No | Some items have size type values that are formatted incorrectly, which may limit visibility in recommendations, search results and shopping experiences. |
+| `TAX_INVALID` | `TAX_INVALID` | `number` | No | No | Some items have tax values that are formatted incorrectly. |
+| `TITLE_LENGTH_TOO_LONG` | `TITLE_LENGTH_TOO_LONG` | `number` | No | No | The title for some items were truncated because they contain too many characters. |
+| `TOO_MANY_ADDITIONAL_IMAGE_LINKS` | `TOO_MANY_ADDITIONAL_IMAGE_LINKS` | `number` | No | No | Some items have additional_image_link values that exceed the limit for additional images, those items will be published without some of your images. |
+| `UPDATED_TIME_INVALID` | `UPDATED_TIME_INVALID` | `number` | No | No | Some items have updated_time values thate are formatted incorrectly, those items will be published without an updated time. |
+| `UTM_SOURCE_AUTO_CORRECTED` | `UTM_SOURCE_AUTO_CORRECTED` | `number` | No | No | Some items include utm_source values that are formatted incorrectly and have been automatically corrected. |
+| `VIDEO_REQUIRED_WHEN_AD_VIDEO_PROVIDED` | `VIDEO_REQUIRED_WHEN_AD_VIDEO_PROVIDED` | `number` | No | No | A video is required in the item when ad_video fields are provided. |
+| `WEIGHT_UNIT_INVALID` | `WEIGHT_UNIT_INVALID` | `number` | No | No | Some items have weight_unit values that are formatted incorrectly, those items will be published without a weight unit. |
+
+## CatalogsFeedVideoCounts
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ingested_videos` | `ingested_videos` | `number` | No | No | The number of videos successfully ingested from the feed file. |
+| `not_ingested_videos` | `not_ingested_videos` | `number` | No | No | The number of videos that were not ingested from the feed file. |
+| `total_videos` | `total_videos` | `number` | No | No | The number of videos in the feed file. |
+
+## CatalogsFormat
+
+`enum` model on the `json` wire format.
+
+**Values:** `TSV`, `CSV`, `XML`, `INTEGRATION`
+
+## CatalogsHotelAddress
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `addr1` | `addr1` | `string` | No | No | Primary street address of hotel. |
+| `city` | `city` | `string` | No | No | City where the hotel is located. |
+| `country` | `country` | `string` | No | No | Country where the hotel is located. |
+| `postal_code` | `postal_code` | `string` | No | No | Required for countries with a postal code system. Postal or zip code of the hotel. |
+| `region` | `region` | `string` | No | No | State, county, province, where the hotel is located. |
+
+## CatalogsHotelAttributes
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `additional_image_link` | `additional_image_link` | `Array<string>` | No | No | &lt;= 2000 characters. The links to additional images for your hotel. Up to ten additional images can be used to show a hotel from different angles. Must begin with http:// or https://. |
+| `ai_disclosures` | `ai_disclosures` | `Array<Inline2733>` | No | No | AI content disclosures for individual assets (main_image.link or additional_image_link) on this hotel item. Each entry declares which disclosure types apply to a single asset URL. |
+| `main_image` | `main_image` | `Inline2734` | No | No | The main hotel image |
+| `address` | `address` | `Inline2735` | No | No | Hotel address |
+| `base_price` | `base_price` | `string` | No | No | Base price of the hotel room per night followed by the ISO currency code |
+| `brand` | `brand` | `string` | No | No | The brand to which this hotel belongs to. |
+| `category` | `category` | `string` | No | No | The type of property. The category can be any type of internal description desired. |
+| `custom_label_0` | `custom_label_0` | `string` | No | No | Custom grouping of hotels |
+| `custom_label_1` | `custom_label_1` | `string` | No | No | Custom grouping of hotels |
+| `custom_label_2` | `custom_label_2` | `string` | No | No | Custom grouping of hotels |
+| `custom_label_3` | `custom_label_3` | `string` | No | No | Custom grouping of hotels |
+| `custom_label_4` | `custom_label_4` | `string` | No | No | Custom grouping of hotels |
+| `description` | `description` | `string` | No | No | Brief description of the hotel. |
+| `guest_ratings` | `guest_ratings` | `Inline2736` | No | No | If specified, you must provide all properties |
+| `latitude` | `latitude` | `number` | No | No | Latitude of the hotel. |
+| `link` | `link` | `string` | No | No | Link to the product page |
+| `longitude` | `longitude` | `number` | No | No | Longitude of the hotel. |
+| `name` | `name` | `string` | No | No | The hotel's name. |
+| `neighborhood` | `neighborhood` | `Array<string>` | No | No | A list of neighborhoods where the hotel is located |
+| `sale_price` | `sale_price` | `string` | No | No | Sale price of a hotel room per night. Used to advertise discounts off the regular price of the hotel. |
+
+## CatalogsHotelAvailableFilterValues
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `filter_values` | `filter_values` | `Inline2738` | Yes | No | A map of filter attributes to their available values. |
+
+## CatalogsHotelBatchItem
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2740 \| Inline2744 \| Inline2748 \| Inline2750`
+
+## CatalogsHotelBatchRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `Inline2752` | No | No | Catalog id pertaining to the hotel item. If not provided, default to oldest hotel catalog |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline2753 \| Inline2757 \| Inline2761 \| Inline2763>` | Yes | No | Array with catalogs item operations |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+
+## CatalogsHotelFeed
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | Yes | No | Catalog id pertaining to the feed. If not provided, feed will use a default catalog based on type. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline2765` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string` | Yes | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `id` | `id` | `string` | Yes | No | ID of the feed entity. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. This value is currently nullable due to historical reasons. It is expected to become non-nullable in the future. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline2766` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `string` | Yes | No | Status for catalogs entities. Present in catalogs_feed values. When a feed is deleted, the response will inform DELETED as status. |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+
+## CatalogsHotelFeedsCreateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog id pertaining to the feed. If not provided, feed will use a default catalog based on type. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline2768` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `default_locale` | `default_locale` | `string \| string` | Yes | No | The locale used within a feed for product descriptions. |
+| `format` | `format` | `string` | Yes | No | The file format of a feed. |
+| `location` | `location` | `string` | Yes | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a given feed. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline2769` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `Inline2770` | No | No | — |
+
+## CatalogsHotelFeedsUpdateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `credentials` | `credentials` | `Inline2772` | No | No | This field is **OPTIONAL**. Use this if your feed file requires username and password. |
+| `default_currency` | `default_currency` | `string` | No | No | Currency Codes from ISO 4217. |
+| `format` | `format` | `string` | No | No | The file format of a feed. |
+| `location` | `location` | `string` | No | No | The URL where a feed is available for download. This URL is what Pinterest will use to download a feed for processing. |
+| `name` | `name` | `string` | No | No | A human-friendly name associated to a given feed. |
+| `preferred_processing_schedule` | `preferred_processing_schedule` | `Inline2773` | No | No | Daily processing schedule. This field is **OPTIONAL**. Use this to configure the preferred time for processing a feed (otherwise random). |
+| `status` | `status` | `string` | No | No | Status for catalogs entities. Present in catalogs_feed values. When a feed is deleted, the response will inform DELETED as status. |
+
+## CatalogsHotelFilterValuesMap
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brand` | `brand` | `Array<string>` | No | No | — |
+| `custom_label_0` | `custom_label_0` | `Array<string>` | No | No | — |
+| `custom_label_1` | `custom_label_1` | `Array<string>` | No | No | — |
+| `custom_label_2` | `custom_label_2` | `Array<string>` | No | No | — |
+| `custom_label_3` | `custom_label_3` | `Array<string>` | No | No | — |
+| `custom_label_4` | `custom_label_4` | `Array<string>` | No | No | — |
+
+## CatalogsHotelGuestRatings
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max_score` | `max_score` | `number` | No | No | Max value for the hotel rating score. |
+| `number_of_reviewers` | `number_of_reviewers` | `number` | No | No | Total number of people who have rated this hotel. |
+| `rating_system` | `rating_system` | `string` | No | No | System you use for guest reviews. |
+| `score` | `score` | `number` | No | No | Your hotel's rating. |
+
+## CatalogsHotelItemErrorResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `errors` | `errors` | `Array<Inline2777>` | Yes | No | Array with the errors for the item id requested |
+| `hotel_id` | `hotel_id` | `string` | No | No | The catalog hotel id in the merchant namespace |
+| `item_response_kind` | `item_response_kind` | `string` | Yes | No | Discriminator literal identifying this leaf inside an `ItemResponse` payload. |
+
+## CatalogsHotelItemResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline2779` | No | No | — |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `hotel_id` | `hotel_id` | `string` | No | No | The catalog hotel id in the merchant namespace |
+| `item_response_kind` | `item_response_kind` | `string` | Yes | No | Discriminator literal identifying this leaf inside an `ItemResponse` payload. |
+| `pins` | `pins` | `Array<Inline2783>` | No | No | The pins mapped to the item |
+
+## CatalogsHotelItemsBatch
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `batch_id` | `batch_id` | `Inline2789` | No | No | Id of the catalogs items batch |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `completed_time` | `completed_time` | `string` | No | No | Date and time (UTC) of the batch completion: YYYY-MM-DD'T'hh:mm:ss |
+| `created_time` | `created_time` | `string` | No | No | Date and time (UTC) of the batch creation: YYYY-MM-DD'T'hh:mm:ss |
+| `items` | `items` | `Array<Inline2790>` | No | No | Array with the catalogs items processing records part of the catalogs items batch |
+| `status` | `status` | `string` | No | No | The status of the operation performed by the batch |
+
+## CatalogsHotelItemsPostFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog id pertaining to the hotel item. If not provided, default to oldest hotel catalog |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `hotel_ids` | `hotel_ids` | `Array<string>` | Yes | No | — |
+
+## CatalogsHotelListProductsByCatalogBasedFilterRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `Inline2794` | Yes | No | Catalog ID pertaining to the product group. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `filters` | `filters` | `Inline2795 \| Inline2805` | Yes | No | Object holding a group of filters for a hotel product group |
+
+## CatalogsHotelMainImage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `link` | `link` | `string` | No | No | &lt;= 2000 characters. The link to the main hotel image. Image should be at least 75x75 pixels to avoid errors. Must start with http:// or https://. |
+| `tag` | `tag` | `Array<string>` | No | No | Tag appended to the image that identifies image category or details. There can be multiple tags associated with an image |
+
+## CatalogsHotelProduct
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `metadata` | `metadata` | `Inline2817` | Yes | No | Hotel product metadata entity |
+| `pin` | `pin` | `Inline2818` | Yes | No | Pin model containing properties related to a Pinterest Pin. |
+
+## CatalogsHotelProductGroup
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `Inline2824` | Yes | No | Catalog ID pertaining to the product group. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `created_at` | `created_at` | `number` | No | No | Unix timestamp in seconds of when catalog product group was created. |
+| `description` | `description` | `string` | No | No | — |
+| `filters` | `filters` | `Inline2825 \| Inline2835` | Yes | No | Object holding a group of filters for a hotel product group |
+| `id` | `id` | `Inline2845` | Yes | No | ID of the catalog product group. |
+| `name` | `name` | `string` | No | No | Name of catalog product group |
+| `type` | `type` | `string` | Yes | No | Catalog hotel product group type |
+| `updated_at` | `updated_at` | `number` | No | No | Unix timestamp in seconds of last time catalog product group was updated. |
+
+## CatalogsHotelProductGroupCreateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `Inline2847` | Yes | No | Catalog ID pertaining to the product group. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `filters` | `filters` | `Inline2848 \| Inline2858` | Yes | No | Object holding a group of filters for a hotel product group |
+| `name` | `name` | `string` | Yes | No | — |
+
+## CatalogsHotelProductGroupFilterKeys
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2869 \| Inline2870 \| Inline2871 \| Inline2872 \| Inline2873 \| Inline2874 \| Inline2875 \| Inline2876 \| Inline2877 \| Inline2878`
+
+## CatalogsHotelProductGroupFilters
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2880 \| Inline2890`
+
+## CatalogsHotelProductGroupFiltersAllOf
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `all_of` | `all_of` | `Array<Inline2901 \| Inline2902 \| Inline2903 \| Inline2904 \| Inline2905 \| Inline2906 \| Inline2907 \| Inline2908 \| Inline2909 \| Inline2910>` | Yes | No | — |
+
+## CatalogsHotelProductGroupFiltersAnyOf
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `any_of` | `any_of` | `Array<Inline2912 \| Inline2913 \| Inline2914 \| Inline2915 \| Inline2916 \| Inline2917 \| Inline2918 \| Inline2919 \| Inline2920 \| Inline2921>` | Yes | No | — |
+
+## CatalogsHotelProductGroupProductCounts
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `total` | `total` | `number` | Yes | No | — |
+
+## CatalogsHotelProductGroupType
+
+`enum` model on the `json` wire format.
+
+**Values:** `MERCHANT_CREATED`, `ALL_LISTINGS`
+
+## CatalogsHotelProductGroupUpdateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `filters` | `filters` | `Inline2925 \| Inline2935` | No | No | Object holding a group of filters for a hotel product group |
+| `name` | `name` | `string` | No | No | Name of catalog product group |
+
+## CatalogsHotelProductMetadata
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hotel_id` | `hotel_id` | `string` | Yes | No | The user-created unique ID that represents the hotel item. |
+
+## CatalogsHotelReportParameters
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `report` | `report` | `Inline2947 \| Inline2948` | Yes | No | — |
+
+## CatalogsHotelReportParametersReport
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2950 \| Inline2951`
+
+## CatalogsHotelReportStatsParameters
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `report` | `report` | `Inline2953 \| Inline2954` | Yes | No | — |
+
+## CatalogsHotelReportStatsParametersReport
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2956 \| Inline2957`
+
+## CatalogsItemsBatch
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2959 \| Inline2962 \| Inline2965`
+
+## CatalogsItemsBatchPostRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2969 \| Inline2974 \| Inline2986 \| Inline2991 \| Inline2992 \| Inline2993 \| Inline2994 \| Inline2995`
+
+## CatalogsItemsBatchRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2997 \| Inline2998 \| Inline2999 \| Inline3000 \| Inline3001`
+
+## CatalogsItemsCreateBatchRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline3003>` | Yes | No | Array with catalogs items |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## CatalogsItemsDeleteBatchRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline3005>` | Yes | No | Array with catalogs items |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## CatalogsItemsDeleteDiscontinuedBatchRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline3007>` | Yes | No | Array with catalogs items |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## CatalogsItemsPostFilters
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline3009 \| Inline3010 \| Inline3011`
+
+## CatalogsItemsRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `filters` | `filters` | `Inline3013 \| Inline3014 \| Inline3015` | Yes | No | — |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+
+## CatalogsItemsUpdateBatchRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline3017>` | Yes | No | Array with catalogs items |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+| `operation` | `operation` | `string` | Yes | No | — |

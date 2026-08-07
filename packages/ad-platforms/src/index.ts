@@ -205,3 +205,18 @@ export {
   RedditApiError,
   RedditScopes,
 } from "@openpromo/reddit";
+
+// --- Pinterest ---
+export type {
+  PinterestApiClientOptions,
+  PinterestOAuthConfig,
+  PinterestOAuthTokenResponse,
+  PinterestScope,
+} from "@openpromo/pinterest";
+export {
+  createPinterestOAuth,
+  Pinterest,
+  PinterestApiClient,
+  PinterestApiError,
+  PinterestScopes,
+} from "@openpromo/pinterest";

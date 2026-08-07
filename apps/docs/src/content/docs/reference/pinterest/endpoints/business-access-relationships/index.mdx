@@ -1,0 +1,353 @@
+---
+title: "Pinterest Business Access Relationships endpoints"
+description: "9 generated Pinterest endpoint contracts for Business Access Relationships."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 112
+  label: "Business Access Relationships"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.businessAccessRelationships.brandAccountsCreate
+
+`POST` `/business_access/business_hierarchy/{business_hierarchy_id}/brand_accounts`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (brand_accounts/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessRelationships.manage` |
+| Required scopes | `biz_access:read`<br />`biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BrandAccountsCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessHierarchyId` | `path` | `string` | Yes | No | business hierarchy node id |
+| `about` | `body` | `string` | No | No | Brand Account about information |
+| `country` | `body` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `name` | `body` | `string` | Yes | No | Brand Account name |
+| `profile_image` | `body` | `Inline9254` | No | No | Base64-encoded image media source |
+| `username` | `body` | `string` | Yes | No | Brand Account username |
+| `website` | `body` | `string` | No | No | Brand Account website |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessRelationships.brandAccountsUpdate
+
+`PATCH` `/business_access/business_hierarchy/{business_hierarchy_id}/brand_accounts/{brand_account_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (brand_accounts/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessRelationships.manage` |
+| Required scopes | `biz_access:read`<br />`biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BrandAccountsUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brandAccountId` | `path` | `string` | Yes | No | — |
+| `businessHierarchyId` | `path` | `string` | Yes | No | business hierarchy node id |
+| `about` | `body` | `string` | No | No | Brand Account about information |
+| `country` | `body` | `string` | No | No | Country ID from ISO 3166-1 alpha-2. |
+| `name` | `body` | `string` | No | No | Brand Account name |
+| `profile_image` | `body` | `Inline9259` | No | No | Base64-encoded image media source |
+| `username` | `body` | `string` | No | No | Brand Account username |
+| `website` | `body` | `string` | No | No | Brand Account website |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessRelationships.deleteBusinessMembership
+
+`DELETE` `/businesses/{business_id}/members`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (delete_business_membership)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessRelationships.manage` |
+| Required scopes | `biz_access:read`<br />`biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `DeleteBusinessMembershipResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Business id |
+| `members` | `body` | `Array<Inline9354>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessRelationships.deleteBusinessPartners
+
+`DELETE` `/businesses/{business_id}/partners`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (delete_business_partners)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessRelationships.manage` |
+| Required scopes | `biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `DeleteBusinessPartnersResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `partner_ids` | `body` | `Array<string>` | Yes | No | A list of partner ids to be deleted |
+| `partner_type` | `body` | `Inline9379` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessRelationships.getBusinessEmployers
+
+`GET` `/businesses/employers`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (get/business_employers)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.businessAccessRelationships.read` |
+| Required scopes | `biz_access:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `GetBusinessEmployersResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetsSummary` | `query` | `boolean` | No | No | Include assets summary in the response if this is true. Defaults to true. The assets summary returns a dictionary representing a summary of the assets for the business user ID, with information like the ad accounts and profiles the user has permissions for and what those permissions are |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessRelationships.getBusinessMembers
+
+`GET` `/businesses/{business_id}/members`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (get/business_members)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.businessAccessRelationships.read` |
+| Required scopes | `biz_access:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `GetBusinessMembersResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `fetchSystemUsers` | `query` | `boolean` | No | No | Fetches system users if True. Fetches regular user employees if False. |
+| `assetsSummary` | `query` | `boolean` | No | No | Include assets summary in the response if this is true. The assets summary returns a dictionary representing a summary of the assets for the business user ID, with information like the ad accounts and profiles the user has permissions for and what those permissions are |
+| `businessRoles` | `query` | `Array<string>` | No | No | A list of business roles to filter the members by. Only members whose roles are in the specified roles will be returned. |
+| `memberIds` | `query` | `string` | No | No | A list of business members ids separated by comma. |
+| `startIndex` | `query` | `number` | No | No | An index to start fetching the results from. Only the results starting from this index will be returned. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessRelationships.getBusinessPartners
+
+`GET` `/businesses/{business_id}/partners`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (get/business_partners)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.businessAccessRelationships.read` |
+| Required scopes | `biz_access:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `GetBusinessPartnersResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `assetsSummary` | `query` | `boolean` | No | No | Include assets summary in the response if this is true. The assets summary returns a dictionary representing a summary of the assets for the business user ID, with information like the ad accounts and profiles the user has permissions for and what those permissions are |
+| `partnerType` | `query` | `string` | No | No | Specifies whether to fetch internal or external (shared) partners. If partner_type=INTERNAL, the asset being queried is for accesses the partner has to your business assets. If partner_type=EXTERNAL, the asset being queried is for the accesses you have to the partner's business asset. |
+| `partnerIds` | `query` | `string` | No | No | A list of business partner ids separated by commas used to filter the results. Only partners with the specified ids will be returned. |
+| `startIndex` | `query` | `number` | No | No | An index to start fetching the results from. Only the results starting from this index will be returned. |
+| `sortAscending` | `query` | `boolean` | No | No | Sort ascending. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessRelationships.systemUserUpdate
+
+`PATCH` `/businesses/{business_id}/system_users/{system_user_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (system_user/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessRelationships.manage` |
+| Required scopes | `biz_access:read`<br />`biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `SystemUserUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `systemUserId` | `path` | `string` | Yes | No | Unique identifier of a system user. |
+| `name` | `body` | `string` | Yes | No | New system user name |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessRelationships.updateBusinessMemberships
+
+`PATCH` `/businesses/{business_id}/members`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (update/business_memberships)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessRelationships.manage` |
+| Required scopes | `biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `UpdateBusinessMembershipsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Business id |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -72,6 +72,14 @@ const entries = [
     750,
     30,
   ],
+  [
+    "pinterest",
+    "packages/pinterest-sdk/src/generated/effect/index.ts",
+    "packages/pinterest-sdk/src/generated/effect/manifest.json",
+    2_500_000,
+    750,
+    200,
+  ],
 ];
 
 let failed = false;

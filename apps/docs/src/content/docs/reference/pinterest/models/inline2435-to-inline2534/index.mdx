@@ -1,0 +1,839 @@
+---
+title: "Pinterest models: Inline2435 – Inline2534"
+description: "100 generated Pinterest model contracts, from Inline2435 through Inline2534."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1039
+  label: "Inline2435 – Inline2534"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Inline2435
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `any_of` | `any_of` | `Array<Inline2435 \| Inline2436 \| Inline2437 \| Inline2438 \| Inline2439 \| Inline2440 \| Inline2441 \| Inline2442 \| Inline2443 \| Inline2444 \| Inline2445 \| Inline2446 \| Inline2447 \| Inline2448 \| Inline2449 \| Inline2450>` | Yes | No | — |
+
+## Inline2436
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_0` | `CUSTOM_LABEL_0` | `Inline2436` | Yes | No | — |
+
+## Inline2437
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_1` | `CUSTOM_LABEL_1` | `Inline2437` | Yes | No | — |
+
+## Inline2438
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_2` | `CUSTOM_LABEL_2` | `Inline2438` | Yes | No | — |
+
+## Inline2439
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_3` | `CUSTOM_LABEL_3` | `Inline2439` | Yes | No | — |
+
+## Inline244
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AGE_BUCKET` | `AGE_BUCKET` | `Array<string>` | No | No | **Legacy field.** Predefined age ranges. We recommend using MINIMUM_AGE and MAXIMUM_AGE instead for more flexible targeting. Cannot be combined with MINIMUM_AGE/MAXIMUM_AGE. If neither AGE_BUCKET nor MINIMUM_AGE/MAXIMUM_AGE are specified, all ages will be targeted. |
+| `APPTYPE` | `APPTYPE` | `Array<string>` | No | No | Allowed devices. If the APPTYPE field is missing, the default behavior in terms of ad delivery is that **All devices/apptypes** will be targeted. |
+| `AUDIENCE_EXCLUDE` | `AUDIENCE_EXCLUDE` | `Array<unknown>` | No | No | Excluded customer list IDs. Used to drive new customer acquisition goals. For example: ["2542620905475"]. Audience lists need to have at least 100 people with Pinterest accounts in them. If the AUDIENCE_EXCLUDE field is missing, the default behavior in terms of ad delivery is that **No users will be excluded**. |
+| `AUDIENCE_INCLUDE` | `AUDIENCE_INCLUDE` | `Array<unknown>` | No | No | Targeted customer list IDs. For example: ["2542620905473"]. Audience lists need to have at least 100 people with Pinterest accounts in them Audience lists need to have at least 100 people with Pinterest accounts in them. If the AUDIENCE_INCLUDE field is missing, the default behavior in terms of ad delivery is that **All users will be included**. |
+| `GENDER` | `GENDER` | `Array<string>` | No | No | Targeted genders. Values: ["unknown","male","female"]. If the GENDER field is missing, the default behavior in terms of ad delivery is that **All genders will be targeted**. |
+| `GEO` | `GEO` | `Array<string>` | No | No | Region codes or postal codes to include for targeting. Region codes represent broader geographical areas. Example: `US-CA` is the region code for California in the United States. Postal codes represent more granular, specific areas. Example: `94103` is a postal code for a specifc area in San Francisco, California, U.S.A. For each ad group, use only one of these methods, depending on which fits your targeting needs. Do not use both. For example, either specify a broader region code like `US-CA` or a more granular postal code within that regon, such as `94103`. You can specify multiple region codes or postal codes in an array, depending on which method you choose. Precede a region code array with the `region_codes` key and a postal code value with the `postal_codes` key. Examples: ``` "geo": &#123; "region_codes": ["US-CA"] &#125; ``` ``` "geo": &#123; "postal_codes": ["94103"] &#125; ``` For each ad group, specify at least one `GEO` or `LOCATION`. If you do not specifiy a `GEO` code, only `LOCATION` values will be targeted (See `LOCATION` parameter in this targeting spec.). Learn how to get a current, complete list of codes. |
+| `GEO_EXCLUDE` | `GEO_EXCLUDE` | `Array<string>` | No | No | Closed beta Region codes or postal codes to exclude from the targeting inclusion area. See `GEO` parameter in this targeting spec for rules, syntax, and other information. |
+| `INTEREST` | `INTEREST` | `Array<string>` | No | No | Array of interest object IDs. If the INTEREST field is missing, the default behavior in terms of ad delivery is that **All interests will be targeted**. |
+| `LOCALE` | `LOCALE` | `Array<string>` | No | No | 24 ISO 639-1 two-letter language codes. If the LOCALE field is not included in the request, all languages are targeted. |
+| `LOCATION` | `LOCATION` | `Array<string>` | No | No | Metropolitan codes and/or ISO-Alpha-2, two-letter country codes to include for targeting. Precede country code values with the `country_codes` key and metro code values with `metro_codes` key. Example: ``` "location": &#123; "country_codes": ["US", "CA"], "metro_codes": ["501", "602"] &#125; ``` For each ad group, specify at least one `GEO` or `LOCATION` code. If you do not specify a `LOCATION` code, only `GEO` values will be targeted (See `GEO` parameter in this targeting spec.). Learn how to get a current, complete list of codes. |
+| `LOCATION_EXCLUDE` | `LOCATION_EXCLUDE` | `Array<string>` | No | No | Closed beta Metropolitan codes and/or ISO-Alpha-2, two-letter country codes to exclude from targeting. See `LOCATION` parameter in this targeting spec for rules, syntax, and other information. |
+| `MAXIMUM_AGE` | `MAXIMUM_AGE` | `string` | No | No | Maximum age to target (inclusive). Values: "18", "19", ..., "65", "65+". Must be used together with `MINIMUM_AGE`. Cannot be combined with `AGE_BUCKET`. If neither `MINIMUM_AGE`/`MAXIMUM_AGE` nor `AGE_BUCKET` are specified, all ages will be targeted. |
+| `MINIMUM_AGE` | `MINIMUM_AGE` | `string` | No | No | Minimum age to target (inclusive). Values: "18", "19", ..., "65". Note: 65+ is not allowed for minimum age. Must be used together with `MAXIMUM_AGE`. Cannot be combined with `AGE_BUCKET`. If neither `MINIMUM_AGE`/`MAXIMUM_AGE` nor `AGE_BUCKET` are specified, all ages will be targeted. |
+| `SHOPPING_RETARGETING` | `SHOPPING_RETARGETING` | `Array<Inline244>` | No | No | Array of object: lookback_window [Integer]: Number of days ago to start lookback timeframe for dynamic retargeting tag_types [Array of integer]: Event types to target for dynamic retargeting exclusion_window [Integer]: Number of days ago to stop lookback timeframe for dynamic retargeting |
+| `TARGETING_STRATEGY` | `TARGETING_STRATEGY` | `Array<string>` | No | No | — |
+
+## Inline2440
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_4` | `CUSTOM_LABEL_4` | `Inline2440` | Yes | No | — |
+
+## Inline2441
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_6` | `GOOGLE_PRODUCT_CATEGORY_6` | `Inline2441` | Yes | No | — |
+
+## Inline2442
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_5` | `GOOGLE_PRODUCT_CATEGORY_5` | `Inline2442` | Yes | No | — |
+
+## Inline2443
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_4` | `GOOGLE_PRODUCT_CATEGORY_4` | `Inline2443` | Yes | No | — |
+
+## Inline2444
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_3` | `GOOGLE_PRODUCT_CATEGORY_3` | `Inline2444` | Yes | No | — |
+
+## Inline2445
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_2` | `GOOGLE_PRODUCT_CATEGORY_2` | `Inline2445` | Yes | No | — |
+
+## Inline2446
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_1` | `GOOGLE_PRODUCT_CATEGORY_1` | `Inline2446` | Yes | No | — |
+
+## Inline2447
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_0` | `GOOGLE_PRODUCT_CATEGORY_0` | `Inline2447` | Yes | No | — |
+
+## Inline2448
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `MEDIA_TYPE` | `MEDIA_TYPE` | `Inline2448` | Yes | No | — |
+
+## Inline2449
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `TITLE_KEYWORDS` | `TITLE_KEYWORDS` | `Inline2449` | Yes | No | — |
+
+## Inline2450
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `LINK` | `LINK` | `Inline2450` | Yes | No | — |
+
+## Inline2451
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `all_of` | `all_of` | `Array<Inline2451 \| Inline2452 \| Inline2453 \| Inline2454 \| Inline2455 \| Inline2456 \| Inline2457 \| Inline2458 \| Inline2459 \| Inline2460 \| Inline2461 \| Inline2462 \| Inline2463 \| Inline2464 \| Inline2465 \| Inline2466>` | Yes | No | — |
+
+## Inline2452
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_0` | `CUSTOM_LABEL_0` | `Inline2452` | Yes | No | — |
+
+## Inline2453
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_1` | `CUSTOM_LABEL_1` | `Inline2453` | Yes | No | — |
+
+## Inline2454
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_2` | `CUSTOM_LABEL_2` | `Inline2454` | Yes | No | — |
+
+## Inline2455
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_3` | `CUSTOM_LABEL_3` | `Inline2455` | Yes | No | — |
+
+## Inline2456
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_4` | `CUSTOM_LABEL_4` | `Inline2456` | Yes | No | — |
+
+## Inline2457
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_6` | `GOOGLE_PRODUCT_CATEGORY_6` | `Inline2457` | Yes | No | — |
+
+## Inline2458
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_5` | `GOOGLE_PRODUCT_CATEGORY_5` | `Inline2458` | Yes | No | — |
+
+## Inline2459
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_4` | `GOOGLE_PRODUCT_CATEGORY_4` | `Inline2459` | Yes | No | — |
+
+## Inline246
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2460
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_3` | `GOOGLE_PRODUCT_CATEGORY_3` | `Inline2460` | Yes | No | — |
+
+## Inline2461
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_2` | `GOOGLE_PRODUCT_CATEGORY_2` | `Inline2461` | Yes | No | — |
+
+## Inline2462
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_1` | `GOOGLE_PRODUCT_CATEGORY_1` | `Inline2462` | Yes | No | — |
+
+## Inline2463
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_0` | `GOOGLE_PRODUCT_CATEGORY_0` | `Inline2463` | Yes | No | — |
+
+## Inline2464
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `MEDIA_TYPE` | `MEDIA_TYPE` | `Inline2464` | Yes | No | — |
+
+## Inline2465
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `TITLE_KEYWORDS` | `TITLE_KEYWORDS` | `Inline2465` | Yes | No | — |
+
+## Inline2466
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `LINK` | `LINK` | `Inline2466` | Yes | No | — |
+
+## Inline2468
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creative_assets_id` | `creative_assets_id` | `string` | Yes | No | The user-created unique ID that represents the creative assets item. |
+| `visibility` | `visibility` | `string` | Yes | No | Creative assets visibility. |
+
+## Inline2469
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `alt_text` | `alt_text` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+| `ai_disclosures` | `ai_disclosures` | `Inline2469` | No | No | AI disclosure declarations the creator has made about this Pin. |
+| `board_id` | `board_id` | `string` | No | No | The board to which this Pin belongs. |
+| `board_owner` | `board_owner` | `Inline2470` | No | No | — |
+| `board_section_id` | `board_section_id` | `string` | No | No | The board section to which this Pin belongs. |
+| `created_at` | `created_at` | `string` | No | No | — |
+| `creative_type` | `creative_type` | `Inline2471` | No | No | — |
+| `dominant_color` | `dominant_color` | `string` | No | No | Dominant pin color. Hex number, e.g. `#6E7874`. |
+| `has_been_promoted` | `has_been_promoted` | `boolean` | No | No | Whether the Pin has been promoted or not. |
+| `id` | `id` | `string` | No | No | — |
+| `is_owner` | `is_owner` | `boolean` | No | No | Whether the "operation user_account" is the Pin owner. |
+| `is_product` | `is_product` | `boolean` | No | No | Whether the Pin is a product Pin. |
+| `is_standard` | `is_standard` | `boolean` | No | No | Whether the Pin is standard or not. See documentation on Changes to Pin creation for more information. |
+| `media` | `media` | `Inline2472` | No | No | — |
+| `parent_pin_id` | `parent_pin_id` | `string` | No | No | The source pin id if this pin was saved from another pin. [Learn more](https://help.pinterest.com/article/save-pins-on-pinterest). |
+| `pin_metrics` | `pin_metrics` | `Inline2473` | No | No | Pin metrics with associated time intervals if any. |
+
+## Inline2470
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `username` | `username` | `string` | No | No | — |
+
+## Inline2471
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2472
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2473
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2475
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2476
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `any_of` | `any_of` | `Array<Inline2476 \| Inline2477 \| Inline2478 \| Inline2479 \| Inline2480 \| Inline2481 \| Inline2482 \| Inline2483 \| Inline2484 \| Inline2485 \| Inline2486 \| Inline2487 \| Inline2488 \| Inline2489 \| Inline2490 \| Inline2491>` | Yes | No | — |
+
+## Inline2477
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_0` | `CUSTOM_LABEL_0` | `Inline2477` | Yes | No | — |
+
+## Inline2478
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_1` | `CUSTOM_LABEL_1` | `Inline2478` | Yes | No | — |
+
+## Inline2479
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_2` | `CUSTOM_LABEL_2` | `Inline2479` | Yes | No | — |
+
+## Inline2480
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_3` | `CUSTOM_LABEL_3` | `Inline2480` | Yes | No | — |
+
+## Inline2481
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_4` | `CUSTOM_LABEL_4` | `Inline2481` | Yes | No | — |
+
+## Inline2482
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_6` | `GOOGLE_PRODUCT_CATEGORY_6` | `Inline2482` | Yes | No | — |
+
+## Inline2483
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_5` | `GOOGLE_PRODUCT_CATEGORY_5` | `Inline2483` | Yes | No | — |
+
+## Inline2484
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_4` | `GOOGLE_PRODUCT_CATEGORY_4` | `Inline2484` | Yes | No | — |
+
+## Inline2485
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_3` | `GOOGLE_PRODUCT_CATEGORY_3` | `Inline2485` | Yes | No | — |
+
+## Inline2486
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_2` | `GOOGLE_PRODUCT_CATEGORY_2` | `Inline2486` | Yes | No | — |
+
+## Inline2487
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_1` | `GOOGLE_PRODUCT_CATEGORY_1` | `Inline2487` | Yes | No | — |
+
+## Inline2488
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_0` | `GOOGLE_PRODUCT_CATEGORY_0` | `Inline2488` | Yes | No | — |
+
+## Inline2489
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `MEDIA_TYPE` | `MEDIA_TYPE` | `Inline2489` | Yes | No | — |
+
+## Inline2490
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `TITLE_KEYWORDS` | `TITLE_KEYWORDS` | `Inline2490` | Yes | No | — |
+
+## Inline2491
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `LINK` | `LINK` | `Inline2491` | Yes | No | — |
+
+## Inline2492
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `all_of` | `all_of` | `Array<Inline2492 \| Inline2493 \| Inline2494 \| Inline2495 \| Inline2496 \| Inline2497 \| Inline2498 \| Inline2499 \| Inline2500 \| Inline2501 \| Inline2502 \| Inline2503 \| Inline2504 \| Inline2505 \| Inline2506 \| Inline2507>` | Yes | No | — |
+
+## Inline2493
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_0` | `CUSTOM_LABEL_0` | `Inline2493` | Yes | No | — |
+
+## Inline2494
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_1` | `CUSTOM_LABEL_1` | `Inline2494` | Yes | No | — |
+
+## Inline2495
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_2` | `CUSTOM_LABEL_2` | `Inline2495` | Yes | No | — |
+
+## Inline2496
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_3` | `CUSTOM_LABEL_3` | `Inline2496` | Yes | No | — |
+
+## Inline2497
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_4` | `CUSTOM_LABEL_4` | `Inline2497` | Yes | No | — |
+
+## Inline2498
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_6` | `GOOGLE_PRODUCT_CATEGORY_6` | `Inline2498` | Yes | No | — |
+
+## Inline2499
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_5` | `GOOGLE_PRODUCT_CATEGORY_5` | `Inline2499` | Yes | No | — |
+
+## Inline25
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_brand` | `product_brand` | `string` | No | No | Product brand. For example, 'Parker'. |
+| `product_category` | `product_category` | `string` | No | No | Product category. For example, 'Shoes'. |
+| `product_id` | `product_id` | `number` | No | No | Product ID. For example, 1414. |
+| `product_name` | `product_name` | `string` | No | No | Product name. For example, 'Parker Boots'. |
+| `product_price` | `product_price` | `string` | No | No | Product price. For example, '99.99'. |
+| `product_quantity` | `product_quantity` | `number` | No | No | Product quantity. For example, 2. |
+| `product_variant` | `product_variant` | `string` | No | No | Product variant. For example, 'Red'. |
+| `product_variant_id` | `product_variant_id` | `string` | No | No | Product variant ID. For example, '1414-34832'. |
+
+## Inline2500
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_4` | `GOOGLE_PRODUCT_CATEGORY_4` | `Inline2500` | Yes | No | — |
+
+## Inline2501
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_3` | `GOOGLE_PRODUCT_CATEGORY_3` | `Inline2501` | Yes | No | — |
+
+## Inline2502
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_2` | `GOOGLE_PRODUCT_CATEGORY_2` | `Inline2502` | Yes | No | — |
+
+## Inline2503
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_1` | `GOOGLE_PRODUCT_CATEGORY_1` | `Inline2503` | Yes | No | — |
+
+## Inline2504
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_0` | `GOOGLE_PRODUCT_CATEGORY_0` | `Inline2504` | Yes | No | — |
+
+## Inline2505
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `MEDIA_TYPE` | `MEDIA_TYPE` | `Inline2505` | Yes | No | — |
+
+## Inline2506
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `TITLE_KEYWORDS` | `TITLE_KEYWORDS` | `Inline2506` | Yes | No | — |
+
+## Inline2507
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `LINK` | `LINK` | `Inline2507` | Yes | No | — |
+
+## Inline2508
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2510
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2511
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `any_of` | `any_of` | `Array<Inline2511 \| Inline2512 \| Inline2513 \| Inline2514 \| Inline2515 \| Inline2516 \| Inline2517 \| Inline2518 \| Inline2519 \| Inline2520 \| Inline2521 \| Inline2522 \| Inline2523 \| Inline2524 \| Inline2525 \| Inline2526>` | Yes | No | — |
+
+## Inline2512
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_0` | `CUSTOM_LABEL_0` | `Inline2512` | Yes | No | — |
+
+## Inline2513
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_1` | `CUSTOM_LABEL_1` | `Inline2513` | Yes | No | — |
+
+## Inline2514
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_2` | `CUSTOM_LABEL_2` | `Inline2514` | Yes | No | — |
+
+## Inline2515
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_3` | `CUSTOM_LABEL_3` | `Inline2515` | Yes | No | — |
+
+## Inline2516
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_4` | `CUSTOM_LABEL_4` | `Inline2516` | Yes | No | — |
+
+## Inline2517
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_6` | `GOOGLE_PRODUCT_CATEGORY_6` | `Inline2517` | Yes | No | — |
+
+## Inline2518
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_5` | `GOOGLE_PRODUCT_CATEGORY_5` | `Inline2518` | Yes | No | — |
+
+## Inline2519
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_4` | `GOOGLE_PRODUCT_CATEGORY_4` | `Inline2519` | Yes | No | — |
+
+## Inline2520
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_3` | `GOOGLE_PRODUCT_CATEGORY_3` | `Inline2520` | Yes | No | — |
+
+## Inline2521
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_2` | `GOOGLE_PRODUCT_CATEGORY_2` | `Inline2521` | Yes | No | — |
+
+## Inline2522
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_1` | `GOOGLE_PRODUCT_CATEGORY_1` | `Inline2522` | Yes | No | — |
+
+## Inline2523
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_0` | `GOOGLE_PRODUCT_CATEGORY_0` | `Inline2523` | Yes | No | — |
+
+## Inline2524
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `MEDIA_TYPE` | `MEDIA_TYPE` | `Inline2524` | Yes | No | — |
+
+## Inline2525
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `TITLE_KEYWORDS` | `TITLE_KEYWORDS` | `Inline2525` | Yes | No | — |
+
+## Inline2526
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `LINK` | `LINK` | `Inline2526` | Yes | No | — |
+
+## Inline2527
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `all_of` | `all_of` | `Array<Inline2527 \| Inline2528 \| Inline2529 \| Inline2530 \| Inline2531 \| Inline2532 \| Inline2533 \| Inline2534 \| Inline2535 \| Inline2536 \| Inline2537 \| Inline2538 \| Inline2539 \| Inline2540 \| Inline2541 \| Inline2542>` | Yes | No | — |
+
+## Inline2528
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_0` | `CUSTOM_LABEL_0` | `Inline2528` | Yes | No | — |
+
+## Inline2529
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_1` | `CUSTOM_LABEL_1` | `Inline2529` | Yes | No | — |
+
+## Inline2530
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_2` | `CUSTOM_LABEL_2` | `Inline2530` | Yes | No | — |
+
+## Inline2531
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_3` | `CUSTOM_LABEL_3` | `Inline2531` | Yes | No | — |
+
+## Inline2532
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_4` | `CUSTOM_LABEL_4` | `Inline2532` | Yes | No | — |
+
+## Inline2533
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_6` | `GOOGLE_PRODUCT_CATEGORY_6` | `Inline2533` | Yes | No | — |
+
+## Inline2534
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_5` | `GOOGLE_PRODUCT_CATEGORY_5` | `Inline2534` | Yes | No | — |

@@ -1,0 +1,942 @@
+---
+title: "Pinterest models: Pin Create – Product Tags List Response"
+description: "100 generated Pinterest model contracts, from PinCreate through ProductTagsListResponse."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1112
+  label: "Pin Create – Product Tags List Response"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## PinCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ai_disclosures` | `ai_disclosures` | `Inline6783` | No | No | AI disclosure declarations the creator has made about this Pin. |
+| `alt_text` | `alt_text` | `string` | No | No | — |
+| `board_id` | `board_id` | `string` | No | No | The board to which this Pin belongs. |
+| `board_section_id` | `board_section_id` | `string` | No | No | The board section to which this Pin belongs. |
+| `description` | `description` | `string` | No | No | — |
+| `dominant_color` | `dominant_color` | `string` | No | No | Dominant pin color. Hex number, e.g. `#6E7874`. |
+| `link` | `link` | `string` | No | No | — |
+| `media_source` | `media_source` | `Inline6784 \| Inline6785 \| Inline6786 \| Inline6787 \| Inline6788 \| Inline6789` | No | No | Pin media source that can be an image, video, or a mix of both passed in as a request. |
+| `parent_pin_id` | `parent_pin_id` | `string` | No | No | The source pin id if this pin was saved from another pin. [Learn more](https://help.pinterest.com/article/save-pins-on-pinterest). |
+| `sponsor_id` | `sponsor_id` | `string` | No | No | The sponsor account id to request paid partnership from. Currently the field is only available to a list of users in a closed beta. |
+| `title` | `title` | `string` | No | No | — |
+
+## PinFilter
+
+`enum` model on the `json` wire format.
+
+**Values:** `exclude_native`, `exclude_repins`, `has_been_promoted`
+
+## PinMedia
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline6792 \| Inline6796 \| Inline6800 \| Inline6804 \| Inline6805`
+
+## PinMediaMetadata
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline6811 \| Inline6815`
+
+## PinMediaSource
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline6817 \| Inline6818 \| Inline6819 \| Inline6820 \| Inline6821 \| Inline6822`
+
+## PinMediaSourceImageBase64
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `content_type` | `content_type` | `string` | Yes | No | — |
+| `data` | `data` | `string` | Yes | No | — |
+| `is_standard` | `is_standard` | `boolean` | No | No | Set the parameter to false to create the new simplified Pin instead of the standard pin. Currently the field is only available to a list of beta users. |
+| `source_type` | `source_type` | `string` | Yes | No | The source type of the media. |
+
+## PinMediaSourceImagesBase64
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `number` | No | No | — |
+| `items` | `items` | `Array<Inline6825>` | Yes | No | Array with image objects. |
+| `source_type` | `source_type` | `string` | Yes | No | The source type of the media. |
+
+## PinMediaSourceImagesBase64Item
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `content_type` | `content_type` | `string` | Yes | No | — |
+| `data` | `data` | `string` | Yes | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+
+## PinMediaSourceImagesURL
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `number` | No | No | — |
+| `items` | `items` | `Array<Inline6828>` | Yes | No | Array with image objects. |
+| `source_type` | `source_type` | `string` | Yes | No | The source type of the media. |
+
+## PinMediaSourceImagesURLItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+| `url` | `url` | `string` | Yes | No | — |
+
+## PinMediaSourceImageURL
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_standard` | `is_standard` | `boolean` | No | No | Set the parameter to false to create the new simplified Pin instead of the standard pin. Currently the field is only available to a list of beta users. |
+| `source_type` | `source_type` | `string` | Yes | No | The source type of the media. |
+| `url` | `url` | `string` | Yes | No | — |
+
+## PinMediaSourcePinURL
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_affiliate_link` | `is_affiliate_link` | `boolean` | No | No | This is an affiliate link or sponsored product. The FTC requires disclosure for paid partnerships and affiliate products. |
+| `source_type` | `source_type` | `string` | Yes | No | — |
+
+## PinMediaSourceVideoID
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cover_image_content_type` | `cover_image_content_type` | `Inline6833` | No | No | Content type for cover image Base64. |
+| `cover_image_data` | `cover_image_data` | `string` | No | No | Cover image Base64. |
+| `cover_image_key_frame_time` | `cover_image_key_frame_time` | `number` | No | No | Keyframe timestamp for cover image (seconds). If entered time exceeds video duration, the last frame is used. |
+| `cover_image_url` | `cover_image_url` | `string` | No | No | Cover image URL. |
+| `is_standard` | `is_standard` | `boolean` | No | No | Set the parameter to false to create the new simplified Pin instead of the standard pin. Currently the field is only available to a list of beta users. |
+| `media_id` | `media_id` | `string` | Yes | No | — |
+| `source_type` | `source_type` | `string` | Yes | No | — |
+
+## PinMediaWithImage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `images` | `images` | `Inline6835` | No | No | — |
+| `media_type` | `media_type` | `string` | Yes | No | — |
+
+## PinMediaWithImageAndVideo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline6840 \| Inline6844>` | No | No | — |
+| `media_type` | `media_type` | `string` | Yes | No | — |
+
+## PinMediaWithImages
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline6846>` | No | No | — |
+| `media_type` | `media_type` | `string` | Yes | No | — |
+
+## PinMediaWithVideo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cover_image_url` | `cover_image_url` | `string` | No | No | — |
+| `duration` | `duration` | `number` | No | No | Duration (in miliseconds). Field maybe null after creation due to video processing time. |
+| `height` | `height` | `number` | No | No | Height (in pixels). Field maybe null after creation due to video processing time. |
+| `images` | `images` | `Inline6851` | No | No | — |
+| `media_type` | `media_type` | `string` | Yes | No | — |
+| `video_url` | `video_url` | `string` | No | No | Video url (720p). **Note:** This field is limited and not available to all apps. |
+| `video_url_hls` | `video_url_hls` | `string` | No | No | Video url (HLS). **Note:** This field is limited and not available to all apps. |
+| `width` | `width` | `number` | No | No | Width (in pixels). Field maybe null after creation due to video processing time. |
+
+## PinMediaWithVideos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline6856>` | No | No | — |
+| `media_type` | `media_type` | `string` | Yes | No | — |
+
+## PinnerListType
+
+`enum` model on the `json` wire format.
+
+**Values:** `CUSTOMER_LIST`, `VISITOR`, `ENGAGEMENT`, `LOOKALIKE`, `ACTALIKE`, `PERSONA`
+
+## PinPromotionSummaryStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `APPROVED`, `PAUSED`, `PENDING`, `REJECTED`, `ADVERTISER_DISABLED`, `ARCHIVED`, `DRAFT`, `DELETED_DRAFT`
+
+## PinRead
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `alt_text` | `alt_text` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+| `ai_disclosures` | `ai_disclosures` | `Inline6860` | No | No | AI disclosure declarations the creator has made about this Pin. |
+| `board_id` | `board_id` | `string` | No | No | The board to which this Pin belongs. |
+| `board_owner` | `board_owner` | `Inline6861` | No | No | — |
+| `board_section_id` | `board_section_id` | `string` | No | No | The board section to which this Pin belongs. |
+| `created_at` | `created_at` | `string` | No | No | — |
+| `creative_type` | `creative_type` | `Inline6862` | No | No | — |
+| `dominant_color` | `dominant_color` | `string` | No | No | Dominant pin color. Hex number, e.g. `#6E7874`. |
+| `has_been_promoted` | `has_been_promoted` | `boolean` | No | No | Whether the Pin has been promoted or not. |
+| `id` | `id` | `string` | No | No | — |
+| `is_owner` | `is_owner` | `boolean` | No | No | Whether the "operation user_account" is the Pin owner. |
+| `is_product` | `is_product` | `boolean` | No | No | Whether the Pin is a product Pin. |
+| `is_standard` | `is_standard` | `boolean` | No | No | Whether the Pin is standard or not. See documentation on Changes to Pin creation for more information. |
+| `media` | `media` | `Inline6863` | No | No | — |
+| `parent_pin_id` | `parent_pin_id` | `string` | No | No | The source pin id if this pin was saved from another pin. [Learn more](https://help.pinterest.com/article/save-pins-on-pinterest). |
+| `pin_metrics` | `pin_metrics` | `Inline6864` | No | No | Pin metrics with associated time intervals if any. |
+
+## PinsAnalyticsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinId` | `pinId` | `string` | Yes | No | Unique identifier of a Pin. |
+| `startDate` | `startDate` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `endDate` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `appTypes` | `appTypes` | `string` | No | No | Apps or devices to get data for, default is all. |
+| `metricTypes` | `metricTypes` | `Array<string \| string>` | Yes | No | Pin metric types to get data for. VIDEO_MRC_VIEW are Video views, VIDEO_V50_WATCH_TIME is Total play time. If Pin was created before `2023-03-20`, Profile visits and Follows will only be available for Idea Pins. These metrics are available for all Pin formats since then. Keep in mind this cannot have ALL if split_field is set to any value other than `NO_SPLIT`. |
+| `splitField` | `splitField` | `string` | No | No | How to split the data into groups. Not including this param means data won't be split. |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+
+## PinsAnalyticsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11464` | Yes | No | — |
+
+## PinsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `ai_disclosures` | `ai_disclosures` | `Inline11410` | No | No | AI disclosure declarations the creator has made about this Pin. |
+| `alt_text` | `alt_text` | `string` | No | No | — |
+| `board_id` | `board_id` | `string` | No | No | The board to which this Pin belongs. |
+| `board_section_id` | `board_section_id` | `string` | No | No | The board section to which this Pin belongs. |
+| `description` | `description` | `string` | No | No | — |
+| `dominant_color` | `dominant_color` | `string` | No | No | Dominant pin color. Hex number, e.g. `#6E7874`. |
+| `link` | `link` | `string` | No | No | — |
+| `media_source` | `media_source` | `Inline11411 \| Inline11412 \| Inline11413 \| Inline11414 \| Inline11415 \| Inline11416` | No | No | Pin media source that can be an image, video, or a mix of both passed in as a request. |
+| `parent_pin_id` | `parent_pin_id` | `string` | No | No | The source pin id if this pin was saved from another pin. [Learn more](https://help.pinterest.com/article/save-pins-on-pinterest). |
+| `sponsor_id` | `sponsor_id` | `string` | No | No | The sponsor account id to request paid partnership from. Currently the field is only available to a list of users in a closed beta. |
+| `title` | `title` | `string` | No | No | — |
+
+## PinsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11418` | Yes | No | — |
+
+## PinsDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinId` | `pinId` | `string` | Yes | No | — |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+
+## PinsDeleteResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11457` | Yes | No | — |
+
+## PinsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinId` | `pinId` | `string` | Yes | No | — |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `pinMetrics` | `pinMetrics` | `boolean` | No | No | Specify whether to return 90d and lifetime Pin metrics. Total comments and total reactions are only available with lifetime Pin metrics. If Pin was created before `2023-03-20` lifetime metrics will only be available for Video and Idea Pin formats. Lifetime metrics are available for all Pin formats since then. |
+
+## PinsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11439` | Yes | No | — |
+
+## PinsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinFilter` | `pinFilter` | `string` | No | No | The filter to apply to the pins |
+| `pinMetrics` | `pinMetrics` | `boolean` | No | No | Specify whether to return 90d and lifetime Pin metrics. Total comments and total reactions are only available with lifetime Pin metrics. If Pin was created before `2023-03-20` lifetime metrics will only be available for Video and Idea Pin formats. Lifetime metrics are available for all Pin formats since then. |
+| `includeProtectedPins` | `includeProtectedPins` | `boolean` | No | No | Whether to include protected pins in the results |
+| `pinType` | `pinType` | `string` | No | No | The type of pins to return, currently only enabled for private pins |
+| `creativeTypes` | `creativeTypes` | `Array<string>` | No | No | Pin creative types filter. **Note:** SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `domain` | `domain` | `string` | No | No | Only return pins with links that match the exact domain. Domain should not include 'www.' prefix. For example, 'pinterest.com' is a valid domain, but 'www.pinterest.com' is not (will not match any pins). |
+| `domains` | `domains` | `Array<string>` | No | No | Only return pins with links whose domain matches any value in the list. Values are joined comma-separated on the wire (e.g. `?domains=instagram.com,jcpenney.com`). |
+| `includeProductTagObj` | `includeProductTagObj` | `boolean` | No | No | Include product tag objects in the response with their associated links. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## PinsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11432` | Yes | No | — |
+
+## PinsSaveParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinId` | `pinId` | `string` | Yes | No | Unique identifier of a Pin. |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `board_id` | `board_id` | `string` | No | No | Unique identifier of the board to which the pin will be saved. |
+| `board_section_id` | `board_section_id` | `string` | No | No | Unique identifier of the board section to which the pin will be saved. |
+
+## PinsSaveRequestCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `board_id` | `board_id` | `string` | No | No | Unique identifier of the board to which the pin will be saved. |
+| `board_section_id` | `board_section_id` | `string` | No | No | Unique identifier of the board section to which the pin will be saved. |
+
+## PinsSaveResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11479` | Yes | No | — |
+
+## PinsUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinId` | `pinId` | `string` | Yes | No | — |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `ai_disclosures` | `ai_disclosures` | `Inline11445` | No | No | AI disclosure declarations the creator has made about this Pin. |
+| `alt_text` | `alt_text` | `string` | No | No | — |
+| `board_id` | `board_id` | `string` | No | No | The board to which this Pin belongs. |
+| `board_section_id` | `board_section_id` | `string` | No | No | The board section to which this Pin belongs. |
+| `carousel_slots` | `carousel_slots` | `Array<Inline11446>` | No | No | Carousel Pin slots data. |
+| `description` | `description` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+
+## PinsUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11448` | Yes | No | — |
+
+## Pinterest_Lib_AlphaNumericFormatType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## Pinterest_Lib_BatchItemException
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `number` | No | No | — |
+| `message` | `message` | `string` | Yes | No | — |
+
+## Pinterest_Lib_EmptyObject
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Pinterest_Lib_Error
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `number` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | — |
+
+## Pinterest_Lib_IntegerFormatType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## Pinterest_Lib_ISO8601DateFormat
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## Pinterest_Lib_PaginationOrder
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## Pinterest_Lib_Status204
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `statusCode` | `statusCode` | `number` | Yes | No | — |
+
+## PinterestProductCategoriesFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `PINTEREST_PRODUCT_CATEGORIES` | `PINTEREST_PRODUCT_CATEGORIES` | `Inline6875` | Yes | No | — |
+
+## PinType
+
+`enum` model on the `json` wire format.
+
+**Values:** `PRIVATE`
+
+## PinUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ai_disclosures` | `ai_disclosures` | `Inline6878` | No | No | AI disclosure declarations the creator has made about this Pin. |
+| `alt_text` | `alt_text` | `string` | No | No | — |
+| `board_id` | `board_id` | `string` | No | No | The board to which this Pin belongs. |
+| `board_section_id` | `board_section_id` | `string` | No | No | The board section to which this Pin belongs. |
+| `carousel_slots` | `carousel_slots` | `Array<Inline6879>` | No | No | Carousel Pin slots data. |
+| `description` | `description` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+
+## PlacementGroupType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ALL`, `SEARCH`, `BROWSE`, `OTHER`
+
+## PlacementMultipliers
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `PLACEMENT` | `PLACEMENT` | `Inline6882` | No | No | Placement type identifier. |
+
+## PlacementTrafficType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## PlacementType
+
+`enum` model on the `json` wire format.
+
+**Values:** `SEARCH`, `BROWSE`, `RELATED_PINS`
+
+## PredictedTimeSeries
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date` | `date` | `string` | No | No | — |
+
+## PreferredMediaType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## PriceFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `PRICE` | `PRICE` | `Inline6888` | Yes | No | — |
+
+## PriceFilterPrice
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `currency` | `currency` | `string` | Yes | No | Currency Codes from ISO 4217. |
+| `negated` | `negated` | `boolean` | No | No | — |
+| `operator` | `operator` | `string` | Yes | No | — |
+| `value` | `value` | `number` | Yes | No | — |
+
+## PrimarySort
+
+`enum` model on the `json` wire format.
+
+**Values:** `BY_ID`, `BY_DATE`
+
+## ProductAvailability
+
+`enum` model on the `json` wire format.
+
+**Values:** `IN_STOCK`, `OUT_OF_STOCK`, `PREORDER`
+
+## ProductAvailabilityType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## ProductCategoriesDemographic
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age` | `age` | `Inline6894` | Yes | No | Age demographic distribution |
+| `gender` | `gender` | `Inline6895` | Yes | No | Gender demographic distribution |
+
+## ProductCategoriesEngagementType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ENGAGEMENT`, `OUTBOUND_CLICK`, `SAVE`
+
+## ProductCategoriesMetricsHighlights
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `engagement` | `engagement` | `Inline6898` | No | No | Engagement metric value |
+| `outbound_clicks` | `outbound_clicks` | `Inline6899` | No | No | Number of outbound clicks |
+| `pin_saves` | `pin_saves` | `Inline6900` | No | No | Number of pin saves |
+
+## ProductCategoryDetailLookbackWindow
+
+`scalar` model on the `json` wire format.
+
+**Value:** `number`
+
+## ProductCategoryDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `demographics` | `demographics` | `Inline6903` | No | No | Age and gender distribution who engaged with this product category in the past 3 months |
+| `has_prediction` | `has_prediction` | `boolean` | Yes | No | Indicates whether the keyword has a prediction available for the next 90 days. This field is only applicable when include_prediction query parameter is set to true. By default, the value is false and no prediction data is included in the response. |
+| `metrics_highlights` | `metrics_highlights` | `Inline6905` | No | No | Key performance metrics highlights for this product category |
+| `predicted_time_series` | `predicted_time_series` | `Inline6908` | No | No | A sequence of weekly observations of the predicted relative search volume for this keyword over the next 3 months. These values are normalized to a [0-100] range, and can be used to visualize the forecasted user interest in this keyword. Similar to the historical time_series, normalization is applied independently to the predicted time series of each keyword, but the normalize_against_group query parameter can be used in cases where you wish to compare relative predicted volume between keywords. **Note**: The cut-off date between historical and predicted time series depends on Pinterest data availability. Usually the data needs a few days to be calculated, so the predicted time series may contain some past dates compared to today. **Note**: The date of each observation is in ISO-8601 format and represents the end of the week. For example, a value of 2024-01-07 would include predicted searches for the week ending on 2024-01-07. |
+| `product_category` | `product_category` | `string` | Yes | No | List of product category details |
+| `related_searches` | `related_searches` | `Array<string>` | No | No | Related search terms for this product category |
+| `time_series` | `time_series` | `Inline6909` | No | No | Time series data showing trend values over time, indexed between 0 and 100 |
+
+## ProductCategoryEnum
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACCENT_TABLES`, `ACCESSORIES`, `ANKLETS`, `APRONS`, `AREA_RUGS`, `ARMOIRES_AND_WARDROBES`, `ART_AND_CRAFT_PAINTS`, `ART_BRUSHES`, `ARTIFICIAL_FLORA`, `ARTWORK`, `AUDIO`, `AUDIO_ACCESSORIES`, `BACKPACKS`, `BAG_AND_LUGGAGE_ACCESSORIES`, `BAGS_AND_LUGGAGE`, `BAKEWARE`, `BANDANAS`, `BAR_CARTS`, `BARWARE`, `BASKETS`, `BATH_AND_BODY`, `BATH_AND_SHOWER`, `BATH_MATS_AND_RUGS`, `BATH_TOWELS_AND_WASHCLOTHS`, `BATHROOM_ACCESSORIES`, `BATHROOM_ACCESSORY_SETS`, `BATHROOM_VANITIES`, `BEACH_TOWELS`, `BEADS_AND_JEWELRY_MAKING_SUPPLIES`, `BEAUTY_SUPPLEMENTS`, `BED_SHEETS`, `BEDDING`, `BEDROOM_VANITIES`, `BEDS_AND_ACCESSORIES`, `BEDS_AND_BED_FRAMES`, `BELT_BAGS`, `BELTS_AND_SUSPENDERS`, `BENCHES`, `BEVERAGES`, `BIRD_SUPPLIES`, `BLANKETS`, `BLOUSES`, `BLUSHES_AND_BRONZERS`, `BODY_CARE`, `BODY_JEWELRY`, `BODY_MAKEUP`, `BODY_MOISTURIZERS`, `BODY_WASHES`, `BOOKCASES_AND_STANDING_SHELVES`, `BOOKENDS`, `BOOKS`, `BOOTS`, `BRACELETS`, `BRIDESMAID_DRESSES`, `BROOCHES_AND_LAPEL_PINS`, `BROW_MAKEUP`, `BUFFETS_AND_SIDEBOARDS`, `BUTTON_DOWN_SHIRTS`, `CABINET_HARDWARE`, `CABINETS_AND_STORAGE_FURNITURE`, `CAKE_DECORATING_SUPPLIES`, `CAMPING_AND_HIKING`, `CANDLE_HOLDERS`, `CANDLES`, `CARDSTOCK_PAPERS`, `CASUAL_PANTS`, `CAT_SUPPLIES`, `CHAIRS`, `CHANDELIERS`, `CHARMS_AND_PENDANTS`, `CHINA_CABINETS_AND_HUTCHES`, `CLOGS_AND_MULES`, `CLOTH_NAPKINS`, `CLOTHING`, `CLOTHING_AND_CLOSET_STORAGE`, `CLOTHING_SETS`, `COASTERS`, `COATS_AND_JACKETS`, `COFFEE_AND_TEA_CUPS`, `COFFEE_MAKERS_AND_ESPRESSO_MACHINES`, `COLORING_BOOKS`, `COMMUNICATIONS`, `COMPUTER_ACCESSORIES`, `COOKIE_CUTTERS`, `COOKWARE`, `COOKWARE_AND_BAKEWARE`, `COSMETIC_AND_TOILETRY_BAGS`, `COSTUMES_AND_ACCESSORIES`, `CRAFT_ADHESIVES_AND_MAGNETS`, `CRAFT_CUTTING_TOOLS`, `CRAFT_MOLDS`, `CRIBS_AND_TODDLER_BEDS`, `CURTAIN_AND_DRAPE_RODS`, `CURTAINS_AND_DRAPES`, `CUTTING_BOARDS`, `CYCLING`, `DECORATIVE_BOWLS`, `DECORATIVE_JARS`, `DECORATIVE_TAPESTRIES`, `DECORATIVE_TRAYS`, `DEODORANTS_AND_ANTIPERSPIRANTS`, `DESK_AND_SHELF_CLOCKS`, `DESKS`, `DIAPER_BAGS`, `DINNERWARE`, `DISHWASHERS`, `DOG_SUPPLIES`, `DOOR_MATS`, `DRAWING_AND_PAINTING`, `DRESS_PANTS`, `DRESSERS`, `DRESSES`, `DRILLS_AND_SCREWDRIVERS`, `DRINKWARE`, `DUFFEL_BAGS`, `DUVET_COVERS`, `DVDS_AND_VIDEOS`, `EARRINGS`, `ELECTRONICS_ACCESSORIES`, `ENGAGEMENT_AND_WEDDING_RINGS`, `ENTERTAINMENT_CENTERS_AND_TV_STANDS`, `ERASERS`, `EYE_MAKEUP`, `EYE_SHADOW`, `EYELINERS`, `FABRIC`, `FACE_COVERINGS`, `FACE_LOTIONS_AND_CREAMS`, `FACE_MAKEUP`, `FACIAL_CLEANSERS`, `FACIAL_MOISTURIZERS`, `FALSE_EYELASHES`, `FIGURINES`, `FIREPLACE_AND_WOOD_STOVE_ACCESSORIES`, `FIREPLACES`, `FISHING`, `FLAGS_AND_WINDSOCKS`, `FLATS`, `FLATWARE`, `FLOOR_LAMPS`, `FLOWER_GIRL_DRESSES`, `FOOD_AND_BEVERAGE_CARRIERS`, `FOOD_COOKERS_AND_STEAMERS`, `FOOD_ITEMS`, `FOOD_MIXERS_AND_BLENDERS`, `FOOD_STORAGE_CONTAINERS`, `FOOD_STORAGE_SUPPLIES`, `FOUNDATIONS_AND_CONCEALERS`, `FOUNTAINS_AND_PONDS`, `FRAGRANCE`, `FURNITURE`, `FURNITURE_SETS`, `GAMES`, `GARDENING`, `GARDENING_TOOLS`, `GLOVES_AND_MITTENS`, `GLUES_AND_TAPES`, `GROOM_AND_GROOMSMEN_SUITS`, `HAIR`, `HAIR_ACCESSORIES`, `HAIR_CARE`, `HAIR_COLOR`, `HAIR_COMBS`, `HAIR_PINS_CLAWS_AND_CLIPS`, `HAIR_REMOVAL`, `HAIR_TOOLS`, `HAIR_TREATMENT`, `HAIR_WREATHS`, `HAND_AND_FOOT_CARE`, `HAND_SOAPS_AND_SANITIZERS`, `HANDBAGS`, `HANDKERCHIEFS`, `HARDWARE_SUPPLIES`, `HATS`, `HEADBOARDS_AND_FOOTBOARDS`, `HEADWEAR`, `HIGHLIGHTERS`, `HOBBIES_AND_CREATIVE_ARTS`, `HOME_ACCESSORIES`, `HOME_DECOR_DECALS`, `HOME_FRAGRANCE_ACCESSORIES`, `HOME_FRAGRANCES`, `HOME_IMPROVEMENT_TOOLS_AND_SUPPLIES`, `HOSIERY`, `HOUSEHOLD_APPLIANCES`, `HOUSEHOLD_SUPPLIES`, `INCENSE`, `INDOOR_GAMES`, `JEANS`, `JEWELRY_AND_WATCH_ACCESSORIES`, `JEWELRY_AND_WATCHES`, `JEWELRY_SETS`, `JUMPSUITS_AND_ROMPERS`, `KEYCHAINS`, `KITCHEN_AND_DINING`, `KITCHEN_AND_DINING_ROOM_TABLES`, `KITCHEN_APPLIANCES`, `KITCHEN_KNIVES`, `KITCHEN_LINENS`, `KITCHEN_MATS`, `KITCHEN_ORGANIZERS`, `KITCHEN_TOOLS_AND_UTENSILS`, `KITCHEN_TOWELS`, `KNITTING_AND_CROCHET`, `KNITTING_AND_CROCHET_TOOLS`, `LAMP_SHADES`, `LAMPS`, `LANYARDS`, `LAUNDRY_HAMPERS_AND_SUPPLIES`, `LAWN_AND_GARDEN`, `LAWN_AND_GARDEN_DECOR`, `LAWN_ORNAMENTS_AND_GARDEN_SCULPTURES`, `LEGGINGS`, `LEOTARDS_AND_UNITARDS`, `LIGHTING`, `LIGHTING_ACCESSORIES`, `LIGHTING_FIXTURES`, `LIP_BALMS`, `LIP_CARE`, `LIP_MAKEUP`, `LIPSTICKS_AND_LIP_GLOSSES`, `MAGAZINES_AND_NEWSPAPERS`, `MAGNETS`, `MAKEUP`, `MAKEUP_TOOLS`, `MASCARAS`, `MATTRESSES`, `MEASURES_AND_RULERS`, `MEASURING_TOOLS_AND_SENSORS`, `MESSENGER_BAGS`, `MIRRORS`, `MUSIC_AND_SOUND_RECORDINGS`, `NAIL_ART`, `NAIL_ART_KIT_AND_TOOLS`, `NAIL_CARE`, `NAIL_POLISHES`, `NAILS`, `NECKLACES`, `NECKTIES`, `NIGHT_LIGHTS_AND_AMBIENT_LIGHTING`, `NIGHTSTANDS`, `NOVELTY_SIGNS`, `ONE_PIECES`, `ONESIES`, `OTTOMANS`, `OUTDOOR_FURNITURE`, `OUTDOOR_FURNITURE_SETS`, `OUTDOOR_GAMES`, `OUTDOOR_GRILLS`, `OUTDOOR_LIVING`, `OUTDOOR_PLAY_EQUIPMENT`, `OUTDOOR_RECREATION`, `OUTDOOR_RUGS`, `OUTDOOR_SEATING`, `OUTDOOR_STRUCTURES`, `OUTDOOR_TABLES`, `OUTERWEAR`, `OVENS_AND_COOKTOPS`, `OVERALLS`, `OXFORDS_AND_LOAFERS`, `PAINT_AND_PAINT_TOOLS`, `PANTS`, `PAPER_CRAFTS`, `PARASOLS_AND_RAIN_UMBRELLAS`, `PARTY_AND_CELEBRATION`, `PENDANT_LIGHTS`, `PENS_AND_PENCILS`, `PERFUMES_AND_COLOGNES`, `PET_CARRIERS_AND_CRATES`, `PET_COLLARS_AND_HARNESSES`, `PET_SUPPLIES`, `PHOTO_ALBUMS_AND_STORAGE`, `PICTURE_FRAMES`, `PILLOWCASES_AND_SHAMS`, `PINBACK_BUTTONS`, `PLACEMATS`, `PLANTS`, `PONYTAIL_HOLDERS`, `POOL_AND_SPA_ACCESSORIES`, `POSTERS_PRINTS_AND_VISUAL_ARTWORK`, `POTS_AND_PLANTERS`, `POTTERY_AND_SCULPTING`, `PRIMERS_AND_MAKEUP_SETTERS`, `PUMPS`, `PUZZLES`, `QUILTS_AND_COMFORTERS`, `RAZORS_AND_SHAVING_TOOLS`, `RINGS`, `RUGS`, `RUNNER_RUGS`, `SANDALS`, `SASHES`, `SAWS`, `SCARVES_AND_SHAWLS`, `SCULPTURES_AND_STATUES`, `SEASONAL_AND_HOLIDAY_DECORATIONS`, `SEATING`, `SERUMS_AND_ESSENCES`, `SERVEWARE`, `SEWING_MACHINES`, `SEWING_PATTERNS`, `SHAMPOO_AND_CONDITIONER`, `SHOE_ACCESSORIES`, `SHOES`, `SHOPPING_TOTES`, `SHORTS`, `SHOWER_CURTAINS`, `SKINCARE`, `SKINCARE_MASKS_AND_PEELS`, `SKIRTS`, `SLEEPWEAR_AND_LOUNGEWEAR`, `SLIPCOVERS_AND_CUSHIONS`, `SLIPPERS`, `SNEAKERS_AND_ATHLETIC_SHOES`, `SOCKS_AND_TIGHTS`, `SOFAS`, `SPORTS_UNIFORMS`, `STEMWARE`, `STOCKINGS`, `STORAGE_AND_ORGANIZATION`, `STORAGE_CABINETS_AND_LOCKERS`, `STORAGE_HOOKS_AND_RACKS`, `SUITCASES`, `SUITS`, `SUITS_AND_SUIT_SEPARATES`, `GLASSES_AND_SUNGLASSES`, `SUNSCREEN`, `SWEATERS_AND_CARDIGANS`, `SWEATSHIRTS_AND_HOODIES`, `SWIMWEAR`, `T_SHIRTS`, `TABLE_LAMPS`, `TABLE_RUNNERS`, `TABLECLOTHS`, `TABLES`, `TABLEWARE`, `TANK_TOPS`, `TANNING_OILS_AND_LOTIONS`, `TEETH_WHITENING`, `TEETH_WHITENING_TOOLS`, `TELEPHONY`, `TEXTILE_AND_SEWING`, `THREAD_AND_YARN`, `THROW_PILLOWS`, `TIARAS`, `TOILET_PAPER_HOLDERS`, `TONERS_AND_ASTRINGENTS`, `TOOL_STORAGE_AND_ORGANIZATION`, `TOOLS`, `TOPS`, `TOWEL_RACKS_AND_HOLDERS`, `TOYS`, `TRADITIONAL_AND_CEREMONIAL_CLOTHING`, `TUMBLERS_AND_WATER_BOTTLES`, `UNIFORMS`, `VASES`, `VEHICLE_PARTS_AND_ACCESSORIES`, `VEILS`, `WALL_CLOCKS`, `WALL_LIGHT_FIXTURES`, `WALL_PAINTS`, `WALL_SHELVES_AND_LEDGES`, `WALLETS_AND_CARD_CASES`, `WALLPAPERS`, `WATCHES`, `WATERING_AND_IRRIGATION`, `WEDDING_CEREMONY_DECOR`, `WEDDING_CLOTHING`, `WEDDING_DECOR`, `WEDDING_DRESS`, `WEDDING_GIFTS`, `WEDDING_STATIONERY`, `WEDDING_TABLE_DECOR`, `WIGS_AND_HAIR_EXTENSIONS`, `WINDOW_BLINDS_AND_SHADES`, `WINDOW_TREATMENT_ACCESSORIES`, `WINDOW_TREATMENTS`, `WINE_RACKS`, `WOOD_BOARDS_AND_PLANKS`, `WOODWORKING_MATERIALS`, `WOODWORKING_PLANS`, `WORK_BENCHES`, `WREATHS_AND_GARLANDS`
+
+## ProductCategoryRegion
+
+`enum` model on the `json` wire format.
+
+**Values:** `US`, `GB+IE`, `CA`
+
+## ProductCondition
+
+`enum` model on the `json` wire format.
+
+**Values:** `NEW`, `USED`, `REFURBISHED`
+
+## ProductGroupAnalyticsItems
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `DATE` | `DATE` | `string` | No | No | Current metrics date. Only returned when granularity is a time-based value (`DAY`, `HOUR`, `WEEK`, `MONTH`) |
+| `PRODUCT_GROUP_ID` | `PRODUCT_GROUP_ID` | `string` | Yes | No | The ID of the product group that this metrics belongs to. |
+
+## ProductGroupIdType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## ProductGroupPromotion
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_id` | `ad_group_id` | `string` | No | No | ID of the ad group the product group belongs to. |
+| `bid_in_micro_currency` | `bid_in_micro_currency` | `number` | No | No | The bid in micro currency. |
+| `catalog_product_group_id` | `catalog_product_group_id` | `string` | No | No | ID of the catalogs product group that this product group promotion references (required for create operations) |
+| `catalog_product_group_name` | `catalog_product_group_name` | `string` | No | No | Catalogs product group name |
+| `collections_header_type` | `collections_header_type` | `string` | No | No | Collections ad header type |
+| `collections_hero_destination_url` | `collections_hero_destination_url` | `string` | No | No | Collections Hero Destination Url |
+| `collections_hero_pin_id` | `collections_hero_pin_id` | `string` | No | No | Hero Pin ID if this PG is promoted as a Collection |
+| `creative_type` | `creative_type` | `string` | No | No | Ad creative type enum. **Note:** SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. |
+| `customizable_cta_type` | `customizable_cta_type` | `string` | No | No | Select a call to action (CTA) to display below your ad. CTA options for catalog sales campaigns are SHOP_NOW, BOOK_NOW, ON_SALE, GET_DEAL, BUY_ONLINE_PICKUP_IN_STORE |
+| `definition` | `definition` | `string` | No | No | The full product group definition path |
+| `grid_click_type` | `grid_click_type` | `string` | No | No | Where a user is taken after clicking on an ad in grid. **Note:** This parameter is read-only and is set to `DIRECT_TO_DESTINATION` by default for direct links supported ads. `grid_click_type` values provided will be ignored. |
+| `id` | `id` | `string` | No | No | ID of the product group promotion (required for update operations). |
+| `included` | `included` | `boolean` | No | No | True if the group is BIDDABLE, false if it should be EXCLUDED from serving ads. |
+| `is_generate_background` | `is_generate_background` | `boolean` | No | No | Enable generate backgrounds for the product group, default value is FALSE. When enabled, Pinterest will use generative AI to apply backgrounds for your product images that help drive user inspiration and engagement. |
+| `is_image_auto_resizing` | `is_image_auto_resizing` | `boolean` | No | No | Set to `TRUE` to automatically resize your product images with generative AI. This ensures that images have optimal appearance for better performance. |
+| `is_mdl` | `is_mdl` | `boolean` | No | No | If set to true products promoted in this product group will use the Mobile Deep Link specified in your catalog |
+| `parent_id` | `parent_id` | `string` | No | No | The parent Product Group ID of this Product Group |
+| `preferred_media_type` | `preferred_media_type` | `string` | No | No | Select whether to promote the image or video pin by default for items in the promoted product group. If selecting IMAGE, image will be promoted for all ads in the product group, and when selecting VIDEO, video will be promoted when present, otherwise fall back to image. This is applicable for standard shopping ads only. |
+| `relative_definition` | `relative_definition` | `string` | No | No | The definition of the product group, relative to its parent - an attribute name/value pair |
+| `selected_image_tag` | `selected_image_tag` | `string` | No | No | The ad image tag selected for the product group promotion. |
+| `selected_video_tag` | `selected_video_tag` | `string` | No | No | The ad video tag selected for the product group promotion. |
+| `slideshow_collections_description` | `slideshow_collections_description` | `string` | No | No | Slideshow Collections Description |
+| `slideshow_collections_title` | `slideshow_collections_title` | `string` | No | No | Slideshow Collections Title |
+| `status` | `status` | `string` | No | No | Entity status |
+| `tracking_url` | `tracking_url` | `string` | No | No | Tracking template for proudct group promotions. 4000 limit |
+
+## ProductGroupPromotionCreateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_id` | `ad_group_id` | `string` | Yes | No | ID of the Ad Group the Product Group Promotion belongs to. |
+| `product_group_promotion` | `product_group_promotion` | `Array<Inline6917>` | Yes | No | — |
+
+## ProductGroupPromotionCustomizableCTAType
+
+`enum` model on the `json` wire format.
+
+**Values:** `GET_OFFER`, `LEARN_MORE`, `ORDER_NOW`, `SHOP_NOW`, `SIGN_UP`, `SUBSCRIBE`, `BUY_NOW`, `CONTACT_US`, `GET_QUOTE`, `VISIT_SITE`, `APPLY_NOW`, `BOOK_NOW`, `REGISTER_NOW`, `FIND_A_DEALER`, `WATCH_NOW`, `READ_MORE`, `BUY_TICKETS`, `DONATE_NOW`, `DOWNLOAD`, `EXPLORE_MORE`, `FIND_A_LOCATION`, `GET_DEAL`, `GET_RECIPE`, `GET_SHOWTIMES`, `ON_SALE`, `PLAY_GAME`, `TRY_IT`, `BUY_ONLINE_PICKUP_IN_STORE`, `SHOP_ON_ADVERTISER`, `SHOP_THE_COLLECTION`, `GET_IT_NOW`, `TAKE_A_PEEK`, `TAKE_A_CLOSER_LOOK`
+
+## ProductGroupPromotionResponseItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline6920` | No | No | — |
+| `exceptions` | `exceptions` | `Array<Inline6921>` | No | No | — |
+
+## ProductGroupPromotions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline6923>` | No | No | Response-only: created or updated product group promotions, or exceptions. |
+
+## ProductGroupPromotionsCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_id` | `ad_group_id` | `string` | Yes | No | ID of the ad group the product group promotion belongs to. |
+| `product_group_promotion` | `product_group_promotion` | `Array<Inline6926>` | Yes | No | List of product group promotions to create or update. |
+
+## ProductGroupPromotionsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `ad_group_id` | `ad_group_id` | `string` | Yes | No | ID of the ad group the product group promotion belongs to. |
+| `product_group_promotion` | `product_group_promotion` | `Array<Inline8944>` | Yes | No | List of product group promotions to create or update. |
+
+## ProductGroupPromotionsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8946` | Yes | No | — |
+
+## ProductGroupPromotionsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `productGroupPromotionId` | `productGroupPromotionId` | `string` | Yes | No | Unique identifier of a product group promotion |
+
+## ProductGroupPromotionsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8960` | Yes | No | — |
+
+## ProductGroupPromotionsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `order` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+| `productGroupPromotionIds` | `productGroupPromotionIds` | `Array<unknown>` | No | No | List of Product group promotion Ids. |
+| `entityStatuses` | `entityStatuses` | `Array<string>` | No | No | Entity status |
+| `adGroupId` | `adGroupId` | `string` | No | No | Ad group Id. |
+
+## ProductGroupPromotionsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8957` | Yes | No | — |
+
+## ProductGroupPromotionsUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `ad_group_id` | `ad_group_id` | `string` | Yes | No | ID of the ad group the product group promotion belongs to. |
+| `product_group_promotion` | `product_group_promotion` | `Array<Inline8950>` | Yes | No | List of product group promotions to create or update. |
+
+## ProductGroupPromotionsUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8952` | Yes | No | — |
+
+## ProductGroupPromotionsUpdateWithRequiredBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_id` | `ad_group_id` | `string` | Yes | No | ID of the ad group the product group promotion belongs to. |
+| `product_group_promotion` | `product_group_promotion` | `Array<Inline6928>` | Yes | No | List of product group promotions to create or update. |
+
+## ProductGroupPromotionUpdateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_id` | `ad_group_id` | `string` | Yes | No | ID of the ad group the product group belongs to. |
+| `product_group_promotion` | `product_group_promotion` | `Array<Inline6930>` | Yes | No | — |
+
+## ProductGroupReferenceFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `PRODUCT_GROUP` | `PRODUCT_GROUP` | `Inline6932` | Yes | No | — |
+
+## ProductGroupsAnalyticsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `startDate` | `startDate` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `endDate` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `productGroupIds` | `productGroupIds` | `Array<string>` | Yes | No | List of Product group Ids to use to filter the results. |
+| `columns` | `columns` | `Array<string>` | Yes | No | Columns to retrieve, encoded as a comma-separated string. **NOTE**: Any metrics defined as MICRO_DOLLARS returns a value based on the advertiser profile's currency field. For USD, ($1/1,000,000, or $0.000001 - one one-ten-thousandth of a cent). it's microdollars. Otherwise, it's in microunits of the advertiser's currency. For example, if the advertiser's currency is GBP (British pound sterling), all MICRO_DOLLARS fields will be in GBP microunits (1/1,000,000 British pound). If a column has no value, it may not be returned. |
+| `granularity` | `granularity` | `string` | Yes | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEK - metrics are broken down weekly. MONTH - metrics are broken down monthly |
+| `clickWindowDays` | `clickWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. |
+| `engagementWindowDays` | `engagementWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for an engagement action. Engagements include saves, closeups, link clicks, and carousel card swipes. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. **Note:** This parameter no longer returns new data. However, you can still access historic data through **Sept 30, 2027**. |
+| `viewWindowDays` | `viewWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a view action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `1` day. |
+| `conversionReportTime` | `conversionReportTime` | `string` | No | No | The date by which the conversion metrics returned from this endpoint will be reported. There are two dates associated with a conversion event: the date that the user interacted with the ad, and the date that the user completed a conversion event. |
+| `reportingTimezone` | `reportingTimezone` | `string` | No | No | Specify the timezone to be applied for the reporting. This feature is currently in BETA and is not available to all users. |
+
+## ProductGroupsAnalyticsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline8963>` | Yes | No | — |
+
+## ProductGroupSummaryStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `RUNNING`, `PAUSED`, `EXCLUDED`, `ARCHIVED`
+
+## ProductsByProductGroupFilterListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `pinMetrics` | `pinMetrics` | `boolean` | No | No | Specify whether to return 90d and lifetime Pin metrics. Total comments and total reactions are only available with lifetime Pin metrics. If Pin was created before `2023-03-20` lifetime metrics will only be available for Video and Idea Pin formats. Lifetime metrics are available for all Pin formats since then. |
+| `body` | `body` | `Inline11114 \| Inline11184 \| Inline11255 \| Inline11276` | Yes | No | — |
+
+## ProductsByProductGroupFilterListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11310` | Yes | No | — |
+
+## ProductTagItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pin_id` | `pin_id` | `string` | Yes | No | Pin ID of the product pin to tag onto the hero pin. |
+
+## ProductTagsBulkAddParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinId` | `pinId` | `string` | Yes | No | Unique identifier of the hero pin that will receive product tags. |
+| `product_tags` | `product_tags` | `Array<Inline11466>` | Yes | No | List of product tags to add. Maximum 24 items allowed. |
+
+## ProductTagsBulkAddRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_tags` | `product_tags` | `Array<Inline6936>` | Yes | No | List of product tags to add. Maximum 24 items allowed. |
+
+## ProductTagsBulkAddResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11468` | Yes | No | — |
+
+## ProductTagsBulkDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinId` | `pinId` | `string` | Yes | No | Unique identifier of the hero pin that will receive product tags. |
+| `product_tags` | `product_tags` | `Array<Inline11474>` | Yes | No | List of product tags to delete. |
+
+## ProductTagsBulkDeleteRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_tags` | `product_tags` | `Array<Inline6938>` | Yes | No | List of product tags to delete. |
+
+## ProductTagsBulkDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## ProductTagsError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `number` | Yes | No | — |
+| `details` | `details` | `Inline6940` | No | No | Details about which product tags failed eligibility check. |
+| `message` | `message` | `string` | Yes | No | — |
+
+## ProductTagsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinId` | `pinId` | `string` | Yes | No | Unique identifier of the hero pin that will receive product tags. |
+
+## ProductTagsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11472` | Yes | No | — |

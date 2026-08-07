@@ -1,0 +1,129 @@
+---
+title: "Pinterest Targeting Template endpoints"
+description: "3 generated Pinterest endpoint contracts for Targeting Template."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 146
+  label: "Targeting Template"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.targetingTemplate.targetingTemplateCreate
+
+`POST` `/ad_accounts/{ad_account_id}/targeting_templates`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (targeting_template/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.targetingTemplate.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `TargetingTemplateCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `auto_targeting_enabled` | `body` | `boolean` | No | No | Enable auto-targeting for ad group. Also known as ["expanded targeting"](https://help.pinterest.com/en/business/article/expanded-targeting). |
+| `keywords` | `body` | `Array<Inline9154>` | No | No | — |
+| `name` | `body` | `string` | Yes | No | targeting template name |
+| `placement_group` | `body` | `string` | No | No | Campaign placement group type |
+| `targeting_attributes` | `body` | `Inline9155` | Yes | No | targeting profile attributes |
+| `tracking_urls` | `body` | `Inline9156` | No | No | Third-party tracking URLs. Up to three tracking URLs - with a max length of 2,000 - are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. For more information, see [Third-party and dynamic tracking](https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.targetingTemplate.targetingTemplateList
+
+`GET` `/ad_accounts/{ad_account_id}/targeting_templates`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (targeting_template/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.targetingTemplate.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `TargetingTemplateListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `query` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+| `includeSizing` | `query` | `boolean` | No | No | Include audience sizing in result or not |
+| `searchQuery` | `query` | `string` | No | No | Search query. Can contain pin description keywords or comma-separated pin IDs. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.targetingTemplate.targetingTemplateUpdate
+
+`PATCH` `/ad_accounts/{ad_account_id}/targeting_templates`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (targeting_template/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.targetingTemplate.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `TargetingTemplateUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `id` | `body` | `string` | Yes | No | Targeting template ID |
+| `operation_type` | `body` | `string` | Yes | No | Audience operation type (update or remove). |
+| `targeting_attributes` | `body` | `Inline9160` | No | No | targeting profile attributes |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,1131 @@
+---
+title: "Pinterest models: Ad Group Update – Analytics Get Mmm Report Response"
+description: "100 generated Pinterest model contracts, from AdGroupUpdate through AnalyticsGetMmmReportResponse."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1001
+  label: "Ad Group Update – Analytics Get Mmm Report Response"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## AdGroupUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_targeting_enabled` | `auto_targeting_enabled` | `boolean` | No | No | Enable auto-targeting for ad group. Default value is True. Also known as ["Performance+ targeting"](https://help.pinterest.com/en/business/article/performance-plus-targeting). |
+| `bid_multiplier` | `bid_multiplier` | `number` | No | No | [Open beta](https://help.pinterest.com/en/business/article/beta-features) Bid multiplier for ad group. This value is a double between 0.1 and 10.0. Enter 0 to remove the bid multiplier. - Not currently supported for [Performance+ campaigns](https://help.pinterest.com/en/business/article/performance-plus-campaigns). |
+| `budget_type` | `budget_type` | `string` | No | No | Budget type. If DAILY, an ad group's daily spend will not exceed the budget parameter value. If LIFETIME, the end_time parameter is **REQUIRED**, and the ad group spend is spread evenly between the ad group `start_time` and `end_time` range. A CBO campaign automatically generates ad group budgets from its campaign budget to maximize campaign outcome. For CBO campaigns, only "CBO_ADGROUP" is allowed. For WEB_SESSIONS campaigns, only "LIFETIME" is allowed. For update, only draft ad groups may update budget type. |
+| `pacing_delivery_type` | `pacing_delivery_type` | `string` | No | No | Ad group pacing delivery type. With ACCELERATED, an ad group budget is spent as fast as possible. With STANDARD, an ad group budget is spent smoothly over a day. When using CBO, only the STANDARD pacing delivery type is allowed. |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Advertiser ID. |
+| `bid_in_micro_currency` | `bid_in_micro_currency` | `number` | No | No | Bid price in micro currency. This field is **REQUIRED** for the following campaign objective_type/billable_event combinations: AWARENESS/IMPRESSION, CONSIDERATION/CLICKTHROUGH, CATALOG_SALES/CLICKTHROUGH, VIDEO_VIEW/VIDEO_V_50_MRC. |
+| `bid_strategy_type` | `bid_strategy_type` | `string` | No | No | Bid strategy type. For Campaigns with Video Completion objectives, the only supported bid strategy type is AUTOMATIC_BID, also known as "Pinterest Performance+ bidding". |
+| `billable_event` | `billable_event` | `string` | No | No | Ad group billable event type. For update, only draft ad groups may update billable event. |
+| `budget_in_micro_currency` | `budget_in_micro_currency` | `number` | No | No | Budget in micro currency. This field is **REQUIRED** for non-CBO (campaign budget optimization) campaigns. A CBO campaign automatically generates ad group budgets from its campaign budget to maximize campaign outcome. A CBO campaign is limited to 70 or less ad groups. |
+| `campaign_id` | `campaign_id` | `string` | No | No | Campaign ID of the ad group. |
+| `conversion_learning_mode_type` | `conversion_learning_mode_type` | `Inline255` | No | No | oCPM learn mode |
+| `created_time` | `created_time` | `number` | No | No | Ad group creation time. Unix timestamp in seconds. |
+| `customer_segment_id` | `customer_segment_id` | `Inline256` | No | No | Customer segment ID applied to the ad group. We currently only support 1 customer segment per ad group. To use customer segments, do not set the `targeting_template_ids` field as well as the `AUDIENCE_INCLUDE` field of the `targeting_spec`. To clear the customer segment ID, set this field to '0'. |
+| `dca_assets` | `dca_assets` | `unknown` | No | No | [DCA] The Dynamic creative assets to use for DCA. Dynamic Creative Assembly (DCA) accepts basic creative assets of an ad (image, video, title, call to action, logo etc). Then it automatically generates optimized ad combinations based on these assets. |
+| `end_time` | `end_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group stop appearing. If not specified, ads run indefinitely unless you update the ad group by changing their status to `paused`. Cannot occur after `end_time` for parent campaign (if specified). Learn about [scheduling ads](https://help.pinterest.com/en/business/article/ads-manager-schedule-ads). For certain organizations ([Closed beta](https://help.pinterest.com/en/business/article/beta-features)): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `ext_features` | `ext_features` | `Inline257` | No | No | — |
+| `feed_profile_id` | `feed_profile_id` | `string` | No | No | Feed Profile ID associated to the adgroup. |
+| `id` | `id` | `string` | No | No | Ad group ID. |
+| `is_creative_optimization` | `is_creative_optimization` | `boolean` | No | No | Enable creative optimization for the ad group, default value is FALSE. When enabled, you allow Pinterest to automatically turn your product Pins into ads in different formats (collections and shopping) and deliver those ads to users at scale. |
+| `is_local_inventory` | `is_local_inventory` | `boolean` | No | No | Indicates whether the ad group should use the local inventory. |
+| `lifetime_frequency_cap` | `lifetime_frequency_cap` | `number` | No | No | Set a limit to the number of times a promoted pin from this campaign can be impressed by a pinner within the past rolling 30 days. Only available for CPM (cost per mille (1000 impressions)) ad groups. A CPM ad group has an IMPRESSION [billable_event](https://help.pinterest.com/en/business/article/billable-events) value. This field **REQUIRES** the `end_time` field. |
+| `local_inventory_radius_in_miles` | `local_inventory_radius_in_miles` | `number` | No | No | The targeting radius of the local inventory ads in miles. |
+| `name` | `name` | `string` | No | No | Ad group name. |
+| `optimization_goal_metadata` | `optimization_goal_metadata` | `Inline258` | No | No | Optimization goals for objective-based performance campaigns. **REQUIRED** when campaign's `objective_type` is set to `"WEB_CONVERSION"`. |
+| `performance_plus_campaign_settings` | `performance_plus_campaign_settings` | `Inline261` | No | No | Pinterest Performance+ campaign settings. |
+| `placement_group` | `placement_group` | `Inline262` | No | No | [Placement group](https://help.pinterest.com/en/business/article/placement-groups). |
+| `placement_traffic_type` | `placement_traffic_type` | `Inline263` | No | No | A targeting option that enables advertisers to choose whether to run ads in fullscreen feed, two column feed, or both |
+| `promotion_application_level` | `promotion_application_level` | `Inline264` | No | No | Specify if the promotion is applied at ad group or item level |
+| `promotion_id` | `promotion_id` | `string` | No | No | Promotion ID. To clear this field, set to null. |
+| `promotion_ids` | `promotion_ids` | `Array<string>` | No | No | Promotion IDs list. To clear this field, set to an empty array []. |
+| `start_time` | `start_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group start to appear. If not specified, ads appear during parent campaign's `start_time`. Cannot precede `start_time` for parent campaign (if specified). Learn about scheduling ads. For certain organizations (Closed beta): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `status` | `status` | `Inline265` | No | No | Ad group/entity status. |
+| `summary_status` | `summary_status` | `Inline266` | No | No | — |
+| `targeting_spec` | `targeting_spec` | `Inline267` | No | No | — |
+| `targeting_template_ids` | `targeting_template_ids` | `Array<unknown>` | No | No | Targeting template IDs applied to the ad group. We currently only support 1 targeting template per ad group. To use targeting templates, do not set any other targeting fields: targeting_spec, tracking_urls, auto_targeting_enabled, placement_group. To clear all targeting template IDs, set this field to ['0']. |
+| `tracking_urls` | `tracking_urls` | `Inline268` | No | No | Third-party tracking URLs. Up to three tracking URLs - with a max length of 2,000 - are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. For more information, see [Third-party and dynamic tracking](https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking). |
+| `type` | `type` | `string` | No | No | Always "adgroup". |
+| `updated_time` | `updated_time` | `number` | No | No | Ad group last update time. Unix timestamp in seconds. |
+
+## AdGroupUpdateBatchUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_targeting_enabled` | `auto_targeting_enabled` | `boolean` | No | No | Enable auto-targeting for ad group. Default value is True. Also known as ["Performance+ targeting"](https://help.pinterest.com/en/business/article/performance-plus-targeting). |
+| `bid_in_micro_currency` | `bid_in_micro_currency` | `number` | No | No | Bid price in micro currency. This field is **REQUIRED** for the following campaign objective_type/billable_event combinations: AWARENESS/IMPRESSION, CONSIDERATION/CLICKTHROUGH, CATALOG_SALES/CLICKTHROUGH, VIDEO_VIEW/VIDEO_V_50_MRC. |
+| `bid_multiplier` | `bid_multiplier` | `number` | No | No | [Open beta](https://help.pinterest.com/en/business/article/beta-features) Bid multiplier for ad group. This value is a double between 0.1 and 10.0. Enter 0 to remove the bid multiplier. - Not currently supported for [Performance+ campaigns](https://help.pinterest.com/en/business/article/performance-plus-campaigns). |
+| `bid_strategy_type` | `bid_strategy_type` | `string` | No | No | Bid strategy type. For Campaigns with Video Completion objectives, the only supported bid strategy type is AUTOMATIC_BID, also known as "Pinterest Performance+ bidding". |
+| `billable_event` | `billable_event` | `string` | No | No | Ad group billable event type. For update, only draft ad groups may update billable event. |
+| `budget_in_micro_currency` | `budget_in_micro_currency` | `number` | No | No | Budget in micro currency. This field is **REQUIRED** for non-CBO (campaign budget optimization) campaigns. A CBO campaign automatically generates ad group budgets from its campaign budget to maximize campaign outcome. A CBO campaign is limited to 70 or less ad groups. |
+| `budget_type` | `budget_type` | `string` | No | No | Budget type. If DAILY, an ad group's daily spend will not exceed the budget parameter value. If LIFETIME, the end_time parameter is **REQUIRED**, and the ad group spend is spread evenly between the ad group `start_time` and `end_time` range. A CBO campaign automatically generates ad group budgets from its campaign budget to maximize campaign outcome. For CBO campaigns, only "CBO_ADGROUP" is allowed. For WEB_SESSIONS campaigns, only "LIFETIME" is allowed. For update, only draft ad groups may update budget type. |
+| `campaign_id` | `campaign_id` | `string` | No | No | Campaign ID of the ad group. |
+| `customer_segment_id` | `customer_segment_id` | `Inline270` | No | No | Customer segment ID applied to the ad group. We currently only support 1 customer segment per ad group. To use customer segments, do not set the `targeting_template_ids` field as well as the `AUDIENCE_INCLUDE` field of the `targeting_spec`. To clear the customer segment ID, set this field to '0'. |
+| `end_time` | `end_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group stop appearing. If not specified, ads run indefinitely unless you update the ad group by changing their status to `paused`. Cannot occur after `end_time` for parent campaign (if specified). Learn about [scheduling ads](https://help.pinterest.com/en/business/article/ads-manager-schedule-ads). For certain organizations ([Closed beta](https://help.pinterest.com/en/business/article/beta-features)): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `ext_features` | `ext_features` | `Inline271` | No | No | — |
+| `feed_profile_id` | `feed_profile_id` | `string` | No | No | Feed Profile ID associated to the adgroup. |
+| `id` | `id` | `string` | Yes | No | Ad group ID. |
+| `is_creative_optimization` | `is_creative_optimization` | `boolean` | No | No | Enable creative optimization for the ad group, default value is FALSE. When enabled, you allow Pinterest to automatically turn your product Pins into ads in different formats (collections and shopping) and deliver those ads to users at scale. |
+| `is_local_inventory` | `is_local_inventory` | `boolean` | No | No | Indicates whether the ad group should use the local inventory. |
+| `lifetime_frequency_cap` | `lifetime_frequency_cap` | `number` | No | No | Set a limit to the number of times a promoted pin from this campaign can be impressed by a pinner within the past rolling 30 days. Only available for CPM (cost per mille (1000 impressions)) ad groups. A CPM ad group has an IMPRESSION [billable_event](https://help.pinterest.com/en/business/article/billable-events) value. This field **REQUIRES** the `end_time` field. |
+| `local_inventory_radius_in_miles` | `local_inventory_radius_in_miles` | `number` | No | No | The targeting radius of the local inventory ads in miles. |
+| `name` | `name` | `string` | No | No | Ad group name. |
+| `optimization_goal_metadata` | `optimization_goal_metadata` | `Inline272` | No | No | Optimization goals for objective-based performance campaigns. **REQUIRED** when campaign's `objective_type` is set to `"WEB_CONVERSION"`. |
+| `pacing_delivery_type` | `pacing_delivery_type` | `string` | No | No | Ad group pacing delivery type. With ACCELERATED, an ad group budget is spent as fast as possible. With STANDARD, an ad group budget is spent smoothly over a day. When using CBO, only the STANDARD pacing delivery type is allowed. |
+| `performance_plus_campaign_settings` | `performance_plus_campaign_settings` | `Inline275` | No | No | Pinterest Performance+ campaign settings. |
+| `placement_group` | `placement_group` | `Inline276` | No | No | [Placement group](https://help.pinterest.com/en/business/article/placement-groups). |
+| `placement_traffic_type` | `placement_traffic_type` | `Inline277` | No | No | A targeting option that enables advertisers to choose whether to run ads in fullscreen feed, two column feed, or both |
+| `promotion_application_level` | `promotion_application_level` | `Inline278` | No | No | Specify if the promotion is applied at ad group or item level |
+| `promotion_id` | `promotion_id` | `string` | No | No | Promotion ID. To clear this field, set to null. |
+| `promotion_ids` | `promotion_ids` | `Array<string>` | No | No | Promotion IDs list. To clear this field, set to an empty array []. |
+| `start_time` | `start_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group start to appear. If not specified, ads appear during parent campaign's `start_time`. Cannot precede `start_time` for parent campaign (if specified). Learn about scheduling ads. For certain organizations (Closed beta): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `status` | `status` | `Inline279` | No | No | Ad group/entity status. |
+| `targeting_spec` | `targeting_spec` | `Inline280` | No | No | — |
+| `targeting_spec_operations` | `targeting_spec_operations` | `Array<Inline281 \| Inline282 \| Inline283 \| Inline284 \| Inline285 \| Inline286 \| Inline287 \| Inline288 \| Inline289 \| Inline290 \| Inline291 \| Inline292 \| Inline293 \| Inline294>` | No | No | — |
+| `targeting_template_ids` | `targeting_template_ids` | `Array<unknown>` | No | No | Targeting template IDs applied to the ad group. We currently only support 1 targeting template per ad group. To use targeting templates, do not set any other targeting fields: targeting_spec, tracking_urls, auto_targeting_enabled, placement_group. To clear all targeting template IDs, set this field to ['0']. |
+| `tracking_urls` | `tracking_urls` | `Inline295` | No | No | Third-party tracking URLs. Up to three tracking URLs - with a max length of 2,000 - are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. For more information, see [Third-party and dynamic tracking](https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking). |
+
+## AdGroupUpdateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_targeting_enabled` | `auto_targeting_enabled` | `boolean` | No | No | Enable auto-targeting for ad group. Default value is True. Also known as &lt;a href="https://help.pinterest.com/en/business/article/performance-plus-targeting" target="_blank"&gt;"Pinterest Performance+ targeting"&lt;/a&gt;. |
+| `bid_in_micro_currency` | `bid_in_micro_currency` | `number` | No | No | Bid price in micro currency. This field is **REQUIRED** for the following campaign objective_type/billable_event combinations: AWARENESS/IMPRESSION, CONSIDERATION/CLICKTHROUGH, CATALOG_SALES/CLICKTHROUGH. |
+| `bid_strategy_type` | `bid_strategy_type` | `string` | No | No | Bid strategy type. For Campaigns with Video Completion objectives, the only supported bid strategy type is AUTOMATIC_BID, also known as "Pinterest Performance+ bidding". |
+| `billable_event` | `billable_event` | `string` | No | No | Ad group billable event type. For update, only draft ad groups may update billable event. |
+| `budget_in_micro_currency` | `budget_in_micro_currency` | `number` | No | No | Budget in micro currency. This field is **REQUIRED** for non-CBO (campaign budget optimization) campaigns. A CBO campaign automatically generates ad group budgets from its campaign budget to maximize campaign outcome. A CBO campaign is limited to 70 or less ad groups. |
+| `budget_type` | `budget_type` | `string` | No | No | Budget type. If DAILY, an ad group's daily spend will not exceed the budget parameter value. If LIFETIME, the end_time parameter is **REQUIRED**, and the ad group spend is spread evenly between the ad group `start_time` and `end_time` range. A CBO campaign automatically generates ad group budgets from its campaign budget to maximize campaign outcome. For CBO campaigns, only "CBO_ADGROUP" is allowed. For WEB_SESSIONS campaigns, only "LIFETIME" is allowed. For update, only draft ad groups may update budget type. |
+| `campaign_id` | `campaign_id` | `string` | No | No | Campaign ID of the ad group. |
+| `end_time` | `end_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group stop appearing. If not specified, ads run indefinitely unless you update the ad group by changing their status to `paused`. Cannot occur after `end_time` for parent campaign (if specified). Learn about &lt;a href="/docs/api-features/managing-ads/#step-2-create-an-ad-group" target="blank"&gt;scheduling ads&lt;/a&gt;. For certain organizations (&lt;a href="/docs/getting-started/using-beta-and-restricted-features/" target="blank" target="blank"&gt;Closed beta&lt;/a&gt;): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `is_creative_optimization` | `is_creative_optimization` | `boolean` | No | No | Enable creative optimization for the ad group, default value is FALSE. When enabled, you allow Pinterest to automatically turn your product Pins into ads in different formats (collections and shopping) and deliver those ads to users at scale. |
+| `lifetime_frequency_cap` | `lifetime_frequency_cap` | `number` | No | No | Set a limit to the number of times a promoted pin from this campaign can be impressed by a pinner within the past rolling 30 days. Only available for CPM (cost per mille (1000 impressions)) ad groups. A CPM ad group has an IMPRESSION &lt;a href="/docs/redoc/#section/Billable-event"&gt;billable_event&lt;/a&gt; value. This field **REQUIRES** the `end_time` field. |
+| `name` | `name` | `string` | No | No | Ad group name. |
+| `optimization_goal_metadata` | `optimization_goal_metadata` | `Inline297` | No | No | Optimization goals for objective-based performance campaigns. **REQUIRED** when campaign's `objective_type` is set to `"WEB_CONVERSION"`. |
+| `pacing_delivery_type` | `pacing_delivery_type` | `string` | No | No | Ad group pacing delivery type. With ACCELERATED, an ad group budget is spent as fast as possible. With STANDARD, an ad group budget is spent smoothly over a day. When using CBO, only the STANDARD pacing delivery type is allowed. |
+| `placement_group` | `placement_group` | `Inline300` | No | No | &lt;a href="/docs/redoc/#section/Placement-group"&gt;Placement group&lt;/a&gt;. |
+| `promotion_application_level` | `promotion_application_level` | `string` | No | No | Specify if the promotion is applied at ad group or item level |
+| `promotion_id` | `promotion_id` | `string` | No | No | Promotion ID. To clear this field, set to null. |
+| `promotion_ids` | `promotion_ids` | `Array<string>` | No | No | Promotion IDs list. To clear this field, set to an empty array []. |
+| `start_time` | `start_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group start to appear. If not specified, ads appear during parent campaign's `start_time`. Cannot precede `start_time` for parent campaign (if specified). Learn about &lt;a href="/docs/api-features/managing-ads/#step-2-create-an-ad-group" target="blank"&gt;scheduling ads&lt;/a&gt;. For certain organizations (&lt;a href="/docs/getting-started/using-beta-and-restricted-features/" target="blank" target="blank"&gt;Closed beta&lt;/a&gt;): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `status` | `status` | `Inline301` | No | No | Ad group/entity status. |
+| `targeting_spec` | `targeting_spec` | `Inline302` | No | No | Ad group targeting specification defining the ad group target audience. For example, `&#123;"APPTYPE":["iphone"], "GENDER":["male"], "LOCALE":["en-US"], "LOCATION":["501"], "MINIMUM_AGE":"18", "MAXIMUM_AGE":"65+"&#125;` |
+| `targeting_template_ids` | `targeting_template_ids` | `Array<string>` | No | No | Targeting template IDs applied to the ad group. We currently only support 1 targeting template per ad group. To use targeting templates, do not set any other targeting fields: targeting_spec, tracking_urls, auto_targeting_enabled, placement_group. To clear all targeting template IDs, set this field to ['0']. |
+| `tracking_urls` | `tracking_urls` | `Inline303` | No | No | Third-party tracking URLs.&lt;br&gt; JSON object with the format: &#123;"&lt;a href="/docs/redoc/#section/Tracking-URL-event"&gt;Tracking event enum&lt;/a&gt;":[URL string array],...&#125;&lt;br&gt; For example: &#123;"impression": ["URL1", "URL2"], "click": ["URL1", "URL2", "URL3"]&#125;.&lt;br&gt;Up to three tracking URLs are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. May be null. Pass in an empty object - EmptyObject - to remove tracking URLs.&lt;br&gt;&lt;br&gt; For more information, see &lt;a href="https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking" target="_blank"&gt;Third-party and dynamic tracking&lt;/a&gt;. |
+| `bid_multiplier` | `bid_multiplier` | `number` | No | No | &lt;a href="/docs/getting-started/using-beta-and-restricted-features/" target="blank&gt;Open beta&lt;/a&gt; Bid multiplier for ad group. This value is a double between 0.1 and 10.0. Enter 0 to remove the bid multiplier. - Make sure the `bid_strategy` type for your ad group is set to `AUTOMATIC_BID`. - Not currently supported for &lt;a href="/docs/api-features/pinterest-performance-plus-setup/" target="blank"&gt;Pinterest Performance+ campaigns&lt;/a&gt;. |
+| `id` | `id` | `string` | No | No | Ad group ID. |
+| `targeting_spec_operations` | `targeting_spec_operations` | `Array<Inline304 \| Inline305 \| Inline306 \| Inline307 \| Inline308 \| Inline309 \| Inline310 \| Inline311 \| Inline312 \| Inline313 \| Inline314 \| Inline315 \| Inline316 \| Inline317>` | No | No | &lt;div&gt;Targeting spec operations define modifications to apply to the targeting spec.&lt;/div&gt; &lt;br /&gt; &lt;div&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; The &lt;code&gt;targeting_spec&lt;/code&gt; and &lt;code&gt;targeting_spec_operations&lt;/code&gt; cannot be sent at the same time.&lt;/div&gt; &lt;br /&gt; &lt;div&gt;The supported operations are:&lt;/div&gt; &lt;ul&gt; &lt;li&gt;&lt;code&gt;SET&lt;/code&gt;: sets the field with the given values. If value is set to &lt;code&gt;null&lt;/code&gt;, the field will be removed.&lt;/li&gt; &lt;li&gt;&lt;code&gt;ADD&lt;/code&gt;: adds the given values to the field.&lt;/li&gt; &lt;li&gt;&lt;code&gt;REMOVE&lt;/code&gt;: removes the given values from the field.&lt;/li&gt; &lt;/ul&gt; &lt;div&gt;Note the following:&lt;/div&gt; &lt;ul&gt; &lt;li&gt;Same items are not added and removed at the same time.&lt;/li&gt; &lt;li&gt;For a given field, only &lt;code&gt;ADD&lt;/code&gt;/&lt;code&gt;REMOVE&lt;/code&gt; or &lt;code&gt;SET&lt;/code&gt; operations are allowed, not a mix of them.&lt;/li&gt; &lt;li&gt;Only one SET operation is allowed for a given field.&lt;/li&gt; &lt;li&gt;The &lt;code&gt;AGE_BUCKET&lt;/code&gt;, &lt;code&gt;MAXIMUM_AGE&lt;/code&gt;, &lt;code&gt;MINIMUM_AGE&lt;/code&gt; and &lt;code&gt;SHOPPING_RETARGETING&lt;/code&gt; fields only support the &lt;code&gt;SET&lt;/code&gt; operation.&lt;/li&gt; &lt;/ul&gt; |
+
+## AdGroupUpdateRequestAllOf1
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid_multiplier` | `bid_multiplier` | `number` | No | No | &lt;a href="/docs/getting-started/using-beta-and-restricted-features/" target="blank&gt;Open beta&lt;/a&gt; Bid multiplier for ad group. This value is a double between 0.1 and 10.0. Enter 0 to remove the bid multiplier. - Make sure the `bid_strategy` type for your ad group is set to `AUTOMATIC_BID`. - Not currently supported for &lt;a href="/docs/api-features/pinterest-performance-plus-setup/" target="blank"&gt;Pinterest Performance+ campaigns&lt;/a&gt;. |
+| `id` | `id` | `string` | Yes | No | Ad group ID. |
+| `targeting_spec_operations` | `targeting_spec_operations` | `Array<Inline319 \| Inline320 \| Inline321 \| Inline322 \| Inline323 \| Inline324 \| Inline325 \| Inline326 \| Inline327 \| Inline328 \| Inline329 \| Inline330 \| Inline331 \| Inline332>` | No | No | &lt;div&gt;Targeting spec operations define modifications to apply to the targeting spec.&lt;/div&gt; &lt;br /&gt; &lt;div&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; The &lt;code&gt;targeting_spec&lt;/code&gt; and &lt;code&gt;targeting_spec_operations&lt;/code&gt; cannot be sent at the same time.&lt;/div&gt; &lt;br /&gt; &lt;div&gt;The supported operations are:&lt;/div&gt; &lt;ul&gt; &lt;li&gt;&lt;code&gt;SET&lt;/code&gt;: sets the field with the given values. If value is set to &lt;code&gt;null&lt;/code&gt;, the field will be removed.&lt;/li&gt; &lt;li&gt;&lt;code&gt;ADD&lt;/code&gt;: adds the given values to the field.&lt;/li&gt; &lt;li&gt;&lt;code&gt;REMOVE&lt;/code&gt;: removes the given values from the field.&lt;/li&gt; &lt;/ul&gt; &lt;div&gt;Note the following:&lt;/div&gt; &lt;ul&gt; &lt;li&gt;Same items are not added and removed at the same time.&lt;/li&gt; &lt;li&gt;For a given field, only &lt;code&gt;ADD&lt;/code&gt;/&lt;code&gt;REMOVE&lt;/code&gt; or &lt;code&gt;SET&lt;/code&gt; operations are allowed, not a mix of them.&lt;/li&gt; &lt;li&gt;Only one SET operation is allowed for a given field.&lt;/li&gt; &lt;li&gt;The &lt;code&gt;AGE_BUCKET&lt;/code&gt;, &lt;code&gt;MAXIMUM_AGE&lt;/code&gt;, &lt;code&gt;MINIMUM_AGE&lt;/code&gt; and &lt;code&gt;SHOPPING_RETARGETING&lt;/code&gt; fields only support the &lt;code&gt;SET&lt;/code&gt; operation.&lt;/li&gt; &lt;/ul&gt; |
+
+## AdPinAnalytics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `DATE` | `DATE` | `string` | No | No | Current metrics date. Only returned when granularity is a time-based value (`DAY`, `HOUR`, `WEEK`, `MONTH`) |
+| `PIN_ID` | `PIN_ID` | `string` | Yes | No | The ID of the pin that the metric belongs to. |
+
+## AdPinPreviewCreativeType
+
+`enum` model on the `json` wire format.
+
+**Values:** `SHOPPING`, `COLLECTION`, `MAX_VIDEO`, `MAX_WIDTH_VIDEO_COLLECTION`, `MAX_WIDTH_REGULAR_COLLECTION`
+
+## AdPinsAnalyticsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `campaignId` | `campaignId` | `string` | Yes | No | Campaign Id to use to filter the results. |
+| `pinIds` | `pinIds` | `Array<unknown>` | Yes | No | List of Pin IDs. |
+| `startDate` | `startDate` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `endDate` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `columns` | `columns` | `Array<string>` | Yes | No | Columns to retrieve, encoded as a comma-separated string. **NOTE**: Any metrics defined as MICRO_DOLLARS returns a value based on the advertiser profile's currency field. For USD, ($1/1,000,000, or $0.000001 - one one-ten-thousandth of a cent). it's microdollars. Otherwise, it's in microunits of the advertiser's currency. For example, if the advertiser's currency is GBP (British pound sterling), all MICRO_DOLLARS fields will be in GBP microunits (1/1,000,000 British pound). If a column has no value, it may not be returned. |
+| `granularity` | `granularity` | `string` | Yes | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEK - metrics are broken down weekly. MONTH - metrics are broken down monthly |
+| `clickWindowDays` | `clickWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. |
+| `engagementWindowDays` | `engagementWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for an engagement action. Engagements include saves, closeups, link clicks, and carousel card swipes. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. **Note:** This parameter no longer returns new data. However, you can still access historic data through **Sept 30, 2027**. |
+| `viewWindowDays` | `viewWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a view action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `1` day. |
+| `conversionReportTime` | `conversionReportTime` | `string` | No | No | The date by which the conversion metrics returned from this endpoint will be reported. There are two dates associated with a conversion event: the date that the user interacted with the ad, and the date that the user completed a conversion event. |
+
+## AdPinsAnalyticsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline8942>` | Yes | No | — |
+
+## AdPreviewRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline336 \| Inline337 \| Inline338`
+
+## AdPreviewsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `body` | `body` | `Inline7459 \| Inline7460 \| Inline7461` | Yes | No | — |
+
+## AdPreviewsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7465` | Yes | No | — |
+
+## AdPreviewShopping
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_product_group_id` | `catalog_product_group_id` | `string` | Yes | No | Catalog Product Group Id. |
+| `creative_type` | `creative_type` | `Inline342` | Yes | No | Ad format of the shopping ad preview. |
+| `customizable_cta_type` | `customizable_cta_type` | `Inline343` | No | No | Select a call to action (CTA) to display below your ad. CTA options for catalog sales campaigns are `SHOP_NOW`, `BOOK_NOW`, `ON_SALE`, `GET_DEAL`, `BUY_ONLINE_PICKUP_IN_STORE` |
+| `hero_image_title` | `hero_image_title` | `string` | No | No | Title displayed below ad. |
+| `hero_image_url` | `hero_image_url` | `string` | No | No | Hero image URL. |
+| `hero_pin_id` | `hero_pin_id` | `string` | No | No | Pin id for the hero image. When creative type is COLLECTION, either hero_pin_id or (hero_image_url, hero_image_title) is required. |
+| `image_tag` | `image_tag` | `string` | No | No | Multi image template tag. |
+| `item_id` | `item_id` | `string` | No | No | Item id for product to preview standard shopping ads, optional and only applicable when creative type is SHOPPING. |
+| `preferred_media_type` | `preferred_media_type` | `Inline344` | No | No | Preferred media type. |
+| `show_promotion` | `show_promotion` | `boolean` | No | No | Include promotion data in preview when available on catalog item. Defaults to false. |
+| `video_tag` | `video_tag` | `string` | No | No | Multi video template tag, image_tag and video_tag are mutual exclusive. |
+
+## AdPreviewSourceImage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_url` | `image_url` | `string` | Yes | No | Image URL. |
+| `promotion_id` | `promotion_id` | `string` | No | No | Promotion id for the ad to preview, optional and only applicable when creating ad preview for an existing promotion. |
+| `title` | `title` | `string` | Yes | No | Title displayed below ad. |
+
+## AdPreviewSourcePinId
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creative_type` | `creative_type` | `Inline347` | No | No | Creative type of the ad preview. |
+| `pin_id` | `pin_id` | `string` | Yes | No | Pin ID. |
+
+## AdPreviewURLResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `url` | `url` | `string` | No | No | Preview URL, expires in 7 days. Can be used in an iframe. For example: https://ads.pinterest.com/ad-preview/74667c814dd2b19/ The preview object ID/key is the last param - 74667c814dd2b19 |
+
+## AdReviewStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `OTHER`, `PENDING`, `REJECTED`, `APPROVED`
+
+## AdsAnalytics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AD_ID` | `AD_ID` | `string` | Yes | No | — |
+| `DATE` | `DATE` | `string` | No | No | — |
+
+## AdsAnalyticsAccountTargetingType
+
+`enum` model on the `json` wire format.
+
+**Values:** `KEYWORD`, `APPTYPE`, `GENDER`, `LOCATION`, `PLACEMENT`, `COUNTRY`, `TARGETED_INTEREST`, `PINNER_INTEREST`, `AUDIENCE_INCLUDE`, `GEO`, `AGE_BUCKET`, `REGION`, `AGE_BUCKET_AND_GENDER`
+
+## AdsAnalyticsAdGroupTargetingType
+
+`enum` model on the `json` wire format.
+
+**Values:** `KEYWORD`, `APPTYPE`, `GENDER`, `LOCATION`, `PLACEMENT`, `COUNTRY`, `TARGETED_INTEREST`, `PINNER_INTEREST`, `AUDIENCE_INCLUDE`, `GEO`, `AGE_BUCKET`, `REGION`, `AGE_BUCKET_AND_GENDER`, `CREATIVE_ENHANCEMENTS`
+
+## AdsAnalyticsAdTargetingType
+
+`enum` model on the `json` wire format.
+
+**Values:** `KEYWORD`, `APPTYPE`, `GENDER`, `LOCATION`, `PLACEMENT`, `COUNTRY`, `TARGETED_INTEREST`, `PINNER_INTEREST`, `AUDIENCE_INCLUDE`, `GEO`, `AGE_BUCKET`, `REGION`, `QUIZ_RESULT`, `AGE_BUCKET_AND_GENDER`
+
+## AdsAnalyticsCampaignTargetingType
+
+`enum` model on the `json` wire format.
+
+**Values:** `KEYWORD`, `APPTYPE`, `GENDER`, `LOCATION`, `PLACEMENT`, `COUNTRY`, `TARGETED_INTEREST`, `PINNER_INTEREST`, `AUDIENCE_INCLUDE`, `GEO`, `AGE_BUCKET`, `REGION`, `CREATIVE_TYPE`, `AGE_BUCKET_AND_GENDER`, `AUDIENCE_MULTIPLIER`
+
+## AdsAnalyticsCreateAsyncRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_ids` | `ad_group_ids` | `Array<unknown>` | No | No | List of ad group ids |
+| `ad_group_statuses` | `ad_group_statuses` | `Array<string>` | No | No | List of values for filtering |
+| `ad_ids` | `ad_ids` | `Array<unknown>` | No | No | List of ad ids. This parameter is not supported for Product Item level reports. |
+| `ad_statuses` | `ad_statuses` | `Array<string>` | No | No | List of values for filtering. This parameter is not supported for Product Item level reports. |
+| `attribution_types` | `attribution_types` | `Array<string>` | No | No | List of attribution types for the conversion report. |
+| `campaign_brand_label` | `campaign_brand_label` | `string` | No | No | Campaign brand label for filtering. |
+| `campaign_custom_label` | `campaign_custom_label` | `string` | No | No | Campaign custom label for filtering. |
+| `campaign_ids` | `campaign_ids` | `Array<unknown>` | No | No | List of campaign ids |
+| `campaign_objective_types` | `campaign_objective_types` | `Array<unknown>` | No | No | List of values for filtering. ["WEB_SESSIONS"] is in BETA. |
+| `campaign_statuses` | `campaign_statuses` | `Array<string>` | No | No | List of status values for filtering |
+| `click_window_days` | `click_window_days` | `Inline356` | No | No | Number of days to use as the conversion attribution window for a pin click action. |
+| `columns` | `columns` | `Array<string>` | No | No | Metric and entity columns. Pin promotion and ad related columns are not supported for Product Item level reports. |
+| `combine_targeting_types` | `combine_targeting_types` | `boolean` | No | No | Determines if the targeting types included in the request should be consolidated into a single breakdown. |
+| `conversion_report_time` | `conversion_report_time` | `Inline357` | No | No | Date dimension for conversion metrics. |
+| `custom_conversion_event_metrics` | `custom_conversion_event_metrics` | `Array<Inline358>` | No | No | List of advertiser-defined custom conversion event metrics to include in the report |
+| `end_date` | `end_date` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD |
+| `end_hour` | `end_hour` | `number` | No | No | Which hour of the end date to stop the report (inclusive). Only allowed for hourly reports. |
+| `engagement_window_days` | `engagement_window_days` | `Inline359` | No | No | Number of days to use as the conversion attribution window for an engagement action. |
+| `granularity` | `granularity` | `Inline360` | Yes | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEKLY - metrics are broken down weekly. MONTHLY - metrics are broken down monthly. |
+| `level` | `level` | `Inline361` | No | No | Level of the report |
+| `metrics_filters` | `metrics_filters` | `Array<Inline362>` | No | No | List of metrics filters |
+| `primary_sort` | `primary_sort` | `Inline363` | No | No | — |
+| `product_group_ids` | `product_group_ids` | `Array<unknown>` | No | No | List of product group ids |
+| `product_group_statuses` | `product_group_statuses` | `Array<string>` | No | No | List of values for filtering |
+| `product_item_ids` | `product_item_ids` | `Array<unknown>` | No | No | List of product item ids |
+| `report_format` | `report_format` | `Inline364` | No | No | — |
+| `reporting_timezone` | `reporting_timezone` | `Inline365` | No | No | Specify the timezone to be applied for the reporting. |
+| `start_date` | `start_date` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD |
+| `start_hour` | `start_hour` | `number` | No | No | Which hour of the start date to begin the report. Only allowed for hourly reports. |
+| `targeting_types` | `targeting_types` | `Array<string>` | No | No | List of targeting types. Requires `level` to be a value ending in `_TARGETING`. |
+| `view_window_days` | `view_window_days` | `Inline366` | No | No | Number of days to use as the conversion attribution window for a view action. |
+
+## AdsAnalyticsCreateAsyncResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message` | `message` | `string` | No | No | — |
+| `report_status` | `report_status` | `string` | No | No | Possible status for a bulk reporting job |
+| `token` | `token` | `string` | No | No | — |
+
+## AdsAnalyticsFilterColumn
+
+`enum` model on the `json` wire format.
+
+**Values:** `SPEND_IN_DOLLAR`, `TOTAL_IMPRESSION`
+
+## AdsAnalyticsFilterOperator
+
+`enum` model on the `json` wire format.
+
+**Values:** `LESS_THAN`, `GREATER_THAN`
+
+## AdsAnalyticsGetAsyncResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `report_status` | `report_status` | `string` | No | No | Possible status for a bulk reporting job |
+| `size` | `size` | `number` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+
+## AdsAnalyticsMetricsFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | Reporting columns for sync reporting data filter |
+| `operator` | `operator` | `string` | Yes | No | Filter operator for sync reporting |
+| `values` | `values` | `Array<number>` | Yes | No | List of values for filtering |
+
+## AdsAnalyticsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `pinIds` | `pinIds` | `Array<string>` | No | No | List of Pin IDs. |
+| `startDate` | `startDate` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `endDate` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `adIds` | `adIds` | `Array<unknown>` | No | No | List of Ad Ids to use to filter the results. |
+| `columns` | `columns` | `Array<string>` | Yes | No | Columns to retrieve, encoded as a comma-separated string. **NOTE**: Any metrics defined as MICRO_DOLLARS returns a value based on the advertiser profile's currency field. For USD, ($1/1,000,000, or $0.000001 - one one-ten-thousandth of a cent). it's microdollars. Otherwise, it's in microunits of the advertiser's currency. For example, if the advertiser's currency is GBP (British pound sterling), all MICRO_DOLLARS fields will be in GBP microunits (1/1,000,000 British pound). If a column has no value, it may not be returned. |
+| `granularity` | `granularity` | `string` | Yes | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEK - metrics are broken down weekly. MONTH - metrics are broken down monthly |
+| `clickWindowDays` | `clickWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. |
+| `engagementWindowDays` | `engagementWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for an engagement action. Engagements include saves, closeups, link clicks, and carousel card swipes. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. **Note:** This parameter no longer returns new data. However, you can still access historic data through **Sept 30, 2027**. |
+| `viewWindowDays` | `viewWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a view action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `1` day. |
+| `conversionReportTime` | `conversionReportTime` | `string` | No | No | The date by which the conversion metrics returned from this endpoint will be reported. There are two dates associated with a conversion event: the date that the user interacted with the ad, and the date that the user completed a conversion event. |
+| `campaignIds` | `campaignIds` | `Array<string>` | No | No | List of Campaign Ids to use to filter the results. |
+| `reportingTimezone` | `reportingTimezone` | `string` | No | No | Specify the timezone to be applied for the reporting. This feature is currently in BETA and is not available to all users. |
+
+## AdsAnalyticsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline7528>` | Yes | No | — |
+
+## AdsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `body` | `body` | `Array<Inline7478>` | Yes | No | — |
+
+## AdsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7484` | Yes | No | — |
+
+## AdsCreditDiscountsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `active` | `active` | `boolean` | No | No | True if the offer code is currently active. |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | Advertiser ID the offer was applied to. |
+| `discountCurrency` | `discountCurrency` | `string` | No | No | Currency value for the discount. |
+| `discountInMicroCurrency` | `discountInMicroCurrency` | `number` | No | No | The discount applied in the offer's currency value. |
+| `discountType` | `discountType` | `Inline373` | No | No | The type of discount of this credit |
+| `remainingDiscountInMicroCurrency` | `remainingDiscountInMicroCurrency` | `number` | No | No | The credits left to spend. |
+| `title` | `title` | `string` | No | No | Human readable title of the offer code. |
+
+## AdsCreditDiscountType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## AdsCreditRedeem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errorCode` | `errorCode` | `number` | No | No | Error code type if error occurs |
+| `errorMessage` | `errorMessage` | `string` | No | No | Reason for failure |
+| `success` | `success` | `boolean` | No | No | Returns true if the offer code was successfully applied(validateOnly=false) or can be applied(validateOnly=true). |
+
+## AdsCreditRedeemCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `offerCodeHash` | `offerCodeHash` | `string` | Yes | No | Takes in a SHA256 hash of the offerCode. |
+| `validateOnly` | `validateOnly` | `boolean` | Yes | No | If true, only validate if we can redeem offer code. Otherwise it will actually apply the offer code to the account |
+
+## AdsCreditRedeemParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `offerCodeHash` | `offerCodeHash` | `string` | Yes | No | Takes in a SHA256 hash of the offerCode. |
+| `validateOnly` | `validateOnly` | `boolean` | Yes | No | If true, only validate if we can redeem offer code. Otherwise it will actually apply the offer code to the account |
+
+## AdsCreditRedeemResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7514` | Yes | No | — |
+
+## AdsCreditsDiscountsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## AdsCreditsDiscountsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7511` | Yes | No | — |
+
+## AdsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adId` | `adId` | `string` | Yes | No | The ID of this ad. |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+
+## AdsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7517` | Yes | No | — |
+
+## AdShoppingPreviewCreativeType
+
+`enum` model on the `json` wire format.
+
+**Values:** `SHOPPING`, `COLLECTION`, `CAROUSEL`, `MAX_WIDTH_COLLECTION`
+
+## AdsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `order` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+| `campaignIds` | `campaignIds` | `Array<string>` | No | No | List of Campaign Ids to use to filter the results. |
+| `adGroupIds` | `adGroupIds` | `Array<unknown>` | No | No | List of Ad group Ids to retrieve keywords from. This feature is currently in BETA and is not available to all users. |
+| `adIds` | `adIds` | `Array<unknown>` | No | No | List of Ad Ids to use to filter the results. |
+| `entityStatuses` | `entityStatuses` | `Array<string>` | No | No | Entity status |
+
+## AdsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7468` | Yes | No | — |
+
+## AdsUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `body` | `body` | `Array<Inline7494>` | Yes | No | — |
+
+## AdsUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7500` | Yes | No | — |
+
+## AdTargetingAnalyticsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `adIds` | `adIds` | `Array<unknown>` | Yes | No | List of Ad Ids to use to filter the results. |
+| `startDate` | `startDate` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `endDate` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `targetingTypes` | `targetingTypes` | `Array<string>` | Yes | No | Targeting type breakdowns for the report. The reporting per targeting type is independent from each other. ["AGE_BUCKET_AND_GENDER"] is in BETA and not yet available to all users. |
+| `columns` | `columns` | `Array<string>` | Yes | No | Columns to retrieve, encoded as a comma-separated string. **NOTE**: Any metrics defined as MICRO_DOLLARS returns a value based on the advertiser profile's currency field. For USD, ($1/1,000,000, or $0.000001 - one one-ten-thousandth of a cent). it's microdollars. Otherwise, it's in microunits of the advertiser's currency. For example, if the advertiser's currency is GBP (British pound sterling), all MICRO_DOLLARS fields will be in GBP microunits (1/1,000,000 British pound). If a column has no value, it may not be returned. |
+| `granularity` | `granularity` | `string` | Yes | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEK - metrics are broken down weekly. MONTH - metrics are broken down monthly |
+| `clickWindowDays` | `clickWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. |
+| `engagementWindowDays` | `engagementWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for an engagement action. Engagements include saves, closeups, link clicks, and carousel card swipes. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. **Note:** This parameter no longer returns new data. However, you can still access historic data through **Sept 30, 2027**. |
+| `viewWindowDays` | `viewWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a view action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `1` day. |
+| `conversionReportTime` | `conversionReportTime` | `string` | No | No | The date by which the conversion metrics returned from this endpoint will be reported. There are two dates associated with a conversion event: the date that the user interacted with the ad, and the date that the user completed a conversion event. |
+| `attributionTypes` | `attributionTypes` | `Array<string>` | No | No | List of types of attribution for the conversion report |
+| `reportingTimezone` | `reportingTimezone` | `string` | No | No | Specify the timezone to be applied for the reporting. This feature is currently in BETA and is not available to all users. |
+| `sortColumns` | `sortColumns` | `Array<string>` | No | No | Sort Columns. |
+| `sortAscending` | `sortAscending` | `boolean` | No | No | Sort ascending. |
+
+## AdTargetingAnalyticsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7531` | Yes | No | — |
+
+## AdUpdateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_id` | `ad_group_id` | `string` | No | No | ID of the ad group that contains the ad. |
+| `android_deep_link` | `android_deep_link` | `string` | No | No | Deep link URL for Android devices. |
+| `carousel_android_deep_links` | `carousel_android_deep_links` | `Array<string>` | No | No | Comma-separated deep links for the carousel pin on Android. |
+| `carousel_destination_urls` | `carousel_destination_urls` | `Array<string>` | No | No | Comma-separated destination URLs for the carousel pin to promote. |
+| `carousel_ios_deep_links` | `carousel_ios_deep_links` | `Array<string>` | No | No | Comma-separated deep links for the carousel pin on iOS. |
+| `click_tracking_url` | `click_tracking_url` | `string` | No | No | Tracking url for the ad clicks. |
+| `creative_type` | `creative_type` | `string` | No | No | Ad creative type enum. **Note:** SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. |
+| `customizable_cta_type` | `customizable_cta_type` | `string` | No | No | Select a call to action (CTA) to display below your ad. Available only for ads with direct links enabled. CTA options for consideration and conversion campaigns are LEARN_MORE, SHOP_NOW, BOOK_NOW, SIGN_UP, VISIT_SITE, BUY_NOW, GET_OFFER, ORDER_NOW, ADD_TO_CART (for conversion campaigns with add to cart conversion events only) |
+| `destination_url` | `destination_url` | `string` | No | No | Destination URL. |
+| `disclosure_type` | `disclosure_type` | `string` | No | No | Type of information in the page referenced by `disclosure_url`, provided either by the Food and Drug Administration (FDA) or the manufacturer. |
+| `disclosure_url` | `disclosure_url` | `string` | No | No | URL for a page that provides disclosures about a pharmaceutical product, such as potential side effects. Make sure the URL takes the user directly to the disclosure content and the referenced site is secure. |
+| `grid_click_type` | `grid_click_type` | `string` | No | No | Where a user is taken after clicking on an ad in grid. **Note:** This parameter is read-only and is set to `DIRECT_TO_DESTINATION` by default for direct links supported ads. `grid_click_type` values provided will be ignored. |
+| `ios_deep_link` | `ios_deep_link` | `string` | No | No | Deep link URL for iOS devices. |
+| `is_carting` | `is_carting` | `boolean` | No | No | Is the ad a carting/WTB ad? |
+| `is_pin_deleted` | `is_pin_deleted` | `boolean` | No | No | Is original pin deleted? |
+| `is_removable` | `is_removable` | `boolean` | No | No | Is pin repinnable? |
+| `lead_form_id` | `lead_form_id` | `string` | No | No | Lead form ID for lead ad generation. |
+| `name` | `name` | `string` | No | No | Name of the ad - 255 chars max. |
+| `quiz_pin_data` | `quiz_pin_data` | `Inline379` | No | No | Before creating a quiz ad, you must create an organic Pin using POST/Create Pin for each result in the quiz. Quiz ads cannot be saved by a Pinner. Quiz ad results can be saved. |
+| `status` | `status` | `string` | No | No | Entity status |
+| `tracking_urls` | `tracking_urls` | `Inline382` | No | No | — |
+| `view_tracking_url` | `view_tracking_url` | `string` | No | No | Tracking URL for ad impressions. |
+| `id` | `id` | `string` | No | No | The ID of this ad. |
+| `pin_id` | `pin_id` | `string` | No | No | Pin ID. This field may only be updated for draft ads. |
+
+## AdUpdateRequestAllOf1
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | The ID of this ad. |
+| `pin_id` | `pin_id` | `string` | No | No | Pin ID. This field may only be updated for draft ads. |
+
+## AdvancedAuctionBidOptions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_type_multipliers` | `app_type_multipliers` | `Inline385` | No | No | This represents a mapping from app type targeting criteria to a bid price adjustment. Multiplier values must be between 0 and 10. A value of 10 represents a 900% increase in bid price (from $1 to $10 for example). A value of 0 will stop distribution for this item on the specified app type in `MAX_BID` ad groups in `CATALOG_SALES` campaigns. All app type multipliers must be set at the same time. If a multiplier is not provided it is assumed to be 1 (no bid adjustment). |
+| `bid_in_micro_currency` | `bid_in_micro_currency` | `number` | No | No | Bid price in micro currency. A value of 0 will stop distribution for this item in `MAX_BID` ad groups in `CATALOG_SALES` campaigns. A value of `null` will fallback to the ad group's `bid_in_micro_currency`. |
+| `placement_multipliers` | `placement_multipliers` | `Inline386` | No | No | This represents a mapping from placement to a bid price adjustment. Multiplier values must be between 0 and 10. A value of 10 represents a 900% increase in bid price (from $1 to $10 for example). A value of 0 will stop distribution for this item on the specified placement in `MAX_BID` ad groups in `CATALOG_SALES` campaigns. All placement multipliers must be set at the same time. If a multiplier is not provided it is assumed to be 1 (no bid adjustment). |
+
+## AdvancedAuctionItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid_options` | `bid_options` | `Inline388` | Yes | No | Object describing a retail catalog item's bid options (bid price and bid multipliers). |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `item_id` | `item_id` | `string` | Yes | No | The catalog retail item id in the merchant namespace |
+| `language` | `language` | `string` | Yes | No | Language code, which is among the official ISO 639-1 language list. |
+
+## AdvancedAuctionItems
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `Inline391` | No | No | Response object of item bid options |
+| `items` | `items` | `Array<Inline392>` | No | No | Array with item bid options |
+
+## AdvancedAuctionItemsGetPostParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `catalog_id` | `catalog_id` | `Inline9172` | Yes | No | Catalog id pertaining to the retail item |
+| `items` | `items` | `Array<Inline9173>` | Yes | No | A list of retail catalog items to fetch bid options for |
+
+## AdvancedAuctionItemsGetPostResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9175` | Yes | No | — |
+
+## AdvancedAuctionItemsGetRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `Inline395` | Yes | No | Catalog id pertaining to the retail item |
+| `items` | `items` | `Array<Inline396>` | Yes | No | A list of retail catalog items to fetch bid options for |
+
+## AdvancedAuctionItemsSubmitDeleteRecord
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `errors` | `errors` | `Array<Inline398>` | No | No | Array with validation errors for the supplied item bid option modification operation. A non empty errors list means this single item operation was not applied. |
+| `item_id` | `item_id` | `string` | Yes | No | The catalog retail item id in the merchant namespace |
+| `language` | `language` | `string` | Yes | No | Language code, which is among the official ISO 639-1 language list. |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## AdvancedAuctionItemsSubmitPostParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `catalog_id` | `catalog_id` | `Inline9181` | Yes | No | Catalog id pertaining to all items |
+| `items` | `items` | `Array<Inline9182 \| Inline9185>` | Yes | No | Array of item bid option operations |
+
+## AdvancedAuctionItemsSubmitPostResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9187` | Yes | No | — |
+
+## AdvancedAuctionItemsSubmitRecord
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline400 \| Inline403`
+
+## AdvancedAuctionItemsSubmitRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `Inline405` | Yes | No | Catalog id pertaining to all items |
+| `items` | `items` | `Array<Inline406 \| Inline409>` | Yes | No | Array of item bid option operations |
+
+## AdvancedAuctionItemsSubmitUpsertRecord
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid_options` | `bid_options` | `Inline411` | Yes | No | Object describing a retail catalog item's bid options (bid price and bid multipliers). |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `errors` | `errors` | `Array<Inline413>` | No | No | Array with validation errors for the supplied item bid option modification operation. A non empty errors list means this single item operation was not applied. |
+| `item_id` | `item_id` | `string` | Yes | No | The catalog retail item id in the merchant namespace |
+| `language` | `language` | `string` | Yes | No | Language code, which is among the official ISO 639-1 language list. |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `update_mask` | `update_mask` | `Array<string>` | Yes | No | The list of item bid option fields to be set or updated. Fields specified in the updated mask without a value specified in the `bid_options` object in the body will be set to `null`. If an item bid option record is being created, fields not specified in the update mask will be initialized to `null`. |
+
+## AdvancedAuctionKey
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `item_id` | `item_id` | `string` | Yes | No | The catalog retail item id in the merchant namespace |
+| `language` | `language` | `string` | Yes | No | Language code, which is among the official ISO 639-1 language list. |
+
+## AdvancedAuctionOperationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `number` | No | No | The error code for the item bid option operation validation error |
+| `message` | `message` | `string` | No | No | Message describing the item bid option operation validation error |
+
+## AdvancedAuctionProcessedItems
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `Inline417` | No | No | Catalog id pertaining to all items |
+| `items` | `items` | `Array<Inline418 \| Inline421>` | No | No | Array of advanced auction processed items |
+
+## AdvertiserDefinedEvent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mapped_conversion_type` | `mapped_conversion_type` | `Inline423` | No | No | Standard type mapped to ADE for optimization |
+| `name` | `name` | `string` | No | No | Raw string name of the event, usually logged as raw_event_name in our dataset |
+
+## AdvertiserDefinedEventInput
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mapped_conversion_type` | `mapped_conversion_type` | `Inline425` | Yes | No | Pinterest standard event type to map this custom event to for campaign optimization and reporting |
+| `name` | `name` | `string` | Yes | No | Raw string name of the event |
+
+## AdvertiserDefinedEventMappingType
+
+`enum` model on the `json` wire format.
+
+**Values:** `SIGNUP`, `ADD_TO_CART`, `LEAD`, `CHECKOUT`, `SUBSCRIBE`, `ADD_TO_WISHLIST`, `ADD_PAYMENT_INFO`, `INITIATE_CHECKOUT`, `CONTACT`, `CUSTOMIZE_PRODUCT`, `FIND_LOCATION`, `SCHEDULE`, `SUBMIT_APPLICATION`, `START_TRIAL`, `PAGE_VISIT`, `VIEW_CATEGORY`, `VIEW_CONTENT`, `SEARCH`, `WATCH_VIDEO`
+
+## AdvertiserDefinedEventProcessingRecord
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `exceptions` | `exceptions` | `Array<string>` | No | No | List of exception messages if the operation failed |
+| `name` | `name` | `string` | Yes | No | Name of the advertiser defined event |
+| `status` | `status` | `string` | Yes | No | Processing status (success or failure) |
+
+## AdvertiserDefinedEventsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `items` | `items` | `Array<Inline7536>` | Yes | No | List of advertiser defined events to create or update |
+
+## AdvertiserDefinedEventsCreateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline429>` | Yes | No | List of advertiser defined events to create or update |
+
+## AdvertiserDefinedEventsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7538` | Yes | No | — |
+
+## AdvertiserDefinedEventsDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `eventNames` | `eventNames` | `Array<string>` | Yes | No | List of event names to delete |
+
+## AdvertiserDefinedEventsDeleteResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7547` | Yes | No | — |
+
+## AdvertiserDefinedEventsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+
+## AdvertiserDefinedEventsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7534` | Yes | No | — |
+
+## AdvertiserDefinedEventsUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `items` | `items` | `Array<Inline7541>` | Yes | No | List of advertiser defined events to create or update |
+
+## AdvertiserDefinedEventsUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7543` | Yes | No | — |
+
+## AgeBucketMultipliers
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AGE_BUCKET` | `AGE_BUCKET` | `Inline431` | No | No | Age bucket identifier. |
+
+## AgeBucketMultipliersAdditionalProperties
+
+`scalar` model on the `json` wire format.
+
+**Value:** `number`
+
+## AgeTrendsBucket
+
+`enum` model on the `json` wire format.
+
+**Values:** `18-24`, `25-34`, `35-44`, `45-49`, `50-54`, `55-64`, `65+`
+
+## AggregatedPinComment
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ai_disclosures` | `ai_disclosures` | `Inline435` | No | No | AI disclosure declarations the creator has made about this Pin. |
+| `alt_text` | `alt_text` | `string` | No | No | — |
+| `board_id` | `board_id` | `string` | No | No | The board to which this Pin belongs. |
+| `board_owner` | `board_owner` | `Inline436` | No | No | — |
+| `board_section_id` | `board_section_id` | `string` | No | No | The board section to which this Pin belongs. |
+| `created_at` | `created_at` | `string` | No | No | — |
+| `creative_type` | `creative_type` | `Inline437` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `dominant_color` | `dominant_color` | `string` | No | No | Dominant pin color. Hex number, e.g. `#6E7874`. |
+| `has_been_promoted` | `has_been_promoted` | `boolean` | No | No | Whether the Pin has been promoted or not. |
+| `id` | `id` | `string` | Yes | No | — |
+| `is_owner` | `is_owner` | `boolean` | No | No | Whether the "operation user_account" is the Pin owner. |
+| `is_product` | `is_product` | `boolean` | No | No | Whether the Pin is a product Pin. |
+| `is_standard` | `is_standard` | `boolean` | No | No | Whether the Pin is standard or not. See documentation on Changes to Pin creation for more information. |
+| `link` | `link` | `string` | No | No | — |
+| `media` | `media` | `Inline438` | No | No | — |
+| `parent_pin_id` | `parent_pin_id` | `string` | No | No | The source pin id if this pin was saved from another pin. [Learn more](https://help.pinterest.com/article/save-pins-on-pinterest). |
+| `pin_metrics` | `pin_metrics` | `Inline439` | No | No | Pin metrics with associated time intervals if any. |
+| `title` | `title` | `string` | No | No | — |
+
+## AiDisclosureItem
+
+`enum` model on the `json` wire format.
+
+**Values:** `AI_MODIFIED`, `SYNTHETIC_PERFORMER`
+
+## AiDisclosures
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `values` | `values` | `Array<string>` | Yes | No | List of AI disclosure declarations the creator has made about this Pin. |
+
+## AiDisclosuresUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `values` | `values` | `Array<string>` | No | No | List of AI disclosure declarations the creator has made about this Pin. |
+
+## AmazonConnectRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `amazon_storefront_id` | `amazon_storefront_id` | `string` | No | No | The Amazon storefront id |
+| `amazon_storefront_name` | `amazon_storefront_name` | `string` | Yes | No | The Amazon storefront name |
+| `amazon_storefront_url` | `amazon_storefront_url` | `string` | Yes | No | The Amazon storefront url |
+| `amazon_user_id` | `amazon_user_id` | `string` | No | No | The Amazon user id |
+| `is_amazon_account_linked` | `is_amazon_account_linked` | `boolean` | Yes | No | The Amazon account linking status |
+| `one_time_passcode` | `one_time_passcode` | `string` | No | No | The one time passcode for Pinterest-initiated linking requests |
+| `pinterest_user_id` | `pinterest_user_id` | `string` | No | No | The Pinterest user id for Amazon-initiated linking requests |
+
+## AmazonConnectResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message` | `message` | `string` | No | No | Amazon connect response message |
+
+## AnalyticsCreateConversionProductReportParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `ad_group_ids` | `ad_group_ids` | `Array<unknown>` | No | No | List of ad group ids. Only support ad_group_ids field when level of the report is AD_GROUP. |
+| `campaign_ids` | `campaign_ids` | `Array<unknown>` | No | No | List of campaign ids. Only support campaign_ids field when level of the report is CAMPAIGN. |
+| `campaign_objective_types` | `campaign_objective_types` | `Array<string>` | No | No | List of values for filtering. Default is ['CONSIDERATION','AWARENESS','WEB_CONVERSION','VIDEO_COMPLETION']. |
+| `click_window_days` | `click_window_days` | `Inline9036` | No | No | Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. |
+| `columns` | `columns` | `Array<string>` | Yes | No | Metric and entity columns |
+| `conversion_product_attribution_type` | `conversion_product_attribution_type` | `Inline9037` | No | No | Required attribution type of the B/C/S report. When the attribution type is BRAND_ATTRIBUTION, start_date for the report must be after 2025-04-01. |
+| `conversion_product_breakdown` | `conversion_product_breakdown` | `Inline9038` | No | No | Report breakdown type. This is used to specify the breakdown of the report by brand, category, or SKU. |
+| `conversion_report_time` | `conversion_report_time` | `Inline9039` | No | No | The date by which the conversion metrics returned from this endpoint will be reported. There are two dates associated with a conversion event: the date that the user interacted with the ad, and the date that the user completed a conversion event. |
+| `end_date` | `end_date` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. A max of 1 year is allowed between the start and end date for reports. |
+| `granularity` | `granularity` | `Inline9040` | Yes | No | Report granularity for time-based metric aggregation |
+| `level` | `level` | `Inline9041` | Yes | No | Level of the report |
+| `product_sku_ids` | `product_sku_ids` | `Array<unknown>` | No | No | List of SKU ids. Only support product_sku_ids field when report breakdown type is PRODUCT_SKU_GROUP. |
+| `report_name` | `report_name` | `string` | Yes | No | Name of the conversion product report |
+| `start_date` | `start_date` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Start date must be after 2024-03-16. 7 day minimum time window for report is required. |
+| `view_window_days` | `view_window_days` | `Inline9042` | No | No | Number of days to use as the conversion attribution window for a view action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `1` day. |
+
+## AnalyticsCreateConversionProductReportResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9044` | Yes | No | — |
+
+## AnalyticsCreateMmmReportParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `advertiser_ids` | `advertiser_ids` | `Array<string>` | No | No | Advertiser IDs for multi-advertiser report |
+| `columns` | `columns` | `Array<string>` | Yes | No | Metric and entity columns |
+| `countries` | `countries` | `Array<string>` | No | No | A List of countries for filtering |
+| `custom_column_ids` | `custom_column_ids` | `Array<string>` | No | No | List of custom column IDs |
+| `end_date` | `end_date` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD |
+| `granularity` | `granularity` | `Inline8911` | Yes | No | DAY - metrics are broken down daily. WEEK - metrics are broken down weekly. |
+| `level` | `level` | `Inline8912` | Yes | No | Level of the report |
+| `report_name` | `report_name` | `string` | Yes | No | Name of the Marketing Mix Modeling (MMM) report |
+| `start_date` | `start_date` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD |
+| `targeting_types` | `targeting_types` | `Array<string>` | Yes | No | List of targeting types |
+
+## AnalyticsCreateMmmReportResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8914` | Yes | No | — |
+
+## AnalyticsCreateReportParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `ad_group_ids` | `ad_group_ids` | `Array<unknown>` | No | No | List of ad group ids |
+| `ad_group_statuses` | `ad_group_statuses` | `Array<string>` | No | No | List of values for filtering |
+| `ad_ids` | `ad_ids` | `Array<unknown>` | No | No | List of ad ids. This parameter is not supported for Product Item level reports. |
+| `ad_statuses` | `ad_statuses` | `Array<string>` | No | No | List of values for filtering. This parameter is not supported for Product Item level reports. |
+| `attribution_types` | `attribution_types` | `Array<string>` | No | No | List of attribution types for the conversion report. |
+| `campaign_brand_label` | `campaign_brand_label` | `string` | No | No | Campaign brand label for filtering. |
+| `campaign_custom_label` | `campaign_custom_label` | `string` | No | No | Campaign custom label for filtering. |
+| `campaign_ids` | `campaign_ids` | `Array<unknown>` | No | No | List of campaign ids |
+| `campaign_objective_types` | `campaign_objective_types` | `Array<unknown>` | No | No | List of values for filtering. ["WEB_SESSIONS"] is in BETA. |
+| `campaign_statuses` | `campaign_statuses` | `Array<string>` | No | No | List of status values for filtering |
+| `click_window_days` | `click_window_days` | `Inline9008` | No | No | Number of days to use as the conversion attribution window for a pin click action. |
+| `columns` | `columns` | `Array<string>` | No | No | Metric and entity columns. Pin promotion and ad related columns are not supported for Product Item level reports. |
+| `combine_targeting_types` | `combine_targeting_types` | `boolean` | No | No | Determines if the targeting types included in the request should be consolidated into a single breakdown. |
+| `conversion_report_time` | `conversion_report_time` | `Inline9009` | No | No | Date dimension for conversion metrics. |
+| `custom_conversion_event_metrics` | `custom_conversion_event_metrics` | `Array<Inline9010>` | No | No | List of advertiser-defined custom conversion event metrics to include in the report |
+| `end_date` | `end_date` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD |
+| `end_hour` | `end_hour` | `number` | No | No | Which hour of the end date to stop the report (inclusive). Only allowed for hourly reports. |
+| `engagement_window_days` | `engagement_window_days` | `Inline9011` | No | No | Number of days to use as the conversion attribution window for an engagement action. |
+| `granularity` | `granularity` | `Inline9012` | Yes | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEKLY - metrics are broken down weekly. MONTHLY - metrics are broken down monthly. |
+| `level` | `level` | `Inline9013` | No | No | Level of the report |
+| `metrics_filters` | `metrics_filters` | `Array<Inline9014>` | No | No | List of metrics filters |
+| `primary_sort` | `primary_sort` | `Inline9015` | No | No | — |
+| `product_group_ids` | `product_group_ids` | `Array<unknown>` | No | No | List of product group ids |
+| `product_group_statuses` | `product_group_statuses` | `Array<string>` | No | No | List of values for filtering |
+| `product_item_ids` | `product_item_ids` | `Array<unknown>` | No | No | List of product item ids |
+| `report_format` | `report_format` | `Inline9016` | No | No | — |
+| `reporting_timezone` | `reporting_timezone` | `Inline9017` | No | No | Specify the timezone to be applied for the reporting. |
+| `start_date` | `start_date` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD |
+| `start_hour` | `start_hour` | `number` | No | No | Which hour of the start date to begin the report. Only allowed for hourly reports. |
+| `targeting_types` | `targeting_types` | `Array<string>` | No | No | List of targeting types. Requires `level` to be a value ending in `_TARGETING`. |
+| `view_window_days` | `view_window_days` | `Inline9018` | No | No | Number of days to use as the conversion attribution window for a view action. |
+
+## AnalyticsCreateReportResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9020` | Yes | No | — |
+
+## AnalyticsCreateTemplateReportParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `templateId` | `templateId` | `string` | Yes | No | Unique identifier of a template. |
+| `startDate` | `startDate` | `string` | No | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 2.5 years back from today. |
+| `endDate` | `endDate` | `string` | No | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 2.5 years past start date. |
+| `granularity` | `granularity` | `string` | No | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEK - metrics are broken down weekly. MONTH - metrics are broken down monthly |
+
+## AnalyticsCreateTemplateReportResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9167` | Yes | No | — |
+
+## AnalyticsDailyMetrics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data_status` | `data_status` | `string` | No | No | Metrics availablity, e.g., "READY". |
+| `date` | `date` | `string` | No | No | Metrics date (UTC): YYYY-MM-DD. |
+| `metrics` | `metrics` | `Inline446` | No | No | — |
+
+## AnalyticsGetConversionProductReportParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `token` | `token` | `string` | Yes | No | Token returned from the post request creation call |
+
+## AnalyticsGetConversionProductReportResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9034` | Yes | No | — |
+
+## AnalyticsGetMmmReportParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `token` | `token` | `string` | Yes | No | Token returned from the post request creation call |
+
+## AnalyticsGetMmmReportResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8909` | Yes | No | — |

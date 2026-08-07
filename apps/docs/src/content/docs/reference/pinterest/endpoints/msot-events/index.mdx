@@ -1,0 +1,63 @@
+---
+title: "Pinterest Msot Events endpoints"
+description: "1 generated Pinterest endpoint contract for Msot Events."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 135
+  label: "Msot Events"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.msotEvents.msotEventsCreate
+
+`POST` `/ad_accounts/{ad_account_id}/msot/events`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (msot_events/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.msotEvents.manage` |
+| Required scopes | `msot:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `MsotEventsCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `action_timestamps` | `body` | `Array<number>` | No | No | Timestamp(s) when the ad action(s) happened. Unix timestamp in seconds. |
+| `ad_group_id` | `body` | `Inline8927` | Yes | No | The ID of the ad group that was attributed to the conversion event. |
+| `attribution_model` | `body` | `Inline8928` | No | No | The attribution model used to attribute the conversion event. |
+| `attribution_scope` | `body` | `Inline8929` | No | No | Ad event type. |
+| `attribution_score` | `body` | `number` | No | No | Credit given to the attributed ad actions. Allowed values are &gt; 0 and &lt;= 1. |
+| `campaign_id` | `body` | `Inline8930` | No | No | The ID of the campaign that was attributed to the conversion event. |
+| `click_window` | `body` | `string` | No | No | Click window used for attribution (for example, `1d`, `7d`, `30d`, `lifetime`). |
+| `currency` | `body` | `Inline8931` | No | No | Currency code for the `value` field, required if `value` is present. Currency Codes should be in ISO 4217 standard. |
+| `event_id` | `body` | `string` | Yes | No | A unique id string that identifies this event. If you are already sending us events through Conversions API, then this id should match the event_id sent through Conversions API. |
+| `event_name` | `body` | `Inline8932` | Yes | No | Type of user event. |
+| `event_timestamp` | `body` | `number` | Yes | No | The time when the event occurred. Unix timestamp in seconds. |
+| `total_event_touchpoints` | `body` | `number` | No | No | Total number of ad events including other non-Pinterest ad platforms. |
+| `total_events` | `body` | `number` | No | No | Deprecated: use `total_events_fractional` instead to avoid rounding errors. Total number of conversion events that are reported in one API call. If you are sending one API request for one attributed conversion event then this value should be 1. If you are sending multiple attributed conversion events in one API request then this value should be the total number of attributed conversion events in the request. |
+| `total_events_fractional` | `body` | `number` | No | No | Total number of conversion events that are reported in one API call. Use this field instead of `total_events` to send precise fractional values. If you are sending one API request for one attributed conversion event with full credit, this value should be 1.0. For partial attribution, send the exact fractional value (e.g., 0.5 for half credit). |
+| `value` | `body` | `number` | No | No | Order value of the conversion event. Required if `event_name` is `add_to_cart` or `checkout`. |
+| `view_window` | `body` | `string` | No | No | View window used for attribution (for example, `1d`, `7d`, `30d`). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

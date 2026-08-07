@@ -1,0 +1,989 @@
+---
+title: "Pinterest models: Catalogs Retail Report Parameters Report – Create Membership Or Partnership Invites Body"
+description: "100 generated Pinterest model contracts, from CatalogsRetailReportParametersReport through CreateMembershipOrPartnershipInvitesBody."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1007
+  label: "Catalogs Retail Report Parameters Report – Create Membership Or Partnership Invites Body"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## CatalogsRetailReportParametersReport
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline5536 \| Inline5537 \| Inline5538`
+
+## CatalogsRetailReportStatsParameters
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `report` | `report` | `Inline5540 \| Inline5541` | Yes | No | — |
+
+## CatalogsRetailReportStatsParametersReport
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline5543 \| Inline5544`
+
+## CatalogsStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACTIVE`, `INACTIVE`
+
+## CatalogsSupplementalItemsBatchGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogId` | `catalogId` | `string` | Yes | No | Unique identifier of a catalog. |
+| `batchId` | `batchId` | `string` | Yes | No | Unique identifier of an items batch operation. |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+
+## CatalogsSupplementalItemsBatchGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9459` | Yes | No | — |
+
+## CatalogsType
+
+`enum` model on the `json` wire format.
+
+**Values:** `RETAIL`, `HOTEL`, `CREATIVE_ASSETS`
+
+## CatalogsUpdatableCreativeAssetsAttributes
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `android_deep_link` | `android_deep_link` | `string` | No | No | Link to the creative assets page. |
+| `custom_label_0` | `custom_label_0` | `string` | No | No | Custom grouping of creative assets. |
+| `custom_label_1` | `custom_label_1` | `string` | No | No | Custom grouping of creative assets. |
+| `custom_label_2` | `custom_label_2` | `string` | No | No | Custom grouping of creative assets. |
+| `custom_label_3` | `custom_label_3` | `string` | No | No | Custom grouping of creative assets. |
+| `custom_label_4` | `custom_label_4` | `string` | No | No | Custom grouping of creative assets. |
+| `description` | `description` | `string` | No | No | Brief description of the creative assets. |
+| `google_product_category` | `google_product_category` | `string` | No | No | The categorization of the product based on the standardized Google Product Taxonomy. This is a set taxonomy. Both the text values and numeric codes are accepted. |
+| `ios_deep_link` | `ios_deep_link` | `string` | No | No | IOS deep link to the creative assets page. |
+| `link` | `link` | `string` | No | No | Link to the creative assets page. |
+| `title` | `title` | `string` | No | No | The name of the creative assets. |
+| `visibility` | `visibility` | `string` | No | No | Visibility of the creative assets. Must be one of the following values (upper or lowercase): 'visible', 'hidden'. |
+
+## CatalogsUpdatableHotelAttributes
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `address` | `address` | `Inline5549` | No | No | Hotel address |
+| `base_price` | `base_price` | `string` | No | No | Base price of the hotel room per night followed by the ISO currency code |
+| `brand` | `brand` | `string` | No | No | The brand to which this hotel belongs to. |
+| `category` | `category` | `string` | No | No | The type of property. The category can be any type of internal description desired. |
+| `custom_label_0` | `custom_label_0` | `string` | No | No | Custom grouping of hotels |
+| `custom_label_1` | `custom_label_1` | `string` | No | No | Custom grouping of hotels |
+| `custom_label_2` | `custom_label_2` | `string` | No | No | Custom grouping of hotels |
+| `custom_label_3` | `custom_label_3` | `string` | No | No | Custom grouping of hotels |
+| `custom_label_4` | `custom_label_4` | `string` | No | No | Custom grouping of hotels |
+| `description` | `description` | `string` | No | No | Brief description of the hotel. |
+| `guest_ratings` | `guest_ratings` | `Inline5550` | No | No | If specified, you must provide all properties |
+| `latitude` | `latitude` | `number` | No | No | Latitude of the hotel. |
+| `link` | `link` | `string` | No | No | Link to the product page |
+| `longitude` | `longitude` | `number` | No | No | Longitude of the hotel. |
+| `name` | `name` | `string` | No | No | The hotel's name. |
+| `neighborhood` | `neighborhood` | `Array<string>` | No | No | A list of neighborhoods where the hotel is located |
+| `sale_price` | `sale_price` | `string` | No | No | Sale price of a hotel room per night. Used to advertise discounts off the regular price of the hotel. |
+
+## CatalogsUpdateCreativeAssetsItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline5552` | Yes | No | — |
+| `creative_assets_id` | `creative_assets_id` | `string` | Yes | No | The catalog creative assets item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## CatalogsUpdateHotelItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline5554` | Yes | No | — |
+| `hotel_id` | `hotel_id` | `string` | Yes | No | The catalog hotel item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## CatalogsUpdateRetailItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline5557` | Yes | No | — |
+| `item_id` | `item_id` | `string` | Yes | No | The catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `update_mask` | `update_mask` | `Array<string>` | No | No | The list of product attributes to be updated. Attributes specified in the update mask without a value specified in the body will be deleted from the product item. |
+
+## CatalogsUpsertCreativeAssetsItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline5559` | Yes | No | — |
+| `creative_assets_id` | `creative_assets_id` | `string` | Yes | No | The catalog creative assets id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## CatalogsUpsertHotelItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline5561` | Yes | No | — |
+| `hotel_id` | `hotel_id` | `string` | Yes | No | The catalog hotel id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## CatalogsUpsertRetailItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline5566` | Yes | No | — |
+| `item_id` | `item_id` | `string` | Yes | No | The catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## CatalogsVerticalBatchRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline5568 \| Inline5573 \| Inline5585`
+
+## CatalogsVerticalFeedsCreateRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline5591 \| Inline5594 \| Inline5597`
+
+## CatalogsVerticalFeedsUpdateRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline5601 \| Inline5603 \| Inline5605`
+
+## CatalogsVerticalProductGroup
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline5608 \| Inline5680 \| Inline5702`
+
+## CatalogsVerticalProductGroupCreateRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline5737 \| Inline5808 \| Inline5829`
+
+## CatalogsVerticalProductGroupUpdateRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline5863 \| Inline5933 \| Inline5953`
+
+## CatalogsVerticalsListProductsByCatalogBasedFilterRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline5986 \| Inline6057 \| Inline6078`
+
+## CatalogUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | No | No | Type of the catalog entity. |
+| `name` | `name` | `string` | No | No | A human-friendly name associated to a catalog entity. |
+
+## ChangeHistoryDataType
+
+`enum` model on the `json` wire format.
+
+**Values:** `STRING`, `NUMERIC`, `MICROCURRENCY`, `DATE`, `BOOL`, `GENDER_LIST`, `AGE_BUCKET_LIST`, `APPTYPE_LIST`, `COUNTRY_LIST`, `LOCALE_LIST`
+
+## ChangeHistoryOperationType
+
+`enum` model on the `json` wire format.
+
+**Values:** `CREATE`, `UPDATE`, `DELETE`
+
+## CollectionsHeaderType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## ConditionFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CONDITION` | `CONDITION` | `Inline6116` | Yes | No | — |
+
+## ContentType
+
+`enum` model on the `json` wire format.
+
+**Values:** `image/jpeg`, `image/png`
+
+## ConversionAccessToken
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `access_token` | `access_token` | `string` | Yes | No | — |
+| `token_type` | `token_type` | `string` | No | No | — |
+
+## ConversionApiResponseEventsItems
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error_message` | `error_message` | `string` | No | No | Error message containing more information about why the event failed to be processed. |
+| `status` | `status` | `Inline6120` | Yes | No | Whether the event was processed successfully. |
+| `warning_message` | `warning_message` | `string` | No | No | Warning messages about any fields in the event which are not standard. These are not critical to event processing. |
+
+## ConversionAttributionWindowDays
+
+`scalar` model on the `json` wire format.
+
+**Value:** `number`
+
+## ConversionDeletionRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_time` | `created_time` | `string` | Yes | No | Timestamp when the conversion deletion request was succesfully created. |
+| `processed_time` | `processed_time` | `string` | No | No | Timestamp when the conversion deletion request was processed. |
+| `request_id` | `request_id` | `string` | Yes | No | Unique identifier of the conversion deletion request |
+| `status` | `status` | `Inline6123` | Yes | No | Represents the status of the conversion deletion request. "PENDING" or "SUBMITTED". "PENDING" meaning the Advertiser can cancel the request. The advertiser has a 7 day time window after the conversion deletion request was submitted to cancel it. "SUBMITTED" meaning that the Data Deletion process has begun and can no longer be canceled. |
+
+## ConversionDeletionRequestCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deletion_targets` | `deletion_targets` | `Inline6125` | Yes | No | Object containing the targets of the conversion deletion request. Users can be identified with user_emails, epiks, or both within the same request. |
+
+## ConversionDeletionRequestCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `deletion_targets` | `deletion_targets` | `Inline8700` | Yes | No | Object containing the targets of the conversion deletion request. Users can be identified with user_emails, epiks, or both within the same request. |
+
+## ConversionDeletionRequestCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8702` | Yes | No | — |
+
+## ConversionDeletionRequestDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `requestId` | `requestId` | `string` | Yes | No | Unique identifier of the conversion deletion request |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+
+## ConversionDeletionRequestDeleteResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8709` | Yes | No | — |
+
+## ConversionDeletionRequestEPIKTargets
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `epiks` | `epiks` | `Array<string>` | Yes | No | Array of EPIKs (Encrypted Pinterest ID Keys). An EPIK is a user match type that utilizes 3P browser localStorage (similar to a third-party cookie). |
+
+## ConversionDeletionRequestGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `requestId` | `requestId` | `string` | Yes | No | Unique identifier of the conversion deletion request |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+
+## ConversionDeletionRequestGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8706` | Yes | No | — |
+
+## ConversionDeletionRequestListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `order` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+
+## ConversionDeletionRequestListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8698` | Yes | No | — |
+
+## ConversionDeletionRequestStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `PENDING`, `SUBMITTED`, `CANCELLED`
+
+## ConversionDeletionRequestTargets
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline6129 \| Inline6130`
+
+## ConversionDeletionRequestUserEmailTargets
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `user_emails` | `user_emails` | `Array<string>` | Yes | No | Array of plain text user emails. |
+
+## ConversionEqsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `lookbackPeriod` | `lookbackPeriod` | `string` | Yes | No | Lookback window (number of days). |
+| `sourcePlatform` | `sourcePlatform` | `string` | No | No | Source platform of event. |
+| `ingestionSource` | `ingestionSource` | `string` | No | No | Ingestion source of event. |
+
+## ConversionEqsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline8712>` | Yes | No | — |
+
+## ConversionEvent
+
+`enum` model on the `json` wire format.
+
+**Values:** `PAGE_VISIT`, `SIGNUP`, `CHECKOUT`, `CUSTOM`, `VIEW_CATEGORY`, `SEARCH`, `ADD_TO_CART`, `WATCH_VIDEO`, `LEAD`, `APP_INSTALL`
+
+## ConversionEventAppInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | No | No | App ID in Google Play Store, AppStore or other stores. |
+| `app_name` | `app_name` | `string` | No | No | Name of the app. Primarily used for Mobile Apps. |
+| `app_package_name` | `app_package_name` | `string` | No | No | App package name |
+| `app_store` | `app_store` | `string` | No | No | The name of the app distributor or store from which the app was installed. Some options: Samsung Galaxy Store, Google Play Store, Amazon Store, Apple App Store, F-Droid, Aptoide, Obtanium, Huawei AppGallery, Xiaomi Mi GetApps |
+| `app_version` | `app_version` | `string` | No | No | App version. Primarily used for mobile apps |
+| `install_time` | `install_time` | `number` | No | No | App install time. Unix timestamp in seconds |
+| `user_agent` | `user_agent` | `string` | No | No | User Agent request header. Primarily used for Web events |
+| `window_height` | `window_height` | `number` | No | No | Inner height of the window or viewport. |
+| `window_width` | `window_width` | `number` | No | No | Inner width of the window or viewport. |
+
+## ConversionEventDeviceInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `battery_level` | `battery_level` | `number` | No | No | Battery charge level percentage |
+| `brand` | `brand` | `string` | No | No | Device brand |
+| `carrier` | `carrier` | `string` | No | No | User device's mobile carrier. |
+| `cpu_cores` | `cpu_cores` | `number` | No | No | Number of CPU cores |
+| `external_storage_free_space` | `external_storage_free_space` | `number` | No | No | External storage size in GB |
+| `external_storage_size` | `external_storage_size` | `number` | No | No | External storage size in GB |
+| `form_factor` | `form_factor` | `Inline6135` | No | No | Device form factor |
+| `kernel_version` | `kernel_version` | `string` | No | No | Kernel version. Examples: Linux: 6.15. Obtain by running: uname -r MacOS: 24.3.0. Obtain by running: sysctl kern.version Android: 6.6. Obtain from OS.uname().release |
+| `languages` | `languages` | `Array<string>` | No | No | List of user installed languages. ISO 639-1 format |
+| `locale` | `locale` | `string` | No | No | Device locale BCP-47 format |
+| `model` | `model` | `string` | No | No | Device model name |
+| `network_type` | `network_type` | `Inline6136` | No | No | Network type: 4G, 5G, ethernet, wifi In Android: NetworkCapabilities.getNetworkCapabilities() |
+| `os_family` | `os_family` | `Inline6137` | No | No | OS Family |
+| `os_name` | `os_name` | `string` | No | No | Short name of the OS. This value if specific to os family. Examples: Windows: 10, 11; Android: 16; iOS: 18; MacOS: 15; Linux: Debian, Ubuntu, Arch |
+| `os_release_name` | `os_release_name` | `string` | No | No | Marketing name for the release version iOS: Dawn Android: Baklava MacOS: Sequoia Ubuntu Linux: Plucky Puffin |
+| `os_version` | `os_version` | `string` | No | No | Full name of the version. Examples: iOS: 18.3 Android: 16.1 MacOS: 15.5 Windows: 24H2 Ubuntu Linux: 25.04 |
+| `screen_density` | `screen_density` | `number` | No | No | Screen density, PPI |
+| `screen_height` | `screen_height` | `number` | No | No | Screen height in pixels |
+| `screen_width` | `screen_width` | `number` | No | No | Screen width in pixels |
+| `storage_free_space` | `storage_free_space` | `number` | No | No | Internal storage size in GB |
+| `storage_size` | `storage_size` | `number` | No | No | Internal storage size in GB |
+| `timezone` | `timezone` | `string` | No | No | Device timezone |
+| `timezone_abbr` | `timezone_abbr` | `string` | No | No | Timezone abbreviation |
+| `type` | `type` | `string` | No | No | Device type |
+
+## ConversionEventIngestionSource
+
+`enum` model on the `json` wire format.
+
+**Values:** `TAG`, `MMP`, `FILE_UPLOAD`, `CONVERSIONS_API`, `NATIVE`
+
+## ConversionEventResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Id of the ad account. |
+| `conversion_event` | `conversion_event` | `string` | No | No | conversion tag type |
+| `conversion_tag_id` | `conversion_tag_id` | `string` | No | No | Id of the tag. |
+| `created_time` | `created_time` | `number` | No | No | Creation date in epoch format. |
+| `reporting_conversion_event` | `reporting_conversion_event` | `string` | No | No | For advertiser-defined events, the reporting event label shown in optimization UIs. |
+
+## ConversionEvents
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `events` | `events` | `Array<Inline6141>` | Yes | No | Specific messages for each event received. The order will match the order in which the events were received in the request. |
+| `num_events_processed` | `num_events_processed` | `number` | Yes | No | Number of events that were successfully processed from the events. |
+| `num_events_received` | `num_events_received` | `number` | Yes | No | Total number of events received in the request. |
+
+## ConversionEventsCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline6143>` | Yes | No | A list of events (one or more) encapsulated by a data object. |
+
+## ConversionEventsDataItems
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action_source` | `action_source` | `string` | Yes | No | The source indicating where the conversion event occurred. - `app_android` - `app_ios` - `web` - `offline` |
+| `app_id` | `app_id` | `string` | No | No | The app store app ID. |
+| `app_info` | `app_info` | `Inline6150` | No | No | Object containing information about the application where event occurred. |
+| `app_name` | `app_name` | `string` | No | No | Name of the app. |
+| `app_version` | `app_version` | `string` | No | No | Version of the app. |
+| `custom_data` | `custom_data` | `Inline6151` | No | No | Object containing other custom data. |
+| `device_brand` | `device_brand` | `string` | No | No | Brand of the user device. |
+| `device_carrier` | `device_carrier` | `string` | No | No | User device's mobile carrier. |
+| `device_info` | `device_info` | `Inline6152` | No | No | Object containing information about the device where event occurred. |
+| `device_model` | `device_model` | `string` | No | No | Model of the user device. |
+| `device_type` | `device_type` | `string` | No | No | Type of the user device. |
+| `event_id` | `event_id` | `string` | Yes | No | A unique id string that identifies this event and can be used for deduping between events ingested via both the conversion API and Pinterest tracking. Without this, event's data is likely to be double counted and will cause report metric inflation. Third-party vendors make sure this field is updated on both Pinterest tag and Conversions API side before rolling out template for Conversions API. |
+| `event_name` | `event_name` | `string` | Yes | No | The type of the user event. Please use the right event_name; otherwise the event will not be accepted and show up correctly in reports. - `add_payment_info` - `add_to_cart` - `add_to_wishlist` - `app_install` - `app_open` - `checkout` - `contact` - `custom` - `customize_product` - `find_location` - `initiate_checkout` - `lead` - `page_visit` - `schedule` - `search` - `signup` - `start_trial` - `submit_application` - `subscribe` - `view_category` - `view_content` - `watch_video` |
+| `event_source_url` | `event_source_url` | `string` | No | No | URL of the web conversion event. |
+| `event_time` | `event_time` | `number` | Yes | No | The time when the event happened. Unix timestamp in seconds. |
+| `language` | `language` | `string` | No | No | Two-character ISO-639-1 language code indicating the user's language. |
+| `opt_out` | `opt_out` | `boolean` | No | No | When action_source is web or offline, it defines whether the user has opted out of tracking for web conversion events. While when action_source is app_android or app_ios, it defines whether the user has enabled Limit Ad Tracking on their iOS device, or opted out of Ads Personalization on their Android device. |
+| `os_version` | `os_version` | `string` | No | No | Version of the device operating system. |
+| `partner_name` | `partner_name` | `string` | No | No | The third party partner name responsible to send the event to Conversions API on behalf of the advertiser. The naming convention is "ss-partnername" lowercase. E.g 'ss-shopify' |
+| `user_data` | `user_data` | `Inline6155` | Yes | No | Object containing customer information data. Note, It is required at least one of 1) em, 2) hashed_maids or 3) pair client_ip_address + client_user_agent. |
+| `wifi` | `wifi` | `boolean` | No | No | Whether the event occurred when the user device was connected to wifi. |
+
+## ConversionEventsDataItemsCustomData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `content_brand` | `content_brand` | `string` | No | No | The brand of the content associated with the event. |
+| `content_category` | `content_category` | `string` | No | No | The category of the content associated with the event. |
+| `content_ids` | `content_ids` | `Array<string>` | No | No | List of products IDs. We recommend using this if you are a merchant for PageVisit, AddToCart and Checkouts. For detail, please check [here](https://help.pinterest.com/en/business/article/before-you-get-started-with-catalogs) (Install the Pinterest tag section). |
+| `content_name` | `content_name` | `string` | No | No | The name of the page or product associated with the event. |
+| `contents` | `contents` | `Array<Inline6157>` | No | No | A list of objects containing information about products, such as price and quantity. We recommend using this if you are a merchant for PageVisit, AddToCart and Checkouts. For detail, please check [here](https://help.pinterest.com/en/business/article/before-you-get-started-with-catalogs) (Install the Pinterest tag section). |
+| `currency` | `currency` | `string` | No | No | The ISO-4217 currency code. If not provided, we will default to the advertiser's currency set during account creation. Your campaign performance needs this field to report right ROAS/CPA. |
+| `external_measurement_id` | `external_measurement_id` | `string` | No | No | Only use when instructed. |
+| `external_measurement_vendor_id` | `external_measurement_vendor_id` | `number` | No | No | Only use when instructed. |
+| `np` | `np` | `string` | No | No | Named partner. Not required, this is for Pinterest internal use only. Please do not use this unless specifically guided. |
+| `num_items` | `num_items` | `number` | No | No | Total number of products of the event. For example, the total number of items purchased in a checkout event. We recommend using this if you are a merchant for AddToCart and Checkouts. For detail, please check [here](https://help.pinterest.com/en/business/article/before-you-get-started-with-catalogs) (Install the Pinterest tag section). |
+| `opt_out_type` | `opt_out_type` | `string` | No | No | Flags for different privacy rights laws to opt out users of sharing personal information. Separate values with commas. See the Help Center article about [limited data processing](https://help.pinterest.com/en/business/article/limited-data-processing) and the developer's guide for tracking conversion events for help with using this parameter. |
+| `order_id` | `order_id` | `string` | No | No | The order ID. We recommend sending order_id to help us deduplicate events when necessary. This also helps to run other measurement products at Pinterest. |
+| `predicted_ltv` | `predicted_ltv` | `string` | No | No | Predicted lifetime value of user associated with the event. Accepted as a string in the request; it will be parsed into a double. |
+| `search_string` | `search_string` | `string` | No | No | The search string related to the user conversion event. |
+| `value` | `value` | `string` | No | No | Total value of the event. Accepted as a string in the request; it will be parsed into a double. For example, if there are two items in a checkout event, the value should be the total price. We recommend to use pre-tax, pre-shipping final value. |
+
+## ConversionEventsDataItemsCustomDataContentsItems
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | The id of a product. We recommend using this if you are a merchant for AddToCart and Checkouts. For detail, please check [here](https://help.pinterest.com/en/business/article/before-you-get-started-with-catalogs) (Install the Pinterest tag section). |
+| `item_brand` | `item_brand` | `string` | No | No | The brand of a product. |
+| `item_brand_id` | `item_brand_id` | `string` | No | No | The brand ID of a product. |
+| `item_category` | `item_category` | `string` | No | No | The category of a product. |
+| `item_name` | `item_name` | `string` | No | No | The name of a product. |
+| `item_price` | `item_price` | `string` | No | No | The price of a product. Accepted as a string in the request; it will be parsed into a double. This is the original item value before any discount. We recommend using this if you are a merchant for PageVisit, AddToCart and Checkouts. For detail, please check [here](https://help.pinterest.com/en/business/article/before-you-get-started-with-catalogs) (Install the Pinterest tag section). |
+| `quantity` | `quantity` | `number` | No | No | The amount of a product. We recommend using this if you are a merchant for AddToCart and Checkouts. For detail, please check [here](https://help.pinterest.com/en/business/article/before-you-get-started-with-catalogs) (Install the Pinterest tag section). |
+
+## ConversionEventsUserDataProperties
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `click_id` | `click_id` | `string` | No | No | The unique identifier stored in _epik cookie on your domain or &epik= query parameter in the URL. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA. |
+| `client_ip_address` | `client_ip_address` | `string` | No | No | The user's IP address, which can be either in IPv4 or IPv6 format. Used for matching. We highly recommend this for all events. It may improve reporting performance such as ROAS/CPA. |
+| `client_user_agent` | `client_user_agent` | `string` | No | No | The user agent string of the user's web browser. We highly recommend this for all events. It may improve reporting performance such as ROAS/CPA. |
+| `country` | `country` | `Array<string>` | No | No | Sha256 hashes of two-character ISO-3166 country code indicating the user's country, in lowercase. The string should be in the UTF-8 format. |
+| `ct` | `ct` | `Array<string>` | No | No | Sha256 hashes of user's city, in lowercase, and without spaces or punctuation. User residency city (mostly billing). The string should be in the UTF-8 format. |
+| `db` | `db` | `Array<string>` | No | No | Sha256 hashes of user's date of birthday, given as year, month, and day. The string should be in the UTF-8 format. |
+| `em` | `em` | `Array<string>` | No | No | Sha256 hashes of lowercase version of user's email addresses. Used for matching. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA. The string should be in the UTF-8 format. |
+| `external_id` | `external_id` | `Array<string>` | No | No | Sha256 hashes of the unique id from the advertiser that identifies a user in their space, e.g. user id, loyalty id, etc. We highly recommend this on all events. It may improve reporting performance such as ROAS/CPA. The string should be in the UTF-8 format. |
+| `fn` | `fn` | `Array<string>` | No | No | Sha256 hashes of user's first name, in lowercase. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA. The string should be in the UTF-8 format. |
+| `ge` | `ge` | `Array<string>` | No | No | Sha256 hashes of user's gender, in lowercase. Either "f" or "m" or "n" for non-binary gender. The string should be in the UTF-8 format. |
+| `hashed_maids` | `hashed_maids` | `Array<string>` | No | No | Sha256 hashes of user's "Google Advertising IDs" (GAIDs) or "Apple's Identifier for Advertisers" (IDFAs). Used for matching. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA. The string should be in the UTF-8 format. |
+| `ln` | `ln` | `Array<string>` | No | No | Sha256 hashes of user's last name, in lowercase. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA. The string should be in the UTF-8 format. |
+| `partner_id` | `partner_id` | `string` | No | No | A unique identifier of visitors' information defined by third party partners. e.g RampID |
+| `ph` | `ph` | `Array<string>` | No | No | Sha256 hashes of user's phone numbers, only digits with country code, area code, and number. Remove any symbols, letters, spaces and leading zeros. We highly recommend this on checkout events at least. It may improve reporting performance such as ROAS/CPA. The string should be in the UTF-8 format. |
+| `st` | `st` | `Array<string>` | No | No | Sha256 hashes of user's state, given as a two-letter code in lowercase. User residency state (mostly billing). The string should be in the UTF-8 format. |
+| `zp` | `zp` | `Array<string>` | No | No | Sha256 hashes of user's zipcode, only digits. User residency zipcode (mostly billing). The string should be in the UTF-8 format. |
+
+## ConversionHealthSelectionItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversionType` | `conversionType` | `Inline6161` | No | No | Status for conversion types |
+| `criteria` | `criteria` | `Inline6162` | No | No | Status for criteria |
+| `ingestionSource` | `ingestionSource` | `Inline6163` | No | No | Status for ingestion sources |
+| `status` | `status` | `unknown` | Yes | No | Overall status for this selection item |
+
+## ConversionLearningModeType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## ConversionMSOTEvents
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## ConversionMSOTEventsCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action_timestamps` | `action_timestamps` | `Array<number>` | No | No | Timestamp(s) when the ad action(s) happened. Unix timestamp in seconds. |
+| `ad_group_id` | `ad_group_id` | `Inline6167` | Yes | No | The ID of the ad group that was attributed to the conversion event. |
+| `attribution_model` | `attribution_model` | `Inline6168` | No | No | The attribution model used to attribute the conversion event. |
+| `attribution_scope` | `attribution_scope` | `Inline6169` | No | No | Ad event type. |
+| `attribution_score` | `attribution_score` | `number` | No | No | Credit given to the attributed ad actions. Allowed values are &gt; 0 and &lt;= 1. |
+| `campaign_id` | `campaign_id` | `Inline6170` | No | No | The ID of the campaign that was attributed to the conversion event. |
+| `click_window` | `click_window` | `string` | No | No | Click window used for attribution (for example, `1d`, `7d`, `30d`, `lifetime`). |
+| `currency` | `currency` | `Inline6171` | No | No | Currency code for the `value` field, required if `value` is present. Currency Codes should be in ISO 4217 standard. |
+| `event_id` | `event_id` | `string` | Yes | No | A unique id string that identifies this event. If you are already sending us events through Conversions API, then this id should match the event_id sent through Conversions API. |
+| `event_name` | `event_name` | `Inline6172` | Yes | No | Type of user event. |
+| `event_timestamp` | `event_timestamp` | `number` | Yes | No | The time when the event occurred. Unix timestamp in seconds. |
+| `total_event_touchpoints` | `total_event_touchpoints` | `number` | No | No | Total number of ad events including other non-Pinterest ad platforms. |
+| `total_events` | `total_events` | `number` | No | No | Deprecated: use `total_events_fractional` instead to avoid rounding errors. Total number of conversion events that are reported in one API call. If you are sending one API request for one attributed conversion event then this value should be 1. If you are sending multiple attributed conversion events in one API request then this value should be the total number of attributed conversion events in the request. |
+| `total_events_fractional` | `total_events_fractional` | `number` | No | No | Total number of conversion events that are reported in one API call. Use this field instead of `total_events` to send precise fractional values. If you are sending one API request for one attributed conversion event with full credit, this value should be 1.0. For partial attribution, send the exact fractional value (e.g., 0.5 for half credit). |
+| `value` | `value` | `number` | No | No | Order value of the conversion event. Required if `event_name` is `add_to_cart` or `checkout`. |
+| `view_window` | `view_window` | `string` | No | No | View window used for attribution (for example, `1d`, `7d`, `30d`). |
+
+## ConversionObjectiveType
+
+`enum` model on the `json` wire format.
+
+**Values:** `AWARENESS`, `CONSIDERATION`, `WEB_CONVERSION`, `CATALOG_SALES`, `VIDEO_COMPLETION`, `APP_INSTALL`, `SALES`, `LEADS`, `CTV_CONSIDERATION`
+
+## ConversionProductAttributionType
+
+`enum` model on the `json` wire format.
+
+**Values:** `DEFAULT`, `BRAND_ATTRIBUTION`
+
+## ConversionProductReport
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message` | `message` | `string` | No | No | Message returned from the create report request |
+| `report_status` | `report_status` | `Inline6176` | No | No | Async report status |
+| `size` | `size` | `number` | No | No | Size of the report in bytes |
+| `token` | `token` | `string` | No | No | Token returned from the create report request |
+| `url` | `url` | `string` | No | No | URL of the report |
+
+## ConversionProductReportBreakdownType
+
+`enum` model on the `json` wire format.
+
+**Values:** `PRODUCT_BRAND`, `PRODUCT_CATEGORY`, `PRODUCT_BRAND_AND_CATEGORY`, `PRODUCT_SKU`, `PRODUCT_SKU_GROUP`
+
+## ConversionProductReportCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_ids` | `ad_group_ids` | `Array<unknown>` | No | No | List of ad group ids. Only support ad_group_ids field when level of the report is AD_GROUP. |
+| `campaign_ids` | `campaign_ids` | `Array<unknown>` | No | No | List of campaign ids. Only support campaign_ids field when level of the report is CAMPAIGN. |
+| `campaign_objective_types` | `campaign_objective_types` | `Array<string>` | No | No | List of values for filtering. Default is ['CONSIDERATION','AWARENESS','WEB_CONVERSION','VIDEO_COMPLETION']. |
+| `click_window_days` | `click_window_days` | `Inline6179` | No | No | Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. |
+| `columns` | `columns` | `Array<string>` | Yes | No | Metric and entity columns |
+| `conversion_product_attribution_type` | `conversion_product_attribution_type` | `Inline6180` | No | No | Required attribution type of the B/C/S report. When the attribution type is BRAND_ATTRIBUTION, start_date for the report must be after 2025-04-01. |
+| `conversion_product_breakdown` | `conversion_product_breakdown` | `Inline6181` | No | No | Report breakdown type. This is used to specify the breakdown of the report by brand, category, or SKU. |
+| `conversion_report_time` | `conversion_report_time` | `Inline6182` | No | No | The date by which the conversion metrics returned from this endpoint will be reported. There are two dates associated with a conversion event: the date that the user interacted with the ad, and the date that the user completed a conversion event. |
+| `end_date` | `end_date` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. A max of 1 year is allowed between the start and end date for reports. |
+| `granularity` | `granularity` | `Inline6183` | Yes | No | Report granularity for time-based metric aggregation |
+| `level` | `level` | `Inline6184` | Yes | No | Level of the report |
+| `product_sku_ids` | `product_sku_ids` | `Array<unknown>` | No | No | List of SKU ids. Only support product_sku_ids field when report breakdown type is PRODUCT_SKU_GROUP. |
+| `report_name` | `report_name` | `string` | Yes | No | Name of the conversion product report |
+| `start_date` | `start_date` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Start date must be after 2024-03-16. 7 day minimum time window for report is required. |
+| `view_window_days` | `view_window_days` | `Inline6185` | No | No | Number of days to use as the conversion attribution window for a view action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `1` day. |
+
+## ConversionProductReportGranularity
+
+`enum` model on the `json` wire format.
+
+**Values:** `TOTAL`, `WEEK`, `MONTH`
+
+## ConversionProductReportingColumn
+
+`enum` model on the `json` wire format.
+
+**Values:** `CAMPAIGN_NAME`, `CAMPAIGN_ID`, `ADVERTISER_ID`, `AD_GROUP_ID`, `CAMPAIGN_OBJECTIVE_TYPE`, `AD_GROUP_NAME`, `CONVERSION_PRODUCT_ID`, `CONVERSION_PRODUCT_BRAND`, `CONVERSION_PRODUCT_CATEGORY`, `CONVERSION_PRODUCT_ID_GROUP`, `TOTAL_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WEB_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_INAPP_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_OFFLINE_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_CONVERSION_PRODUCT_VALUE`, `TOTAL_WEB_CONVERSION_PRODUCT_VALUE`, `TOTAL_INAPP_CONVERSION_PRODUCT_VALUE`, `TOTAL_OFFLINE_CONVERSION_PRODUCT_VALUE`, `TOTAL_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WEB_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_INAPP_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_OFFLINE_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_CHECKOUT_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_CHECKOUT_CONVERSION_PRODUCT_VALUE`, `TOTAL_CHECKOUT_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WEB_CHECKOUT_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WEB_CHECKOUT_CONVERSION_PRODUCT_VALUE`, `TOTAL_WEB_CHECKOUT_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_INAPP_CHECKOUT_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_INAPP_CHECKOUT_CONVERSION_PRODUCT_VALUE`, `TOTAL_INAPP_CHECKOUT_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_OFFLINE_CHECKOUT_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_OFFLINE_CHECKOUT_CONVERSION_PRODUCT_VALUE`, `TOTAL_OFFLINE_CHECKOUT_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_ADD_TO_CART_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_ADD_TO_CART_CONVERSION_PRODUCT_VALUE`, `TOTAL_ADD_TO_CART_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WEB_ADD_TO_CART_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WEB_ADD_TO_CART_CONVERSION_PRODUCT_VALUE`, `TOTAL_WEB_ADD_TO_CART_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_INAPP_ADD_TO_CART_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_INAPP_ADD_TO_CART_CONVERSION_PRODUCT_VALUE`, `TOTAL_INAPP_ADD_TO_CART_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_PAGE_VISIT_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_PAGE_VISIT_CONVERSION_PRODUCT_VALUE`, `TOTAL_PAGE_VISIT_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WEB_PAGE_VISIT_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WEB_PAGE_VISIT_CONVERSION_PRODUCT_VALUE`, `TOTAL_WEB_PAGE_VISIT_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_SIGNUP_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_SIGNUP_CONVERSION_PRODUCT_VALUE`, `TOTAL_SIGNUP_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WEB_SIGNUP_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WEB_SIGNUP_CONVERSION_PRODUCT_VALUE`, `TOTAL_WEB_SIGNUP_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_INAPP_SIGNUP_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_INAPP_SIGNUP_CONVERSION_PRODUCT_VALUE`, `TOTAL_INAPP_SIGNUP_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_OFFLINE_SIGNUP_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_OFFLINE_SIGNUP_CONVERSION_PRODUCT_VALUE`, `TOTAL_OFFLINE_SIGNUP_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WATCH_VIDEO_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WATCH_VIDEO_CONVERSION_PRODUCT_VALUE`, `TOTAL_WATCH_VIDEO_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WEB_WATCH_VIDEO_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WEB_WATCH_VIDEO_CONVERSION_PRODUCT_VALUE`, `TOTAL_WEB_WATCH_VIDEO_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_LEAD_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_LEAD_CONVERSION_PRODUCT_VALUE`, `TOTAL_LEAD_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WEB_LEAD_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WEB_LEAD_CONVERSION_PRODUCT_VALUE`, `TOTAL_WEB_LEAD_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_OFFLINE_LEAD_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_OFFLINE_LEAD_CONVERSION_PRODUCT_VALUE`, `TOTAL_OFFLINE_LEAD_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_SEARCH_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_SEARCH_CONVERSION_PRODUCT_VALUE`, `TOTAL_SEARCH_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WEB_SEARCH_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WEB_SEARCH_CONVERSION_PRODUCT_VALUE`, `TOTAL_WEB_SEARCH_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_INAPP_SEARCH_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_INAPP_SEARCH_CONVERSION_PRODUCT_VALUE`, `TOTAL_INAPP_SEARCH_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_VIEW_CATEGORY_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_VIEW_CATEGORY_CONVERSION_PRODUCT_VALUE`, `TOTAL_VIEW_CATEGORY_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WEB_VIEW_CATEGORY_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WEB_VIEW_CATEGORY_CONVERSION_PRODUCT_VALUE`, `TOTAL_WEB_VIEW_CATEGORY_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_CUSTOM_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_CUSTOM_CONVERSION_PRODUCT_VALUE`, `TOTAL_CUSTOM_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WEB_CUSTOM_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WEB_CUSTOM_CONVERSION_PRODUCT_VALUE`, `TOTAL_WEB_CUSTOM_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_OFFLINE_CUSTOM_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_OFFLINE_CUSTOM_CONVERSION_PRODUCT_VALUE`, `TOTAL_OFFLINE_CUSTOM_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_UNKNOWN_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_UNKNOWN_CONVERSION_PRODUCT_VALUE`, `TOTAL_UNKNOWN_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WEB_UNKNOWN_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WEB_UNKNOWN_CONVERSION_PRODUCT_VALUE`, `TOTAL_WEB_UNKNOWN_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_INAPP_UNKNOWN_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_INAPP_UNKNOWN_CONVERSION_PRODUCT_VALUE`, `TOTAL_INAPP_UNKNOWN_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_OFFLINE_UNKNOWN_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_OFFLINE_UNKNOWN_CONVERSION_PRODUCT_VALUE`, `TOTAL_OFFLINE_UNKNOWN_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_ADD_PAYMENT_INFO_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_ADD_PAYMENT_INFO_CONVERSION_PRODUCT_VALUE`, `TOTAL_ADD_PAYMENT_INFO_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WEB_ADD_PAYMENT_INFO_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WEB_ADD_PAYMENT_INFO_CONVERSION_PRODUCT_VALUE`, `TOTAL_WEB_ADD_PAYMENT_INFO_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_INAPP_ADD_PAYMENT_INFO_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_INAPP_ADD_PAYMENT_INFO_CONVERSION_PRODUCT_VALUE`, `TOTAL_INAPP_ADD_PAYMENT_INFO_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_OFFLINE_ADD_PAYMENT_INFO_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_OFFLINE_ADD_PAYMENT_INFO_CONVERSION_PRODUCT_VALUE`, `TOTAL_OFFLINE_ADD_PAYMENT_INFO_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_ADD_TO_WISHLIST_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_ADD_TO_WISHLIST_CONVERSION_PRODUCT_VALUE`, `TOTAL_ADD_TO_WISHLIST_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WEB_ADD_TO_WISHLIST_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WEB_ADD_TO_WISHLIST_CONVERSION_PRODUCT_VALUE`, `TOTAL_WEB_ADD_TO_WISHLIST_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_INAPP_ADD_TO_WISHLIST_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_INAPP_ADD_TO_WISHLIST_CONVERSION_PRODUCT_VALUE`, `TOTAL_INAPP_ADD_TO_WISHLIST_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_OFFLINE_ADD_TO_WISHLIST_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_OFFLINE_ADD_TO_WISHLIST_CONVERSION_PRODUCT_VALUE`, `TOTAL_OFFLINE_ADD_TO_WISHLIST_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_INITIATE_CHECKOUT_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_INITIATE_CHECKOUT_CONVERSION_PRODUCT_VALUE`, `TOTAL_INITIATE_CHECKOUT_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WEB_INITIATE_CHECKOUT_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WEB_INITIATE_CHECKOUT_CONVERSION_PRODUCT_VALUE`, `TOTAL_WEB_INITIATE_CHECKOUT_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_INAPP_INITIATE_CHECKOUT_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_INAPP_INITIATE_CHECKOUT_CONVERSION_PRODUCT_VALUE`, `TOTAL_INAPP_INITIATE_CHECKOUT_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_OFFLINE_INITIATE_CHECKOUT_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_OFFLINE_INITIATE_CHECKOUT_CONVERSION_PRODUCT_VALUE`, `TOTAL_OFFLINE_INITIATE_CHECKOUT_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_SUBSCRIBE_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_SUBSCRIBE_CONVERSION_PRODUCT_VALUE`, `TOTAL_SUBSCRIBE_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WEB_SUBSCRIBE_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WEB_SUBSCRIBE_CONVERSION_PRODUCT_VALUE`, `TOTAL_WEB_SUBSCRIBE_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_INAPP_SUBSCRIBE_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_INAPP_SUBSCRIBE_CONVERSION_PRODUCT_VALUE`, `TOTAL_INAPP_SUBSCRIBE_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_OFFLINE_SUBSCRIBE_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_OFFLINE_SUBSCRIBE_CONVERSION_PRODUCT_VALUE`, `TOTAL_OFFLINE_SUBSCRIBE_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_VIEW_CONTENT_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_VIEW_CONTENT_CONVERSION_PRODUCT_VALUE`, `TOTAL_VIEW_CONTENT_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_WEB_VIEW_CONTENT_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_WEB_VIEW_CONTENT_CONVERSION_PRODUCT_VALUE`, `TOTAL_WEB_VIEW_CONTENT_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_INAPP_VIEW_CONTENT_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_INAPP_VIEW_CONTENT_CONVERSION_PRODUCT_VALUE`, `TOTAL_INAPP_VIEW_CONTENT_CONVERSION_PRODUCT_VALUE_IN_USD`, `TOTAL_OFFLINE_VIEW_CONTENT_CONVERSION_PRODUCT_QUANTITY`, `TOTAL_OFFLINE_VIEW_CONTENT_CONVERSION_PRODUCT_VALUE`, `TOTAL_OFFLINE_VIEW_CONTENT_CONVERSION_PRODUCT_VALUE_IN_USD`
+
+## ConversionProductReportLevel
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADVERTISER`, `CAMPAIGN`, `AD_GROUP`
+
+## ConversionReportAttributionType
+
+`enum` model on the `json` wire format.
+
+**Values:** `INDIVIDUAL`, `HOUSEHOLD`
+
+## ConversionReportTimeType
+
+`enum` model on the `json` wire format.
+
+**Values:** `TIME_OF_AD_ACTION`, `TIME_OF_CONVERSION`
+
+## ConversionTag
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | Yes | No | Ad account ID. |
+| `status` | `status` | `Inline6192` | No | No | — |
+| `code_snippet` | `code_snippet` | `string` | No | No | Tag code snippet. |
+| `configs` | `configs` | `Inline6193` | No | No | — |
+| `enhanced_match_status` | `enhanced_match_status` | `Inline6194` | No | No | The enhanced match status of the tag |
+| `id` | `id` | `string` | No | No | Tag ID. |
+| `last_fired_time_ms` | `last_fired_time_ms` | `number` | No | No | Time for the last event fired. |
+| `name` | `name` | `string` | No | No | Conversion tag name. |
+| `version` | `version` | `string` | No | No | Version number. |
+
+## ConversionTagCommon
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code_snippet` | `code_snippet` | `string` | No | No | Tag code snippet. |
+| `configs` | `configs` | `Inline6196` | No | No | — |
+| `enhanced_match_status` | `enhanced_match_status` | `Inline6197` | No | No | The enhanced match status of the tag |
+| `id` | `id` | `string` | No | No | Tag ID. |
+| `last_fired_time_ms` | `last_fired_time_ms` | `number` | No | No | Time for the last event fired. |
+| `name` | `name` | `string` | Yes | No | Conversion tag name. |
+| `version` | `version` | `string` | No | No | Version number. |
+
+## ConversionTagConfigs
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `aem_db_enabled` | `aem_db_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match birthdate is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_enabled` | `aem_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match email is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_external_id_enabled` | `aem_external_id_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match location is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_fnln_enabled` | `aem_fnln_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match name is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_ge_enabled` | `aem_ge_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match gender is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_loc_enabled` | `aem_loc_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match location is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_ph_enabled` | `aem_ph_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match phone is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `md_frequency` | `md_frequency` | `number` | No | No | Metadata ingestion frequency. |
+| `no_code_capi_domains` | `no_code_capi_domains` | `Array<string>` | No | No | List of advertiser subdomains configured for NoCodeCAPI calls. |
+
+## ConversionTagCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `aem_db_enabled` | `aem_db_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match birthdate is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_enabled` | `aem_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match email is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_external_id_enabled` | `aem_external_id_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match location is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_fnln_enabled` | `aem_fnln_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match name is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_ge_enabled` | `aem_ge_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match gender is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_loc_enabled` | `aem_loc_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match location is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_ph_enabled` | `aem_ph_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match phone is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `md_frequency` | `md_frequency` | `number` | No | No | Metadata ingestion frequency. |
+| `name` | `name` | `string` | Yes | No | Conversion tag name. |
+
+## ConversionTagResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Ad account ID. |
+| `status` | `status` | `Inline6201` | No | No | — |
+
+## ConversionTagsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `aem_db_enabled` | `aem_db_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match birthdate is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_enabled` | `aem_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match email is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_external_id_enabled` | `aem_external_id_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match location is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_fnln_enabled` | `aem_fnln_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match name is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_ge_enabled` | `aem_ge_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match gender is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_loc_enabled` | `aem_loc_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match location is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `aem_ph_enabled` | `aem_ph_enabled` | `boolean` | No | No | Whether Automatic Enhanced Match phone is enabled. See [Enhanced match](https://help.pinterest.com/en/business/article/enhanced-match) for more information. |
+| `md_frequency` | `md_frequency` | `number` | No | No | Metadata ingestion frequency. |
+| `name` | `name` | `string` | Yes | No | Conversion tag name. |
+
+## ConversionTagsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8725` | Yes | No | — |
+
+## ConversionTagsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `conversionTagId` | `conversionTagId` | `string` | Yes | No | Id of the conversion tag. |
+
+## ConversionTagsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8735` | Yes | No | — |
+
+## ConversionTagsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `filterDeleted` | `filterDeleted` | `boolean` | No | No | Filter by deleted status |
+
+## ConversionTagsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8730` | Yes | No | — |
+
+## ConversionTagsOcpmEligibleResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## ConversionTagType
+
+`enum` model on the `json` wire format.
+
+**Values:** `PAGE_LOAD`, `UNKNOWN`, `INITIALIZED`, `PAGE_VISIT`, `SIGNUP`, `CHECKOUT`, `CUSTOM`, `VIEW_CATEGORY`, `SEARCH`, `ADD_TO_CART`, `WATCH_VIDEO`, `LEAD`, `APP_INSTALL`, `WEB_SESSION`, `EXTERNAL_MEASUREMENT`, `ADD_PAYMENT_INFO`, `ADD_TO_WISHLIST`, `INITIATE_CHECKOUT`, `SUBSCRIBE`, `VIEW_CONTENT`, `ADVERTISER_DEFINED_EVENT`, `APP_OPEN`, `CONTACT`, `SCHEDULE`, `FIND_LOCATION`, `CUSTOMIZE_PRODUCT`, `SUBMIT_APPLICATION`, `START_TRIAL`
+
+## ConversionTagTypeOptimal
+
+`enum` model on the `json` wire format.
+
+**Values:** `PAGE_LOAD`, `UNKNOWN`, `INITIALIZED`, `PAGE_VISIT`, `SIGNUP`, `CHECKOUT`, `CUSTOM`, `VIEW_CATEGORY`, `SEARCH`, `ADD_TO_CART`, `WATCH_VIDEO`, `LEAD`, `APP_INSTALL`, `WEB_SESSION`, `EXTERNAL_MEASUREMENT`, `ADD_PAYMENT_INFO`, `ADD_TO_WISHLIST`, `INITIATE_CHECKOUT`, `SUBSCRIBE`, `VIEW_CONTENT`, `ADVERTISER_DEFINED_EVENT`, `APP_OPEN`, `CONTACT`, `SCHEDULE`, `FIND_LOCATION`, `CUSTOMIZE_PRODUCT`, `SUBMIT_APPLICATION`, `START_TRIAL`
+
+## ConversionTagV3GoalMetadata
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribution_windows` | `attribution_windows` | `Inline6206` | No | No | — |
+| `conversion_event` | `conversion_event` | `string` | No | No | — |
+| `conversion_tag_id` | `conversion_tag_id` | `string` | No | No | — |
+| `cpa_goal_value_in_micro_currency` | `cpa_goal_value_in_micro_currency` | `string` | No | No | — |
+| `is_roas_optimized` | `is_roas_optimized` | `boolean` | No | No | Pinterest Performance+ ROAS bidding. When enabled, Pinterest will optimize for conversion value instead of conversion volume. Only supported when `conversion_event` is set to `"CHECKOUT"` and `bid_strategy_type` is set to `"AUTOMATIC_BID"`. This parameter is not enabled for all advertisers. [Learn more](https://developers.pinterest.com/docs/getting-started/using-beta-and-restricted-features/). |
+| `reporting_event` | `reporting_event` | `string` | No | No | Event name for custom or standard events mapped to an oCPM model |
+
+## Country
+
+`enum` model on the `json` wire format.
+
+**Values:** `AD`, `AE`, `AF`, `AG`, `AI`, `AL`, `AM`, `AO`, `AQ`, `AR`, `AS`, `AT`, `AU`, `AW`, `AX`, `AZ`, `BA`, `BB`, `BD`, `BE`, `BF`, `BG`, `BH`, `BI`, `BJ`, `BL`, `BM`, `BN`, `BO`, `BQ`, `BR`, `BS`, `BT`, `BV`, `BW`, `BY`, `BZ`, `CA`, `CC`, `CD`, `CF`, `CG`, `CH`, `CI`, `CK`, `CL`, `CM`, `CN`, `CO`, `CR`, `CU`, `CV`, `CW`, `CX`, `CY`, `CZ`, `DE`, `DJ`, `DK`, `DM`, `DO`, `DZ`, `EC`, `EE`, `EG`, `EH`, `ER`, `ES`, `ET`, `FI`, `FJ`, `FK`, `FM`, `FO`, `FR`, `GA`, `GB`, `GD`, `GE`, `GF`, `GG`, `GH`, `GI`, `GL`, `GM`, `GN`, `GP`, `GQ`, `GR`, `GS`, `GT`, `GU`, `GW`, `GY`, `HK`, `HM`, `HN`, `HR`, `HT`, `HU`, `ID`, `IE`, `IL`, `IM`, `IN`, `IO`, `IQ`, `IR`, `IS`, `IT`, `JE`, `JM`, `JO`, `JP`, `KE`, `KG`, `KH`, `KI`, `KM`, `KN`, `KR`, `KW`, `KY`, `KZ`, `LA`, `LB`, `LC`, `LI`, `LK`, `LR`, `LS`, `LT`, `LU`, `LV`, `LY`, `MA`, `MC`, `MD`, `ME`, `MF`, `MG`, `MH`, `MK`, `ML`, `MM`, `MN`, `MO`, `MP`, `MQ`, `MR`, `MS`, `MT`, `MU`, `MV`, `MW`, `MX`, `MY`, `MZ`, `NA`, `NC`, `NE`, `NF`, `NG`, `NI`, `NL`, `NO`, `NP`, `NR`, `NU`, `NZ`, `OM`, `PA`, `PE`, `PF`, `PG`, `PH`, `PK`, `PL`, `PM`, `PN`, `PR`, `PS`, `PT`, `PW`, `PY`, `QA`, `RE`, `RO`, `RS`, `RU`, `RW`, `SA`, `SB`, `SC`, `SD`, `SE`, `SG`, `SH`, `SI`, `SJ`, `SK`, `SL`, `SM`, `SN`, `SO`, `SR`, `SS`, `ST`, `SV`, `SX`, `SY`, `SZ`, `TC`, `TD`, `TF`, `TG`, `TH`, `TJ`, `TK`, `TL`, `TM`, `TN`, `TO`, `TR`, `TT`, `TV`, `TW`, `TZ`, `UA`, `UG`, `UM`, `US`, `UY`, `UZ`, `VA`, `VC`, `VE`, `VG`, `VI`, `VN`, `VU`, `WF`, `WS`, `YE`, `YT`, `ZA`, `ZM`, `ZW`
+
+## CountryFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `COUNTRY` | `COUNTRY` | `Inline6209` | Yes | No | — |
+
+## CountryKeywordsMetricsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `countryCode` | `countryCode` | `string` | Yes | No | Two letter country code (ISO 3166-1 alpha-2) |
+| `keywords` | `keywords` | `Array<string>` | Yes | No | Comma-separated keywords |
+
+## CountryKeywordsMetricsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8836` | Yes | No | — |
+
+## CreateAssetAccessRequestBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_requests` | `asset_requests` | `Array<Inline6211>` | Yes | No | — |
+
+## CreateAssetAccessRequestItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id_to_permissions` | `asset_id_to_permissions` | `Inline6213` | Yes | No | An object mapping asset ids to lists of business permissions. This can be used to setting/requesting permissions on various assets. If accepting an invite or request, this object would be used to grant asset permissions to the member or partner. |
+| `partner_id` | `partner_id` | `string` | Yes | No | Unique identifier of a business partner to request asset access to. |
+
+## CreateAssetAccessRequestResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `exceptions` | `exceptions` | `Array<Inline6215>` | No | No | A list of errors associated with the asset access requests. Will be returned if there is an error. |
+| `invites` | `invites` | `Inline6216` | No | No | An object mapping each partner id to the asset access request id. Only one request id is returned per partner. |
+
+## CreateAssetInvitesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `invites` | `invites` | `Array<Inline9336>` | Yes | No | — |
+
+## CreateAssetInvitesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `invites` | `invites` | `Array<Inline6218>` | Yes | No | — |
+
+## CreateAssetInvitesRequestItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id_to_permissions` | `asset_id_to_permissions` | `Inline6220` | Yes | No | An object mapping asset ids to lists of business permissions. This can be used to setting/requesting permissions on various assets. If accepting an invite or request, this object would be used to grant asset permissions to the member or partner. |
+| `invite_id` | `invite_id` | `string` | Yes | No | Unique identifier of an invite. |
+| `invite_type` | `invite_type` | `string` | Yes | No | The type of invite. MEMBER_INVITE invites a member to access your business assets. PARTNER_INVITE invites a partner to access your business assets. PARTNER_REQUEST requests access to a partner's business assets. |
+
+## CreateAssetInvitesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9338` | Yes | No | — |
+
+## CreateInvitesResultsResponseArray
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline6222>` | No | No | List of invite/request creation status. If there is an error, an exception object will be returned. If the action was successfully completed, an invite object will be returned. |
+
+## CreateMembershipOrPartnershipInvitesBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_role` | `business_role` | `Inline6226` | Yes | No | — |
+| `invite_type` | `invite_type` | `string` | Yes | No | The type of invite. MEMBER_INVITE invites a member to access your business assets. PARTNER_INVITE invites a partner to access your business assets. PARTNER_REQUEST requests access to a partner's business assets. |
+| `members` | `members` | `Array<string>` | No | No | A list of usernames, emails, or a mix of them. Should be used if invite_type is MEMBER_INVITE |
+| `partners` | `partners` | `Array<string>` | No | No | A list of partner_id. Should be used if invite_type is PARTNER_INVITE or PARTNER_REQUEST |

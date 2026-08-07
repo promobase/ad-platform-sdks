@@ -1,0 +1,973 @@
+---
+title: "Pinterest models: Billing Invoices Get Params – Business Member Assets Summary"
+description: "100 generated Pinterest model contracts, from BillingInvoicesGetParams through BusinessMemberAssetsSummary."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1003
+  label: "Billing Invoices Get Params – Business Member Assets Summary"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## BillingInvoicesGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `order` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+| `sort` | `sort` | `string` | No | No | Field of which to sort billing invoices |
+| `status` | `status` | `string` | No | No | Status of billing invoices to filter by |
+| `documentType` | `documentType` | `string` | No | No | Document type of billing invoices to filter by |
+| `startDueDate` | `startDueDate` | `string` | No | No | Starting point for due dates when searching for invoices. Format: YYYY-MM-DD |
+| `endDueDate` | `endDueDate` | `string` | No | No | Ending point for due dates when searching for invoices. Format: YYYY-MM-DD |
+
+## BillingInvoicesGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7650` | Yes | No | — |
+
+## BillingInvoiceSortField
+
+`enum` model on the `json` wire format.
+
+**Values:** `DUE_DATE`, `BILLING_PERIOD`, `DOCUMENT_TYPE`, `TOTAL_AMOUNT`, `INVOICE_NUMBER`
+
+## BillingInvoiceStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `OPEN`, `CLOSED`
+
+## BillingProfileCardType
+
+`enum` model on the `json` wire format.
+
+**Values:** `UNKNOWN`, `VISA`, `MASTERCARD`, `AMERICAN_EXPRESS`, `DISCOVER`, `ELO`
+
+## BillingProfilePaymentMethodBrand
+
+`enum` model on the `json` wire format.
+
+**Values:** `UNKNOWN`, `VISA`, `MASTERCARD`, `AMERICAN_EXPRESS`, `DISCOVER`, `SOFORT`, `DINERS_CLUB`, `ELO`, `CARTE_BANCAIRE`
+
+## BillingProfilesGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `isActive` | `isActive` | `boolean` | Yes | No | Return active billing profiles, if false return all billing profiles. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## BillingProfilesGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7654` | Yes | No | — |
+
+## BillingProfilesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | Advertiser ID of the billing. |
+| `billing_type` | `billing_type` | `Inline597` | No | No | Billing type of the advertiser |
+| `card_type` | `card_type` | `Inline598` | No | No | Type of the card. |
+| `id` | `id` | `string` | No | No | Billing ID. |
+| `payment_method_brand` | `payment_method_brand` | `Inline599` | No | No | Brand of the payment method. |
+| `status` | `status` | `Inline600` | No | No | Status of the billing. |
+
+## BillingProfileStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `UNSPECIFIED`, `VALID`, `INVALID`, `PENDING`, `DELETED`, `SECONDARY`, `PENDING_SECONDARY`
+
+## BillingType
+
+`enum` model on the `json` wire format.
+
+**Values:** `CREDIT_CARD`, `INVOICE`, `INTERNAL`, `RECURRING`, `PREPAID`
+
+## Board
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `privacy` | `privacy` | `Inline604` | No | No | Privacy setting for a board. Learn more about [secret](https://help.pinterest.com/en/article/secret-boards) boards and [protected](https://help.pinterest.com/en/business/article/protected-boards) boards. **Note:** If you create an ad-only board by setting `is_ads_only` to `true`, the `privacy` settng automatically becomes `PROTECTED`. |
+| `board_pins_modified_at` | `board_pins_modified_at` | `string` | No | No | Date and time of last board pins modified. |
+| `collaborator_count` | `collaborator_count` | `number` | No | No | Count of collaborators on the board. |
+| `created_at` | `created_at` | `string` | No | No | Date and time of board creation. |
+| `description` | `description` | `string` | No | No | — |
+| `follower_count` | `follower_count` | `number` | No | No | Board follower count. |
+| `id` | `id` | `string` | No | No | — |
+| `is_ads_only` | `is_ads_only` | `boolean` | No | No | If set to `true`, the board will be ad-only and can store ad-only Pins. |
+| `media` | `media` | `Inline605` | No | No | Board media. |
+| `name` | `name` | `string` | No | No | Name of the board. **Note:** If you create an ad-only board by setting `is_ads_only` to `true`, the board name automatically becomes "Ad-only Pins". |
+| `owner` | `owner` | `Inline606` | No | No | — |
+| `pin_count` | `pin_count` | `number` | No | No | Count of Pins on the board. |
+
+## BoardBase
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `board_pins_modified_at` | `board_pins_modified_at` | `string` | No | No | Date and time of last board pins modified. |
+| `collaborator_count` | `collaborator_count` | `number` | No | No | Count of collaborators on the board. |
+| `created_at` | `created_at` | `string` | No | No | Date and time of board creation. |
+| `description` | `description` | `string` | No | No | — |
+| `follower_count` | `follower_count` | `number` | No | No | Board follower count. |
+| `id` | `id` | `string` | Yes | No | — |
+| `is_ads_only` | `is_ads_only` | `boolean` | No | No | If set to `true`, the board will be ad-only and can store ad-only Pins. |
+| `media` | `media` | `Inline608` | No | No | Board media. |
+| `name` | `name` | `string` | Yes | No | Name of the board. **Note:** If you create an ad-only board by setting `is_ads_only` to `true`, the board name automatically becomes "Ad-only Pins". |
+| `owner` | `owner` | `Inline609` | No | No | — |
+| `pin_count` | `pin_count` | `number` | No | No | Count of Pins on the board. |
+
+## BoardCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | — |
+| `is_ads_only` | `is_ads_only` | `boolean` | No | No | If set to `true`, the board will be ad-only and can store ad-only Pins. |
+| `name` | `name` | `string` | Yes | No | Name of the board. **Note:** If you create an ad-only board by setting `is_ads_only` to `true`, the board name automatically becomes "Ad-only Pins". |
+| `privacy` | `privacy` | `Inline611` | No | No | Privacy setting for a board. Learn more about [secret](https://help.pinterest.com/en/article/secret-boards) boards and [protected](https://help.pinterest.com/en/business/article/protected-boards) boards. **Note:** If you create an ad-only board by setting `is_ads_only` to `true`, the `privacy` settng automatically becomes `PROTECTED`. |
+
+## BoardMedia
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_cover_url` | `image_cover_url` | `string` | No | No | Board cover image |
+| `pin_thumbnail_urls` | `pin_thumbnail_urls` | `Array<string>` | No | No | Board pin thumbnail urls. |
+
+## BoardOwner
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `username` | `username` | `string` | No | No | — |
+
+## BoardPrivacy
+
+`enum` model on the `json` wire format.
+
+**Values:** `PUBLIC`, `PROTECTED`, `SECRET`
+
+## BoardPrivacyFilter
+
+`enum` model on the `json` wire format.
+
+**Values:** `ALL`, `PUBLIC`, `PROTECTED`, `SECRET`, `PUBLIC_AND_SECRET`
+
+## BoardsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `description` | `description` | `string` | No | No | — |
+| `is_ads_only` | `is_ads_only` | `boolean` | No | No | If set to `true`, the board will be ad-only and can store ad-only Pins. |
+| `name` | `name` | `string` | Yes | No | Name of the board. **Note:** If you create an ad-only board by setting `is_ads_only` to `true`, the board name automatically becomes "Ad-only Pins". |
+| `privacy` | `privacy` | `Inline9198` | No | No | Privacy setting for a board. Learn more about [secret](https://help.pinterest.com/en/article/secret-boards) boards and [protected](https://help.pinterest.com/en/business/article/protected-boards) boards. **Note:** If you create an ad-only board by setting `is_ads_only` to `true`, the `privacy` settng automatically becomes `PROTECTED`. |
+
+## BoardsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9200` | Yes | No | — |
+
+## BoardsDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `boardId` | `string` | Yes | No | — |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+
+## BoardsDeleteResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9216` | Yes | No | — |
+
+## BoardSection
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+
+## BoardSectionCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+
+## BoardSectionsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `boardId` | `string` | Yes | No | Unique identifier of a board. |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+
+## BoardSectionsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9235` | Yes | No | — |
+
+## BoardSectionsDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `boardId` | `string` | Yes | No | Unique identifier of a board. |
+| `sectionId` | `sectionId` | `string` | Yes | No | Unique identifier of a board section. |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+
+## BoardSectionsDeleteResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9238` | Yes | No | — |
+
+## BoardSectionsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `boardId` | `string` | Yes | No | Unique identifier of a board. |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## BoardSectionsListPinsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `boardId` | `string` | Yes | No | Unique identifier of a board. |
+| `sectionId` | `sectionId` | `string` | Yes | No | Unique identifier of a board section. |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## BoardSectionsListPinsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9244` | Yes | No | — |
+
+## BoardSectionsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9232` | Yes | No | — |
+
+## BoardSectionsUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `boardId` | `string` | Yes | No | Unique identifier of a board. |
+| `sectionId` | `sectionId` | `string` | Yes | No | Unique identifier of a board section. |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+
+## BoardSectionsUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9241` | Yes | No | — |
+
+## BoardSectionUpdateWithRequiredBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+
+## BoardsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `boardId` | `string` | Yes | No | — |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+
+## BoardsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9211` | Yes | No | — |
+
+## BoardsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `privacy` | `privacy` | `string` | No | No | The privacy level of the board |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## BoardsListPinsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `boardId` | `string` | Yes | No | Unique identifier of a board. |
+| `creativeTypes` | `creativeTypes` | `Array<string>` | No | No | Pin creative types filter. **Note:** SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `pinMetrics` | `pinMetrics` | `boolean` | No | No | Specify whether to return 90d and lifetime Pin metrics. Total comments and total reactions are only available with lifetime Pin metrics. If Pin was created before `2023-03-20` lifetime metrics will only be available for Video and Idea Pin formats. Lifetime metrics are available for all Pin formats since then. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## BoardsListPinsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9225` | Yes | No | — |
+
+## BoardsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9206` | Yes | No | — |
+
+## BoardsUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `boardId` | `string` | Yes | No | — |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `description` | `description` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | Name of the board. **Note:** If you create an ad-only board by setting `is_ads_only` to `true`, the board name automatically becomes "Ad-only Pins". |
+| `privacy` | `privacy` | `string` | No | No | — |
+
+## BoardsUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9221` | Yes | No | — |
+
+## BoardsUserFollowsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `explicitFollowing` | `explicitFollowing` | `boolean` | No | No | Whether or not to include implicit user follows, which means followees with board follows. When explicit_following is True, it means we only want explicit user follows. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## BoardsUserFollowsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11581` | Yes | No | — |
+
+## BoardUpdatePrivacy
+
+`enum` model on the `json` wire format.
+
+**Values:** `PUBLIC`, `SECRET`
+
+## BoardWithUpdatePrivacy
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `privacy` | `privacy` | `string` | No | No | — |
+| `board_pins_modified_at` | `board_pins_modified_at` | `string` | No | No | Date and time of last board pins modified. |
+| `collaborator_count` | `collaborator_count` | `number` | No | No | Count of collaborators on the board. |
+| `created_at` | `created_at` | `string` | No | No | Date and time of board creation. |
+| `description` | `description` | `string` | No | No | — |
+| `follower_count` | `follower_count` | `number` | No | No | Board follower count. |
+| `id` | `id` | `string` | No | No | — |
+| `is_ads_only` | `is_ads_only` | `boolean` | No | No | If set to `true`, the board will be ad-only and can store ad-only Pins. |
+| `media` | `media` | `Inline621` | No | No | Board media. |
+| `name` | `name` | `string` | No | No | Name of the board. **Note:** If you create an ad-only board by setting `is_ads_only` to `true`, the board name automatically becomes "Ad-only Pins". |
+| `owner` | `owner` | `Inline622` | No | No | — |
+| `pin_count` | `pin_count` | `number` | No | No | Count of Pins on the board. |
+
+## BoardWithUpdatePrivacyUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | Name of the board. **Note:** If you create an ad-only board by setting `is_ads_only` to `true`, the board name automatically becomes "Ad-only Pins". |
+| `privacy` | `privacy` | `string` | No | No | — |
+
+## BookClosed
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversion_metrics_ready` | `conversion_metrics_ready` | `boolean` | Yes | No | Are conversion metrics ready? |
+| `non_conversion_metrics_ready` | `non_conversion_metrics_ready` | `boolean` | Yes | No | Are non-conversion metrics ready? |
+
+## BrandAccount
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brand_account_id` | `brand_account_id` | `string` | Yes | No | — |
+
+## BrandAccountCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `about` | `about` | `string` | No | No | Brand Account about information |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `name` | `name` | `string` | Yes | No | Brand Account name |
+| `profile_image` | `profile_image` | `Inline627` | No | No | Base64-encoded image media source |
+| `username` | `username` | `string` | Yes | No | Brand Account username |
+| `website` | `website` | `string` | No | No | Brand Account website |
+
+## BrandAccountProfileImage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `content_type` | `content_type` | `string` | Yes | No | — |
+| `data` | `data` | `string` | Yes | No | — |
+
+## BrandAccountProfileImageUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `content_type` | `content_type` | `string` | No | No | — |
+| `data` | `data` | `string` | No | No | — |
+
+## BrandAccountsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessHierarchyId` | `businessHierarchyId` | `string` | Yes | No | business hierarchy node id |
+| `about` | `about` | `string` | No | No | Brand Account about information |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `name` | `name` | `string` | Yes | No | Brand Account name |
+| `profile_image` | `profile_image` | `Inline9250` | No | No | Base64-encoded image media source |
+| `username` | `username` | `string` | Yes | No | Brand Account username |
+| `website` | `website` | `string` | No | No | Brand Account website |
+
+## BrandAccountsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9252` | Yes | No | — |
+
+## BrandAccountsUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brandAccountId` | `brandAccountId` | `string` | Yes | No | — |
+| `businessHierarchyId` | `businessHierarchyId` | `string` | Yes | No | business hierarchy node id |
+| `about` | `about` | `string` | No | No | Brand Account about information |
+| `country` | `country` | `string` | No | No | Country ID from ISO 3166-1 alpha-2. |
+| `name` | `name` | `string` | No | No | Brand Account name |
+| `profile_image` | `profile_image` | `Inline9255` | No | No | Base64-encoded image media source |
+| `username` | `username` | `string` | No | No | Brand Account username |
+| `website` | `website` | `string` | No | No | Brand Account website |
+
+## BrandAccountsUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9257` | Yes | No | — |
+
+## BrandAccountUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `about` | `about` | `string` | No | No | Brand Account about information |
+| `country` | `country` | `string` | No | No | Country ID from ISO 3166-1 alpha-2. |
+| `name` | `name` | `string` | No | No | Brand Account name |
+| `profile_image` | `profile_image` | `Inline631` | No | No | Base64-encoded image media source |
+| `username` | `username` | `string` | No | No | Brand Account username |
+| `website` | `website` | `string` | No | No | Brand Account website |
+
+## BrandFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `BRAND` | `BRAND` | `Inline633` | Yes | No | — |
+
+## BudgetDurationType
+
+`enum` model on the `json` wire format.
+
+**Values:** `FIXED_DAILY`, `FLEXIBLE_DAILY`, `LIFETIME`
+
+## BudgetType
+
+`enum` model on the `json` wire format.
+
+**Values:** `DAILY`, `LIFETIME`, `CBO_ADGROUP`
+
+## BulkCampaignDeliveryEstimatesItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adgroup_audience_sizes` | `adgroup_audience_sizes` | `Array<Inline637>` | No | No | Range audience sizes for each ad group, in the same order as the ad groups in the request. |
+| `conversion_rate` | `conversion_rate` | `number` | No | No | Conversion rate estimate. Used to translate impressions into conversions for oCPM ads, adapted based on the input conversion event and attribution windows. |
+| `conversion_rates` | `conversion_rates` | `Array<Inline638>` | No | No | Conversion rate estimates. Used to translate impressions into conversions for oCPM ads based on different conversion event and attribution windows settings. |
+| `curves` | `curves` | `Array<Inline641>` | No | No | Estimated curves. Each curve will pertain to a single estimation type. |
+| `derived_metrics` | `derived_metrics` | `Inline643` | No | No | Derived metrics for an ad campaign. |
+| `errors` | `errors` | `Array<Inline644>` | No | No | Errors encountered during estimation for this campaign. |
+| `estimate_id` | `estimate_id` | `string` | No | No | UUID used to track delivery estimates when they are generated as part of a saved campaign. |
+| `max_potential_spend` | `max_potential_spend` | `number` | No | No | Maximum potential spend estimate. |
+
+## BulkCampaignDeliveryEstimatesRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline646>`
+
+## BulkCampaignDeliveryEstimatesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline654>` | Yes | No | Per-campaign delivery estimate results, in the same order as the request. |
+
+## BulkDownload
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request_id` | `request_id` | `string` | No | No | ID of the bulk request. |
+
+## BulkDownloadCampaignFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_status` | `campaign_status` | `Array<string>` | No | No | — |
+| `end_time` | `end_time` | `string` | No | No | Unix UTC timestamp. |
+| `name` | `name` | `string` | No | No | Campaign name |
+| `objective_type` | `objective_type` | `Array<string>` | No | No | — |
+| `start_time` | `start_time` | `string` | No | No | Unix UTC timestamp. |
+
+## BulkDownloadCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_filter` | `campaign_filter` | `Inline665` | No | No | — |
+| `entity_ids` | `entity_ids` | `Array<string>` | No | No | All entities specified by these IDs as well as their children and grandchildren will be downloaded if the entity type is one of the types requested to be downloaded. |
+| `entity_types` | `entity_types` | `Array<string>` | No | No | All entity types specified will be downloaded. Fewer types result in faster downloads. |
+| `output_format` | `output_format` | `Inline666` | No | No | — |
+| `updated_since` | `updated_since` | `string` | No | No | Unix UTC timestamp to retrieve all entities that have changed since this time. |
+
+## BulkDownloadCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `campaign_filter` | `campaign_filter` | `Inline7662` | No | No | — |
+| `entity_ids` | `entity_ids` | `Array<string>` | No | No | All entities specified by these IDs as well as their children and grandchildren will be downloaded if the entity type is one of the types requested to be downloaded. |
+| `entity_types` | `entity_types` | `Array<string>` | No | No | All entity types specified will be downloaded. Fewer types result in faster downloads. |
+| `output_format` | `output_format` | `Inline7663` | No | No | — |
+| `updated_since` | `updated_since` | `string` | No | No | Unix UTC timestamp to retrieve all entities that have changed since this time. |
+
+## BulkDownloadCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7665` | Yes | No | — |
+
+## BulkDownloadEntityIdsItems
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## BulkEntityType
+
+`enum` model on the `json` wire format.
+
+**Values:** `CAMPAIGN`, `AD_GROUP`, `PRODUCT_GROUP`, `AD`, `KEYWORD`, `LABEL`, `SCHEDULE`, `ENTITY_HISTORY`
+
+## BulkJobData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `result_url` | `result_url` | `string` | No | No | Presigned s3 file url for the bulk request result. |
+| `status` | `status` | `string` | Yes | No | Bulk request status |
+| `workload_id` | `workload_id` | `number` | No | No | Bulk Workload Id. |
+
+## BulkOutputFormat
+
+`enum` model on the `json` wire format.
+
+**Values:** `CSV`, `JSON`
+
+## BulkReportingJobStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `DOES_NOT_EXIST`, `FINISHED`, `IN_PROGRESS`, `EXPIRED`, `FAILED`, `CANCELLED`
+
+## BulkRequestGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bulkRequestId` | `bulkRequestId` | `string` | Yes | No | Bulk request ID that is from one of the entities bulk endpoints |
+| `includeDetails` | `includeDetails` | `boolean` | No | No | If set to True then attach the errors/details to all the requests |
+
+## BulkRequestGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7660` | Yes | No | — |
+
+## BulkRequestStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `RUNNING`, `SUCCEEDED`, `FAILED`
+
+## BulkUpsertCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `create` | `create` | `Inline7669` | No | No | Request for creation of entities in bulk. |
+| `update` | `update` | `Inline7897` | No | No | Request for creation of entities in bulk. |
+
+## BulkUpsertCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8132` | Yes | No | — |
+
+## BulkUpsertRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `create` | `create` | `Inline674` | No | No | Request for creation of entities in bulk. |
+| `update` | `update` | `Inline902` | No | No | Request for creation of entities in bulk. |
+
+## BulkUpsertRequestCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_groups` | `ad_groups` | `Array<Inline1137>` | No | No | — |
+| `ads` | `ads` | `Array<Inline1146>` | No | No | — |
+| `campaigns` | `campaigns` | `Array<Inline1150>` | No | No | — |
+| `catalog_product_groups` | `catalog_product_groups` | `Array<Inline1162 \| Inline1232 \| Inline1303 \| Inline1324>` | No | No | — |
+| `keywords` | `keywords` | `Array<Inline1357>` | No | No | — |
+| `labels` | `labels` | `Array<Inline1358>` | No | No | — |
+| `product_groups` | `product_groups` | `Array<Inline1359>` | No | No | — |
+| `schedules` | `schedules` | `Array<Inline1360>` | No | No | — |
+
+## BulkUpsertRequestCreateCatalogProductGroupsItems
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline1366 \| Inline1436 \| Inline1507 \| Inline1528`
+
+## BulkUpsertRequestUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_groups` | `ad_groups` | `Array<Inline1562>` | No | No | — |
+| `ads` | `ads` | `Array<Inline1583>` | No | No | — |
+| `campaigns` | `campaigns` | `Array<Inline1587>` | No | No | — |
+| `catalog_product_groups` | `catalog_product_groups` | `Array<Inline1596 \| Inline1666 \| Inline1736 \| Inline1756>` | No | No | — |
+| `keywords` | `keywords` | `Array<Inline1788>` | No | No | — |
+| `labels` | `labels` | `Array<Inline1789>` | No | No | — |
+| `product_groups` | `product_groups` | `Array<Inline1790>` | No | No | — |
+| `schedules` | `schedules` | `Array<Inline1791>` | No | No | — |
+
+## BulkUpsertRequestUpdateCatalogProductGroupsItems
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline1797 \| Inline1867 \| Inline1937 \| Inline1957`
+
+## BulkUpsertResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request_id` | `request_id` | `string` | No | No | — |
+
+## BusinessAccessRole
+
+`enum` model on the `json` wire format.
+
+**Values:** `OWNER`, `ADMIN`, `ANALYST`, `SOS_READER`, `FINANCE_MANAGER`, `FINANCE_VIEW`, `FINANCE_EDIT`, `AUDIENCE_MANAGER`, `CAMPAIGN_MANAGER`, `CATALOGS_MANAGER`, `RESTRICTED_OWNER`, `PROFILE_MANAGER`, `PROFILE_PUBLISHER`, `RESOURCE_PINNER_LIST_OWNER`, `RESOURCE_PINNER_LIST_READER`, `BIZ_PINNER_LIST_SHARER`, `RESOURCE_CONVERSION_TAGS_READER`
+
+## BusinessAccessUserSummary
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `email` | `string` | No | No | Email of the business member/partner. |
+| `id` | `id` | `string` | No | No | Unique identifier of the business member/partner. |
+| `username` | `username` | `string` | No | No | Username of the business member/partner. |
+
+## BusinessAccountAudiencesSharedAccountsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `audienceId` | `audienceId` | `string` | Yes | No | Unique identifier of the audience to use to filter the results. |
+| `accountType` | `accountType` | `string` | Yes | No | Filter accounts by account type. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## BusinessAccountAudiencesSharedAccountsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9314` | Yes | No | — |
+
+## BusinessAssetMembersGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `assetId` | `assetId` | `string` | Yes | No | Unique identifier of a business asset. |
+| `startIndex` | `startIndex` | `number` | No | No | An index to start fetching the results from. Only the results starting from this index will be returned. |
+| `fetchSystemUsers` | `fetchSystemUsers` | `boolean` | No | No | Fetches system users if True. Fetches regular user employees if False. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## BusinessAssetMembersGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9290` | Yes | No | — |
+
+## BusinessAssetPartnersGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `assetId` | `assetId` | `string` | Yes | No | Unique identifier of a business asset. |
+| `startIndex` | `startIndex` | `number` | No | No | An index to start fetching the results from. Only the results starting from this index will be returned. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## BusinessAssetPartnersGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9293` | Yes | No | — |
+
+## BusinessAssets
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_info` | `catalog_info` | `Inline1993` | No | No | An object containing all the information specific to the provided catalog. This field will be populated only if asset_type equals 'CATALOG'. |
+| `asset_group_info` | `asset_group_info` | `Inline1994` | No | No | An object containing all the information specific to the provided asset group. This field will be populated only if asset_type equals 'ASSET_GROUP'. |
+| `asset_id` | `asset_id` | `string` | No | No | Unique identifier of a business asset. |
+| `asset_type` | `asset_type` | `string` | No | No | Type of asset. Currently we only support AD_ACCOUNT, PROFILE, ASSET_GROUP and CATALOG. |
+| `permissions` | `permissions` | `Array<string>` | No | No | Permission levels the requesting business has on an asset. |
+
+## BusinessAssetsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `permissions` | `permissions` | `Array<string>` | No | No | A list of asset permissions used to filter the assets. Only assets where the requesting business has at least one of the specified permissions will be returned. |
+| `childAssetId` | `childAssetId` | `string` | No | No | A child asset unique identifier. Used to fetch asset groups that contain the asset id as a child. |
+| `assetGroupId` | `assetGroupId` | `string` | No | No | An asset group unique identifier. Used to fetch assets contained within the specified asset group. |
+| `assetType` | `assetType` | `string` | No | No | A resource type to filter the assets by. Only assets of the specified type will be returned. |
+| `startIndex` | `startIndex` | `number` | No | No | An index to start fetching the results from. Only the results starting from this index will be returned. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## BusinessAssetsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9285` | Yes | No | — |
+
+## BusinessInviteOrPartnerId
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## BusinessMemberAssetsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `memberId` | `memberId` | `string` | Yes | No | The member id to fetch assets for. |
+| `assetType` | `assetType` | `string` | No | No | A resource type to filter the assets by. Only assets of the specified type will be returned. |
+| `startIndex` | `startIndex` | `number` | No | No | An index to start fetching the results from. Only the results starting from this index will be returned. |
+| `sortBy` | `sortBy` | `string` | No | No | The field to sort member assets by |
+| `sortAscending` | `sortAscending` | `boolean` | No | No | Sort assets in ascending order |
+| `searchBy` | `searchBy` | `string` | No | No | The field to search member assets by |
+| `searchValue` | `searchValue` | `string` | No | No | The value to search for |
+| `assetPermissionType` | `assetPermissionType` | `string` | No | No | The type of asset permission to filter by |
+| `adAccountStatuses` | `adAccountStatuses` | `Array<string>` | No | No | A list of ad account statuses to filter the assets by. Only used when asset_type is AD_ACCOUNT. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## BusinessMemberAssetsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | — |
+| `items` | `items` | `Array<Inline1998>` | Yes | No | — |
+| `total_data_count` | `total_data_count` | `number` | Yes | No | Total number of assets matching the query |
+| `total_data_count_by_status` | `total_data_count_by_status` | `Inline2000` | No | No | Breakdown of asset counts by entity status (ad accounts only) |
+
+## BusinessMemberAssetsSummary
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_accounts` | `ad_accounts` | `Array<Inline2002>` | No | No | List of ad account IDs and respective permission levels. |
+| `profiles` | `profiles` | `Array<Inline2003>` | No | No | List of profile IDs and respective permission levels. |

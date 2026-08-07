@@ -1,0 +1,97 @@
+---
+title: "Pinterest Oauth endpoints"
+description: "3 generated Pinterest endpoint contracts for Oauth."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 137
+  label: "Oauth"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.oauth.oauthConversionToken
+
+`POST` `/oauth/conversion_token`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (oauth/conversion_token)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.oauth.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `OauthConversionTokenResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.oauth.oauthToken
+
+`POST` `/oauth/token`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (oauth/token)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.oauth.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `OauthTokenResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.oauth.tokenRevoke
+
+`POST` `/oauth/token/revoke`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (token/revoke)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.oauth.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `TokenRevokeResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

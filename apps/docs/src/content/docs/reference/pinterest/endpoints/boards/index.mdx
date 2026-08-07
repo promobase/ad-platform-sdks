@@ -1,0 +1,421 @@
+---
+title: "Pinterest Boards endpoints"
+description: "11 generated Pinterest endpoint contracts for Boards."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 108
+  label: "Boards"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.boards.boardsCreate
+
+`POST` `/boards`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (boards/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.boards.manage` |
+| Required scopes | `boards:read`<br />`boards:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BoardsCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `description` | `body` | `string` | No | No | — |
+| `is_ads_only` | `body` | `boolean` | No | No | If set to `true`, the board will be ad-only and can store ad-only Pins. |
+| `name` | `body` | `string` | Yes | No | Name of the board. **Note:** If you create an ad-only board by setting `is_ads_only` to `true`, the board name automatically becomes "Ad-only Pins". |
+| `privacy` | `body` | `Inline9204` | No | No | Privacy setting for a board. Learn more about [secret](https://help.pinterest.com/en/article/secret-boards) boards and [protected](https://help.pinterest.com/en/business/article/protected-boards) boards. **Note:** If you create an ad-only board by setting `is_ads_only` to `true`, the `privacy` settng automatically becomes `PROTECTED`. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.boards.boardsDelete
+
+`DELETE` `/boards/{board_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (boards/delete)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.boards.manage` |
+| Required scopes | `boards:read`<br />`boards:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BoardsDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `path` | `string` | Yes | No | — |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.boards.boardSectionsCreate
+
+`POST` `/boards/{board_id}/sections`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (board_sections/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.boards.manage` |
+| Required scopes | `boards:read`<br />`boards:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BoardSectionsCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `path` | `string` | Yes | No | Unique identifier of a board. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `id` | `body` | `string` | No | No | — |
+| `name` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.boards.boardSectionsDelete
+
+`DELETE` `/boards/{board_id}/sections/{section_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (board_sections/delete)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.boards.manage` |
+| Required scopes | `boards:read`<br />`boards:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BoardSectionsDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `path` | `string` | Yes | No | Unique identifier of a board. |
+| `sectionId` | `path` | `string` | Yes | No | Unique identifier of a board section. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.boards.boardSectionsList
+
+`GET` `/boards/{board_id}/sections`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (board_sections/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.boards.read` |
+| Required scopes | `boards:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BoardSectionsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `path` | `string` | Yes | No | Unique identifier of a board. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.boards.boardSectionsListPins
+
+`GET` `/boards/{board_id}/sections/{section_id}/pins`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (board_sections/list_pins)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.boards.read` |
+| Required scopes | `boards:read`<br />`pins:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BoardSectionsListPinsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `path` | `string` | Yes | No | Unique identifier of a board. |
+| `sectionId` | `path` | `string` | Yes | No | Unique identifier of a board section. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.boards.boardSectionsUpdate
+
+`PATCH` `/boards/{board_id}/sections/{section_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (board_sections/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.boards.manage` |
+| Required scopes | `boards:read`<br />`boards:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BoardSectionsUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `path` | `string` | Yes | No | Unique identifier of a board. |
+| `sectionId` | `path` | `string` | Yes | No | Unique identifier of a board section. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `id` | `body` | `string` | No | No | — |
+| `name` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.boards.boardsGet
+
+`GET` `/boards/{board_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (boards/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.boards.read` |
+| Required scopes | `boards:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BoardsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `path` | `string` | Yes | No | — |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.boards.boardsList
+
+`GET` `/boards`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (boards/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.boards.read` |
+| Required scopes | `boards:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BoardsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `privacy` | `query` | `string` | No | No | The privacy level of the board |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.boards.boardsListPins
+
+`GET` `/boards/{board_id}/pins`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (boards/list_pins)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.boards.read` |
+| Required scopes | `boards:read`<br />`pins:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BoardsListPinsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `path` | `string` | Yes | No | Unique identifier of a board. |
+| `creativeTypes` | `query` | `Array<string>` | No | No | Pin creative types filter. **Note:** SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `pinMetrics` | `query` | `boolean` | No | No | Specify whether to return 90d and lifetime Pin metrics. Total comments and total reactions are only available with lifetime Pin metrics. If Pin was created before `2023-03-20` lifetime metrics will only be available for Video and Idea Pin formats. Lifetime metrics are available for all Pin formats since then. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.boards.boardsUpdate
+
+`PATCH` `/boards/{board_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (boards/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.boards.manage` |
+| Required scopes | `boards:read`<br />`boards:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BoardsUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boardId` | `path` | `string` | Yes | No | — |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `description` | `body` | `string` | No | No | — |
+| `name` | `body` | `string` | No | No | Name of the board. **Note:** If you create an ad-only board by setting `is_ads_only` to `true`, the board name automatically becomes "Ad-only Pins". |
+| `privacy` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

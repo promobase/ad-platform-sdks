@@ -1,0 +1,447 @@
+---
+title: "Pinterest Billing endpoints"
+description: "11 generated Pinterest endpoint contracts for Billing."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 107
+  label: "Billing"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.billing.adsCreditRedeem
+
+`POST` `/ad_accounts/{ad_account_id}/ads_credit/redeem`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ads_credit/redeem)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.billing.manage` |
+| Required scopes | `ads:write`<br />`billing:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AdsCreditRedeemResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `offerCodeHash` | `body` | `string` | Yes | No | Takes in a SHA256 hash of the offerCode. |
+| `validateOnly` | `body` | `boolean` | Yes | No | If true, only validate if we can redeem offer code. Otherwise it will actually apply the offer code to the account |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.billing.adsCreditsDiscountsGet
+
+`GET` `/ad_accounts/{ad_account_id}/ads_credit/discounts`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ads_credits_discounts/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.billing.read` |
+| Required scopes | `ads:read`<br />`billing:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AdsCreditsDiscountsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.billing.billingInvoiceDownloadGet
+
+`GET` `/ad_accounts/{ad_account_id}/billing_invoice/{billing_invoice_id}/download`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (billing_invoice_download/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.billing.read` |
+| Required scopes | `ads:read`<br />`billing:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BillingInvoiceDownloadGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `billingInvoiceId` | `path` | `string` | Yes | No | Unique identifier of a billing invoice. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.billing.billingInvoicesGet
+
+`GET` `/ad_accounts/{ad_account_id}/billing_invoices`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (billing_invoices/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.billing.read` |
+| Required scopes | `ads:read`<br />`billing:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BillingInvoicesGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `query` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+| `sort` | `query` | `string` | No | No | Field of which to sort billing invoices |
+| `status` | `query` | `string` | No | No | Status of billing invoices to filter by |
+| `documentType` | `query` | `string` | No | No | Document type of billing invoices to filter by |
+| `startDueDate` | `query` | `string` | No | No | Starting point for due dates when searching for invoices. Format: YYYY-MM-DD |
+| `endDueDate` | `query` | `string` | No | No | Ending point for due dates when searching for invoices. Format: YYYY-MM-DD |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.billing.billingProfilesGet
+
+`GET` `/ad_accounts/{ad_account_id}/billing_profiles`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (billing_profiles/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.billing.read` |
+| Required scopes | `ads:read`<br />`billing:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BillingProfilesGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `isActive` | `query` | `boolean` | Yes | No | Return active billing profiles, if false return all billing profiles. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.billing.ssioAccountsGet
+
+`GET` `/ad_accounts/{ad_account_id}/ssio/accounts`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ssio_accounts/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.billing.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `SsioAccountsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.billing.ssioInsertionOrderCreate
+
+`POST` `/ad_accounts/{ad_account_id}/ssio/insertion_orders`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ssio_insertion_order/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.billing.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `SsioInsertionOrderCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `accepted_terms_id` | `body` | `string` | Yes | No | The SFDC id for the terms |
+| `accepted_terms_time` | `body` | `number` | No | No | The UTC timestamp (to the nearest sec) of when terms were accepted |
+| `agency_link` | `body` | `string` | No | No | URL link for agency |
+| `billing_contact_email` | `body` | `string` | Yes | No | The billing contact email |
+| `billing_contact_firstname` | `body` | `string` | Yes | No | The billing contact first name |
+| `billing_contact_lastname` | `body` | `string` | Yes | No | The billing contact last name |
+| `billto_billing_address_id` | `body` | `string` | Yes | No | The bill-to billing address id |
+| `billto_business_address_id` | `body` | `string` | Yes | No | The bill-to business address id |
+| `billto_company_id` | `body` | `string` | Yes | No | The bill-to company id |
+| `budget_amount` | `body` | `number` | No | No | If Budget order line, the budget amount. |
+| `currency_info` | `body` | `string` | Yes | No | Currency Codes from ISO 4217 |
+| `end_date` | `body` | `string` | No | No | End date of time period. Format: YYYY-MM-DD |
+| `estimated_monthly_spend` | `body` | `number` | No | No | If Ongoing (perpetual) order line, the estimated monthly spend |
+| `media_contact_email` | `body` | `string` | Yes | No | The media contact email |
+| `media_contact_firstname` | `body` | `string` | Yes | No | The media contact first name |
+| `media_contact_lastname` | `body` | `string` | Yes | No | The media contact last name |
+| `order_line_type` | `body` | `Inline9121` | Yes | No | Type can be Budget or Perpetual |
+| `order_name` | `body` | `string` | Yes | No | The order name |
+| `pmp_id` | `body` | `string` | Yes | No | The pmp id |
+| `po_number` | `body` | `string` | Yes | No | The po number |
+| `start_date` | `body` | `string` | Yes | No | Starting date of time period. Format: YYYY-MM-DD |
+| `user_email` | `body` | `string` | No | No | The email of user submitting the insertion order |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.billing.ssioInsertionOrderEdit
+
+`PATCH` `/ad_accounts/{ad_account_id}/ssio/insertion_orders`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ssio_insertion_order/edit)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.billing.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `SsioInsertionOrderEditResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `ads_manager_order_line_id` | `body` | `string` | No | No | Ads manager OrderLineId |
+| `agency_link` | `body` | `string` | No | No | URL link for agency |
+| `billing_contact_email` | `body` | `string` | No | No | The billing contact email |
+| `billing_contact_firstname` | `body` | `string` | No | No | The billing contact first name |
+| `billing_contact_lastname` | `body` | `string` | No | No | The billing contact last name |
+| `budget_amount` | `body` | `number` | No | No | If Budget order line, the budget amount. |
+| `end_date` | `body` | `string` | No | No | End date of time period. Format: YYYY-MM-DD |
+| `media_contact_email` | `body` | `string` | No | No | The media contact email |
+| `media_contact_firstname` | `body` | `string` | No | No | The media contact first name |
+| `media_contact_lastname` | `body` | `string` | No | No | The media contact last name |
+| `oracle_line_id` | `body` | `string` | No | No | LineId in the Oracle DB |
+| `po_number` | `body` | `string` | No | No | The po number |
+| `salesforce_order_id` | `body` | `string` | No | No | OrderId in SFDC |
+| `salesforce_order_line_id` | `body` | `string` | No | No | OrderLineId in SFDC |
+| `start_date` | `body` | `string` | No | No | Starting date of time period. Format: YYYY-MM-DD |
+| `user_email` | `body` | `string` | No | No | The email of user submitting the insertion order |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.billing.ssioInsertionOrdersStatusGetByAdAccount
+
+`GET` `/ad_accounts/{ad_account_id}/ssio/insertion_orders/status`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ssio_insertion_orders_status/get_by_ad_account)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.billing.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `SsioInsertionOrdersStatusGetByAdAccountResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.billing.ssioInsertionOrdersStatusGetByPinOrderId
+
+`GET` `/ad_accounts/{ad_account_id}/ssio/insertion_orders/{pin_order_id}/status`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ssio_insertion_orders_status/get_by_pin_order_id)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.billing.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `SsioInsertionOrdersStatusGetByPinOrderIdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `pinOrderId` | `path` | `string` | Yes | No | The pin order id associated with the ssio insertion order |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.billing.ssioOrderLinesGetByAdAccount
+
+`GET` `/ad_accounts/{ad_account_id}/ssio/order_lines`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ssio_order_lines/get_by_ad_account)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.billing.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `SsioOrderLinesGetByAdAccountResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `pinOrderId` | `query` | `string` | No | No | The pin order id associated with the SSIO insertion order |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,85 @@
+---
+title: "Pinterest Advanced Auction endpoints"
+description: "2 generated Pinterest endpoint contracts for Advanced Auction."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 103
+  label: "Advanced Auction"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.advancedAuction.advancedAuctionItemsGetPost
+
+`POST` `/advanced_auction/items/get`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (advanced_auction_items_get/post)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.advancedAuction.manage` |
+| Required scopes | `ads:read`<br />`catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AdvancedAuctionItemsGetPostResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `catalog_id` | `body` | `Inline9179` | Yes | No | Catalog id pertaining to the retail item |
+| `items` | `body` | `Array<Inline9180>` | Yes | No | A list of retail catalog items to fetch bid options for |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.advancedAuction.advancedAuctionItemsSubmitPost
+
+`POST` `/advanced_auction/items/submit`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (advanced_auction_items_submit/post)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.advancedAuction.manage` |
+| Required scopes | `ads:write`<br />`catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AdvancedAuctionItemsSubmitPostResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `catalog_id` | `body` | `Inline9193` | Yes | No | Catalog id pertaining to all items |
+| `items` | `body` | `Array<Inline9194 \| Inline9197>` | Yes | No | Array of item bid option operations |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

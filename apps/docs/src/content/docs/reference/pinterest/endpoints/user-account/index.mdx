@@ -1,0 +1,528 @@
+---
+title: "Pinterest User Account endpoints"
+description: "14 generated Pinterest endpoint contracts for User Account."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 150
+  label: "User Account"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.userAccount.boardsUserFollowsList
+
+`GET` `/user_account/following/boards`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (boards_user_follows/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.userAccount.read` |
+| Required scopes | `user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BoardsUserFollowsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `explicitFollowing` | `query` | `boolean` | No | No | Whether or not to include implicit user follows, which means followees with board follows. When explicit_following is True, it means we only want explicit user follows. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.userAccount.followersList
+
+`GET` `/user_account/followers`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (followers/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.userAccount.read` |
+| Required scopes | `user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `FollowersListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.userAccount.followUserUpdate
+
+`POST` `/user_account/following/{username}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (follow_user/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.userAccount.manage` |
+| Required scopes | `user_accounts:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `FollowUserUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `username` | `path` | `string` | Yes | No | A valid username |
+| `auto_follow` | `body` | `boolean` | No | No | Whether this request comes as result of auto-follow after clicking on a link. Follow links can be used by partners on their site or in emails. Only selected partners can be followed this way. We verify that partner can be auto-followed. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.userAccount.linkedBusinessAccountsGet
+
+`GET` `/user_account/businesses`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (linked_business_accounts/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.userAccount.read` |
+| Required scopes | `user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `LinkedBusinessAccountsGetResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.userAccount.unverifyWebsiteDelete
+
+`DELETE` `/user_account/websites`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (unverify_website/delete)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.userAccount.manage` |
+| Required scopes | `user_accounts:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `UnverifyWebsiteDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `website` | `query` | `string` | Yes | No | Website with path or domain only |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.userAccount.userAccountAnalytics
+
+`GET` `/user_account/analytics`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (user_account/analytics)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.userAccount.read` |
+| Required scopes | `user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `UserAccountAnalyticsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `startDate` | `query` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `query` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `fromClaimedContent` | `query` | `string` | No | No | Filter on Pins that match your claimed domain. |
+| `pinFormat` | `query` | `string` | No | No | Pin formats to get data for, default is all. |
+| `appTypes` | `query` | `string` | No | No | Apps or devices to get data for, default is all. |
+| `contentType` | `query` | `string` | No | No | Filter to paid or organic data. Default is all. |
+| `source` | `query` | `string` | No | No | Filter to activity from Pins created and saved by your, or activity created and saved by others from your claimed accounts |
+| `metricTypes` | `query` | `Array<string>` | No | No | Metric types to get data for, default is all. |
+| `splitField` | `query` | `string` | No | No | How to split the data into groups. Not including this param means data won't be split. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.userAccount.userAccountAnalyticsTopPins
+
+`GET` `/user_account/analytics/top_pins`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (user_account/analytics/top_pins)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.userAccount.read` |
+| Required scopes | `pins:read`<br />`user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `UserAccountAnalyticsTopPinsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `startDate` | `query` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `query` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `sortBy` | `query` | `string` | Yes | No | Specify sorting order for metrics |
+| `fromClaimedContent` | `query` | `string` | No | No | Filter on Pins that match your claimed domain. |
+| `pinFormat` | `query` | `string` | No | No | Pin formats to get data for, default is all. |
+| `appTypes` | `query` | `string` | No | No | Apps or devices to get data for, default is all. |
+| `contentType` | `query` | `string` | No | No | Filter to paid or organic data. Default is all. |
+| `source` | `query` | `string` | No | No | Filter to activity from Pins created and saved by your, or activity created and saved by others from your claimed accounts |
+| `metricTypes` | `query` | `Array<string>` | No | No | Metric types to get data for, default is all. |
+| `numOfPins` | `query` | `number` | No | No | Number of pins to include, default is 10. Max is 50. |
+| `createdInLastNDays` | `query` | `number` | No | No | Get metrics for pins created in the last "n" days. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.userAccount.userAccountAnalyticsTopVideoPins
+
+`GET` `/user_account/analytics/top_video_pins`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (user_account/analytics/top_video_pins)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.userAccount.read` |
+| Required scopes | `pins:read`<br />`user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `UserAccountAnalyticsTopVideoPinsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `startDate` | `query` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `query` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `sortBy` | `query` | `string` | Yes | No | Specify sorting order for video metrics |
+| `fromClaimedContent` | `query` | `string` | No | No | Filter on Pins that match your claimed domain. |
+| `pinFormat` | `query` | `string` | No | No | Pin formats to get data for, default is all. |
+| `appTypes` | `query` | `string` | No | No | Apps or devices to get data for, default is all. |
+| `contentType` | `query` | `string` | No | No | Filter to paid or organic data. Default is all. |
+| `source` | `query` | `string` | No | No | Filter to activity from Pins created and saved by your, or activity created and saved by others from your claimed accounts |
+| `metricTypes` | `query` | `Array<string>` | No | No | Metric types to get video data for, default is all. |
+| `numOfPins` | `query` | `number` | No | No | Number of pins to include, default is 10. Max is 50. |
+| `createdInLastNDays` | `query` | `number` | No | No | Get metrics for pins created in the last "n" days. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.userAccount.userAccountFollowedInterests
+
+`GET` `/users/{username}/interests/follow`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (user_account/followed_interests)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.userAccount.read` |
+| Required scopes | `user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `UserAccountFollowedInterestsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `username` | `path` | `string` | Yes | No | A valid username |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.userAccount.userAccountGet
+
+`GET` `/user_account`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (user_account/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.userAccount.read` |
+| Required scopes | `user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `UserAccountGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.userAccount.userFollowingGet
+
+`GET` `/user_account/following`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (user_following/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.userAccount.read` |
+| Required scopes | `user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `UserFollowingGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `explicitFollowing` | `query` | `boolean` | No | No | Whether or not to include implicit user follows, which means followees with board follows. When explicit_following is True, it means we only want explicit user follows. |
+| `feedType` | `query` | `string` | No | No | Thrift param specifying what type of followees will be kept. Default to include all followees. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.userAccount.userWebsitesGet
+
+`GET` `/user_account/websites`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (user_websites/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.userAccount.read` |
+| Required scopes | `user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `UserWebsitesGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.userAccount.verifyWebsiteUpdate
+
+`POST` `/user_account/websites`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (verify_website/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.userAccount.manage` |
+| Required scopes | `user_accounts:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `VerifyWebsiteUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `verification_method` | `body` | `Inline11592` | No | No | Method used to verify website ownership. |
+| `website` | `body` | `string` | No | No | Website with path or domain only |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.userAccount.websiteVerificationGet
+
+`GET` `/user_account/websites/verification`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (website_verification/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.userAccount.read` |
+| Required scopes | `user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `WebsiteVerificationGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

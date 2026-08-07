@@ -1,0 +1,157 @@
+---
+title: "Pinterest Trends endpoints"
+description: "4 generated Pinterest endpoint contracts for Trends."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 149
+  label: "Trends"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.trends.trendsEditorialArticlesList
+
+`GET` `/trends/editorial_articles`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (trends_editorial_articles/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.trends.read` |
+| Required scopes | `user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `TrendsEditorialArticlesListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `region` | `query` | `string` | Yes | No | The geographic region of interest. Only top product categories within the specified region will be returned. The `region` parameter is formatted as ISO 3166-2 country codes delimited by `+`. - `US` - United States - `GB+IE` - Great Britain & Ireland - `CA` - Canada |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.trends.trendsFeaturedTopicsList
+
+`GET` `/trends/topics/featured`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (trends_featured_topics/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.trends.read` |
+| Required scopes | `user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `TrendsFeaturedTopicsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `interest` | `query` | `string` | No | No | Interest to filter by |
+| `region` | `query` | `string` | Yes | No | The geographic region of interest. Only top product categories within the specified region will be returned. The `region` parameter is formatted as ISO 3166-2 country codes delimited by `+`. - `US` - United States - `GB+IE` - Great Britain & Ireland - `CA` - Canada |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.trends.trendsProductCategoriesDetailsList
+
+`GET` `/trends/product_categories/details`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (trends_product_categories_details/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.trends.read` |
+| Required scopes | `user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `TrendsProductCategoriesDetailsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productCategories` | `query` | `Array<string>` | Yes | No | List of product categories |
+| `region` | `query` | `string` | Yes | No | The geographic region of interest. Only top product categories within the specified region will be returned. The `region` parameter is formatted as ISO 3166-2 country codes delimited by `+`. - `US` - United States - `GB+IE` - Great Britain & Ireland - `CA` - Canada |
+| `lookbackWindow` | `query` | `number` | No | No | Time period for historical data analysis in days. The lookback window defines how far back in time the API will analyze data to compute trend metrics. - `90` - Last 90 days (3 months) - `180` - Last 180 days (6 months) - `365` - Last 365 days (1 year) - `730` - Last 730 days (2 years) |
+| `engagementType` | `query` | `string` | No | No | Type of engagement metric to analyze. - `ENGAGEMENT` - Overall engagement metric - `OUTBOUND_CLICK` - Number of outbound clicks - `SAVE` - Number of pin saves |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.trends.trendsProductCategoriesTrendingList
+
+`GET` `/trends/product_categories/trending`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (trends_product_categories_trending/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.trends.read` |
+| Required scopes | `user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `TrendsProductCategoriesTrendingListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `region` | `query` | `string` | Yes | No | The geographic region of interest. Only top product categories within the specified region will be returned. The `region` parameter is formatted as ISO 3166-2 country codes delimited by `+`. - `US` - United States - `GB+IE` - Great Britain & Ireland - `CA` - Canada |
+| `verticals` | `query` | `Array<string>` | No | No | List of verticals to filter by |
+| `ages` | `query` | `Array<string>` | No | No | Age to filter by. If not provided, the results will be filtered by all ages. |
+| `genders` | `query` | `Array<string>` | No | No | Gender to filter by, If not provided, the results will be filtered by all genders. |
+| `engagementType` | `query` | `string` | No | No | Type of engagement metric to analyze. - `ENGAGEMENT` - Overall engagement metric - `OUTBOUND_CLICK` - Number of outbound clicks - `SAVE` - Number of pin saves |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

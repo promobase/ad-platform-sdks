@@ -1,0 +1,121 @@
+---
+title: "Pinterest Schedules endpoints"
+description: "3 generated Pinterest endpoint contracts for Schedules."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 144
+  label: "Schedules"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.schedules.schedulesCreate
+
+`POST` `/ad_accounts/{ad_account_id}/schedules`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (schedules/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.schedules.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `SchedulesCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.schedules.schedulesList
+
+`GET` `/ad_accounts/{ad_account_id}/schedules`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (schedules/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.schedules.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `SchedulesListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `query` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+| `scheduleStatuses` | `query` | `Array<string>` | No | No | Filter schedules by status (one or more) |
+| `scheduleType` | `query` | `string` | No | No | Filter schedules by a type |
+| `entityIds` | `query` | `Array<string>` | Yes | No | List of Entity IDs, must be associated with the Ad Accound ID provided in the path. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.schedules.schedulesUpdate
+
+`PATCH` `/ad_accounts/{ad_account_id}/schedules`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (schedules/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.schedules.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `SchedulesUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

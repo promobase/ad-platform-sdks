@@ -1,0 +1,581 @@
+---
+title: "Pinterest Ad Accounts endpoints"
+description: "14 generated Pinterest endpoint contracts for Ad Accounts."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 100
+  label: "Ad Accounts"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.adAccounts.adAccountAnalytics
+
+`GET` `/ad_accounts/{ad_account_id}/analytics`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ad_account/analytics)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.adAccounts.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AdAccountAnalyticsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `startDate` | `query` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `query` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `columns` | `query` | `Array<string>` | Yes | No | Columns to retrieve, encoded as a comma-separated string. **NOTE**: Any metrics defined as MICRO_DOLLARS returns a value based on the advertiser profile's currency field. For USD, ($1/1,000,000, or $0.000001 - one one-ten-thousandth of a cent). it's microdollars. Otherwise, it's in microunits of the advertiser's currency. For example, if the advertiser's currency is GBP (British pound sterling), all MICRO_DOLLARS fields will be in GBP microunits (1/1,000,000 British pound). If a column has no value, it may not be returned. |
+| `granularity` | `query` | `string` | Yes | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEK - metrics are broken down weekly. MONTH - metrics are broken down monthly |
+| `clickWindowDays` | `query` | `number` | No | No | Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. |
+| `engagementWindowDays` | `query` | `number` | No | No | Number of days to use as the conversion attribution window for an engagement action. Engagements include saves, closeups, link clicks, and carousel card swipes. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. **Note:** This parameter no longer returns new data. However, you can still access historic data through **Sept 30, 2027**. |
+| `viewWindowDays` | `query` | `number` | No | No | Number of days to use as the conversion attribution window for a view action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `1` day. |
+| `conversionReportTime` | `query` | `string` | No | No | The date by which the conversion metrics returned from this endpoint will be reported. There are two dates associated with a conversion event: the date that the user interacted with the ad, and the date that the user completed a conversion event. |
+| `reportingTimezone` | `query` | `string` | No | No | Specify the timezone to be applied for the reporting. This feature is currently in BETA and is not available to all users. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.adAccounts.adAccountsCreate
+
+`POST` `/ad_accounts`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ad_accounts/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.adAccounts.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AdAccountsCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `body` | `string` | No | No | Country ID from ISO 3166-1 alpha-2. |
+| `currency` | `body` | `string` | No | No | Currency Codes from ISO 4217 |
+| `name` | `body` | `string` | No | No | Ad account name. |
+| `owner_user_id` | `body` | `string` | No | No | Advertiser's owning user ID. |
+| `time_zone` | `body` | `string` | No | No | The time zone of the ad account, in IANA format (e.g., "America/Los_Angeles"). Adding your local time zone lets you view your campaigns and ad reporting in your preferred time zone. Future reports will be available in both your local time zone and default UTC time zone. Historical data takes 1-2 months to backfill. Your billing and order lines will remain in UTC. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.adAccounts.adAccountsGet
+
+`GET` `/ad_accounts/{ad_account_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ad_accounts/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.adAccounts.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AdAccountsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.adAccounts.adAccountsList
+
+`GET` `/ad_accounts`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ad_accounts/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.adAccounts.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AdAccountsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `includeSharedAccounts` | `query` | `boolean` | No | No | Include shared ad accounts |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.adAccounts.adAccountTargetingAnalyticsGet
+
+`GET` `/ad_accounts/{ad_account_id}/targeting_analytics`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ad_account_targeting_analytics/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.adAccounts.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AdAccountTargetingAnalyticsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `startDate` | `query` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `query` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `targetingTypes` | `query` | `Array<string>` | Yes | No | Targeting type breakdowns for the report. The reporting per targeting type is independent from each other. ["AGE_BUCKET_AND_GENDER"] is in BETA and not yet available to all users. |
+| `columns` | `query` | `Array<string>` | Yes | No | Columns to retrieve, encoded as a comma-separated string. **NOTE**: Any metrics defined as MICRO_DOLLARS returns a value based on the advertiser profile's currency field. For USD, ($1/1,000,000, or $0.000001 - one one-ten-thousandth of a cent). it's microdollars. Otherwise, it's in microunits of the advertiser's currency. For example, if the advertiser's currency is GBP (British pound sterling), all MICRO_DOLLARS fields will be in GBP microunits (1/1,000,000 British pound). If a column has no value, it may not be returned. |
+| `granularity` | `query` | `string` | Yes | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEK - metrics are broken down weekly. MONTH - metrics are broken down monthly |
+| `clickWindowDays` | `query` | `number` | No | No | Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. |
+| `engagementWindowDays` | `query` | `number` | No | No | Number of days to use as the conversion attribution window for an engagement action. Engagements include saves, closeups, link clicks, and carousel card swipes. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. **Note:** This parameter no longer returns new data. However, you can still access historic data through **Sept 30, 2027**. |
+| `viewWindowDays` | `query` | `number` | No | No | Number of days to use as the conversion attribution window for a view action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `1` day. |
+| `conversionReportTime` | `query` | `string` | No | No | The date by which the conversion metrics returned from this endpoint will be reported. There are two dates associated with a conversion event: the date that the user interacted with the ad, and the date that the user completed a conversion event. |
+| `attributionTypes` | `query` | `Array<string>` | No | No | List of types of attribution for the conversion report |
+| `reportingTimezone` | `query` | `string` | No | No | Specify the timezone to be applied for the reporting. This feature is currently in BETA and is not available to all users. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.adAccounts.analyticsCreateConversionProductReport
+
+`POST` `/ad_accounts/{ad_account_id}/reports/brand_category_sku`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (analytics/create_conversion_product_report)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.adAccounts.manage` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AnalyticsCreateConversionProductReportResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `ad_group_ids` | `body` | `Array<unknown>` | No | No | List of ad group ids. Only support ad_group_ids field when level of the report is AD_GROUP. |
+| `campaign_ids` | `body` | `Array<unknown>` | No | No | List of campaign ids. Only support campaign_ids field when level of the report is CAMPAIGN. |
+| `campaign_objective_types` | `body` | `Array<string>` | No | No | List of values for filtering. Default is ['CONSIDERATION','AWARENESS','WEB_CONVERSION','VIDEO_COMPLETION']. |
+| `click_window_days` | `body` | `Inline9046` | No | No | Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. |
+| `columns` | `body` | `Array<string>` | Yes | No | Metric and entity columns |
+| `conversion_product_attribution_type` | `body` | `Inline9047` | No | No | Required attribution type of the B/C/S report. When the attribution type is BRAND_ATTRIBUTION, start_date for the report must be after 2025-04-01. |
+| `conversion_product_breakdown` | `body` | `Inline9048` | No | No | Report breakdown type. This is used to specify the breakdown of the report by brand, category, or SKU. |
+| `conversion_report_time` | `body` | `Inline9049` | No | No | The date by which the conversion metrics returned from this endpoint will be reported. There are two dates associated with a conversion event: the date that the user interacted with the ad, and the date that the user completed a conversion event. |
+| `end_date` | `body` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. A max of 1 year is allowed between the start and end date for reports. |
+| `granularity` | `body` | `Inline9050` | Yes | No | Report granularity for time-based metric aggregation |
+| `level` | `body` | `Inline9051` | Yes | No | Level of the report |
+| `product_sku_ids` | `body` | `Array<unknown>` | No | No | List of SKU ids. Only support product_sku_ids field when report breakdown type is PRODUCT_SKU_GROUP. |
+| `report_name` | `body` | `string` | Yes | No | Name of the conversion product report |
+| `start_date` | `body` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Start date must be after 2024-03-16. 7 day minimum time window for report is required. |
+| `view_window_days` | `body` | `Inline9052` | No | No | Number of days to use as the conversion attribution window for a view action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `1` day. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.adAccounts.analyticsCreateMmmReport
+
+`POST` `/ad_accounts/{ad_account_id}/mmm_reports`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (analytics/create_mmm_report)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.adAccounts.manage` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AnalyticsCreateMmmReportResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `advertiser_ids` | `body` | `Array<string>` | No | No | Advertiser IDs for multi-advertiser report |
+| `columns` | `body` | `Array<string>` | Yes | No | Metric and entity columns |
+| `countries` | `body` | `Array<string>` | No | No | A List of countries for filtering |
+| `custom_column_ids` | `body` | `Array<string>` | No | No | List of custom column IDs |
+| `end_date` | `body` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD |
+| `granularity` | `body` | `Inline8916` | Yes | No | DAY - metrics are broken down daily. WEEK - metrics are broken down weekly. |
+| `level` | `body` | `Inline8917` | Yes | No | Level of the report |
+| `report_name` | `body` | `string` | Yes | No | Name of the Marketing Mix Modeling (MMM) report |
+| `start_date` | `body` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD |
+| `targeting_types` | `body` | `Array<string>` | Yes | No | List of targeting types |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.adAccounts.analyticsCreateReport
+
+`POST` `/ad_accounts/{ad_account_id}/reports`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (analytics/create_report)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.adAccounts.manage` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AnalyticsCreateReportResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `ad_group_ids` | `body` | `Array<unknown>` | No | No | List of ad group ids |
+| `ad_group_statuses` | `body` | `Array<string>` | No | No | List of values for filtering |
+| `ad_ids` | `body` | `Array<unknown>` | No | No | List of ad ids. This parameter is not supported for Product Item level reports. |
+| `ad_statuses` | `body` | `Array<string>` | No | No | List of values for filtering. This parameter is not supported for Product Item level reports. |
+| `attribution_types` | `body` | `Array<string>` | No | No | List of attribution types for the conversion report. |
+| `campaign_brand_label` | `body` | `string` | No | No | Campaign brand label for filtering. |
+| `campaign_custom_label` | `body` | `string` | No | No | Campaign custom label for filtering. |
+| `campaign_ids` | `body` | `Array<unknown>` | No | No | List of campaign ids |
+| `campaign_objective_types` | `body` | `Array<unknown>` | No | No | List of values for filtering. ["WEB_SESSIONS"] is in BETA. |
+| `campaign_statuses` | `body` | `Array<string>` | No | No | List of status values for filtering |
+| `click_window_days` | `body` | `Inline9022` | No | No | Number of days to use as the conversion attribution window for a pin click action. |
+| `columns` | `body` | `Array<string>` | No | No | Metric and entity columns. Pin promotion and ad related columns are not supported for Product Item level reports. |
+| `combine_targeting_types` | `body` | `boolean` | No | No | Determines if the targeting types included in the request should be consolidated into a single breakdown. |
+| `conversion_report_time` | `body` | `Inline9023` | No | No | Date dimension for conversion metrics. |
+| `custom_conversion_event_metrics` | `body` | `Array<Inline9024>` | No | No | List of advertiser-defined custom conversion event metrics to include in the report |
+| `end_date` | `body` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD |
+| `end_hour` | `body` | `number` | No | No | Which hour of the end date to stop the report (inclusive). Only allowed for hourly reports. |
+| `engagement_window_days` | `body` | `Inline9025` | No | No | Number of days to use as the conversion attribution window for an engagement action. |
+| `granularity` | `body` | `Inline9026` | Yes | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEKLY - metrics are broken down weekly. MONTHLY - metrics are broken down monthly. |
+| `level` | `body` | `Inline9027` | No | No | Level of the report |
+| `metrics_filters` | `body` | `Array<Inline9028>` | No | No | List of metrics filters |
+| `primary_sort` | `body` | `Inline9029` | No | No | — |
+| `product_group_ids` | `body` | `Array<unknown>` | No | No | List of product group ids |
+| `product_group_statuses` | `body` | `Array<string>` | No | No | List of values for filtering |
+| `product_item_ids` | `body` | `Array<unknown>` | No | No | List of product item ids |
+| `report_format` | `body` | `Inline9030` | No | No | — |
+| `reporting_timezone` | `body` | `Inline9031` | No | No | Specify the timezone to be applied for the reporting. |
+| `start_date` | `body` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD |
+| `start_hour` | `body` | `number` | No | No | Which hour of the start date to begin the report. Only allowed for hourly reports. |
+| `targeting_types` | `body` | `Array<string>` | No | No | List of targeting types. Requires `level` to be a value ending in `_TARGETING`. |
+| `view_window_days` | `body` | `Inline9032` | No | No | Number of days to use as the conversion attribution window for a view action. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.adAccounts.analyticsCreateTemplateReport
+
+`POST` `/ad_accounts/{ad_account_id}/templates/{template_id}/reports`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (analytics/create_template_report)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.adAccounts.manage` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AnalyticsCreateTemplateReportResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `templateId` | `path` | `string` | Yes | No | Unique identifier of a template. |
+| `startDate` | `query` | `string` | No | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 2.5 years back from today. |
+| `endDate` | `query` | `string` | No | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 2.5 years past start date. |
+| `granularity` | `query` | `string` | No | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEK - metrics are broken down weekly. MONTH - metrics are broken down monthly |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.adAccounts.analyticsGetConversionProductReport
+
+`GET` `/ad_accounts/{ad_account_id}/reports/brand_category_sku`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (analytics/get_conversion_product_report)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.adAccounts.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AnalyticsGetConversionProductReportResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `token` | `query` | `string` | Yes | No | Token returned from the post request creation call |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.adAccounts.analyticsGetMmmReport
+
+`GET` `/ad_accounts/{ad_account_id}/mmm_reports`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (analytics/get_mmm_report)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.adAccounts.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AnalyticsGetMmmReportResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `token` | `query` | `string` | Yes | No | Token returned from the post request creation call |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.adAccounts.analyticsGetReport
+
+`GET` `/ad_accounts/{ad_account_id}/reports`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (analytics/get_report)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.adAccounts.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AnalyticsGetReportResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `token` | `query` | `string` | Yes | No | Token returned from the post request creation call |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.adAccounts.sandboxDelete
+
+`DELETE` `/ad_accounts/{ad_account_id}/sandbox`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (sandbox/delete)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.adAccounts.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `SandboxDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.adAccounts.templatesList
+
+`GET` `/ad_accounts/{ad_account_id}/templates`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (templates/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.adAccounts.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `TemplatesListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `query` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,875 @@
+---
+title: "Pinterest models: Local Store – Pin Base"
+description: "100 generated Pinterest model contracts, from LocalStore through PinBase."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1111
+  label: "Local Store – Pin Base"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## LocalStore
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `address_primary` | `address_primary` | `string` | No | No | Primary address line of the store. |
+| `address_secondary` | `address_secondary` | `string` | No | No | Secondary address line of the store. |
+| `city` | `city` | `string` | No | No | City where the store is located. |
+| `country` | `country` | `Inline6657` | Yes | No | Country code where the store is located. |
+| `created_at` | `created_at` | `string` | Yes | No | Creation timestamp |
+| `id` | `id` | `string` | Yes | No | The ID of the local store. |
+| `latitude` | `latitude` | `number` | No | No | Geographic latitude coordinate of the store. |
+| `longitude` | `longitude` | `number` | No | No | Geographic longitude coordinate of the store. |
+| `name` | `name` | `string` | Yes | No | The name of the local store. |
+| `postal_code` | `postal_code` | `string` | No | No | Postal or ZIP code of the store. |
+| `region` | `region` | `string` | No | No | State or region code where the store is located. |
+| `store_code` | `store_code` | `string` | Yes | No | Merchant provided code for the local store. Unique within the merchant's catalog. |
+| `updated_at` | `updated_at` | `string` | Yes | No | Last update timestamp |
+
+## LocalStoreBatchUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `address_primary` | `address_primary` | `string` | No | No | Primary address line of the store. |
+| `address_secondary` | `address_secondary` | `string` | No | No | Secondary address line of the store. |
+| `city` | `city` | `string` | No | No | City where the store is located. |
+| `country` | `country` | `Inline6659` | No | No | Country code where the store is located. |
+| `id` | `id` | `string` | Yes | No | The ID of the local store. |
+| `latitude` | `latitude` | `number` | No | No | Geographic latitude coordinate of the store. |
+| `longitude` | `longitude` | `number` | No | No | Geographic longitude coordinate of the store. |
+| `name` | `name` | `string` | No | No | The name of the local store. |
+| `postal_code` | `postal_code` | `string` | No | No | Postal or ZIP code of the store. |
+| `region` | `region` | `string` | No | No | State or region code where the store is located. |
+| `store_code` | `store_code` | `string` | No | No | Merchant provided code for the local store. Unique within the merchant's catalog. |
+
+## LocalStoreCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `address_primary` | `address_primary` | `string` | No | No | Primary address line of the store. |
+| `address_secondary` | `address_secondary` | `string` | No | No | Secondary address line of the store. |
+| `city` | `city` | `string` | No | No | City where the store is located. |
+| `country` | `country` | `Inline6661` | Yes | No | Country code where the store is located. |
+| `latitude` | `latitude` | `number` | No | No | Geographic latitude coordinate of the store. |
+| `longitude` | `longitude` | `number` | No | No | Geographic longitude coordinate of the store. |
+| `name` | `name` | `string` | Yes | No | The name of the local store. |
+| `postal_code` | `postal_code` | `string` | No | No | Postal or ZIP code of the store. |
+| `region` | `region` | `string` | No | No | State or region code where the store is located. |
+| `store_code` | `store_code` | `string` | Yes | No | Merchant provided code for the local store. Unique within the merchant's catalog. |
+
+## LocalStoreId
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## LookbackPeriodOptions
+
+`enum` model on the `json` wire format.
+
+**Values:** `1d`, `14d`
+
+## MatchType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BROAD`, `PHRASE`, `EXACT`, `EXACT_NEGATIVE`, `PHRASE_NEGATIVE`
+
+## MatchTypeResponse
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## MaxPriceFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `MAX_PRICE` | `MAX_PRICE` | `Inline6667` | Yes | No | — |
+
+## Media
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_id` | `media_id` | `string` | Yes | No | Unique identifier for this media upload. Used to track status and for attaching during Pin creation. |
+| `media_type` | `media_type` | `Inline6669` | Yes | No | — |
+| `status` | `status` | `Inline6670` | No | No | — |
+
+## MediaCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_type` | `media_type` | `Inline11387` | Yes | No | — |
+
+## MediaCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11389` | Yes | No | — |
+
+## MediaGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mediaId` | `mediaId` | `string` | Yes | No | Unique identifier for this media upload. Used to track status and for attaching during Pin creation. |
+
+## MediaGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11394` | Yes | No | — |
+
+## MediaListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## MediaListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11384` | Yes | No | — |
+
+## MediaType
+
+`enum` model on the `json` wire format.
+
+**Values:** `IMAGE`, `VIDEO`
+
+## MediaTypeFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `MEDIA_TYPE` | `MEDIA_TYPE` | `Inline6673` | Yes | No | — |
+
+## MediaUpload
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_id` | `media_id` | `string` | Yes | No | Unique identifier for this media upload. Used to track status and for attaching during Pin creation. |
+| `media_type` | `media_type` | `Inline6675` | Yes | No | — |
+| `upload_parameters` | `upload_parameters` | `Inline6676` | No | No | The list of parameter key/value pairs you will need to send with your POST request to upload your media file. |
+| `upload_url` | `upload_url` | `string` | No | No | The URL where you will POST your media file. |
+
+## MediaUploadCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_type` | `media_type` | `Inline6678` | Yes | No | — |
+
+## MediaUploadParameters
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `Content-Type` | `Content-Type` | `string` | No | No | — |
+| `key` | `key` | `string` | No | No | — |
+| `policy` | `policy` | `string` | No | No | — |
+| `x-amz-algorithm` | `x-amz-algorithm` | `string` | No | No | — |
+| `x-amz-credential` | `x-amz-credential` | `string` | No | No | — |
+| `x-amz-date` | `x-amz-date` | `string` | No | No | — |
+| `x-amz-security-token` | `x-amz-security-token` | `string` | No | No | — |
+| `x-amz-signature` | `x-amz-signature` | `string` | No | No | — |
+
+## MediaUploadStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `registered`, `processing`, `succeeded`, `failed`
+
+## MediaUploadType
+
+`enum` model on the `json` wire format.
+
+**Values:** `video`
+
+## MemberBusinessRole
+
+`enum` model on the `json` wire format.
+
+**Values:** `EMPLOYEE`, `BIZ_ADMIN`
+
+## MetricsReadyStateGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date` | `date` | `string` | Yes | No | Analytics reports request date (UTC). Format: YYYY-MM-DD |
+
+## MetricsReadyStateGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11497` | Yes | No | — |
+
+## MetricsReportingLevel
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADVERTISER`, `ADVERTISER_TARGETING`, `CAMPAIGN`, `CAMPAIGN_TARGETING`, `AD_GROUP`, `AD_GROUP_TARGETING`, `PIN_PROMOTION`, `PIN_PROMOTION_TARGETING`, `KEYWORD`, `PRODUCT_GROUP`, `PRODUCT_GROUP_TARGETING`, `PRODUCT_ITEM`, `PRODUCT_ITEM_TARGETING`
+
+## MetricsReportingTemplateType
+
+`enum` model on the `json` wire format.
+
+**Values:** `UNSPECIFIED`, `BULK`, `OVERVIEW`, `TABLE`, `MMM`, `BRAND_CATEGORY`
+
+## MetricsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline6686>` | No | No | — |
+
+## MetricsResponseDataItems
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `metrics` | `metrics` | `Inline6688` | Yes | No | Metrics object containing the requested metric columns and their values. The keys are metric names (e.g., AD_GROUP_ID, DATE, SPEND_IN_DOLLAR) and values are the metric values (strings or numbers). |
+| `targeting_type` | `targeting_type` | `string` | Yes | No | The targeting type for this data item (e.g., KEYWORD, APPTYPE, GENDER) |
+| `targeting_value` | `targeting_value` | `string` | Yes | No | The targeting value for this data item (e.g., 'christmas decor ideas', 'iphone', 'female') |
+
+## MinPriceFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `MIN_PRICE` | `MIN_PRICE` | `Inline6690` | Yes | No | — |
+
+## MMMReport
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message` | `message` | `string` | No | No | — |
+| `report_status` | `report_status` | `Inline6692` | No | No | — |
+| `size` | `size` | `number` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+| `token` | `token` | `string` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+
+## MMMReportCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_ids` | `advertiser_ids` | `Array<string>` | No | No | Advertiser IDs for multi-advertiser report |
+| `columns` | `columns` | `Array<string>` | Yes | No | Metric and entity columns |
+| `countries` | `countries` | `Array<string>` | No | No | A List of countries for filtering |
+| `custom_column_ids` | `custom_column_ids` | `Array<string>` | No | No | List of custom column IDs |
+| `end_date` | `end_date` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD |
+| `granularity` | `granularity` | `Inline6694` | Yes | No | DAY - metrics are broken down daily. WEEK - metrics are broken down weekly. |
+| `level` | `level` | `Inline6695` | Yes | No | Level of the report |
+| `report_name` | `report_name` | `string` | Yes | No | Name of the Marketing Mix Modeling (MMM) report |
+| `start_date` | `start_date` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD |
+| `targeting_types` | `targeting_types` | `Array<string>` | Yes | No | List of targeting types |
+
+## MMMReportGranularity
+
+`enum` model on the `json` wire format.
+
+**Values:** `DAY`, `WEEK`
+
+## MMMReportingColumn
+
+`enum` model on the `json` wire format.
+
+**Values:** `SPEND_IN_DOLLAR`, `SPEND_IN_MICRO_DOLLAR`, `ECPC_IN_DOLLAR`, `ECTR`, `CAMPAIGN_NAME`, `TOTAL_ENGAGEMENT`, `EENGAGEMENT_RATE`, `ECPM_IN_DOLLAR`, `CAMPAIGN_ID`, `ADVERTISER_ID`, `AD_GROUP_ID`, `AD_GROUP_NAME`, `CLICKTHROUGH_1`, `IMPRESSION_1`, `CLICKTHROUGH_2`, `IMPRESSION_2`, `TOTAL_CLICKTHROUGH`, `TOTAL_IMPRESSION`, `ADVERTISER_NAME`, `SPEND_ORDER_LINE_PAID_TYPE`, `CAMPAIGN_OBJECTIVE_TYPE`, `PINNER_LIST_NAME`, `ADS_CREDIT_SPEND_IN_DOLLAR`, `ADVERTISER_PAID_SPEND_IN_DOLLAR`, `ADVERTISER_PAID_ECPC_IN_DOLLAR`, `ADVERTISER_PAID_ECPM_IN_DOLLAR`
+
+## MMMReportingTargetingType
+
+`enum` model on the `json` wire format.
+
+**Values:** `APPTYPE`, `COUNTRY`, `CREATIVE_TYPE`, `GENDER`, `LOCATION`, `PLACEMENT`, `AUDIENCE_INCLUDE`
+
+## MMMReportLevel
+
+`enum` model on the `json` wire format.
+
+**Values:** `CAMPAIGN_TARGETING`, `AD_GROUP_TARGETING`
+
+## MobileAppPlatform
+
+`enum` model on the `json` wire format.
+
+**Values:** `IOS`, `ANDROID`
+
+## MsotEventName
+
+`enum` model on the `json` wire format.
+
+**Values:** `add_to_cart`, `checkout`, `lead`, `signup`
+
+## MsotEventsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `action_timestamps` | `action_timestamps` | `Array<number>` | No | No | Timestamp(s) when the ad action(s) happened. Unix timestamp in seconds. |
+| `ad_group_id` | `ad_group_id` | `Inline8918` | Yes | No | The ID of the ad group that was attributed to the conversion event. |
+| `attribution_model` | `attribution_model` | `Inline8919` | No | No | The attribution model used to attribute the conversion event. |
+| `attribution_scope` | `attribution_scope` | `Inline8920` | No | No | Ad event type. |
+| `attribution_score` | `attribution_score` | `number` | No | No | Credit given to the attributed ad actions. Allowed values are &gt; 0 and &lt;= 1. |
+| `campaign_id` | `campaign_id` | `Inline8921` | No | No | The ID of the campaign that was attributed to the conversion event. |
+| `click_window` | `click_window` | `string` | No | No | Click window used for attribution (for example, `1d`, `7d`, `30d`, `lifetime`). |
+| `currency` | `currency` | `Inline8922` | No | No | Currency code for the `value` field, required if `value` is present. Currency Codes should be in ISO 4217 standard. |
+| `event_id` | `event_id` | `string` | Yes | No | A unique id string that identifies this event. If you are already sending us events through Conversions API, then this id should match the event_id sent through Conversions API. |
+| `event_name` | `event_name` | `Inline8923` | Yes | No | Type of user event. |
+| `event_timestamp` | `event_timestamp` | `number` | Yes | No | The time when the event occurred. Unix timestamp in seconds. |
+| `total_event_touchpoints` | `total_event_touchpoints` | `number` | No | No | Total number of ad events including other non-Pinterest ad platforms. |
+| `total_events` | `total_events` | `number` | No | No | Deprecated: use `total_events_fractional` instead to avoid rounding errors. Total number of conversion events that are reported in one API call. If you are sending one API request for one attributed conversion event then this value should be 1. If you are sending multiple attributed conversion events in one API request then this value should be the total number of attributed conversion events in the request. |
+| `total_events_fractional` | `total_events_fractional` | `number` | No | No | Total number of conversion events that are reported in one API call. Use this field instead of `total_events` to send precise fractional values. If you are sending one API request for one attributed conversion event with full credit, this value should be 1.0. For partial attribution, send the exact fractional value (e.g., 0.5 for half credit). |
+| `value` | `value` | `number` | No | No | Order value of the conversion event. Required if `event_name` is `add_to_cart` or `checkout`. |
+| `view_window` | `view_window` | `string` | No | No | View window used for attribution (for example, `1d`, `7d`, `30d`). |
+
+## MsotEventsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8925` | Yes | No | — |
+
+## MultiPinsAnalyticsMetricTypesItem
+
+`enum` model on the `json` wire format.
+
+**Values:** `IMPRESSION`, `OUTBOUND_CLICK`, `PIN_CLICK`, `SAVE`, `SAVE_RATE`, `TOTAL_COMMENTS`, `TOTAL_REACTIONS`, `USER_FOLLOW`, `PROFILE_VISIT`, `VIDEO_MRC_VIEW`, `VIDEO_10S_VIEW`, `QUARTILE_95_PERCENT_VIEW`, `VIDEO_V50_WATCH_TIME`, `VIDEO_START`, `VIDEO_AVG_WATCH_TIME`
+
+## MultiPinsAnalyticsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinIds` | `pinIds` | `Array<unknown>` | Yes | No | List of Pin IDs. |
+| `startDate` | `startDate` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `endDate` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `appTypes` | `appTypes` | `string` | No | No | Apps or devices to get data for, default is all. |
+| `metricTypes` | `metricTypes` | `Array<string>` | Yes | No | Pin metric types to get data for. |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+
+## MultiPinsAnalyticsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11486` | Yes | No | — |
+
+## NetworkType
+
+`enum` model on the `json` wire format.
+
+**Values:** `wifi`, `cellular_2g`, `cellular_3g`, `cellular_4g`, `cellular_5g`, `cellular_6g`, `ethernet`, `unknown`
+
+## NonDraftEntityStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACTIVE`, `PAUSED`, `ARCHIVED`
+
+## NonNullableCatalogsCurrency
+
+`enum` model on the `json` wire format.
+
+**Values:** `AED`, `AFN`, `ALL`, `AMD`, `ANG`, `AOA`, `ARS`, `AUD`, `AWG`, `AZN`, `BAM`, `BBD`, `BDT`, `BGN`, `BHD`, `BIF`, `BMD`, `BND`, `BOB`, `BRL`, `BSD`, `BTN`, `BWP`, `BYN`, `BYR`, `BZD`, `CAD`, `CDF`, `CHF`, `CLP`, `CNY`, `COP`, `CRC`, `CUC`, `CUP`, `CVE`, `CZK`, `DJF`, `DKK`, `DOP`, `DZD`, `EGP`, `ERN`, `ETB`, `EUR`, `FJD`, `FKP`, `GBP`, `GEL`, `GGP`, `GHS`, `GIP`, `GMD`, `GNF`, `GTQ`, `GYD`, `HKD`, `HNL`, `HRK`, `HTG`, `HUF`, `IDR`, `ILS`, `IMP`, `INR`, `IQD`, `IRR`, `ISK`, `JEP`, `JMD`, `JOD`, `JPY`, `KES`, `KGS`, `KHR`, `KMF`, `KPW`, `KRW`, `KWD`, `KYD`, `KZT`, `LAK`, `LBP`, `LKR`, `LRD`, `LSL`, `LYD`, `MAD`, `MDL`, `MGA`, `MKD`, `MMK`, `MNT`, `MOP`, `MRO`, `MUR`, `MVR`, `MWK`, `MXN`, `MYR`, `MZN`, `NAD`, `NGN`, `NIO`, `NOK`, `NPR`, `NZD`, `OMR`, `PAB`, `PEN`, `PGK`, `PHP`, `PKR`, `PLN`, `PYG`, `QAR`, `RON`, `RSD`, `RUB`, `RWF`, `SAR`, `SBD`, `SCR`, `SDG`, `SEK`, `SGD`, `SHP`, `SLL`, `SOS`, `SPL`, `SRD`, `STD`, `SVC`, `SYP`, `SZL`, `THB`, `TJS`, `TMT`, `TND`, `TOP`, `TRY`, `TTD`, `TVD`, `TWD`, `TZS`, `UAH`, `UGX`, `USD`, `UYU`, `UZS`, `VEF`, `VND`, `VUV`, `WST`, `XAF`, `XCD`, `XDR`, `XOF`, `XPF`, `YER`, `ZAR`, `ZMW`, `ZWD`
+
+## NotificationBatchRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline6707>`
+
+## NotificationPostParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `body` | `body` | `Array<Inline11397> \| Inline11398` | Yes | No | — |
+
+## NotificationPostRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline6709> \| Inline6710`
+
+## NotificationPostResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11400` | Yes | No | — |
+
+## NotificationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error_msg` | `error_msg` | `string` | No | No | error message when success is false |
+| `received_at` | `received_at` | `number` | No | No | Received time. Unix timestamp in seconds. |
+| `success` | `success` | `boolean` | No | No | Returns true if the notification accepted. |
+
+## NotificationSingleRequest
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## NullableCatalogsItemFieldType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## NullableCurrency
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## NullableEntityStatus
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## NullableLabelStatus
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## NullableLabelType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## NullableOptimizationGoalMetadata
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversion_tag_v3_goal_metadata` | `conversion_tag_v3_goal_metadata` | `Inline6719` | No | No | — |
+| `frequency_goal_metadata` | `frequency_goal_metadata` | `Inline6720` | No | No | Frequency target can only be between 2 and 20 |
+| `scrollup_goal_metadata` | `scrollup_goal_metadata` | `Inline6721` | No | No | — |
+
+## NullablePartnerType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## NullalbleMatchType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## NumericFilterOperatorType
+
+`enum` model on the `json` wire format.
+
+**Values:** `GREATER_THAN`, `GREATER_THAN_OR_EQUALS`, `LESS_THAN`, `LESS_THAN_OR_EQUALS`
+
+## OauthAccessToken
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `access_token` | `access_token` | `string` | Yes | No | — |
+| `expires_in` | `expires_in` | `number` | Yes | No | — |
+| `refresh_token` | `refresh_token` | `string` | No | No | — |
+| `refresh_token_expires_at` | `refresh_token_expires_at` | `number` | No | No | — |
+| `refresh_token_expires_in` | `refresh_token_expires_in` | `number` | No | No | — |
+| `response_type` | `response_type` | `Inline6726` | No | No | — |
+| `scope` | `scope` | `string` | No | No | — |
+| `token_type` | `token_type` | `string` | Yes | No | — |
+
+## OauthAccessTokenCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | — |
+| `continuous_refresh` | `continuous_refresh` | `string` | No | No | If your app was created before **September 25, 2025**, set to `true` to generate a continuous refresh token, which has a 60-day expiration window. We no longer support the legacy refresh token, which has a 365-day expiration window. If your app was created on or after **September 25, 2025**, ignore this parameter. You automatically receive a continuous refresh token when you request an access token. |
+| `grant_type` | `grant_type` | `string` | Yes | No | The type of OAuth grant being requested. |
+| `redirect_uri` | `redirect_uri` | `string` | No | No | — |
+| `refresh_token` | `refresh_token` | `string` | No | No | — |
+| `scope` | `scope` | `string` | No | No | — |
+
+## OauthConversionTokenParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## OauthConversionTokenResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11403` | Yes | No | — |
+
+## OauthTokenParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## OauthTokenResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11406` | Yes | No | — |
+
+## ObjectiveType
+
+`enum` model on the `json` wire format.
+
+**Values:** `AWARENESS`, `CONSIDERATION`, `WEB_CONVERSION`, `CATALOG_SALES`, `VIDEO_COMPLETION`, `SALES`, `APP_INSTALL`, `CTV_CONSIDERATION`
+
+## OcpmEligibleConversionTagsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+
+## OcpmEligibleConversionTagsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8740` | Yes | No | — |
+
+## OperationType
+
+`enum` model on the `json` wire format.
+
+**Values:** `SHARE`, `REVOKE`
+
+## OptimizationGoalMetadata
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversion_tag_v3_goal_metadata` | `conversion_tag_v3_goal_metadata` | `Inline6731` | No | No | — |
+| `frequency_goal_metadata` | `frequency_goal_metadata` | `Inline6732` | No | No | Frequency target can only be between 2 and 20 |
+| `scrollup_goal_metadata` | `scrollup_goal_metadata` | `Inline6733` | No | No | — |
+
+## OptimizationType
+
+`enum` model on the `json` wire format.
+
+**Values:** `CLICKTHROUGH`, `IMPRESSION`, `WEB_CONVERSION`, `ROAS`, `OUTBOUND_CLICK`
+
+## Order
+
+`enum` model on the `json` wire format.
+
+**Values:** `ASCENDING`, `DESCENDING`
+
+## OrderLine
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | Yes | No | Ad account ID. |
+| `budget` | `budget` | `number` | No | No | Order line budget in micro currency. |
+| `campaign_ids` | `campaign_ids` | `Array<string>` | Yes | No | Associated List of campaign IDs. |
+| `end_time` | `end_time` | `number` | No | No | End time. Unix timestamp. |
+| `id` | `id` | `string` | Yes | No | Order line ID. |
+| `name` | `name` | `string` | No | No | Order line name. |
+| `paid_budget` | `paid_budget` | `number` | No | No | Order line paid budget in micro currency. |
+| `paid_type` | `paid_type` | `Inline6737` | No | No | Order line paid type. |
+| `purchase_order_id` | `purchase_order_id` | `string` | No | No | Purchase order ID. |
+| `start_time` | `start_time` | `number` | No | No | Start time. Unix timestamp. |
+| `status` | `status` | `Inline6738` | Yes | No | Order line status. |
+| `type` | `type` | `string` | Yes | No | Always "orderline". |
+
+## OrderLineMutationError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline6740` | No | No | — |
+| `error_messages` | `error_messages` | `Array<string>` | No | No | Error messages. |
+
+## OrderLineMutationResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline6743` | No | No | — |
+
+## OrderLineMutationResult
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline6748>` | No | No | Error list if update(s) fail. |
+| `order_line` | `order_line` | `Array<Inline6750>` | No | No | Order Line object array. |
+
+## OrderLinePaidType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## OrderLinesGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `orderLineId` | `orderLineId` | `string` | Yes | No | Order line ID. |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+
+## OrderLinesGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8938` | Yes | No | — |
+
+## OrderLinesListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `order` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+
+## OrderLinesListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8934` | Yes | No | — |
+
+## OrderLineStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACTIVE`, `PAUSED`, `DELETED`
+
+## OsFamily
+
+`enum` model on the `json` wire format.
+
+**Values:** `ios`, `android`, `macos`, `windows`, `linux`, `bsd`, `other`
+
+## OverallStatusOptions
+
+`enum` model on the `json` wire format.
+
+**Values:** `NEEDS_IMPROVEMENT`, `FAIR`, `GOOD`
+
+## PacingDeliveryType
+
+`enum` model on the `json` wire format.
+
+**Values:** `STANDARD`, `ACCELERATED`
+
+## PageVisitConversionTagsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `order` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+
+## PageVisitConversionTagsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8743` | Yes | No | — |
+
+## PartnerMetadata
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subscriber_key` | `subscriber_key` | `string` | No | No | Text field value that uniquely identifies a subscriber. |
+
+## PartnerType
+
+`enum` model on the `json` wire format.
+
+**Values:** `INTERNAL`, `EXTERNAL`
+
+## PerformancePlusCampaignSettings
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `boost_prospecting_ad_group_bid` | `boost_prospecting_ad_group_bid` | `boolean` | No | No | Whether to boost prospecting ad group bid. |
+| `pinner_list_exclusions` | `pinner_list_exclusions` | `Array<string>` | No | No | List of campaign-level exclusion pinner list IDs. |
+
+## Permissions
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADMIN`, `ANALYST`, `FINANCE_MANAGER`, `FINANCE_EDIT`, `FINANCE_VIEW`, `AUDIENCE_MANAGER`, `CAMPAIGN_MANAGER`, `CATALOGS_MANAGER`, `CATALOGS_VIEWER`, `PROFILE_PUBLISHER`, `CONSUMER_USER`, `BIZ_PINNER_LIST_SHARER`
+
+## PermissionsResponse
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<string>`
+
+## PermissionsWithOwner
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADMIN`, `ANALYST`, `FINANCE_MANAGER`, `FINANCE_EDIT`, `FINANCE_VIEW`, `AUDIENCE_MANAGER`, `CAMPAIGN_MANAGER`, `CATALOGS_MANAGER`, `CATALOGS_VIEWER`, `PROFILE_PUBLISHER`, `OWNER`
+
+## Pin
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `alt_text` | `alt_text` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+| `ai_disclosures` | `ai_disclosures` | `Inline6764` | No | No | AI disclosure declarations the creator has made about this Pin. |
+| `board_id` | `board_id` | `string` | No | No | The board to which this Pin belongs. |
+| `board_owner` | `board_owner` | `Inline6765` | No | No | — |
+| `board_section_id` | `board_section_id` | `string` | No | No | The board section to which this Pin belongs. |
+| `created_at` | `created_at` | `string` | No | No | — |
+| `creative_type` | `creative_type` | `Inline6766` | No | No | — |
+| `dominant_color` | `dominant_color` | `string` | No | No | Dominant pin color. Hex number, e.g. `#6E7874`. |
+| `has_been_promoted` | `has_been_promoted` | `boolean` | No | No | Whether the Pin has been promoted or not. |
+| `id` | `id` | `string` | No | No | — |
+| `is_owner` | `is_owner` | `boolean` | No | No | Whether the "operation user_account" is the Pin owner. |
+| `is_product` | `is_product` | `boolean` | No | No | Whether the Pin is a product Pin. |
+| `is_standard` | `is_standard` | `boolean` | No | No | Whether the Pin is standard or not. See documentation on Changes to Pin creation for more information. |
+| `media` | `media` | `Inline6767` | No | No | — |
+| `parent_pin_id` | `parent_pin_id` | `string` | No | No | The source pin id if this pin was saved from another pin. [Learn more](https://help.pinterest.com/article/save-pins-on-pinterest). |
+| `pin_metrics` | `pin_metrics` | `Inline6768` | No | No | Pin metrics with associated time intervals if any. |
+
+## PinAnalyticsDailyMetrics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data_status` | `data_status` | `string` | No | No | Metrics availablity, e.g., "READY". |
+| `date` | `date` | `string` | No | No | Metrics date (UTC): YYYY-MM-DD. |
+| `metrics` | `metrics` | `Inline6770` | No | No | — |
+
+## PinAnalyticsMetricsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daily_metrics` | `daily_metrics` | `Array<Inline6772>` | No | No | Array with the requested daily metric records |
+| `lifetime_metrics` | `lifetime_metrics` | `Inline6773` | No | No | The lifetime metric name and value. |
+| `summary_metrics` | `summary_metrics` | `Inline6774` | No | No | The metric name and value over the requested period for each requested metric |
+
+## PinAnalyticsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## PinBase
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ai_disclosures` | `ai_disclosures` | `Inline6777` | No | No | AI disclosure declarations the creator has made about this Pin. |
+| `board_id` | `board_id` | `string` | No | No | The board to which this Pin belongs. |
+| `board_owner` | `board_owner` | `Inline6778` | No | No | — |
+| `board_section_id` | `board_section_id` | `string` | No | No | The board section to which this Pin belongs. |
+| `created_at` | `created_at` | `string` | No | No | — |
+| `creative_type` | `creative_type` | `Inline6779` | No | No | — |
+| `dominant_color` | `dominant_color` | `string` | No | No | Dominant pin color. Hex number, e.g. `#6E7874`. |
+| `has_been_promoted` | `has_been_promoted` | `boolean` | No | No | Whether the Pin has been promoted or not. |
+| `id` | `id` | `string` | Yes | No | — |
+| `is_owner` | `is_owner` | `boolean` | No | No | Whether the "operation user_account" is the Pin owner. |
+| `is_product` | `is_product` | `boolean` | No | No | Whether the Pin is a product Pin. |
+| `is_standard` | `is_standard` | `boolean` | No | No | Whether the Pin is standard or not. See documentation on Changes to Pin creation for more information. |
+| `media` | `media` | `Inline6780` | No | No | — |
+| `parent_pin_id` | `parent_pin_id` | `string` | No | No | The source pin id if this pin was saved from another pin. [Learn more](https://help.pinterest.com/article/save-pins-on-pinterest). |
+| `pin_metrics` | `pin_metrics` | `Inline6781` | No | No | Pin metrics with associated time intervals if any. |

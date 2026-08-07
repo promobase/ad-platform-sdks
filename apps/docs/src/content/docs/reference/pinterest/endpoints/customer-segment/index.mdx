@@ -1,0 +1,125 @@
+---
+title: "Pinterest Customer Segment endpoints"
+description: "3 generated Pinterest endpoint contracts for Customer Segment."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 127
+  label: "Customer Segment"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.customerSegment.customerSegmentCreate
+
+`POST` `/ad_accounts/{ad_account_id}/customer_segments`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (customer_segment/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.customerSegment.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CustomerSegmentCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `audience_ids` | `body` | `Array<string>` | Yes | No | Audience IDs included in the customer segment. |
+| `name` | `body` | `string` | Yes | No | Customer segment name. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.customerSegment.customerSegmentList
+
+`GET` `/ad_accounts/{ad_account_id}/customer_segments`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (customer_segment/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.customerSegment.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CustomerSegmentListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `query` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+| `includeSizing` | `query` | `boolean` | No | No | Include audience sizing in result or not |
+| `searchQuery` | `query` | `string` | No | No | Search query. Can contain pin description keywords or comma-separated pin IDs. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.customerSegment.customerSegmentUpdate
+
+`PATCH` `/ad_accounts/{ad_account_id}/customer_segments`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (customer_segment/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.customerSegment.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CustomerSegmentUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `audience_ids` | `body` | `Array<string>` | No | No | Audience IDs to update the customer segment to. Only applicable for UPDATE operations. |
+| `id` | `body` | `string` | Yes | No | Customer segment ID. |
+| `operation_type` | `body` | `string` | Yes | No | Audience operation type (update or remove). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

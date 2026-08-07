@@ -1,0 +1,1026 @@
+---
+title: "Pinterest models: Search User Pins List Response – Token Grant Type"
+description: "100 generated Pinterest model contracts, from SearchUserPinsListResponse through TokenGrantType."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1114
+  label: "Search User Pins List Response – Token Grant Type"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## SearchUserPinsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11514` | Yes | No | — |
+
+## SharedAudienceAccount
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account_id` | `account_id` | `string` | Yes | No | Account ID (ad account or business ID). |
+| `account_name` | `account_name` | `string` | Yes | No | Account name. |
+| `account_type` | `account_type` | `Inline7110` | Yes | No | account type |
+| `shared_on_timestamp` | `shared_on_timestamp` | `number` | Yes | No | Epoch timestamp in seconds for the shared audience event |
+
+## SharedAudiencesForBusinessListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `order` | `order` | `string` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## SharedAudiencesForBusinessListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9296` | Yes | No | — |
+
+## SingleInterestTargetingOption
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `child_interests` | `child_interests` | `Array<string>` | Yes | No | — |
+| `id` | `id` | `string` | Yes | No | — |
+| `level` | `level` | `number` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+
+## SourcePlatformOptions
+
+`enum` model on the `json` wire format.
+
+**Values:** `WEB`, `MOBILE`, `MOBILE_ANDROID`, `MOBILE_IOS`, `OFFLINE`, `PINTEREST_WEB`, `PINTEREST_ANDROID`, `PINTEREST_IOS`, `POINT_OF_SALE`
+
+## SSIOAccount
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `billto_infos` | `billto_infos` | `Array<Inline7114>` | No | No | An array of Salesforce account information that includes address, io terms, etc. |
+| `can_edit` | `can_edit` | `boolean` | No | No | Advertiser eligible to update order lines |
+| `currency` | `currency` | `string` | No | No | — |
+| `eligible` | `eligible` | `boolean` | No | No | Advertiser eligible to create order lines |
+| `error` | `error` | `string` | No | No | Error indicator from Salesforce which could be "No Error" |
+| `pmp_names` | `pmp_names` | `Array<Inline7115>` | No | No | — |
+
+## SSIOAccountAddress
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `address_id` | `address_id` | `string` | No | No | Salesforce id for address |
+| `display` | `display` | `string` | No | No | Address display |
+| `order_legal_entity` | `order_legal_entity` | `string` | No | No | Legal entity for this insertion order |
+| `purpose` | `purpose` | `string` | No | No | Purpose for which the address is used, usually Billing or Businness |
+
+## SSIOAccountItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `addresses` | `addresses` | `Array<Inline7118>` | No | No | Address information that is associated with this account. |
+| `id` | `id` | `string` | No | No | Salesforce id for billto_info |
+| `io_terms` | `io_terms` | `string` | No | No | Salesforce text for IO Terms and Conditions |
+| `io_terms_id` | `io_terms_id` | `string` | No | No | Salesforce id for IO Terms and Conditions |
+| `io_type` | `io_type` | `string` | No | No | Insertion Order Type - Pinterest Paper or Agency Paper |
+| `row_terms` | `row_terms` | `string` | No | No | Salesforce text for Rest of the World Terms and Conditions |
+| `row_terms_id` | `row_terms_id` | `string` | No | No | Salesforce id for Rest of the World Terms and Conditions |
+| `us_terms` | `us_terms` | `string` | No | No | Salesforce text for US Terms and Conditions |
+| `us_terms_id` | `us_terms_id` | `string` | No | No | Salesforce id for US Terms and Conditions |
+
+## SSIOAccountPMPName
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Salesforce id for PMP |
+| `name` | `name` | `string` | No | No | Display name |
+
+## SsioAccountsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+
+## SsioAccountsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9114` | Yes | No | — |
+
+## SSIOInsertionOrder
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pin_order_id` | `pin_order_id` | `string` | No | No | Salesforce order id |
+
+## SSIOInsertionOrderCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accepted_terms_id` | `accepted_terms_id` | `string` | Yes | No | The SFDC id for the terms |
+| `accepted_terms_time` | `accepted_terms_time` | `number` | No | No | The UTC timestamp (to the nearest sec) of when terms were accepted |
+| `agency_link` | `agency_link` | `string` | No | No | URL link for agency |
+| `billing_contact_email` | `billing_contact_email` | `string` | Yes | No | The billing contact email |
+| `billing_contact_firstname` | `billing_contact_firstname` | `string` | Yes | No | The billing contact first name |
+| `billing_contact_lastname` | `billing_contact_lastname` | `string` | Yes | No | The billing contact last name |
+| `billto_billing_address_id` | `billto_billing_address_id` | `string` | Yes | No | The bill-to billing address id |
+| `billto_business_address_id` | `billto_business_address_id` | `string` | Yes | No | The bill-to business address id |
+| `billto_company_id` | `billto_company_id` | `string` | Yes | No | The bill-to company id |
+| `budget_amount` | `budget_amount` | `number` | No | No | If Budget order line, the budget amount. |
+| `currency_info` | `currency_info` | `string` | Yes | No | Currency Codes from ISO 4217 |
+| `end_date` | `end_date` | `string` | No | No | End date of time period. Format: YYYY-MM-DD |
+| `estimated_monthly_spend` | `estimated_monthly_spend` | `number` | No | No | If Ongoing (perpetual) order line, the estimated monthly spend |
+| `media_contact_email` | `media_contact_email` | `string` | Yes | No | The media contact email |
+| `media_contact_firstname` | `media_contact_firstname` | `string` | Yes | No | The media contact first name |
+| `media_contact_lastname` | `media_contact_lastname` | `string` | Yes | No | The media contact last name |
+| `order_line_type` | `order_line_type` | `Inline7122` | Yes | No | Type can be Budget or Perpetual |
+| `order_name` | `order_name` | `string` | Yes | No | The order name |
+| `pmp_id` | `pmp_id` | `string` | Yes | No | The pmp id |
+| `po_number` | `po_number` | `string` | Yes | No | The po number |
+| `start_date` | `start_date` | `string` | Yes | No | Starting date of time period. Format: YYYY-MM-DD |
+| `user_email` | `user_email` | `string` | No | No | The email of user submitting the insertion order |
+
+## SsioInsertionOrderCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `accepted_terms_id` | `accepted_terms_id` | `string` | Yes | No | The SFDC id for the terms |
+| `accepted_terms_time` | `accepted_terms_time` | `number` | No | No | The UTC timestamp (to the nearest sec) of when terms were accepted |
+| `agency_link` | `agency_link` | `string` | No | No | URL link for agency |
+| `billing_contact_email` | `billing_contact_email` | `string` | Yes | No | The billing contact email |
+| `billing_contact_firstname` | `billing_contact_firstname` | `string` | Yes | No | The billing contact first name |
+| `billing_contact_lastname` | `billing_contact_lastname` | `string` | Yes | No | The billing contact last name |
+| `billto_billing_address_id` | `billto_billing_address_id` | `string` | Yes | No | The bill-to billing address id |
+| `billto_business_address_id` | `billto_business_address_id` | `string` | Yes | No | The bill-to business address id |
+| `billto_company_id` | `billto_company_id` | `string` | Yes | No | The bill-to company id |
+| `budget_amount` | `budget_amount` | `number` | No | No | If Budget order line, the budget amount. |
+| `currency_info` | `currency_info` | `string` | Yes | No | Currency Codes from ISO 4217 |
+| `end_date` | `end_date` | `string` | No | No | End date of time period. Format: YYYY-MM-DD |
+| `estimated_monthly_spend` | `estimated_monthly_spend` | `number` | No | No | If Ongoing (perpetual) order line, the estimated monthly spend |
+| `media_contact_email` | `media_contact_email` | `string` | Yes | No | The media contact email |
+| `media_contact_firstname` | `media_contact_firstname` | `string` | Yes | No | The media contact first name |
+| `media_contact_lastname` | `media_contact_lastname` | `string` | Yes | No | The media contact last name |
+| `order_line_type` | `order_line_type` | `Inline9117` | Yes | No | Type can be Budget or Perpetual |
+| `order_name` | `order_name` | `string` | Yes | No | The order name |
+| `pmp_id` | `pmp_id` | `string` | Yes | No | The pmp id |
+| `po_number` | `po_number` | `string` | Yes | No | The po number |
+| `start_date` | `start_date` | `string` | Yes | No | Starting date of time period. Format: YYYY-MM-DD |
+| `user_email` | `user_email` | `string` | No | No | The email of user submitting the insertion order |
+
+## SsioInsertionOrderCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9119` | Yes | No | — |
+
+## SsioInsertionOrderEditParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `ads_manager_order_line_id` | `ads_manager_order_line_id` | `string` | No | No | Ads manager OrderLineId |
+| `agency_link` | `agency_link` | `string` | No | No | URL link for agency |
+| `billing_contact_email` | `billing_contact_email` | `string` | No | No | The billing contact email |
+| `billing_contact_firstname` | `billing_contact_firstname` | `string` | No | No | The billing contact first name |
+| `billing_contact_lastname` | `billing_contact_lastname` | `string` | No | No | The billing contact last name |
+| `budget_amount` | `budget_amount` | `number` | No | No | If Budget order line, the budget amount. |
+| `end_date` | `end_date` | `string` | No | No | End date of time period. Format: YYYY-MM-DD |
+| `media_contact_email` | `media_contact_email` | `string` | No | No | The media contact email |
+| `media_contact_firstname` | `media_contact_firstname` | `string` | No | No | The media contact first name |
+| `media_contact_lastname` | `media_contact_lastname` | `string` | No | No | The media contact last name |
+| `oracle_line_id` | `oracle_line_id` | `string` | No | No | LineId in the Oracle DB |
+| `po_number` | `po_number` | `string` | No | No | The po number |
+| `salesforce_order_id` | `salesforce_order_id` | `string` | No | No | OrderId in SFDC |
+| `salesforce_order_line_id` | `salesforce_order_line_id` | `string` | No | No | OrderLineId in SFDC |
+| `start_date` | `start_date` | `string` | No | No | Starting date of time period. Format: YYYY-MM-DD |
+| `user_email` | `user_email` | `string` | No | No | The email of user submitting the insertion order |
+
+## SsioInsertionOrderEditResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9123` | Yes | No | — |
+
+## SsioInsertionOrdersStatusGetByAdAccountParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## SsioInsertionOrdersStatusGetByAdAccountResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9129` | Yes | No | — |
+
+## SsioInsertionOrdersStatusGetByPinOrderIdParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `pinOrderId` | `pinOrderId` | `string` | Yes | No | The pin order id associated with the ssio insertion order |
+
+## SsioInsertionOrdersStatusGetByPinOrderIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9126` | Yes | No | — |
+
+## SSIOInsertionOrderStatus
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creation_time` | `creation_time` | `string` | No | No | Salesforce insertion order creation time |
+| `pin_order_id` | `pin_order_id` | `string` | No | No | Salesforce order id |
+| `status` | `status` | `string` | No | No | Salesforce insertion order status |
+
+## SSIOInsertionOrderStatusResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creation_time` | `creation_time` | `string` | No | No | Salesforce insertion order creation time |
+| `pin_order_id` | `pin_order_id` | `string` | No | No | Salesforce order id |
+| `status` | `status` | `string` | No | No | Salesforce insertion order status |
+
+## SSIOInsertionOrderUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ads_manager_order_line_id` | `ads_manager_order_line_id` | `string` | No | No | Ads manager OrderLineId |
+| `agency_link` | `agency_link` | `string` | No | No | URL link for agency |
+| `billing_contact_email` | `billing_contact_email` | `string` | No | No | The billing contact email |
+| `billing_contact_firstname` | `billing_contact_firstname` | `string` | No | No | The billing contact first name |
+| `billing_contact_lastname` | `billing_contact_lastname` | `string` | No | No | The billing contact last name |
+| `budget_amount` | `budget_amount` | `number` | No | No | If Budget order line, the budget amount. |
+| `end_date` | `end_date` | `string` | No | No | End date of time period. Format: YYYY-MM-DD |
+| `media_contact_email` | `media_contact_email` | `string` | No | No | The media contact email |
+| `media_contact_firstname` | `media_contact_firstname` | `string` | No | No | The media contact first name |
+| `media_contact_lastname` | `media_contact_lastname` | `string` | No | No | The media contact last name |
+| `oracle_line_id` | `oracle_line_id` | `string` | No | No | LineId in the Oracle DB |
+| `po_number` | `po_number` | `string` | No | No | The po number |
+| `salesforce_order_id` | `salesforce_order_id` | `string` | No | No | OrderId in SFDC |
+| `salesforce_order_line_id` | `salesforce_order_line_id` | `string` | No | No | OrderLineId in SFDC |
+| `start_date` | `start_date` | `string` | No | No | Starting date of time period. Format: YYYY-MM-DD |
+| `user_email` | `user_email` | `string` | No | No | The email of user submitting the insertion order |
+
+## SSIOOrderLine
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accepted_terms_id` | `accepted_terms_id` | `string` | No | No | The SFDC id for the terms |
+| `accepted_terms_time` | `accepted_terms_time` | `string` | No | No | The UTC timestamp (to the nearest second) when terms were accepted. |
+| `ads_manager_order_line_id` | `ads_manager_order_line_id` | `string` | No | No | Ads manager order line id |
+| `agency_link` | `agency_link` | `string` | No | No | Agency link |
+| `bill_to_company_name` | `bill_to_company_name` | `string` | No | No | Bill-to company name |
+| `billing_contact_email` | `billing_contact_email` | `string` | No | No | Billing contact email |
+| `billing_contact_firstname` | `billing_contact_firstname` | `string` | No | No | Billing contact first name |
+| `billing_contact_lastname` | `billing_contact_lastname` | `string` | No | No | Billing contact last name |
+| `budget_amount` | `budget_amount` | `number` | No | No | If budget order line, the budget amount. |
+| `currency_info` | `currency_info` | `string` | No | No | Currency Codes from ISO 4217 |
+| `end_date` | `end_date` | `string` | No | No | End date of the order line. |
+| `estimated_monthly_spend` | `estimated_monthly_spend` | `number` | No | No | If ongoing (perpetual) order line, the estimated monthly spend. |
+| `last_modified_date_time` | `last_modified_date_time` | `string` | No | No | Last modified date. |
+| `media_contact_email` | `media_contact_email` | `string` | No | No | Billing media email |
+| `media_contact_firstname` | `media_contact_firstname` | `string` | No | No | Billing media contact first name |
+| `media_contact_lastname` | `media_contact_lastname` | `string` | No | No | Billing media contact last name |
+| `order_name` | `order_name` | `string` | No | No | The order name |
+| `pin_order_id` | `pin_order_id` | `string` | No | No | The pin order id associated with the order line in SFDC |
+| `pmp_name` | `pmp_name` | `string` | No | No | The Pinterest marketing partner name |
+| `po_number` | `po_number` | `string` | No | No | The PO number |
+| `salesforce_order_line_id` | `salesforce_order_line_id` | `string` | No | No | Order line id in SFDC |
+| `start_date` | `start_date` | `string` | No | No | Start date of the order line. |
+
+## SsioOrderLinesGetByAdAccountParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `pinOrderId` | `pinOrderId` | `string` | No | No | The pin order id associated with the SSIO insertion order |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## SsioOrderLinesGetByAdAccountResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9132` | Yes | No | — |
+
+## SSIOOrderLineType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BUDGET`, `PERPETUALS`
+
+## StandardPinMetricTypes
+
+`enum` model on the `json` wire format.
+
+**Values:** `IMPRESSION`, `OUTBOUND_CLICK`, `PIN_CLICK`, `SAVE`, `SAVE_RATE`, `TOTAL_COMMENTS`, `TOTAL_REACTIONS`, `USER_FOLLOW`, `PROFILE_VISIT`
+
+## StoreMetadata
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `geohash` | `geohash` | `string` | No | No | Geohash of the store location |
+| `latitude` | `latitude` | `number` | No | No | Geographic latitude coordinate of the store |
+| `longitude` | `longitude` | `number` | No | No | Geographic longitude coordinate of the store |
+| `store_code` | `store_code` | `string` | Yes | No | Merchant provided store code |
+| `store_id` | `store_id` | `string` | Yes | No | Internal store code |
+| `store_name` | `store_name` | `string` | No | No | Store name |
+
+## SummaryPin
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `alt_text` | `alt_text` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `id` | `id` | `string` | Yes | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `media` | `media` | `Inline7131` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+
+## SummaryStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `RUNNING`, `PAUSED`, `NOT_STARTED`, `COMPLETED`, `ADVERTISER_DISABLED`, `ARCHIVED`, `DRAFT`, `DELETED_DRAFT`
+
+## SupplementalItemBatchOperationStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `PROCESSING`, `COMPLETED`, `FAILED`
+
+## SupplementalItemProcessingStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `SUCCESS`, `FAILURE`, `PROCESSING`
+
+## SupplementalItemsBatchResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `batch_id` | `batch_id` | `string` | Yes | No | Id of the batch operation |
+| `completed_time` | `completed_time` | `string` | No | No | Date and time (UTC) of the batch completion: YYYY-MM-DD'T'hh:mm:ss |
+| `created_time` | `created_time` | `string` | Yes | No | Date and time (UTC) of the batch creation: YYYY-MM-DD'T'hh:mm:ss |
+| `operation_results` | `operation_results` | `Array<Inline7136>` | Yes | No | Array of operation results |
+| `status` | `status` | `Inline7139` | Yes | No | Status of the batch: PROCESSING, COMPLETED, FAILED |
+
+## SupplementalItemValidationEvent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute` | `attribute` | `string` | Yes | No | The item attribute referenced by the validation event eg. price, availability, ad_link |
+| `code` | `code` | `number` | Yes | No | The event code that the item validation event references |
+| `message` | `message` | `string` | Yes | No | Title message describing the item validation event |
+
+## SupplementalOperationResult
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline7142`
+
+## SystemUserUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `systemUserId` | `systemUserId` | `string` | Yes | No | Unique identifier of a system user. |
+| `name` | `name` | `string` | Yes | No | New system user name |
+
+## SystemUserUpdateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## SystemUserUpdateWithRequiredBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | New system user name |
+
+## TargetingAdvertiserCountry
+
+`enum` model on the `json` wire format.
+
+**Values:** `US`, `GB`, `CA`, `IE`, `AU`, `NZ`, `FR`, `SE`, `IL`, `DE`, `AT`, `IT`, `ES`, `NL`, `BE`, `PT`, `CH`, `HK`, `JP`, `KR`, `SG`, `NO`, `DK`, `FI`, `CY`, `LU`, `MT`, `PL`, `RO`, `HU`, `CZ`, `GR`, `SK`, `BR`, `MX`, `AR`, `CL`, `CO`
+
+## TargetingOption
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## TargetingOptionsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingType` | `targetingType` | `string` | Yes | No | Public targeting type |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `clientId` | `clientId` | `string` | No | No | Client ID |
+| `oauthSignature` | `oauthSignature` | `string` | No | No | Oauth signature |
+| `timestamp` | `timestamp` | `string` | No | No | Timestamp. |
+
+## TargetingOptionsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline11500>` | Yes | No | — |
+
+## TargetingSpec
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AGE_BUCKET` | `AGE_BUCKET` | `Array<string>` | No | No | **Legacy field.** Predefined age ranges. We recommend using MINIMUM_AGE and MAXIMUM_AGE instead for more flexible targeting. Cannot be combined with MINIMUM_AGE/MAXIMUM_AGE. If neither AGE_BUCKET nor MINIMUM_AGE/MAXIMUM_AGE are specified, all ages will be targeted. |
+| `APPTYPE` | `APPTYPE` | `Array<string>` | No | No | Allowed devices. If the APPTYPE field is missing, the default behavior in terms of ad delivery is that **All devices/apptypes** will be targeted. |
+| `AUDIENCE_EXCLUDE` | `AUDIENCE_EXCLUDE` | `Array<string>` | No | No | Excluded customer list IDs. Used to drive new customer acquisition goals. For example: ["2542620905475"]. Audience lists need to have at least 100 people with Pinterest accounts in them. If the AUDIENCE_EXCLUDE field is missing, the default behavior in terms of ad delivery is that **No users will be excluded**. |
+| `AUDIENCE_INCLUDE` | `AUDIENCE_INCLUDE` | `Array<string>` | No | No | Targeted customer list IDs. For example: ["2542620905473"]. Audience lists need to have at least 100 people with Pinterest accounts in them Audience lists need to have at least 100 people with Pinterest accounts in them. If the AUDIENCE_INCLUDE field is missing, the default behavior in terms of ad delivery is that **All users will be included**. |
+| `GENDER` | `GENDER` | `Array<string>` | No | No | Targeted genders. Values: ["unknown","male","female"]. If the GENDER field is missing, the default behavior in terms of ad delivery is that **All genders will be targeted**. |
+| `GEO` | `GEO` | `Array<string>` | No | No | Region codes or postal codes to include for targeting.&lt;br /&gt;&lt;br /&gt; Region codes represent broader geographical areas. Example: &lt;code&gt;US-CA&lt;/code&gt; is the region code for California in the United States.&lt;br /&gt;&lt;br /&gt; Postal codes represent more granular, specific areas. Example: &lt;code&gt;94103&lt;/code&gt; is a postal code for a specifc area in San Francisco, California, U.S.A.&lt;br /&gt;&lt;br /&gt; For each ad group, use only one of these methods, depending on which fits your targeting needs. Do not use both. For example, either specify a broader region code like &lt;code&gt;US-CA&lt;/code&gt; or a more granular postal code within that regon, such as &lt;code&gt;94103&lt;/code&gt;.&lt;br /&gt;&lt;br /&gt; You can specify multiple region codes or postal codes in an array, depending on which method you choose.&lt;br /&gt;&lt;br /&gt; Precede a region code array with the &lt;code&gt;region_codes&lt;/code&gt; key and a postal code value with the &lt;code&gt;postal_codes&lt;/code&gt; key. Examples:&lt;br /&gt;&lt;br /&gt; &lt;code&gt;"geo": &#123;&lt;/code&gt;&lt;br /&gt; &lt;code&gt;"region_codes": ["US-CA"]&lt;/code&gt;&lt;br /&gt; &lt;code&gt;&#125;&lt;/code&gt;&lt;br /&gt;&lt;br /&gt; &lt;code&gt;"geo": &#123;&lt;/code&gt;&lt;br /&gt; &lt;code&gt;"postal_codes": ["94103"]&lt;/code&gt;&lt;br /&gt; &lt;code&gt;&#125;&lt;/code&gt;&lt;br /&gt;&lt;br /&gt; For each ad group, specify at least one &lt;code&gt;GEO&lt;/code&gt; or &lt;code&gt;LOCATION&lt;/code&gt;. &lt;br /&gt;&lt;br /&gt; If you do not specifiy a &lt;code&gt;GEO&lt;/code&gt; code, only &lt;code&gt;LOCATION&lt;/code&gt; values will be targeted (See &lt;code&gt;LOCATION&lt;/code&gt; parameter in this targeting spec.).&lt;br /&gt;&lt;br /&gt; Learn how to &lt;a href="/docs/analytics-and-reports/ads-reporting/#get-all-available-codes-and-zones" target="_blank"&gt;get a current, complete list of codes&lt;/a&gt;. |
+| `GEO_EXCLUDE` | `GEO_EXCLUDE` | `Array<string>` | No | No | Region codes or postal codes to exclude from the targeting inclusion area.&lt;br /&gt;&lt;br /&gt; See &lt;code&gt;GEO&lt;/code&gt; parameter in this targeting spec for rules, syntax, and other information.&lt;br /&gt; |
+| `INTEREST` | `INTEREST` | `Array<string>` | No | No | Array of interest object IDs. If the INTEREST field is missing, the default behavior in terms of ad delivery is that **All interests will be targeted**. |
+| `LOCALE` | `LOCALE` | `Array<string>` | No | No | 24 ISO 639-1 two-letter language codes. If the LOCALE field is not included in the request, all languages are targeted. |
+| `LOCATION` | `LOCATION` | `Array<string>` | No | No | Metropolitan codes and/or ISO-Alpha-2, two-letter country codes to include for targeting.&lt;br /&gt;&lt;br /&gt; Precede country code values with the &lt;code&gt;country_codes&lt;/code&gt; key and metro code values with &lt;code&gt;metro_codes&lt;/code&gt; key. Example:&lt;br /&gt;&lt;br /&gt; &lt;code&gt;"location": &#123;&lt;/code&gt;&lt;br /&gt; &lt;code&gt;"country_codes": ["US", "CA"],&lt;/code&gt;&lt;br /&gt; &lt;code&gt;"metro_codes": ["501", "602"]&lt;/code&gt;&lt;br /&gt; &lt;code&gt;&#125;&lt;/code&gt;&lt;br /&gt;&lt;br /&gt; For each ad group, specify at least one &lt;code&gt;GEO&lt;/code&gt; or &lt;code&gt;LOCATION&lt;/code&gt; code. &lt;br /&gt;&lt;br /&gt; If you do not specify a &lt;code&gt;LOCATION&lt;/code&gt; code, only &lt;code&gt;GEO&lt;/code&gt; values will be targeted (See &lt;code&gt;GEO&lt;/code&gt; parameter in this targeting spec.).&lt;br /&gt;&lt;br /&gt; Learn how to &lt;a href="/docs/analytics-and-reports/ads-reporting/#get-all-available-codes-and-zones" target="_blank"&gt;get a current, complete list of codes&lt;/a&gt;. |
+| `LOCATION_EXCLUDE` | `LOCATION_EXCLUDE` | `Array<string>` | No | No | Metropolitan codes and/or ISO-Alpha-2, two-letter country codes to exclude from targeting.&lt;br /&gt;&lt;br /&gt; See &lt;code&gt;LOCATION&lt;/code&gt; parameter in this targeting spec for rules, syntax, and other information. |
+| `MAXIMUM_AGE` | `MAXIMUM_AGE` | `string` | No | No | Maximum age to target (inclusive). Values: "18", "19", ..., "65", "65+". Must be used together with `MINIMUM_AGE`. Cannot be combined with `AGE_BUCKET`. If neither `MINIMUM_AGE`/`MAXIMUM_AGE` nor `AGE_BUCKET` are specified, all ages will be targeted. |
+| `MINIMUM_AGE` | `MINIMUM_AGE` | `string` | No | No | Minimum age to target (inclusive). Values: "18", "19", ..., "65". Note: 65+ is not allowed for minimum age. Must be used together with `MAXIMUM_AGE`. Cannot be combined with `AGE_BUCKET`. If neither `MINIMUM_AGE`/`MAXIMUM_AGE` nor `AGE_BUCKET` are specified, all ages will be targeted. |
+| `SHOPPING_RETARGETING` | `SHOPPING_RETARGETING` | `Array<Inline7149>` | No | No | Array of object: lookback_window [Integer]: Number of days ago to start lookback timeframe for dynamic retargeting tag_types [Array of integer]: Event types to target for dynamic retargeting exclusion_window [Integer]: Number of days ago to stop lookback timeframe for dynamic retargeting |
+| `TARGETING_STRATEGY` | `TARGETING_STRATEGY` | `Array<string>` | No | No | — |
+
+## TargetingSpecAgeBucket
+
+`enum` model on the `json` wire format.
+
+**Values:** `18-24`, `19+`, `20+`, `21+`, `25-34`, `35-44`, `45-49`, `50-54`, `55-64`, `65+`
+
+## TargetingSpecAppType
+
+`enum` model on the `json` wire format.
+
+**Values:** `android_mobile`, `android_tablet`, `ipad`, `iphone`, `web`, `web_mobile`
+
+## TargetingSpecAudienceExcludeItems
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## TargetingSpecAudienceIncludeItems
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## TargetingSpecGender
+
+`enum` model on the `json` wire format.
+
+**Values:** `unknown`, `male`, `female`
+
+## TargetingSpecListOperation
+
+`enum` model on the `json` wire format.
+
+**Values:** `SET`, `ADD`, `REMOVE`
+
+## TargetingSpecOperationAgeBucket
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | — |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `values` | `values` | `Array<string>` | Yes | No | — |
+
+## TargetingSpecOperationAppType
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | — |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `values` | `values` | `Array<string>` | Yes | No | — |
+
+## TargetingSpecOperationAudienceExclude
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | — |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `values` | `values` | `Array<string>` | Yes | No | — |
+
+## TargetingSpecOperationAudienceInclude
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | — |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `values` | `values` | `Array<string>` | Yes | No | — |
+
+## TargetingSpecOperationGender
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | — |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `values` | `values` | `Array<string>` | Yes | No | — |
+
+## TargetingSpecOperationGeo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | — |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `values` | `values` | `Array<string>` | Yes | No | — |
+
+## TargetingSpecOperationGeoExclude
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | — |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `values` | `values` | `Array<string>` | Yes | No | — |
+
+## TargetingSpecOperationInterest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | — |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `values` | `values` | `Array<string>` | Yes | No | — |
+
+## TargetingSpecOperationLocale
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | — |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `values` | `values` | `Array<string>` | Yes | No | — |
+
+## TargetingSpecOperationLocation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | — |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `values` | `values` | `Array<string>` | Yes | No | — |
+
+## TargetingSpecOperationLocationExclude
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | — |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `values` | `values` | `Array<string>` | Yes | No | — |
+
+## TargetingSpecOperationMaximumAge
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | — |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `value` | `value` | `string` | Yes | No | — |
+
+## TargetingSpecOperationMinimumAge
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | — |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `value` | `value` | `string` | Yes | No | — |
+
+## TargetingSpecOperations
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline7170 \| Inline7171 \| Inline7172 \| Inline7173 \| Inline7174 \| Inline7175 \| Inline7176 \| Inline7177 \| Inline7178 \| Inline7179 \| Inline7180 \| Inline7181 \| Inline7182 \| Inline7183`
+
+## TargetingSpecOperationShoppingRetargeting
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | — |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `values` | `values` | `Array<Inline7185>` | Yes | No | — |
+
+## TargetingSpecOptimal
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AGE_BUCKET` | `AGE_BUCKET` | `Array<string>` | No | No | **Legacy field.** Predefined age ranges. We recommend using MINIMUM_AGE and MAXIMUM_AGE instead for more flexible targeting. Cannot be combined with MINIMUM_AGE/MAXIMUM_AGE. If neither AGE_BUCKET nor MINIMUM_AGE/MAXIMUM_AGE are specified, all ages will be targeted. |
+| `APPTYPE` | `APPTYPE` | `Array<string>` | No | No | Allowed devices. If the APPTYPE field is missing, the default behavior in terms of ad delivery is that **All devices/apptypes** will be targeted. |
+| `AUDIENCE_EXCLUDE` | `AUDIENCE_EXCLUDE` | `Array<unknown>` | No | No | Excluded customer list IDs. Used to drive new customer acquisition goals. For example: ["2542620905475"]. Audience lists need to have at least 100 people with Pinterest accounts in them. If the AUDIENCE_EXCLUDE field is missing, the default behavior in terms of ad delivery is that **No users will be excluded**. |
+| `AUDIENCE_INCLUDE` | `AUDIENCE_INCLUDE` | `Array<unknown>` | No | No | Targeted customer list IDs. For example: ["2542620905473"]. Audience lists need to have at least 100 people with Pinterest accounts in them Audience lists need to have at least 100 people with Pinterest accounts in them. If the AUDIENCE_INCLUDE field is missing, the default behavior in terms of ad delivery is that **All users will be included**. |
+| `GENDER` | `GENDER` | `Array<string>` | No | No | Targeted genders. Values: ["unknown","male","female"]. If the GENDER field is missing, the default behavior in terms of ad delivery is that **All genders will be targeted**. |
+| `GEO` | `GEO` | `Array<string>` | No | No | Region codes or postal codes to include for targeting. Region codes represent broader geographical areas. Example: `US-CA` is the region code for California in the United States. Postal codes represent more granular, specific areas. Example: `94103` is a postal code for a specifc area in San Francisco, California, U.S.A. For each ad group, use only one of these methods, depending on which fits your targeting needs. Do not use both. For example, either specify a broader region code like `US-CA` or a more granular postal code within that regon, such as `94103`. You can specify multiple region codes or postal codes in an array, depending on which method you choose. Precede a region code array with the `region_codes` key and a postal code value with the `postal_codes` key. Examples: ``` "geo": &#123; "region_codes": ["US-CA"] &#125; ``` ``` "geo": &#123; "postal_codes": ["94103"] &#125; ``` For each ad group, specify at least one `GEO` or `LOCATION`. If you do not specifiy a `GEO` code, only `LOCATION` values will be targeted (See `LOCATION` parameter in this targeting spec.). Learn how to get a current, complete list of codes. |
+| `GEO_EXCLUDE` | `GEO_EXCLUDE` | `Array<string>` | No | No | Closed beta Region codes or postal codes to exclude from the targeting inclusion area. See `GEO` parameter in this targeting spec for rules, syntax, and other information. |
+| `INTEREST` | `INTEREST` | `Array<string>` | No | No | Array of interest object IDs. If the INTEREST field is missing, the default behavior in terms of ad delivery is that **All interests will be targeted**. |
+| `LOCALE` | `LOCALE` | `Array<string>` | No | No | 24 ISO 639-1 two-letter language codes. If the LOCALE field is not included in the request, all languages are targeted. |
+| `LOCATION` | `LOCATION` | `Array<string>` | No | No | Metropolitan codes and/or ISO-Alpha-2, two-letter country codes to include for targeting. Precede country code values with the `country_codes` key and metro code values with `metro_codes` key. Example: ``` "location": &#123; "country_codes": ["US", "CA"], "metro_codes": ["501", "602"] &#125; ``` For each ad group, specify at least one `GEO` or `LOCATION` code. If you do not specify a `LOCATION` code, only `GEO` values will be targeted (See `GEO` parameter in this targeting spec.). Learn how to get a current, complete list of codes. |
+| `LOCATION_EXCLUDE` | `LOCATION_EXCLUDE` | `Array<string>` | No | No | Closed beta Metropolitan codes and/or ISO-Alpha-2, two-letter country codes to exclude from targeting. See `LOCATION` parameter in this targeting spec for rules, syntax, and other information. |
+| `MAXIMUM_AGE` | `MAXIMUM_AGE` | `string` | No | No | Maximum age to target (inclusive). Values: "18", "19", ..., "65", "65+". Must be used together with `MINIMUM_AGE`. Cannot be combined with `AGE_BUCKET`. If neither `MINIMUM_AGE`/`MAXIMUM_AGE` nor `AGE_BUCKET` are specified, all ages will be targeted. |
+| `MINIMUM_AGE` | `MINIMUM_AGE` | `string` | No | No | Minimum age to target (inclusive). Values: "18", "19", ..., "65". Note: 65+ is not allowed for minimum age. Must be used together with `MAXIMUM_AGE`. Cannot be combined with `AGE_BUCKET`. If neither `MINIMUM_AGE`/`MAXIMUM_AGE` nor `AGE_BUCKET` are specified, all ages will be targeted. |
+| `SHOPPING_RETARGETING` | `SHOPPING_RETARGETING` | `Array<Inline7187>` | No | No | Array of object: lookback_window [Integer]: Number of days ago to start lookback timeframe for dynamic retargeting tag_types [Array of integer]: Event types to target for dynamic retargeting exclusion_window [Integer]: Number of days ago to stop lookback timeframe for dynamic retargeting |
+| `TARGETING_STRATEGY` | `TARGETING_STRATEGY` | `Array<string>` | No | No | — |
+
+## TargetingSpecShoppingRetargeting
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `exclusion_window` | `exclusion_window` | `number` | No | No | Number of days ago to stop lookback timeframe for dynamic retargeting |
+| `lookback_window` | `lookback_window` | `number` | No | No | Number of days ago to start lookback timeframe for dynamic retargeting |
+| `tag_types` | `tag_types` | `Array<number>` | No | No | Event types to target for dynamic retargeting |
+
+## TargetingSpecTargetingStrategyItems
+
+`enum` model on the `json` wire format.
+
+**Values:** `CHOOSE_YOUR_OWN`, `FIND_NEW_CUSTOMERS`, `RECONNECT_WITH_USERS`
+
+## TargetingStrategy
+
+`enum` model on the `json` wire format.
+
+**Values:** `CHOOSE_YOUR_OWN`, `FIND_NEW_CUSTOMERS`, `RECONNECT_WITH_USERS`
+
+## TargetingTemplate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | The ID of the advertiser that this targeting template belongs to. |
+| `auto_targeting_enabled` | `auto_targeting_enabled` | `boolean` | No | No | Enable auto-targeting for ad group. Also known as ["expanded targeting"](https://help.pinterest.com/en/business/article/expanded-targeting). |
+| `created_time` | `created_time` | `number` | No | No | Targeting template created time. Unix timestamp in seconds. |
+| `id` | `id` | `string` | No | No | Targeting template ID. |
+| `keywords` | `keywords` | `Array<Inline7192>` | No | No | — |
+| `name` | `name` | `string` | Yes | No | targeting template name |
+| `placement_group` | `placement_group` | `string` | No | No | Campaign placement group type |
+| `sizing` | `sizing` | `Inline7193` | No | No | — |
+| `status` | `status` | `Inline7194` | No | No | Indicate targeting template is active or Deleted |
+| `targeting_attributes` | `targeting_attributes` | `Inline7195` | Yes | No | targeting profile attributes |
+| `tracking_urls` | `tracking_urls` | `Inline7196` | No | No | Third-party tracking URLs. Up to three tracking URLs - with a max length of 2,000 - are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. For more information, see [Third-party and dynamic tracking](https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking). |
+| `updated_time` | `updated_time` | `number` | No | No | Targeting template updated time.Unix timestamp in seconds. |
+| `valid` | `valid` | `boolean` | No | No | Inform if the targeting template is valid (ex. would be false if has revoked audience) |
+
+## TargetingTemplateAudienceSizing
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reach_estimate` | `reach_estimate` | `Inline7198` | No | No | — |
+
+## TargetingTemplateAudienceSizingReachEstimate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `estimate` | `estimate` | `number` | No | No | — |
+| `lower_bound` | `lower_bound` | `number` | No | No | — |
+| `upper_bound` | `upper_bound` | `number` | No | No | — |
+
+## TargetingTemplateCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_targeting_enabled` | `auto_targeting_enabled` | `boolean` | No | No | Enable auto-targeting for ad group. Also known as ["expanded targeting"](https://help.pinterest.com/en/business/article/expanded-targeting). |
+| `keywords` | `keywords` | `Array<Inline7201>` | No | No | — |
+| `name` | `name` | `string` | Yes | No | targeting template name |
+| `placement_group` | `placement_group` | `string` | No | No | Campaign placement group type |
+| `targeting_attributes` | `targeting_attributes` | `Inline7202` | Yes | No | targeting profile attributes |
+| `tracking_urls` | `tracking_urls` | `Inline7203` | No | No | Third-party tracking URLs. Up to three tracking URLs - with a max length of 2,000 - are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. For more information, see [Third-party and dynamic tracking](https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking). |
+
+## TargetingTemplateCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `auto_targeting_enabled` | `auto_targeting_enabled` | `boolean` | No | No | Enable auto-targeting for ad group. Also known as ["expanded targeting"](https://help.pinterest.com/en/business/article/expanded-targeting). |
+| `keywords` | `keywords` | `Array<Inline9144>` | No | No | — |
+| `name` | `name` | `string` | Yes | No | targeting template name |
+| `placement_group` | `placement_group` | `string` | No | No | Campaign placement group type |
+| `targeting_attributes` | `targeting_attributes` | `Inline9145` | Yes | No | targeting profile attributes |
+| `tracking_urls` | `tracking_urls` | `Inline9146` | No | No | Third-party tracking URLs. Up to three tracking URLs - with a max length of 2,000 - are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. For more information, see [Third-party and dynamic tracking](https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking). |
+
+## TargetingTemplateCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9148` | Yes | No | — |
+
+## TargetingTemplateKeyword
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `match_type` | `match_type` | `string` | No | No | Keyword match type |
+| `value` | `value` | `string` | No | No | The keyword targeting (120 chars max). |
+
+## TargetingTemplateListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `order` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+| `includeSizing` | `includeSizing` | `boolean` | No | No | Include audience sizing in result or not |
+| `searchQuery` | `searchQuery` | `string` | No | No | Search query. Can contain pin description keywords or comma-separated pin IDs. |
+
+## TargetingTemplateListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9138` | Yes | No | — |
+
+## TargetingTemplateStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACTIVE`, `DELETED`
+
+## TargetingTemplateUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `id` | `id` | `string` | Yes | No | Targeting template ID |
+| `operation_type` | `operation_type` | `string` | Yes | No | Audience operation type (update or remove). |
+| `targeting_attributes` | `targeting_attributes` | `Inline9157` | No | No | targeting profile attributes |
+
+## TargetingTemplateUpdateRequestReadOrUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | Targeting template ID |
+| `operation_type` | `operation_type` | `string` | Yes | No | Audience operation type (update or remove). |
+| `targeting_attributes` | `targeting_attributes` | `Inline7207` | No | No | targeting profile attributes |
+
+## TargetingTemplateUpdateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## TemplateBasedReport
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message` | `message` | `string` | No | No | — |
+| `report_status` | `report_status` | `string` | Yes | No | Possible status for a bulk reporting job |
+| `template_id` | `template_id` | `string` | Yes | No | Unique identifier of a template. |
+| `token` | `token` | `string` | No | No | — |
+
+## TemplateBasedReportCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message` | `message` | `string` | No | No | — |
+| `report_status` | `report_status` | `string` | Yes | No | Possible status for a bulk reporting job |
+| `token` | `token` | `string` | No | No | — |
+
+## TemplatesListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `order` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+
+## TemplatesListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9162` | Yes | No | — |
+
+## TermsOfService
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | The ID of the ad account. |
+| `has_accepted` | `has_accepted` | `boolean` | No | No | Whether the ad account has accepted terms of service. |
+| `html` | `html` | `string` | No | No | The terms of service content |
+| `id` | `id` | `string` | No | No | The ID of the terms of service |
+
+## TermsOfServiceGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `includeHtml` | `includeHtml` | `boolean` | No | No | Return HTML in TOS text. |
+| `tosType` | `tosType` | `string` | No | No | Request type. |
+
+## TermsOfServiceGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9170` | Yes | No | — |
+
+## TermsRelatedListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `terms` | `terms` | `Array<string>` | Yes | No | List of input terms. |
+
+## TermsRelatedListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11521` | Yes | No | — |
+
+## TermsSuggestedListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `term` | `term` | `string` | Yes | No | Input term. |
+| `limit` | `limit` | `number` | No | No | Max suggested terms to return. |
+
+## TermsSuggestedListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<string>` | Yes | No | — |
+
+## TermsSuggestedResponse
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<string>`
+
+## TieBreakerType
+
+`enum` model on the `json` wire format.
+
+**Values:** `RANDOM`, `CUSTOM`
+
+## TimeSeries
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date` | `date` | `string` | No | No | — |
+
+## TitleKeywordsFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `TITLE_KEYWORDS` | `TITLE_KEYWORDS` | `Inline7215` | Yes | No | — |
+
+## TokenGrantType
+
+`enum` model on the `json` wire format.
+
+**Values:** `authorization_code`, `refresh_token`, `client_credentials`

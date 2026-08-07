@@ -1,0 +1,119 @@
+---
+title: "Pinterest Catalog Items endpoints"
+description: "3 generated Pinterest endpoint contracts for Catalog Items."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 115
+  label: "Catalog Items"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.catalogItems.itemsBatchGet
+
+`GET` `/catalogs/items/batch/{batch_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (items_batch/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.catalogItems.read` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `ItemsBatchGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `batchId` | `path` | `unknown` | Yes | No | Id of a catalogs items batch to fetch |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogItems.itemsBatchPost
+
+`POST` `/catalogs/items/batch`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (items_batch/post)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogItems.manage` |
+| Required scopes | `catalogs:read`<br />`catalogs:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `ItemsBatchPostResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogItems.itemsPost
+
+`POST` `/catalogs/items`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (items/post)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogItems.manage` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `ItemsPostResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `country` | `body` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `filters` | `body` | `Inline9570 \| Inline9571 \| Inline9572` | Yes | No | — |
+| `language` | `body` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

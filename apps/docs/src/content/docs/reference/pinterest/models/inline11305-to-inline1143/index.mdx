@@ -1,0 +1,1051 @@
+---
+title: "Pinterest models: Inline11305 – Inline1143"
+description: "100 generated Pinterest model contracts, from Inline11305 through Inline1143."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1024
+  label: "Inline11305 – Inline1143"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Inline11305
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_0` | `GOOGLE_PRODUCT_CATEGORY_0` | `Inline11305` | Yes | No | — |
+
+## Inline11306
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `MEDIA_TYPE` | `MEDIA_TYPE` | `Inline11306` | Yes | No | — |
+
+## Inline11307
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `TITLE_KEYWORDS` | `TITLE_KEYWORDS` | `Inline11307` | Yes | No | — |
+
+## Inline11308
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `LINK` | `LINK` | `Inline11308` | Yes | No | — |
+
+## Inline1131
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `delta_value` | `delta_value` | `string \| Inline1131` | No | No | — |
+| `end_timestamp` | `end_timestamp` | `number` | No | No | Schedule end time. Unix timestamp in seconds. |
+| `name` | `name` | `string` | No | No | — |
+| `schedule_action` | `schedule_action` | `string` | No | No | The schedule action |
+| `schedule_status` | `schedule_status` | `string` | No | No | Schedule status |
+| `schedule_type` | `schedule_type` | `string` | No | No | The schedule type |
+| `start_timestamp` | `start_timestamp` | `number` | No | No | Schedule start time. Unix timestamp in seconds. |
+| `entity_id` | `entity_id` | `string` | No | No | — |
+| `entity_type` | `entity_type` | `string` | No | No | Entity type |
+| `id` | `id` | `string` | No | No | Schedule ID. |
+
+## Inline11310
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | — |
+| `items` | `items` | `Array<Inline11310 \| Inline11316 \| Inline11322>` | Yes | No | — |
+
+## Inline11311
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `alt_text` | `alt_text` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+| `ai_disclosures` | `ai_disclosures` | `Inline11311` | No | No | AI disclosure declarations the creator has made about this Pin. |
+| `board_id` | `board_id` | `string` | No | No | The board to which this Pin belongs. |
+| `board_owner` | `board_owner` | `Inline11312` | No | No | — |
+| `board_section_id` | `board_section_id` | `string` | No | No | The board section to which this Pin belongs. |
+| `created_at` | `created_at` | `string` | No | No | — |
+| `creative_type` | `creative_type` | `Inline11313` | No | No | — |
+| `dominant_color` | `dominant_color` | `string` | No | No | Dominant pin color. Hex number, e.g. `#6E7874`. |
+| `has_been_promoted` | `has_been_promoted` | `boolean` | No | No | Whether the Pin has been promoted or not. |
+| `id` | `id` | `string` | No | No | — |
+| `is_owner` | `is_owner` | `boolean` | No | No | Whether the "operation user_account" is the Pin owner. |
+| `is_product` | `is_product` | `boolean` | No | No | Whether the Pin is a product Pin. |
+| `is_standard` | `is_standard` | `boolean` | No | No | Whether the Pin is standard or not. See documentation on Changes to Pin creation for more information. |
+| `media` | `media` | `Inline11314` | No | No | — |
+| `parent_pin_id` | `parent_pin_id` | `string` | No | No | The source pin id if this pin was saved from another pin. [Learn more](https://help.pinterest.com/article/save-pins-on-pinterest). |
+| `pin_metrics` | `pin_metrics` | `Inline11315` | No | No | Pin metrics with associated time intervals if any. |
+
+## Inline11312
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `username` | `username` | `string` | No | No | — |
+
+## Inline11313
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11314
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11315
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11316
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `metadata` | `metadata` | `Inline11316` | Yes | No | Hotel product metadata entity |
+| `pin` | `pin` | `Inline11317` | Yes | No | Pin model containing properties related to a Pinterest Pin. |
+
+## Inline11317
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `alt_text` | `alt_text` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+| `ai_disclosures` | `ai_disclosures` | `Inline11317` | No | No | AI disclosure declarations the creator has made about this Pin. |
+| `board_id` | `board_id` | `string` | No | No | The board to which this Pin belongs. |
+| `board_owner` | `board_owner` | `Inline11318` | No | No | — |
+| `board_section_id` | `board_section_id` | `string` | No | No | The board section to which this Pin belongs. |
+| `created_at` | `created_at` | `string` | No | No | — |
+| `creative_type` | `creative_type` | `Inline11319` | No | No | — |
+| `dominant_color` | `dominant_color` | `string` | No | No | Dominant pin color. Hex number, e.g. `#6E7874`. |
+| `has_been_promoted` | `has_been_promoted` | `boolean` | No | No | Whether the Pin has been promoted or not. |
+| `id` | `id` | `string` | No | No | — |
+| `is_owner` | `is_owner` | `boolean` | No | No | Whether the "operation user_account" is the Pin owner. |
+| `is_product` | `is_product` | `boolean` | No | No | Whether the Pin is a product Pin. |
+| `is_standard` | `is_standard` | `boolean` | No | No | Whether the Pin is standard or not. See documentation on Changes to Pin creation for more information. |
+| `media` | `media` | `Inline11320` | No | No | — |
+| `parent_pin_id` | `parent_pin_id` | `string` | No | No | The source pin id if this pin was saved from another pin. [Learn more](https://help.pinterest.com/article/save-pins-on-pinterest). |
+| `pin_metrics` | `pin_metrics` | `Inline11321` | No | No | Pin metrics with associated time intervals if any. |
+
+## Inline11318
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `username` | `username` | `string` | No | No | — |
+
+## Inline11319
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline1132
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `APP_TYPE` | `APP_TYPE` | `string` | No | No | — |
+
+## Inline11320
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11321
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11322
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `metadata` | `metadata` | `Inline11322` | Yes | No | Creative assets product metadata entity |
+| `pin` | `pin` | `Inline11323` | Yes | No | Pin model containing properties related to a Pinterest Pin. |
+
+## Inline11323
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `alt_text` | `alt_text` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+| `ai_disclosures` | `ai_disclosures` | `Inline11323` | No | No | AI disclosure declarations the creator has made about this Pin. |
+| `board_id` | `board_id` | `string` | No | No | The board to which this Pin belongs. |
+| `board_owner` | `board_owner` | `Inline11324` | No | No | — |
+| `board_section_id` | `board_section_id` | `string` | No | No | The board section to which this Pin belongs. |
+| `created_at` | `created_at` | `string` | No | No | — |
+| `creative_type` | `creative_type` | `Inline11325` | No | No | — |
+| `dominant_color` | `dominant_color` | `string` | No | No | Dominant pin color. Hex number, e.g. `#6E7874`. |
+| `has_been_promoted` | `has_been_promoted` | `boolean` | No | No | Whether the Pin has been promoted or not. |
+| `id` | `id` | `string` | No | No | — |
+| `is_owner` | `is_owner` | `boolean` | No | No | Whether the "operation user_account" is the Pin owner. |
+| `is_product` | `is_product` | `boolean` | No | No | Whether the Pin is a product Pin. |
+| `is_standard` | `is_standard` | `boolean` | No | No | Whether the Pin is standard or not. See documentation on Changes to Pin creation for more information. |
+| `media` | `media` | `Inline11326` | No | No | — |
+| `parent_pin_id` | `parent_pin_id` | `string` | No | No | The source pin id if this pin was saved from another pin. [Learn more](https://help.pinterest.com/article/save-pins-on-pinterest). |
+| `pin_metrics` | `pin_metrics` | `Inline11327` | No | No | Pin metrics with associated time intervals if any. |
+
+## Inline11324
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `username` | `username` | `string` | No | No | — |
+
+## Inline11325
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11326
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11327
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline1133
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AUDIENCE_ID` | `AUDIENCE_ID` | `string` | No | No | — |
+
+## Inline11330
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `report_status` | `report_status` | `string` | No | No | — |
+| `size` | `size` | `number` | No | No | Size of the report in bytes |
+| `url` | `url` | `string` | No | No | URL to download the report |
+
+## Inline11332
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `report` | `report` | `Inline11332 \| Inline11333 \| Inline11334` | Yes | No | — |
+
+## Inline11333
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Unique identifier of a catalog. If not given, oldest catalog will be used |
+| `report_type` | `report_type` | `string` | Yes | No | — |
+
+## Inline11334
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Unique identifier of a catalog. If not given, oldest catalog will be used |
+| `product_group_id` | `product_group_id` | `string` | No | No | Optional product group ID. If omitted, all items are included. This feature is only available for allowlisted merchants. Please contact your account manager to enable this feature. |
+| `report_type` | `report_type` | `string` | Yes | No | — |
+
+## Inline11335
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `report` | `report` | `Inline11335 \| Inline11336` | Yes | No | — |
+
+## Inline11336
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Unique identifier of a catalog. If not given, oldest catalog will be used |
+| `report_type` | `report_type` | `string` | Yes | No | — |
+
+## Inline11338
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `token` | `token` | `string` | No | No | Token to be used to get the report |
+
+## Inline1134
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GENDER` | `GENDER` | `string` | No | No | — |
+
+## Inline11340
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `report` | `report` | `Inline11340 \| Inline11341` | Yes | No | — |
+
+## Inline11341
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Unique identifier of a catalog. If not given, oldest catalog will be used |
+| `report_type` | `report_type` | `string` | Yes | No | — |
+
+## Inline11342
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `report` | `report` | `Inline11342 \| Inline11343` | Yes | No | — |
+
+## Inline11343
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Unique identifier of a catalog. If not given, oldest catalog will be used |
+| `report_type` | `report_type` | `string` | Yes | No | — |
+
+## Inline11345
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | — |
+| `items` | `items` | `Array<Inline11345 \| Inline11346>` | Yes | No | — |
+
+## Inline11346
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | ID of the catalog entity. |
+| `code` | `code` | `number` | No | No | The event code that a diagnostics aggregated number references |
+| `code_label` | `code_label` | `string` | No | No | A human-friendly label for the event code (e.g, 'SPAM') |
+| `ineligible_for_ads` | `ineligible_for_ads` | `boolean` | No | No | Indicates if issue makes items ineligible for ads distribution |
+| `ineligible_for_organic` | `ineligible_for_organic` | `boolean` | No | No | Indicates if issue makes items ineligible for organic distribution |
+| `message` | `message` | `string` | No | No | Title message describing the diagnostic issue |
+| `occurrences` | `occurrences` | `number` | No | No | Number of occurrences of the issue |
+| `report_type` | `report_type` | `string` | No | No | — |
+
+## Inline11348
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `report` | `report` | `Inline11348 \| Inline11349` | Yes | No | — |
+
+## Inline11349
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Unique identifier of a catalog. If not given, oldest catalog will be used |
+| `report_type` | `report_type` | `string` | Yes | No | — |
+
+## Inline1135
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `browse` | `browse` | `number` | No | No | Browse (home-feed and related surfaces) |
+| `related_pins` | `related_pins` | `number` | No | No | Related-Pins placement |
+| `search` | `search` | `number` | No | No | Search placement |
+
+## Inline11350
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `report` | `report` | `Inline11350 \| Inline11351` | Yes | No | — |
+
+## Inline11351
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Unique identifier of a catalog. If not given, oldest catalog will be used |
+| `report_type` | `report_type` | `string` | Yes | No | — |
+
+## Inline11353
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | — |
+| `items` | `items` | `Array<Inline11353>` | Yes | No | — |
+
+## Inline11356
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `additional_id_1` | `additional_id_1` | `string` | No | No | — |
+| `connected_advertiser_id` | `connected_advertiser_id` | `string` | No | No | — |
+| `connected_lba_id` | `connected_lba_id` | `string` | No | No | — |
+| `connected_merchant_id` | `connected_merchant_id` | `string` | No | No | — |
+| `connected_tag_id` | `connected_tag_id` | `string` | No | No | — |
+| `connected_user_id` | `connected_user_id` | `string` | No | No | — |
+| `created_time` | `created_time` | `number` | No | No | — |
+| `external_business_id` | `external_business_id` | `string` | No | No | — |
+| `id` | `id` | `Inline11356` | Yes | No | Integration record ID. |
+| `partner_access_token` | `partner_access_token` | `string` | No | No | — |
+| `partner_access_token_expiry` | `partner_access_token_expiry` | `number` | No | No | — |
+| `partner_metadata` | `partner_metadata` | `string` | No | No | — |
+| `partner_primary_email` | `partner_primary_email` | `string` | No | No | — |
+| `partner_refresh_token` | `partner_refresh_token` | `string` | No | No | — |
+| `partner_refresh_token_expiry` | `partner_refresh_token_expiry` | `number` | No | No | — |
+| `scopes` | `scopes` | `string` | No | No | — |
+| `updated_time` | `updated_time` | `number` | No | No | — |
+
+## Inline11359
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `additional_id_1` | `additional_id_1` | `string` | No | No | — |
+| `connected_advertiser_id` | `connected_advertiser_id` | `string` | No | No | — |
+| `connected_lba_id` | `connected_lba_id` | `string` | No | No | — |
+| `connected_merchant_id` | `connected_merchant_id` | `string` | No | No | — |
+| `connected_tag_id` | `connected_tag_id` | `string` | No | No | — |
+| `connected_user_id` | `connected_user_id` | `string` | No | No | — |
+| `created_timestamp` | `created_timestamp` | `number` | No | No | — |
+| `external_business_id` | `external_business_id` | `string` | No | No | External business ID for the integration. |
+| `id` | `id` | `Inline11359` | No | No | — |
+| `partner_access_token_expiry` | `partner_access_token_expiry` | `number` | No | No | — |
+| `partner_metadata` | `partner_metadata` | `string` | No | No | — |
+| `partner_refresh_token_expiry` | `partner_refresh_token_expiry` | `number` | No | No | — |
+| `scopes` | `scopes` | `string` | No | No | — |
+| `updated_timestamp` | `updated_timestamp` | `number` | No | No | — |
+
+## Inline11362
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `additional_id_1` | `additional_id_1` | `string` | No | No | — |
+| `connected_advertiser_id` | `connected_advertiser_id` | `string` | No | No | — |
+| `connected_lba_id` | `connected_lba_id` | `string` | No | No | — |
+| `connected_merchant_id` | `connected_merchant_id` | `string` | No | No | — |
+| `connected_tag_id` | `connected_tag_id` | `string` | No | No | — |
+| `connected_user_id` | `connected_user_id` | `string` | No | No | — |
+| `created_timestamp` | `created_timestamp` | `number` | No | No | — |
+| `external_business_id` | `external_business_id` | `string` | No | No | External business ID for the integration. |
+| `id` | `id` | `Inline11362` | No | No | — |
+| `partner_access_token_expiry` | `partner_access_token_expiry` | `number` | No | No | — |
+| `partner_metadata` | `partner_metadata` | `string` | No | No | — |
+| `partner_refresh_token_expiry` | `partner_refresh_token_expiry` | `number` | No | No | — |
+| `scopes` | `scopes` | `string` | No | No | — |
+| `updated_timestamp` | `updated_timestamp` | `number` | No | No | — |
+
+## Inline11365
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `additional_id_1` | `additional_id_1` | `string` | No | No | — |
+| `connected_advertiser_id` | `connected_advertiser_id` | `string` | No | No | — |
+| `connected_lba_id` | `connected_lba_id` | `string` | No | No | — |
+| `connected_merchant_id` | `connected_merchant_id` | `string` | No | No | — |
+| `connected_tag_id` | `connected_tag_id` | `string` | No | No | — |
+| `connected_user_id` | `connected_user_id` | `string` | No | No | — |
+| `created_timestamp` | `created_timestamp` | `number` | No | No | — |
+| `external_business_id` | `external_business_id` | `string` | No | No | External business ID for the integration. |
+| `id` | `id` | `Inline11365` | No | No | — |
+| `partner_access_token_expiry` | `partner_access_token_expiry` | `number` | No | No | — |
+| `partner_metadata` | `partner_metadata` | `string` | No | No | — |
+| `partner_refresh_token_expiry` | `partner_refresh_token_expiry` | `number` | No | No | — |
+| `scopes` | `scopes` | `string` | No | No | — |
+| `updated_timestamp` | `updated_timestamp` | `number` | No | No | — |
+
+## Inline11368
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `additional_id_1` | `additional_id_1` | `string` | No | No | — |
+| `connected_advertiser_id` | `connected_advertiser_id` | `string` | No | No | — |
+| `connected_lba_id` | `connected_lba_id` | `string` | No | No | — |
+| `connected_merchant_id` | `connected_merchant_id` | `string` | No | No | — |
+| `connected_tag_id` | `connected_tag_id` | `string` | No | No | — |
+| `connected_user_id` | `connected_user_id` | `string` | No | No | — |
+| `created_timestamp` | `created_timestamp` | `number` | No | No | — |
+| `external_business_id` | `external_business_id` | `string` | No | No | External business ID for the integration. |
+| `id` | `id` | `Inline11368` | No | No | — |
+| `partner_access_token_expiry` | `partner_access_token_expiry` | `number` | No | No | — |
+| `partner_metadata` | `partner_metadata` | `string` | No | No | — |
+| `partner_refresh_token_expiry` | `partner_refresh_token_expiry` | `number` | No | No | — |
+| `scopes` | `scopes` | `string` | No | No | — |
+| `updated_timestamp` | `updated_timestamp` | `number` | No | No | — |
+
+## Inline1137
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid_in_micro_currency` | `bid_in_micro_currency` | `number` | No | No | Bid price in micro currency. This field is **REQUIRED** for the following campaign objective_type/billable_event combinations: AWARENESS/IMPRESSION, CONSIDERATION/CLICKTHROUGH, CATALOG_SALES/CLICKTHROUGH. |
+| `bid_strategy_type` | `bid_strategy_type` | `string` | No | No | Bid strategy type. For Campaigns with Video Completion objectives, the only supported bid strategy type is AUTOMATIC_BID, also known as "Pinterest Performance+ bidding". |
+| `billable_event` | `billable_event` | `string` | No | No | Ad group billable event type. For update, only draft ad groups may update billable event. |
+| `budget_in_micro_currency` | `budget_in_micro_currency` | `number` | No | No | Budget in micro currency. This field is **REQUIRED** for non-CBO (campaign budget optimization) campaigns. A CBO campaign automatically generates ad group budgets from its campaign budget to maximize campaign outcome. A CBO campaign is limited to 70 or less ad groups. |
+| `budget_type` | `budget_type` | `Inline1137` | No | No | — |
+| `campaign_id` | `campaign_id` | `string` | No | No | Campaign ID of the ad group. |
+| `end_time` | `end_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group stop appearing. If not specified, ads run indefinitely unless you update the ad group by changing their status to `paused`. Cannot occur after `end_time` for parent campaign (if specified). Learn about &lt;a href="/docs/api-features/managing-ads/#step-2-create-an-ad-group" target="blank"&gt;scheduling ads&lt;/a&gt;. For certain organizations (&lt;a href="/docs/getting-started/using-beta-and-restricted-features/" target="blank" target="blank"&gt;Closed beta&lt;/a&gt;): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `is_creative_optimization` | `is_creative_optimization` | `boolean` | No | No | Enable creative optimization for the ad group, default value is FALSE. When enabled, you allow Pinterest to automatically turn your product Pins into ads in different formats (collections and shopping) and deliver those ads to users at scale. |
+| `lifetime_frequency_cap` | `lifetime_frequency_cap` | `number` | No | No | Set a limit to the number of times a promoted pin from this campaign can be impressed by a pinner within the past rolling 30 days. Only available for CPM (cost per mille (1000 impressions)) ad groups. A CPM ad group has an IMPRESSION &lt;a href="/docs/redoc/#section/Billable-event"&gt;billable_event&lt;/a&gt; value. This field **REQUIRES** the `end_time` field. |
+| `name` | `name` | `string` | No | No | Ad group name. |
+| `optimization_goal_metadata` | `optimization_goal_metadata` | `Inline1138` | No | No | Optimization goals for objective-based performance campaigns. **REQUIRED** when campaign's `objective_type` is set to `"WEB_CONVERSION"`. |
+| `pacing_delivery_type` | `pacing_delivery_type` | `Inline1141` | No | No | — |
+| `placement_group` | `placement_group` | `Inline1142` | No | No | &lt;a href="/docs/redoc/#section/Placement-group"&gt;Placement group&lt;/a&gt;. |
+| `promotion_application_level` | `promotion_application_level` | `string` | No | No | Specify if the promotion is applied at ad group or item level |
+| `promotion_id` | `promotion_id` | `string` | No | No | Promotion ID. To clear this field, set to null. |
+| `promotion_ids` | `promotion_ids` | `Array<string>` | No | No | Promotion IDs list. To clear this field, set to an empty array []. |
+| `start_time` | `start_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group start to appear. If not specified, ads appear during parent campaign's `start_time`. Cannot precede `start_time` for parent campaign (if specified). Learn about &lt;a href="/docs/api-features/managing-ads/#step-2-create-an-ad-group" target="blank"&gt;scheduling ads&lt;/a&gt;. For certain organizations (&lt;a href="/docs/getting-started/using-beta-and-restricted-features/" target="blank" target="blank"&gt;Closed beta&lt;/a&gt;): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `status` | `status` | `Inline1143` | No | No | Ad group/entity status. |
+| `targeting_spec` | `targeting_spec` | `Inline1144` | No | No | Ad group targeting specification defining the ad group target audience. For example, `&#123;"APPTYPE":["iphone"], "GENDER":["male"], "LOCALE":["en-US"], "LOCATION":["501"], "MINIMUM_AGE":"18", "MAXIMUM_AGE":"65+"&#125;` |
+| `targeting_template_ids` | `targeting_template_ids` | `Array<string>` | No | No | Targeting template IDs applied to the ad group. We currently only support 1 targeting template per ad group. To use targeting templates, do not set any other targeting fields: targeting_spec, tracking_urls, auto_targeting_enabled, placement_group. To clear all targeting template IDs, set this field to ['0']. |
+| `tracking_urls` | `tracking_urls` | `Inline1145` | No | No | Third-party tracking URLs.&lt;br&gt; JSON object with the format: &#123;"&lt;a href="/docs/redoc/#section/Tracking-URL-event"&gt;Tracking event enum&lt;/a&gt;":[URL string array],...&#125;&lt;br&gt; For example: &#123;"impression": ["URL1", "URL2"], "click": ["URL1", "URL2", "URL3"]&#125;.&lt;br&gt;Up to three tracking URLs are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. May be null. Pass in an empty object - EmptyObject - to remove tracking URLs.&lt;br&gt;&lt;br&gt; For more information, see &lt;a href="https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking" target="_blank"&gt;Third-party and dynamic tracking&lt;/a&gt;. |
+| `auto_targeting_enabled` | `auto_targeting_enabled` | `boolean` | No | No | Enable auto-targeting for ad group. Default value is True. Also known as &lt;a href="https://help.pinterest.com/en/business/article/performance-plus-targeting" target="_blank"&gt;"Pinterest Performance+ targeting"&lt;/a&gt;. |
+| `bid_multiplier` | `bid_multiplier` | `number` | No | No | &lt;a href="/docs/getting-started/using-beta-and-restricted-features/" target="blank&gt;Open beta&lt;/a&gt; Bid multiplier for ad group. This value is a double between 0.1 and 10.0. Enter 0 to remove the bid multiplier. - Make sure the `bid_strategy` type for your ad group is set to `AUTOMATIC_BID`. - Not currently supported for &lt;a href="/docs/api-features/pinterest-performance-plus-setup/" target="blank"&gt;Pinterest Performance+ campaigns&lt;/a&gt;. |
+
+## Inline11370
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | — |
+| `app_version_number` | `app_version_number` | `string` | No | No | Version number of the integration application. |
+| `client_timestamp` | `client_timestamp` | `number` | Yes | No | Timestamp in milliseconds of when the log was executed at the client. |
+| `error` | `error` | `Inline11370` | No | No | System error details included in the log sent by the client. |
+| `event_type` | `event_type` | `Inline11371` | Yes | No | Log event type |
+| `external_business_id` | `external_business_id` | `string` | No | No | — |
+| `feed_profile_id` | `feed_profile_id` | `string` | No | No | — |
+| `log_level` | `log_level` | `Inline11372` | Yes | No | Log level type |
+| `merchant_id` | `merchant_id` | `string` | No | No | — |
+| `message` | `message` | `string` | No | No | Explanation of the event that occured. |
+| `platform_version_number` | `platform_version_number` | `string` | No | No | Version number of the platform the integration application is running on. |
+| `request` | `request` | `Inline11373` | No | No | HTTP request details included in the log sent by the client. |
+| `tag_id` | `tag_id` | `string` | No | No | — |
+
+## Inline11371
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11372
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11373
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `host` | `host` | `string` | Yes | No | HTTP request host from host header. |
+| `method` | `method` | `string` | Yes | No | HTTP request method. |
+| `path` | `path` | `string` | Yes | No | HTTP request path. |
+| `request_headers` | `request_headers` | `Inline11373` | No | No | HTTP request headers as key-value pairs. |
+| `response_headers` | `response_headers` | `Inline11374` | No | No | HTTP response headers as key-value pairs. |
+| `response_status_code` | `response_status_code` | `number` | No | No | — |
+
+## Inline11374
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11376
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message` | `message` | `string` | No | No | — |
+
+## Inline11378
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | No | No | — |
+| `app_version_number` | `app_version_number` | `string` | No | No | Version number of the integration application. |
+| `client_timestamp` | `client_timestamp` | `number` | Yes | No | Timestamp in milliseconds of when the log was executed at the client. |
+| `error` | `error` | `Inline11378` | No | No | System error details included in the log sent by the client. |
+| `event_type` | `event_type` | `Inline11379` | Yes | No | Log event type |
+| `external_business_id` | `external_business_id` | `string` | No | No | — |
+| `feed_profile_id` | `feed_profile_id` | `string` | No | No | — |
+| `log_level` | `log_level` | `Inline11380` | Yes | No | Log level type |
+| `merchant_id` | `merchant_id` | `string` | No | No | — |
+| `message` | `message` | `string` | No | No | Explanation of the event that occured. |
+| `platform_version_number` | `platform_version_number` | `string` | No | No | Version number of the platform the integration application is running on. |
+| `request` | `request` | `Inline11381` | No | No | HTTP request details included in the log sent by the client. |
+| `tag_id` | `tag_id` | `string` | No | No | — |
+
+## Inline11379
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline1138
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversion_tag_v3_goal_metadata` | `conversion_tag_v3_goal_metadata` | `Inline1138` | No | No | — |
+| `frequency_goal_metadata` | `frequency_goal_metadata` | `Inline1139` | No | No | Frequency target can only be between 2 and 20 |
+| `scrollup_goal_metadata` | `scrollup_goal_metadata` | `Inline1140` | No | No | — |
+
+## Inline11380
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11381
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `host` | `host` | `string` | Yes | No | HTTP request host from host header. |
+| `method` | `method` | `string` | Yes | No | HTTP request method. |
+| `path` | `path` | `string` | Yes | No | HTTP request path. |
+| `request_headers` | `request_headers` | `Inline11381` | No | No | HTTP request headers as key-value pairs. |
+| `response_headers` | `response_headers` | `Inline11382` | No | No | HTTP response headers as key-value pairs. |
+| `response_status_code` | `response_status_code` | `number` | No | No | — |
+
+## Inline11382
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11384
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | — |
+| `items` | `items` | `Array<Inline11384>` | Yes | No | — |
+
+## Inline11385
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11387
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11389
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_id` | `media_id` | `string` | Yes | No | Unique identifier for this media upload. Used to track status and for attaching during Pin creation. |
+| `media_type` | `media_type` | `Inline11389` | Yes | No | — |
+| `upload_parameters` | `upload_parameters` | `Inline11390` | No | No | The list of parameter key/value pairs you will need to send with your POST request to upload your media file. |
+| `upload_url` | `upload_url` | `string` | No | No | The URL where you will POST your media file. |
+
+## Inline1139
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `frequency` | `frequency` | `number` | No | No | — |
+| `timerange` | `timerange` | `string` | No | No | — |
+
+## Inline11390
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `Content-Type` | `Content-Type` | `string` | No | No | — |
+| `key` | `key` | `string` | No | No | — |
+| `policy` | `policy` | `string` | No | No | — |
+| `x-amz-algorithm` | `x-amz-algorithm` | `string` | No | No | — |
+| `x-amz-credential` | `x-amz-credential` | `string` | No | No | — |
+| `x-amz-date` | `x-amz-date` | `string` | No | No | — |
+| `x-amz-security-token` | `x-amz-security-token` | `string` | No | No | — |
+| `x-amz-signature` | `x-amz-signature` | `string` | No | No | — |
+
+## Inline11392
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11394
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_id` | `media_id` | `string` | Yes | No | Unique identifier for this media upload. Used to track status and for attaching during Pin creation. |
+| `media_type` | `media_type` | `Inline11394` | Yes | No | — |
+| `status` | `status` | `Inline11395` | No | No | — |
+
+## Inline11395
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11397
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11398
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline114
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline1140
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `scrollup_goal_value_in_micro_currency` | `scrollup_goal_value_in_micro_currency` | `string` | No | No | — |
+
+## Inline11400
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error_msg` | `error_msg` | `string` | No | No | error message when success is false |
+| `received_at` | `received_at` | `number` | No | No | Received time. Unix timestamp in seconds. |
+| `success` | `success` | `boolean` | No | No | Returns true if the notification accepted. |
+
+## Inline11403
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `access_token` | `access_token` | `string` | Yes | No | — |
+| `token_type` | `token_type` | `string` | No | No | — |
+
+## Inline11406
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `access_token` | `access_token` | `string` | Yes | No | — |
+| `expires_in` | `expires_in` | `number` | Yes | No | — |
+| `refresh_token` | `refresh_token` | `string` | No | No | — |
+| `refresh_token_expires_at` | `refresh_token_expires_at` | `number` | No | No | — |
+| `refresh_token_expires_in` | `refresh_token_expires_in` | `number` | No | No | — |
+| `response_type` | `response_type` | `Inline11406` | No | No | — |
+| `scope` | `scope` | `string` | No | No | — |
+| `token_type` | `token_type` | `string` | Yes | No | — |
+
+## Inline1141
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11410
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `values` | `values` | `Array<string>` | No | No | List of AI disclosure declarations the creator has made about this Pin. |
+
+## Inline11411
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `content_type` | `content_type` | `string` | Yes | No | — |
+| `data` | `data` | `string` | Yes | No | — |
+| `is_standard` | `is_standard` | `boolean` | No | No | Set the parameter to false to create the new simplified Pin instead of the standard pin. Currently the field is only available to a list of beta users. |
+| `source_type` | `source_type` | `string` | Yes | No | The source type of the media. |
+
+## Inline11412
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_standard` | `is_standard` | `boolean` | No | No | Set the parameter to false to create the new simplified Pin instead of the standard pin. Currently the field is only available to a list of beta users. |
+| `source_type` | `source_type` | `string` | Yes | No | The source type of the media. |
+| `url` | `url` | `string` | Yes | No | — |
+
+## Inline11413
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cover_image_content_type` | `cover_image_content_type` | `Inline11413` | No | No | Content type for cover image Base64. |
+| `cover_image_data` | `cover_image_data` | `string` | No | No | Cover image Base64. |
+| `cover_image_key_frame_time` | `cover_image_key_frame_time` | `number` | No | No | Keyframe timestamp for cover image (seconds). If entered time exceeds video duration, the last frame is used. |
+| `cover_image_url` | `cover_image_url` | `string` | No | No | Cover image URL. |
+| `is_standard` | `is_standard` | `boolean` | No | No | Set the parameter to false to create the new simplified Pin instead of the standard pin. Currently the field is only available to a list of beta users. |
+| `media_id` | `media_id` | `string` | Yes | No | — |
+| `source_type` | `source_type` | `string` | Yes | No | — |
+
+## Inline11414
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `number` | No | No | — |
+| `items` | `items` | `Array<Inline11414>` | Yes | No | Array with image objects. |
+| `source_type` | `source_type` | `string` | Yes | No | The source type of the media. |
+
+## Inline11415
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `number` | No | No | — |
+| `items` | `items` | `Array<Inline11415>` | Yes | No | Array with image objects. |
+| `source_type` | `source_type` | `string` | Yes | No | The source type of the media. |
+
+## Inline11416
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_affiliate_link` | `is_affiliate_link` | `boolean` | No | No | This is an affiliate link or sponsored product. The FTC requires disclosure for paid partnerships and affiliate products. |
+| `source_type` | `source_type` | `string` | Yes | No | — |
+
+## Inline11418
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `alt_text` | `alt_text` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+| `ai_disclosures` | `ai_disclosures` | `Inline11418` | No | No | AI disclosure declarations the creator has made about this Pin. |
+| `board_id` | `board_id` | `string` | No | No | The board to which this Pin belongs. |
+| `board_owner` | `board_owner` | `Inline11419` | No | No | — |
+| `board_section_id` | `board_section_id` | `string` | No | No | The board section to which this Pin belongs. |
+| `created_at` | `created_at` | `string` | No | No | — |
+| `creative_type` | `creative_type` | `Inline11420` | No | No | — |
+| `dominant_color` | `dominant_color` | `string` | No | No | Dominant pin color. Hex number, e.g. `#6E7874`. |
+| `has_been_promoted` | `has_been_promoted` | `boolean` | No | No | Whether the Pin has been promoted or not. |
+| `id` | `id` | `string` | No | No | — |
+| `is_owner` | `is_owner` | `boolean` | No | No | Whether the "operation user_account" is the Pin owner. |
+| `is_product` | `is_product` | `boolean` | No | No | Whether the Pin is a product Pin. |
+| `is_standard` | `is_standard` | `boolean` | No | No | Whether the Pin is standard or not. See documentation on Changes to Pin creation for more information. |
+| `media` | `media` | `Inline11421` | No | No | — |
+| `parent_pin_id` | `parent_pin_id` | `string` | No | No | The source pin id if this pin was saved from another pin. [Learn more](https://help.pinterest.com/article/save-pins-on-pinterest). |
+| `pin_metrics` | `pin_metrics` | `Inline11422` | No | No | Pin metrics with associated time intervals if any. |
+
+## Inline11419
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `username` | `username` | `string` | No | No | — |
+
+## Inline1142
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11420
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11421
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11422
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline11424
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `values` | `values` | `Array<string>` | No | No | List of AI disclosure declarations the creator has made about this Pin. |
+
+## Inline11425
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `content_type` | `content_type` | `string` | Yes | No | — |
+| `data` | `data` | `string` | Yes | No | — |
+| `is_standard` | `is_standard` | `boolean` | No | No | Set the parameter to false to create the new simplified Pin instead of the standard pin. Currently the field is only available to a list of beta users. |
+| `source_type` | `source_type` | `string` | Yes | No | The source type of the media. |
+
+## Inline11426
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_standard` | `is_standard` | `boolean` | No | No | Set the parameter to false to create the new simplified Pin instead of the standard pin. Currently the field is only available to a list of beta users. |
+| `source_type` | `source_type` | `string` | Yes | No | The source type of the media. |
+| `url` | `url` | `string` | Yes | No | — |
+
+## Inline11427
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cover_image_content_type` | `cover_image_content_type` | `Inline11427` | No | No | Content type for cover image Base64. |
+| `cover_image_data` | `cover_image_data` | `string` | No | No | Cover image Base64. |
+| `cover_image_key_frame_time` | `cover_image_key_frame_time` | `number` | No | No | Keyframe timestamp for cover image (seconds). If entered time exceeds video duration, the last frame is used. |
+| `cover_image_url` | `cover_image_url` | `string` | No | No | Cover image URL. |
+| `is_standard` | `is_standard` | `boolean` | No | No | Set the parameter to false to create the new simplified Pin instead of the standard pin. Currently the field is only available to a list of beta users. |
+| `media_id` | `media_id` | `string` | Yes | No | — |
+| `source_type` | `source_type` | `string` | Yes | No | — |
+
+## Inline11428
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `number` | No | No | — |
+| `items` | `items` | `Array<Inline11428>` | Yes | No | Array with image objects. |
+| `source_type` | `source_type` | `string` | Yes | No | The source type of the media. |
+
+## Inline11429
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `index` | `index` | `number` | No | No | — |
+| `items` | `items` | `Array<Inline11429>` | Yes | No | Array with image objects. |
+| `source_type` | `source_type` | `string` | Yes | No | The source type of the media. |
+
+## Inline1143
+
+`object` model on the `json` wire format.
+
+No fields are declared.

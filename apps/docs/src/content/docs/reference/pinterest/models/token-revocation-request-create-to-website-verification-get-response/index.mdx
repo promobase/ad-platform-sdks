@@ -1,0 +1,1016 @@
+---
+title: "Pinterest models: Token Revocation Request Create – Website Verification Get Response"
+description: "100 generated Pinterest model contracts, from TokenRevocationRequestCreate through WebsiteVerificationGetResponse."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1115
+  label: "Token Revocation Request Create – Website Verification Get Response"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## TokenRevocationRequestCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `token` | `token` | `string` | Yes | No | The token to revoke. |
+| `token_type_hint` | `token_type_hint` | `Inline7218` | No | No | The type of the token to revoke. Please refer to [our developer guide for more information](https://developers.pinterest.com/docs/getting-started/set-up-authentication-and-authorization/) for more information. |
+
+## TokenRevokeParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## TokenRevokeResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## TokenTypeHint
+
+`enum` model on the `json` wire format.
+
+**Values:** `access_token`, `refresh_token`
+
+## TopPinsAnalyticsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date_availability` | `date_availability` | `Inline7221` | No | No | — |
+| `pins` | `pins` | `Array<Inline7222>` | No | No | — |
+| `sort_by` | `sort_by` | `string` | No | No | Sort metric for top pins analytics. |
+
+## TopPinsAnalyticsResponseDateAvailability
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_realtime` | `is_realtime` | `boolean` | No | No | — |
+| `latest_available_timestamp` | `latest_available_timestamp` | `number` | No | No | — |
+
+## TopPinsAnalyticsResponsePinsItems
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data_status` | `data_status` | `Inline7226` | No | No | — |
+| `metrics` | `metrics` | `Inline7227` | No | No | — |
+| `pin_id` | `pin_id` | `string` | No | No | The pin id |
+
+## TopPinsSortBy
+
+`enum` model on the `json` wire format.
+
+**Values:** `ENGAGEMENT`, `SAVE`, `IMPRESSION`, `OUTBOUND_CLICK`, `PIN_CLICK`
+
+## TopVideoPinsAnalyticsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date_availability` | `date_availability` | `Inline7230` | No | No | — |
+| `pins` | `pins` | `Array<Inline7231>` | No | No | — |
+| `sort_by` | `sort_by` | `string` | No | No | Sort metric for top video pins analytics. |
+
+## TopVideoPinsAnalyticsResponseDateAvailability
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_realtime` | `is_realtime` | `boolean` | No | No | — |
+| `latest_available_timestamp` | `latest_available_timestamp` | `number` | No | No | — |
+
+## TopVideoPinsAnalyticsResponsePinsItems
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data_status` | `data_status` | `Inline7235` | No | No | — |
+| `metrics` | `metrics` | `Inline7236` | No | No | — |
+| `pin_id` | `pin_id` | `string` | No | No | The pin id |
+
+## TopVideoPinsSortBy
+
+`enum` model on the `json` wire format.
+
+**Values:** `SAVE`, `IMPRESSION`, `OUTBOUND_CLICK`, `VIDEO_MRC_VIEW`, `VIDEO_AVG_WATCH_TIME`, `VIDEO_V50_WATCH_TIME`, `QUARTILE_95_PERCENT_VIEW`, `VIDEO_10S_VIEW`, `VIDEO_START`
+
+## TotalCountByEntityStatus
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ACTIVE` | `ACTIVE` | `number` | No | No | Count of ACTIVE assets |
+| `ARCHIVED` | `ARCHIVED` | `number` | No | No | Count of ARCHIVED assets |
+| `PAUSED` | `PAUSED` | `number` | No | No | Count of PAUSED assets |
+
+## TrackingUrls
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_verification` | `audience_verification` | `Array<string>` | No | No | — |
+| `buyable_button` | `buyable_button` | `Array<string>` | No | No | — |
+| `click` | `click` | `Array<string>` | No | No | — |
+| `engagement` | `engagement` | `Array<string>` | No | No | — |
+| `impression` | `impression` | `Array<string>` | No | No | — |
+
+## TrendingKeyword
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `demographics` | `demographics` | `Inline7241` | No | No | A mapping of demographic dimensions (e.g. "gender", "age") to their category distributions. For each dimension: Key: The category (e.g., "female", "18-24"). Value: The proportion of search volume (e.g., 0.12 for 12%). Values less than 0.05 are set to 0.04 for privacy. The sum for all categories in a dimension will approximately equal 1. Only applicable when `include_demographics` query parameter is set to `true`. |
+| `has_prediction` | `has_prediction` | `boolean` | No | No | Indicates whether the keyword has a prediction available for the next 90 days. This field is only applicable when `include_prediction` query parameter is set to `true`. By default, the value is `false` and no prediction data is included in the response. |
+| `keyword` | `keyword` | `string` | No | No | The keyword that is trending. |
+| `pct_growth_mom` | `pct_growth_mom` | `number` | No | No | The month-over-month percent change in search volume for this keyword. For example, a value of "400" would represent a 400% increase in searches in the last 30 days compared to the month prior. **Note**: growth rates are rounded, with a maximum of +/- 10000% change. A value of 10001 indicates that this keyword experienced &gt; 10000% month-over-month growth. |
+| `pct_growth_wow` | `pct_growth_wow` | `number` | No | No | The week-over-week percent change in search volume for this keyword. For example, a value of "50" would represent a 50% increase in searches in the last seven days compared to the week prior. **Note**: growth rates are rounded, with a maximum of +/- 10000% change. A value of 10001 indicates that this keyword experienced &gt; 10000% week-over-week growth. |
+| `pct_growth_yoy` | `pct_growth_yoy` | `number` | No | No | The year-over-year percent change in search volume for this keyword. For example, a value of "-5" would represent a 5% decrease in searches in the last 365 days compared to the month prior. **Note**: growth rates are rounded, with a maximum of +/- 10000% change. A value of 10001 indicates that this keyword experienced &gt; 10000% year-over-year growth. |
+| `predicted_time_series` | `predicted_time_series` | `Inline7243` | No | No | A sequence of weekly observations of the predicted relative search volume for this keyword over the next 3 months. These values are normalized to a [0-100] range, and can be used to visualize the forecasted user interest in this keyword. Similar to the historical `time_series`, normalization is applied independently to the predicted time series of each keyword, but the `normalize_against_group` query parameter can be used in cases where you wish to compare relative predicted volume between keywords. **Note**: The cut-off date between historical and predicted time series depends on Pinterest data availability. Usually the data needs a few days to be calculated, so the predicted time series may contain some past dates compared to today. **Note**: The date of each observation is in ISO-8601 format and represents the *end* of the week. For example, a value of `2024-01-07` would include predicted searches for the week ending on `2024-01-07`. |
+| `time_series` | `time_series` | `Inline7244` | No | No | A sequence of weekly observations of the relative search volume for this keyword over the past year. These values are normalized to a [0-100] range, and can be used to visualize the history of user interest in this keyword. By default, normalization is applied independently to the time series of each keyword, but the `normalize_against_group` query parameter can be used in cases where you wish to compare relative volume between keywords. **Note**: The date of each observation is in ISO-8601 format and represents the *end* of the week. For example, a value of `2023-10-31` would include searches that happened between `2023-10-25` and `2023-10-31`. |
+
+## TrendingKeywordDemographics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age_distribution` | `age_distribution` | `Inline7246` | No | No | This represents a mapping from age bucket to distribution of search volume for a keyword. The sum of all values in this object should approximately be 1. |
+| `gender_distribution` | `gender_distribution` | `Inline7247` | No | No | This represents a mapping from gender to distribution of search volume for a keyword. The sum of all values in this object should approximately be 1. |
+
+## TrendingKeywordsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `region` | `region` | `string` | Yes | No | The geographic region of interest. Only top trends within the specified region will be returned. The `region` parameter is formatted as ISO 3166-2 country codes delimited by `+`, corresponding to the following geographic areas: - `US` - United States - `CA` - Canada - `DE` - Germany - `FR` - France - `ES` - Spain - `IT` - Italy - `DE+AT+CH` - Germanic countries - `GB+IE` - Great Britain & Ireland - `IT+ES+PT+GR+MT` - Southern Europe - `PL+RO+HU+SK+CZ` - Eastern Europe - `SE+DK+FI+NO` - Nordic countries - `NL+BE+LU` - Benelux - `AR` - Argentina - `BR` - Brazil - `CO` - Colombia - `MX` - Mexico - `MX+AR+CO+CL` - Hispanic LatAm - `AU+NZ` - Australasia |
+| `trendType` | `trendType` | `string` | Yes | No | The methodology used to rank how trendy a keyword is. - `growing` trends have high upward growth in search volume over the last quarter - `monthly` trends have high search volume in the last month - `yearly` trends have high search volume in the last year - `seasonal` trends have high upward growth in search volume over the last month and exhibit a seasonal recurring pattern (typically annual) |
+| `interests` | `interests` | `Array<string>` | No | No | The list of supported interests is: - `animals` - Animals - `architecture` - Architecture - `art` - Art - `beauty` - Beauty - `childrens_fashion` - Children's Fashion - `design` - Design - `diy_and_crafts` - DIY & Crafts - `education` - Education - `electronics` - Electronics - `entertainment` - Entertainment - `event_planning` - Event Planning - `finance` - Finance - `food_and_drinks` - Food & Drink - `gardening` - Gardening - `health` - Health - `home_decor` - Home Decor - `mens_fashion` - Men's Fashion - `parenting` - Parenting - `quotes` - Quotes - `sport` - Sports - `travel` - Travel - `vehicles` - Vehicles - `wedding` - Wedding - `womens_fashion` - Women's Fashion |
+| `genders` | `genders` | `Array<string>` | No | No | If set, filters the results to trends among users who identify with the specified gender(s). If unset, trends among all genders will be returned. The `unknown` group includes users with unspecified or customized gender profile settings. |
+| `ages` | `ages` | `Array<string>` | No | No | If set, filters the results to trends among users in the specified age range(s). If unset, trends among all age groups will be returned. |
+| `includeKeywords` | `includeKeywords` | `Array<string>` | No | No | If set, filters the results to top trends which include at least one of the specified keywords. If unset, no keyword filtering logic is applied. |
+| `normalizeAgainstGroup` | `normalizeAgainstGroup` | `boolean` | No | No | Governs how the resulting time series data will be normalized to a [0-100] scale. By default (`false`), the data will be normalized independently for each keyword. The peak search volume observation in *each* keyword's time series will be represented by the value 100. This is ideal for analyzing when an individual keyword is expected to peak in interest. If set to `true`, the data will be normalized as a group. The peak search volume observation across *all* keywords in the response will be represented by the value 100, and all other values scaled accordingly. Use this option when you wish to compare relative search volume between multiple keywords. |
+| `limit` | `limit` | `number` | No | No | The maximum number of trending keywords that will be returned. Keywords are returned in trend-ranked order, so a `limit` of 50 will return the top 50 trends. |
+| `includeDemographics` | `includeDemographics` | `boolean` | No | No | Including the age and gender distribution for each keyword. By default (`false`), the response will not include demographics data. |
+
+## TrendingKeywordsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11529` | Yes | No | — |
+
+## TrendingKeywordsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `trends` | `trends` | `Array<Inline7249>` | No | No | The top trending keywords for the specified trend type in the requested region. Results are ordered, with the first element in the array representing the #1 top trend. |
+
+## TrendingPin
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `color` | `color` | `string` | Yes | No | Dominant color of the pin image in hex format |
+| `height` | `height` | `number` | Yes | No | Height of the pin image in pixels |
+| `id` | `id` | `string` | Yes | No | Unique identifier for the pin |
+| `src` | `src` | `string` | Yes | No | URL of the pin image |
+| `vertical_offset` | `vertical_offset` | `number` | No | No | The vertical offset of the pin image as a percentage from 0 to 100, where 0 is the top of the image and 100 is the bottom. |
+| `width` | `width` | `number` | Yes | No | Width of the pin image in pixels |
+
+## TrendingProductCategory
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `engagement_type` | `engagement_type` | `Inline7255` | Yes | No | Engagement type |
+| `pct_change_mom` | `pct_change_mom` | `number` | Yes | No | Month-over-month change percentage |
+| `percent_relative_volume` | `percent_relative_volume` | `number` | Yes | No | Relative volume percentage |
+| `pinterest_product_category_id` | `pinterest_product_category_id` | `number` | Yes | No | Pinterest Product Category Id |
+| `product_category` | `product_category` | `string` | Yes | No | Product Category Name |
+| `verticals` | `verticals` | `Array<string>` | No | No | Vertical name associated with the product category |
+
+## TrendingTopic
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | Yes | No | Description of the trending topic |
+| `id` | `id` | `string` | Yes | No | Unique identifier for the trending topic |
+| `percent_growth_mom` | `percent_growth_mom` | `number` | No | No | Month-over-month growth percentage |
+| `pins` | `pins` | `Array<Inline7257>` | Yes | No | Array of pin images related to this trend (up to 6) |
+| `related_interests` | `related_interests` | `Array<string>` | Yes | No | List of related interest categories |
+| `related_searches` | `related_searches` | `Array<string>` | Yes | No | List of related search terms |
+| `time_series` | `time_series` | `Inline7258` | Yes | No | Time series data showing trend values over time, with dates as keys and values as numeric |
+| `title` | `title` | `string` | Yes | No | Title of the trending topic |
+
+## TrendsAgeBucket
+
+`enum` model on the `json` wire format.
+
+**Values:** `18-24`, `25-34`, `35-44`, `45-49`, `50-54`, `55-64`, `65+`
+
+## TrendsAgeDistribution
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age_distribution` | `age_distribution` | `string` | No | No | — |
+
+## TrendsEditorial
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `board_url` | `board_url` | `string` | Yes | No | URL of the editorial board |
+| `description` | `description` | `string` | Yes | No | Description of the editorial article |
+| `interests` | `interests` | `Array<string>` | Yes | No | List of interests related to the editorial article |
+| `pins_url` | `pins_url` | `Array<string>` | Yes | No | URL of the pins related to the editorial article |
+| `related_keywords` | `related_keywords` | `Array<Inline7262>` | Yes | No | List of keywords related to the editorial article |
+| `title` | `title` | `string` | Yes | No | Title of the editorial article |
+
+## TrendsEditorialArticlesListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `region` | `region` | `string` | Yes | No | The geographic region of interest. Only top product categories within the specified region will be returned. The `region` parameter is formatted as ISO 3166-2 country codes delimited by `+`. - `US` - United States - `GB+IE` - Great Britain & Ireland - `CA` - Canada |
+
+## TrendsEditorialArticlesListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline11526>` | Yes | No | — |
+
+## TrendsFeaturedTopicsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `interest` | `interest` | `string` | No | No | Interest to filter by |
+| `region` | `region` | `string` | Yes | No | The geographic region of interest. Only top product categories within the specified region will be returned. The `region` parameter is formatted as ISO 3166-2 country codes delimited by `+`. - `US` - United States - `GB+IE` - Great Britain & Ireland - `CA` - Canada |
+
+## TrendsFeaturedTopicsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline11547>` | Yes | No | — |
+
+## TrendsGender
+
+`enum` model on the `json` wire format.
+
+**Values:** `male`, `female`, `unspecified`
+
+## TrendsGenderDistribution
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `gender_distribution` | `gender_distribution` | `string` | No | No | Gender category for trends demographic distribution. |
+
+## TrendsGenderFilter
+
+`enum` model on the `json` wire format.
+
+**Values:** `male`, `female`, `unknown`
+
+## TrendsL1Interest
+
+`enum` model on the `json` wire format.
+
+**Values:** `animals`, `architecture`, `art`, `beauty`, `childrens_fashion`, `design`, `diy_and_crafts`, `education`, `electronics`, `entertainment`, `event_planning`, `finance`, `food_and_drinks`, `gardening`, `health`, `home_decor`, `mens_fashion`, `parenting`, `quotes`, `sport`, `travel`, `vehicles`, `wedding`, `womens_fashion`
+
+## TrendsProductCategoriesDetailsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productCategories` | `productCategories` | `Array<string>` | Yes | No | List of product categories |
+| `region` | `region` | `string` | Yes | No | The geographic region of interest. Only top product categories within the specified region will be returned. The `region` parameter is formatted as ISO 3166-2 country codes delimited by `+`. - `US` - United States - `GB+IE` - Great Britain & Ireland - `CA` - Canada |
+| `lookbackWindow` | `lookbackWindow` | `number` | No | No | Time period for historical data analysis in days. The lookback window defines how far back in time the API will analyze data to compute trend metrics. - `90` - Last 90 days (3 months) - `180` - Last 180 days (6 months) - `365` - Last 365 days (1 year) - `730` - Last 730 days (2 years) |
+| `engagementType` | `engagementType` | `string` | No | No | Type of engagement metric to analyze. - `ENGAGEMENT` - Overall engagement metric - `OUTBOUND_CLICK` - Number of outbound clicks - `SAVE` - Number of pin saves |
+
+## TrendsProductCategoriesDetailsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline11535>` | Yes | No | — |
+
+## TrendsProductCategoriesTrendingListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `region` | `region` | `string` | Yes | No | The geographic region of interest. Only top product categories within the specified region will be returned. The `region` parameter is formatted as ISO 3166-2 country codes delimited by `+`. - `US` - United States - `GB+IE` - Great Britain & Ireland - `CA` - Canada |
+| `verticals` | `verticals` | `Array<string>` | No | No | List of verticals to filter by |
+| `ages` | `ages` | `Array<string>` | No | No | Age to filter by. If not provided, the results will be filtered by all ages. |
+| `genders` | `genders` | `Array<string>` | No | No | Gender to filter by, If not provided, the results will be filtered by all genders. |
+| `engagementType` | `engagementType` | `string` | No | No | Type of engagement metric to analyze. - `ENGAGEMENT` - Overall engagement metric - `OUTBOUND_CLICK` - Number of outbound clicks - `SAVE` - Number of pin saves |
+
+## TrendsProductCategoriesTrendingListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline11544>` | Yes | No | — |
+
+## TrendsSupportedRegion
+
+`enum` model on the `json` wire format.
+
+**Values:** `US`, `CA`, `DE`, `FR`, `ES`, `IT`, `DE+AT+CH`, `GB+IE`, `IT+ES+PT+GR+MT`, `PL+RO+HU+SK+CZ`, `SE+DK+FI+NO`, `NL+BE+LU`, `AR`, `BR`, `CO`, `MX`, `MX+AR+CO+CL`, `AU+NZ`
+
+## TrendType
+
+`enum` model on the `json` wire format.
+
+**Values:** `growing`, `monthly`, `yearly`, `seasonal`
+
+## UnverifyWebsiteDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `website` | `website` | `string` | Yes | No | Website with path or domain only |
+
+## UnverifyWebsiteDeleteResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11594` | Yes | No | — |
+
+## UpdatableItemAttributes
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_image_0_link` | `ad_image_0_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_0_tag` | `ad_image_0_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_10_link` | `ad_image_10_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_10_tag` | `ad_image_10_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_11_link` | `ad_image_11_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_11_tag` | `ad_image_11_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_12_link` | `ad_image_12_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_12_tag` | `ad_image_12_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_13_link` | `ad_image_13_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_13_tag` | `ad_image_13_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_14_link` | `ad_image_14_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_14_tag` | `ad_image_14_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_15_link` | `ad_image_15_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_15_tag` | `ad_image_15_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_16_link` | `ad_image_16_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_16_tag` | `ad_image_16_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_17_link` | `ad_image_17_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_17_tag` | `ad_image_17_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_18_link` | `ad_image_18_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_18_tag` | `ad_image_18_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_19_link` | `ad_image_19_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_19_tag` | `ad_image_19_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_1_link` | `ad_image_1_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_1_tag` | `ad_image_1_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_2_link` | `ad_image_2_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_2_tag` | `ad_image_2_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_3_link` | `ad_image_3_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_3_tag` | `ad_image_3_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_4_link` | `ad_image_4_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_4_tag` | `ad_image_4_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_5_link` | `ad_image_5_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_5_tag` | `ad_image_5_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_6_link` | `ad_image_6_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_6_tag` | `ad_image_6_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_7_link` | `ad_image_7_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_7_tag` | `ad_image_7_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_8_link` | `ad_image_8_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_8_tag` | `ad_image_8_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_image_9_link` | `ad_image_9_link` | `string` | No | No | Ad image link that supplements main image for shopping campaigns. Image format:- Pixel size at least 75 x 75 Link guidelines:- Include extension in file name - Do not include template or placeholder images in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_image_9_tag` | `ad_image_9_tag` | `string` | No | No | Ad image tag. If you provide an ad_image_x_link, include the image tag with the corresponding ad_image_x_tag attribute. |
+| `ad_link` | `ad_link` | `string` | No | No | Allows advertisers to specify a separate URL that can be used to track traffic coming from Pinterest shopping ads. Must send full URL including tracking. Must begin with http:// or https://. |
+| `ad_video_0_link` | `ad_video_0_link` | `string` | No | No | Restricted. Ad video link that supplements main video for shopping campaigns. Video format:- Pixel size between 75 x 75 and 9450 x 9450 - File size smaller than 2 GB - Time span between 4 seconds and 15 minutes - Accepted formats: .MP4, .MOV, .M4V Link guidelines:- Include extension in file name - Do not include template or placeholder videos in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_video_0_tag` | `ad_video_0_tag` | `string` | No | No | Restricted. Ad video tag. If you provide an ad_video_x_link, include the video tag with the corresponding ad_video_x_tag attribute. |
+| `ad_video_1_link` | `ad_video_1_link` | `string` | No | No | Restricted. Ad video link that supplements main video for shopping campaigns. Video format:- Pixel size between 75 x 75 and 9450 x 9450 - File size smaller than 2 GB - Time span between 4 seconds and 15 minutes - Accepted formats: .MP4, .MOV, .M4V Link guidelines:- Include extension in file name - Do not include template or placeholder videos in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_video_1_tag` | `ad_video_1_tag` | `string` | No | No | Restricted. Ad video tag. If you provide an ad_video_x_link, include the video tag with the corresponding ad_video_x_tag attribute. |
+| `ad_video_2_link` | `ad_video_2_link` | `string` | No | No | Restricted. Ad video link that supplements main video for shopping campaigns. Video format:- Pixel size between 75 x 75 and 9450 x 9450 - File size smaller than 2 GB - Time span between 4 seconds and 15 minutes - Accepted formats: .MP4, .MOV, .M4V Link guidelines:- Include extension in file name - Do not include template or placeholder videos in link - Make URL accessible to Pinterest user-agent - Must start with http:// or https:// |
+| `ad_video_2_tag` | `ad_video_2_tag` | `string` | No | No | Restricted. Ad video tag. If you provide an ad_video_x_link, include the video tag with the corresponding ad_video_x_tag attribute. |
+| `adult` | `adult` | `boolean` | No | No | Set this attribute to TRUE if you're submitting items that are considered "adult". These will not be shown on Pinterest. |
+| `age_group` | `age_group` | `string` | No | No | The age group to apply a demographic range to the product. Must be one of the following values (upper or lowercased): 'newborn', 'infant', 'toddler', 'kids', or 'adult'. |
+| `android_deep_link` | `android_deep_link` | `string` | No | No | The deep link to the product on the Android app. |
+| `availability` | `availability` | `string` | No | No | The availability of the product. Must be one of the following values (upper or lowercased): 'in stock', 'out of stock', 'preorder'. |
+| `average_review_rating` | `average_review_rating` | `number` | No | No | Average reviews for the item. Can be a number from 1-5. |
+| `brand` | `brand` | `string` | No | No | The brand of the product. |
+| `checkout_enabled` | `checkout_enabled` | `boolean` | No | No | This attribute is not supported anymore. |
+| `color` | `color` | `string` | No | No | The primary color of the product. |
+| `condition` | `condition` | `string` | No | No | The condition of the product. Must be one of the following values (upper or lowercased): 'new', 'used', or 'refurbished'. |
+| `custom_label_0` | `custom_label_0` | `string` | No | No | &lt;= 511 characters for retail and creative asset catalogs, &lt;= 127 characters for hotel catalogs. Custom grouping of products. |
+| `custom_label_1` | `custom_label_1` | `string` | No | No | &lt;= 511 characters for retail and creative asset catalogs, &lt;= 127 characters for hotel catalogs. Custom grouping of products. |
+| `custom_label_2` | `custom_label_2` | `string` | No | No | &lt;= 511 characters for retail and creative asset catalogs, &lt;= 127 characters for hotel catalogs. Custom grouping of products. |
+| `custom_label_3` | `custom_label_3` | `string` | No | No | &lt;= 511 characters for retail and creative asset catalogs, &lt;= 127 characters for hotel catalogs. Custom grouping of products. |
+| `custom_label_4` | `custom_label_4` | `string` | No | No | &lt;= 511 characters for retail and creative asset catalogs, &lt;= 127 characters for hotel catalogs. Custom grouping of products. |
+| `custom_number_0` | `custom_number_0` | `number` | No | No | An attribute for any integer information ranging from 0 to 4,294,967,295, which can be used to group items. |
+| `custom_number_1` | `custom_number_1` | `number` | No | No | An attribute for any integer information ranging from 0 to 4,294,967,295, which can be used to group items. |
+| `custom_number_2` | `custom_number_2` | `number` | No | No | An attribute for any integer information ranging from 0 to 4,294,967,295, which can be used to group items. |
+| `custom_number_3` | `custom_number_3` | `number` | No | No | An attribute for any integer information ranging from 0 to 4,294,967,295, which can be used to group items. |
+| `custom_number_4` | `custom_number_4` | `number` | No | No | An attribute for any integer information ranging from 0 to 4,294,967,295, which can be used to group items. |
+| `description` | `description` | `string` | No | No | &lt;= 10000 characters. The description of the product. |
+| `free_shipping_label` | `free_shipping_label` | `boolean` | No | No | The item is free to ship. |
+| `free_shipping_limit` | `free_shipping_limit` | `string` | No | No | The minimum order purchase necessary for the customer to get free shipping. Only relevant if free shipping is offered. |
+| `gender` | `gender` | `string` | No | No | The gender associated with the product. Must be one of the following values (upper or lowercased): 'male', 'female', or 'unisex'. |
+| `google_product_category` | `google_product_category` | `string` | No | No | The categorization of the product based on the standardized Google Product Taxonomy. This is a set taxonomy. Both the text values and numeric codes are accepted. |
+| `gtin` | `gtin` | `string \| number` | No | No | The unique universal product identifier. |
+| `id` | `id` | `string` | No | No | &lt;= 127 characters. The user-created unique ID that represents the product. Only Unicode characters are accepted. |
+| `installment_price` | `installment_price` | `string` | No | No | Installment price of the product. Expected format: &lt;payment_count&gt;:&lt;payment_amount&gt; &lt;currency&gt; |
+| `ios_deep_link` | `ios_deep_link` | `string` | No | No | The deep link to the product on the iOS app. |
+| `item_group_id` | `item_group_id` | `string` | No | No | &lt;= 127 characters. The parent ID of the product. |
+| `last_updated_time` | `last_updated_time` | `number` | No | No | The millisecond timestamp when the item was lastly modified by the merchant. |
+| `link` | `link` | `string` | No | No | &lt;= 511 characters. The landing page for the product. |
+| `material` | `material` | `string` | No | No | The material used to make the product. |
+| `min_ad_price` | `min_ad_price` | `string` | No | No | The minimum advertised price of the product. It supports the following formats: "19.99 USD", "19.99USD" and "19.99". If the currency is not included, we default to US dollars. |
+| `mobile_link` | `mobile_link` | `string` | No | No | The mobile-optimized version of your landing page. Must begin with http:// or https://. |
+| `mpn` | `mpn` | `string` | No | No | Manufacturer Part Number are alpha-numeric codes created by the manufacturer of a product to uniquely identify it among all products from the same manufacturer. |
+| `number_of_ratings` | `number_of_ratings` | `number` | No | No | The number of ratings for the item. |
+| `number_of_reviews` | `number_of_reviews` | `number` | No | No | The number of reviews available for the item. |
+| `pattern` | `pattern` | `string` | No | No | The description of the pattern used for the product. |
+| `price` | `price` | `string` | No | No | The price of the product. It supports the following formats: "24.99 USD", "24.99USD" and "24.99". If the currency is not included, we default to US dollars. |
+| `product_type` | `product_type` | `string` | No | No | &lt;= 1000 characters. The categorization of your product based on your custom product taxonomy. Subcategories must be sent separated by " &gt; ". |
+| `promotion_id` | `promotion_id` | `string` | No | No | A unique identifier referencing the promotion associated with this catalog item. |
+| `sale_price` | `sale_price` | `string` | No | No | The discounted price of the product. The sale_price must be lower than the price. It supports the following formats: "14.99 USD", "14.99USD" and "14.99". |
+| `sale_price_effective_date` | `sale_price_effective_date` | `string` | No | No | Sale price effective date. Expected format: &lt;start_date&gt;/&lt;end_date&gt; (ISO 8601 format) |
+| `shipping` | `shipping` | `string` | No | No | Shipping consists of one group of up to four elements, country, region, service (all optional) and price (required). All colons, even for blank values, are required. |
+| `shipping_height` | `shipping_height` | `string` | No | No | The height of the package needed to ship the product. Ensure there is a space between the numeric string and the metric. |
+| `shipping_weight` | `shipping_weight` | `string` | No | No | The weight of the product. Ensure there is a space between the numeric string and the metric. |
+| `shipping_width` | `shipping_width` | `string` | No | No | The width of the package needed to ship the product. Ensure there is a space between the numeric string and the metric. |
+| `size` | `size` | `string` | No | No | The size of the product. |
+| `size_system` | `size_system` | `string` | No | No | Indicates the country's sizing system in which you are submitting your product. Must be one of the following values (upper or lowercased): 'US', 'UK', 'EU', 'DE', 'FR', 'JP', 'CN', 'IT', 'BR', 'MEX', or 'AU'. |
+| `size_type` | `size_type` | `string` | No | No | Additional description for the size. Must be one of the following values (upper or lowercased): 'regular', 'petite', 'plus', 'big_and_tall', or 'maternity'. |
+| `tax` | `tax` | `string` | No | No | Tax consists of one group of up to four elements, country, region, rate (all required) and tax_ship (optional). All colons, even for blank values, are required. |
+| `title` | `title` | `string` | No | No | &lt;= 500 characters. The name of the product. |
+| `unit_pricing_base_measure` | `unit_pricing_base_measure` | `string` | No | No | Unit pricing base measure of the product. Expected format: &lt;base_measure&gt; &lt;unit_type&gt; |
+| `unit_pricing_measure` | `unit_pricing_measure` | `string` | No | No | Unit pricing total measure of the product. Expected format: &lt;total_units&gt; &lt;unit_type&gt; |
+| `variant_names` | `variant_names` | `Array<string>` | No | No | Options for this variant. People will see these options next to your Pin and can select the one they want. List them in the order you want them displayed. |
+| `variant_values` | `variant_values` | `Array<string>` | No | No | Option values for this variant. People will see these options next to your Pin and can select the one they want. List them in the order you want them displayed. The order of the variant values must be consistent with the order of the variant names. |
+
+## UpdatableItemAttributesGtin
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string \| number`
+
+## UpdatableItemAttributesGtinInteger
+
+`scalar` model on the `json` wire format.
+
+**Value:** `number`
+
+## UpdatableItemAttributesGtinString
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## UpdateAdAccountToAdAccountSharedAudienceParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `audience_id` | `audience_id` | `Inline7614` | Yes | No | Unique identifier of an audience |
+| `operation_type` | `operation_type` | `string` | Yes | No | Operation type to share a specific audience or revoke access to a previously shared audience |
+| `recipient_account_ids` | `recipient_account_ids` | `Array<unknown>` | Yes | No | Ad account IDs to share with or revoke from (request) / that received the audience (response). |
+
+## UpdateAdAccountToAdAccountSharedAudienceResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7616` | Yes | No | — |
+
+## UpdateAdAccountToBusinessSharedAudienceParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `audience_id` | `audience_id` | `Inline7619` | Yes | No | Unique identifier of an audience |
+| `operation_type` | `operation_type` | `string` | Yes | No | Operation type to share a specific audience or revoke access to a previously shared audience |
+| `recipient_business_ids` | `recipient_business_ids` | `Array<unknown>` | Yes | No | Business IDs to share with or revoke from (request) / that received the audience (response). |
+
+## UpdateAdAccountToBusinessSharedAudienceResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7621` | Yes | No | — |
+
+## UpdateBusinessMembershipsBody
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline7274>`
+
+## UpdateBusinessMembershipsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Business id |
+| `body` | `body` | `Array<Inline9355>` | Yes | No | — |
+
+## UpdateBusinessMembershipsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline7276>` | No | No | List of members with updated business access role. |
+
+## UpdateBusinessToAdAccountSharedAudienceParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `audience_id` | `audience_id` | `Inline9303` | Yes | No | Unique identifier of an audience |
+| `operation_type` | `operation_type` | `string` | Yes | No | Operation type to share a specific audience or revoke access to a previously shared audience |
+| `recipient_account_ids` | `recipient_account_ids` | `Array<unknown>` | Yes | No | Ad account IDs to share with or revoke from (request) / that received the audience (response). |
+
+## UpdateBusinessToAdAccountSharedAudienceResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9305` | Yes | No | — |
+
+## UpdateBusinessToBusinessSharedAudienceParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `audience_id` | `audience_id` | `Inline9308` | Yes | No | Unique identifier of an audience |
+| `operation_type` | `operation_type` | `string` | Yes | No | Operation type to share a specific audience or revoke access to a previously shared audience |
+| `recipient_business_ids` | `recipient_business_ids` | `Array<unknown>` | Yes | No | Business IDs to share with or revoke from (request) / that received the audience (response). |
+
+## UpdateBusinessToBusinessSharedAudienceResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9310` | Yes | No | — |
+
+## UpdateInvitesResultsResponseArray
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline7278>` | No | No | List of invite/Request action status. If there is an error, an exception object will be returned. If the action was successfully completed, an invite object will be returned. |
+
+## UpdateMaskBidOptionField
+
+`enum` model on the `json` wire format.
+
+**Values:** `BID`, `APP_TYPE_BID_MULTIPLIER_SET`, `PLACEMENT_BID_MULTIPLIER_SET`
+
+## UpdateMaskFieldType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ad_link`, `adult`, `age_group`, `availability`, `average_review_rating`, `brand`, `checkout_enabled`, `color`, `condition`, `custom_label_0`, `custom_label_1`, `custom_label_2`, `custom_label_3`, `custom_label_4`, `custom_number_0`, `custom_number_1`, `custom_number_2`, `custom_number_3`, `custom_number_4`, `description`, `free_shipping_label`, `free_shipping_limit`, `gender`, `google_product_category`, `gtin`, `item_group_id`, `last_updated_time`, `link`, `material`, `min_ad_price`, `mpn`, `number_of_ratings`, `number_of_reviews`, `pattern`, `price`, `product_type`, `sale_price`, `shipping`, `shipping_height`, `shipping_weight`, `shipping_width`, `size`, `size_system`, `size_type`, `tax`, `title`, `variant_names`, `variant_values`, `promotion_id`
+
+## UpdateMemberAssetAccessBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accesses` | `accesses` | `Array<Inline7284>` | Yes | No | List of member asset accesses to assign or update. |
+
+## UpdateMemberAssetAccessItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id` | `asset_id` | `string` | Yes | No | Id of the asset to update. |
+| `member_id` | `member_id` | `string` | Yes | No | Unique identifier of the member on which to perform the update |
+| `permissions` | `permissions` | `Array<string>` | Yes | No | A non-empty array of permissions to assign to the member. |
+
+## UpdateMemberAssetResultItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `response` | `response` | `Inline7287` | No | No | An object containing the permissions a business member has on the asset. |
+
+## UpdateMemberAssetsResultsResponseArray
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline7289>` | No | No | List of assigned/updated member asset access. If there is an error, an exception object will be returned. If the action was successfully completed, a response object will be returned. |
+
+## UpdatePartnerAssetAccessBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accesses` | `accesses` | `Array<Inline7291>` | Yes | No | List of partner asset accesses to assign or update. |
+
+## UpdatePartnerAssetAccessHandlerImplParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `accesses` | `accesses` | `Array<Inline9384>` | Yes | No | List of partner asset accesses to assign or update. |
+
+## UpdatePartnerAssetAccessHandlerImplResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9386` | Yes | No | — |
+
+## UpdatePartnerAssetAccessItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id` | `asset_id` | `string` | Yes | No | Unique identifier of the business asset. |
+| `partner_id` | `partner_id` | `string` | Yes | No | Unique identifier of a business partner to update asset access to. |
+| `permissions` | `permissions` | `Array<string>` | Yes | No | A non-empty array of permissions to assign to the partner. |
+
+## UpdatePartnerAssetsResult
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id` | `asset_id` | `string` | No | No | Unique identifier of a business asset. |
+| `asset_type` | `asset_type` | `string` | No | No | Type of asset. Currently we only support AD_ACCOUNT, PROFILE, ASSET_GROUP and CATALOG. |
+| `partner_id` | `partner_id` | `string` | No | No | Unique identifier of a business partner. |
+| `permissions` | `permissions` | `Array<string>` | No | No | Permission levels member or partner has on an asset. |
+
+## UpdatePartnerAssetsResultsResponseArray
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline7295>` | No | No | List of assigned/updated partner asset access. |
+
+## UserAccountAnalyticsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `startDate` | `startDate` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `endDate` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `fromClaimedContent` | `fromClaimedContent` | `string` | No | No | Filter on Pins that match your claimed domain. |
+| `pinFormat` | `pinFormat` | `string` | No | No | Pin formats to get data for, default is all. |
+| `appTypes` | `appTypes` | `string` | No | No | Apps or devices to get data for, default is all. |
+| `contentType` | `contentType` | `string` | No | No | Filter to paid or organic data. Default is all. |
+| `source` | `source` | `string` | No | No | Filter to activity from Pins created and saved by your, or activity created and saved by others from your claimed accounts |
+| `metricTypes` | `metricTypes` | `Array<string>` | No | No | Metric types to get data for, default is all. |
+| `splitField` | `splitField` | `string` | No | No | How to split the data into groups. Not including this param means data won't be split. |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+
+## UserAccountAnalyticsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11556` | Yes | No | — |
+
+## UserAccountAnalyticsTopPinsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `startDate` | `startDate` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `endDate` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `sortBy` | `sortBy` | `string` | Yes | No | Specify sorting order for metrics |
+| `fromClaimedContent` | `fromClaimedContent` | `string` | No | No | Filter on Pins that match your claimed domain. |
+| `pinFormat` | `pinFormat` | `string` | No | No | Pin formats to get data for, default is all. |
+| `appTypes` | `appTypes` | `string` | No | No | Apps or devices to get data for, default is all. |
+| `contentType` | `contentType` | `string` | No | No | Filter to paid or organic data. Default is all. |
+| `source` | `source` | `string` | No | No | Filter to activity from Pins created and saved by your, or activity created and saved by others from your claimed accounts |
+| `metricTypes` | `metricTypes` | `Array<string>` | No | No | Metric types to get data for, default is all. |
+| `numOfPins` | `numOfPins` | `number` | No | No | Number of pins to include, default is 10. Max is 50. |
+| `createdInLastNDays` | `createdInLastNDays` | `number` | No | No | Get metrics for pins created in the last "n" days. |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+
+## UserAccountAnalyticsTopPinsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11559` | Yes | No | — |
+
+## UserAccountAnalyticsTopVideoPinsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `startDate` | `startDate` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `endDate` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `sortBy` | `sortBy` | `string` | Yes | No | Specify sorting order for video metrics |
+| `fromClaimedContent` | `fromClaimedContent` | `string` | No | No | Filter on Pins that match your claimed domain. |
+| `pinFormat` | `pinFormat` | `string` | No | No | Pin formats to get data for, default is all. |
+| `appTypes` | `appTypes` | `string` | No | No | Apps or devices to get data for, default is all. |
+| `contentType` | `contentType` | `string` | No | No | Filter to paid or organic data. Default is all. |
+| `source` | `source` | `string` | No | No | Filter to activity from Pins created and saved by your, or activity created and saved by others from your claimed accounts |
+| `metricTypes` | `metricTypes` | `Array<string>` | No | No | Metric types to get video data for, default is all. |
+| `numOfPins` | `numOfPins` | `number` | No | No | Number of pins to include, default is 10. Max is 50. |
+| `createdInLastNDays` | `createdInLastNDays` | `number` | No | No | Get metrics for pins created in the last "n" days. |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+
+## UserAccountAnalyticsTopVideoPinsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11564` | Yes | No | — |
+
+## UserAccountFollowedInterestsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `username` | `username` | `string` | Yes | No | A valid username |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## UserAccountFollowedInterestsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11600` | Yes | No | — |
+
+## UserAccountGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+
+## UserAccountGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11553` | Yes | No | — |
+
+## UserAccountType
+
+`enum` model on the `json` wire format.
+
+**Values:** `PINNER`, `BUSINESS`
+
+## UserBusinessRoleBinding
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assets_summary` | `assets_summary` | `Inline7298` | No | No | Ad accounts and profiles the business member/partner has access to. |
+| `business_roles` | `business_roles` | `Array<string>` | No | No | The access level a user has on the business. This can be EMPLOYEE, BIZ_ADMIN, or PARTNER. |
+| `created_by_business` | `created_by_business` | `Inline7300` | No | No | Metadata for the business that created the business relationship. |
+| `created_by_user` | `created_by_user` | `Inline7301` | No | No | Metadata for the user that created the business relationship. |
+| `created_time` | `created_time` | `number` | No | No | The time the business relationship was created. Returned in milliseconds. |
+| `id` | `id` | `string` | No | No | Unique identifier of the business member/business partner/employer. |
+| `is_shared_partner` | `is_shared_partner` | `boolean` | No | No | This field is only relevant when business_role="PARTNER". If is_shared_partner=FALSE, the partner can access your business assets. If assets_summary is not empty, the assets listed are your business assets the partner has access to. If is_shared_partner=TRUE, you can access the partner's business asset. If assets_summary is not empty, the assets listed are the partner's business assets you have access to. |
+| `user` | `user` | `Inline7302` | No | No | Metadata for the business member/business partner/employer. |
+
+## UserFollowingFeedType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ALL`, `RANKED`, `CREATOR_ONLY`, `RANKED_CREATOR_ONLY`
+
+## UserFollowingGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `explicitFollowing` | `explicitFollowing` | `boolean` | No | No | Whether or not to include implicit user follows, which means followees with board follows. When explicit_following is True, it means we only want explicit user follows. |
+| `feedType` | `feedType` | `string` | No | No | Thrift param specifying what type of followees will be kept. Default to include all followees. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## UserFollowingGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11575` | Yes | No | — |
+
+## UserListOperationType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADD`, `REMOVE`
+
+## UserListType
+
+`enum` model on the `json` wire format.
+
+**Values:** `EMAIL`, `IDFA`, `MAID`, `LR_ID`, `DLX_ID`, `HASHED_PINNER_ID`
+
+## UsersForIndividualAssetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id` | `asset_id` | `string` | No | No | Unique identifier of a business asset. |
+| `member_id` | `member_id` | `string` | No | No | Unique identifier of the business member with asset access. |
+| `permissions` | `permissions` | `Array<string>` | No | No | Permission levels member or partner has on an asset. |
+
+## UserSingleAssetBinding
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `permissions` | `permissions` | `Array<string>` | No | No | Permission levels member or partner has on an asset. |
+| `user` | `user` | `Inline7308` | No | No | Metadata of the member/partner that has access to the asset. |
+
+## UserWebsite
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `string` | No | No | Status of the verification process |
+| `verified_at` | `verified_at` | `string` | No | No | UTC timestamp when the verification happened - sometimes missing |
+| `website` | `website` | `string` | No | No | Website with path or domain only |
+
+## UserWebsiteCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `verification_method` | `verification_method` | `Inline7311` | No | No | Method used to verify website ownership. |
+| `website` | `website` | `string` | No | No | Website with path or domain only |
+
+## UserWebsitesGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## UserWebsitesGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11586` | Yes | No | — |
+
+## UserWebsiteVerification
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `dns_txt_record` | `dns_txt_record` | `string` | No | No | DNS TXT record to check against for the website to be claimed |
+| `file_content` | `file_content` | `string` | No | No | A full html file to upload to the website in order for it to be claimed |
+| `filename` | `filename` | `string` | No | No | File expected to find on the website being claimed |
+| `metatag` | `metatag` | `string` | No | No | Metatag the verification process searchs for the website to be claimed |
+| `verification_code` | `verification_code` | `string` | No | No | Code to check against the user claiming the website |
+
+## VerifyWebsiteUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+| `verification_method` | `verification_method` | `Inline11588` | No | No | Method used to verify website ownership. |
+| `website` | `website` | `string` | No | No | Website with path or domain only |
+
+## VerifyWebsiteUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11590` | Yes | No | — |
+
+## VerticalProductCategory
+
+`enum` model on the `json` wire format.
+
+**Values:** `FASHION`, `HOME_DECOR`, `BEAUTY`
+
+## VideoMetadataWithItemType
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cover_image_url` | `cover_image_url` | `string` | No | No | — |
+| `duration` | `duration` | `number` | No | No | Duration (in miliseconds). Field maybe null after creation due to video processing time. |
+| `height` | `height` | `number` | No | No | Height (in pixels). Field maybe null after creation due to video processing time. |
+| `item_type` | `item_type` | `string` | Yes | No | Discriminator literal identifying this as video metadata inside a `PinMediaMetadata` payload. |
+| `video_url` | `video_url` | `string` | No | No | Video url (720p). **Note:** This field is limited and not available to all apps. |
+| `video_url_hls` | `video_url_hls` | `string` | No | No | Video url (HLS). **Note:** This field is limited and not available to all apps. |
+| `width` | `width` | `number` | No | No | Width (in pixels). Field maybe null after creation due to video processing time. |
+
+## VideoPinMetricTypes
+
+`enum` model on the `json` wire format.
+
+**Values:** `IMPRESSION`, `OUTBOUND_CLICK`, `PIN_CLICK`, `SAVE`, `SAVE_RATE`, `VIDEO_MRC_VIEW`, `VIDEO_10S_VIEW`, `QUARTILE_95_PERCENT_VIEW`, `VIDEO_V50_WATCH_TIME`, `VIDEO_START`, `VIDEO_AVG_WATCH_TIME`, `TOTAL_COMMENTS`, `TOTAL_REACTIONS`
+
+## WebsiteVerificationGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | No | No | Unique identifier of an ad account. |
+
+## WebsiteVerificationGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11597` | Yes | No | — |

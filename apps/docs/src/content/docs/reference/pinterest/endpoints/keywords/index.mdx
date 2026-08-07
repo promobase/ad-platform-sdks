@@ -1,0 +1,202 @@
+---
+title: "Pinterest Keywords endpoints"
+description: "5 generated Pinterest endpoint contracts for Keywords."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 129
+  label: "Keywords"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.keywords.countryKeywordsMetricsGet
+
+`GET` `/ad_accounts/{ad_account_id}/keywords/metrics`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (country_keywords_metrics/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.keywords.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CountryKeywordsMetricsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `countryCode` | `query` | `string` | Yes | No | Two letter country code (ISO 3166-1 alpha-2) |
+| `keywords` | `query` | `Array<string>` | Yes | No | Comma-separated keywords |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.keywords.keywordsCreate
+
+`POST` `/ad_accounts/{ad_account_id}/keywords`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (keywords/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.keywords.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `KeywordsCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `keywords` | `body` | `Array<Inline8828>` | Yes | No | Keywords |
+| `parent_id` | `body` | `string` | Yes | No | Keyword data |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.keywords.keywordsGet
+
+`GET` `/ad_accounts/{ad_account_id}/keywords`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (keywords/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.keywords.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `KeywordsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `campaignId` | `query` | `string` | No | No | Campaign Id to use to filter the results. |
+| `adGroupId` | `query` | `string` | No | No | Ad group Id. |
+| `adGroupIds` | `query` | `Array<unknown>` | No | No | List of Ad group Ids to retrieve keywords from. This feature is currently in BETA and is not available to all users. |
+| `matchTypes` | `query` | `Array<string>` | No | No | Keyword match type |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.keywords.keywordsUpdate
+
+`PATCH` `/ad_accounts/{ad_account_id}/keywords`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (keywords/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.keywords.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `KeywordsUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `keywords` | `body` | `Array<Inline8834>` | No | No | Keywords |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.keywords.trendingKeywordsList
+
+`GET` `/trends/keywords/{region}/top/{trend_type}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (trending_keywords/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.keywords.read` |
+| Required scopes | `user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `TrendingKeywordsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `region` | `path` | `string` | Yes | No | The geographic region of interest. Only top trends within the specified region will be returned. The `region` parameter is formatted as ISO 3166-2 country codes delimited by `+`, corresponding to the following geographic areas: - `US` - United States - `CA` - Canada - `DE` - Germany - `FR` - France - `ES` - Spain - `IT` - Italy - `DE+AT+CH` - Germanic countries - `GB+IE` - Great Britain & Ireland - `IT+ES+PT+GR+MT` - Southern Europe - `PL+RO+HU+SK+CZ` - Eastern Europe - `SE+DK+FI+NO` - Nordic countries - `NL+BE+LU` - Benelux - `AR` - Argentina - `BR` - Brazil - `CO` - Colombia - `MX` - Mexico - `MX+AR+CO+CL` - Hispanic LatAm - `AU+NZ` - Australasia |
+| `trendType` | `path` | `string` | Yes | No | The methodology used to rank how trendy a keyword is. - `growing` trends have high upward growth in search volume over the last quarter - `monthly` trends have high search volume in the last month - `yearly` trends have high search volume in the last year - `seasonal` trends have high upward growth in search volume over the last month and exhibit a seasonal recurring pattern (typically annual) |
+| `interests` | `query` | `Array<string>` | No | No | The list of supported interests is: - `animals` - Animals - `architecture` - Architecture - `art` - Art - `beauty` - Beauty - `childrens_fashion` - Children's Fashion - `design` - Design - `diy_and_crafts` - DIY & Crafts - `education` - Education - `electronics` - Electronics - `entertainment` - Entertainment - `event_planning` - Event Planning - `finance` - Finance - `food_and_drinks` - Food & Drink - `gardening` - Gardening - `health` - Health - `home_decor` - Home Decor - `mens_fashion` - Men's Fashion - `parenting` - Parenting - `quotes` - Quotes - `sport` - Sports - `travel` - Travel - `vehicles` - Vehicles - `wedding` - Wedding - `womens_fashion` - Women's Fashion |
+| `genders` | `query` | `Array<string>` | No | No | If set, filters the results to trends among users who identify with the specified gender(s). If unset, trends among all genders will be returned. The `unknown` group includes users with unspecified or customized gender profile settings. |
+| `ages` | `query` | `Array<string>` | No | No | If set, filters the results to trends among users in the specified age range(s). If unset, trends among all age groups will be returned. |
+| `includeKeywords` | `query` | `Array<string>` | No | No | If set, filters the results to top trends which include at least one of the specified keywords. If unset, no keyword filtering logic is applied. |
+| `normalizeAgainstGroup` | `query` | `boolean` | No | No | Governs how the resulting time series data will be normalized to a [0-100] scale. By default (`false`), the data will be normalized independently for each keyword. The peak search volume observation in *each* keyword's time series will be represented by the value 100. This is ideal for analyzing when an individual keyword is expected to peak in interest. If set to `true`, the data will be normalized as a group. The peak search volume observation across *all* keywords in the response will be represented by the value 100, and all other values scaled accordingly. Use this option when you wish to compare relative search volume between multiple keywords. |
+| `limit` | `query` | `number` | No | No | The maximum number of trending keywords that will be returned. Keywords are returned in trend-ranked order, so a `limit` of 50 will return the top 50 trends. |
+| `includeDemographics` | `query` | `boolean` | No | No | Including the age and gender distribution for each keyword. By default (`false`), the response will not include demographics data. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

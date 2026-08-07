@@ -10,6 +10,7 @@ const manifests = [
   "packages/google-ads-sdk/src/generated/v25/effect/manifest.json",
   "packages/snapchat-sdk/src/generated/effect/manifest.json",
   "packages/reddit-sdk/src/generated/effect/manifest.json",
+  "packages/pinterest-sdk/src/generated/effect/manifest.json",
 ];
 
 for (const path of manifests) {

@@ -1,0 +1,85 @@
+---
+title: "Pinterest Leads Export endpoints"
+description: "2 generated Pinterest endpoint contracts for Leads Export."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 133
+  label: "Leads Export"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.leadsExport.leadsExportCreate
+
+`POST` `/ad_accounts/{ad_account_id}/leads_export`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (leads_export/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.leadsExport.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `LeadsExportCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `ad_id` | `body` | `string` | Yes | No | ID for the ad collecting leads. |
+| `end_date` | `body` | `string` | Yes | No | Export leads collected on and before end date (UTC). Format: YYYY-MM-DD. |
+| `start_date` | `body` | `string` | Yes | No | Export leads collected on and after start date (UTC). Format: YYYY-MM-DD. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.leadsExport.leadsExportGet
+
+`GET` `/ad_accounts/{ad_account_id}/leads_export/{leads_export_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (leads_export/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.leadsExport.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `LeadsExportGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `leadsExportId` | `path` | `string` | Yes | No | lead_export_id token returned from the create a lead export endpoint |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

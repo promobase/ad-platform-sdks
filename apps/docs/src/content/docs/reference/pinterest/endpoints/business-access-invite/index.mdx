@@ -1,0 +1,229 @@
+---
+title: "Pinterest Business Access Invite endpoints"
+description: "6 generated Pinterest endpoint contracts for Business Access Invite."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 111
+  label: "Business Access Invite"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.businessAccessInvite.assetAccessRequestsCreate
+
+`POST` `/businesses/{business_id}/requests/assets/access`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (asset_access_requests/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessInvite.manage` |
+| Required scopes | `biz_access:read`<br />`biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AssetAccessRequestsCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `asset_requests` | `body` | `Array<Inline9399>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessInvite.cancelInvitesOrRequests
+
+`DELETE` `/businesses/{business_id}/invites`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (cancel_invites_or_requests)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessInvite.manage` |
+| Required scopes | `biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CancelInvitesOrRequestsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `invite_ids` | `body` | `Array<string>` | Yes | No | A list of invite/request ids to cancel. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessInvite.createAssetInvites
+
+`POST` `/businesses/{business_id}/invites/assets/access`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (create_asset_invites)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessInvite.manage` |
+| Required scopes | `biz_access:read`<br />`biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CreateAssetInvitesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `invites` | `body` | `Array<Inline9342>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessInvite.createMembershipOrPartnershipInvites
+
+`POST` `/businesses/{business_id}/invites`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (create_membership_or_partnership_invites)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessInvite.manage` |
+| Required scopes | `biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CreateMembershipOrPartnershipInvitesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `business_role` | `body` | `Inline9330` | Yes | No | — |
+| `invite_type` | `body` | `string` | Yes | No | The type of invite. MEMBER_INVITE invites a member to access your business assets. PARTNER_INVITE invites a partner to access your business assets. PARTNER_REQUEST requests access to a partner's business assets. |
+| `members` | `body` | `Array<string>` | No | No | A list of usernames, emails, or a mix of them. Should be used if invite_type is MEMBER_INVITE |
+| `partners` | `body` | `Array<string>` | No | No | A list of partner_id. Should be used if invite_type is PARTNER_INVITE or PARTNER_REQUEST |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessInvite.getInvites
+
+`GET` `/businesses/{business_id}/invites`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (get/invites)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.businessAccessInvite.read` |
+| Required scopes | `biz_access:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `GetInvitesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `isMember` | `query` | `boolean` | No | No | A boolean field to indicate whether the invite is to create a partnership or a membership. |
+| `inviteStatus` | `query` | `Array<string>` | No | No | A list of invite statuses to filter invites by. Only invites whose status is in the provided statuses will be returned. |
+| `inviteType` | `query` | `string` | No | No | Invite type to filter invites by. Only invites of the specified type will be returned. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessInvite.respondBusinessAccessInvites
+
+`PATCH` `/businesses/invites`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (respond_business_access_invites)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessInvite.manage` |
+| Required scopes | `biz_access:read`<br />`biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `RespondBusinessAccessInvitesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `invites` | `body` | `Array<Inline9415>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

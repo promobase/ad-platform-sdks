@@ -1,0 +1,265 @@
+---
+title: "Pinterest Catalog Supplemental endpoints"
+description: "7 generated Pinterest endpoint contracts for Catalog Supplemental."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 118
+  label: "Catalog Supplemental"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.catalogSupplemental.catalogsLocalInventoryItemsBatchOperate
+
+`POST` `/catalogs/{catalog_id}/local_inventory_items/batch`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs_local_inventory_items_batch/operate)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogSupplemental.manage` |
+| Required scopes | `catalogs:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsLocalInventoryItemsBatchOperateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogId` | `path` | `string` | Yes | No | Unique identifier of a catalog. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `operations` | `body` | `Array<Inline9432 \| Inline9433 \| Inline9434 \| Inline9435>` | Yes | No | Array of inventory operations. Up to 1000 items per request. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogSupplemental.catalogsLocalInventoryItemsPost
+
+`POST` `/catalogs/{catalog_id}/local_inventory_items/query`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs_local_inventory_items/post)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogSupplemental.manage` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsLocalInventoryItemsPostResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogId` | `path` | `string` | Yes | No | Unique identifier of a catalog. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `item_filters` | `body` | `Array<Inline9441>` | Yes | No | Array of local inventory item identifiers. Each item requires an item_id and store_code pair. Up to 1000 items. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogSupplemental.catalogsLocalStoresCreate
+
+`POST` `/catalogs/{catalog_id}/local_stores`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs_local_stores/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogSupplemental.manage` |
+| Required scopes | `catalogs:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsLocalStoresCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogId` | `path` | `string` | Yes | No | Unique identifier of a catalog. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogSupplemental.catalogsLocalStoresDelete
+
+`DELETE` `/catalogs/{catalog_id}/local_stores`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs_local_stores/delete)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogSupplemental.manage` |
+| Required scopes | `catalogs:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsLocalStoresDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogId` | `path` | `string` | Yes | No | Unique identifier of a catalog. |
+| `ids` | `query` | `Array<string>` | Yes | No | List of local store IDs to filter by. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogSupplemental.catalogsLocalStoresList
+
+`GET` `/catalogs/{catalog_id}/local_stores`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs_local_stores/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.catalogSupplemental.read` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsLocalStoresListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogId` | `path` | `string` | Yes | No | Unique identifier of a catalog. |
+| `ids` | `query` | `Array<string>` | No | No | List of local store IDs to filter by. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogSupplemental.catalogsLocalStoresUpdate
+
+`PATCH` `/catalogs/{catalog_id}/local_stores`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs_local_stores/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogSupplemental.manage` |
+| Required scopes | `catalogs:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsLocalStoresUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogId` | `path` | `string` | Yes | No | Unique identifier of a catalog. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogSupplemental.catalogsSupplementalItemsBatchGet
+
+`GET` `/catalogs/{catalog_id}/supplemental_items/batch/{batch_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs_supplemental_items_batch/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.catalogSupplemental.read` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsSupplementalItemsBatchGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogId` | `path` | `string` | Yes | No | Unique identifier of a catalog. |
+| `batchId` | `path` | `string` | Yes | No | Unique identifier of an items batch operation. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

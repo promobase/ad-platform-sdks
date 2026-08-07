@@ -1,0 +1,1017 @@
+---
+title: "Pinterest models: Inline2953 – Inline3056"
+description: "100 generated Pinterest model contracts, from Inline2953 through Inline3056."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1044
+  label: "Inline2953 – Inline3056"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Inline2953
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed_id` | `feed_id` | `string` | Yes | No | ID of the feed entity. |
+| `processing_result_id` | `processing_result_id` | `string` | No | No | Unique identifier of a feed processing result. It can be acquired from the "id" field of the "items" array within the response of the List processing results for a given feed. If not provided, default to most recent completed processing result. |
+| `report_type` | `report_type` | `string` | Yes | No | — |
+
+## Inline2954
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Unique identifier of a catalog. If not given, oldest catalog will be used |
+| `report_type` | `report_type` | `string` | Yes | No | — |
+
+## Inline2956
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feed_id` | `feed_id` | `string` | Yes | No | ID of the feed entity. |
+| `processing_result_id` | `processing_result_id` | `string` | No | No | Unique identifier of a feed processing result. It can be acquired from the "id" field of the "items" array within the response of the List processing results for a given feed. If not provided, default to most recent completed processing result. |
+| `report_type` | `report_type` | `string` | Yes | No | — |
+
+## Inline2957
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Unique identifier of a catalog. If not given, oldest catalog will be used |
+| `report_type` | `report_type` | `string` | Yes | No | — |
+
+## Inline2959
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `batch_id` | `batch_id` | `Inline2959` | No | No | Id of the catalogs items batch |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `completed_time` | `completed_time` | `string` | No | No | Date and time (UTC) of the batch completion: YYYY-MM-DD'T'hh:mm:ss |
+| `created_time` | `created_time` | `string` | Yes | No | Date and time (UTC) of the batch creation: YYYY-MM-DD'T'hh:mm:ss. If null, batch creation was skipped due to a recent duplicate ingestion. |
+| `items` | `items` | `Array<Inline2960>` | No | No | Array with the catalogs items processing records part of the catalogs items batch |
+| `status` | `status` | `string` | No | No | The status of the operation performed by the batch |
+
+## Inline2960
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline2960>` | No | No | Array with the validation errors for the item processing record. A non empty errors list causes the item processing to fail. |
+| `item_id` | `item_id` | `string` | No | No | The catalog item id in the merchant namespace |
+| `status` | `status` | `string` | No | No | The status of the item processing record |
+| `warnings` | `warnings` | `Array<Inline2961>` | No | No | Array with the validation warnings for the item processing record |
+
+## Inline2961
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute` | `attribute` | `string` | No | No | The attribute that the item validation event references |
+| `code` | `code` | `number` | No | No | The event code that the item validation event references |
+| `message` | `message` | `string` | No | No | Title message describing the item validation event |
+
+## Inline2962
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `batch_id` | `batch_id` | `Inline2962` | No | No | Id of the catalogs items batch |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `completed_time` | `completed_time` | `string` | No | No | Date and time (UTC) of the batch completion: YYYY-MM-DD'T'hh:mm:ss |
+| `created_time` | `created_time` | `string` | No | No | Date and time (UTC) of the batch creation: YYYY-MM-DD'T'hh:mm:ss |
+| `items` | `items` | `Array<Inline2963>` | No | No | Array with the catalogs items processing records part of the catalogs items batch |
+| `status` | `status` | `string` | No | No | The status of the operation performed by the batch |
+
+## Inline2963
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline2963>` | No | No | Array with the validation errors for the item processing record. A non empty errors list causes the item processing to fail. |
+| `hotel_id` | `hotel_id` | `string` | No | No | The catalog hotel id in the merchant namespace |
+| `status` | `status` | `string` | No | No | The status of the item processing record |
+| `warnings` | `warnings` | `Array<Inline2964>` | No | No | Array with the validation warnings for the item processing record |
+
+## Inline2964
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute` | `attribute` | `string` | No | No | The attribute that the item validation event references |
+| `code` | `code` | `number` | No | No | The event code that the item validation event references |
+| `message` | `message` | `string` | No | No | Title message describing the item validation event |
+
+## Inline2965
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `batch_id` | `batch_id` | `Inline2965` | No | No | Id of the catalogs items batch |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `completed_time` | `completed_time` | `string` | No | No | Date and time (UTC) of the batch completion: YYYY-MM-DD'T'hh:mm:ss |
+| `created_time` | `created_time` | `string` | No | No | Date and time (UTC) of the batch creation: YYYY-MM-DD'T'hh:mm:ss |
+| `items` | `items` | `Array<Inline2966>` | No | No | Array with the catalogs items processing records part of the catalogs items batch |
+| `status` | `status` | `string` | No | No | The status of the operation performed by the batch |
+
+## Inline2966
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creative_assets_id` | `creative_assets_id` | `string` | No | No | The catalog creative assets id in the merchant namespace |
+| `errors` | `errors` | `Array<Inline2966>` | No | No | Array with the validation errors for the item processing record. A non empty errors list causes the item processing to fail. |
+| `status` | `status` | `string` | No | No | The status of the item processing record |
+| `warnings` | `warnings` | `Array<Inline2967>` | No | No | Array with the validation warnings for the item processing record |
+
+## Inline2967
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute` | `attribute` | `string` | No | No | The attribute that the item validation event references |
+| `code` | `code` | `number` | No | No | The event code that the item validation event references |
+| `message` | `message` | `string` | No | No | Title message describing the item validation event |
+
+## Inline2969
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `Inline2969` | No | No | Catalog id pertaining to the retail item. If not provided, default to oldest retail catalog |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline2970 \| Inline2971 \| Inline2972 \| Inline2973>` | Yes | No | Array with catalogs item operations |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+
+## Inline297
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversion_tag_v3_goal_metadata` | `conversion_tag_v3_goal_metadata` | `Inline297` | No | No | — |
+| `frequency_goal_metadata` | `frequency_goal_metadata` | `Inline298` | No | No | Frequency target can only be between 2 and 20 |
+| `scrollup_goal_metadata` | `scrollup_goal_metadata` | `Inline299` | No | No | — |
+
+## Inline2970
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline2970` | Yes | No | — |
+| `item_id` | `item_id` | `string` | Yes | No | The catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline2971
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline2971` | Yes | No | — |
+| `item_id` | `item_id` | `string` | Yes | No | The catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `update_mask` | `update_mask` | `Array<string>` | No | No | The list of product attributes to be updated. Attributes specified in the update mask without a value specified in the body will be deleted from the product item. |
+
+## Inline2972
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline2972` | Yes | No | — |
+| `item_id` | `item_id` | `string` | Yes | No | The catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline2973
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | Yes | No | The catalog item id in the merchant namespace |
+| `last_updated_time` | `last_updated_time` | `number` | No | No | The millisecond timestamp when the item was lastly modified by the merchant. |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline2974
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `Inline2974` | No | No | Catalog id pertaining to the hotel item. If not provided, default to oldest hotel catalog |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline2975 \| Inline2979 \| Inline2983 \| Inline2985>` | Yes | No | Array with catalogs item operations |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+
+## Inline2975
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline2975` | Yes | No | — |
+| `hotel_id` | `hotel_id` | `string` | Yes | No | The catalog hotel id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline2976
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `link` | `link` | `string` | No | No | &lt;= 2000 characters. The link to the main hotel image. Image should be at least 75x75 pixels to avoid errors. Must start with http:// or https://. |
+| `tag` | `tag` | `Array<string>` | No | No | Tag appended to the image that identifies image category or details. There can be multiple tags associated with an image |
+
+## Inline2977
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `addr1` | `addr1` | `string` | No | No | Primary street address of hotel. |
+| `city` | `city` | `string` | No | No | City where the hotel is located. |
+| `country` | `country` | `string` | No | No | Country where the hotel is located. |
+| `postal_code` | `postal_code` | `string` | No | No | Required for countries with a postal code system. Postal or zip code of the hotel. |
+| `region` | `region` | `string` | No | No | State, county, province, where the hotel is located. |
+
+## Inline2978
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max_score` | `max_score` | `number` | No | No | Max value for the hotel rating score. |
+| `number_of_reviewers` | `number_of_reviewers` | `number` | No | No | Total number of people who have rated this hotel. |
+| `rating_system` | `rating_system` | `string` | No | No | System you use for guest reviews. |
+| `score` | `score` | `number` | No | No | Your hotel's rating. |
+
+## Inline2979
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline2979` | Yes | No | — |
+| `hotel_id` | `hotel_id` | `string` | Yes | No | The catalog hotel id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline298
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `frequency` | `frequency` | `number` | No | No | — |
+| `timerange` | `timerange` | `string` | No | No | — |
+
+## Inline2980
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `link` | `link` | `string` | No | No | &lt;= 2000 characters. The link to the main hotel image. Image should be at least 75x75 pixels to avoid errors. Must start with http:// or https://. |
+| `tag` | `tag` | `Array<string>` | No | No | Tag appended to the image that identifies image category or details. There can be multiple tags associated with an image |
+
+## Inline2981
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `addr1` | `addr1` | `string` | No | No | Primary street address of hotel. |
+| `city` | `city` | `string` | No | No | City where the hotel is located. |
+| `country` | `country` | `string` | No | No | Country where the hotel is located. |
+| `postal_code` | `postal_code` | `string` | No | No | Required for countries with a postal code system. Postal or zip code of the hotel. |
+| `region` | `region` | `string` | No | No | State, county, province, where the hotel is located. |
+
+## Inline2982
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max_score` | `max_score` | `number` | No | No | Max value for the hotel rating score. |
+| `number_of_reviewers` | `number_of_reviewers` | `number` | No | No | Total number of people who have rated this hotel. |
+| `rating_system` | `rating_system` | `string` | No | No | System you use for guest reviews. |
+| `score` | `score` | `number` | No | No | Your hotel's rating. |
+
+## Inline2983
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline2983` | Yes | No | — |
+| `hotel_id` | `hotel_id` | `string` | Yes | No | The catalog hotel item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline2984
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `max_score` | `max_score` | `number` | No | No | Max value for the hotel rating score. |
+| `number_of_reviewers` | `number_of_reviewers` | `number` | No | No | Total number of people who have rated this hotel. |
+| `rating_system` | `rating_system` | `string` | No | No | System you use for guest reviews. |
+| `score` | `score` | `number` | No | No | Your hotel's rating. |
+
+## Inline2985
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `hotel_id` | `hotel_id` | `string` | Yes | No | The catalog hotel id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline2986
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `Inline2986` | No | No | Catalog id pertaining to the creative assets item. If not provided, default to oldest creative assets catalog |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline2987 \| Inline2988 \| Inline2989 \| Inline2990>` | Yes | No | Array with creative assets item operations |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+
+## Inline2987
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline2987` | Yes | No | — |
+| `creative_assets_id` | `creative_assets_id` | `string` | Yes | No | The catalog creative assets id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline2988
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline2988` | Yes | No | — |
+| `creative_assets_id` | `creative_assets_id` | `string` | Yes | No | The catalog creative assets id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline2989
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline2989` | Yes | No | — |
+| `creative_assets_id` | `creative_assets_id` | `string` | Yes | No | The catalog creative assets item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline299
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `scrollup_goal_value_in_micro_currency` | `scrollup_goal_value_in_micro_currency` | `string` | No | No | — |
+
+## Inline2990
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creative_assets_id` | `creative_assets_id` | `string` | Yes | No | The catalog creative assets id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline2991
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline2991>` | Yes | No | Array with catalogs items |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline2992
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline2992>` | Yes | No | Array with catalogs items |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline2993
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline2993>` | Yes | No | Array with catalogs items |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline2994
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline2994>` | Yes | No | Array with catalogs items |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline2995
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline2995>` | Yes | No | Array with catalogs items |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline2997
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline2997>` | Yes | No | Array with catalogs items |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline2998
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline2998>` | Yes | No | Array with catalogs items |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline2999
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline2999>` | Yes | No | Array with catalogs items |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline3
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline30
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline300
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline3000
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline3000>` | Yes | No | Array with catalogs items |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline3001
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | Yes | No | Country ID from ISO 3166-1 alpha-2. |
+| `items` | `items` | `Array<Inline3001>` | Yes | No | Array with catalogs items |
+| `language` | `language` | `string \| string` | Yes | No | We recommend using the CatalogsLocale values. |
+| `operation` | `operation` | `string` | Yes | No | — |
+
+## Inline3003
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline3003` | No | No | — |
+| `item_id` | `item_id` | `string` | No | No | The catalog item id in the merchant namespace |
+
+## Inline3005
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | The catalog item id in the merchant namespace |
+
+## Inline3007
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | No | No | The catalog item id in the merchant namespace |
+
+## Inline3009
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog id pertaining to the retail item. If not provided, default to oldest retail catalog |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `item_ids` | `item_ids` | `Array<string>` | Yes | No | — |
+
+## Inline301
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline3010
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog id pertaining to the hotel item. If not provided, default to oldest hotel catalog |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `hotel_ids` | `hotel_ids` | `Array<string>` | Yes | No | — |
+
+## Inline3011
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog id pertaining to the creative assets item. If not provided, default to oldest creative assets catalog |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `creative_assets_ids` | `creative_assets_ids` | `Array<string>` | Yes | No | — |
+
+## Inline3013
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog id pertaining to the retail item. If not provided, default to oldest retail catalog |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `item_ids` | `item_ids` | `Array<string>` | Yes | No | — |
+
+## Inline3014
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog id pertaining to the hotel item. If not provided, default to oldest hotel catalog |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `hotel_ids` | `hotel_ids` | `Array<string>` | Yes | No | — |
+
+## Inline3015
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `string` | No | No | Catalog id pertaining to the creative assets item. If not provided, default to oldest creative assets catalog |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `creative_assets_ids` | `creative_assets_ids` | `Array<string>` | Yes | No | — |
+
+## Inline3017
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline3017` | No | No | — |
+| `item_id` | `item_id` | `string` | No | No | The catalog item id in the merchant namespace |
+| `update_mask` | `update_mask` | `Array<string>` | No | No | The list of product attributes to be updated. Attributes specified in the update mask without a value specified in the body will be deleted from the product item. |
+
+## Inline3019
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline3019` | No | No | — |
+| `item_id` | `item_id` | `string` | No | No | The catalog item id in the merchant namespace |
+
+## Inline302
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AGE_BUCKET` | `AGE_BUCKET` | `Array<string>` | No | No | **Legacy field.** Predefined age ranges. We recommend using MINIMUM_AGE and MAXIMUM_AGE instead for more flexible targeting. Cannot be combined with MINIMUM_AGE/MAXIMUM_AGE. If neither AGE_BUCKET nor MINIMUM_AGE/MAXIMUM_AGE are specified, all ages will be targeted. |
+| `APPTYPE` | `APPTYPE` | `Array<string>` | No | No | Allowed devices. If the APPTYPE field is missing, the default behavior in terms of ad delivery is that **All devices/apptypes** will be targeted. |
+| `AUDIENCE_EXCLUDE` | `AUDIENCE_EXCLUDE` | `Array<string>` | No | No | Excluded customer list IDs. Used to drive new customer acquisition goals. For example: ["2542620905475"]. Audience lists need to have at least 100 people with Pinterest accounts in them. If the AUDIENCE_EXCLUDE field is missing, the default behavior in terms of ad delivery is that **No users will be excluded**. |
+| `AUDIENCE_INCLUDE` | `AUDIENCE_INCLUDE` | `Array<string>` | No | No | Targeted customer list IDs. For example: ["2542620905473"]. Audience lists need to have at least 100 people with Pinterest accounts in them Audience lists need to have at least 100 people with Pinterest accounts in them. If the AUDIENCE_INCLUDE field is missing, the default behavior in terms of ad delivery is that **All users will be included**. |
+| `GENDER` | `GENDER` | `Array<string>` | No | No | Targeted genders. Values: ["unknown","male","female"]. If the GENDER field is missing, the default behavior in terms of ad delivery is that **All genders will be targeted**. |
+| `GEO` | `GEO` | `Array<string>` | No | No | Region codes or postal codes to include for targeting.&lt;br /&gt;&lt;br /&gt; Region codes represent broader geographical areas. Example: &lt;code&gt;US-CA&lt;/code&gt; is the region code for California in the United States.&lt;br /&gt;&lt;br /&gt; Postal codes represent more granular, specific areas. Example: &lt;code&gt;94103&lt;/code&gt; is a postal code for a specifc area in San Francisco, California, U.S.A.&lt;br /&gt;&lt;br /&gt; For each ad group, use only one of these methods, depending on which fits your targeting needs. Do not use both. For example, either specify a broader region code like &lt;code&gt;US-CA&lt;/code&gt; or a more granular postal code within that regon, such as &lt;code&gt;94103&lt;/code&gt;.&lt;br /&gt;&lt;br /&gt; You can specify multiple region codes or postal codes in an array, depending on which method you choose.&lt;br /&gt;&lt;br /&gt; Precede a region code array with the &lt;code&gt;region_codes&lt;/code&gt; key and a postal code value with the &lt;code&gt;postal_codes&lt;/code&gt; key. Examples:&lt;br /&gt;&lt;br /&gt; &lt;code&gt;"geo": &#123;&lt;/code&gt;&lt;br /&gt; &lt;code&gt;"region_codes": ["US-CA"]&lt;/code&gt;&lt;br /&gt; &lt;code&gt;&#125;&lt;/code&gt;&lt;br /&gt;&lt;br /&gt; &lt;code&gt;"geo": &#123;&lt;/code&gt;&lt;br /&gt; &lt;code&gt;"postal_codes": ["94103"]&lt;/code&gt;&lt;br /&gt; &lt;code&gt;&#125;&lt;/code&gt;&lt;br /&gt;&lt;br /&gt; For each ad group, specify at least one &lt;code&gt;GEO&lt;/code&gt; or &lt;code&gt;LOCATION&lt;/code&gt;. &lt;br /&gt;&lt;br /&gt; If you do not specifiy a &lt;code&gt;GEO&lt;/code&gt; code, only &lt;code&gt;LOCATION&lt;/code&gt; values will be targeted (See &lt;code&gt;LOCATION&lt;/code&gt; parameter in this targeting spec.).&lt;br /&gt;&lt;br /&gt; Learn how to &lt;a href="/docs/analytics-and-reports/ads-reporting/#get-all-available-codes-and-zones" target="_blank"&gt;get a current, complete list of codes&lt;/a&gt;. |
+| `GEO_EXCLUDE` | `GEO_EXCLUDE` | `Array<string>` | No | No | Region codes or postal codes to exclude from the targeting inclusion area.&lt;br /&gt;&lt;br /&gt; See &lt;code&gt;GEO&lt;/code&gt; parameter in this targeting spec for rules, syntax, and other information.&lt;br /&gt; |
+| `INTEREST` | `INTEREST` | `Array<string>` | No | No | Array of interest object IDs. If the INTEREST field is missing, the default behavior in terms of ad delivery is that **All interests will be targeted**. |
+| `LOCALE` | `LOCALE` | `Array<string>` | No | No | 24 ISO 639-1 two-letter language codes. If the LOCALE field is not included in the request, all languages are targeted. |
+| `LOCATION` | `LOCATION` | `Array<string>` | No | No | Metropolitan codes and/or ISO-Alpha-2, two-letter country codes to include for targeting.&lt;br /&gt;&lt;br /&gt; Precede country code values with the &lt;code&gt;country_codes&lt;/code&gt; key and metro code values with &lt;code&gt;metro_codes&lt;/code&gt; key. Example:&lt;br /&gt;&lt;br /&gt; &lt;code&gt;"location": &#123;&lt;/code&gt;&lt;br /&gt; &lt;code&gt;"country_codes": ["US", "CA"],&lt;/code&gt;&lt;br /&gt; &lt;code&gt;"metro_codes": ["501", "602"]&lt;/code&gt;&lt;br /&gt; &lt;code&gt;&#125;&lt;/code&gt;&lt;br /&gt;&lt;br /&gt; For each ad group, specify at least one &lt;code&gt;GEO&lt;/code&gt; or &lt;code&gt;LOCATION&lt;/code&gt; code. &lt;br /&gt;&lt;br /&gt; If you do not specify a &lt;code&gt;LOCATION&lt;/code&gt; code, only &lt;code&gt;GEO&lt;/code&gt; values will be targeted (See &lt;code&gt;GEO&lt;/code&gt; parameter in this targeting spec.).&lt;br /&gt;&lt;br /&gt; Learn how to &lt;a href="/docs/analytics-and-reports/ads-reporting/#get-all-available-codes-and-zones" target="_blank"&gt;get a current, complete list of codes&lt;/a&gt;. |
+| `LOCATION_EXCLUDE` | `LOCATION_EXCLUDE` | `Array<string>` | No | No | Metropolitan codes and/or ISO-Alpha-2, two-letter country codes to exclude from targeting.&lt;br /&gt;&lt;br /&gt; See &lt;code&gt;LOCATION&lt;/code&gt; parameter in this targeting spec for rules, syntax, and other information. |
+| `MAXIMUM_AGE` | `MAXIMUM_AGE` | `string` | No | No | Maximum age to target (inclusive). Values: "18", "19", ..., "65", "65+". Must be used together with `MINIMUM_AGE`. Cannot be combined with `AGE_BUCKET`. If neither `MINIMUM_AGE`/`MAXIMUM_AGE` nor `AGE_BUCKET` are specified, all ages will be targeted. |
+| `MINIMUM_AGE` | `MINIMUM_AGE` | `string` | No | No | Minimum age to target (inclusive). Values: "18", "19", ..., "65". Note: 65+ is not allowed for minimum age. Must be used together with `MAXIMUM_AGE`. Cannot be combined with `AGE_BUCKET`. If neither `MINIMUM_AGE`/`MAXIMUM_AGE` nor `AGE_BUCKET` are specified, all ages will be targeted. |
+| `SHOPPING_RETARGETING` | `SHOPPING_RETARGETING` | `Array<Inline302>` | No | No | Array of object: lookback_window [Integer]: Number of days ago to start lookback timeframe for dynamic retargeting tag_types [Array of integer]: Event types to target for dynamic retargeting exclusion_window [Integer]: Number of days ago to stop lookback timeframe for dynamic retargeting |
+| `TARGETING_STRATEGY` | `TARGETING_STRATEGY` | `Array<string>` | No | No | — |
+
+## Inline3021
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline3023
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3023` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3024
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3024` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3025
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3025` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3026
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3026` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3027
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3027` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3028
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3028` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3029
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3029` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline303
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_verification` | `audience_verification` | `Array<string>` | No | No | — |
+| `buyable_button` | `buyable_button` | `Array<string>` | No | No | — |
+| `click` | `click` | `Array<string>` | No | No | — |
+| `engagement` | `engagement` | `Array<string>` | No | No | — |
+| `impression` | `impression` | `Array<string>` | No | No | — |
+
+## Inline3030
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3030` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3031
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3031` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3032
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3032` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3033
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3033` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3034
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3034` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3035
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3035` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3036
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3036` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3037
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3037` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3038
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3038` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3039
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3039` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline304
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | — |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `values` | `values` | `Array<string>` | Yes | No | — |
+
+## Inline3040
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3040` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3041
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3041` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3042
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3042` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3043
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3043` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3044
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3044` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3045
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3045` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3048
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ADULT_INVALID` | `ADULT_INVALID` | `Inline3048` | No | No | Item has an invalid adult value. |
+| `ADWORDS_FORMAT_INVALID` | `ADWORDS_FORMAT_INVALID` | `Inline3049` | No | No | Adword link contains too many characters. |
+| `AVAILABILITY_INVALID` | `AVAILABILITY_INVALID` | `Inline3050` | No | No | Item is missing availability value in its product metadata, this item will not be published. |
+| `BLOCKLISTED_IMAGE_SIGNATURE` | `BLOCKLISTED_IMAGE_SIGNATURE` | `Inline3051` | No | No | Item will not be published because it doesn't meet Pinterest's Merchant Guidelines. |
+| `DESCRIPTION_MISSING` | `DESCRIPTION_MISSING` | `Inline3052` | No | No | Item is missing description in its product metadata, this item will not be published. |
+| `DUPLICATE_PRODUCTS` | `DUPLICATE_PRODUCTS` | `Inline3053` | No | No | This product is duplicated. The duplicate entry will not be published. |
+| `IMAGE_LINK_INVALID` | `IMAGE_LINK_INVALID` | `Inline3054` | No | No | Image link is invalid. |
+| `IMAGE_LINK_LENGTH_TOO_LONG` | `IMAGE_LINK_LENGTH_TOO_LONG` | `Inline3055` | No | No | Item has image_link URL that contains too many characters, so the item will not be published. |
+| `IMAGE_LINK_MISSING` | `IMAGE_LINK_MISSING` | `Inline3056` | No | No | Item is missing an image link URL in its product metadata, this item will not be published. |
+| `INVALID_DOMAIN` | `INVALID_DOMAIN` | `Inline3057` | No | No | Product link value doesn't match the verified domain associated with this account. |
+| `ITEM_MAIN_IMAGE_DOWNLOAD_FAILURE` | `ITEM_MAIN_IMAGE_DOWNLOAD_FAILURE` | `Inline3058` | No | No | Main image can't be found. |
+| `ITEMID_MISSING` | `ITEMID_MISSING` | `Inline3059` | No | No | Item is missing item id in its product metadata, this item will not be published. |
+| `LINK_FORMAT_INVALID` | `LINK_FORMAT_INVALID` | `Inline3060` | No | No | Link is invalid. |
+| `LINK_LENGTH_TOO_LONG` | `LINK_LENGTH_TOO_LONG` | `Inline3061` | No | No | Product link contains too many characters, this item will not be published. |
+| `LIST_PRICE_INVALID` | `LIST_PRICE_INVALID` | `Inline3062` | No | No | Item has a list price formatting error, this item will not be published. |
+| `MAX_ITEMS_PER_ITEM_GROUP_EXCEEDED` | `MAX_ITEMS_PER_ITEM_GROUP_EXCEEDED` | `Inline3063` | No | No | Item exceed the maximum number of items per item group, this item will not be published. |
+| `PARSE_LINE_ERROR` | `PARSE_LINE_ERROR` | `Inline3064` | No | No | Item contains formating errors. |
+| `PINJOIN_CONTENT_UNSAFE` | `PINJOIN_CONTENT_UNSAFE` | `Inline3065` | No | No | Item will not be published because it doesn't meet Pinterest's Merchant Guidelines. |
+| `PRICE_CANNOT_BE_DETERMINED` | `PRICE_CANNOT_BE_DETERMINED` | `Inline3066` | No | No | Item price cannot be determined because the price, list price, and sale price are all different. |
+| `PRICE_MISSING` | `PRICE_MISSING` | `Inline3067` | No | No | Product is missing a price, this item will not be published. |
+| `PRODUCT_LINK_MISSING` | `PRODUCT_LINK_MISSING` | `Inline3068` | No | No | Item is missing a link URL in its product metadata, this item will not be published. |
+| `PRODUCT_PRICE_INVALID` | `PRODUCT_PRICE_INVALID` | `Inline3069` | No | No | Item has a price formatting error in its product metadata, this item will not be published. |
+| `TITLE_MISSING` | `TITLE_MISSING` | `Inline3070` | No | No | Item is missing title in its product metadata, this item will not be published. |
+
+## Inline3049
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3049` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline305
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `field` | `field` | `string` | Yes | No | — |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `values` | `values` | `Array<string>` | Yes | No | — |
+
+## Inline3050
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3050` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3051
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3051` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3052
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3052` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3053
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3053` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3054
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3054` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3055
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3055` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |
+
+## Inline3056
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute_name` | `attribute_name` | `Inline3056` | No | No | Attribute that has a validation issue. |
+| `provided_value` | `provided_value` | `string` | No | No | Provided value that caused the validation issue. |

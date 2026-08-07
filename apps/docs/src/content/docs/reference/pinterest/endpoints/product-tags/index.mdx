@@ -1,0 +1,117 @@
+---
+title: "Pinterest Product Tags endpoints"
+description: "3 generated Pinterest endpoint contracts for Product Tags."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 141
+  label: "Product Tags"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.productTags.productTagsBulkAdd
+
+`POST` `/pins/{pin_id}/product_tags`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (product_tags/bulk_add)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.productTags.manage` |
+| Required scopes | `boards:read`<br />`boards:write`<br />`pins:read`<br />`pins:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `ProductTagsBulkAddResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinId` | `path` | `string` | Yes | No | Unique identifier of the hero pin that will receive product tags. |
+| `product_tags` | `body` | `Array<Inline11470>` | Yes | No | List of product tags to add. Maximum 24 items allowed. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.productTags.productTagsBulkDelete
+
+`POST` `/pins/{pin_id}/product_tags/bulk-delete`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (product_tags/bulk_delete)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.productTags.manage` |
+| Required scopes | `boards:read`<br />`boards:write`<br />`pins:read`<br />`pins:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `ProductTagsBulkDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinId` | `path` | `string` | Yes | No | Unique identifier of the hero pin that will receive product tags. |
+| `product_tags` | `body` | `Array<Inline11477>` | Yes | No | List of product tags to delete. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.productTags.productTagsList
+
+`GET` `/pins/{pin_id}/product_tags`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (product_tags/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.productTags.read` |
+| Required scopes | `boards:read`<br />`pins:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `ProductTagsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinId` | `path` | `string` | Yes | No | Unique identifier of the hero pin that will receive product tags. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

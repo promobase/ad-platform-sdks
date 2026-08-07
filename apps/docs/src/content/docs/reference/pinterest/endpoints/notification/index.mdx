@@ -1,0 +1,41 @@
+---
+title: "Pinterest Notification endpoints"
+description: "1 generated Pinterest endpoint contract for Notification."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 136
+  label: "Notification"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.notification.notificationPost
+
+`POST` `/notifications`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (notification/post)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.notification.manage` |
+| Required scopes | `user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `NotificationPostResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

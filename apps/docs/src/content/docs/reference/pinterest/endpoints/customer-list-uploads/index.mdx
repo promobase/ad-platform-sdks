@@ -1,0 +1,122 @@
+---
+title: "Pinterest Customer List Uploads endpoints"
+description: "3 generated Pinterest endpoint contracts for Customer List Uploads."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 125
+  label: "Customer List Uploads"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.customerListUploads.customerListUploadsCreate
+
+`POST` `/ad_accounts/{ad_account_id}/customer_lists/{customer_list_id}/uploads`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (customer_list_uploads/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.customerListUploads.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CustomerListUploadsCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `customerListId` | `path` | `string` | Yes | No | Customer list ID. |
+| `operation` | `body` | `string` | Yes | No | User list operation type (add or remove) |
+| `total_parts` | `body` | `number` | Yes | No | Number of parts to upload the file in. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.customerListUploads.customerListUploadsGet
+
+`GET` `/ad_accounts/{ad_account_id}/customer_lists/{customer_list_id}/uploads/{customer_list_upload_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (customer_list_uploads/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.customerListUploads.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CustomerListUploadsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `customerListId` | `path` | `string` | Yes | No | Customer list ID. |
+| `customerListUploadId` | `path` | `unknown` | Yes | No | Customer List Upload ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.customerListUploads.customerListUploadsRun
+
+`POST` `/ad_accounts/{ad_account_id}/customer_lists/{customer_list_id}/uploads/{customer_list_upload_id}/run`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (customer_list_uploads/run)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.customerListUploads.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CustomerListUploadsRunResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | — |
+| `customerListId` | `path` | `string` | Yes | No | Customer list ID. |
+| `customerListUploadId` | `path` | `unknown` | Yes | No | Customer List Upload ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

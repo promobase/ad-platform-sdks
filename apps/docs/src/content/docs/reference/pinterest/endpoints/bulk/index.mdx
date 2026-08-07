@@ -1,0 +1,124 @@
+---
+title: "Pinterest Bulk endpoints"
+description: "3 generated Pinterest endpoint contracts for Bulk."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 109
+  label: "Bulk"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.bulk.bulkDownloadCreate
+
+`POST` `/ad_accounts/{ad_account_id}/bulk/download`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (bulk_download/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.bulk.manage` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BulkDownloadCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `campaign_filter` | `body` | `Inline7667` | No | No | — |
+| `entity_ids` | `body` | `Array<string>` | No | No | All entities specified by these IDs as well as their children and grandchildren will be downloaded if the entity type is one of the types requested to be downloaded. |
+| `entity_types` | `body` | `Array<string>` | No | No | All entity types specified will be downloaded. Fewer types result in faster downloads. |
+| `output_format` | `body` | `Inline7668` | No | No | — |
+| `updated_since` | `body` | `string` | No | No | Unix UTC timestamp to retrieve all entities that have changed since this time. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.bulk.bulkRequestGet
+
+`GET` `/ad_accounts/{ad_account_id}/bulk/{bulk_request_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (bulk_request/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.bulk.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BulkRequestGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bulkRequestId` | `path` | `string` | Yes | No | Bulk request ID that is from one of the entities bulk endpoints |
+| `includeDetails` | `query` | `boolean` | No | No | If set to True then attach the errors/details to all the requests |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.bulk.bulkUpsertCreate
+
+`POST` `/ad_accounts/{ad_account_id}/bulk/upsert`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (bulk_upsert/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.bulk.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BulkUpsertCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `create` | `body` | `Inline8134` | No | No | Request for creation of entities in bulk. |
+| `update` | `body` | `Inline8362` | No | No | Request for creation of entities in bulk. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

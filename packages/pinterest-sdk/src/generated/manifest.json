@@ -1,0 +1,212 @@
+{
+  "source": "https://github.com/pinterest/api-description",
+  "specSha256": "1f14913381fe507d55e9e162c717b4b79f11077dcaf2329bb68d4f46940964a7",
+  "endpoints": 266,
+  "tags": [
+    {
+      "name": "ad_accounts",
+      "endpoints": 14
+    },
+    {
+      "name": "ad_groups",
+      "endpoints": 13
+    },
+    {
+      "name": "ads",
+      "endpoints": 10
+    },
+    {
+      "name": "billing",
+      "endpoints": 11
+    },
+    {
+      "name": "conversions",
+      "endpoints": 4
+    },
+    {
+      "name": "audience_insights",
+      "endpoints": 2
+    },
+    {
+      "name": "audiences",
+      "endpoints": 4
+    },
+    {
+      "name": "audience_sharing",
+      "endpoints": 7
+    },
+    {
+      "name": "bulk",
+      "endpoints": 3
+    },
+    {
+      "name": "campaigns",
+      "endpoints": 8
+    },
+    {
+      "name": "conversion_deletion_requests",
+      "endpoints": 4
+    },
+    {
+      "name": "conversion_eqs",
+      "endpoints": 1
+    },
+    {
+      "name": "conversion_tags",
+      "endpoints": 5
+    },
+    {
+      "name": "customer_lists",
+      "endpoints": 4
+    },
+    {
+      "name": "customer_list_uploads",
+      "endpoints": 3
+    },
+    {
+      "name": "customer_segment",
+      "endpoints": 3
+    },
+    {
+      "name": "conversion_events",
+      "endpoints": 1
+    },
+    {
+      "name": "keywords",
+      "endpoints": 5
+    },
+    {
+      "name": "labels",
+      "endpoints": 5
+    },
+    {
+      "name": "lead_forms",
+      "endpoints": 5
+    },
+    {
+      "name": "leads_export",
+      "endpoints": 2
+    },
+    {
+      "name": "lead_ads",
+      "endpoints": 4
+    },
+    {
+      "name": "msot_events",
+      "endpoints": 1
+    },
+    {
+      "name": "order_lines",
+      "endpoints": 2
+    },
+    {
+      "name": "product_group_promotions",
+      "endpoints": 5
+    },
+    {
+      "name": "promotions",
+      "endpoints": 5
+    },
+    {
+      "name": "schedules",
+      "endpoints": 3
+    },
+    {
+      "name": "targeting_template",
+      "endpoints": 3
+    },
+    {
+      "name": "terms_of_service",
+      "endpoints": 1
+    },
+    {
+      "name": "advanced_auction",
+      "endpoints": 2
+    },
+    {
+      "name": "boards",
+      "endpoints": 11
+    },
+    {
+      "name": "business_access_relationships",
+      "endpoints": 9
+    },
+    {
+      "name": "business_access_assets",
+      "endpoints": 12
+    },
+    {
+      "name": "business_access_invite",
+      "endpoints": 6
+    },
+    {
+      "name": "catalogs",
+      "endpoints": 3
+    },
+    {
+      "name": "catalog_supplemental",
+      "endpoints": 7
+    },
+    {
+      "name": "catalog_feeds",
+      "endpoints": 8
+    },
+    {
+      "name": "catalog_items",
+      "endpoints": 3
+    },
+    {
+      "name": "catalog_product_groups",
+      "endpoints": 10
+    },
+    {
+      "name": "catalog_reports",
+      "endpoints": 3
+    },
+    {
+      "name": "integrations",
+      "endpoints": 7
+    },
+    {
+      "name": "media",
+      "endpoints": 3
+    },
+    {
+      "name": "notification",
+      "endpoints": 1
+    },
+    {
+      "name": "oauth",
+      "endpoints": 3
+    },
+    {
+      "name": "pins",
+      "endpoints": 8
+    },
+    {
+      "name": "product_tags",
+      "endpoints": 3
+    },
+    {
+      "name": "resources",
+      "endpoints": 6
+    },
+    {
+      "name": "search",
+      "endpoints": 3
+    },
+    {
+      "name": "terms",
+      "endpoints": 2
+    },
+    {
+      "name": "trends",
+      "endpoints": 4
+    },
+    {
+      "name": "user_account",
+      "endpoints": 14
+    }
+  ],
+  "schemas": 1112
+}

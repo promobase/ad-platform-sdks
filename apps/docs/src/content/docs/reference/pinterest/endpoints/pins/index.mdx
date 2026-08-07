@@ -1,0 +1,332 @@
+---
+title: "Pinterest Pins endpoints"
+description: "8 generated Pinterest endpoint contracts for Pins."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 139
+  label: "Pins"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.pins.multiPinsAnalytics
+
+`GET` `/pins/analytics`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (multi_pins/analytics)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.pins.read` |
+| Required scopes | `boards:read`<br />`pins:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `MultiPinsAnalyticsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinIds` | `query` | `Array<unknown>` | Yes | No | List of Pin IDs. |
+| `startDate` | `query` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `query` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `appTypes` | `query` | `string` | No | No | Apps or devices to get data for, default is all. |
+| `metricTypes` | `query` | `Array<string>` | Yes | No | Pin metric types to get data for. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.pins.pinsAnalytics
+
+`GET` `/pins/{pin_id}/analytics`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (pins/analytics)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.pins.read` |
+| Required scopes | `boards:read`<br />`pins:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `PinsAnalyticsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinId` | `path` | `string` | Yes | No | Unique identifier of a Pin. |
+| `startDate` | `query` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `query` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `appTypes` | `query` | `string` | No | No | Apps or devices to get data for, default is all. |
+| `metricTypes` | `query` | `Array<string \| string>` | Yes | No | Pin metric types to get data for. VIDEO_MRC_VIEW are Video views, VIDEO_V50_WATCH_TIME is Total play time. If Pin was created before `2023-03-20`, Profile visits and Follows will only be available for Idea Pins. These metrics are available for all Pin formats since then. Keep in mind this cannot have ALL if split_field is set to any value other than `NO_SPLIT`. |
+| `splitField` | `query` | `string` | No | No | How to split the data into groups. Not including this param means data won't be split. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.pins.pinsCreate
+
+`POST` `/pins`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (pins/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.pins.manage` |
+| Required scopes | `boards:read`<br />`boards:write`<br />`pins:read`<br />`pins:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `PinsCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `ai_disclosures` | `body` | `Inline11424` | No | No | AI disclosure declarations the creator has made about this Pin. |
+| `alt_text` | `body` | `string` | No | No | — |
+| `board_id` | `body` | `string` | No | No | The board to which this Pin belongs. |
+| `board_section_id` | `body` | `string` | No | No | The board section to which this Pin belongs. |
+| `description` | `body` | `string` | No | No | — |
+| `dominant_color` | `body` | `string` | No | No | Dominant pin color. Hex number, e.g. `#6E7874`. |
+| `link` | `body` | `string` | No | No | — |
+| `media_source` | `body` | `Inline11425 \| Inline11426 \| Inline11427 \| Inline11428 \| Inline11429 \| Inline11430` | No | No | Pin media source that can be an image, video, or a mix of both passed in as a request. |
+| `parent_pin_id` | `body` | `string` | No | No | The source pin id if this pin was saved from another pin. [Learn more](https://help.pinterest.com/article/save-pins-on-pinterest). |
+| `sponsor_id` | `body` | `string` | No | No | The sponsor account id to request paid partnership from. Currently the field is only available to a list of users in a closed beta. |
+| `title` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.pins.pinsDelete
+
+`DELETE` `/pins/{pin_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (pins/delete)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.pins.manage` |
+| Required scopes | `boards:read`<br />`boards:write`<br />`pins:read`<br />`pins:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `PinsDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinId` | `path` | `string` | Yes | No | — |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.pins.pinsGet
+
+`GET` `/pins/{pin_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (pins/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.pins.read` |
+| Required scopes | `boards:read`<br />`pins:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `PinsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinId` | `path` | `string` | Yes | No | — |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `pinMetrics` | `query` | `boolean` | No | No | Specify whether to return 90d and lifetime Pin metrics. Total comments and total reactions are only available with lifetime Pin metrics. If Pin was created before `2023-03-20` lifetime metrics will only be available for Video and Idea Pin formats. Lifetime metrics are available for all Pin formats since then. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.pins.pinsList
+
+`GET` `/pins`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (pins/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.pins.read` |
+| Required scopes | `boards:read`<br />`pins:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `PinsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinFilter` | `query` | `string` | No | No | The filter to apply to the pins |
+| `pinMetrics` | `query` | `boolean` | No | No | Specify whether to return 90d and lifetime Pin metrics. Total comments and total reactions are only available with lifetime Pin metrics. If Pin was created before `2023-03-20` lifetime metrics will only be available for Video and Idea Pin formats. Lifetime metrics are available for all Pin formats since then. |
+| `includeProtectedPins` | `query` | `boolean` | No | No | Whether to include protected pins in the results |
+| `pinType` | `query` | `string` | No | No | The type of pins to return, currently only enabled for private pins |
+| `creativeTypes` | `query` | `Array<string>` | No | No | Pin creative types filter. **Note:** SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `domain` | `query` | `string` | No | No | Only return pins with links that match the exact domain. Domain should not include 'www.' prefix. For example, 'pinterest.com' is a valid domain, but 'www.pinterest.com' is not (will not match any pins). |
+| `domains` | `query` | `Array<string>` | No | No | Only return pins with links whose domain matches any value in the list. Values are joined comma-separated on the wire (e.g. `?domains=instagram.com,jcpenney.com`). |
+| `includeProductTagObj` | `query` | `boolean` | No | No | Include product tag objects in the response with their associated links. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.pins.pinsSave
+
+`POST` `/pins/{pin_id}/save`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (pins/save)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.pins.manage` |
+| Required scopes | `boards:read`<br />`boards:write`<br />`pins:read`<br />`pins:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `PinsSaveResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinId` | `path` | `string` | Yes | No | Unique identifier of a Pin. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `board_id` | `body` | `string` | No | No | Unique identifier of the board to which the pin will be saved. |
+| `board_section_id` | `body` | `string` | No | No | Unique identifier of the board section to which the pin will be saved. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.pins.pinsUpdate
+
+`PATCH` `/pins/{pin_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (pins/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.pins.manage` |
+| Required scopes | `boards:read`<br />`boards:write`<br />`pins:read`<br />`pins:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `PinsUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pinId` | `path` | `string` | Yes | No | — |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `ai_disclosures` | `body` | `Inline11454` | No | No | AI disclosure declarations the creator has made about this Pin. |
+| `alt_text` | `body` | `string` | No | No | — |
+| `board_id` | `body` | `string` | No | No | The board to which this Pin belongs. |
+| `board_section_id` | `body` | `string` | No | No | The board section to which this Pin belongs. |
+| `carousel_slots` | `body` | `Array<Inline11455>` | No | No | Carousel Pin slots data. |
+| `description` | `body` | `string` | No | No | — |
+| `link` | `body` | `string` | No | No | — |
+| `title` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

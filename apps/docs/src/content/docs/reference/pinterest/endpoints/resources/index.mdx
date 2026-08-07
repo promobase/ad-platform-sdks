@@ -1,0 +1,209 @@
+---
+title: "Pinterest Resources endpoints"
+description: "6 generated Pinterest endpoint contracts for Resources."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 143
+  label: "Resources"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.resources.adAccountCountriesGet
+
+`GET` `/resources/ad_account_countries`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ad_account_countries/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.resources.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AdAccountCountriesGetResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.resources.deliveryMetricsGet
+
+`GET` `/resources/delivery_metrics`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (delivery_metrics/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.resources.read` |
+| Required scopes | `ads:read`<br />`pins:read`<br />`user_accounts:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `DeliveryMetricsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reportType` | `query` | `string` | No | No | Report type. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.resources.interestTargetingOptionsGet
+
+`GET` `/resources/targeting/interests/{interest_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (interest_targeting_options/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.resources.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `InterestTargetingOptionsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `interestId` | `path` | `string` | Yes | No | Unique identifier of an interest. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.resources.leadFormQuestionsGet
+
+`GET` `/resources/lead_form_questions`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (lead_form_questions/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.resources.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `LeadFormQuestionsGetResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.resources.metricsReadyStateGet
+
+`GET` `/resources/metrics_ready_state`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (metrics_ready_state/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.resources.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `MetricsReadyStateGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date` | `query` | `string` | Yes | No | Analytics reports request date (UTC). Format: YYYY-MM-DD |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.resources.targetingOptionsGet
+
+`GET` `/resources/targeting/{targeting_type}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (targeting_options/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.resources.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `TargetingOptionsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targetingType` | `path` | `string` | Yes | No | Public targeting type |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `clientId` | `query` | `string` | No | No | Client ID |
+| `oauthSignature` | `query` | `string` | No | No | Oauth signature |
+| `timestamp` | `query` | `string` | No | No | Timestamp. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

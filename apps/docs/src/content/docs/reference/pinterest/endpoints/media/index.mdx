@@ -1,0 +1,116 @@
+---
+title: "Pinterest Media endpoints"
+description: "3 generated Pinterest endpoint contracts for Media."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 134
+  label: "Media"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.media.mediaCreate
+
+`POST` `/media`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (media/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.media.manage` |
+| Required scopes | `pins:read`<br />`pins:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `MediaCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `media_type` | `body` | `Inline11392` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.media.mediaGet
+
+`GET` `/media/{media_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (media/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.media.read` |
+| Required scopes | `pins:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `MediaGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mediaId` | `path` | `string` | Yes | No | Unique identifier for this media upload. Used to track status and for attaching during Pin creation. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.media.mediaList
+
+`GET` `/media`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (media/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.media.read` |
+| Required scopes | `pins:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `MediaListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

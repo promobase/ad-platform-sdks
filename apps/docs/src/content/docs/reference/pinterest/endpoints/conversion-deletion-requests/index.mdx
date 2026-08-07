@@ -1,0 +1,155 @@
+---
+title: "Pinterest Conversion Deletion Requests endpoints"
+description: "4 generated Pinterest endpoint contracts for Conversion Deletion Requests."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 120
+  label: "Conversion Deletion Requests"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.conversionDeletionRequests.conversionDeletionRequestCreate
+
+`POST` `/ad_accounts/{ad_account_id}/conversion_deletion_requests`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (conversion_deletion_request/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.conversionDeletionRequests.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `ConversionDeletionRequestCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `deletion_targets` | `body` | `Inline8704` | Yes | No | Object containing the targets of the conversion deletion request. Users can be identified with user_emails, epiks, or both within the same request. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.conversionDeletionRequests.conversionDeletionRequestDelete
+
+`DELETE` `/ad_accounts/{ad_account_id}/conversion_deletion_requests/{request_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (conversion_deletion_request/delete)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.conversionDeletionRequests.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `ConversionDeletionRequestDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `requestId` | `path` | `string` | Yes | No | Unique identifier of the conversion deletion request |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.conversionDeletionRequests.conversionDeletionRequestGet
+
+`GET` `/ad_accounts/{ad_account_id}/conversion_deletion_requests/{request_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (conversion_deletion_request/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.conversionDeletionRequests.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `ConversionDeletionRequestGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `requestId` | `path` | `string` | Yes | No | Unique identifier of the conversion deletion request |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.conversionDeletionRequests.conversionDeletionRequestList
+
+`GET` `/ad_accounts/{ad_account_id}/conversion_deletion_requests`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (conversion_deletion_request/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.conversionDeletionRequests.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `ConversionDeletionRequestListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `query` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

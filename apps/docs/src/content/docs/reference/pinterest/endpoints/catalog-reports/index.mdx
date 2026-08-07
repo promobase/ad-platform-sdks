@@ -1,0 +1,119 @@
+---
+title: "Pinterest Catalog Reports endpoints"
+description: "3 generated Pinterest endpoint contracts for Catalog Reports."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 117
+  label: "Catalog Reports"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.catalogReports.reportsCreate
+
+`POST` `/catalogs/reports`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (reports/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogReports.manage` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `ReportsCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogReports.reportsGet
+
+`GET` `/catalogs/reports`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (reports/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.catalogReports.read` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `ReportsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `token` | `query` | `string` | Yes | No | Token returned from the post request creation call |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogReports.reportsStats
+
+`GET` `/catalogs/reports/stats`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (reports/stats)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.catalogReports.read` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `ReportsStatsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `parameters` | `query` | `Inline11348 \| Inline11350` | Yes | No | Contains the parameters for report identification. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

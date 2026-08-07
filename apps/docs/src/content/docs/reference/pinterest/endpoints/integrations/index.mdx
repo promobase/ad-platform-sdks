@@ -1,0 +1,276 @@
+---
+title: "Pinterest Integrations endpoints"
+description: "7 generated Pinterest endpoint contracts for Integrations."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 128
+  label: "Integrations"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.integrations.integrationsCommerceDel
+
+`DELETE` `/integrations/commerce/{external_business_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (integrations_commerce/del)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.integrations.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `IntegrationsCommerceDelResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `externalBusinessId` | `path` | `string` | Yes | No | External business ID for the integration. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.integrations.integrationsCommerceGet
+
+`GET` `/integrations/commerce/{external_business_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (integrations_commerce/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.integrations.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `IntegrationsCommerceGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `externalBusinessId` | `path` | `string` | Yes | No | External business ID for the integration. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.integrations.integrationsCommercePatch
+
+`PATCH` `/integrations/commerce/{external_business_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (integrations_commerce/patch)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.integrations.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `IntegrationsCommercePatchResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `externalBusinessId` | `path` | `string` | Yes | No | External business ID for the integration. |
+| `additional_id_1` | `body` | `string` | No | No | — |
+| `connected_advertiser_id` | `body` | `string` | No | No | — |
+| `connected_lba_id` | `body` | `string` | No | No | — |
+| `connected_merchant_id` | `body` | `string` | No | No | — |
+| `connected_tag_id` | `body` | `string` | No | No | — |
+| `partner_access_token` | `body` | `string` | No | No | — |
+| `partner_access_token_expiry` | `body` | `number` | No | No | — |
+| `partner_metadata` | `body` | `string` | No | No | — |
+| `partner_primary_email` | `body` | `string` | No | No | — |
+| `partner_refresh_token` | `body` | `string` | No | No | — |
+| `partner_refresh_token_expiry` | `body` | `number` | No | No | — |
+| `scopes` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.integrations.integrationsCommercePost
+
+`POST` `/integrations/commerce`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (integrations_commerce/post)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.integrations.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `IntegrationsCommercePostResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `additional_id_1` | `body` | `string` | No | No | — |
+| `connected_advertiser_id` | `body` | `string` | No | No | — |
+| `connected_lba_id` | `body` | `string` | No | No | — |
+| `connected_merchant_id` | `body` | `string` | No | No | — |
+| `connected_tag_id` | `body` | `string` | No | No | — |
+| `external_business_id` | `body` | `string` | No | No | External business ID for the integration. |
+| `partner_access_token` | `body` | `string` | No | No | — |
+| `partner_access_token_expiry` | `body` | `number` | No | No | — |
+| `partner_metadata` | `body` | `string` | No | No | — |
+| `partner_primary_email` | `body` | `string` | No | No | — |
+| `partner_refresh_token` | `body` | `string` | No | No | — |
+| `partner_refresh_token_expiry` | `body` | `number` | No | No | — |
+| `scopes` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.integrations.integrationsGetById
+
+`GET` `/integrations/{id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (integrations/get_by_id)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.integrations.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `IntegrationsGetByIdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `unknown` | Yes | No | Integration record ID. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.integrations.integrationsGetList
+
+`GET` `/integrations`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (integrations/get_list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.integrations.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `IntegrationsGetListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.integrations.integrationsLogsPost
+
+`POST` `/integrations/logs`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (integrations_logs/post)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.integrations.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `IntegrationsLogsPostResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `logs` | `body` | `Array<Inline11378>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

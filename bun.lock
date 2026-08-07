@@ -47,6 +47,7 @@
         "@openpromo/google-business-profile": "workspace:*",
         "@openpromo/linkedin": "workspace:*",
         "@openpromo/meta": "workspace:*",
+        "@openpromo/pinterest": "workspace:*",
         "@openpromo/reddit": "workspace:*",
         "@openpromo/sdk-runtime": "workspace:*",
         "@openpromo/snapchat": "workspace:*",
@@ -157,6 +158,20 @@
       "optionalPeers": [
         "ai",
       ],
+    },
+    "packages/pinterest-sdk": {
+      "name": "@openpromo/pinterest",
+      "version": "0.1.0",
+      "dependencies": {
+        "@openpromo/sdk-runtime": "workspace:*",
+        "yaml": "^2.8.0",
+      },
+      "devDependencies": {
+        "@openpromo/sdk-codegen": "workspace:*",
+      },
+      "peerDependencies": {
+        "typescript": ">=5.9.3 <8",
+      },
     },
     "packages/reddit-sdk": {
       "name": "@openpromo/reddit",
@@ -605,6 +620,8 @@
     "@openpromo/linkedin": ["@openpromo/linkedin@workspace:packages/linkedin-sdk"],
 
     "@openpromo/meta": ["@openpromo/meta@workspace:packages/meta-business-sdk"],
+
+    "@openpromo/pinterest": ["@openpromo/pinterest@workspace:packages/pinterest-sdk"],
 
     "@openpromo/reddit": ["@openpromo/reddit@workspace:packages/reddit-sdk"],
 

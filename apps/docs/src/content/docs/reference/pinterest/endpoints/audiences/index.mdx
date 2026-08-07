@@ -1,0 +1,167 @@
+---
+title: "Pinterest Audiences endpoints"
+description: "4 generated Pinterest endpoint contracts for Audiences."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 106
+  label: "Audiences"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.audiences.audiencesCreate
+
+`POST` `/ad_accounts/{ad_account_id}/audiences`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (audiences/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.audiences.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AudiencesCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `ad_account_id` | `body` | `string` | No | No | Ad account ID. |
+| `audience_type` | `body` | `Inline7573` | No | No | Audience types: ACTALIKE, ENGAGEMENT, CUSTOMER_LIST and VISITOR |
+| `description` | `body` | `string` | No | No | Audience description. |
+| `name` | `body` | `string` | No | No | Audience name. |
+| `rule` | `body` | `Inline7574` | No | No | JSON object defining targeted audience users. Example rule formats per audience type: CUSTOMER_LIST: &#123; "customer_list_id": "&lt;customer list ID&gt;"&#125; ACTALIKE: &#123; "seed_id": ["&lt;audience ID&gt;"], "country": "US", "percentage": "10" &#125; (Valid countries include: "US", "CA", and "GB". Percentage should be 1-10. The targeted audience should be this % size across Pinterest.) VISITOR: &#123; "visitor_source_id": ["&lt;conversion tag ID&gt;"], "retention_days": "180", "event_source": &#123;"=": ["web", "mobile"]&#125;, "ingestion_source": &#123;"=": ["tag"]&#125;&#125; (Retention days should be 1-540. Retention applies to specific customers.) ENGAGEMENT: &#123;"engagement_domain": ["www.example.com"], "engager_type": 1&#125; Learn more about engagement audiences. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.audiences.audiencesGet
+
+`GET` `/ad_accounts/{ad_account_id}/audiences/{audience_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (audiences/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.audiences.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AudiencesGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceId` | `path` | `string` | Yes | No | Audience ID. |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.audiences.audiencesList
+
+`GET` `/ad_accounts/{ad_account_id}/audiences`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (audiences/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.audiences.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AudiencesListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `query` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+| `ownershipType` | `query` | `string` | No | No | — |
+| `excludeNca` | `query` | `boolean` | No | No | When true, excludes audiences derived from new customer acquisition (expanded matching) customer lists from the result. Defaults to false (include all). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.audiences.audiencesUpdate
+
+`PATCH` `/ad_accounts/{ad_account_id}/audiences/{audience_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (audiences/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.audiences.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AudiencesUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceId` | `path` | `string` | Yes | No | Audience ID. |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `ad_account_id` | `body` | `string` | No | No | Ad account ID. |
+| `audience_type` | `body` | `Inline7600` | No | No | Audience types: ACTALIKE, ENGAGEMENT, CUSTOMER_LIST and VISITOR |
+| `description` | `body` | `string` | No | No | Audience description. |
+| `name` | `body` | `string` | No | No | Audience name. |
+| `operation_type` | `body` | `Inline7601` | No | No | Audience operation type (update or remove). Only valid in update request body. |
+| `rule` | `body` | `Inline7602` | No | No | JSON object defining targeted audience users. Example rule formats per audience type: CUSTOMER_LIST: &#123; "customer_list_id": "&lt;customer list ID&gt;"&#125; ACTALIKE: &#123; "seed_id": ["&lt;audience ID&gt;"], "country": "US", "percentage": "10" &#125; (Valid countries include: "US", "CA", and "GB". Percentage should be 1-10. The targeted audience should be this % size across Pinterest.) VISITOR: &#123; "visitor_source_id": ["&lt;conversion tag ID&gt;"], "retention_days": "180", "event_source": &#123;"=": ["web", "mobile"]&#125;, "ingestion_source": &#123;"=": ["tag"]&#125;&#125; (Retention days should be 1-540. Retention applies to specific customers.) ENGAGEMENT: &#123;"engagement_domain": ["www.example.com"], "engager_type": 1&#125; Learn more about engagement audiences. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

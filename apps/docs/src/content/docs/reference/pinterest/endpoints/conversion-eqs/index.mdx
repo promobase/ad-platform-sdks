@@ -1,0 +1,50 @@
+---
+title: "Pinterest Conversion Eqs endpoints"
+description: "1 generated Pinterest endpoint contract for Conversion Eqs."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 121
+  label: "Conversion Eqs"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.conversionEqs.conversionEqsList
+
+`GET` `/ad_accounts/{ad_account_id}/conversion_eqs`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (conversion_eqs/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.conversionEqs.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `ConversionEqsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `lookbackPeriod` | `query` | `string` | Yes | No | Lookback window (number of days). |
+| `sourcePlatform` | `query` | `string` | No | No | Source platform of event. |
+| `ingestionSource` | `query` | `string` | No | No | Ingestion source of event. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

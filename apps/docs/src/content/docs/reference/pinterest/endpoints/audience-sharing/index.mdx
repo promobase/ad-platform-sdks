@@ -1,0 +1,274 @@
+---
+title: "Pinterest Audience Sharing endpoints"
+description: "7 generated Pinterest endpoint contracts for Audience Sharing."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 105
+  label: "Audience Sharing"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.audienceSharing.adAccountsAudiencesSharedAccountsList
+
+`GET` `/ad_accounts/{ad_account_id}/audiences/shared/accounts`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ad_accounts_audiences_shared_accounts/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.audienceSharing.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AdAccountsAudiencesSharedAccountsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `audienceId` | `query` | `string` | Yes | No | Unique identifier of the audience to use to filter the results. |
+| `accountType` | `query` | `string` | Yes | No | Filter accounts by account type. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.audienceSharing.businessAccountAudiencesSharedAccountsList
+
+`GET` `/businesses/{business_id}/audiences/shared/accounts`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (business_account_audiences_shared_accounts/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.audienceSharing.read` |
+| Required scopes | `biz_access:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BusinessAccountAudiencesSharedAccountsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `audienceId` | `query` | `string` | Yes | No | Unique identifier of the audience to use to filter the results. |
+| `accountType` | `query` | `string` | Yes | No | Filter accounts by account type. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.audienceSharing.sharedAudiencesForBusinessList
+
+`GET` `/businesses/{business_id}/audiences`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (shared_audiences_for_business/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.audienceSharing.read` |
+| Required scopes | `biz_access:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `SharedAudiencesForBusinessListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `order` | `query` | `string` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.audienceSharing.updateAdAccountToAdAccountSharedAudience
+
+`PATCH` `/ad_accounts/{ad_account_id}/audiences/ad_accounts/shared`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (update_ad_account_to_ad_account_shared_audience)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.audienceSharing.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `UpdateAdAccountToAdAccountSharedAudienceResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `audience_id` | `body` | `Inline7618` | Yes | No | Unique identifier of an audience |
+| `operation_type` | `body` | `string` | Yes | No | Operation type to share a specific audience or revoke access to a previously shared audience |
+| `recipient_account_ids` | `body` | `Array<unknown>` | Yes | No | Ad account IDs to share with or revoke from (request) / that received the audience (response). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.audienceSharing.updateAdAccountToBusinessSharedAudience
+
+`PATCH` `/ad_accounts/{ad_account_id}/audiences/businesses/shared`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (update_ad_account_to_business_shared_audience)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.audienceSharing.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `UpdateAdAccountToBusinessSharedAudienceResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `audience_id` | `body` | `Inline7623` | Yes | No | Unique identifier of an audience |
+| `operation_type` | `body` | `string` | Yes | No | Operation type to share a specific audience or revoke access to a previously shared audience |
+| `recipient_business_ids` | `body` | `Array<unknown>` | Yes | No | Business IDs to share with or revoke from (request) / that received the audience (response). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.audienceSharing.updateBusinessToAdAccountSharedAudience
+
+`PATCH` `/businesses/{business_id}/audiences/ad_accounts/shared`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (update_business_to_ad_account_shared_audience)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.audienceSharing.manage` |
+| Required scopes | `biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `UpdateBusinessToAdAccountSharedAudienceResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `audience_id` | `body` | `Inline9307` | Yes | No | Unique identifier of an audience |
+| `operation_type` | `body` | `string` | Yes | No | Operation type to share a specific audience or revoke access to a previously shared audience |
+| `recipient_account_ids` | `body` | `Array<unknown>` | Yes | No | Ad account IDs to share with or revoke from (request) / that received the audience (response). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.audienceSharing.updateBusinessToBusinessSharedAudience
+
+`PATCH` `/businesses/{business_id}/audiences/businesses/shared`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (update_business_to_business_shared_audience)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.audienceSharing.manage` |
+| Required scopes | `biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `UpdateBusinessToBusinessSharedAudienceResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `audience_id` | `body` | `Inline9312` | Yes | No | Unique identifier of an audience |
+| `operation_type` | `body` | `string` | Yes | No | Operation type to share a specific audience or revoke access to a previously shared audience |
+| `recipient_business_ids` | `body` | `Array<unknown>` | Yes | No | Business IDs to share with or revoke from (request) / that received the audience (response). |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

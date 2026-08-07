@@ -1,0 +1,49 @@
+---
+title: "Pinterest Terms Of Service endpoints"
+description: "1 generated Pinterest endpoint contract for Terms Of Service."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 148
+  label: "Terms Of Service"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.termsOfService.termsOfServiceGet
+
+`GET` `/ad_accounts/{ad_account_id}/terms_of_service`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (terms_of_service/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.termsOfService.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `TermsOfServiceGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `includeHtml` | `query` | `boolean` | No | No | Return HTML in TOS text. |
+| `tosType` | `query` | `string` | No | No | Request type. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

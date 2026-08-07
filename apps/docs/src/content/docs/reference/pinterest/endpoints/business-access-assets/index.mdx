@@ -1,0 +1,470 @@
+---
+title: "Pinterest Business Access Assets endpoints"
+description: "12 generated Pinterest endpoint contracts for Business Access Assets."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 110
+  label: "Business Access Assets"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.businessAccessAssets.assetGroupCreate
+
+`POST` `/businesses/{business_id}/asset_groups`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (asset_group/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessAssets.manage` |
+| Required scopes | `biz_access:read`<br />`biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AssetGroupCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `asset_group` | `body` | `Inline9266` | No | No | — |
+| `asset_group_description` | `body` | `string` | Yes | No | Asset group description. |
+| `asset_group_name` | `body` | `string` | Yes | No | Asset Group name. |
+| `asset_group_types` | `body` | `Array<string>` | Yes | No | Asset group types. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessAssets.assetGroupDelete
+
+`DELETE` `/businesses/{business_id}/asset_groups`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (asset_group/delete)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessAssets.manage` |
+| Required scopes | `biz_access:read`<br />`biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AssetGroupDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `asset_groups_to_delete` | `body` | `Array<unknown>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessAssets.assetGroupUpdate
+
+`PATCH` `/businesses/{business_id}/asset_groups`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (asset_group/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessAssets.manage` |
+| Required scopes | `biz_access:read`<br />`biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AssetGroupUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `asset_groups_to_update` | `body` | `Array<Inline9277>` | No | No | A list of asset groups and the data that will be used to update them. |
+| `exceptions` | `body` | `Array<Inline9278>` | No | No | A list of errors associated with the asset groups. Will be returned if there is an error. |
+| `updated_asset_groups` | `body` | `Array<Inline9279>` | No | No | A list of successfully edited asset groups. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessAssets.businessAssetMembersGet
+
+`GET` `/businesses/{business_id}/assets/{asset_id}/members`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (business_asset_members/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.businessAccessAssets.read` |
+| Required scopes | `biz_access:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BusinessAssetMembersGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `assetId` | `path` | `string` | Yes | No | Unique identifier of a business asset. |
+| `startIndex` | `query` | `number` | No | No | An index to start fetching the results from. Only the results starting from this index will be returned. |
+| `fetchSystemUsers` | `query` | `boolean` | No | No | Fetches system users if True. Fetches regular user employees if False. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessAssets.businessAssetPartnersGet
+
+`GET` `/businesses/{business_id}/assets/{asset_id}/partners`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (business_asset_partners/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.businessAccessAssets.read` |
+| Required scopes | `biz_access:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BusinessAssetPartnersGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `assetId` | `path` | `string` | Yes | No | Unique identifier of a business asset. |
+| `startIndex` | `query` | `number` | No | No | An index to start fetching the results from. Only the results starting from this index will be returned. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessAssets.businessAssetsGet
+
+`GET` `/businesses/{business_id}/assets`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (business_assets/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.businessAccessAssets.read` |
+| Required scopes | `biz_access:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BusinessAssetsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `permissions` | `query` | `Array<string>` | No | No | A list of asset permissions used to filter the assets. Only assets where the requesting business has at least one of the specified permissions will be returned. |
+| `childAssetId` | `query` | `string` | No | No | A child asset unique identifier. Used to fetch asset groups that contain the asset id as a child. |
+| `assetGroupId` | `query` | `string` | No | No | An asset group unique identifier. Used to fetch assets contained within the specified asset group. |
+| `assetType` | `query` | `string` | No | No | A resource type to filter the assets by. Only assets of the specified type will be returned. |
+| `startIndex` | `query` | `number` | No | No | An index to start fetching the results from. Only the results starting from this index will be returned. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessAssets.businessMemberAssetsGet
+
+`GET` `/businesses/{business_id}/members/{member_id}/assets`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (business_member_assets/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.businessAccessAssets.read` |
+| Required scopes | `biz_access:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BusinessMemberAssetsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `memberId` | `path` | `string` | Yes | No | The member id to fetch assets for. |
+| `assetType` | `query` | `string` | No | No | A resource type to filter the assets by. Only assets of the specified type will be returned. |
+| `startIndex` | `query` | `number` | No | No | An index to start fetching the results from. Only the results starting from this index will be returned. |
+| `sortBy` | `query` | `string` | No | No | The field to sort member assets by |
+| `sortAscending` | `query` | `boolean` | No | No | Sort assets in ascending order |
+| `searchBy` | `query` | `string` | No | No | The field to search member assets by |
+| `searchValue` | `query` | `string` | No | No | The value to search for |
+| `assetPermissionType` | `query` | `string` | No | No | The type of asset permission to filter by |
+| `adAccountStatuses` | `query` | `Array<string>` | No | No | A list of ad account statuses to filter the assets by. Only used when asset_type is AD_ACCOUNT. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessAssets.businessMembersAssetAccessDelete
+
+`DELETE` `/businesses/{business_id}/members/assets/access`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (business_members_asset_access/delete)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessAssets.manage` |
+| Required scopes | `biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BusinessMembersAssetAccessDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `accesses` | `body` | `Array<Inline9367>` | Yes | No | List of members asset access to be deleted |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessAssets.businessMembersAssetAccessUpdate
+
+`PATCH` `/businesses/{business_id}/members/assets/access`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (business_members_asset_access/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessAssets.manage` |
+| Required scopes | `biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BusinessMembersAssetAccessUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `accesses` | `body` | `Array<Inline9362>` | Yes | No | List of member asset accesses to assign or update. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessAssets.businessPartnerAssetAccessGet
+
+`GET` `/businesses/{business_id}/partners/{partner_id}/assets`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (business_partner_asset_access/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.businessAccessAssets.read` |
+| Required scopes | `biz_access:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `BusinessPartnerAssetAccessGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `partnerId` | `path` | `string` | Yes | No | The partner id to be bound to the Business |
+| `partnerType` | `query` | `string` | No | No | Specifies whether to fetch internal or external (shared) partners. If partner_type=INTERNAL, the asset being queried is for accesses the partner has to your business assets. If partner_type=EXTERNAL, the asset being queried is for the accesses you have to the partner's business asset. |
+| `assetType` | `query` | `string` | No | No | A resource type to filter the assets by. Only assets of the specified type will be returned. |
+| `startIndex` | `query` | `number` | No | No | An index to start fetching the results from. Only the results starting from this index will be returned. |
+| `sortBy` | `query` | `string` | No | No | The field to sort member assets by |
+| `sortAscending` | `query` | `boolean` | No | No | Sort assets in ascending order |
+| `searchBy` | `query` | `string` | No | No | The field to search member assets by |
+| `searchValue` | `query` | `string` | No | No | The value to search for |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessAssets.deletePartnerAssetAccessHandlerImpl
+
+`DELETE` `/businesses/{business_id}/partners/assets`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (delete_partner_asset_access_handler_impl)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessAssets.manage` |
+| Required scopes | `biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `DeletePartnerAssetAccessHandlerImplResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `accesses` | `body` | `Array<Inline9393>` | Yes | No | List of partner asset accesses to delete. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.businessAccessAssets.updatePartnerAssetAccessHandlerImpl
+
+`PATCH` `/businesses/{business_id}/partners/assets`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (update_partner_asset_access_handler_impl)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.businessAccessAssets.manage` |
+| Required scopes | `biz_access:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `UpdatePartnerAssetAccessHandlerImplResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `path` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `accesses` | `body` | `Array<Inline9388>` | Yes | No | List of partner asset accesses to assign or update. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,370 @@
+---
+title: "Pinterest Catalog Product Groups endpoints"
+description: "10 generated Pinterest endpoint contracts for Catalog Product Groups."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 116
+  label: "Catalog Product Groups"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.catalogProductGroups.catalogsProductGroupPinsList
+
+`GET` `/catalogs/product_groups/{product_group_id}/products`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs_product_group_pins/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.catalogProductGroups.read` |
+| Required scopes | `boards:read`<br />`catalogs:read`<br />`pins:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsProductGroupPinsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productGroupId` | `path` | `string` | Yes | No | Unique identifier of a product group |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `pinMetrics` | `query` | `boolean` | No | No | Specify whether to return 90d and lifetime Pin metrics. Total comments and total reactions are only available with lifetime Pin metrics. If Pin was created before `2023-03-20` lifetime metrics will only be available for Video and Idea Pin formats. Lifetime metrics are available for all Pin formats since then. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogProductGroups.catalogsProductGroupsCreate
+
+`POST` `/catalogs/product_groups`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs_product_groups/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogProductGroups.manage` |
+| Required scopes | `catalogs:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsProductGroupsCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogProductGroups.catalogsProductGroupsCreateMany
+
+`POST` `/catalogs/product_groups/multiple`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs_product_groups/create_many)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogProductGroups.manage` |
+| Required scopes | `catalogs:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsProductGroupsCreateManyResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogProductGroups.catalogsProductGroupsDelete
+
+`DELETE` `/catalogs/product_groups/{product_group_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs_product_groups/delete)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogProductGroups.manage` |
+| Required scopes | `catalogs:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsProductGroupsDeleteResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productGroupId` | `path` | `string` | Yes | No | Unique identifier of a product group |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogProductGroups.catalogsProductGroupsDeleteMany
+
+`DELETE` `/catalogs/product_groups/multiple`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs_product_groups/delete_many)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogProductGroups.manage` |
+| Required scopes | `catalogs:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsProductGroupsDeleteManyResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `query` | `Array<number>` | Yes | No | Comma-separated list of product group ids |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogProductGroups.catalogsProductGroupsGet
+
+`GET` `/catalogs/product_groups/{product_group_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs_product_groups/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.catalogProductGroups.read` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsProductGroupsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productGroupId` | `path` | `string` | Yes | No | Unique identifier of a product group |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogProductGroups.catalogsProductGroupsList
+
+`GET` `/catalogs/product_groups`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs_product_groups/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.catalogProductGroups.read` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsProductGroupsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `query` | `Array<number>` | No | No | Comma-separated list of product group ids |
+| `feedId` | `query` | `string` | No | No | Filter entities for a given feed_id. If not given, all feeds are considered. |
+| `catalogId` | `query` | `string` | No | No | Filter entities for a given catalog_id. If not given, all catalogs are considered. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogProductGroups.catalogsProductGroupsProductCountsGet
+
+`GET` `/catalogs/product_groups/{product_group_id}/product_counts`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs_product_groups/product_counts_get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.catalogProductGroups.read` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsProductGroupsProductCountsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productGroupId` | `path` | `string` | Yes | No | Unique identifier of a product group |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogProductGroups.catalogsProductGroupsUpdate
+
+`PATCH` `/catalogs/product_groups/{product_group_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs_product_groups/update)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogProductGroups.manage` |
+| Required scopes | `catalogs:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsProductGroupsUpdateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `productGroupId` | `path` | `string` | Yes | No | Unique identifier of a product group |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogProductGroups.productsByProductGroupFilterList
+
+`POST` `/catalogs/products/get_by_product_group_filters`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (products_by_product_group_filter/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogProductGroups.manage` |
+| Required scopes | `boards:read`<br />`catalogs:read`<br />`pins:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `ProductsByProductGroupFilterListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `pinMetrics` | `query` | `boolean` | No | No | Specify whether to return 90d and lifetime Pin metrics. Total comments and total reactions are only available with lifetime Pin metrics. If Pin was created before `2023-03-20` lifetime metrics will only be available for Video and Idea Pin formats. Lifetime metrics are available for all Pin formats since then. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,0 +1,912 @@
+---
+title: "Pinterest models: Create Membership Or Partnership Invites Params – Events Create Params"
+description: "100 generated Pinterest model contracts, from CreateMembershipOrPartnershipInvitesParams through EventsCreateParams."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1008
+  label: "Create Membership Or Partnership Invites Params – Events Create Params"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## CreateMembershipOrPartnershipInvitesParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `business_role` | `business_role` | `Inline9324` | Yes | No | — |
+| `invite_type` | `invite_type` | `string` | Yes | No | The type of invite. MEMBER_INVITE invites a member to access your business assets. PARTNER_INVITE invites a partner to access your business assets. PARTNER_REQUEST requests access to a partner's business assets. |
+| `members` | `members` | `Array<string>` | No | No | A list of usernames, emails, or a mix of them. Should be used if invite_type is MEMBER_INVITE |
+| `partners` | `partners` | `Array<string>` | No | No | A list of partner_id. Should be used if invite_type is PARTNER_INVITE or PARTNER_REQUEST |
+
+## CreateMembershipOrPartnershipInvitesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9326` | Yes | No | — |
+
+## CreationSource
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADS_API`, `ADS_MANAGER_REPORTING_PAGE`, `ADS_MANAGER_REPORT_BUILDER`
+
+## CreativeAssetsIdFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CREATIVE_ASSETS_ID` | `CREATIVE_ASSETS_ID` | `Inline6229` | Yes | No | — |
+
+## CreativeAssetsProcessingRecord
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creative_assets_id` | `creative_assets_id` | `string` | No | No | The catalog creative assets id in the merchant namespace |
+| `errors` | `errors` | `Array<Inline6231>` | No | No | Array with the validation errors for the item processing record. A non empty errors list causes the item processing to fail. |
+| `status` | `status` | `string` | No | No | The status of the item processing record |
+| `warnings` | `warnings` | `Array<Inline6232>` | No | No | Array with the validation warnings for the item processing record |
+
+## CreativeAssetsVisibilityType
+
+`enum` model on the `json` wire format.
+
+**Values:** `VISIBLE`, `HIDDEN`
+
+## CreativeType
+
+`enum` model on the `json` wire format.
+
+**Values:** `REGULAR`, `VIDEO`, `SHOPPING`, `CAROUSEL`, `MAX_VIDEO`, `SHOP_THE_PIN`, `COLLECTION`, `IDEA`, `SHOWCASE`, `QUIZ`, `COLLAGE`, `MAX_WIDTH_REGULAR_COLLECTION`, `MAX_WIDTH_VIDEO_COLLECTION`, `APP`
+
+## Currency
+
+`enum` model on the `json` wire format.
+
+**Values:** `UNK`, `USD`, `GBP`, `CAD`, `EUR`, `AUD`, `NZD`, `SEK`, `ILS`, `CHF`, `HKD`, `JPY`, `SGD`, `KRW`, `NOK`, `DKK`, `PLN`, `RON`, `HUF`, `CZK`, `BRL`, `MXN`, `ARS`, `CLP`, `COP`, `INR`, `TRY`
+
+## CurrencyFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CURRENCY` | `CURRENCY` | `Inline6237` | Yes | No | A currency filter. This filter cannot be negated |
+
+## CustomColumnId
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## CustomConversionEventMetrics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_event_metrics_type` | `custom_event_metrics_type` | `string` | Yes | No | Metrics for custom defined conversion event. |
+| `custom_event_name` | `custom_event_name` | `string` | Yes | No | Name of the advertiser-defined custom conversion event |
+
+## CustomerList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Associated ad account ID. |
+| `created_time` | `created_time` | `number` | No | No | Creation time. Unix timestamp in seconds. |
+| `exceptions` | `exceptions` | `Inline6241` | No | No | Customer list errors. |
+| `id` | `id` | `string` | Yes | No | Customer list ID. |
+| `is_nca` | `is_nca` | `boolean` | No | No | Whether the list was uploaded for new customer acquisition (expanded matching). Immutable after creation. |
+| `name` | `name` | `string` | Yes | No | Customer list name. |
+| `num_batches` | `num_batches` | `number` | No | No | Total number of list updates. List creation counts as one batch. Each Append or Remove API call counts as another. List creation via the **Ads Manager** UI could result in more than one batch since the UI breaks up large lists. |
+| `num_removed_user_records` | `num_removed_user_records` | `number` | No | No | Number of removed user records. In a Remove API call, this counter increases even if the user is not found in the list. |
+| `num_uploaded_user_records` | `num_uploaded_user_records` | `number` | No | No | Number of uploaded user records. In an Append API call, this counter increases even if the uploaded user is already in the list. |
+| `status` | `status` | `Inline6242` | No | No | Customer list status. `TOO_SMALL` means the list has fewer than 100 Pinterest users. |
+| `type` | `type` | `string` | No | No | Always `customerlist`. |
+| `updated_time` | `updated_time` | `number` | No | No | Last update time. Unix timestamp in seconds. |
+
+## CustomerListCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_nca` | `is_nca` | `boolean` | No | No | Whether the list was uploaded for new customer acquisition (expanded matching). Immutable after creation. |
+| `list_type` | `list_type` | `Inline6244` | No | No | Type of customer list (e.g., EMAIL, IDFA, MAID). |
+| `name` | `name` | `string` | Yes | No | Customer list name. |
+| `records` | `records` | `string` | No | No | Records list. Can be any combination of emails, MAIDs, or IDFAs. Emails must be lowercase and can be plain text or hashed using SHA1, SHA256, or MD5. MAIDs and IDFAs must be hashed with SHA1, SHA256, or MD5. |
+| `records_v2` | `records_v2` | `Array<Inline6245>` | No | No | Multi-field record format. Array of objects with optional email, maid, ip_address, user_agent, external_id, hashed_pinner_id, hashed_phone_number, and liveramp_envelope per row. Provide exactly one of records or records_v2. |
+
+## CustomerListRecordRow
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `email` | `string` | No | No | Email address (plain or hashed with SHA1, SHA256, or MD5). |
+| `external_id` | `external_id` | `string` | No | No | External ID identifier (not hashed). |
+| `hashed_phone_number` | `hashed_phone_number` | `string` | No | No | Hashed phone number (hashed with SHA1, SHA256, or MD5). |
+| `hashed_pinner_id` | `hashed_pinner_id` | `string` | No | No | Hashed pinner ID (hashed with SHA1, SHA256, or MD5). |
+| `ip_address` | `ip_address` | `string` | No | No | IP address (not hashed). |
+| `liveramp_envelope` | `liveramp_envelope` | `string` | No | No | LiveRamp envelope identifier (Base64-encoded, not hashed). |
+| `maid` | `maid` | `string` | No | No | Mobile advertising ID (plain or hashed with SHA1, SHA256, or MD5). |
+| `user_agent` | `user_agent` | `string` | No | No | User agent string (not hashed). |
+
+## CustomerListsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `is_nca` | `is_nca` | `boolean` | No | No | Whether the list was uploaded for new customer acquisition (expanded matching). Immutable after creation. |
+| `list_type` | `list_type` | `Inline8749` | No | No | Type of customer list (e.g., EMAIL, IDFA, MAID). |
+| `name` | `name` | `string` | Yes | No | Customer list name. |
+| `records` | `records` | `string` | No | No | Records list. Can be any combination of emails, MAIDs, or IDFAs. Emails must be lowercase and can be plain text or hashed using SHA1, SHA256, or MD5. MAIDs and IDFAs must be hashed with SHA1, SHA256, or MD5. |
+| `records_v2` | `records_v2` | `Array<Inline8750>` | No | No | Multi-field record format. Array of objects with optional email, maid, ip_address, user_agent, external_id, hashed_pinner_id, hashed_phone_number, and liveramp_envelope per row. Provide exactly one of records or records_v2. |
+
+## CustomerListsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8752` | Yes | No | — |
+
+## CustomerListsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `customerListId` | `customerListId` | `string` | Yes | No | Customer list ID. |
+
+## CustomerListsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8758` | Yes | No | — |
+
+## CustomerListsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `order` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+| `excludeNca` | `excludeNca` | `boolean` | No | No | When true, excludes customer lists uploaded for new customer acquisition (expanded matching) from the result. Defaults to false (include all). |
+
+## CustomerListsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8746` | Yes | No | — |
+
+## CustomerListStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `PROCESSING`, `READY`, `TOO_SMALL`, `UPLOADING`
+
+## CustomerListsUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `customerListId` | `customerListId` | `string` | Yes | No | Customer list ID. |
+| `operation_type` | `operation_type` | `Inline8761` | Yes | No | Customer list update operation type (add or remove). Only valid in update request body. |
+| `records` | `records` | `string` | No | No | Records list. Can be any combination of emails, MAIDs, or IDFAs. Emails must be lowercase and can be plain text or hashed using SHA1, SHA256, or MD5. MAIDs and IDFAs must be hashed with SHA1, SHA256, or MD5. |
+| `records_v2` | `records_v2` | `Array<Inline8762>` | No | No | Multi-field record format. Array of objects with optional email, maid, ip_address, user_agent, external_id, hashed_pinner_id, hashed_phone_number, and liveramp_envelope per row. Provide exactly one of records or records_v2. |
+
+## CustomerListsUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8764` | Yes | No | — |
+
+## CustomerListUpdateWithRequiredBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operation_type` | `operation_type` | `Inline6249` | Yes | No | Customer list update operation type (add or remove). Only valid in update request body. |
+| `records` | `records` | `string` | No | No | Records list. Can be any combination of emails, MAIDs, or IDFAs. Emails must be lowercase and can be plain text or hashed using SHA1, SHA256, or MD5. MAIDs and IDFAs must be hashed with SHA1, SHA256, or MD5. |
+| `records_v2` | `records_v2` | `Array<Inline6250>` | No | No | Multi-field record format. Array of objects with optional email, maid, ip_address, user_agent, external_id, hashed_pinner_id, hashed_phone_number, and liveramp_envelope per row. Provide exactly one of records or records_v2. |
+
+## CustomerListUpload
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `Inline6252` | Yes | No | Advertiser ID. |
+| `creation_time` | `creation_time` | `number` | Yes | No | Customer List Upload creation_time. Epoch (seconds). |
+| `customer_list_id` | `customer_list_id` | `Inline6253` | Yes | No | ID of the customer list associated with this upload. |
+| `error_counts` | `error_counts` | `Array<Inline6254>` | No | No | Error counts by error code |
+| `id` | `id` | `Inline6255` | Yes | No | Customer List Upload ID. |
+| `operation` | `operation` | `string` | Yes | No | User list operation type (add or remove) |
+| `record_counts` | `record_counts` | `Inline6256` | No | No | Record processing counts |
+| `state` | `state` | `Inline6257` | Yes | No | — |
+| `updated_time` | `updated_time` | `number` | Yes | No | Customer List Upload updated_time. Epoch (seconds). |
+
+## CustomerListUploadCreateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operation` | `operation` | `string` | Yes | No | User list operation type (add or remove) |
+| `total_parts` | `total_parts` | `number` | Yes | No | Number of parts to upload the file in. |
+
+## CustomerListUploadCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `customer_list_upload` | `customer_list_upload` | `Inline6260` | Yes | No | The Customer List Upload created. |
+| `s3_multipart_upload_data` | `s3_multipart_upload_data` | `Inline6266` | Yes | No | Pre-signed upload URLs corresponding to each part of the upload. |
+
+## CustomerListUploadsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `customerListId` | `customerListId` | `string` | Yes | No | Customer list ID. |
+| `operation` | `operation` | `string` | Yes | No | User list operation type (add or remove) |
+| `total_parts` | `total_parts` | `number` | Yes | No | Number of parts to upload the file in. |
+
+## CustomerListUploadsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8770` | Yes | No | — |
+
+## CustomerListUploadsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `customerListId` | `customerListId` | `string` | Yes | No | Customer list ID. |
+| `customerListUploadId` | `customerListUploadId` | `unknown` | Yes | No | Customer List Upload ID. |
+
+## CustomerListUploadsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8779` | Yes | No | — |
+
+## CustomerListUploadsRunParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `customerListId` | `customerListId` | `string` | Yes | No | Customer list ID. |
+| `customerListUploadId` | `customerListUploadId` | `unknown` | Yes | No | Customer List Upload ID. |
+
+## CustomerListUploadsRunResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8787` | Yes | No | — |
+
+## CustomerSegment
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | The ID of the ad account that this customer segment belongs to. |
+| `audience_ids` | `audience_ids` | `Array<string>` | Yes | No | Audience IDs included in the customer segment. |
+| `created_time` | `created_time` | `number` | No | No | Customer segment created time. Unix timestamp in seconds. |
+| `id` | `id` | `string` | No | No | Customer segment ID. |
+| `name` | `name` | `string` | Yes | No | Customer segment name. |
+| `status` | `status` | `Inline6268` | No | No | Indicates whether the customer segment is active or deleted. |
+| `updated_time` | `updated_time` | `number` | No | No | Customer segment updated time. Unix timestamp in seconds. |
+
+## CustomerSegmentCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_ids` | `audience_ids` | `Array<string>` | Yes | No | Audience IDs included in the customer segment. |
+| `name` | `name` | `string` | Yes | No | Customer segment name. |
+
+## CustomerSegmentCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `audience_ids` | `audience_ids` | `Array<string>` | Yes | No | Audience IDs included in the customer segment. |
+| `name` | `name` | `string` | Yes | No | Customer segment name. |
+
+## CustomerSegmentCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8798` | Yes | No | — |
+
+## CustomerSegmentListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `order` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+| `includeSizing` | `includeSizing` | `boolean` | No | No | Include audience sizing in result or not |
+| `searchQuery` | `searchQuery` | `string` | No | No | Search query. Can contain pin description keywords or comma-separated pin IDs. |
+
+## CustomerSegmentListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8795` | Yes | No | — |
+
+## CustomerSegmentUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `audience_ids` | `audience_ids` | `Array<string>` | No | No | Audience IDs to update the customer segment to. Only applicable for UPDATE operations. |
+| `id` | `id` | `string` | Yes | No | Customer segment ID. |
+| `operation_type` | `operation_type` | `string` | Yes | No | Audience operation type (update or remove). |
+
+## CustomerSegmentUpdateRequestUpdateWithRequiredBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_ids` | `audience_ids` | `Array<string>` | No | No | Audience IDs to update the customer segment to. Only applicable for UPDATE operations. |
+| `id` | `id` | `string` | Yes | No | Customer segment ID. |
+| `operation_type` | `operation_type` | `string` | Yes | No | Audience operation type (update or remove). |
+
+## CustomerSegmentUpdateResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## CustomizableCTAType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## CustomLabel0Filter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_0` | `CUSTOM_LABEL_0` | `Inline6273` | Yes | No | — |
+
+## CustomLabel1Filter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_1` | `CUSTOM_LABEL_1` | `Inline6275` | Yes | No | — |
+
+## CustomLabel2Filter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_2` | `CUSTOM_LABEL_2` | `Inline6277` | Yes | No | — |
+
+## CustomLabel3Filter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_3` | `CUSTOM_LABEL_3` | `Inline6279` | Yes | No | — |
+
+## CustomLabel4Filter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_4` | `CUSTOM_LABEL_4` | `Inline6281` | Yes | No | — |
+
+## CustomNumber0Filter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_0` | `CUSTOM_NUMBER_0` | `Inline6283` | Yes | No | — |
+
+## CustomNumber1Filter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_1` | `CUSTOM_NUMBER_1` | `Inline6285` | Yes | No | — |
+
+## CustomNumber2Filter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_2` | `CUSTOM_NUMBER_2` | `Inline6287` | Yes | No | — |
+
+## CustomNumber3Filter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_3` | `CUSTOM_NUMBER_3` | `Inline6289` | Yes | No | — |
+
+## CustomNumber4Filter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_4` | `CUSTOM_NUMBER_4` | `Inline6291` | Yes | No | — |
+
+## DataOutputFormat
+
+`enum` model on the `json` wire format.
+
+**Values:** `JSON`, `CSV`
+
+## DataStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `PROCESSING`, `READY`, `ESTIMATE`, `BEFORE_BUSINESS_CREATED`, `BEFORE_DATA_RETENTION_PERIOD`, `BEFORE_PIN_DATA_RETENTION_PERIOD`, `BEFORE_METRIC_START_DATE`, `BEFORE_CORE_METRIC_START_DATE`, `BEFORE_PIN_FORMAT_METRIC_START_DATE`, `BEFORE_AUDIENCE_METRIC_START_DATE`, `BEFORE_AUDIENCE_MONTHLY_METRIC_START_DATE`, `BEFORE_VIDEO_METRIC_START_DATE`, `BEFORE_CONVERSION_METRIC_START_DATE`, `PURCHASERS_METRIC_SMALLER_THAN_THRESHOLD`, `IN_BAD_TAG_DATE`, `BEFORE_PUBLISHED_METRIC_START_DATE`, `BEFORE_ASSIST_METRIC_START_DATE`, `BEFORE_PIN_CREATED`, `BEFORE_ACCOUNT_CLAIMED`, `BEFORE_DEMOGRAPHIC_FILTERS_START_DATE`, `AUDIENCE_SEGMENT_SMALLER_THAN_THRESHOLD`, `AUDIENCE_TOTAL_SMALLER_THAN_THRESHOLD`, `BEFORE_PRODUCT_GROUP_FILTER_START_DATE`
+
+## DeleteBusinessMembershipBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `members` | `members` | `Array<Inline6295>` | Yes | No | — |
+
+## DeleteBusinessMembershipMember
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_role` | `business_role` | `string` | Yes | No | The access level a member has to the business. Values are case-sensitive. - EMPLOYEE: Can only view and access assets you assign to them. They cannot see details about other employees, partners, or other assets. - BIZ_ADMIN: Have full control of roles and can add employees and partners as well as grant asset access. |
+| `member_id` | `member_id` | `string` | Yes | No | Unique identifier of the member |
+
+## DeleteBusinessMembershipParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Business id |
+| `members` | `members` | `Array<Inline9350>` | Yes | No | — |
+
+## DeleteBusinessMembershipResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9352` | Yes | No | — |
+
+## DeleteBusinessPartners
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deleted_partners` | `deleted_partners` | `Array<unknown>` | No | No | — |
+
+## DeleteBusinessPartnersDelete
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `partner_ids` | `partner_ids` | `Array<string>` | Yes | No | A list of partner ids to be deleted |
+| `partner_type` | `partner_type` | `Inline6299` | No | No | — |
+
+## DeleteBusinessPartnersParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `partner_ids` | `partner_ids` | `Array<string>` | Yes | No | A list of partner ids to be deleted |
+| `partner_type` | `partner_type` | `Inline9375` | No | No | — |
+
+## DeleteBusinessPartnersResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9377` | Yes | No | — |
+
+## DeleteMemberAccessResult
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id` | `asset_id` | `string` | No | No | Unique identifier of the business asset. |
+| `member_id` | `member_id` | `string` | No | No | Unique identifier of the business member. |
+
+## DeleteMemberAccessResultsResponseArray
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline6302>` | No | No | List of member asset permissions that were deleted. |
+
+## DeleteMemberAssetAccessItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id` | `asset_id` | `string` | Yes | No | Id of the asset on which to remove member permissions. |
+| `member_id` | `member_id` | `string` | Yes | No | Unique identifier of the member on which to perform the asset permission removal |
+
+## DeletePartnerAssetAccessBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accesses` | `accesses` | `Array<Inline6305>` | Yes | No | List of partner asset accesses to delete. |
+
+## DeletePartnerAssetAccessHandlerImplParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `accesses` | `accesses` | `Array<Inline9389>` | Yes | No | List of partner asset accesses to delete. |
+
+## DeletePartnerAssetAccessHandlerImplResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9391` | Yes | No | — |
+
+## DeletePartnerAssetAccessItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id` | `asset_id` | `string` | Yes | No | Unique identifier of the business asset. |
+| `partner_id` | `partner_id` | `string` | Yes | No | Unique identifier of a business partner to update asset access to. |
+| `partner_type` | `partner_type` | `string` | No | No | If partner_type=INTERNAL, the deleted asset access is for the access the partner has to your business asset. If partner_type=EXTERNAL, the deleted asset access is for the access you have to the partner's business asset. |
+
+## DeletePartnerAssetAccessResult
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_id` | `asset_id` | `string` | No | No | Unique identifier of a business asset. |
+| `asset_type` | `asset_type` | `string` | No | No | Type of asset. Currently we only support AD_ACCOUNT, PROFILE, ASSET_GROUP and CATALOG. |
+| `is_shared_partner` | `is_shared_partner` | `boolean` | No | No | If is_shared_partner=FALSE, you terminated a partner's asset access to your business asset. If is_shared_partner=TRUE, you terminated your asset access to your partner's business asset. |
+| `partner_id` | `partner_id` | `string` | No | No | Unique identifier of a business partner. |
+| `permissions` | `permissions` | `Array<string>` | No | No | Permission levels member or partner has on an asset. |
+
+## DeletePartnerAssetAccessResultsResponseArray
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline6309>` | No | No | List of terminated partner asset accesses. |
+
+## DeliveryEstimateObjectiveType
+
+`enum` model on the `json` wire format.
+
+**Values:** `AWARENESS`, `CONSIDERATION`, `CATALOG_SALES`, `WEB_CONVERSION`
+
+## DeliveryEstimatesProductGroupId
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## DeliveryMetricsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reportType` | `reportType` | `string` | No | No | Report type. |
+
+## DeliveryMetricsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11492` | Yes | No | — |
+
+## DeliveryMetricsResponseItemsItems
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category` | `category` | `string` | No | No | Category name |
+| `definition` | `definition` | `string` | No | No | How the metric is defined. |
+| `display_name` | `display_name` | `string` | No | No | Display name, when available. If unavaible it will not be returned. Matches how the metric is named in our native tools like Pinterest Ads Manager. |
+| `name` | `name` | `string` | No | No | Metric's name. |
+
+## DeprecatedCatalogFeedsCreateRequestDefaultLocale
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## DetailedError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `number` | Yes | No | — |
+| `details` | `details` | `Inline6315` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | — |
+
+## DisclosureType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## DiscountStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `OTHER`, `ACTIVE`, `PAUSED`, `SCHEDULED`, `EXPIRED`
+
+## DynamicTitlesDownloadCSV
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `download_url` | `download_url` | `string` | No | No | Pre-signed S3 URL to download the CSV file. |
+
+## DynamicTitlesGetStatus
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `generated_count` | `generated_count` | `number` | No | No | The count of generated titles. |
+| `is_ready` | `is_ready` | `boolean` | No | No | Whether dynamic titles have been generated and are ready to be reviewed for the ad group. |
+| `reviewed_count` | `reviewed_count` | `number` | No | No | The count of advertiser reviewed titles. |
+
+## DynamicTitlesProcessCSV
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline6321>` | No | No | List of validation errors. Empty on success. |
+| `status` | `status` | `string` | No | No | Processing status. Present on success. |
+
+## DynamicTitlesProcessCSVCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request_id` | `request_id` | `string` | Yes | No | The request_id returned from the GET uploads endpoint. |
+
+## DynamicTitlesProcessCSVError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error_type` | `error_type` | `string` | No | No | The type of validation error: INVALID_FILE or ROW_VALIDATION_FAILED. |
+| `row_number` | `row_number` | `number` | No | No | The row number with a validation error. -1 indicates a file-level error. |
+
+## DynamicTitlesUploadURL
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `existing_filename` | `existing_filename` | `string` | No | No | If present, a reviewed CSV was previously submitted for this ad group. Uploading a new file will replace it. Absent when no prior submission exists. |
+| `request_id` | `request_id` | `string` | Yes | No | Unique identifier for this upload session. Must be passed to the process endpoint. |
+| `upload_url` | `upload_url` | `string` | Yes | No | Pre-signed S3 PUT URL to upload the reviewed CSV file. |
+
+## EnhancedMatchStatusType
+
+`enum` model on the `json` wire format.
+
+**Values:** `UNKNOWN`, `NOT_VALIDATED`, `VALIDATING_IN_PROGRESS`, `VALIDATION_COMPLETE`
+
+## EntityDataChangeHistory
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `changed_field_id` | `changed_field_id` | `string` | No | No | A string identifier representing the changed field on the entity |
+| `changed_field_name` | `changed_field_name` | `string` | No | No | The human readable name of the changed field on the entity |
+| `data_type` | `data_type` | `Inline6327` | No | No | Specifies the type of the field's data values |
+| `new_data_value` | `new_data_value` | `string` | No | No | A string representation of the value of the changed field, after the change |
+| `old_data_value` | `old_data_value` | `string` | No | No | A string representation of the value of the changed field, before the change |
+
+## EntityHistory
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `change_timestamp` | `change_timestamp` | `number` | No | No | A Unix timestamp representing the time of the change in seconds |
+| `data_changes` | `data_changes` | `Array<Inline6329>` | No | No | Properties associated with a particular change to an entity's data |
+| `entity_id` | `entity_id` | `string` | No | No | The id of the entity that was changed |
+| `entity_name` | `entity_name` | `string` | No | No | The name of the entity that was changed |
+| `ldap` | `ldap` | `string` | No | No | The LDAP of the user who initiated the change; only pertinent for changes initiated by internal users |
+| `operation` | `operation` | `Inline6330` | No | No | The type of operation that caused the change |
+| `user_id` | `user_id` | `string` | No | No | The id of the user who initiated the change |
+
+## EntityId
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## EntityLabel
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entity_id` | `entity_id` | `string` | Yes | No | Entity ID to apply label to. |
+| `entity_type` | `entity_type` | `Inline6333` | No | No | — |
+| `label_id` | `label_id` | `string` | Yes | No | Label ID. |
+| `status` | `status` | `Inline6334` | No | No | — |
+
+## EntityLabelError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline6336` | No | No | — |
+| `error_messages` | `error_messages` | `Array<string>` | No | No | — |
+
+## EntityLabelStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACTIVE`, `ARCHIVED`, `NULL`
+
+## EntityStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACTIVE`, `PAUSED`, `ARCHIVED`, `DRAFT`, `DELETED_DRAFT`
+
+## ErrorDetail
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `count` | `count` | `number` | Yes | No | Number of records with this error |
+| `error_code` | `error_code` | `number` | Yes | No | Numeric error code |
+| `message` | `message` | `string` | Yes | No | Error message description |
+
+## EventData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `currency` | `currency` | `Inline6342` | No | No | Currency. For example, 'USD'. |
+| `lead_type` | `lead_type` | `string` | No | No | Promotion code. For example, 'Newsletter'. |
+| `line_items` | `line_items` | `Inline6343` | No | No | — |
+| `order_id` | `order_id` | `string` | No | No | Order ID. For example, 'X-151481'. |
+| `order_quantity` | `order_quantity` | `number` | No | No | Order quantity. For example, 1. |
+| `page_name` | `page_name` | `string` | No | No | Page name. For example, 'Our Favorite Pins on Pinterest'. |
+| `promo_code` | `promo_code` | `string` | No | No | Promotion code. For example, 'WINTER10'. |
+| `property` | `property` | `string` | No | No | Property. For example, 'Athleta'. |
+| `search_query` | `search_query` | `string` | No | No | Search query string. For example, 'boots'. |
+| `value` | `value` | `string` | No | No | Product value. For example, '199.98'. |
+| `video_title` | `video_title` | `string` | No | No | Video title. For example, 'How to style your Parker Boots'. |
+
+## EventProcessingStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `failed`, `processed`
+
+## EventQualityScore
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ingestion_source` | `ingestion_source` | `string` | Yes | No | List of ingestion sources for a conversion event. |
+| `lookback_period` | `lookback_period` | `string` | Yes | No | Days in lookback window in the GET Conversion EQS response. |
+| `overall_status` | `overall_status` | `string` | Yes | No | Overall status of event quality score. |
+| `quality_components` | `quality_components` | `Inline6346` | Yes | No | Set of quality components, with each component containing a event coverage and details. |
+| `source_platform` | `source_platform` | `string` | Yes | No | List of source platforms for a conversion event. |
+
+## EventsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `test` | `test` | `boolean` | No | No | Include query param ?test=true to mark the request as a test request. The events will not be recorded but the API will still return the same response messages. Use this mode to verify your requests are working and your events are constructed correctly. Warning: If you use this query parameter, be certain that it is off (set to false or deleted) before sending a legitimate (non-testing) request. |
+| `data` | `data` | `Array<Inline8802>` | Yes | No | A list of events (one or more) encapsulated by a data object. |

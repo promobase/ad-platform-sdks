@@ -1,0 +1,124 @@
+---
+title: "Pinterest Search endpoints"
+description: "3 generated Pinterest endpoint contracts for Search."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 145
+  label: "Search"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.search.searchPartnerPins
+
+`GET` `/search/partner/pins`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (search_partner_pins)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.search.read` |
+| Required scopes | `boards:read`<br />`pins:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `SearchPartnerPinsResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `term` | `query` | `string` | Yes | No | Search term to look up pins. |
+| `countryCode` | `query` | `string` | Yes | No | Two letter country code (ISO 3166-1 alpha-2) |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `locale` | `query` | `string` | No | No | Search locale. |
+| `limit` | `query` | `number` | No | No | Max search result size |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.search.searchUserBoardsGet
+
+`GET` `/search/boards`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (search_user_boards/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.search.read` |
+| Required scopes | `boards:read`<br />`boards:read_secret` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `SearchUserBoardsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `query` | `query` | `string` | No | No | Search query. Can contain pin description keywords or comma-separated pin IDs. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.search.searchUserPinsList
+
+`GET` `/search/pins`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (search_user_pins/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.search.read` |
+| Required scopes | `boards:read`<br />`boards:read_secret`<br />`pins:read`<br />`pins:read_secret` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `SearchUserPinsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `query` | `query` | `string` | Yes | No | Search query. Can contain pin description keywords or comma-separated pin IDs. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

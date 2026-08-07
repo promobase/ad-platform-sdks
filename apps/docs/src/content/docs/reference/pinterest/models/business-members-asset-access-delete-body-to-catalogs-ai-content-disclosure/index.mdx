@@ -1,0 +1,1069 @@
+---
+title: "Pinterest models: Business Members Asset Access Delete Body – Catalogs Ai Content Disclosure"
+description: "100 generated Pinterest model contracts, from BusinessMembersAssetAccessDeleteBody through CatalogsAiContentDisclosure."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1004
+  label: "Business Members Asset Access Delete Body – Catalogs Ai Content Disclosure"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## BusinessMembersAssetAccessDeleteBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accesses` | `accesses` | `Array<Inline2005>` | Yes | No | List of members asset access to be deleted |
+
+## BusinessMembersAssetAccessDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `accesses` | `accesses` | `Array<Inline9363>` | Yes | No | List of members asset access to be deleted |
+
+## BusinessMembersAssetAccessDeleteResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9365` | Yes | No | — |
+
+## BusinessMembersAssetAccessUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `accesses` | `accesses` | `Array<Inline9358>` | Yes | No | List of member asset accesses to assign or update. |
+
+## BusinessMembersAssetAccessUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9360` | Yes | No | — |
+
+## BusinessMembershipMember
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business_role` | `business_role` | `string` | Yes | No | The access level a member has to the business. Values are case-sensitive. - EMPLOYEE: Can only view and access assets you assign to them. They cannot see details about other employees, partners, or other assets. - BIZ_ADMIN: Have full control of roles and can add employees and partners as well as grant asset access. |
+| `member_id` | `member_id` | `string` | Yes | No | Unique identifier of the member. |
+
+## BusinessMemberSortBy
+
+`enum` model on the `json` wire format.
+
+**Values:** `FULL_NAME`, `BUSINESS_ROLES`, `CREATED_TIME`
+
+## BusinessPartnerAssetAccessGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `partnerId` | `partnerId` | `string` | Yes | No | The partner id to be bound to the Business |
+| `partnerType` | `partnerType` | `string` | No | No | Specifies whether to fetch internal or external (shared) partners. If partner_type=INTERNAL, the asset being queried is for accesses the partner has to your business assets. If partner_type=EXTERNAL, the asset being queried is for the accesses you have to the partner's business asset. |
+| `assetType` | `assetType` | `string` | No | No | A resource type to filter the assets by. Only assets of the specified type will be returned. |
+| `startIndex` | `startIndex` | `number` | No | No | An index to start fetching the results from. Only the results starting from this index will be returned. |
+| `sortBy` | `sortBy` | `string` | No | No | The field to sort member assets by |
+| `sortAscending` | `sortAscending` | `boolean` | No | No | Sort assets in ascending order |
+| `searchBy` | `searchBy` | `string` | No | No | The field to search member assets by |
+| `searchValue` | `searchValue` | `string` | No | No | The value to search for |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## BusinessPartnerAssetAccessGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9381` | Yes | No | — |
+
+## BusinessPartnerIdType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## BusinessRoleForInvite
+
+`enum` model on the `json` wire format.
+
+**Values:** `EMPLOYEE`, `BIZ_ADMIN`, `PARTNER`
+
+## BusinessRoleForMembers
+
+`enum` model on the `json` wire format.
+
+**Values:** `EMPLOYEE`, `BIZ_ADMIN`
+
+## BusinessRoleResponse
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## BusinessSearchBy
+
+`enum` model on the `json` wire format.
+
+**Values:** `FULL_NAME`, `USERNAME`, `BUSINESS_ID`, `EMAIL`
+
+## BusinessToAdAccountSharedAudience
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_id` | `audience_id` | `Inline2014` | Yes | No | Unique identifier of an audience |
+| `permissions` | `permissions` | `Array<string>` | No | No | Permissions granted to the recipients. |
+| `recipient_account_ids` | `recipient_account_ids` | `Array<unknown>` | Yes | No | Ad account IDs to share with or revoke from (request) / that received the audience (response). |
+
+## BusinessToAdAccountSharedAudienceUpdateWithRequiredBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_id` | `audience_id` | `Inline2016` | Yes | No | Unique identifier of an audience |
+| `operation_type` | `operation_type` | `string` | Yes | No | Operation type to share a specific audience or revoke access to a previously shared audience |
+| `recipient_account_ids` | `recipient_account_ids` | `Array<unknown>` | Yes | No | Ad account IDs to share with or revoke from (request) / that received the audience (response). |
+
+## BusinessToBusinessSharedAudience
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_id` | `audience_id` | `Inline2018` | Yes | No | Unique identifier of an audience |
+| `permissions` | `permissions` | `Array<string>` | No | No | Permissions granted to the recipients. |
+| `recipient_business_ids` | `recipient_business_ids` | `Array<unknown>` | Yes | No | Business IDs to share with or revoke from (request) / that received the audience (response). |
+
+## BusinessToBusinessSharedAudienceUpdateWithRequiredBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_id` | `audience_id` | `Inline2020` | Yes | No | Unique identifier of an audience |
+| `operation_type` | `operation_type` | `string` | Yes | No | Operation type to share a specific audience or revoke access to a previously shared audience |
+| `recipient_business_ids` | `recipient_business_ids` | `Array<unknown>` | Yes | No | Business IDs to share with or revoke from (request) / that received the audience (response). |
+
+## Campaign
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Campaign's Advertiser ID. |
+| `bid_options` | `bid_options` | `Inline2022` | No | No | Restricted Object describing the campaign level bid multipliers. |
+| `created_time` | `created_time` | `number` | No | No | Campaign creation time. Unix timestamp in seconds. |
+| `daily_spend_cap` | `daily_spend_cap` | `number` | No | No | Note: The default for this field is null, which is treated the same as 0. For campaign budget optimization, a daily or lifetime spend cap must be set, but not both. For ad group level budgets, this field must be 0 or unset. |
+| `default_ad_group_budget_in_micro_currency` | `default_ad_group_budget_in_micro_currency` | `number` | No | No | When transitioning from campaign budget optimization to non-campaign budget optimization, the default_ad_group_budget_in_micro_currency will propagate to each child ad groups daily budget. Unit is micro currency of the associated advertiser account. |
+| `end_time` | `end_time` | `number` | No | No | Note: To clear this field on update, set the end time to -1. Timestamp in Unix format for scheduling when ads in the campaign stop appearing. Must occur after any end times for child ad groups. If `end_time` is not specified for the campaign, ads run indefinitely unless you update the campaign, changing their status to `paused`. Learn about scheduling campaigns. Different end times can be set for the campaign's child ad groups, but they cannot occur after an `end_time` specified for the campaign. - If your campaign has a child ad group with an end time specified, and if you update that campaign with an `end_time` that is earlier than that of the ad group, the campaign `end_time` will supersede the ad group `end_time`, and the request will not return an error. - In this scenario, if you call List campaigns or List ad groups, the returned campaigns or ad groups are listed with the start and end times that you assigned them, regardless of supersedence. |
+| `id` | `id` | `string` | Yes | No | Campaign ID, must be associated with the ad account ID provided in the path. |
+| `intended_promotion_type` | `intended_promotion_type` | `string` | No | No | Specifies the intended promotion type for the campaign. Note: This field is immutable unless the campaign is in draft status. **STANDARD_AD** - For ads derived from Pins. - Supported for all objective types except for current CATALOG\_SALES and WEB\_CONVERSION, which are being deprecated. - For simplified objective types. **CATALOG** - For creating product group promotions. - Supported for CONSIDERATION and SALES objective types. - For simplified objective types. **LEGACY** - Intended only for maintaining backward compatibility. - Must be used for CATALOG\_SALES and WEB\_CONVERSION. - Supported for CATALOG\_SALES and WEB\_CONVERSION objective types. **If you do not provide this parameter, the default is:** - LEGACY for CATALOG\_SALES and WEB\_CONVERSION - STANDARD_AD for other objective types |
+| `is_automated_campaign` | `is_automated_campaign` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. Specifies whether the campaign was created in the automated campaign flow. When using Automated Campaigns, a daily spend cap must be set, and Pinterest Performance+ may not be used. The following objective types are supported: - CONSIDERATION - WEB\_CONVERSION - SALES - LEADS - CATALOG\_SALES |
+| `is_campaign_budget_optimization` | `is_campaign_budget_optimization` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. Determines if a campaign automatically generates ad-group level budgets given a campaign budget to maximize campaign outcome. When using campaign budgets with a lifetime spend cap, the end time must be provided. |
+| `is_carting` | `is_carting` | `boolean` | No | No | Whether the campaign contains a carting(where-to-buy link) ad. |
+| `is_flexible_daily_budgets` | `is_flexible_daily_budgets` | `boolean` | No | No | Determine if a campaign has setup for flexible daily budgets, also known as "Pinterest Performance+ budgets". Flexible daily budgets are only supported for campaign budget optimization with a daily spend cap, and not a lifetime spend cap. |
+| `is_ltv_optimized` | `is_ltv_optimized` | `boolean` | No | No | Specifies whether the campaign is optimized for Lifetime Value (LTV). Only available for eligible advertisers. |
+| `is_performance_plus` | `is_performance_plus` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. You can only use this feature with the following objectives: - CONSIDERATION - WEB\_CONVERSION - SALES - LEADS - CATALOG\_SALES - APP\_INSTALL Enable Pinterest Performance+ for your campaign. To learn more, see [Pinterest Performance+ Setup](https://developers.pinterest.com/docs/api-features/pinterest-performance-plus-setup/) |
+| `is_top_of_search` | `is_top_of_search` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. Restricted Have your ads and content appear at the top of search result lists in Pinterest. You can only use this feature with the following objectives: - CONSIDERATION - WEB\_CONVERSION - SALES - LEADS - CATALOG\_SALES You cannot use this feature with Pinterest Performance+ or Premiere Spotlight enabled. |
+| `lifetime_spend_cap` | `lifetime_spend_cap` | `number` | No | No | Note: The default for this field is null, which is treated the same as 0. For campaign budget optimization, a daily or lifetime spend cap must be set, but not both. For ad group level budgets, this field must be 0 or unset. |
+| `name` | `name` | `string` | No | No | Campaign name - 255 chars max. |
+| `objective_type` | `objective_type` | `string` | Yes | No | Campaign objective type. If set as one of ["AWARENESS", "CONSIDERATION", "WEB_CONVERSION", "CATALOG_SALES", "VIDEO_COMPLETION", "CTV_CONSIDERATION"] the campaign is considered as a Campaign Budget Optimization (CBO) campaign, meaning budget needs to be set at the campaign level rather than at the ad group level. ["WEB_SESSIONS"] is DEPRECATED. `VIDEO_VIEW` is deprecated; use `VIDEO_COMPLETION` instead. `CTV_CONSIDERATION` is in BETA. For update, only draft campaigns may update objective type. |
+| `order_line_id` | `order_line_id` | `string` | No | No | Note: To clear this field on update, set the order line ID to 0. Order line ID that appears on the invoice. The order line must not be expired. |
+| `performance_plus_campaign_settings` | `performance_plus_campaign_settings` | `Inline2029` | No | No | Pinterest Performance+ campaign settings. |
+| `start_time` | `start_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the campaign start to appear. Must precede any start times set for child ad groups. Defaults to current time if no time is specified. Learn about scheduling campaigns. Different start times can be set for the campaign's child ad groups, but they cannot occur before a `start_time` specified for the campaign. - If your campaign has a child ad group with a start time specified, and if you update that campaign with a `start_time` that is later than that of the ad group, the campaign `start_time` will supersede the ad group `start_time`, and the request will not return an error. - In this scenario, if you call List campaigns or List ad groups, the returned campaigns or ad groups are listed with the start and end times that you assigned them, regardless of supersedence. |
+| `status` | `status` | `string` | No | No | Entity status |
+| `summary_status` | `summary_status` | `Inline2030` | No | No | — |
+| `tracking_urls` | `tracking_urls` | `Inline2031` | No | No | — |
+| `type` | `type` | `string` | No | No | Always "campaign". |
+| `updated_time` | `updated_time` | `number` | No | No | UTC timestamp. Last update time. |
+
+## CampaignAdPreview
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | Yes | No | Advertiser ID for this preview. |
+| `ad_group_id` | `ad_group_id` | `string` | Yes | No | Ad group ID to create a preview record for. |
+| `client_id` | `client_id` | `number` | No | No | Client ID that created preview. |
+| `expires_at` | `expires_at` | `number` | Yes | No | Unix timestamp in milliseconds for preview expiration. |
+| `is_active` | `is_active` | `boolean` | Yes | No | Whether preview link is active. |
+| `pin_id` | `pin_id` | `number` | No | No | Pin ID for pin promotion preview. |
+| `pin_promotion_id` | `pin_promotion_id` | `number` | No | No | Pin promotion ID for this preview. |
+| `promoted_product_group_id` | `promoted_product_group_id` | `number` | No | No | Promoted product group ID for catalog previews. |
+| `url` | `url` | `string` | Yes | No | Campaign ad preview URL. |
+| `user_id` | `user_id` | `number` | Yes | No | User ID that created preview. |
+| `uuid` | `uuid` | `string` | Yes | No | Pin promotion preview key. |
+
+## CampaignAdPreviewCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_id` | `ad_group_id` | `string` | Yes | No | Ad group ID to create a preview record for. |
+
+## CampaignAdPreviewCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `body` | `body` | `Array<Inline8596>` | Yes | No | — |
+
+## CampaignAdPreviewCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline8598>` | Yes | No | — |
+
+## CampaignAdPreviewDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `adGroupIds` | `adGroupIds` | `Array<string>` | Yes | No | List of Ad group Ids to use to filter the results. |
+
+## CampaignAdPreviewDeleteResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline8605>` | Yes | No | — |
+
+## CampaignAdPreviewReadParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `adGroupIds` | `adGroupIds` | `Array<string>` | Yes | No | List of Ad group Ids to use to filter the results. |
+
+## CampaignAdPreviewReadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline8602>` | Yes | No | — |
+
+## CampaignAudienceMultipliers
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AUDIENCE_ID` | `AUDIENCE_ID` | `string` | No | No | Audience ID for the multiplier. |
+
+## CampaignAudienceMultipliersAdditionalProperties
+
+`scalar` model on the `json` wire format.
+
+**Value:** `number`
+
+## CampaignBatchCreateRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline2037>`
+
+## CampaignBatchItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline2048` | No | No | Campaign data on success. |
+| `exceptions` | `exceptions` | `Array<Inline2059>` | No | No | Exceptions on failure. |
+
+## CampaignBatchResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Campaign's Advertiser ID. |
+| `bid_options` | `bid_options` | `Inline2061` | No | No | Restricted Object describing the campaign level bid multipliers. |
+| `created_time` | `created_time` | `number` | No | No | Campaign creation time. Unix timestamp in seconds. |
+| `daily_spend_cap` | `daily_spend_cap` | `number` | No | No | Note: The default for this field is null, which is treated the same as 0. For campaign budget optimization, a daily or lifetime spend cap must be set, but not both. For ad group level budgets, this field must be 0 or unset. |
+| `default_ad_group_budget_in_micro_currency` | `default_ad_group_budget_in_micro_currency` | `number` | No | No | When transitioning from campaign budget optimization to non-campaign budget optimization, the default_ad_group_budget_in_micro_currency will propagate to each child ad groups daily budget. Unit is micro currency of the associated advertiser account. |
+| `end_time` | `end_time` | `number` | No | No | Note: To clear this field on update, set the end time to -1. Timestamp in Unix format for scheduling when ads in the campaign stop appearing. Must occur after any end times for child ad groups. If `end_time` is not specified for the campaign, ads run indefinitely unless you update the campaign, changing their status to `paused`. Learn about scheduling campaigns. Different end times can be set for the campaign's child ad groups, but they cannot occur after an `end_time` specified for the campaign. - If your campaign has a child ad group with an end time specified, and if you update that campaign with an `end_time` that is earlier than that of the ad group, the campaign `end_time` will supersede the ad group `end_time`, and the request will not return an error. - In this scenario, if you call List campaigns or List ad groups, the returned campaigns or ad groups are listed with the start and end times that you assigned them, regardless of supersedence. |
+| `id` | `id` | `string` | No | No | Campaign ID. |
+| `intended_promotion_type` | `intended_promotion_type` | `string` | No | No | Specifies the intended promotion type for the campaign. Note: This field is immutable unless the campaign is in draft status. **STANDARD_AD** - For ads derived from Pins. - Supported for all objective types except for current CATALOG\_SALES and WEB\_CONVERSION, which are being deprecated. - For simplified objective types. **CATALOG** - For creating product group promotions. - Supported for CONSIDERATION and SALES objective types. - For simplified objective types. **LEGACY** - Intended only for maintaining backward compatibility. - Must be used for CATALOG\_SALES and WEB\_CONVERSION. - Supported for CATALOG\_SALES and WEB\_CONVERSION objective types. **If you do not provide this parameter, the default is:** - LEGACY for CATALOG\_SALES and WEB\_CONVERSION - STANDARD_AD for other objective types |
+| `is_automated_campaign` | `is_automated_campaign` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. Specifies whether the campaign was created in the automated campaign flow. When using Automated Campaigns, a daily spend cap must be set, and Pinterest Performance+ may not be used. The following objective types are supported: - CONSIDERATION - WEB\_CONVERSION - SALES - LEADS - CATALOG\_SALES |
+| `is_campaign_budget_optimization` | `is_campaign_budget_optimization` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. Determines if a campaign automatically generates ad-group level budgets given a campaign budget to maximize campaign outcome. When using campaign budgets with a lifetime spend cap, the end time must be provided. |
+| `is_carting` | `is_carting` | `boolean` | No | No | Whether the campaign contains a carting(where-to-buy link) ad. |
+| `is_flexible_daily_budgets` | `is_flexible_daily_budgets` | `boolean` | No | No | Determine if a campaign has setup for flexible daily budgets, also known as "Pinterest Performance+ budgets". Flexible daily budgets are only supported for campaign budget optimization with a daily spend cap, and not a lifetime spend cap. |
+| `is_ltv_optimized` | `is_ltv_optimized` | `boolean` | No | No | Specifies whether the campaign is optimized for Lifetime Value (LTV). Only available for eligible advertisers. |
+| `is_performance_plus` | `is_performance_plus` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. You can only use this feature with the following objectives: - CONSIDERATION - WEB\_CONVERSION - SALES - LEADS - CATALOG\_SALES - APP\_INSTALL Enable Pinterest Performance+ for your campaign. To learn more, see [Pinterest Performance+ Setup](https://developers.pinterest.com/docs/api-features/pinterest-performance-plus-setup/) |
+| `is_top_of_search` | `is_top_of_search` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. Restricted Have your ads and content appear at the top of search result lists in Pinterest. You can only use this feature with the following objectives: - CONSIDERATION - WEB\_CONVERSION - SALES - LEADS - CATALOG\_SALES You cannot use this feature with Pinterest Performance+ or Premiere Spotlight enabled. |
+| `lifetime_spend_cap` | `lifetime_spend_cap` | `number` | No | No | Note: The default for this field is null, which is treated the same as 0. For campaign budget optimization, a daily or lifetime spend cap must be set, but not both. For ad group level budgets, this field must be 0 or unset. |
+| `name` | `name` | `string` | No | No | Campaign name - 255 chars max. |
+| `objective_type` | `objective_type` | `string` | No | No | Campaign objective type. If set as one of ["AWARENESS", "CONSIDERATION", "WEB_CONVERSION", "CATALOG_SALES", "VIDEO_COMPLETION", "CTV_CONSIDERATION"] the campaign is considered as a Campaign Budget Optimization (CBO) campaign, meaning budget needs to be set at the campaign level rather than at the ad group level. ["WEB_SESSIONS"] is DEPRECATED. `VIDEO_VIEW` is deprecated; use `VIDEO_COMPLETION` instead. `CTV_CONSIDERATION` is in BETA. For update, only draft campaigns may update objective type. |
+| `order_line_id` | `order_line_id` | `string` | No | No | Note: To clear this field on update, set the order line ID to 0. Order line ID that appears on the invoice. The order line must not be expired. |
+| `performance_plus_campaign_settings` | `performance_plus_campaign_settings` | `Inline2068` | No | No | Pinterest Performance+ campaign settings. |
+| `start_time` | `start_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the campaign start to appear. Must precede any start times set for child ad groups. Defaults to current time if no time is specified. Learn about scheduling campaigns. Different start times can be set for the campaign's child ad groups, but they cannot occur before a `start_time` specified for the campaign. - If your campaign has a child ad group with a start time specified, and if you update that campaign with a `start_time` that is later than that of the ad group, the campaign `start_time` will supersede the ad group `start_time`, and the request will not return an error. - In this scenario, if you call List campaigns or List ad groups, the returned campaigns or ad groups are listed with the start and end times that you assigned them, regardless of supersedence. |
+| `status` | `status` | `Inline2069` | No | No | — |
+| `summary_status` | `summary_status` | `Inline2070` | No | No | — |
+| `tracking_urls` | `tracking_urls` | `Inline2071` | No | No | — |
+| `type` | `type` | `string` | No | No | Always "campaign". |
+| `updated_time` | `updated_time` | `number` | No | No | UTC timestamp. Last update time. |
+
+## CampaignBatchUpdateItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Setting this field does nothing. The ad account ID gets set from the path parameter. |
+| `app_id` | `app_id` | `string` | No | No | Closed beta The store ID of the mobile app for `APP_INSTALL` campaigns. |
+| `app_platform` | `app_platform` | `Inline2073` | No | No | Closed beta Platform of the mobile app for `APP_INSTALL` campaigns. |
+| `bid_options` | `bid_options` | `Inline2074` | No | No | Object describing an update to the campaign level bid multipliers. |
+| `daily_spend_cap` | `daily_spend_cap` | `number` | No | No | Note: The default for this field is null, which is treated the same as 0. For campaign budget optimization, a daily or lifetime spend cap must be set, but not both. For ad group level budgets, this field must be 0 or unset. |
+| `default_ad_group_budget_in_micro_currency` | `default_ad_group_budget_in_micro_currency` | `number` | No | No | Setting this field does nothing. |
+| `end_time` | `end_time` | `number` | No | No | Note: To clear this field on update, set the end time to -1. Timestamp in Unix format for scheduling when ads in the campaign stop appearing. Must occur after any end times for child ad groups. If `end_time` is not specified for the campaign, ads run indefinitely unless you update the campaign, changing their status to `paused`. Learn about scheduling campaigns. Different end times can be set for the campaign's child ad groups, but they cannot occur after an `end_time` specified for the campaign. - If your campaign has a child ad group with an end time specified, and if you update that campaign with an `end_time` that is earlier than that of the ad group, the campaign `end_time` will supersede the ad group `end_time`, and the request will not return an error. - In this scenario, if you call List campaigns or List ad groups, the returned campaigns or ad groups are listed with the start and end times that you assigned them, regardless of supersedence. |
+| `id` | `id` | `string` | Yes | No | Campaign ID, must be associated with the ad account ID provided in the path. |
+| `intended_promotion_type` | `intended_promotion_type` | `string` | No | No | Specifies the intended promotion type for the campaign. Note: This field is immutable unless the campaign is in draft status. **STANDARD_AD** - For ads derived from Pins. - Supported for all objective types except for current CATALOG\_SALES and WEB\_CONVERSION, which are being deprecated. - For simplified objective types. **CATALOG** - For creating product group promotions. - Supported for CONSIDERATION and SALES objective types. - For simplified objective types. **LEGACY** - Intended only for maintaining backward compatibility. - Must be used for CATALOG\_SALES and WEB\_CONVERSION. - Supported for CATALOG\_SALES and WEB\_CONVERSION objective types. **If you do not provide this parameter, the default is:** - LEGACY for CATALOG\_SALES and WEB\_CONVERSION - STANDARD_AD for other objective types |
+| `is_automated_campaign` | `is_automated_campaign` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. Specifies whether the campaign was created in the automated campaign flow. When using Automated Campaigns, a daily spend cap must be set, and Pinterest Performance+ may not be used. The following objective types are supported: - CONSIDERATION - WEB\_CONVERSION - SALES - LEADS - CATALOG\_SALES |
+| `is_campaign_budget_optimization` | `is_campaign_budget_optimization` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. Determines if a campaign automatically generates ad-group level budgets given a campaign budget to maximize campaign outcome. When using campaign budgets with a lifetime spend cap, the end time must be provided. |
+| `is_flexible_daily_budgets` | `is_flexible_daily_budgets` | `boolean` | No | No | Determine if a campaign has setup for flexible daily budgets, also known as "Pinterest Performance+ budgets". Flexible daily budgets are only supported for campaign budget optimization with a daily spend cap, and not a lifetime spend cap. |
+| `is_ltv_optimized` | `is_ltv_optimized` | `boolean` | No | No | Specifies whether the campaign is optimized for Lifetime Value (LTV). Only available for eligible advertisers. |
+| `is_performance_plus` | `is_performance_plus` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. You can only use this feature with the following objectives: - CONSIDERATION - WEB\_CONVERSION - SALES - LEADS - CATALOG\_SALES - APP\_INSTALL Enable Pinterest Performance+ for your campaign. To learn more, see [Pinterest Performance+ Setup](https://developers.pinterest.com/docs/api-features/pinterest-performance-plus-setup/) |
+| `is_top_of_search` | `is_top_of_search` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. Restricted Have your ads and content appear at the top of search result lists in Pinterest. You can only use this feature with the following objectives: - CONSIDERATION - WEB\_CONVERSION - SALES - LEADS - CATALOG\_SALES You cannot use this feature with Pinterest Performance+ or Premiere Spotlight enabled. |
+| `lifetime_spend_cap` | `lifetime_spend_cap` | `number` | No | No | Note: The default for this field is null, which is treated the same as 0. For campaign budget optimization, a daily or lifetime spend cap must be set, but not both. For ad group level budgets, this field must be 0 or unset. |
+| `name` | `name` | `string` | No | No | Campaign name - 255 chars max. |
+| `objective_type` | `objective_type` | `string` | No | No | Intended result of the campaign. You can only update objectives for draft campaigns. `WEB_SESSIONS` and `VIDEO_VIEW` objectives are deprecated. We recommend using `VIDEO_COMPLETION` as an alternative for the latter. |
+| `order_line_id` | `order_line_id` | `string` | No | No | Note: To clear this field on update, set the order line ID to 0. Order line ID that appears on the invoice. The order line must not be expired. |
+| `performance_plus_campaign_settings` | `performance_plus_campaign_settings` | `Inline2081` | No | No | Pinterest Performance+ campaign settings. |
+| `start_time` | `start_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the campaign start to appear. Must precede any start times set for child ad groups. Defaults to current time if no time is specified. Learn about scheduling campaigns. Different start times can be set for the campaign's child ad groups, but they cannot occur before a `start_time` specified for the campaign. - If your campaign has a child ad group with a start time specified, and if you update that campaign with a `start_time` that is later than that of the ad group, the campaign `start_time` will supersede the ad group `start_time`, and the request will not return an error. - In this scenario, if you call List campaigns or List ad groups, the returned campaigns or ad groups are listed with the start and end times that you assigned them, regardless of supersedence. |
+| `status` | `status` | `string` | No | No | Entity status |
+| `tracking_urls` | `tracking_urls` | `Inline2082` | No | No | — |
+
+## CampaignBatchUpdateRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline2084>`
+
+## CampaignBatchWriteResponseModel
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline2095>` | Yes | No | — |
+
+## CampaignBidOptions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age_bucket_multipliers` | `age_bucket_multipliers` | `Inline2108` | No | No | Age bucket multipliers for bid adjustments. |
+| `app_type_multipliers` | `app_type_multipliers` | `Inline2109` | No | No | App type multipliers for bid adjustments. |
+| `audience_multipliers` | `audience_multipliers` | `Inline2110` | No | No | Audience multipliers for bid adjustments. |
+| `freq_bid_multiplier_time_window` | `freq_bid_multiplier_time_window` | `Inline2111` | No | No | The time window for frequency bid multipliers. |
+| `frequency_multipliers` | `frequency_multipliers` | `Inline2112` | No | No | Frequency multipliers for bid adjustments. |
+| `gender_multipliers` | `gender_multipliers` | `Inline2113` | No | No | Gender multipliers for bid adjustments. |
+| `placement_multipliers` | `placement_multipliers` | `Inline2114` | No | No | Placement multipliers for bid adjustments. |
+
+## CampaignBidOptionsCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age_bucket_multipliers` | `age_bucket_multipliers` | `Inline2116` | No | No | Age bucket multipliers for bid adjustments. |
+| `app_type_multipliers` | `app_type_multipliers` | `Inline2117` | No | No | App type multipliers for bid adjustments. |
+| `audience_multipliers` | `audience_multipliers` | `Inline2118` | No | No | Audience multipliers for bid adjustments. |
+| `freq_bid_multiplier_time_window` | `freq_bid_multiplier_time_window` | `Inline2119` | No | No | The time window for frequency bid multipliers. |
+| `frequency_multipliers` | `frequency_multipliers` | `Inline2120` | No | No | Frequency multipliers for bid adjustments. |
+| `gender_multipliers` | `gender_multipliers` | `Inline2121` | No | No | Gender multipliers for bid adjustments. |
+| `placement_multipliers` | `placement_multipliers` | `Inline2122` | No | No | Placement multipliers for bid adjustments. |
+
+## CampaignBidOptionsUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age_bucket_multipliers` | `age_bucket_multipliers` | `Inline2124` | No | No | Age bucket multipliers for bid adjustments. |
+| `app_type_multipliers` | `app_type_multipliers` | `Inline2125` | No | No | App type multipliers for bid adjustments. |
+| `audience_multipliers` | `audience_multipliers` | `Inline2126` | No | No | Audience multipliers for bid adjustments. |
+| `freq_bid_multiplier_time_window` | `freq_bid_multiplier_time_window` | `Inline2127` | No | No | The time window for frequency bid multipliers. |
+| `frequency_multipliers` | `frequency_multipliers` | `Inline2128` | No | No | Frequency multipliers for bid adjustments. |
+| `gender_multipliers` | `gender_multipliers` | `Inline2129` | No | No | Gender multipliers for bid adjustments. |
+| `placement_multipliers` | `placement_multipliers` | `Inline2130` | No | No | Placement multipliers for bid adjustments. |
+| `update_mask` | `update_mask` | `Array<string>` | Yes | No | List of fields to update. Only the fields in the list will be updated. |
+
+## CampaignBidOptionsUpdateMaskItems
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUDIENCE`, `APP_TYPE`, `PLACEMENT`, `GENDER`, `AGE_BUCKET`, `FREQUENCY`
+
+## CampaignCreateItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Setting this field does nothing. The ad account ID gets set from the path parameter. |
+| `app_id` | `app_id` | `string` | No | No | Closed beta The store ID of the mobile app for `APP_INSTALL` campaigns. |
+| `app_platform` | `app_platform` | `Inline2133` | No | No | Closed beta Platform of the mobile app for `APP_INSTALL` campaigns. |
+| `bid_options` | `bid_options` | `Inline2134` | No | No | Restricted Object describing the campaign level bid multipliers. |
+| `daily_spend_cap` | `daily_spend_cap` | `number` | No | No | Note: The default for this field is null, which is treated the same as 0. For campaign budget optimization, a daily or lifetime spend cap must be set, but not both. For ad group level budgets, this field must be 0 or unset. |
+| `default_ad_group_budget_in_micro_currency` | `default_ad_group_budget_in_micro_currency` | `number` | No | No | Setting this field does nothing. |
+| `end_time` | `end_time` | `number` | No | No | Note: To clear this field on update, set the end time to -1. Timestamp in Unix format for scheduling when ads in the campaign stop appearing. Must occur after any end times for child ad groups. If `end_time` is not specified for the campaign, ads run indefinitely unless you update the campaign, changing their status to `paused`. Learn about scheduling campaigns. Different end times can be set for the campaign's child ad groups, but they cannot occur after an `end_time` specified for the campaign. - If your campaign has a child ad group with an end time specified, and if you update that campaign with an `end_time` that is earlier than that of the ad group, the campaign `end_time` will supersede the ad group `end_time`, and the request will not return an error. - In this scenario, if you call List campaigns or List ad groups, the returned campaigns or ad groups are listed with the start and end times that you assigned them, regardless of supersedence. |
+| `intended_promotion_type` | `intended_promotion_type` | `string` | No | No | Specifies the intended promotion type for the campaign. Note: This field is immutable unless the campaign is in draft status. **STANDARD_AD** - For ads derived from Pins. - Supported for all objective types except for current CATALOG\_SALES and WEB\_CONVERSION, which are being deprecated. - For simplified objective types. **CATALOG** - For creating product group promotions. - Supported for CONSIDERATION and SALES objective types. - For simplified objective types. **LEGACY** - Intended only for maintaining backward compatibility. - Must be used for CATALOG\_SALES and WEB\_CONVERSION. - Supported for CATALOG\_SALES and WEB\_CONVERSION objective types. **If you do not provide this parameter, the default is:** - LEGACY for CATALOG\_SALES and WEB\_CONVERSION - STANDARD_AD for other objective types |
+| `is_automated_campaign` | `is_automated_campaign` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. Specifies whether the campaign was created in the automated campaign flow. When using Automated Campaigns, a daily spend cap must be set, and Pinterest Performance+ may not be used. The following objective types are supported: - CONSIDERATION - WEB\_CONVERSION - SALES - LEADS - CATALOG\_SALES |
+| `is_campaign_budget_optimization` | `is_campaign_budget_optimization` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. Determines if a campaign automatically generates ad-group level budgets given a campaign budget to maximize campaign outcome. When using campaign budgets with a lifetime spend cap, the end time must be provided. |
+| `is_flexible_daily_budgets` | `is_flexible_daily_budgets` | `boolean` | No | No | Determine if a campaign has setup for flexible daily budgets, also known as "Pinterest Performance+ budgets". Flexible daily budgets are only supported for campaign budget optimization with a daily spend cap, and not a lifetime spend cap. |
+| `is_ltv_optimized` | `is_ltv_optimized` | `boolean` | No | No | Specifies whether the campaign is optimized for Lifetime Value (LTV). Only available for eligible advertisers. |
+| `is_performance_plus` | `is_performance_plus` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. You can only use this feature with the following objectives: - CONSIDERATION - WEB\_CONVERSION - SALES - LEADS - CATALOG\_SALES - APP\_INSTALL Enable Pinterest Performance+ for your campaign. To learn more, see [Pinterest Performance+ Setup](https://developers.pinterest.com/docs/api-features/pinterest-performance-plus-setup/) |
+| `is_top_of_search` | `is_top_of_search` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. Restricted Have your ads and content appear at the top of search result lists in Pinterest. You can only use this feature with the following objectives: - CONSIDERATION - WEB\_CONVERSION - SALES - LEADS - CATALOG\_SALES You cannot use this feature with Pinterest Performance+ or Premiere Spotlight enabled. |
+| `lifetime_spend_cap` | `lifetime_spend_cap` | `number` | No | No | Note: The default for this field is null, which is treated the same as 0. For campaign budget optimization, a daily or lifetime spend cap must be set, but not both. For ad group level budgets, this field must be 0 or unset. |
+| `name` | `name` | `string` | Yes | No | Campaign name - 255 chars max. |
+| `objective_type` | `objective_type` | `string` | Yes | No | Intended result of the campaign. You can only update objectives for draft campaigns. `WEB_SESSIONS` and `VIDEO_VIEW` objectives are deprecated. We recommend using `VIDEO_COMPLETION` as an alternative for the latter. |
+| `order_line_id` | `order_line_id` | `string` | No | No | Note: To clear this field on update, set the order line ID to 0. Order line ID that appears on the invoice. The order line must not be expired. |
+| `start_time` | `start_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the campaign start to appear. Must precede any start times set for child ad groups. Defaults to current time if no time is specified. Learn about scheduling campaigns. Different start times can be set for the campaign's child ad groups, but they cannot occur before a `start_time` specified for the campaign. - If your campaign has a child ad group with a start time specified, and if you update that campaign with a `start_time` that is later than that of the ad group, the campaign `start_time` will supersede the ad group `start_time`, and the request will not return an error. - In this scenario, if you call List campaigns or List ad groups, the returned campaigns or ad groups are listed with the start and end times that you assigned them, regardless of supersedence. |
+| `status` | `status` | `Inline2141` | No | No | — |
+| `tracking_urls` | `tracking_urls` | `Inline2142` | No | No | — |
+
+## CampaignCreateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Campaign's Advertiser ID. If you want to create a campaign in a Business Account shared account you need to specify the Business Access advertiser ID in both the query path param as well as the request body schema. |
+| `daily_spend_cap` | `daily_spend_cap` | `number` | No | No | Campaign daily spending cap. Required for Campaign Budget Optimization (CBO) campaigns. This and "lifetime_spend_cap" cannot be set at the same time. |
+| `default_ad_group_budget_in_micro_currency` | `default_ad_group_budget_in_micro_currency` | `number` | No | No | When transitioning from campaign budget optimization to non-campaign budget optimization, the default_ad_group_budget_in_micro_currency will propagate to each child ad groups daily budget. Unit is micro currency of the associated advertiser account. |
+| `end_time` | `end_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the campaign stop appearing. Must occur after any end times for child ad groups. If `end_time` is not specified for the campaign, ads run indefinitely unless you update the campaign, changing their status to `paused`. Learn about &lt;a href="/docs/api-features/managing-campaigns/#campaign-scheduling" target="blank"&gt;scheduling campaigns&lt;/a&gt;. Different end times can be set for the campaign's child ad groups, but they cannot occur after an `end_time` specified for the campaign. - If your campaign has a child ad group with an end time specified, and if you update that campaign with an `end_time` that is earlier than that of the ad group, the campaign `end_time` will supersede the ad group `end_time`, and the request will not return an error. - In this scenario, if you call &lt;a href="/docs/api/v5/campaigns-list" target="blank"&gt;List campaigns&lt;/a&gt; or &lt;a href="/docs/api/v5/ad_groups-list" target="blank"&gt;List ad groups&lt;/a&gt;, the returned campaigns or ad groups are listed with the start and end times that you assigned them, regardless of supersedence. |
+| `is_automated_campaign` | `is_automated_campaign` | `Inline2144` | No | No | — |
+| `is_campaign_budget_optimization` | `is_campaign_budget_optimization` | `Inline2145` | No | No | — |
+| `is_flexible_daily_budgets` | `is_flexible_daily_budgets` | `Inline2146` | No | No | — |
+| `lifetime_spend_cap` | `lifetime_spend_cap` | `number` | No | No | Campaign total spending cap. Required for Campaign Budget Optimization (CBO) campaigns. This and "daily_spend_cap" cannot be set at the same time. |
+| `name` | `name` | `string` | No | No | Campaign name. |
+| `order_line_id` | `order_line_id` | `string` | No | No | Order line ID that appears on the invoice. |
+| `start_time` | `start_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the campaign start to appear. Must precede any start times set for child ad groups. Defaults to current time if no time is specified. Learn about &lt;a href="/docs/api-features/managing-campaigns/#campaign-scheduling" target="blank"&gt;scheduling campaigns&lt;/a&gt;. Different start times can be set for the campaign's child ad groups, but they cannot occur before a `start_time` specified for the campaign. - If your campaign has a child ad group with a start time specified, and if you update that campaign with a `start_time` that is later than that of the ad group, the campaign `start_time` will supersede the ad group `start_time`, and the request will not return an error. - In this scenario, if you call &lt;a href="/docs/api/v5/campaigns-list" target="blank"&gt;List campaigns&lt;/a&gt; or &lt;a href="/docs/api/v5/ad_groups-list" target="blank"&gt;List ad groups&lt;/a&gt;, the returned campaigns or ad groups are listed with the start and end times that you assigned them, regardless of supersedence. |
+| `status` | `status` | `Inline2147` | No | No | — |
+| `tracking_urls` | `tracking_urls` | `Inline2148` | No | No | — |
+| `bid_options` | `bid_options` | `Inline2149` | No | No | Object describing the campaign level bid multipliers for create operations. |
+| `intended_promotion_type` | `intended_promotion_type` | `string` | No | No | Specifies the intended promotion type for the campaign. Note: This field is immutable unless the campaign is in draft status. **STANDARD_AD** - For ads derived from Pins. - Supported for all objective types except for current CATALOG\_SALES and WEB\_CONVERSION, which are being deprecated. - For simplified objective types. **CATALOG** - For creating product group promotions. - Supported for CONSIDERATION and SALES objective types. - For simplified objective types. **LEGACY** - Intended only for maintaining backward compatibility. - Must be used for CATALOG\_SALES and WEB\_CONVERSION. - Supported for CATALOG\_SALES and WEB\_CONVERSION objective types. **If you do not provide this parameter, the default is:** - LEGACY for CATALOG\_SALES and WEB\_CONVERSION - STANDARD_AD for other objective types |
+| `is_ltv_optimized` | `is_ltv_optimized` | `boolean` | No | No | Specifies whether the campaign is optimized for Lifetime Value (LTV). Only available for eligible advertisers. |
+| `is_performance_plus` | `is_performance_plus` | `boolean` | No | No | Enable Pinterest Performance+ for your campaign. To learn more, see &lt;a href="https://developers.pinterest.com/docs/api-features/pinterest-performance-plus-setup/"&gt;Pinterest Performance+ Setup&lt;/a&gt;. |
+| `is_top_of_search` | `is_top_of_search` | `boolean` | No | No | &lt;a href="/docs/getting-started/using-beta-and-restricted-features/" target="blank" target="blank"&gt;Restricted&lt;/a&gt; Have your ads and content appear at the top of search result lists in Pinterest. You can only use this feature with the following objectives: `CONSIDERATION` `WEB_CONVERSION` `CATALOG_SALES` You cannot use this feature with Pinterest Performance+ or Premiere Spotlight enabled. You cannot change your `true` or `false` selection of this campaign if you &lt;a href="https://developer.pinterest.com/docs/api/v5/campaigns-update" target="blank"&gt;update it&lt;/a&gt;. |
+| `objective_type` | `objective_type` | `string` | No | No | Advertiser campaign objective type. You can only update objectives for draft campaigns. `CTV_CONSIDERATION` is in BETA. `WEB_SESSIONS` and `VIDEO_VIEW` objectives are deprecated. We recommend using `VIDEO_COMPLETION` as an alternative for the latter. |
+
+## CampaignCreateRequestAllOf1
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid_options` | `bid_options` | `Inline2157` | No | No | Object describing the campaign level bid multipliers for create operations. |
+| `intended_promotion_type` | `intended_promotion_type` | `string` | No | No | Specifies the intended promotion type for the campaign. Note: This field is immutable unless the campaign is in draft status. **STANDARD_AD** - For ads derived from Pins. - Supported for all objective types except for current CATALOG\_SALES and WEB\_CONVERSION, which are being deprecated. - For simplified objective types. **CATALOG** - For creating product group promotions. - Supported for CONSIDERATION and SALES objective types. - For simplified objective types. **LEGACY** - Intended only for maintaining backward compatibility. - Must be used for CATALOG\_SALES and WEB\_CONVERSION. - Supported for CATALOG\_SALES and WEB\_CONVERSION objective types. **If you do not provide this parameter, the default is:** - LEGACY for CATALOG\_SALES and WEB\_CONVERSION - STANDARD_AD for other objective types |
+| `is_automated_campaign` | `is_automated_campaign` | `Inline2164` | No | No | — |
+| `is_campaign_budget_optimization` | `is_campaign_budget_optimization` | `Inline2165` | No | No | — |
+| `is_flexible_daily_budgets` | `is_flexible_daily_budgets` | `Inline2166` | No | No | — |
+| `is_ltv_optimized` | `is_ltv_optimized` | `boolean` | No | No | Specifies whether the campaign is optimized for Lifetime Value (LTV). Only available for eligible advertisers. |
+| `is_performance_plus` | `is_performance_plus` | `boolean` | No | No | Enable Pinterest Performance+ for your campaign. To learn more, see &lt;a href="https://developers.pinterest.com/docs/api-features/pinterest-performance-plus-setup/"&gt;Pinterest Performance+ Setup&lt;/a&gt;. |
+| `is_top_of_search` | `is_top_of_search` | `boolean` | No | No | &lt;a href="/docs/getting-started/using-beta-and-restricted-features/" target="blank" target="blank"&gt;Restricted&lt;/a&gt; Have your ads and content appear at the top of search result lists in Pinterest. You can only use this feature with the following objectives: `CONSIDERATION` `WEB_CONVERSION` `CATALOG_SALES` You cannot use this feature with Pinterest Performance+ or Premiere Spotlight enabled. You cannot change your `true` or `false` selection of this campaign if you &lt;a href="https://developer.pinterest.com/docs/api/v5/campaigns-update" target="blank"&gt;update it&lt;/a&gt;. |
+| `objective_type` | `objective_type` | `string` | Yes | No | Advertiser campaign objective type. You can only update objectives for draft campaigns. `CTV_CONSIDERATION` is in BETA. `WEB_SESSIONS` and `VIDEO_VIEW` objectives are deprecated. We recommend using `VIDEO_COMPLETION` as an alternative for the latter. |
+| `status` | `status` | `Inline2167` | No | No | — |
+
+## CampaignDeliveryEstimatesCampaign
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_groups` | `ad_groups` | `Array<Inline2169>` | Yes | No | — |
+| `budget_duration_type` | `budget_duration_type` | `Inline2175` | Yes | No | Duration type of the budget |
+| `daily_spend_cap` | `daily_spend_cap` | `number` | No | No | Campaign daily spend cap. When the budget_duration_type is FIXED_DAILY or FLEXIBLE_DAILY, this field is required. |
+| `end_date` | `end_date` | `string` | No | No | End date of the date range for an ad campaign, pattern YYYY-MM-DD. Required when budget_duration_type is LIFETIME. |
+| `lifetime_spend_cap` | `lifetime_spend_cap` | `number` | No | No | Campaign total spending cap. When the budget_duration_type is LIFETIME, this field is required. The end date field is also required for lifetime spending. |
+| `objective_type` | `objective_type` | `string` | Yes | No | Objective type for delivery estimates. |
+| `start_date` | `start_date` | `string` | Yes | No | Start date of the date range for an ad campaign, pattern YYYY-MM-DD. |
+
+## CampaignDeliveryEstimatesCampaignRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline2177>`
+
+## CampaignDeliveryEstimatesDerivedMetrics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cpc` | `cpc` | `number` | No | No | Estimated cost per click. |
+| `cpc_lower` | `cpc_lower` | `number` | No | No | Lower estimate of the cost per click. |
+| `cpc_upper` | `cpc_upper` | `number` | No | No | Upper estimate of the cost per click. |
+| `cpm` | `cpm` | `number` | No | No | Estimated cost per thousand impressions. |
+| `cpm_lower` | `cpm_lower` | `number` | No | No | Lower estimate of cost per thousand impressions. |
+| `cpm_upper` | `cpm_upper` | `number` | No | No | Upper estimate of cost per thousand impressions. |
+| `lifetime_frequency` | `lifetime_frequency` | `number` | No | No | Estimated lifetime frequency. |
+| `lifetime_frequency_lower` | `lifetime_frequency_lower` | `number` | No | No | Lower estimate of lifetime frequency. |
+| `lifetime_frequency_upper` | `lifetime_frequency_upper` | `number` | No | No | Upper estimate of lifetime frequency. |
+| `lifetime_impression` | `lifetime_impression` | `number` | No | No | Estimated lifetime impressions. |
+| `lifetime_impression_lower` | `lifetime_impression_lower` | `number` | No | No | Lower estimate of lifetime impressions. |
+| `lifetime_impression_upper` | `lifetime_impression_upper` | `number` | No | No | Upper estimate of lifetime impressions. |
+| `lifetime_reach` | `lifetime_reach` | `number` | No | No | Estimated lifetime reach. |
+| `lifetime_reach_lower` | `lifetime_reach_lower` | `number` | No | No | Lower estimate of lifetime reach. |
+| `lifetime_reach_upper` | `lifetime_reach_upper` | `number` | No | No | Upper estimate of lifetime reach. |
+| `weekly_click` | `weekly_click` | `number` | No | No | Estimated weekly clicks. |
+| `weekly_click_lower` | `weekly_click_lower` | `number` | No | No | Lower estimate of weekly clicks. |
+| `weekly_click_upper` | `weekly_click_upper` | `number` | No | No | Upper estimate of weekly clicks. |
+| `weekly_frequency` | `weekly_frequency` | `number` | No | No | Estimated weekly frequency. |
+| `weekly_frequency_lower` | `weekly_frequency_lower` | `number` | No | No | Lower estimate of weekly frequency. |
+| `weekly_frequency_upper` | `weekly_frequency_upper` | `number` | No | No | Upper estimate of weekly frequency. |
+| `weekly_impression` | `weekly_impression` | `number` | No | No | Estimated weekly impressions. |
+| `weekly_impression_lower` | `weekly_impression_lower` | `number` | No | No | Lower estimate of weekly impressions. |
+| `weekly_impression_upper` | `weekly_impression_upper` | `number` | No | No | Upper estimate of weekly impressions. |
+| `weekly_reach` | `weekly_reach` | `number` | No | No | Estimated weekly reach. |
+| `weekly_reach_lower` | `weekly_reach_lower` | `number` | No | No | Lower estimate of weekly reach. |
+| `weekly_reach_upper` | `weekly_reach_upper` | `number` | No | No | Upper estimate of weekly reach. |
+
+## CampaignDeliveryEstimatesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `curves` | `curves` | `Array<Inline2186>` | No | No | Estimated curves. Each curve will pertain to a single estimation type. |
+| `derived_metrics` | `derived_metrics` | `Inline2188` | No | No | Derived metrics for an ad campaign. |
+| `max_potential_spend` | `max_potential_spend` | `number` | No | No | Maximum potential spend estimate. |
+
+## CampaignIdRequiredType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## CampaignIdType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## CampaignIsAutomatedCampaign
+
+`scalar` model on the `json` wire format.
+
+**Value:** `boolean`
+
+## CampaignIsCampaignBudgetOptimization
+
+`scalar` model on the `json` wire format.
+
+**Value:** `boolean`
+
+## CampaignIsFlexibleDailyBudgets
+
+`scalar` model on the `json` wire format.
+
+**Value:** `boolean`
+
+## CampaignObjectiveType
+
+`enum` model on the `json` wire format.
+
+**Values:** `AWARENESS`, `CONSIDERATION`, `VIDEO_VIEW`, `WEB_CONVERSION`, `CATALOG_SALES`, `WEB_SESSIONS`, `VIDEO_COMPLETION`, `APP_INSTALL`, `SALES`, `LEADS`, `CTV_CONSIDERATION`
+
+## CampaignPlanningAdGroupAudienceSize
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `count_lower` | `count_lower` | `number` | No | No | Lower bound of the audience size estimate. |
+| `count_upper` | `count_upper` | `number` | No | No | Upper bound of the audience size estimate. |
+
+## CampaignPlanningBudgetRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget_recommendation` | `budget_recommendation` | `number` | No | No | The recommended budget amount. |
+| `experiment_campaign_budget_recommendation` | `experiment_campaign_budget_recommendation` | `Array<Inline2197>` | No | No | List of experimental budget recommendations. |
+| `lifetime_days_recommendation` | `lifetime_days_recommendation` | `number` | No | No | Recommended number of days for the campaign lifetime. |
+| `point_estimations` | `point_estimations` | `Array<Inline2199>` | No | No | List of point estimations for different budget scenarios. |
+
+## CampaignPlanningBudgetRecommendationPoint
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `estimation_type` | `estimation_type` | `Inline2202` | No | No | Estimation type for this point. |
+| `point_estimate` | `point_estimate` | `Inline2203` | No | No | Point estimate data. |
+
+## CampaignPlanningConfidenceLevelAlert
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | Human-readable context for debugging. Not intended for display to end users. |
+| `reason` | `reason` | `Inline2205` | No | No | Reason for the confidence level alert. |
+| `severity` | `severity` | `Inline2206` | No | No | Severity of the confidence level alert. |
+
+## CampaignPlanningConfidenceLevelAlertReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `UNKNOWN`, `OTHER`, `ADVERTISER_HAS_NO_RECENT_CAMPAIGNS`, `ADVERTISER_HAS_NO_RECENT_CONVERSIONS`
+
+## CampaignPlanningConfidenceLevelAlertSeverity
+
+`enum` model on the `json` wire format.
+
+**Values:** `UNKNOWN`, `LOW_MILD`, `LOW_MODERATE`, `LOW_SEVERE`
+
+## CampaignPlanningConversionAttribution
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `click_window_days` | `click_window_days` | `Inline2210` | No | No | Number of days to use as the conversion attribution window for a pin click action. |
+| `engagement_window_days` | `engagement_window_days` | `Inline2211` | No | No | Number of days to use as the conversion attribution window for an engagement action. Engagements include saves, closeups, link clicks, and carousel card swipes. |
+| `view_window_days` | `view_window_days` | `Inline2212` | No | No | Number of days to use as the conversion attribution window for a view action. |
+
+## CampaignPlanningConversionAttributionWindowDays
+
+`enum` model on the `json` wire format.
+
+**Values:** `DAYS_0`, `DAYS_1`, `DAYS_7`, `DAYS_30`, `DAYS_60`
+
+## CampaignPlanningConversionEvent
+
+`enum` model on the `json` wire format.
+
+**Values:** `SIGNUP`, `CHECKOUT`, `ADD_TO_CART`, `LEAD`
+
+## CampaignPlanningConversionRate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribution_windows` | `attribution_windows` | `Inline2216` | Yes | No | Attribution windows for a conversion event. |
+| `conversion_event` | `conversion_event` | `string` | Yes | No | Conversion event for which a conversion rate estimate is computed. |
+| `conversion_rate` | `conversion_rate` | `number` | Yes | No | Conversion rate estimate. Used to translate impressions into conversions for oCPM ads. |
+
+## CampaignPlanningCurveEstimate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `estimation_type` | `estimation_type` | `Inline2220` | No | No | Estimation type for campaign planning estimated curve |
+| `points` | `points` | `Array<Inline2221>` | No | No | The estimation points that make up the estimated curve. |
+
+## CampaignPlanningEstimationType
+
+`enum` model on the `json` wire format.
+
+**Values:** `IMPRESSION`, `CLICK`, `CONVERSION`, `WEEKLY_FREQUENCY`, `WEEKLY_REACH`, `LIFETIME_FREQUENCY`, `LIFETIME_REACH`, `CPM`, `CPC`, `CPA`
+
+## CampaignPlanningExperimentBudgetRecommendation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget_recommendation` | `budget_recommendation` | `number` | No | No | Recommended budget for this experiment version. |
+| `lifetime_days_recommendation` | `lifetime_days_recommendation` | `number` | No | No | Recommended lifetime days for this experiment. |
+| `point_estimations` | `point_estimations` | `Array<Inline2224>` | No | No | Point estimations for this experiment version. |
+| `version_id` | `version_id` | `string` | No | No | Version identifier for the experiment. |
+
+## CampaignPlanningPointEstimate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `number` | Yes | No | The budget value of the point. |
+| `double_y` | `double_y` | `number` | Yes | No | Y value as a decimal. |
+| `max_y` | `max_y` | `number` | Yes | No | The maximum Y value of the point. |
+| `min_y` | `min_y` | `number` | Yes | No | The minimum Y value of the point. |
+| `y` | `y` | `number` | Yes | No | The expected Y value of the point. |
+
+## CampaignPlanningResponseError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | Error code returned for a campaign planning estimate failure. |
+| `message` | `message` | `string` | No | No | Human-readable error message. |
+
+## CampaignPlanningResponseErrorCode
+
+`enum` model on the `json` wire format.
+
+**Values:** `SERVER_ERROR`, `AUDIENCE_LIST_MISSING`, `INVALID_REQUEST`, `PRODUCT_GROUP_MISSING`
+
+## CampaignsAnalyticsMetrics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CAMPAIGN_ID` | `CAMPAIGN_ID` | `string` | No | No | The ID of the campaing that this metrics belongs to. Returned as long as aggregate_report_rows is not true. |
+| `DATE` | `DATE` | `string` | No | No | Current metrics date. Only returned when granularity is a time-based value (`DAY`, `HOUR`, `WEEK`, `MONTH`) |
+
+## CampaignsAnalyticsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `startDate` | `startDate` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `endDate` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `campaignIds` | `campaignIds` | `Array<string>` | Yes | No | List of Campaign Ids to use to filter the results. |
+| `columns` | `columns` | `Array<string>` | Yes | No | Columns to retrieve, encoded as a comma-separated string. **NOTE**: Any metrics defined as MICRO_DOLLARS returns a value based on the advertiser profile's currency field. For USD, ($1/1,000,000, or $0.000001 - one one-ten-thousandth of a cent). it's microdollars. Otherwise, it's in microunits of the advertiser's currency. For example, if the advertiser's currency is GBP (British pound sterling), all MICRO_DOLLARS fields will be in GBP microunits (1/1,000,000 British pound). If a column has no value, it may not be returned. |
+| `granularity` | `granularity` | `string` | Yes | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEK - metrics are broken down weekly. MONTH - metrics are broken down monthly |
+| `clickWindowDays` | `clickWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. |
+| `engagementWindowDays` | `engagementWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for an engagement action. Engagements include saves, closeups, link clicks, and carousel card swipes. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. **Note:** This parameter no longer returns new data. However, you can still access historic data through **Sept 30, 2027**. |
+| `viewWindowDays` | `viewWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a view action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `1` day. |
+| `conversionReportTime` | `conversionReportTime` | `string` | No | No | The date by which the conversion metrics returned from this endpoint will be reported. There are two dates associated with a conversion event: the date that the user interacted with the ad, and the date that the user completed a conversion event. |
+| `aggregateReportRows` | `aggregateReportRows` | `boolean` | No | No | Determines if report rows should be aggregated across all requested entities. This feature is currently in BETA and is not available to all users. |
+| `reportingTimezone` | `reportingTimezone` | `string` | No | No | Specify the timezone to be applied for the reporting. This feature is currently in BETA and is not available to all users. |
+
+## CampaignsAnalyticsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline8680>` | Yes | No | — |
+
+## CampaignsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `body` | `body` | `Array<Inline8619>` | Yes | No | — |
+
+## CampaignsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8630` | Yes | No | — |
+
+## CampaignsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | Campaign ID, must be associated with the ad account ID provided in the path. |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+
+## CampaignsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8668` | Yes | No | — |
+
+## CampaignsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `order` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+| `campaignIds` | `campaignIds` | `Array<string>` | No | No | List of Campaign Ids to use to filter the results. |
+| `entityStatuses` | `entityStatuses` | `Array<string>` | No | No | Entity status |
+
+## CampaignsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8608` | Yes | No | — |
+
+## CampaignSummaryStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `RUNNING`, `PAUSED`, `NOT_STARTED`, `COMPLETED`, `ADVERTISER_DISABLED`, `ARCHIVED`, `DRAFT`, `DELETED_DRAFT`
+
+## CampaignsUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `body` | `body` | `Array<Inline8643>` | Yes | No | — |
+
+## CampaignsUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8654` | Yes | No | — |
+
+## CampaignTargetingAnalyticsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `campaignIds` | `campaignIds` | `Array<string>` | Yes | No | List of Campaign Ids to use to filter the results. |
+| `startDate` | `startDate` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `endDate` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `targetingTypes` | `targetingTypes` | `Array<string>` | Yes | No | Targeting type breakdowns for the report. The reporting per targeting type is independent from each other. ["AGE_BUCKET_AND_GENDER"] is in BETA and not yet available to all users. |
+| `columns` | `columns` | `Array<string>` | Yes | No | Columns to retrieve, encoded as a comma-separated string. **NOTE**: Any metrics defined as MICRO_DOLLARS returns a value based on the advertiser profile's currency field. For USD, ($1/1,000,000, or $0.000001 - one one-ten-thousandth of a cent). it's microdollars. Otherwise, it's in microunits of the advertiser's currency. For example, if the advertiser's currency is GBP (British pound sterling), all MICRO_DOLLARS fields will be in GBP microunits (1/1,000,000 British pound). If a column has no value, it may not be returned. |
+| `granularity` | `granularity` | `string` | Yes | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEK - metrics are broken down weekly. MONTH - metrics are broken down monthly |
+| `clickWindowDays` | `clickWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. |
+| `engagementWindowDays` | `engagementWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for an engagement action. Engagements include saves, closeups, link clicks, and carousel card swipes. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. **Note:** This parameter no longer returns new data. However, you can still access historic data through **Sept 30, 2027**. |
+| `viewWindowDays` | `viewWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a view action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `1` day. |
+| `conversionReportTime` | `conversionReportTime` | `string` | No | No | The date by which the conversion metrics returned from this endpoint will be reported. There are two dates associated with a conversion event: the date that the user interacted with the ad, and the date that the user completed a conversion event. |
+| `attributionTypes` | `attributionTypes` | `Array<string>` | No | No | List of types of attribution for the conversion report |
+| `reportingTimezone` | `reportingTimezone` | `string` | No | No | Specify the timezone to be applied for the reporting. This feature is currently in BETA and is not available to all users. |
+
+## CampaignTargetingAnalyticsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8695` | Yes | No | — |
+
+## CampaignUpdateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Campaign's Advertiser ID. If you want to create a campaign in a Business Account shared account you need to specify the Business Access advertiser ID in both the query path param as well as the request body schema. |
+| `daily_spend_cap` | `daily_spend_cap` | `number` | No | No | Campaign daily spending cap. Required for Campaign Budget Optimization (CBO) campaigns. This and "lifetime_spend_cap" cannot be set at the same time. |
+| `default_ad_group_budget_in_micro_currency` | `default_ad_group_budget_in_micro_currency` | `number` | No | No | When transitioning from campaign budget optimization to non-campaign budget optimization, the default_ad_group_budget_in_micro_currency will propagate to each child ad groups daily budget. Unit is micro currency of the associated advertiser account. |
+| `end_time` | `end_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the campaign stop appearing. Must occur after any end times for child ad groups. If `end_time` is not specified for the campaign, ads run indefinitely unless you update the campaign, changing their status to `paused`. Learn about &lt;a href="/docs/api-features/managing-campaigns/#campaign-scheduling" target="blank"&gt;scheduling campaigns&lt;/a&gt;. Different end times can be set for the campaign's child ad groups, but they cannot occur after an `end_time` specified for the campaign. - If your campaign has a child ad group with an end time specified, and if you update that campaign with an `end_time` that is earlier than that of the ad group, the campaign `end_time` will supersede the ad group `end_time`, and the request will not return an error. - In this scenario, if you call &lt;a href="/docs/api/v5/campaigns-list" target="blank"&gt;List campaigns&lt;/a&gt; or &lt;a href="/docs/api/v5/ad_groups-list" target="blank"&gt;List ad groups&lt;/a&gt;, the returned campaigns or ad groups are listed with the start and end times that you assigned them, regardless of supersedence. |
+| `id` | `id` | `string` | No | No | Campaign ID. |
+| `is_automated_campaign` | `is_automated_campaign` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. Specifies whether the campaign was created in the automated campaign flow. When using Automated Campaigns, a daily spend cap must be set, and Pinterest Performance+ may not be used. The following objective types are supported: - CONSIDERATION - WEB\_CONVERSION - SALES - CATALOG\_SALES |
+| `is_campaign_budget_optimization` | `is_campaign_budget_optimization` | `boolean` | No | No | Note: This field is immutable unless the campaign is in draft status. Determines if a campaign automatically generates ad-group level budgets given a campaign budget to maximize campaign outcome. When using campaign budgets with a lifetime spend cap, the end time must be provided. |
+| `is_flexible_daily_budgets` | `is_flexible_daily_budgets` | `boolean` | No | No | Determine if a campaign has setup for flexible daily budgets, also known as "Pinterest Performance+ budgets". Flexible daily budgets are only supported for campaign budget optimization with a daily spend cap, and not a lifetime spend cap. |
+| `lifetime_spend_cap` | `lifetime_spend_cap` | `number` | No | No | Campaign total spending cap. Required for Campaign Budget Optimization (CBO) campaigns. This and "daily_spend_cap" cannot be set at the same time. |
+| `name` | `name` | `string` | No | No | Campaign name. |
+| `order_line_id` | `order_line_id` | `string` | No | No | Order line ID that appears on the invoice. |
+| `start_time` | `start_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the campaign start to appear. Must precede any start times set for child ad groups. Defaults to current time if no time is specified. Learn about &lt;a href="/docs/api-features/managing-campaigns/#campaign-scheduling" target="blank"&gt;scheduling campaigns&lt;/a&gt;. Different start times can be set for the campaign's child ad groups, but they cannot occur before a `start_time` specified for the campaign. - If your campaign has a child ad group with a start time specified, and if you update that campaign with a `start_time` that is later than that of the ad group, the campaign `start_time` will supersede the ad group `start_time`, and the request will not return an error. - In this scenario, if you call &lt;a href="/docs/api/v5/campaigns-list" target="blank"&gt;List campaigns&lt;/a&gt; or &lt;a href="/docs/api/v5/ad_groups-list" target="blank"&gt;List ad groups&lt;/a&gt;, the returned campaigns or ad groups are listed with the start and end times that you assigned them, regardless of supersedence. |
+| `status` | `status` | `string` | No | No | Entity status |
+| `tracking_urls` | `tracking_urls` | `Inline2232` | No | No | — |
+| `bid_options` | `bid_options` | `Inline2233` | No | No | Object describing an update to the campaign level bid multipliers. |
+| `intended_promotion_type` | `intended_promotion_type` | `string` | No | No | Specifies the intended promotion type for the campaign. Note: This field is immutable unless the campaign is in draft status. **STANDARD_AD** - For ads derived from Pins. - Supported for all objective types except for current CATALOG\_SALES and WEB\_CONVERSION, which are being deprecated. - For simplified objective types. **CATALOG** - For creating product group promotions. - Supported for CONSIDERATION and SALES objective types. - For simplified objective types. **LEGACY** - Intended only for maintaining backward compatibility. - Must be used for CATALOG\_SALES and WEB\_CONVERSION. - Supported for CATALOG\_SALES and WEB\_CONVERSION objective types. **If you do not provide this parameter, the default is:** - LEGACY for CATALOG\_SALES and WEB\_CONVERSION - STANDARD_AD for other objective types |
+| `is_ltv_optimized` | `is_ltv_optimized` | `boolean` | No | No | Specifies whether the campaign is optimized for Lifetime Value (LTV). Only available for eligible advertisers. |
+| `is_performance_plus` | `is_performance_plus` | `boolean` | No | No | Enable Pinterest Performance+ for your campaign. To learn more, see &lt;a href="https://developers.pinterest.com/docs/api-features/pinterest-performance-plus-setup/"&gt;Pinterest Performance+ Setup&lt;/a&gt;. This field is immutable, except only for campaigns in draft status which may update this field. |
+| `is_top_of_search` | `is_top_of_search` | `boolean` | No | No | Enable Top Of Search for your campaign. This field is immutable, except only for campaigns in draft status which may update this field. |
+| `objective_type` | `objective_type` | `Inline2240` | No | No | — |
+
+## CampaignUpdateRequestAllOf2
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid_options` | `bid_options` | `Inline2242` | No | No | Object describing an update to the campaign level bid multipliers. |
+| `intended_promotion_type` | `intended_promotion_type` | `string` | No | No | Specifies the intended promotion type for the campaign. Note: This field is immutable unless the campaign is in draft status. **STANDARD_AD** - For ads derived from Pins. - Supported for all objective types except for current CATALOG\_SALES and WEB\_CONVERSION, which are being deprecated. - For simplified objective types. **CATALOG** - For creating product group promotions. - Supported for CONSIDERATION and SALES objective types. - For simplified objective types. **LEGACY** - Intended only for maintaining backward compatibility. - Must be used for CATALOG\_SALES and WEB\_CONVERSION. - Supported for CATALOG\_SALES and WEB\_CONVERSION objective types. **If you do not provide this parameter, the default is:** - LEGACY for CATALOG\_SALES and WEB\_CONVERSION - STANDARD_AD for other objective types |
+| `is_ltv_optimized` | `is_ltv_optimized` | `boolean` | No | No | Specifies whether the campaign is optimized for Lifetime Value (LTV). Only available for eligible advertisers. |
+| `is_performance_plus` | `is_performance_plus` | `boolean` | No | No | Enable Pinterest Performance+ for your campaign. To learn more, see &lt;a href="https://developers.pinterest.com/docs/api-features/pinterest-performance-plus-setup/"&gt;Pinterest Performance+ Setup&lt;/a&gt;. This field is immutable, except only for campaigns in draft status which may update this field. |
+| `is_top_of_search` | `is_top_of_search` | `boolean` | No | No | Enable Top Of Search for your campaign. This field is immutable, except only for campaigns in draft status which may update this field. |
+| `objective_type` | `objective_type` | `Inline2249` | No | No | — |
+
+## CancelInviteException
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `invite_id` | `invite_id` | `string` | No | No | — |
+| `message` | `message` | `string` | No | No | — |
+
+## CancelInviteResult
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `invite_data` | `invite_data` | `Inline2252` | No | No | Metadata for the invite/request. |
+| `is_received_invite` | `is_received_invite` | `boolean` | No | No | — |
+| `user` | `user` | `Inline2253` | No | No | Metadata of the member/partner that has access to the asset. |
+
+## CancelInviteResultItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `exception` | `exception` | `Inline2255` | No | No | An exception object if there is an error performing the cancellation. It will only be provided if there is an error. |
+| `invite` | `invite` | `Inline2256` | No | No | — |
+
+## CancelInviteResultUser
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `email` | `string` | No | No | Email of the business member/partner. |
+| `id` | `id` | `string` | No | No | Unique identifier of the business member/partner. |
+| `username` | `username` | `string` | No | No | Username of the business member/partner. |
+
+## CancelInvitesOrRequestsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `invite_ids` | `invite_ids` | `Array<string>` | Yes | No | A list of invite/request ids to cancel. |
+
+## CancelInvitesOrRequestsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9332` | Yes | No | — |
+
+## CancelInvitesRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `invite_ids` | `invite_ids` | `Array<string>` | Yes | No | A list of invite/request ids to cancel. |
+
+## CancelInvitesResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline2261>` | No | No | — |
+
+## CarouselSlot
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | Carousel Pin slot description. |
+| `link` | `link` | `string` | No | No | Carousel Pin slot link. |
+| `title` | `title` | `string` | No | No | Carousel Pin slot title. |
+
+## CartingPlatformType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `number`
+
+## CartingProduct
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `carting_product_id` | `carting_product_id` | `string` | Yes | No | the internal Pinterest carting product id (different from industry product id) |
+| `display_preferred_retailers_only` | `display_preferred_retailers_only` | `boolean` | No | No | Whether to display only the preferred retailers for the carting product |
+| `display_product_price` | `display_product_price` | `boolean` | No | No | Whether to display the price for the carting product |
+| `preferred_retailers` | `preferred_retailers` | `Array<Inline2267>` | No | No | A sorted array of preferred retailers for the carting product |
+| `randomize_preferred_retailers` | `randomize_preferred_retailers` | `boolean` | No | No | Whether to randomize preferred retailers for the carting product |
+
+## CartingRetailer
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `retailer_id` | `retailer_id` | `string` | Yes | No | Unique identifier for the retailer |
+| `retailer_name` | `retailer_name` | `string` | Yes | No | Name of the retailer |
+
+## Catalog
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | Type of the catalog entity. |
+| `created_at` | `created_at` | `string` | Yes | No | — |
+| `id` | `id` | `string` | Yes | No | ID of the catalog entity. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a catalog entity. |
+| `updated_at` | `updated_at` | `string` | Yes | No | — |
+
+## CatalogBinding
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | No | No | Catalog type |
+| `id` | `id` | `string` | No | No | Catalog ID. |
+| `name` | `name` | `string` | No | No | Catalog name |
+
+## CatalogCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | Type of the catalog entity. |
+| `name` | `name` | `string` | Yes | No | A human-friendly name associated to a catalog entity. |
+
+## CatalogsAiContentDisclosure
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `disclosure` | `disclosure` | `Array<string>` | Yes | No | Disclosure labels that apply to this asset. |
+| `url` | `url` | `string` | Yes | No | URL of the asset. Must match one of image_link, additional_image_link, or video_link. |

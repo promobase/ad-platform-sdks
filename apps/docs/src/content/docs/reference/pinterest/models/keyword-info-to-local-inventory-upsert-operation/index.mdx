@@ -1,0 +1,929 @@
+---
+title: "Pinterest models: Keyword Info – Local Inventory Upsert Operation"
+description: "100 generated Pinterest model contracts, from KeywordInfo through LocalInventoryUpsertOperation."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1110
+  label: "Keyword Info – Local Inventory Upsert Operation"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## KeywordInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | Keyword Name |
+| `pct_growth_mom` | `pct_growth_mom` | `number` | No | No | MoM growth as a percentage, if there is no growth rate, this field is not present |
+
+## KeywordList
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<string>`
+
+## KeywordListItems
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## KeywordMetrics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword_query_volume` | `keyword_query_volume` | `string` | No | No | Keyword's search frequency. This value is based on keyword frequency in pepsi client response |
+
+## KeywordMetricsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword` | `keyword` | `string` | No | No | Keyword name, e.g., "keyword":"fashion outfits" |
+| `metrics` | `metrics` | `Inline6537` | No | No | Keyword metrics JSON |
+
+## Keywords
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline6539>` | Yes | No | Keyword error |
+| `keywords` | `keywords` | `Array<Inline6540>` | Yes | No | Keywords |
+
+## KeywordsCommon
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid` | `bid` | `number` | No | No | &lt;/p&gt;&lt;strong&gt;Note:&lt;/strong&gt; bid field has been deprecated. Input will not be set and field will return null. Keyword custom bid in microcurrency - null if inherited from parent ad group. |
+| `match_type` | `match_type` | `string` | Yes | No | Keyword match type |
+| `value` | `value` | `string` | Yes | No | Keyword value (120 chars max). |
+
+## KeywordsCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywords` | `keywords` | `Array<Inline6543>` | Yes | No | Keywords |
+| `parent_id` | `parent_id` | `string` | Yes | No | Keyword data |
+
+## KeywordsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `keywords` | `keywords` | `Array<Inline8823>` | Yes | No | Keywords |
+| `parent_id` | `parent_id` | `string` | Yes | No | Keyword data |
+
+## KeywordsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8825` | Yes | No | — |
+
+## KeywordsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `campaignId` | `campaignId` | `string` | No | No | Campaign Id to use to filter the results. |
+| `adGroupId` | `adGroupId` | `string` | No | No | Ad group Id. |
+| `adGroupIds` | `adGroupIds` | `Array<unknown>` | No | No | List of Ad group Ids to retrieve keywords from. This feature is currently in BETA and is not available to all users. |
+| `matchTypes` | `matchTypes` | `Array<string>` | No | No | Keyword match type |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## KeywordsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8821` | Yes | No | — |
+
+## KeywordsMetricsArrayResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline6545>` | No | No | — |
+
+## KeywordsRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywords` | `keywords` | `Array<Inline6547>` | Yes | No | Keyword JSON array. Each array element has 3 fields |
+| `parent_id` | `parent_id` | `string` | Yes | No | Keyword parent entity ID (advertiser, campaign, ad group). |
+
+## KeywordsUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywords` | `keywords` | `Array<Inline6549>` | No | No | Keywords |
+
+## KeywordsUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `keywords` | `keywords` | `Array<Inline8829>` | No | No | Keywords |
+
+## KeywordsUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8831` | Yes | No | — |
+
+## KeywordUpdateGenerated
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `archived` | `archived` | `boolean` | No | No | Is keyword archived? |
+| `bid` | `bid` | `number` | No | No | &lt;/p&gt;&lt;strong&gt;Note:&lt;/strong&gt; bid field has been deprecated. Input will not be set and field will return null. Keyword custom bid in microcurrency - null if inherited from parent ad group. |
+| `id` | `id` | `string` | Yes | No | Keyword ID. |
+
+## KeywordUpdateItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `archived` | `archived` | `boolean` | No | No | — |
+| `bid` | `bid` | `number` | No | No | **Note:** bid field has been deprecated. Input will not be set and field will return null. Keyword custom bid in microcurrency - null if inherited from parent ad group. |
+| `id` | `id` | `string` | Yes | No | Keyword ID . |
+
+## Label
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `Inline6553` | Yes | No | Label ID. |
+| `label_type` | `label_type` | `string` | Yes | No | Category for the labeled items. You can apply one BRAND label to a campaign. You can apply 30 CUSTOM labels to a campaign. |
+| `status` | `status` | `string` | No | No | The new status you want to give the label, either `ACTIVE` (in use) or no longer in use (`ARCHIVED`). |
+| `value` | `value` | `string` | Yes | No | Label name. 100-character limit. |
+
+## LabelBulkCreateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `labels` | `labels` | `Array<Inline6555>` | Yes | No | Labels that you are applying to the campaign. |
+| `parent_id` | `parent_id` | `string` | Yes | No | Unique identifier of the asset you are labelling. Currently, you can only label campaigns. |
+
+## LabelBulkUpdateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | Label ID. |
+| `parent_id` | `parent_id` | `string` | Yes | No | Unique identifier of the asset you are labelling. Currently, you can only label campaigns. |
+| `status` | `status` | `string` | Yes | No | Set status to `ARCHIVED` to remove the label from the parent entity. |
+
+## LabelCreateArray
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline6558>`
+
+## LabelCreateArrayItem
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline6560>`
+
+## LabelCreateItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `label_type` | `label_type` | `string` | Yes | No | Label type values. |
+| `value` | `value` | `string` | Yes | No | Label name. 100-character limit. |
+
+## LabelCreateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `labels` | `labels` | `Array<Inline6563>` | Yes | No | Labels that you are applying to the campaign. |
+
+## LabeledEntities
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entities_labels` | `entities_labels` | `Array<Inline6565>` | No | No | — |
+| `errors` | `errors` | `Array<Inline6567>` | No | No | Labels that were not successfully applied. |
+
+## LabeledEntitiesCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `entity_ids` | `entity_ids` | `Array<string>` | Yes | No | Entity IDs to apply label to. |
+
+## LabelError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline6571` | No | No | — |
+| `error_messages` | `error_messages` | `Array<string>` | No | No | — |
+
+## LabelErrorData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `Inline6573` | No | No | Label ID. |
+| `label_type` | `label_type` | `string` | No | No | Category for the labeled items. You can apply one BRAND label to a campaign. You can apply 30 CUSTOM labels to a campaign. |
+| `status` | `status` | `string` | No | No | The new status you want to give the label, either `ACTIVE` (in use) or no longer in use (`ARCHIVED`). |
+| `value` | `value` | `string` | No | No | Label name. 100-character limit. |
+
+## LabelParentType
+
+`enum` model on the `json` wire format.
+
+**Values:** `CAMPAIGN`
+
+## LabelsApplyParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `labelId` | `labelId` | `string` | Yes | No | Label ID. |
+| `entity_ids` | `entity_ids` | `Array<string>` | Yes | No | Entity IDs to apply label to. |
+
+## LabelsApplyResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8854` | Yes | No | — |
+
+## LabelsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `labels` | `labels` | `Array<Inline8841>` | Yes | No | Labels that you are applying to the campaign. |
+
+## LabelsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8843` | Yes | No | — |
+
+## LabelsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `campaignIds` | `campaignIds` | `Array<string>` | No | No | List of Campaign Ids to use to filter the results. |
+| `labelIds` | `labelIds` | `Array<string>` | No | No | List of Label Ids to use to filter the results. |
+| `entityStatuses` | `entityStatuses` | `Array<string>` | No | No | Label entity status |
+| `labelTypes` | `labelTypes` | `Array<string>` | No | No | Label type. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## LabelsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8839` | Yes | No | — |
+
+## LabelsRemoveParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `labelId` | `labelId` | `string` | Yes | No | Label ID. |
+| `entity_ids` | `entity_ids` | `Array<string>` | Yes | No | Entity IDs to apply label to. |
+
+## LabelsRemoveResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8860` | Yes | No | — |
+
+## LabelsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline6576>` | No | No | Labels that were not successfully applied. |
+| `labels` | `labels` | `Array<Inline6577>` | No | No | — |
+
+## LabelStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACTIVE`, `ARCHIVED`
+
+## LabelStatusBulkUpdate
+
+`enum` model on the `json` wire format.
+
+**Values:** `ARCHIVED`
+
+## LabelsUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `labels` | `labels` | `Array<Inline8847>` | Yes | No | Labels that you are applying to the campaign. |
+
+## LabelsUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8849` | Yes | No | — |
+
+## LabelType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BRAND`, `CUSTOM`
+
+## LabelUpdateItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `Inline6582` | Yes | No | Label ID. |
+| `status` | `status` | `string` | No | No | Label status values. |
+| `value` | `value` | `string` | No | No | Label name. 100-character limit. |
+
+## LabelUpdateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `labels` | `labels` | `Array<Inline6584>` | Yes | No | Labels that you are applying to the campaign. |
+
+## Language
+
+`enum` model on the `json` wire format.
+
+**Values:** `AM`, `AR`, `AZ`, `BG`, `BN`, `BS`, `CA`, `CS`, `DA`, `DV`, `DZ`, `DE`, `EL`, `EN`, `ES`, `ET`, `FA`, `FI`, `FR`, `HE`, `HI`, `HR`, `HU`, `HY`, `ID`, `IN`, `IS`, `IT`, `IW`, `JA`, `KA`, `KM`, `KO`, `LO`, `LT`, `LV`, `MK`, `MN`, `MS`, `MY`, `NB`, `NE`, `NL`, `NO`, `PL`, `PT`, `RO`, `RU`, `SK`, `SL`, `SQ`, `SR`, `SV`, `TL`, `UK`, `VI`, `TE`, `TH`, `TR`, `XX`, `ZH`
+
+## LeadForm
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | The Ad Account ID that this lead form belongs to. |
+| `completion_message` | `completion_message` | `string` | Yes | No | A message for people who complete the form to let them know what happens next. |
+| `created_time` | `created_time` | `number` | No | No | Lead form creation time. Unix timestamp in seconds. |
+| `disclosure_language` | `disclosure_language` | `string` | No | No | Additional disclosure language to be included in the lead form. |
+| `has_accepted_terms` | `has_accepted_terms` | `boolean` | Yes | No | Whether the advertiser has accepted Pinterest's terms of service for creating a lead ad. By sending us TRUE for this parameter, you agree that (i) you will use any personal information received in compliance with the privacy policy you share with Pinterest, and (ii) you will comply with Pinterest's [Lead Ad Terms](https://policy.pinterest.com/en/lead-ad-terms). As a reminder, all advertising on Pinterest is subject to the [Pinterest Advertising Services Agreement](https://business.pinterest.com/en/pinterest-advertising-services-agreement/) or an equivalent agreement as set forth on an IO |
+| `id` | `id` | `string` | Yes | No | The ID of this lead form |
+| `name` | `name` | `string` | Yes | No | Internal name of the lead form. |
+| `policy_links` | `policy_links` | `Array<Inline6587>` | No | No | List of additional policy links to be displayed on the lead form. |
+| `privacy_policy_link` | `privacy_policy_link` | `string` | Yes | No | A link to the advertiser's privacy policy. This will be included in the lead form's disclosure language. |
+| `questions` | `questions` | `Array<Inline6588>` | Yes | No | List of questions to be displayed on the lead form. |
+| `status` | `status` | `string` | No | No | Status of the lead form |
+| `updated_time` | `updated_time` | `number` | No | No | Last update time. Unix timestamp in seconds. |
+
+## LeadFormBatchUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `completion_message` | `completion_message` | `string` | No | No | A message for people who complete the form to let them know what happens next. |
+| `disclosure_language` | `disclosure_language` | `string` | No | No | Additional disclosure language to be included in the lead form. |
+| `has_accepted_terms` | `has_accepted_terms` | `boolean` | No | No | Whether the advertiser has accepted Pinterest's terms of service for creating a lead ad. By sending us TRUE for this parameter, you agree that (i) you will use any personal information received in compliance with the privacy policy you share with Pinterest, and (ii) you will comply with Pinterest's [Lead Ad Terms](https://policy.pinterest.com/en/lead-ad-terms). As a reminder, all advertising on Pinterest is subject to the [Pinterest Advertising Services Agreement](https://business.pinterest.com/en/pinterest-advertising-services-agreement/) or an equivalent agreement as set forth on an IO |
+| `id` | `id` | `string` | Yes | No | The ID of this lead form |
+| `name` | `name` | `string` | No | No | Internal name of the lead form. |
+| `policy_links` | `policy_links` | `Array<Inline6590>` | No | No | List of additional policy links to be displayed on the lead form. |
+| `privacy_policy_link` | `privacy_policy_link` | `string` | No | No | A link to the advertiser's privacy policy. This will be included in the lead form's disclosure language. |
+| `questions` | `questions` | `Array<Inline6591>` | No | No | List of questions to be displayed on the lead form. |
+| `status` | `status` | `string` | No | No | Status of the lead form |
+
+## LeadFormCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `completion_message` | `completion_message` | `string` | Yes | No | A message for people who complete the form to let them know what happens next. |
+| `disclosure_language` | `disclosure_language` | `string` | No | No | Additional disclosure language to be included in the lead form. |
+| `has_accepted_terms` | `has_accepted_terms` | `boolean` | Yes | No | Whether the advertiser has accepted Pinterest's terms of service for creating a lead ad. By sending us TRUE for this parameter, you agree that (i) you will use any personal information received in compliance with the privacy policy you share with Pinterest, and (ii) you will comply with Pinterest's [Lead Ad Terms](https://policy.pinterest.com/en/lead-ad-terms). As a reminder, all advertising on Pinterest is subject to the [Pinterest Advertising Services Agreement](https://business.pinterest.com/en/pinterest-advertising-services-agreement/) or an equivalent agreement as set forth on an IO |
+| `name` | `name` | `string` | Yes | No | Internal name of the lead form. |
+| `policy_links` | `policy_links` | `Array<Inline6593>` | No | No | List of additional policy links to be displayed on the lead form. |
+| `privacy_policy_link` | `privacy_policy_link` | `string` | Yes | No | A link to the advertiser's privacy policy. This will be included in the lead form's disclosure language. |
+| `questions` | `questions` | `Array<Inline6594>` | Yes | No | List of questions to be displayed on the lead form. |
+| `status` | `status` | `string` | No | No | Status of the lead form |
+
+## LeadFormGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `leadFormId` | `leadFormId` | `string` | Yes | No | The ID of this lead form |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+
+## LeadFormGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8882` | Yes | No | — |
+
+## LeadFormPolicyLink
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `label` | `label` | `string` | No | No | Policy label for an additional policy link. |
+| `link` | `link` | `string` | No | No | Policy link for an additional policy link. |
+
+## LeadFormQuestion
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_question_field_type` | `custom_question_field_type` | `string` | No | No | Lead form question field type |
+| `custom_question_label` | `custom_question_label` | `string` | No | No | Question label for a custom question. |
+| `custom_question_options` | `custom_question_options` | `Array<string>` | No | No | Question options for a custom question. |
+| `question_type` | `question_type` | `string` | No | No | Lead form question type |
+
+## LeadFormQuestionFieldType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## LeadFormQuestionsGetParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## LeadFormQuestionsGetResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## LeadFormQuestionType
+
+`enum` model on the `json` wire format.
+
+**Values:** `CUSTOM`, `FULL_NAME`, `FIRST_NAME`, `LAST_NAME`, `EMAIL`, `PHONE_NUMBER`, `ZIP_CODE`, `GENDER`, `CITY`, `COUNTRY`, `STATE_PROVINCE`, `ADDRESS`, `DATE_OF_BIRTH`, `AGE`
+
+## LeadFormsCreateBody
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline6600>`
+
+## LeadFormsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `body` | `body` | `Array<Inline8869>` | Yes | No | — |
+
+## LeadFormsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8872` | Yes | No | — |
+
+## LeadFormsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `order` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+
+## LeadFormsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8866` | Yes | No | — |
+
+## LeadFormStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `DRAFT`, `ACTIVE`
+
+## LeadFormsUpdateBody
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline6604>`
+
+## LeadFormsUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `body` | `body` | `Array<Inline8875>` | Yes | No | — |
+
+## LeadFormsUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8878` | Yes | No | — |
+
+## LeadFormTest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `subscription_id` | `subscription_id` | `string` | No | No | Subscription ID. |
+
+## LeadFormTestCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `answers` | `answers` | `Array<string>` | Yes | No | Test lead answers. Should follow the creation order. |
+
+## LeadFormTestCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+| `leadFormId` | `leadFormId` | `string` | Yes | No | Unique identifier of a lead form. |
+| `answers` | `answers` | `Array<string>` | Yes | No | Test lead answers. Should follow the creation order. |
+
+## LeadFormTestCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8886` | Yes | No | — |
+
+## LeadsExportCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `ad_id` | `ad_id` | `string` | Yes | No | ID for the ad collecting leads. |
+| `end_date` | `end_date` | `string` | Yes | No | Export leads collected on and before end date (UTC). Format: YYYY-MM-DD. |
+| `start_date` | `start_date` | `string` | Yes | No | Export leads collected on and after start date (UTC). Format: YYYY-MM-DD. |
+
+## LeadsExportCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8889` | Yes | No | — |
+
+## LeadsExportGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `leadsExportId` | `leadsExportId` | `string` | Yes | No | lead_export_id token returned from the create a lead export endpoint |
+
+## LeadsExportGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8892` | Yes | No | — |
+
+## LeadsExportResponseData
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `download_url` | `download_url` | `string` | No | No | — |
+| `export_status` | `export_status` | `string` | No | No | Status of a leads export job |
+
+## LeadsExports
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `leads_export_id` | `leads_export_id` | `string` | No | No | ID for the leads export job. |
+
+## LeadsExportsCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_id` | `ad_id` | `string` | Yes | No | ID for the ad collecting leads. |
+| `end_date` | `end_date` | `string` | Yes | No | Export leads collected on and before end date (UTC). Format: YYYY-MM-DD. |
+| `start_date` | `start_date` | `string` | Yes | No | Export leads collected on and after start date (UTC). Format: YYYY-MM-DD. |
+
+## LeadsExportStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `IN_PROGRESS`, `FINISHED`, `FAILED`
+
+## LeadSubscription
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | The Ad Account ID that this lead form belongs to. |
+| `api_version` | `api_version` | `string` | No | No | API version. |
+| `created_time` | `created_time` | `number` | No | No | Subscription creation time. Unix timestamp in milliseconds. |
+| `cryptographic_algorithm` | `cryptographic_algorithm` | `string` | No | No | Lead data encryption algorithm. |
+| `cryptographic_key` | `cryptographic_key` | `string` | No | No | Base64 encoded key for client to decrypt lead data. |
+| `id` | `id` | `string` | No | No | Subscription ID. |
+| `lead_form_id` | `lead_form_id` | `string` | No | No | Lead form ID. |
+| `user_account_id` | `user_account_id` | `string` | No | No | User account used to subscribe lead data. |
+| `webhook_url` | `webhook_url` | `string` | No | No | Standard HTTPS webhook URL. |
+
+## LeadSubscriptionCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lead_form_id` | `lead_form_id` | `string` | No | No | Lead form ID. |
+| `webhook_url` | `webhook_url` | `string` | Yes | No | Standard HTTPS webhook URL. |
+
+## LeadSubscriptionPostParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `partner_access_token` | `partner_access_token` | `string` | No | No | Partner access token. Only for clients that requires authentication. We recommend to avoid this param. |
+| `partner_metadata` | `partner_metadata` | `Inline6615` | No | No | Partner metadata. Only for clients that requires special handling. We recommend to avoid this param. |
+| `partner_refresh_token` | `partner_refresh_token` | `string` | No | No | Partner refresh token. Only for clients that requires authentication. We recommend to avoid this param. |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | The Ad Account ID that this lead form belongs to. |
+| `api_version` | `api_version` | `string` | No | No | API version. |
+| `created_time` | `created_time` | `number` | No | No | Subscription creation time. Unix timestamp in milliseconds. |
+| `cryptographic_algorithm` | `cryptographic_algorithm` | `string` | No | No | Lead data encryption algorithm. |
+| `cryptographic_key` | `cryptographic_key` | `string` | No | No | Base64 encoded key for client to decrypt lead data. |
+| `id` | `id` | `string` | No | No | Subscription ID. |
+| `lead_form_id` | `lead_form_id` | `string` | No | No | Lead form ID. |
+| `user_account_id` | `user_account_id` | `string` | No | No | User account used to subscribe lead data. |
+| `webhook_url` | `webhook_url` | `string` | No | No | Standard HTTPS webhook URL. |
+
+## LeadSubscriptionPostParamsCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `partner_access_token` | `partner_access_token` | `string` | No | No | Partner access token. Only for clients that requires authentication. We recommend to avoid this param. |
+| `partner_metadata` | `partner_metadata` | `Inline6617` | No | No | Partner metadata. Only for clients that requires special handling. We recommend to avoid this param. |
+| `partner_refresh_token` | `partner_refresh_token` | `string` | No | No | Partner refresh token. Only for clients that requires authentication. We recommend to avoid this param. |
+| `lead_form_id` | `lead_form_id` | `string` | No | No | Lead form ID. |
+| `webhook_url` | `webhook_url` | `string` | No | No | Standard HTTPS webhook URL. |
+
+## LineItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_brand` | `product_brand` | `string` | No | No | Product brand. For example, 'Parker'. |
+| `product_category` | `product_category` | `string` | No | No | Product category. For example, 'Shoes'. |
+| `product_id` | `product_id` | `number` | No | No | Product ID. For example, 1414. |
+| `product_name` | `product_name` | `string` | No | No | Product name. For example, 'Parker Boots'. |
+| `product_price` | `product_price` | `string` | No | No | Product price. For example, '99.99'. |
+| `product_quantity` | `product_quantity` | `number` | No | No | Product quantity. For example, 2. |
+| `product_variant` | `product_variant` | `string` | No | No | Product variant. For example, 'Red'. |
+| `product_variant_id` | `product_variant_id` | `string` | No | No | Product variant ID. For example, '1414-34832'. |
+
+## LinkedBusiness
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_large_url` | `image_large_url` | `string` | No | No | image_large_url |
+| `image_medium_url` | `image_medium_url` | `string` | No | No | image_medium_url |
+| `image_small_url` | `image_small_url` | `string` | No | No | image_small_url |
+| `image_xlarge_url` | `image_xlarge_url` | `string` | No | No | image_xlarge_url |
+| `username` | `username` | `string` | No | No | Username |
+
+## LinkedBusinessAccountsGetParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## LinkedBusinessAccountsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline11569>` | Yes | No | — |
+
+## LinkFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `LINK` | `LINK` | `Inline6621` | Yes | No | — |
+
+## LocalInventoryCreateOperation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline6623` | Yes | No | Local inventory attributes for retail items (required fields for create/upsert) |
+| `item_id` | `item_id` | `string` | Yes | No | Catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `store_code` | `store_code` | `string` | Yes | No | Store code for the local inventory item |
+
+## LocalInventoryDeleteOperation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_id` | `item_id` | `string` | Yes | No | Catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `store_code` | `store_code` | `string` | Yes | No | Store code for the local inventory item |
+
+## LocalInventoryItemResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_link` | `ad_link` | `string` | No | No | Ad link for the item |
+| `availability` | `availability` | `Inline6626` | No | No | Availability status of the item |
+| `created_at` | `created_at` | `number` | Yes | No | The millisecond timestamp when the local inventory item was created |
+| `item_id` | `item_id` | `string` | Yes | No | The catalog item id in the merchant namespace |
+| `last_updated_time` | `last_updated_time` | `number` | Yes | No | The millisecond timestamp when the local inventory item was lastly modified by the merchant. |
+| `price` | `price` | `string` | No | No | The price of the product. It supports the following formats, "49.99 USD", "49.99USD" and "49.99". If the currency is not included, we default to US dollars. |
+| `sale_price` | `sale_price` | `string` | No | No | The sale price of the product. It supports the following formats, "24.99 USD", "24.99USD" and "24.99". If the currency is not included, we default to US dollars. |
+| `store_metadata` | `store_metadata` | `Inline6627` | Yes | No | Store metadata for this local inventory item |
+
+## LocalInventoryItemsBatch
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `batch_id` | `batch_id` | `string` | Yes | No | Id of the batch operation |
+| `completed_time` | `completed_time` | `string` | No | No | Date and time (UTC) of the batch completion: YYYY-MM-DD'T'hh:mm:ss |
+| `created_time` | `created_time` | `string` | Yes | No | Date and time (UTC) of the batch creation: YYYY-MM-DD'T'hh:mm:ss |
+| `operation_results` | `operation_results` | `Array<Inline6629>` | Yes | No | Array of operation results |
+| `status` | `status` | `Inline6632` | Yes | No | Status of the batch: PROCESSING, COMPLETED, FAILED |
+
+## LocalInventoryItemsBatchCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `operations` | `operations` | `Array<Inline6634 \| Inline6635 \| Inline6636 \| Inline6637>` | Yes | No | Array of inventory operations. Up to 1000 items per request. |
+
+## LocalInventoryItemsGet
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline6639>` | Yes | No | Array of local inventory items |
+
+## LocalInventoryItemsGetCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_filters` | `item_filters` | `Array<Inline6642>` | Yes | No | Array of local inventory item identifiers. Each item requires an item_id and store_code pair. Up to 1000 items. |
+
+## LocalInventoryOperation
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline6644 \| Inline6645 \| Inline6646 \| Inline6647`
+
+## LocalInventoryOperationResult
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<Inline6649>` | No | No | Array with the validation errors for the item processing record. A non empty errors list causes the item processing to fail. |
+| `item_id` | `item_id` | `string` | Yes | No | Catalog item id in the merchant namespace |
+| `status` | `status` | `Inline6650` | Yes | No | Status of the item processing record |
+| `store_code` | `store_code` | `string` | Yes | No | Store code for the local inventory item |
+| `supplemental_type` | `supplemental_type` | `string` | Yes | No | — |
+| `warnings` | `warnings` | `Array<Inline6651>` | No | No | Array with the validation warnings for the item processing record |
+
+## LocalInventoryUpdateOperation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline6653` | Yes | No | Local inventory attributes for retail items (all fields optional for update/get) |
+| `item_id` | `item_id` | `string` | Yes | No | Catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `store_code` | `store_code` | `string` | Yes | No | Store code for the local inventory item |
+
+## LocalInventoryUpsertOperation
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attributes` | `attributes` | `Inline6655` | Yes | No | Local inventory attributes for retail items (required fields for create/upsert) |
+| `item_id` | `item_id` | `string` | Yes | No | Catalog item id in the merchant namespace |
+| `operation` | `operation` | `string` | Yes | No | — |
+| `store_code` | `store_code` | `string` | Yes | No | Store code for the local inventory item |

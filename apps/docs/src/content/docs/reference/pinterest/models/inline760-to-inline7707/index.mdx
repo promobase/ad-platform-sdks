@@ -1,0 +1,984 @@
+---
+title: "Pinterest models: Inline760 – Inline7707"
+description: "100 generated Pinterest model contracts, from Inline760 through Inline7707."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1086
+  label: "Inline760 – Inline7707"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Inline760
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_0` | `GOOGLE_PRODUCT_CATEGORY_0` | `Inline760` | Yes | No | — |
+
+## Inline7600
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7601
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7602
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Ad account ID. |
+| `ad_id` | `ad_id` | `Array<string>` | No | No | Ad ID for engagement audience filter. |
+| `campaign_id` | `campaign_id` | `Array<string>` | No | No | Campaign ID for engagement audience filter. |
+| `country` | `country` | `string` | No | No | Valid countries include: "US", "CA", and "GB". |
+| `customer_list_id` | `customer_list_id` | `string` | No | No | Customer list ID. For CUSTOMER_LIST `audience_type`. |
+| `engagement_domain` | `engagement_domain` | `Array<string>` | No | No | The audience account's verified domain. **Required** for ENGAGEMENT `audience_type`. |
+| `engagement_type` | `engagement_type` | `string` | No | No | Engagement type enum. Optional for ENGAGEMENT `audience_type`. Supported values are `click`, `save`, `closeup`, `comment` and `like`. All engagements are included if this field is not set. |
+| `engager_type` | `engager_type` | `number` | No | No | Optional for ENGAGEMENT. Engager type value should be 1-2. |
+| `event` | `event` | `string` | No | No | A Pinterest tag event. Optional for VISITOR `audience_type`. Possible values are `pagevisit`, `signup`, `checkout`, `viewcategory`, `search`, `addtocart`, `watchvideo`, `lead`, and `custom`. This field also accepts a partner-defined Pinterest tag event. |
+| `event_data` | `event_data` | `Inline7602` | No | No | Optional for VISITOR `audience_type`. With the Pinterest tag, you can use event data to capture event details from your website. This object lists all the available predefined event data fields in the Pinterest tag. You can include these event data fields as part of a VISITOR audience’s `rule`; however, you **must** specify an `event` for the `event_data` fields to be evaluated. Besides what’s listed, you can also create your own set of `event_data` fields and define their usages or purposes according to your website needs. However, the benefit of using the predefined event data fields is that we can provide various metrics based on those fields' data. Examples per `event` type: `pagevisit` "event_data": &#123; "page_name": "My online store 123 \| view items \| shoe" &#125; `signup` "event_data": &#123; "lead_type": "New release promotion" &#125; `checkout` "event_data": &#123; "value": 116, "order_quantity": 2, "currency": "USD", "line_items": [ &#123; "product_name": "Pillows (Set of 2)", "product_id": "11", "product_price": 48, "product_quantity": 1 &#125;, &#123; "product_name": "Pillows, Large (Set of 2)", "product_id": "15", "product_price": 68, "product_quantity": 1 &#125; ] &#125; `addtocart` "event_data": &#123; "value": 499, "order_quantity": 1, "currency": "USD", "line_items": [ &#123; "product_name": "Red leather boots", "product_id": "3486", "product_category": "shoe", "product_variant_id": "JB11103000", "product_price": 499, "product_quantity": "1", "product_brand": "My brand" &#125;]&#125; `watchvideo` "event_data": &#123; "video_title" : "My Product Video 01" &#125; `lead` "event_data": &#123; "lead_type": "Newsletter" &#125; |
+| `event_source` | `event_source` | `Inline7604` | No | No | Optional for VISITOR. You can use it as a &#123;'=': [value]&#125;. Supported values are: web, mobile, offline |
+| `ingestion_source` | `ingestion_source` | `Inline7605` | No | No | Optional for VISITOR. You can use it as a &#123;'=': [value]&#125;. Supported values are: tag, mmp, file_upload, conversions_api |
+| `objective_type` | `objective_type` | `Array<string>` | No | No | Objective for engagement audience filter. |
+| `percentage` | `percentage` | `string \| number` | No | No | Percentage should be 1-10. The targeted audience should be this % size across Pinterest. |
+| `pin_id` | `pin_id` | `Array<string>` | No | No | IDs of engaged organic pins. Optional for ENGAGEMENT `audience_type`. For example, "pin_id:": ["34567"] |
+| `prefill` | `prefill` | `boolean` | No | No | Optional for VISITOR `audience_type`. If `true`, the specified rule on existing engagement data is applied to pre-populate the audience. If `false`, the audience is empty at creation time. The default is `true`. |
+| `retention_days` | `retention_days` | `number` | No | No | Number of days a Pinterest user remains in the audience. Optional for ENGAGEMENT and VISITOR `audience_type`. Accepted range is 1-540. Defaults to 180 if not specified. |
+| `seed_id` | `seed_id` | `Array<number> \| Array<string>` | No | No | Audience ID(s). For ACTALIKE `audience_type`. |
+| `url` | `url` | `Array<string>` | No | No | Optional for ENGAGEMENT or VISITOR `audience_type`. For ENGAGEMENT, it is the engaged pin's URL. For VISITOR, you can use it as a string or a &#123;operator: value&#125; object for filtering visitors based on conversion tag event URLs. Supported operators are [ =, !=, contains, not_contains]. Example 1: "url": "http://www.myonlinestore123.com/view_item/shoe" Example 2: "url": &#123;"contains": "/view_item/shoe"&#125; |
+| `visitor_source_id` | `visitor_source_id` | `string \| Array<string>` | No | No | The conversion tag ID, or the Pinterest tag ID, that you use on your website. For VISITOR `audience_type`. |
+
+## Inline7603
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_brand` | `product_brand` | `string` | No | No | Product brand. For example, 'Parker'. |
+| `product_category` | `product_category` | `string` | No | No | Product category. For example, 'Shoes'. |
+| `product_id` | `product_id` | `number` | No | No | Product ID. For example, 1414. |
+| `product_name` | `product_name` | `string` | No | No | Product name. For example, 'Parker Boots'. |
+| `product_price` | `product_price` | `string` | No | No | Product price. For example, '99.99'. |
+| `product_quantity` | `product_quantity` | `number` | No | No | Product quantity. For example, 2. |
+| `product_variant` | `product_variant` | `string` | No | No | Product variant. For example, 'Red'. |
+| `product_variant_id` | `product_variant_id` | `string` | No | No | Product variant ID. For example, '1414-34832'. |
+
+## Inline7604
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7605
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7607
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Ad account ID. |
+| `audience_type` | `audience_type` | `Inline7607` | No | No | Audience types: ACTALIKE, ENGAGEMENT, CUSTOMER_LIST and VISITOR |
+| `created_by_company_name` | `created_by_company_name` | `string` | No | No | The company that created this audience. |
+| `created_timestamp` | `created_timestamp` | `number` | No | No | Creation time. Unix timestamp in seconds. |
+| `description` | `description` | `string` | No | No | Audience description. |
+| `id` | `id` | `string` | Yes | No | Audience ID. |
+| `is_nca` | `is_nca` | `boolean` | No | No | Whether the audience derives from a new customer acquisition (expanded matching) customer list. Read-only. |
+| `name` | `name` | `string` | No | No | Audience name. |
+| `rule` | `rule` | `Inline7608` | No | No | JSON object defining targeted audience users. Example rule formats per audience type: CUSTOMER_LIST: &#123; "customer_list_id": "&lt;customer list ID&gt;"&#125; ACTALIKE: &#123; "seed_id": ["&lt;audience ID&gt;"], "country": "US", "percentage": "10" &#125; (Valid countries include: "US", "CA", and "GB". Percentage should be 1-10. The targeted audience should be this % size across Pinterest.) VISITOR: &#123; "visitor_source_id": ["&lt;conversion tag ID&gt;"], "retention_days": "180", "event_source": &#123;"=": ["web", "mobile"]&#125;, "ingestion_source": &#123;"=": ["tag"]&#125;&#125; (Retention days should be 1-540. Retention applies to specific customers.) ENGAGEMENT: &#123;"engagement_domain": ["www.example.com"], "engager_type": 1&#125; Learn more about engagement audiences. |
+| `size` | `size` | `number` | No | No | Audience size. |
+| `status` | `status` | `Inline7612` | No | No | Audience status. READY, INITIALIZING, TOO_SMALL - Each audience list needs to have at least 100 people with Pinterest accounts before you can start using it. |
+| `type` | `type` | `string` | No | No | Always "audience". |
+| `updated_timestamp` | `updated_timestamp` | `number` | No | No | Last update time. Unix timestamp in seconds. |
+
+## Inline7608
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Ad account ID. |
+| `ad_id` | `ad_id` | `Array<string>` | No | No | Ad ID for engagement audience filter. |
+| `campaign_id` | `campaign_id` | `Array<string>` | No | No | Campaign ID for engagement audience filter. |
+| `country` | `country` | `string` | No | No | Valid countries include: "US", "CA", and "GB". |
+| `customer_list_id` | `customer_list_id` | `string` | No | No | Customer list ID. For CUSTOMER_LIST `audience_type`. |
+| `engagement_domain` | `engagement_domain` | `Array<string>` | No | No | The audience account's verified domain. **Required** for ENGAGEMENT `audience_type`. |
+| `engagement_type` | `engagement_type` | `string` | No | No | Engagement type enum. Optional for ENGAGEMENT `audience_type`. Supported values are `click`, `save`, `closeup`, `comment` and `like`. All engagements are included if this field is not set. |
+| `engager_type` | `engager_type` | `number` | No | No | Optional for ENGAGEMENT. Engager type value should be 1-2. |
+| `event` | `event` | `string` | No | No | A Pinterest tag event. Optional for VISITOR `audience_type`. Possible values are `pagevisit`, `signup`, `checkout`, `viewcategory`, `search`, `addtocart`, `watchvideo`, `lead`, and `custom`. This field also accepts a partner-defined Pinterest tag event. |
+| `event_data` | `event_data` | `Inline7608` | No | No | Optional for VISITOR `audience_type`. With the Pinterest tag, you can use event data to capture event details from your website. This object lists all the available predefined event data fields in the Pinterest tag. You can include these event data fields as part of a VISITOR audience’s `rule`; however, you **must** specify an `event` for the `event_data` fields to be evaluated. Besides what’s listed, you can also create your own set of `event_data` fields and define their usages or purposes according to your website needs. However, the benefit of using the predefined event data fields is that we can provide various metrics based on those fields' data. Examples per `event` type: `pagevisit` "event_data": &#123; "page_name": "My online store 123 \| view items \| shoe" &#125; `signup` "event_data": &#123; "lead_type": "New release promotion" &#125; `checkout` "event_data": &#123; "value": 116, "order_quantity": 2, "currency": "USD", "line_items": [ &#123; "product_name": "Pillows (Set of 2)", "product_id": "11", "product_price": 48, "product_quantity": 1 &#125;, &#123; "product_name": "Pillows, Large (Set of 2)", "product_id": "15", "product_price": 68, "product_quantity": 1 &#125; ] &#125; `addtocart` "event_data": &#123; "value": 499, "order_quantity": 1, "currency": "USD", "line_items": [ &#123; "product_name": "Red leather boots", "product_id": "3486", "product_category": "shoe", "product_variant_id": "JB11103000", "product_price": 499, "product_quantity": "1", "product_brand": "My brand" &#125;]&#125; `watchvideo` "event_data": &#123; "video_title" : "My Product Video 01" &#125; `lead` "event_data": &#123; "lead_type": "Newsletter" &#125; |
+| `event_source` | `event_source` | `Inline7610` | No | No | Optional for VISITOR. You can use it as a &#123;'=': [value]&#125;. Supported values are: web, mobile, offline |
+| `ingestion_source` | `ingestion_source` | `Inline7611` | No | No | Optional for VISITOR. You can use it as a &#123;'=': [value]&#125;. Supported values are: tag, mmp, file_upload, conversions_api |
+| `objective_type` | `objective_type` | `Array<string>` | No | No | Objective for engagement audience filter. |
+| `percentage` | `percentage` | `string \| number` | No | No | Percentage should be 1-10. The targeted audience should be this % size across Pinterest. |
+| `pin_id` | `pin_id` | `Array<string>` | No | No | IDs of engaged organic pins. Optional for ENGAGEMENT `audience_type`. For example, "pin_id:": ["34567"] |
+| `prefill` | `prefill` | `boolean` | No | No | Optional for VISITOR `audience_type`. If `true`, the specified rule on existing engagement data is applied to pre-populate the audience. If `false`, the audience is empty at creation time. The default is `true`. |
+| `retention_days` | `retention_days` | `number` | No | No | Number of days a Pinterest user remains in the audience. Optional for ENGAGEMENT and VISITOR `audience_type`. Accepted range is 1-540. Defaults to 180 if not specified. |
+| `seed_id` | `seed_id` | `Array<number> \| Array<string>` | No | No | Audience ID(s). For ACTALIKE `audience_type`. |
+| `url` | `url` | `Array<string>` | No | No | Optional for ENGAGEMENT or VISITOR `audience_type`. For ENGAGEMENT, it is the engaged pin's URL. For VISITOR, you can use it as a string or a &#123;operator: value&#125; object for filtering visitors based on conversion tag event URLs. Supported operators are [ =, !=, contains, not_contains]. Example 1: "url": "http://www.myonlinestore123.com/view_item/shoe" Example 2: "url": &#123;"contains": "/view_item/shoe"&#125; |
+| `visitor_source_id` | `visitor_source_id` | `string \| Array<string>` | No | No | The conversion tag ID, or the Pinterest tag ID, that you use on your website. For VISITOR `audience_type`. |
+
+## Inline7609
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `product_brand` | `product_brand` | `string` | No | No | Product brand. For example, 'Parker'. |
+| `product_category` | `product_category` | `string` | No | No | Product category. For example, 'Shoes'. |
+| `product_id` | `product_id` | `number` | No | No | Product ID. For example, 1414. |
+| `product_name` | `product_name` | `string` | No | No | Product name. For example, 'Parker Boots'. |
+| `product_price` | `product_price` | `string` | No | No | Product price. For example, '99.99'. |
+| `product_quantity` | `product_quantity` | `number` | No | No | Product quantity. For example, 2. |
+| `product_variant` | `product_variant` | `string` | No | No | Product variant. For example, 'Red'. |
+| `product_variant_id` | `product_variant_id` | `string` | No | No | Product variant ID. For example, '1414-34832'. |
+
+## Inline761
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_0` | `CUSTOM_NUMBER_0` | `Inline761` | Yes | No | — |
+
+## Inline7610
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7611
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7612
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7614
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7616
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_id` | `audience_id` | `Inline7616` | Yes | No | Unique identifier of an audience |
+| `permissions` | `permissions` | `Array<string>` | No | No | Permissions granted to the recipients. |
+| `recipient_account_ids` | `recipient_account_ids` | `Array<unknown>` | Yes | No | Ad account IDs to share with or revoke from (request) / that received the audience (response). |
+
+## Inline7618
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7619
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline762
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_1` | `CUSTOM_NUMBER_1` | `Inline762` | Yes | No | — |
+
+## Inline7621
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_id` | `audience_id` | `Inline7621` | Yes | No | Unique identifier of an audience |
+| `permissions` | `permissions` | `Array<string>` | No | No | Permissions granted to the recipients. |
+| `recipient_business_ids` | `recipient_business_ids` | `Array<unknown>` | Yes | No | Business IDs to share with or revoke from (request) / that received the audience (response). |
+
+## Inline7623
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7625
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | — |
+| `items` | `items` | `Array<Inline7625>` | Yes | No | — |
+
+## Inline7627
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `billable_event` | `billable_event` | `Inline7627` | Yes | No | Ad group billable event type. |
+| `countries` | `countries` | `Array<string>` | No | No | List of ISO 3166-1 alpha-2 country codes. |
+| `creative_type` | `creative_type` | `Inline7628` | No | No | Creative type for the bid floor request. |
+| `currency` | `currency` | `Inline7629` | Yes | No | Currency for the bid floor value. |
+| `objective_type` | `objective_type` | `Inline7630` | No | No | Campaign objective type. |
+| `optimization_goal_metadata` | `optimization_goal_metadata` | `Inline7631` | No | No | Optimization goal metadata. |
+
+## Inline7628
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7629
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline763
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_2` | `CUSTOM_NUMBER_2` | `Inline763` | Yes | No | — |
+
+## Inline7630
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7631
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversion_tag_v3_goal_metadata` | `conversion_tag_v3_goal_metadata` | `Inline7631` | No | No | — |
+| `frequency_goal_metadata` | `frequency_goal_metadata` | `Inline7632` | No | No | Frequency target can only be between 2 and 20 |
+| `scrollup_goal_metadata` | `scrollup_goal_metadata` | `Inline7633` | No | No | — |
+
+## Inline7632
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `frequency` | `frequency` | `number` | No | No | — |
+| `timerange` | `timerange` | `string` | No | No | — |
+
+## Inline7633
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `scrollup_goal_value_in_micro_currency` | `scrollup_goal_value_in_micro_currency` | `string` | No | No | — |
+
+## Inline7634
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AGE_BUCKET` | `AGE_BUCKET` | `Array<string>` | No | No | **Legacy field.** Predefined age ranges. We recommend using MINIMUM_AGE and MAXIMUM_AGE instead for more flexible targeting. Cannot be combined with MINIMUM_AGE/MAXIMUM_AGE. If neither AGE_BUCKET nor MINIMUM_AGE/MAXIMUM_AGE are specified, all ages will be targeted. |
+| `APPTYPE` | `APPTYPE` | `Array<string>` | No | No | Allowed devices. If the APPTYPE field is missing, the default behavior in terms of ad delivery is that **All devices/apptypes** will be targeted. |
+| `AUDIENCE_EXCLUDE` | `AUDIENCE_EXCLUDE` | `Array<unknown>` | No | No | Excluded customer list IDs. Used to drive new customer acquisition goals. For example: ["2542620905475"]. Audience lists need to have at least 100 people with Pinterest accounts in them. If the AUDIENCE_EXCLUDE field is missing, the default behavior in terms of ad delivery is that **No users will be excluded**. |
+| `AUDIENCE_INCLUDE` | `AUDIENCE_INCLUDE` | `Array<unknown>` | No | No | Targeted customer list IDs. For example: ["2542620905473"]. Audience lists need to have at least 100 people with Pinterest accounts in them Audience lists need to have at least 100 people with Pinterest accounts in them. If the AUDIENCE_INCLUDE field is missing, the default behavior in terms of ad delivery is that **All users will be included**. |
+| `GENDER` | `GENDER` | `Array<string>` | No | No | Targeted genders. Values: ["unknown","male","female"]. If the GENDER field is missing, the default behavior in terms of ad delivery is that **All genders will be targeted**. |
+| `GEO` | `GEO` | `Array<string>` | No | No | Region codes or postal codes to include for targeting. Region codes represent broader geographical areas. Example: `US-CA` is the region code for California in the United States. Postal codes represent more granular, specific areas. Example: `94103` is a postal code for a specifc area in San Francisco, California, U.S.A. For each ad group, use only one of these methods, depending on which fits your targeting needs. Do not use both. For example, either specify a broader region code like `US-CA` or a more granular postal code within that regon, such as `94103`. You can specify multiple region codes or postal codes in an array, depending on which method you choose. Precede a region code array with the `region_codes` key and a postal code value with the `postal_codes` key. Examples: ``` "geo": &#123; "region_codes": ["US-CA"] &#125; ``` ``` "geo": &#123; "postal_codes": ["94103"] &#125; ``` For each ad group, specify at least one `GEO` or `LOCATION`. If you do not specifiy a `GEO` code, only `LOCATION` values will be targeted (See `LOCATION` parameter in this targeting spec.). Learn how to get a current, complete list of codes. |
+| `GEO_EXCLUDE` | `GEO_EXCLUDE` | `Array<string>` | No | No | Closed beta Region codes or postal codes to exclude from the targeting inclusion area. See `GEO` parameter in this targeting spec for rules, syntax, and other information. |
+| `INTEREST` | `INTEREST` | `Array<string>` | No | No | Array of interest object IDs. If the INTEREST field is missing, the default behavior in terms of ad delivery is that **All interests will be targeted**. |
+| `LOCALE` | `LOCALE` | `Array<string>` | No | No | 24 ISO 639-1 two-letter language codes. If the LOCALE field is not included in the request, all languages are targeted. |
+| `LOCATION` | `LOCATION` | `Array<string>` | No | No | Metropolitan codes and/or ISO-Alpha-2, two-letter country codes to include for targeting. Precede country code values with the `country_codes` key and metro code values with `metro_codes` key. Example: ``` "location": &#123; "country_codes": ["US", "CA"], "metro_codes": ["501", "602"] &#125; ``` For each ad group, specify at least one `GEO` or `LOCATION` code. If you do not specify a `LOCATION` code, only `GEO` values will be targeted (See `GEO` parameter in this targeting spec.). Learn how to get a current, complete list of codes. |
+| `LOCATION_EXCLUDE` | `LOCATION_EXCLUDE` | `Array<string>` | No | No | Closed beta Metropolitan codes and/or ISO-Alpha-2, two-letter country codes to exclude from targeting. See `LOCATION` parameter in this targeting spec for rules, syntax, and other information. |
+| `MAXIMUM_AGE` | `MAXIMUM_AGE` | `string` | No | No | Maximum age to target (inclusive). Values: "18", "19", ..., "65", "65+". Must be used together with `MINIMUM_AGE`. Cannot be combined with `AGE_BUCKET`. If neither `MINIMUM_AGE`/`MAXIMUM_AGE` nor `AGE_BUCKET` are specified, all ages will be targeted. |
+| `MINIMUM_AGE` | `MINIMUM_AGE` | `string` | No | No | Minimum age to target (inclusive). Values: "18", "19", ..., "65". Note: 65+ is not allowed for minimum age. Must be used together with `MAXIMUM_AGE`. Cannot be combined with `AGE_BUCKET`. If neither `MINIMUM_AGE`/`MAXIMUM_AGE` nor `AGE_BUCKET` are specified, all ages will be targeted. |
+| `SHOPPING_RETARGETING` | `SHOPPING_RETARGETING` | `Array<Inline7634>` | No | No | Array of object: lookback_window [Integer]: Number of days ago to start lookback timeframe for dynamic retargeting tag_types [Array of integer]: Event types to target for dynamic retargeting exclusion_window [Integer]: Number of days ago to stop lookback timeframe for dynamic retargeting |
+| `TARGETING_STRATEGY` | `TARGETING_STRATEGY` | `Array<string>` | No | No | — |
+
+## Inline7636
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid_floors` | `bid_floors` | `Array<number>` | No | No | A list of bid floors in micro currency. For example, [100000, 200000] |
+| `type` | `type` | `string` | No | No | Always the string 'bidfloor'. |
+
+## Inline7638
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `billable_event` | `billable_event` | `Inline7638` | Yes | No | Ad group billable event type. |
+| `countries` | `countries` | `Array<string>` | No | No | List of ISO 3166-1 alpha-2 country codes. |
+| `creative_type` | `creative_type` | `Inline7639` | No | No | Creative type for the bid floor request. |
+| `currency` | `currency` | `Inline7640` | Yes | No | Currency for the bid floor value. |
+| `objective_type` | `objective_type` | `Inline7641` | No | No | Campaign objective type. |
+| `optimization_goal_metadata` | `optimization_goal_metadata` | `Inline7642` | No | No | Optimization goal metadata. |
+
+## Inline7639
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline764
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_3` | `CUSTOM_NUMBER_3` | `Inline764` | Yes | No | — |
+
+## Inline7640
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7641
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7642
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversion_tag_v3_goal_metadata` | `conversion_tag_v3_goal_metadata` | `Inline7642` | No | No | — |
+| `frequency_goal_metadata` | `frequency_goal_metadata` | `Inline7643` | No | No | Frequency target can only be between 2 and 20 |
+| `scrollup_goal_metadata` | `scrollup_goal_metadata` | `Inline7644` | No | No | — |
+
+## Inline7643
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `frequency` | `frequency` | `number` | No | No | — |
+| `timerange` | `timerange` | `string` | No | No | — |
+
+## Inline7644
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `scrollup_goal_value_in_micro_currency` | `scrollup_goal_value_in_micro_currency` | `string` | No | No | — |
+
+## Inline7645
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AGE_BUCKET` | `AGE_BUCKET` | `Array<string>` | No | No | **Legacy field.** Predefined age ranges. We recommend using MINIMUM_AGE and MAXIMUM_AGE instead for more flexible targeting. Cannot be combined with MINIMUM_AGE/MAXIMUM_AGE. If neither AGE_BUCKET nor MINIMUM_AGE/MAXIMUM_AGE are specified, all ages will be targeted. |
+| `APPTYPE` | `APPTYPE` | `Array<string>` | No | No | Allowed devices. If the APPTYPE field is missing, the default behavior in terms of ad delivery is that **All devices/apptypes** will be targeted. |
+| `AUDIENCE_EXCLUDE` | `AUDIENCE_EXCLUDE` | `Array<unknown>` | No | No | Excluded customer list IDs. Used to drive new customer acquisition goals. For example: ["2542620905475"]. Audience lists need to have at least 100 people with Pinterest accounts in them. If the AUDIENCE_EXCLUDE field is missing, the default behavior in terms of ad delivery is that **No users will be excluded**. |
+| `AUDIENCE_INCLUDE` | `AUDIENCE_INCLUDE` | `Array<unknown>` | No | No | Targeted customer list IDs. For example: ["2542620905473"]. Audience lists need to have at least 100 people with Pinterest accounts in them Audience lists need to have at least 100 people with Pinterest accounts in them. If the AUDIENCE_INCLUDE field is missing, the default behavior in terms of ad delivery is that **All users will be included**. |
+| `GENDER` | `GENDER` | `Array<string>` | No | No | Targeted genders. Values: ["unknown","male","female"]. If the GENDER field is missing, the default behavior in terms of ad delivery is that **All genders will be targeted**. |
+| `GEO` | `GEO` | `Array<string>` | No | No | Region codes or postal codes to include for targeting. Region codes represent broader geographical areas. Example: `US-CA` is the region code for California in the United States. Postal codes represent more granular, specific areas. Example: `94103` is a postal code for a specifc area in San Francisco, California, U.S.A. For each ad group, use only one of these methods, depending on which fits your targeting needs. Do not use both. For example, either specify a broader region code like `US-CA` or a more granular postal code within that regon, such as `94103`. You can specify multiple region codes or postal codes in an array, depending on which method you choose. Precede a region code array with the `region_codes` key and a postal code value with the `postal_codes` key. Examples: ``` "geo": &#123; "region_codes": ["US-CA"] &#125; ``` ``` "geo": &#123; "postal_codes": ["94103"] &#125; ``` For each ad group, specify at least one `GEO` or `LOCATION`. If you do not specifiy a `GEO` code, only `LOCATION` values will be targeted (See `LOCATION` parameter in this targeting spec.). Learn how to get a current, complete list of codes. |
+| `GEO_EXCLUDE` | `GEO_EXCLUDE` | `Array<string>` | No | No | Closed beta Region codes or postal codes to exclude from the targeting inclusion area. See `GEO` parameter in this targeting spec for rules, syntax, and other information. |
+| `INTEREST` | `INTEREST` | `Array<string>` | No | No | Array of interest object IDs. If the INTEREST field is missing, the default behavior in terms of ad delivery is that **All interests will be targeted**. |
+| `LOCALE` | `LOCALE` | `Array<string>` | No | No | 24 ISO 639-1 two-letter language codes. If the LOCALE field is not included in the request, all languages are targeted. |
+| `LOCATION` | `LOCATION` | `Array<string>` | No | No | Metropolitan codes and/or ISO-Alpha-2, two-letter country codes to include for targeting. Precede country code values with the `country_codes` key and metro code values with `metro_codes` key. Example: ``` "location": &#123; "country_codes": ["US", "CA"], "metro_codes": ["501", "602"] &#125; ``` For each ad group, specify at least one `GEO` or `LOCATION` code. If you do not specify a `LOCATION` code, only `GEO` values will be targeted (See `GEO` parameter in this targeting spec.). Learn how to get a current, complete list of codes. |
+| `LOCATION_EXCLUDE` | `LOCATION_EXCLUDE` | `Array<string>` | No | No | Closed beta Metropolitan codes and/or ISO-Alpha-2, two-letter country codes to exclude from targeting. See `LOCATION` parameter in this targeting spec for rules, syntax, and other information. |
+| `MAXIMUM_AGE` | `MAXIMUM_AGE` | `string` | No | No | Maximum age to target (inclusive). Values: "18", "19", ..., "65", "65+". Must be used together with `MINIMUM_AGE`. Cannot be combined with `AGE_BUCKET`. If neither `MINIMUM_AGE`/`MAXIMUM_AGE` nor `AGE_BUCKET` are specified, all ages will be targeted. |
+| `MINIMUM_AGE` | `MINIMUM_AGE` | `string` | No | No | Minimum age to target (inclusive). Values: "18", "19", ..., "65". Note: 65+ is not allowed for minimum age. Must be used together with `MAXIMUM_AGE`. Cannot be combined with `AGE_BUCKET`. If neither `MINIMUM_AGE`/`MAXIMUM_AGE` nor `AGE_BUCKET` are specified, all ages will be targeted. |
+| `SHOPPING_RETARGETING` | `SHOPPING_RETARGETING` | `Array<Inline7645>` | No | No | Array of object: lookback_window [Integer]: Number of days ago to start lookback timeframe for dynamic retargeting tag_types [Array of integer]: Event types to target for dynamic retargeting exclusion_window [Integer]: Number of days ago to stop lookback timeframe for dynamic retargeting |
+| `TARGETING_STRATEGY` | `TARGETING_STRATEGY` | `Array<string>` | No | No | — |
+
+## Inline7647
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `download_url` | `download_url` | `string` | No | No | The download url for the billing invoice |
+| `id` | `id` | `string` | No | No | The billing invoice id |
+
+## Inline765
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_4` | `CUSTOM_NUMBER_4` | `Inline765` | Yes | No | — |
+
+## Inline7650
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | — |
+| `items` | `items` | `Array<Inline7650>` | Yes | No | — |
+
+## Inline7651
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7654
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bookmark` | `bookmark` | `string` | No | No | — |
+| `items` | `items` | `Array<Inline7654>` | Yes | No | — |
+
+## Inline7655
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7656
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7657
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline766
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `TITLE_KEYWORDS` | `TITLE_KEYWORDS` | `Inline766` | Yes | No | — |
+
+## Inline7660
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `result_url` | `result_url` | `string` | No | No | Presigned s3 file url for the bulk request result. |
+| `status` | `status` | `string` | Yes | No | Bulk request status |
+| `workload_id` | `workload_id` | `number` | No | No | Bulk Workload Id. |
+
+## Inline7662
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_status` | `campaign_status` | `Array<string>` | No | No | — |
+| `end_time` | `end_time` | `string` | No | No | Unix UTC timestamp. |
+| `name` | `name` | `string` | No | No | Campaign name |
+| `objective_type` | `objective_type` | `Array<string>` | No | No | — |
+| `start_time` | `start_time` | `string` | No | No | Unix UTC timestamp. |
+
+## Inline7663
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7665
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `request_id` | `request_id` | `string` | No | No | ID of the bulk request. |
+
+## Inline7667
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_status` | `campaign_status` | `Array<string>` | No | No | — |
+| `end_time` | `end_time` | `string` | No | No | Unix UTC timestamp. |
+| `name` | `name` | `string` | No | No | Campaign name |
+| `objective_type` | `objective_type` | `Array<string>` | No | No | — |
+| `start_time` | `start_time` | `string` | No | No | Unix UTC timestamp. |
+
+## Inline7668
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7669
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_groups` | `ad_groups` | `Array<Inline7669>` | No | No | — |
+| `ads` | `ads` | `Array<Inline7678>` | No | No | — |
+| `campaigns` | `campaigns` | `Array<Inline7682>` | No | No | — |
+| `catalog_product_groups` | `catalog_product_groups` | `Array<Inline7694 \| Inline7764 \| Inline7835 \| Inline7856>` | No | No | — |
+| `keywords` | `keywords` | `Array<Inline7889>` | No | No | — |
+| `labels` | `labels` | `Array<Inline7890>` | No | No | — |
+| `product_groups` | `product_groups` | `Array<Inline7891>` | No | No | — |
+| `schedules` | `schedules` | `Array<Inline7892>` | No | No | — |
+
+## Inline767
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `PINTEREST_PRODUCT_CATEGORIES` | `PINTEREST_PRODUCT_CATEGORIES` | `Inline767` | Yes | No | — |
+
+## Inline7670
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversion_tag_v3_goal_metadata` | `conversion_tag_v3_goal_metadata` | `Inline7670` | No | No | — |
+| `frequency_goal_metadata` | `frequency_goal_metadata` | `Inline7671` | No | No | Frequency target can only be between 2 and 20 |
+| `scrollup_goal_metadata` | `scrollup_goal_metadata` | `Inline7672` | No | No | — |
+
+## Inline7671
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `frequency` | `frequency` | `number` | No | No | — |
+| `timerange` | `timerange` | `string` | No | No | — |
+
+## Inline7672
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `scrollup_goal_value_in_micro_currency` | `scrollup_goal_value_in_micro_currency` | `string` | No | No | — |
+
+## Inline7673
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7674
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7675
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7676
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AGE_BUCKET` | `AGE_BUCKET` | `Array<string>` | No | No | **Legacy field.** Predefined age ranges. We recommend using MINIMUM_AGE and MAXIMUM_AGE instead for more flexible targeting. Cannot be combined with MINIMUM_AGE/MAXIMUM_AGE. If neither AGE_BUCKET nor MINIMUM_AGE/MAXIMUM_AGE are specified, all ages will be targeted. |
+| `APPTYPE` | `APPTYPE` | `Array<string>` | No | No | Allowed devices. If the APPTYPE field is missing, the default behavior in terms of ad delivery is that **All devices/apptypes** will be targeted. |
+| `AUDIENCE_EXCLUDE` | `AUDIENCE_EXCLUDE` | `Array<string>` | No | No | Excluded customer list IDs. Used to drive new customer acquisition goals. For example: ["2542620905475"]. Audience lists need to have at least 100 people with Pinterest accounts in them. If the AUDIENCE_EXCLUDE field is missing, the default behavior in terms of ad delivery is that **No users will be excluded**. |
+| `AUDIENCE_INCLUDE` | `AUDIENCE_INCLUDE` | `Array<string>` | No | No | Targeted customer list IDs. For example: ["2542620905473"]. Audience lists need to have at least 100 people with Pinterest accounts in them Audience lists need to have at least 100 people with Pinterest accounts in them. If the AUDIENCE_INCLUDE field is missing, the default behavior in terms of ad delivery is that **All users will be included**. |
+| `GENDER` | `GENDER` | `Array<string>` | No | No | Targeted genders. Values: ["unknown","male","female"]. If the GENDER field is missing, the default behavior in terms of ad delivery is that **All genders will be targeted**. |
+| `GEO` | `GEO` | `Array<string>` | No | No | Region codes or postal codes to include for targeting.&lt;br /&gt;&lt;br /&gt; Region codes represent broader geographical areas. Example: &lt;code&gt;US-CA&lt;/code&gt; is the region code for California in the United States.&lt;br /&gt;&lt;br /&gt; Postal codes represent more granular, specific areas. Example: &lt;code&gt;94103&lt;/code&gt; is a postal code for a specifc area in San Francisco, California, U.S.A.&lt;br /&gt;&lt;br /&gt; For each ad group, use only one of these methods, depending on which fits your targeting needs. Do not use both. For example, either specify a broader region code like &lt;code&gt;US-CA&lt;/code&gt; or a more granular postal code within that regon, such as &lt;code&gt;94103&lt;/code&gt;.&lt;br /&gt;&lt;br /&gt; You can specify multiple region codes or postal codes in an array, depending on which method you choose.&lt;br /&gt;&lt;br /&gt; Precede a region code array with the &lt;code&gt;region_codes&lt;/code&gt; key and a postal code value with the &lt;code&gt;postal_codes&lt;/code&gt; key. Examples:&lt;br /&gt;&lt;br /&gt; &lt;code&gt;"geo": &#123;&lt;/code&gt;&lt;br /&gt; &lt;code&gt;"region_codes": ["US-CA"]&lt;/code&gt;&lt;br /&gt; &lt;code&gt;&#125;&lt;/code&gt;&lt;br /&gt;&lt;br /&gt; &lt;code&gt;"geo": &#123;&lt;/code&gt;&lt;br /&gt; &lt;code&gt;"postal_codes": ["94103"]&lt;/code&gt;&lt;br /&gt; &lt;code&gt;&#125;&lt;/code&gt;&lt;br /&gt;&lt;br /&gt; For each ad group, specify at least one &lt;code&gt;GEO&lt;/code&gt; or &lt;code&gt;LOCATION&lt;/code&gt;. &lt;br /&gt;&lt;br /&gt; If you do not specifiy a &lt;code&gt;GEO&lt;/code&gt; code, only &lt;code&gt;LOCATION&lt;/code&gt; values will be targeted (See &lt;code&gt;LOCATION&lt;/code&gt; parameter in this targeting spec.).&lt;br /&gt;&lt;br /&gt; Learn how to &lt;a href="/docs/analytics-and-reports/ads-reporting/#get-all-available-codes-and-zones" target="_blank"&gt;get a current, complete list of codes&lt;/a&gt;. |
+| `GEO_EXCLUDE` | `GEO_EXCLUDE` | `Array<string>` | No | No | Region codes or postal codes to exclude from the targeting inclusion area.&lt;br /&gt;&lt;br /&gt; See &lt;code&gt;GEO&lt;/code&gt; parameter in this targeting spec for rules, syntax, and other information.&lt;br /&gt; |
+| `INTEREST` | `INTEREST` | `Array<string>` | No | No | Array of interest object IDs. If the INTEREST field is missing, the default behavior in terms of ad delivery is that **All interests will be targeted**. |
+| `LOCALE` | `LOCALE` | `Array<string>` | No | No | 24 ISO 639-1 two-letter language codes. If the LOCALE field is not included in the request, all languages are targeted. |
+| `LOCATION` | `LOCATION` | `Array<string>` | No | No | Metropolitan codes and/or ISO-Alpha-2, two-letter country codes to include for targeting.&lt;br /&gt;&lt;br /&gt; Precede country code values with the &lt;code&gt;country_codes&lt;/code&gt; key and metro code values with &lt;code&gt;metro_codes&lt;/code&gt; key. Example:&lt;br /&gt;&lt;br /&gt; &lt;code&gt;"location": &#123;&lt;/code&gt;&lt;br /&gt; &lt;code&gt;"country_codes": ["US", "CA"],&lt;/code&gt;&lt;br /&gt; &lt;code&gt;"metro_codes": ["501", "602"]&lt;/code&gt;&lt;br /&gt; &lt;code&gt;&#125;&lt;/code&gt;&lt;br /&gt;&lt;br /&gt; For each ad group, specify at least one &lt;code&gt;GEO&lt;/code&gt; or &lt;code&gt;LOCATION&lt;/code&gt; code. &lt;br /&gt;&lt;br /&gt; If you do not specify a &lt;code&gt;LOCATION&lt;/code&gt; code, only &lt;code&gt;GEO&lt;/code&gt; values will be targeted (See &lt;code&gt;GEO&lt;/code&gt; parameter in this targeting spec.).&lt;br /&gt;&lt;br /&gt; Learn how to &lt;a href="/docs/analytics-and-reports/ads-reporting/#get-all-available-codes-and-zones" target="_blank"&gt;get a current, complete list of codes&lt;/a&gt;. |
+| `LOCATION_EXCLUDE` | `LOCATION_EXCLUDE` | `Array<string>` | No | No | Metropolitan codes and/or ISO-Alpha-2, two-letter country codes to exclude from targeting.&lt;br /&gt;&lt;br /&gt; See &lt;code&gt;LOCATION&lt;/code&gt; parameter in this targeting spec for rules, syntax, and other information. |
+| `MAXIMUM_AGE` | `MAXIMUM_AGE` | `string` | No | No | Maximum age to target (inclusive). Values: "18", "19", ..., "65", "65+". Must be used together with `MINIMUM_AGE`. Cannot be combined with `AGE_BUCKET`. If neither `MINIMUM_AGE`/`MAXIMUM_AGE` nor `AGE_BUCKET` are specified, all ages will be targeted. |
+| `MINIMUM_AGE` | `MINIMUM_AGE` | `string` | No | No | Minimum age to target (inclusive). Values: "18", "19", ..., "65". Note: 65+ is not allowed for minimum age. Must be used together with `MAXIMUM_AGE`. Cannot be combined with `AGE_BUCKET`. If neither `MINIMUM_AGE`/`MAXIMUM_AGE` nor `AGE_BUCKET` are specified, all ages will be targeted. |
+| `SHOPPING_RETARGETING` | `SHOPPING_RETARGETING` | `Array<Inline7676>` | No | No | Array of object: lookback_window [Integer]: Number of days ago to start lookback timeframe for dynamic retargeting tag_types [Array of integer]: Event types to target for dynamic retargeting exclusion_window [Integer]: Number of days ago to stop lookback timeframe for dynamic retargeting |
+| `TARGETING_STRATEGY` | `TARGETING_STRATEGY` | `Array<string>` | No | No | — |
+
+## Inline7677
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_verification` | `audience_verification` | `Array<string>` | No | No | — |
+| `buyable_button` | `buyable_button` | `Array<string>` | No | No | — |
+| `click` | `click` | `Array<string>` | No | No | — |
+| `engagement` | `engagement` | `Array<string>` | No | No | — |
+| `impression` | `impression` | `Array<string>` | No | No | — |
+
+## Inline7678
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_id` | `ad_group_id` | `string` | No | No | ID of the ad group that contains the ad. |
+| `android_deep_link` | `android_deep_link` | `string` | No | No | Deep link URL for Android devices. |
+| `carousel_android_deep_links` | `carousel_android_deep_links` | `Array<string>` | No | No | Comma-separated deep links for the carousel pin on Android. |
+| `carousel_destination_urls` | `carousel_destination_urls` | `Array<string>` | No | No | Comma-separated destination URLs for the carousel pin to promote. |
+| `carousel_ios_deep_links` | `carousel_ios_deep_links` | `Array<string>` | No | No | Comma-separated deep links for the carousel pin on iOS. |
+| `click_tracking_url` | `click_tracking_url` | `string` | No | No | Tracking url for the ad clicks. |
+| `creative_type` | `creative_type` | `string` | No | No | Ad creative type enum. **Note:** SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. |
+| `customizable_cta_type` | `customizable_cta_type` | `string` | No | No | Select a call to action (CTA) to display below your ad. Available only for ads with direct links enabled. CTA options for consideration and conversion campaigns are LEARN_MORE, SHOP_NOW, BOOK_NOW, SIGN_UP, VISIT_SITE, BUY_NOW, GET_OFFER, ORDER_NOW, ADD_TO_CART (for conversion campaigns with add to cart conversion events only) |
+| `destination_url` | `destination_url` | `string` | No | No | Destination URL. |
+| `disclosure_type` | `disclosure_type` | `string` | No | No | Type of information in the page referenced by `disclosure_url`, provided either by the Food and Drug Administration (FDA) or the manufacturer. |
+| `disclosure_url` | `disclosure_url` | `string` | No | No | URL for a page that provides disclosures about a pharmaceutical product, such as potential side effects. Make sure the URL takes the user directly to the disclosure content and the referenced site is secure. |
+| `grid_click_type` | `grid_click_type` | `string` | No | No | Where a user is taken after clicking on an ad in grid. **Note:** This parameter is read-only and is set to `DIRECT_TO_DESTINATION` by default for direct links supported ads. `grid_click_type` values provided will be ignored. |
+| `ios_deep_link` | `ios_deep_link` | `string` | No | No | Deep link URL for iOS devices. |
+| `is_carting` | `is_carting` | `boolean` | No | No | Is the ad a carting/WTB ad? |
+| `is_pin_deleted` | `is_pin_deleted` | `boolean` | No | No | Is original pin deleted? |
+| `is_removable` | `is_removable` | `boolean` | No | No | Is pin repinnable? |
+| `lead_form_id` | `lead_form_id` | `string` | No | No | Lead form ID for lead ad generation. |
+| `name` | `name` | `string` | No | No | Name of the ad - 255 chars max. |
+| `pin_id` | `pin_id` | `string` | No | No | Pin ID. |
+| `quiz_pin_data` | `quiz_pin_data` | `Inline7678` | No | No | Before creating a quiz ad, you must create an organic Pin using POST/Create Pin for each result in the quiz. Quiz ads cannot be saved by a Pinner. Quiz ad results can be saved. |
+| `status` | `status` | `string` | No | No | Entity status |
+| `tracking_urls` | `tracking_urls` | `Inline7681` | No | No | — |
+| `view_tracking_url` | `view_tracking_url` | `string` | No | No | Tracking URL for ad impressions. |
+
+## Inline7679
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `android_deep_link` | `android_deep_link` | `string` | No | No | — |
+| `destination_url` | `destination_url` | `string` | No | No | — |
+| `ios_deep_link` | `ios_deep_link` | `string` | No | No | — |
+| `organic_pin_id` | `organic_pin_id` | `string` | No | No | — |
+| `result_id` | `result_id` | `number` | No | No | — |
+
+## Inline768
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `PRODUCT_GROUP` | `PRODUCT_GROUP` | `Inline768` | Yes | No | — |
+
+## Inline7680
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `android_deep_link` | `android_deep_link` | `string` | No | No | — |
+| `destination_url` | `destination_url` | `string` | No | No | — |
+| `ios_deep_link` | `ios_deep_link` | `string` | No | No | — |
+| `organic_pin_id` | `organic_pin_id` | `string` | No | No | — |
+| `result_id` | `result_id` | `number` | No | No | — |
+
+## Inline7681
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_verification` | `audience_verification` | `Array<string>` | No | No | — |
+| `buyable_button` | `buyable_button` | `Array<string>` | No | No | — |
+| `click` | `click` | `Array<string>` | No | No | — |
+| `engagement` | `engagement` | `Array<string>` | No | No | — |
+| `impression` | `impression` | `Array<string>` | No | No | — |
+
+## Inline7682
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Campaign's Advertiser ID. If you want to create a campaign in a Business Account shared account you need to specify the Business Access advertiser ID in both the query path param as well as the request body schema. |
+| `daily_spend_cap` | `daily_spend_cap` | `number` | No | No | Campaign daily spending cap. Required for Campaign Budget Optimization (CBO) campaigns. This and "lifetime_spend_cap" cannot be set at the same time. |
+| `default_ad_group_budget_in_micro_currency` | `default_ad_group_budget_in_micro_currency` | `number` | No | No | When transitioning from campaign budget optimization to non-campaign budget optimization, the default_ad_group_budget_in_micro_currency will propagate to each child ad groups daily budget. Unit is micro currency of the associated advertiser account. |
+| `end_time` | `end_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the campaign stop appearing. Must occur after any end times for child ad groups. If `end_time` is not specified for the campaign, ads run indefinitely unless you update the campaign, changing their status to `paused`. Learn about &lt;a href="/docs/api-features/managing-campaigns/#campaign-scheduling" target="blank"&gt;scheduling campaigns&lt;/a&gt;. Different end times can be set for the campaign's child ad groups, but they cannot occur after an `end_time` specified for the campaign. - If your campaign has a child ad group with an end time specified, and if you update that campaign with an `end_time` that is earlier than that of the ad group, the campaign `end_time` will supersede the ad group `end_time`, and the request will not return an error. - In this scenario, if you call &lt;a href="/docs/api/v5/campaigns-list" target="blank"&gt;List campaigns&lt;/a&gt; or &lt;a href="/docs/api/v5/ad_groups-list" target="blank"&gt;List ad groups&lt;/a&gt;, the returned campaigns or ad groups are listed with the start and end times that you assigned them, regardless of supersedence. |
+| `is_automated_campaign` | `is_automated_campaign` | `Inline7682` | No | No | — |
+| `is_campaign_budget_optimization` | `is_campaign_budget_optimization` | `Inline7683` | No | No | — |
+| `is_flexible_daily_budgets` | `is_flexible_daily_budgets` | `Inline7684` | No | No | — |
+| `lifetime_spend_cap` | `lifetime_spend_cap` | `number` | No | No | Campaign total spending cap. Required for Campaign Budget Optimization (CBO) campaigns. This and "daily_spend_cap" cannot be set at the same time. |
+| `name` | `name` | `string` | No | No | Campaign name. |
+| `order_line_id` | `order_line_id` | `string` | No | No | Order line ID that appears on the invoice. |
+| `start_time` | `start_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the campaign start to appear. Must precede any start times set for child ad groups. Defaults to current time if no time is specified. Learn about &lt;a href="/docs/api-features/managing-campaigns/#campaign-scheduling" target="blank"&gt;scheduling campaigns&lt;/a&gt;. Different start times can be set for the campaign's child ad groups, but they cannot occur before a `start_time` specified for the campaign. - If your campaign has a child ad group with a start time specified, and if you update that campaign with a `start_time` that is later than that of the ad group, the campaign `start_time` will supersede the ad group `start_time`, and the request will not return an error. - In this scenario, if you call &lt;a href="/docs/api/v5/campaigns-list" target="blank"&gt;List campaigns&lt;/a&gt; or &lt;a href="/docs/api/v5/ad_groups-list" target="blank"&gt;List ad groups&lt;/a&gt;, the returned campaigns or ad groups are listed with the start and end times that you assigned them, regardless of supersedence. |
+| `status` | `status` | `Inline7685` | No | No | — |
+| `tracking_urls` | `tracking_urls` | `Inline7686` | No | No | — |
+| `bid_options` | `bid_options` | `Inline7687` | No | No | Object describing the campaign level bid multipliers for create operations. |
+| `intended_promotion_type` | `intended_promotion_type` | `string` | No | No | Specifies the intended promotion type for the campaign. Note: This field is immutable unless the campaign is in draft status. **STANDARD_AD** - For ads derived from Pins. - Supported for all objective types except for current CATALOG\_SALES and WEB\_CONVERSION, which are being deprecated. - For simplified objective types. **CATALOG** - For creating product group promotions. - Supported for CONSIDERATION and SALES objective types. - For simplified objective types. **LEGACY** - Intended only for maintaining backward compatibility. - Must be used for CATALOG\_SALES and WEB\_CONVERSION. - Supported for CATALOG\_SALES and WEB\_CONVERSION objective types. **If you do not provide this parameter, the default is:** - LEGACY for CATALOG\_SALES and WEB\_CONVERSION - STANDARD_AD for other objective types |
+| `is_ltv_optimized` | `is_ltv_optimized` | `boolean` | No | No | Specifies whether the campaign is optimized for Lifetime Value (LTV). Only available for eligible advertisers. |
+| `is_performance_plus` | `is_performance_plus` | `boolean` | No | No | Enable Pinterest Performance+ for your campaign. To learn more, see &lt;a href="https://developers.pinterest.com/docs/api-features/pinterest-performance-plus-setup/"&gt;Pinterest Performance+ Setup&lt;/a&gt;. |
+| `is_top_of_search` | `is_top_of_search` | `boolean` | No | No | &lt;a href="/docs/getting-started/using-beta-and-restricted-features/" target="blank" target="blank"&gt;Restricted&lt;/a&gt; Have your ads and content appear at the top of search result lists in Pinterest. You can only use this feature with the following objectives: `CONSIDERATION` `WEB_CONVERSION` `CATALOG_SALES` You cannot use this feature with Pinterest Performance+ or Premiere Spotlight enabled. You cannot change your `true` or `false` selection of this campaign if you &lt;a href="https://developer.pinterest.com/docs/api/v5/campaigns-update" target="blank"&gt;update it&lt;/a&gt;. |
+| `objective_type` | `objective_type` | `string` | No | No | Advertiser campaign objective type. You can only update objectives for draft campaigns. `CTV_CONSIDERATION` is in BETA. `WEB_SESSIONS` and `VIDEO_VIEW` objectives are deprecated. We recommend using `VIDEO_COMPLETION` as an alternative for the latter. |
+
+## Inline7683
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7684
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7685
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7686
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_verification` | `audience_verification` | `Array<string>` | No | No | — |
+| `buyable_button` | `buyable_button` | `Array<string>` | No | No | — |
+| `click` | `click` | `Array<string>` | No | No | — |
+| `engagement` | `engagement` | `Array<string>` | No | No | — |
+| `impression` | `impression` | `Array<string>` | No | No | — |
+
+## Inline7687
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age_bucket_multipliers` | `age_bucket_multipliers` | `Inline7687` | No | No | Age bucket multipliers for bid adjustments. |
+| `app_type_multipliers` | `app_type_multipliers` | `Inline7688` | No | No | App type multipliers for bid adjustments. |
+| `audience_multipliers` | `audience_multipliers` | `Inline7689` | No | No | Audience multipliers for bid adjustments. |
+| `freq_bid_multiplier_time_window` | `freq_bid_multiplier_time_window` | `Inline7690` | No | No | The time window for frequency bid multipliers. |
+| `frequency_multipliers` | `frequency_multipliers` | `Inline7691` | No | No | Frequency multipliers for bid adjustments. |
+| `gender_multipliers` | `gender_multipliers` | `Inline7692` | No | No | Gender multipliers for bid adjustments. |
+| `placement_multipliers` | `placement_multipliers` | `Inline7693` | No | No | Placement multipliers for bid adjustments. |
+
+## Inline7688
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `APP_TYPE` | `APP_TYPE` | `Inline7688` | No | No | App type identifier. |
+
+## Inline7689
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AUDIENCE_ID` | `AUDIENCE_ID` | `string` | No | No | Audience ID for the multiplier. |
+
+## Inline769
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_id` | `catalog_id` | `Inline769` | Yes | No | Catalog ID pertaining to the product group. |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | Retail catalog based product group is available only for selected partners at the moment. If you are not eligible, please use feed based one. |
+| `country` | `country` | `string` | No | No | Country ID from ISO 3166-1 alpha-2. |
+| `description` | `description` | `string` | No | No | — |
+| `filters` | `filters` | `Inline770 \| Inline805` | Yes | No | Object holding a group of filters for request on catalog product group. This is a distinct schema. It is not possible to create or update a Product Group with empty filters. But some automatically generated Product Groups might have empty filters. |
+| `locale` | `locale` | `string` | No | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+
+## Inline7690
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline7691
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `IMPRESSION_COUNT` | `IMPRESSION_COUNT` | `string` | No | No | Impression count identifier. |
+
+## Inline7692
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GENDER` | `GENDER` | `Inline7692` | No | No | Gender identifier. |
+
+## Inline7693
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `PLACEMENT` | `PLACEMENT` | `Inline7693` | No | No | Placement type identifier. |
+
+## Inline7694
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | — |
+| `feed_id` | `feed_id` | `string` | Yes | No | Catalog Feed id pertaining to the catalog product group. |
+| `filters` | `filters` | `Inline7694 \| Inline7729` | Yes | No | Object holding a group of filters for request on catalog product group. This is a distinct schema. It is not possible to create or update a Product Group with empty filters. But some automatically generated Product Groups might have empty filters. |
+| `is_featured` | `is_featured` | `boolean` | No | No | boolean indicator of whether the product group is being featured or not |
+| `name` | `name` | `string` | Yes | No | — |
+
+## Inline7695
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `MAX_PRICE` | `MAX_PRICE` | `Inline7695` | Yes | No | — |
+
+## Inline7696
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CURRENCY` | `CURRENCY` | `Inline7696` | Yes | No | A currency filter. This filter cannot be negated |
+
+## Inline7697
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ITEM_ID` | `ITEM_ID` | `Inline7697` | Yes | No | — |
+
+## Inline7698
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AVAILABILITY` | `AVAILABILITY` | `Inline7698` | Yes | No | — |
+
+## Inline7699
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `BRAND` | `BRAND` | `Inline7699` | Yes | No | — |
+
+## Inline77
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `android_deep_link` | `android_deep_link` | `string` | No | No | — |
+| `destination_url` | `destination_url` | `string` | No | No | — |
+| `ios_deep_link` | `ios_deep_link` | `string` | No | No | — |
+| `organic_pin_id` | `organic_pin_id` | `string` | No | No | — |
+| `result_id` | `result_id` | `number` | No | No | — |
+
+## Inline770
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `any_of` | `any_of` | `Array<Inline770 \| Inline771 \| Inline772 \| Inline773 \| Inline774 \| Inline775 \| Inline776 \| Inline777 \| Inline778 \| Inline779 \| Inline780 \| Inline781 \| Inline782 \| Inline783 \| Inline784 \| Inline785 \| Inline786 \| Inline787 \| Inline788 \| Inline789 \| Inline790 \| Inline791 \| Inline792 \| Inline793 \| Inline794 \| Inline795 \| Inline796 \| Inline797 \| Inline798 \| Inline799 \| Inline800 \| Inline801 \| Inline802 \| Inline803 \| Inline804>` | Yes | No | — |
+
+## Inline7700
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CONDITION` | `CONDITION` | `Inline7700` | Yes | No | — |
+
+## Inline7701
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_0` | `CUSTOM_LABEL_0` | `Inline7701` | Yes | No | — |
+
+## Inline7702
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_1` | `CUSTOM_LABEL_1` | `Inline7702` | Yes | No | — |
+
+## Inline7703
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_2` | `CUSTOM_LABEL_2` | `Inline7703` | Yes | No | — |
+
+## Inline7704
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_3` | `CUSTOM_LABEL_3` | `Inline7704` | Yes | No | — |
+
+## Inline7705
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_4` | `CUSTOM_LABEL_4` | `Inline7705` | Yes | No | — |
+
+## Inline7706
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ITEM_GROUP_ID` | `ITEM_GROUP_ID` | `Inline7706` | Yes | No | — |
+
+## Inline7707
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GENDER` | `GENDER` | `Inline7707` | Yes | No | — |

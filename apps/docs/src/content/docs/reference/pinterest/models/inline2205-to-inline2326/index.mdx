@@ -1,0 +1,847 @@
+---
+title: "Pinterest models: Inline2205 – Inline2326"
+description: "100 generated Pinterest model contracts, from Inline2205 through Inline2326."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1037
+  label: "Inline2205 – Inline2326"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Inline2205
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2206
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline221
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2210
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2211
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2212
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2216
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `click_window_days` | `click_window_days` | `Inline2216` | No | No | Number of days to use as the conversion attribution window for a pin click action. |
+| `engagement_window_days` | `engagement_window_days` | `Inline2217` | No | No | Number of days to use as the conversion attribution window for an engagement action. Engagements include saves, closeups, link clicks, and carousel card swipes. |
+| `view_window_days` | `view_window_days` | `Inline2218` | No | No | Number of days to use as the conversion attribution window for a view action. |
+
+## Inline2217
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2218
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline222
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2220
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2221
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `number` | Yes | No | The budget value of the point. |
+| `double_y` | `double_y` | `number` | Yes | No | Y value as a decimal. |
+| `max_y` | `max_y` | `number` | Yes | No | The maximum Y value of the point. |
+| `min_y` | `min_y` | `number` | Yes | No | The minimum Y value of the point. |
+| `y` | `y` | `number` | Yes | No | The expected Y value of the point. |
+
+## Inline2224
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `estimation_type` | `estimation_type` | `Inline2224` | No | No | Estimation type for this point. |
+| `point_estimate` | `point_estimate` | `Inline2225` | No | No | Point estimate data. |
+
+## Inline2225
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `number` | No | No | The budget value of the point. |
+| `double_y` | `double_y` | `number` | No | No | Y value as a decimal. |
+| `max_y` | `max_y` | `number` | No | No | The maximum Y value of the point. |
+| `min_y` | `min_y` | `number` | No | No | The minimum Y value of the point. |
+| `y` | `y` | `number` | No | No | The expected Y value of the point. |
+
+## Inline223
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AGE_BUCKET` | `AGE_BUCKET` | `Array<string>` | No | No | **Legacy field.** Predefined age ranges. We recommend using MINIMUM_AGE and MAXIMUM_AGE instead for more flexible targeting. Cannot be combined with MINIMUM_AGE/MAXIMUM_AGE. If neither AGE_BUCKET nor MINIMUM_AGE/MAXIMUM_AGE are specified, all ages will be targeted. |
+| `APPTYPE` | `APPTYPE` | `Array<string>` | No | No | Allowed devices. If the APPTYPE field is missing, the default behavior in terms of ad delivery is that **All devices/apptypes** will be targeted. |
+| `AUDIENCE_EXCLUDE` | `AUDIENCE_EXCLUDE` | `Array<unknown>` | No | No | Excluded customer list IDs. Used to drive new customer acquisition goals. For example: ["2542620905475"]. Audience lists need to have at least 100 people with Pinterest accounts in them. If the AUDIENCE_EXCLUDE field is missing, the default behavior in terms of ad delivery is that **No users will be excluded**. |
+| `AUDIENCE_INCLUDE` | `AUDIENCE_INCLUDE` | `Array<unknown>` | No | No | Targeted customer list IDs. For example: ["2542620905473"]. Audience lists need to have at least 100 people with Pinterest accounts in them Audience lists need to have at least 100 people with Pinterest accounts in them. If the AUDIENCE_INCLUDE field is missing, the default behavior in terms of ad delivery is that **All users will be included**. |
+| `GENDER` | `GENDER` | `Array<string>` | No | No | Targeted genders. Values: ["unknown","male","female"]. If the GENDER field is missing, the default behavior in terms of ad delivery is that **All genders will be targeted**. |
+| `GEO` | `GEO` | `Array<string>` | No | No | Region codes or postal codes to include for targeting. Region codes represent broader geographical areas. Example: `US-CA` is the region code for California in the United States. Postal codes represent more granular, specific areas. Example: `94103` is a postal code for a specifc area in San Francisco, California, U.S.A. For each ad group, use only one of these methods, depending on which fits your targeting needs. Do not use both. For example, either specify a broader region code like `US-CA` or a more granular postal code within that regon, such as `94103`. You can specify multiple region codes or postal codes in an array, depending on which method you choose. Precede a region code array with the `region_codes` key and a postal code value with the `postal_codes` key. Examples: ``` "geo": &#123; "region_codes": ["US-CA"] &#125; ``` ``` "geo": &#123; "postal_codes": ["94103"] &#125; ``` For each ad group, specify at least one `GEO` or `LOCATION`. If you do not specifiy a `GEO` code, only `LOCATION` values will be targeted (See `LOCATION` parameter in this targeting spec.). Learn how to get a current, complete list of codes. |
+| `GEO_EXCLUDE` | `GEO_EXCLUDE` | `Array<string>` | No | No | Closed beta Region codes or postal codes to exclude from the targeting inclusion area. See `GEO` parameter in this targeting spec for rules, syntax, and other information. |
+| `INTEREST` | `INTEREST` | `Array<string>` | No | No | Array of interest object IDs. If the INTEREST field is missing, the default behavior in terms of ad delivery is that **All interests will be targeted**. |
+| `LOCALE` | `LOCALE` | `Array<string>` | No | No | 24 ISO 639-1 two-letter language codes. If the LOCALE field is not included in the request, all languages are targeted. |
+| `LOCATION` | `LOCATION` | `Array<string>` | No | No | Metropolitan codes and/or ISO-Alpha-2, two-letter country codes to include for targeting. Precede country code values with the `country_codes` key and metro code values with `metro_codes` key. Example: ``` "location": &#123; "country_codes": ["US", "CA"], "metro_codes": ["501", "602"] &#125; ``` For each ad group, specify at least one `GEO` or `LOCATION` code. If you do not specify a `LOCATION` code, only `GEO` values will be targeted (See `GEO` parameter in this targeting spec.). Learn how to get a current, complete list of codes. |
+| `LOCATION_EXCLUDE` | `LOCATION_EXCLUDE` | `Array<string>` | No | No | Closed beta Metropolitan codes and/or ISO-Alpha-2, two-letter country codes to exclude from targeting. See `LOCATION` parameter in this targeting spec for rules, syntax, and other information. |
+| `MAXIMUM_AGE` | `MAXIMUM_AGE` | `string` | No | No | Maximum age to target (inclusive). Values: "18", "19", ..., "65", "65+". Must be used together with `MINIMUM_AGE`. Cannot be combined with `AGE_BUCKET`. If neither `MINIMUM_AGE`/`MAXIMUM_AGE` nor `AGE_BUCKET` are specified, all ages will be targeted. |
+| `MINIMUM_AGE` | `MINIMUM_AGE` | `string` | No | No | Minimum age to target (inclusive). Values: "18", "19", ..., "65". Note: 65+ is not allowed for minimum age. Must be used together with `MAXIMUM_AGE`. Cannot be combined with `AGE_BUCKET`. If neither `MINIMUM_AGE`/`MAXIMUM_AGE` nor `AGE_BUCKET` are specified, all ages will be targeted. |
+| `SHOPPING_RETARGETING` | `SHOPPING_RETARGETING` | `Array<Inline223>` | No | No | Array of object: lookback_window [Integer]: Number of days ago to start lookback timeframe for dynamic retargeting tag_types [Array of integer]: Event types to target for dynamic retargeting exclusion_window [Integer]: Number of days ago to stop lookback timeframe for dynamic retargeting |
+| `TARGETING_STRATEGY` | `TARGETING_STRATEGY` | `Array<string>` | No | No | — |
+
+## Inline2232
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_verification` | `audience_verification` | `Array<string>` | No | No | — |
+| `buyable_button` | `buyable_button` | `Array<string>` | No | No | — |
+| `click` | `click` | `Array<string>` | No | No | — |
+| `engagement` | `engagement` | `Array<string>` | No | No | — |
+| `impression` | `impression` | `Array<string>` | No | No | — |
+
+## Inline2233
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age_bucket_multipliers` | `age_bucket_multipliers` | `Inline2233` | No | No | Age bucket multipliers for bid adjustments. |
+| `app_type_multipliers` | `app_type_multipliers` | `Inline2234` | No | No | App type multipliers for bid adjustments. |
+| `audience_multipliers` | `audience_multipliers` | `Inline2235` | No | No | Audience multipliers for bid adjustments. |
+| `freq_bid_multiplier_time_window` | `freq_bid_multiplier_time_window` | `Inline2236` | No | No | The time window for frequency bid multipliers. |
+| `frequency_multipliers` | `frequency_multipliers` | `Inline2237` | No | No | Frequency multipliers for bid adjustments. |
+| `gender_multipliers` | `gender_multipliers` | `Inline2238` | No | No | Gender multipliers for bid adjustments. |
+| `placement_multipliers` | `placement_multipliers` | `Inline2239` | No | No | Placement multipliers for bid adjustments. |
+| `update_mask` | `update_mask` | `Array<string>` | Yes | No | List of fields to update. Only the fields in the list will be updated. |
+
+## Inline2234
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `APP_TYPE` | `APP_TYPE` | `Inline2234` | No | No | App type identifier. |
+
+## Inline2235
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AUDIENCE_ID` | `AUDIENCE_ID` | `string` | No | No | Audience ID for the multiplier. |
+
+## Inline2236
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2237
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `IMPRESSION_COUNT` | `IMPRESSION_COUNT` | `string` | No | No | Impression count identifier. |
+
+## Inline2238
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GENDER` | `GENDER` | `Inline2238` | No | No | Gender identifier. |
+
+## Inline2239
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `PLACEMENT` | `PLACEMENT` | `Inline2239` | No | No | Placement type identifier. |
+
+## Inline224
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_verification` | `audience_verification` | `Array<string>` | No | No | — |
+| `buyable_button` | `buyable_button` | `Array<string>` | No | No | — |
+| `click` | `click` | `Array<string>` | No | No | — |
+| `engagement` | `engagement` | `Array<string>` | No | No | — |
+| `impression` | `impression` | `Array<string>` | No | No | — |
+
+## Inline2240
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2242
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age_bucket_multipliers` | `age_bucket_multipliers` | `Inline2242` | No | No | Age bucket multipliers for bid adjustments. |
+| `app_type_multipliers` | `app_type_multipliers` | `Inline2243` | No | No | App type multipliers for bid adjustments. |
+| `audience_multipliers` | `audience_multipliers` | `Inline2244` | No | No | Audience multipliers for bid adjustments. |
+| `freq_bid_multiplier_time_window` | `freq_bid_multiplier_time_window` | `Inline2245` | No | No | The time window for frequency bid multipliers. |
+| `frequency_multipliers` | `frequency_multipliers` | `Inline2246` | No | No | Frequency multipliers for bid adjustments. |
+| `gender_multipliers` | `gender_multipliers` | `Inline2247` | No | No | Gender multipliers for bid adjustments. |
+| `placement_multipliers` | `placement_multipliers` | `Inline2248` | No | No | Placement multipliers for bid adjustments. |
+| `update_mask` | `update_mask` | `Array<string>` | Yes | No | List of fields to update. Only the fields in the list will be updated. |
+
+## Inline2243
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `APP_TYPE` | `APP_TYPE` | `Inline2243` | No | No | App type identifier. |
+
+## Inline2244
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AUDIENCE_ID` | `AUDIENCE_ID` | `string` | No | No | Audience ID for the multiplier. |
+
+## Inline2245
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2246
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `IMPRESSION_COUNT` | `IMPRESSION_COUNT` | `string` | No | No | Impression count identifier. |
+
+## Inline2247
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GENDER` | `GENDER` | `Inline2247` | No | No | Gender identifier. |
+
+## Inline2248
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `PLACEMENT` | `PLACEMENT` | `Inline2248` | No | No | Placement type identifier. |
+
+## Inline2249
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2252
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `invite_expiration` | `invite_expiration` | `number` | No | No | The date and time when the invite/request will expire. Returned in milliseconds. |
+| `invite_status` | `invite_status` | `string` | No | No | The current status of the invite. The invite can be in one of the following states PENDING, ACCEPTED, DECLINED, CANCELLED, EXPIRED. |
+| `invite_type` | `invite_type` | `string` | No | No | The type of invite. - 'MEMBER_INVITE' is to invite a member to access your business assets. - 'PARTNER_INVITE' is to invite a partner to access your business assets. - 'PARTNER_REQUEST' is to request access a partner's business assets. |
+| `last_updated_time` | `last_updated_time` | `number` | No | No | The date and time the invite/request was last updated. Returned in milliseconds. |
+| `sent_at` | `sent_at` | `number` | No | No | The date and time the invite/request was sent/created. Returned in milliseconds. |
+
+## Inline2253
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `email` | `string` | No | No | Email of the business member/partner. |
+| `id` | `id` | `string` | No | No | Unique identifier of the business member/partner. |
+| `username` | `username` | `string` | No | No | Username of the business member/partner. |
+
+## Inline2255
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `invite_id` | `invite_id` | `string` | No | No | — |
+| `message` | `message` | `string` | No | No | — |
+
+## Inline2256
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `invite_data` | `invite_data` | `Inline2256` | No | No | Metadata for the invite/request. |
+| `is_received_invite` | `is_received_invite` | `boolean` | No | No | — |
+| `user` | `user` | `Inline2257` | No | No | Metadata of the member/partner that has access to the asset. |
+
+## Inline2257
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `email` | `string` | No | No | Email of the business member/partner. |
+| `id` | `id` | `string` | No | No | Unique identifier of the business member/partner. |
+| `username` | `username` | `string` | No | No | Username of the business member/partner. |
+
+## Inline226
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2261
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `exception` | `exception` | `Inline2261` | No | No | An exception object if there is an error performing the cancellation. It will only be provided if there is an error. |
+| `invite` | `invite` | `Inline2262` | No | No | — |
+
+## Inline2262
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `invite_data` | `invite_data` | `Inline2262` | No | No | Metadata for the invite/request. |
+| `is_received_invite` | `is_received_invite` | `boolean` | No | No | — |
+| `user` | `user` | `Inline2263` | No | No | Metadata of the member/partner that has access to the asset. |
+
+## Inline2263
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `email` | `email` | `string` | No | No | Email of the business member/partner. |
+| `id` | `id` | `string` | No | No | Unique identifier of the business member/partner. |
+| `username` | `username` | `string` | No | No | Username of the business member/partner. |
+
+## Inline2267
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `retailer_id` | `retailer_id` | `string` | Yes | No | Unique identifier for the retailer |
+| `retailer_name` | `retailer_name` | `string` | Yes | No | Name of the retailer |
+
+## Inline227
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `conversion_tag_v3_goal_metadata` | `conversion_tag_v3_goal_metadata` | `Inline227` | No | No | — |
+| `frequency_goal_metadata` | `frequency_goal_metadata` | `Inline228` | No | No | Frequency target can only be between 2 and 20 |
+| `scrollup_goal_metadata` | `scrollup_goal_metadata` | `Inline229` | No | No | — |
+
+## Inline2275
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `filter_values` | `filter_values` | `Inline2275` | Yes | No | A map of filter attributes to their available values. |
+
+## Inline2276
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `filter_values` | `filter_values` | `Inline2276` | Yes | No | A map of filter attributes to their available values. |
+
+## Inline2277
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalog_type` | `catalog_type` | `string` | Yes | No | — |
+| `filter_values` | `filter_values` | `Inline2277` | Yes | No | A map of filter attributes to their available values. |
+
+## Inline2279
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `MIN_PRICE` | `MIN_PRICE` | `Inline2279` | Yes | No | — |
+
+## Inline228
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `frequency` | `frequency` | `number` | No | No | — |
+| `timerange` | `timerange` | `string` | No | No | — |
+
+## Inline2280
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `MAX_PRICE` | `MAX_PRICE` | `Inline2280` | Yes | No | — |
+
+## Inline2281
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CURRENCY` | `CURRENCY` | `Inline2281` | Yes | No | A currency filter. This filter cannot be negated |
+
+## Inline2282
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ITEM_ID` | `ITEM_ID` | `Inline2282` | Yes | No | — |
+
+## Inline2283
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AVAILABILITY` | `AVAILABILITY` | `Inline2283` | Yes | No | — |
+
+## Inline2284
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `BRAND` | `BRAND` | `Inline2284` | Yes | No | — |
+
+## Inline2285
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CONDITION` | `CONDITION` | `Inline2285` | Yes | No | — |
+
+## Inline2286
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_0` | `CUSTOM_LABEL_0` | `Inline2286` | Yes | No | — |
+
+## Inline2287
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_1` | `CUSTOM_LABEL_1` | `Inline2287` | Yes | No | — |
+
+## Inline2288
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_2` | `CUSTOM_LABEL_2` | `Inline2288` | Yes | No | — |
+
+## Inline2289
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_3` | `CUSTOM_LABEL_3` | `Inline2289` | Yes | No | — |
+
+## Inline229
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `scrollup_goal_value_in_micro_currency` | `scrollup_goal_value_in_micro_currency` | `string` | No | No | — |
+
+## Inline2290
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_4` | `CUSTOM_LABEL_4` | `Inline2290` | Yes | No | — |
+
+## Inline2291
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ITEM_GROUP_ID` | `ITEM_GROUP_ID` | `Inline2291` | Yes | No | — |
+
+## Inline2292
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GENDER` | `GENDER` | `Inline2292` | Yes | No | — |
+
+## Inline2293
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `MEDIA_TYPE` | `MEDIA_TYPE` | `Inline2293` | Yes | No | — |
+
+## Inline2294
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `PRODUCT_TYPE_4` | `PRODUCT_TYPE_4` | `Inline2294` | Yes | No | — |
+
+## Inline2295
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `PRODUCT_TYPE_3` | `PRODUCT_TYPE_3` | `Inline2295` | Yes | No | — |
+
+## Inline2296
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `PRODUCT_TYPE_2` | `PRODUCT_TYPE_2` | `Inline2296` | Yes | No | — |
+
+## Inline2297
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `PRODUCT_TYPE_1` | `PRODUCT_TYPE_1` | `Inline2297` | Yes | No | — |
+
+## Inline2298
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `PRODUCT_TYPE_0` | `PRODUCT_TYPE_0` | `Inline2298` | Yes | No | — |
+
+## Inline2299
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_6` | `GOOGLE_PRODUCT_CATEGORY_6` | `Inline2299` | Yes | No | — |
+
+## Inline23
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline230
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2300
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_5` | `GOOGLE_PRODUCT_CATEGORY_5` | `Inline2300` | Yes | No | — |
+
+## Inline2301
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_4` | `GOOGLE_PRODUCT_CATEGORY_4` | `Inline2301` | Yes | No | — |
+
+## Inline2302
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_3` | `GOOGLE_PRODUCT_CATEGORY_3` | `Inline2302` | Yes | No | — |
+
+## Inline2303
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_2` | `GOOGLE_PRODUCT_CATEGORY_2` | `Inline2303` | Yes | No | — |
+
+## Inline2304
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_1` | `GOOGLE_PRODUCT_CATEGORY_1` | `Inline2304` | Yes | No | — |
+
+## Inline2305
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `GOOGLE_PRODUCT_CATEGORY_0` | `GOOGLE_PRODUCT_CATEGORY_0` | `Inline2305` | Yes | No | — |
+
+## Inline2306
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_0` | `CUSTOM_NUMBER_0` | `Inline2306` | Yes | No | — |
+
+## Inline2307
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_1` | `CUSTOM_NUMBER_1` | `Inline2307` | Yes | No | — |
+
+## Inline2308
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_2` | `CUSTOM_NUMBER_2` | `Inline2308` | Yes | No | — |
+
+## Inline2309
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_3` | `CUSTOM_NUMBER_3` | `Inline2309` | Yes | No | — |
+
+## Inline231
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2310
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_NUMBER_4` | `CUSTOM_NUMBER_4` | `Inline2310` | Yes | No | — |
+
+## Inline2311
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `TITLE_KEYWORDS` | `TITLE_KEYWORDS` | `Inline2311` | Yes | No | — |
+
+## Inline2312
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `PINTEREST_PRODUCT_CATEGORIES` | `PINTEREST_PRODUCT_CATEGORIES` | `Inline2312` | Yes | No | — |
+
+## Inline2314
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `MIN_PRICE` | `MIN_PRICE` | `Inline2314` | Yes | No | — |
+
+## Inline2315
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `MAX_PRICE` | `MAX_PRICE` | `Inline2315` | Yes | No | — |
+
+## Inline2316
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CURRENCY` | `CURRENCY` | `Inline2316` | Yes | No | A currency filter. This filter cannot be negated |
+
+## Inline2317
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ITEM_ID` | `ITEM_ID` | `Inline2317` | Yes | No | — |
+
+## Inline2318
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AVAILABILITY` | `AVAILABILITY` | `Inline2318` | Yes | No | — |
+
+## Inline2319
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `BRAND` | `BRAND` | `Inline2319` | Yes | No | — |
+
+## Inline232
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## Inline2320
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CONDITION` | `CONDITION` | `Inline2320` | Yes | No | — |
+
+## Inline2321
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_0` | `CUSTOM_LABEL_0` | `Inline2321` | Yes | No | — |
+
+## Inline2322
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_1` | `CUSTOM_LABEL_1` | `Inline2322` | Yes | No | — |
+
+## Inline2323
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_2` | `CUSTOM_LABEL_2` | `Inline2323` | Yes | No | — |
+
+## Inline2324
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_3` | `CUSTOM_LABEL_3` | `Inline2324` | Yes | No | — |
+
+## Inline2325
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `CUSTOM_LABEL_4` | `CUSTOM_LABEL_4` | `Inline2325` | Yes | No | — |
+
+## Inline2326
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ITEM_GROUP_ID` | `ITEM_GROUP_ID` | `Inline2326` | Yes | No | — |

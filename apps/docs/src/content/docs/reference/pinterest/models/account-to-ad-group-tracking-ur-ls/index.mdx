@@ -1,0 +1,1261 @@
+---
+title: "Pinterest models: Account – Ad Group Tracking UR Ls"
+description: "100 generated Pinterest model contracts, from Account through AdGroupTrackingURLs."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1000
+  label: "Account – Ad Group Tracking UR Ls"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## Account
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `about` | `about` | `string` | No | No | Profile about description. |
+| `account_type` | `account_type` | `Inline0` | No | No | Type of account |
+| `board_count` | `board_count` | `number` | No | No | User account board count. **Note**: Board count on user account level may differ from counts found elsewhere due to attribution of collaborative Boards. |
+| `business_name` | `business_name` | `string` | No | No | — |
+| `follower_count` | `follower_count` | `number` | No | No | User account follower count. |
+| `following_count` | `following_count` | `number` | No | No | User account following count. |
+| `id` | `id` | `string` | No | No | User account ID. |
+| `monthly_views` | `monthly_views` | `number` | No | No | User account monthly views. |
+| `pin_count` | `pin_count` | `number` | No | No | User account pin count. This includes both created and saved pins. |
+| `profile_image` | `profile_image` | `string` | No | No | — |
+| `username` | `username` | `string` | No | No | — |
+| `website_url` | `website_url` | `string` | No | No | — |
+
+## AccountTemplate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | ID of the Ad Account that owns the template |
+| `ad_account_ids` | `ad_account_ids` | `Array<string>` | No | No | IDs of the Ad Accounts that have access to this template |
+| `ade_columns` | `ade_columns` | `Array<string>` | No | No | A list of ADE columns |
+| `attribution_type` | `attribution_type` | `unknown` | No | No | Attribution type for Brand/Category/SKU reports |
+| `click_window_days` | `click_window_days` | `number` | No | No | The length of the sliding window over which click conversions will be attributed |
+| `columns` | `columns` | `Array<string>` | No | No | A list of columns to be included in the report |
+| `conversion_report_time_type` | `conversion_report_time_type` | `Inline2` | No | No | Conversion report time type |
+| `creation_source` | `creation_source` | `Inline3` | No | No | The surface used to create this template |
+| `custom_column_ids` | `custom_column_ids` | `Array<string>` | No | No | A list of custom column IDs |
+| `display_metadata` | `display_metadata` | `string` | No | No | Additional metadata about this reporting template |
+| `engagement_window_days` | `engagement_window_days` | `number` | No | No | The length of the sliding window over which engagement conversions will be attributed |
+| `filters_json` | `filters_json` | `string` | No | No | A JSON representation of any filters to be applied before returning report data. Each filter object should contain all of the following fields:\ "field": The column name\ "operator": The operator. Allowed operators: ["=", "!=", "in", "not_in", "~", "&gt;", "&lt;", "contains_substring"]\ "value": A single value or a list of values |
+| `granularity` | `granularity` | `string` | No | No | Specifies the time interval at which analytics data is broken down. Determines how metrics are grouped within the requested date range. **Note:** The `HOUR` enum no longer provides data for conversion metrics, but it still returns data for non-conversion metrics. All other enums are unchanged. |
+| `id` | `id` | `string` | Yes | No | Template ID |
+| `ingestion_sources` | `ingestion_sources` | `Array<string>` | No | No | The filter on the conversion ingestion source method for conversion metrics |
+| `is_default` | `is_default` | `boolean` | No | No | A boolean representing if this is the default view that loads for this template type |
+| `is_deleted` | `is_deleted` | `boolean` | No | No | A boolean that indicates if the template has been deleted |
+| `is_owned_by_user` | `is_owned_by_user` | `boolean` | No | No | A boolean value that indicates if the user owns the template |
+| `is_scheduled` | `is_scheduled` | `boolean` | No | No | A boolean value that indicates if this template has been used to create a scheduled report |
+| `name` | `name` | `string` | No | No | Template Name |
+| `report_end_relative_days_in_past` | `report_end_relative_days_in_past` | `number` | No | No | The number of days prior to the day the report will be delivered at which the report will end |
+| `report_format` | `report_format` | `string` | No | No | Format of generated report |
+| `report_level` | `report_level` | `string` | No | No | Level of the reporting request |
+| `report_start_relative_days_in_past` | `report_start_relative_days_in_past` | `number` | No | No | The number of days prior to the day the report will be delivered at which the report will start |
+| `reporting_time_zone` | `reporting_time_zone` | `Inline4` | No | No | Timezone for reporting data |
+| `sort_by` | `sort_by` | `unknown` | No | No | Unified metric sort configuration |
+| `type` | `type` | `string` | No | No | Type of the template |
+| `updated_time` | `updated_time` | `number` | No | No | Time of last update in seconds since Unix epoch |
+| `user_id` | `user_id` | `string` | No | No | ID of the user who created the template |
+| `view_window_days` | `view_window_days` | `number` | No | No | The length of the sliding window over which view conversions will be attributed |
+
+## ActionType
+
+`enum` model on the `json` wire format.
+
+**Values:** `CLICKTHROUGH`, `IMPRESSION`, `VIDEO_V_50_MRC`
+
+## Ad
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | Yes | No | The ID of the advertiser that this ad belongs to. |
+| `ad_group_id` | `ad_group_id` | `string` | Yes | No | ID of the ad group that contains the ad. |
+| `android_deep_link` | `android_deep_link` | `string` | No | No | Deep link URL for Android devices. |
+| `campaign_id` | `campaign_id` | `string` | Yes | No | ID of the ad campaign that contains this ad. |
+| `carousel_android_deep_links` | `carousel_android_deep_links` | `Array<string>` | No | No | Comma-separated deep links for the carousel pin on Android. |
+| `carousel_destination_urls` | `carousel_destination_urls` | `Array<string>` | No | No | Comma-separated destination URLs for the carousel pin to promote. |
+| `carousel_ios_deep_links` | `carousel_ios_deep_links` | `Array<string>` | No | No | Comma-separated deep links for the carousel pin on iOS. |
+| `carting_platform_type` | `carting_platform_type` | `Inline7` | No | No | The vendor platform type of the carting/WTB ad. |
+| `carting_products` | `carting_products` | `Array<Inline8>` | No | No | Array of carting/WTB products for the ad. |
+| `click_tracking_url` | `click_tracking_url` | `string` | No | No | Tracking url for the ad clicks. |
+| `collection_items_destination_url_template` | `collection_items_destination_url_template` | `string` | No | No | Destination URL template for all items within a collections drawer. |
+| `collections_header_type` | `collections_header_type` | `Inline9` | No | No | — |
+| `created_time` | `created_time` | `number` | No | No | Pin creation time. Unix timestamp in seconds. |
+| `creative_type` | `creative_type` | `string` | Yes | No | Ad creative type enum. **Note:** SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. |
+| `customizable_cta_type` | `customizable_cta_type` | `string` | No | No | Select a call to action (CTA) to display below your ad. Available only for ads with direct links enabled. CTA options for consideration and conversion campaigns are LEARN_MORE, SHOP_NOW, BOOK_NOW, SIGN_UP, VISIT_SITE, BUY_NOW, GET_OFFER, ORDER_NOW, ADD_TO_CART (for conversion campaigns with add to cart conversion events only) |
+| `destination_url` | `destination_url` | `string` | No | No | Destination URL. |
+| `disclosure_type` | `disclosure_type` | `string` | No | No | Type of information in the page referenced by `disclosure_url`, provided either by the Food and Drug Administration (FDA) or the manufacturer. |
+| `disclosure_url` | `disclosure_url` | `string` | No | No | URL for a page that provides disclosures about a pharmaceutical product, such as potential side effects. Make sure the URL takes the user directly to the disclosure content and the referenced site is secure. |
+| `grid_click_type` | `grid_click_type` | `string` | No | No | Where a user is taken after clicking on an ad in grid. **Note:** This parameter is read-only and is set to `DIRECT_TO_DESTINATION` by default for direct links supported ads. `grid_click_type` values provided will be ignored. |
+| `id` | `id` | `string` | Yes | No | The ID of this ad. |
+| `ios_deep_link` | `ios_deep_link` | `string` | No | No | Deep link URL for iOS devices. |
+| `is_carting` | `is_carting` | `boolean` | No | No | Is the ad a carting/WTB ad? |
+| `is_collage_accepted_terms` | `is_collage_accepted_terms` | `boolean` | No | No | Whether the advertiser has accepted the terms and conditions for collage ad. |
+| `is_collage_single_destination` | `is_collage_single_destination` | `boolean` | No | No | Whether the collage ad has a single destination url override. |
+| `is_pin_deleted` | `is_pin_deleted` | `boolean` | No | No | Is original pin deleted? |
+| `is_removable` | `is_removable` | `boolean` | No | No | Is pin repinnable? |
+| `lead_form_id` | `lead_form_id` | `string` | No | No | Lead form ID for lead ad generation. |
+| `name` | `name` | `string` | No | No | Name of the ad - 255 chars max. |
+| `pin_id` | `pin_id` | `string` | Yes | No | Pin ID. This field may only be updated for draft ads. |
+| `quiz_pin_data` | `quiz_pin_data` | `Inline10` | No | No | Before creating a quiz ad, you must create an organic Pin using POST/Create Pin for each result in the quiz. Quiz ads cannot be saved by a Pinner. Quiz ad results can be saved. |
+| `rejected_reasons` | `rejected_reasons` | `Array<string>` | Yes | No | Enum reason why the pin was rejected. Returned if `review_status` is "REJECTED". |
+| `rejection_labels` | `rejection_labels` | `Array<string>` | Yes | No | Text reason why the pin was rejected. Returned if `review_status` is "REJECTED". |
+| `review_status` | `review_status` | `Inline13` | Yes | No | Ad review status |
+| `status` | `status` | `string` | No | No | Entity status |
+| `summary_status` | `summary_status` | `Inline14` | Yes | No | Ad summary status |
+| `tracking_urls` | `tracking_urls` | `Inline15` | No | No | Third-party tracking URLs. Up to three tracking URLs - with a max length of 2,000 - are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. For more information, see [Third-party and dynamic tracking](https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking). |
+| `type` | `type` | `string` | Yes | No | Always "ad". |
+| `updated_time` | `updated_time` | `number` | No | No | Last update time. Unix timestamp in seconds. |
+| `view_tracking_url` | `view_tracking_url` | `string` | No | No | Tracking URL for ad impressions. |
+
+## AdAccount
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | No | No | Country ID from ISO 3166-1 alpha-2. |
+| `created_time` | `created_time` | `number` | No | No | Creation time. Unix timestamp in seconds. |
+| `currency` | `currency` | `string` | No | No | Currency Codes from ISO 4217 |
+| `id` | `id` | `string` | Yes | No | — |
+| `name` | `name` | `string` | No | No | Ad account name. |
+| `owner` | `owner` | `Inline17` | No | No | Ad account owner |
+| `permissions` | `permissions` | `Array<string>` | No | No | — |
+| `time_zone` | `time_zone` | `string` | No | No | The time zone of the ad account, in IANA format (e.g., "America/Los_Angeles"). Adding your local time zone lets you view your campaigns and ad reporting in your preferred time zone. Future reports will be available in both your local time zone and default UTC time zone. Historical data takes 1-2 months to backfill. Your billing and order lines will remain in UTC. |
+| `updated_time` | `updated_time` | `number` | No | No | — |
+
+## AdAccountAnalyticsItems
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AD_ACCOUNT_ID` | `AD_ACCOUNT_ID` | `string` | Yes | No | — |
+| `DATE` | `DATE` | `string` | No | No | — |
+
+## AdAccountAnalyticsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `startDate` | `startDate` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `endDate` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `columns` | `columns` | `Array<string>` | Yes | No | Columns to retrieve, encoded as a comma-separated string. **NOTE**: Any metrics defined as MICRO_DOLLARS returns a value based on the advertiser profile's currency field. For USD, ($1/1,000,000, or $0.000001 - one one-ten-thousandth of a cent). it's microdollars. Otherwise, it's in microunits of the advertiser's currency. For example, if the advertiser's currency is GBP (British pound sterling), all MICRO_DOLLARS fields will be in GBP microunits (1/1,000,000 British pound). If a column has no value, it may not be returned. |
+| `granularity` | `granularity` | `string` | Yes | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEK - metrics are broken down weekly. MONTH - metrics are broken down monthly |
+| `clickWindowDays` | `clickWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. |
+| `engagementWindowDays` | `engagementWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for an engagement action. Engagements include saves, closeups, link clicks, and carousel card swipes. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. **Note:** This parameter no longer returns new data. However, you can still access historic data through **Sept 30, 2027**. |
+| `viewWindowDays` | `viewWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a view action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `1` day. |
+| `conversionReportTime` | `conversionReportTime` | `string` | No | No | The date by which the conversion metrics returned from this endpoint will be reported. There are two dates associated with a conversion event: the date that the user interacted with the ad, and the date that the user completed a conversion event. |
+| `reportingTimezone` | `reportingTimezone` | `string` | No | No | Specify the timezone to be applied for the reporting. This feature is currently in BETA and is not available to all users. |
+
+## AdAccountAnalyticsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline7550>` | Yes | No | — |
+
+## AdAccountCountriesGetParams
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AdAccountCountriesGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline11489` | Yes | No | — |
+
+## AdAccountCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | No | No | Country ID from ISO 3166-1 alpha-2. |
+| `currency` | `currency` | `string` | No | No | Currency Codes from ISO 4217 |
+| `name` | `name` | `string` | No | No | Ad account name. |
+| `owner_user_id` | `owner_user_id` | `string` | No | No | Advertiser's owning user ID. |
+| `time_zone` | `time_zone` | `string` | No | No | The time zone of the ad account, in IANA format (e.g., "America/Los_Angeles"). Adding your local time zone lets you view your campaigns and ad reporting in your preferred time zone. Future reports will be available in both your local time zone and default UTC time zone. Historical data takes 1-2 months to backfill. Your billing and order lines will remain in UTC. |
+
+## AdAccountEntityType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADVERTISER`, `CAMPAIGN`, `AD_GROUP`, `AD`
+
+## AdAccountOwner
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | The owning account's user ID. |
+| `username` | `username` | `string` | No | No | Public username for the user account |
+
+## AdAccountsAudience
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Ad account ID. |
+| `audience_type` | `audience_type` | `Inline23` | No | No | Audience types: ACTALIKE, ENGAGEMENT, CUSTOMER_LIST and VISITOR |
+| `created_by_company_name` | `created_by_company_name` | `string` | No | No | The company that created this audience. |
+| `created_timestamp` | `created_timestamp` | `number` | No | No | Creation time. Unix timestamp in seconds. |
+| `description` | `description` | `string` | No | No | Audience description. |
+| `id` | `id` | `string` | Yes | No | Audience ID. |
+| `is_nca` | `is_nca` | `boolean` | No | No | Whether the audience derives from a new customer acquisition (expanded matching) customer list. Read-only. |
+| `name` | `name` | `string` | No | No | Audience name. |
+| `rule` | `rule` | `Inline24` | No | No | JSON object defining targeted audience users. Example rule formats per audience type: CUSTOMER_LIST: &#123; "customer_list_id": "&lt;customer list ID&gt;"&#125; ACTALIKE: &#123; "seed_id": ["&lt;audience ID&gt;"], "country": "US", "percentage": "10" &#125; (Valid countries include: "US", "CA", and "GB". Percentage should be 1-10. The targeted audience should be this % size across Pinterest.) VISITOR: &#123; "visitor_source_id": ["&lt;conversion tag ID&gt;"], "retention_days": "180", "event_source": &#123;"=": ["web", "mobile"]&#125;, "ingestion_source": &#123;"=": ["tag"]&#125;&#125; (Retention days should be 1-540. Retention applies to specific customers.) ENGAGEMENT: &#123;"engagement_domain": ["www.example.com"], "engager_type": 1&#125; Learn more about engagement audiences. |
+| `size` | `size` | `number` | No | No | Audience size. |
+| `status` | `status` | `Inline28` | No | No | Audience status. READY, INITIALIZING, TOO_SMALL - Each audience list needs to have at least 100 people with Pinterest accounts before you can start using it. |
+| `type` | `type` | `string` | No | No | Always "audience". |
+| `updated_timestamp` | `updated_timestamp` | `number` | No | No | Last update time. Unix timestamp in seconds. |
+
+## AdAccountsAudienceCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Ad account ID. |
+| `audience_type` | `audience_type` | `Inline30` | No | No | Audience types: ACTALIKE, ENGAGEMENT, CUSTOMER_LIST and VISITOR |
+| `description` | `description` | `string` | No | No | Audience description. |
+| `name` | `name` | `string` | No | No | Audience name. |
+| `rule` | `rule` | `Inline31` | No | No | JSON object defining targeted audience users. Example rule formats per audience type: CUSTOMER_LIST: &#123; "customer_list_id": "&lt;customer list ID&gt;"&#125; ACTALIKE: &#123; "seed_id": ["&lt;audience ID&gt;"], "country": "US", "percentage": "10" &#125; (Valid countries include: "US", "CA", and "GB". Percentage should be 1-10. The targeted audience should be this % size across Pinterest.) VISITOR: &#123; "visitor_source_id": ["&lt;conversion tag ID&gt;"], "retention_days": "180", "event_source": &#123;"=": ["web", "mobile"]&#125;, "ingestion_source": &#123;"=": ["tag"]&#125;&#125; (Retention days should be 1-540. Retention applies to specific customers.) ENGAGEMENT: &#123;"engagement_domain": ["www.example.com"], "engager_type": 1&#125; Learn more about engagement audiences. |
+
+## AdAccountsAudienceRule
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Ad account ID. |
+| `ad_id` | `ad_id` | `Array<string>` | No | No | Ad ID for engagement audience filter. |
+| `campaign_id` | `campaign_id` | `Array<string>` | No | No | Campaign ID for engagement audience filter. |
+| `country` | `country` | `string` | No | No | Valid countries include: "US", "CA", and "GB". |
+| `customer_list_id` | `customer_list_id` | `string` | No | No | Customer list ID. For CUSTOMER_LIST `audience_type`. |
+| `engagement_domain` | `engagement_domain` | `Array<string>` | No | No | The audience account's verified domain. **Required** for ENGAGEMENT `audience_type`. |
+| `engagement_type` | `engagement_type` | `string` | No | No | Engagement type enum. Optional for ENGAGEMENT `audience_type`. Supported values are `click`, `save`, `closeup`, `comment` and `like`. All engagements are included if this field is not set. |
+| `engager_type` | `engager_type` | `number` | No | No | Optional for ENGAGEMENT. Engager type value should be 1-2. |
+| `event` | `event` | `string` | No | No | A Pinterest tag event. Optional for VISITOR `audience_type`. Possible values are `pagevisit`, `signup`, `checkout`, `viewcategory`, `search`, `addtocart`, `watchvideo`, `lead`, and `custom`. This field also accepts a partner-defined Pinterest tag event. |
+| `event_data` | `event_data` | `Inline36` | No | No | Optional for VISITOR `audience_type`. With the Pinterest tag, you can use event data to capture event details from your website. This object lists all the available predefined event data fields in the Pinterest tag. You can include these event data fields as part of a VISITOR audience’s `rule`; however, you **must** specify an `event` for the `event_data` fields to be evaluated. Besides what’s listed, you can also create your own set of `event_data` fields and define their usages or purposes according to your website needs. However, the benefit of using the predefined event data fields is that we can provide various metrics based on those fields' data. Examples per `event` type: `pagevisit` "event_data": &#123; "page_name": "My online store 123 \| view items \| shoe" &#125; `signup` "event_data": &#123; "lead_type": "New release promotion" &#125; `checkout` "event_data": &#123; "value": 116, "order_quantity": 2, "currency": "USD", "line_items": [ &#123; "product_name": "Pillows (Set of 2)", "product_id": "11", "product_price": 48, "product_quantity": 1 &#125;, &#123; "product_name": "Pillows, Large (Set of 2)", "product_id": "15", "product_price": 68, "product_quantity": 1 &#125; ] &#125; `addtocart` "event_data": &#123; "value": 499, "order_quantity": 1, "currency": "USD", "line_items": [ &#123; "product_name": "Red leather boots", "product_id": "3486", "product_category": "shoe", "product_variant_id": "JB11103000", "product_price": 499, "product_quantity": "1", "product_brand": "My brand" &#125;]&#125; `watchvideo` "event_data": &#123; "video_title" : "My Product Video 01" &#125; `lead` "event_data": &#123; "lead_type": "Newsletter" &#125; |
+| `event_source` | `event_source` | `Inline38` | No | No | Optional for VISITOR. You can use it as a &#123;'=': [value]&#125;. Supported values are: web, mobile, offline |
+| `ingestion_source` | `ingestion_source` | `Inline39` | No | No | Optional for VISITOR. You can use it as a &#123;'=': [value]&#125;. Supported values are: tag, mmp, file_upload, conversions_api |
+| `objective_type` | `objective_type` | `Array<string>` | No | No | Objective for engagement audience filter. |
+| `percentage` | `percentage` | `string \| number` | No | No | Percentage should be 1-10. The targeted audience should be this % size across Pinterest. |
+| `pin_id` | `pin_id` | `Array<string>` | No | No | IDs of engaged organic pins. Optional for ENGAGEMENT `audience_type`. For example, "pin_id:": ["34567"] |
+| `prefill` | `prefill` | `boolean` | No | No | Optional for VISITOR `audience_type`. If `true`, the specified rule on existing engagement data is applied to pre-populate the audience. If `false`, the audience is empty at creation time. The default is `true`. |
+| `retention_days` | `retention_days` | `number` | No | No | Number of days a Pinterest user remains in the audience. Optional for ENGAGEMENT and VISITOR `audience_type`. Accepted range is 1-540. Defaults to 180 if not specified. |
+| `seed_id` | `seed_id` | `Array<number> \| Array<string>` | No | No | Audience ID(s). For ACTALIKE `audience_type`. |
+| `url` | `url` | `Array<string>` | No | No | Optional for ENGAGEMENT or VISITOR `audience_type`. For ENGAGEMENT, it is the engaged pin's URL. For VISITOR, you can use it as a string or a &#123;operator: value&#125; object for filtering visitors based on conversion tag event URLs. Supported operators are [ =, !=, contains, not_contains]. Example 1: "url": "http://www.myonlinestore123.com/view_item/shoe" Example 2: "url": &#123;"contains": "/view_item/shoe"&#125; |
+| `visitor_source_id` | `visitor_source_id` | `string \| Array<string>` | No | No | The conversion tag ID, or the Pinterest tag ID, that you use on your website. For VISITOR `audience_type`. |
+
+## AdAccountsAudiencesSharedAccountsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `audienceId` | `audienceId` | `string` | Yes | No | Unique identifier of the audience to use to filter the results. |
+| `accountType` | `accountType` | `string` | Yes | No | Filter accounts by account type. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## AdAccountsAudiencesSharedAccountsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7625` | Yes | No | — |
+
+## AdAccountsAudienceUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Ad account ID. |
+| `audience_type` | `audience_type` | `Inline41` | No | No | Audience types: ACTALIKE, ENGAGEMENT, CUSTOMER_LIST and VISITOR |
+| `description` | `description` | `string` | No | No | Audience description. |
+| `name` | `name` | `string` | No | No | Audience name. |
+| `operation_type` | `operation_type` | `Inline42` | No | No | Audience operation type (update or remove). Only valid in update request body. |
+| `rule` | `rule` | `Inline43` | No | No | JSON object defining targeted audience users. Example rule formats per audience type: CUSTOMER_LIST: &#123; "customer_list_id": "&lt;customer list ID&gt;"&#125; ACTALIKE: &#123; "seed_id": ["&lt;audience ID&gt;"], "country": "US", "percentage": "10" &#125; (Valid countries include: "US", "CA", and "GB". Percentage should be 1-10. The targeted audience should be this % size across Pinterest.) VISITOR: &#123; "visitor_source_id": ["&lt;conversion tag ID&gt;"], "retention_days": "180", "event_source": &#123;"=": ["web", "mobile"]&#125;, "ingestion_source": &#123;"=": ["tag"]&#125;&#125; (Retention days should be 1-540. Retention applies to specific customers.) ENGAGEMENT: &#123;"engagement_domain": ["www.example.com"], "engager_type": 1&#125; Learn more about engagement audiences. |
+
+## AdAccountsCountry
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `Inline48` | Yes | No | — |
+| `currency` | `currency` | `string` | Yes | No | Country currency. |
+| `index` | `index` | `number` | Yes | No | Country index |
+| `name` | `name` | `string` | Yes | No | Country name |
+
+## AdAccountsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | No | No | Country ID from ISO 3166-1 alpha-2. |
+| `currency` | `currency` | `string` | No | No | Currency Codes from ISO 4217 |
+| `name` | `name` | `string` | No | No | Ad account name. |
+| `owner_user_id` | `owner_user_id` | `string` | No | No | Advertiser's owning user ID. |
+| `time_zone` | `time_zone` | `string` | No | No | The time zone of the ad account, in IANA format (e.g., "America/Los_Angeles"). Adding your local time zone lets you view your campaigns and ad reporting in your preferred time zone. Future reports will be available in both your local time zone and default UTC time zone. Historical data takes 1-2 months to backfill. Your billing and order lines will remain in UTC. |
+
+## AdAccountsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7323` | Yes | No | — |
+
+## AdAccountsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | — |
+
+## AdAccountsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7326` | Yes | No | — |
+
+## AdAccountsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `includeSharedAccounts` | `includeSharedAccounts` | `boolean` | No | No | Include shared ad accounts |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## AdAccountsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7320` | Yes | No | — |
+
+## AdAccountsSubscriptionsDelByIdParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `subscriptionId` | `subscriptionId` | `string` | Yes | No | Unique identifier of a subscription. |
+
+## AdAccountsSubscriptionsDelByIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8906` | Yes | No | — |
+
+## AdAccountsSubscriptionsGetByIdParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `subscriptionId` | `subscriptionId` | `string` | Yes | No | Unique identifier of a subscription. |
+
+## AdAccountsSubscriptionsGetByIdResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8903` | Yes | No | — |
+
+## AdAccountsSubscriptionsGetListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+## AdAccountsSubscriptionsGetListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8895` | Yes | No | — |
+
+## AdAccountsSubscriptionsPostParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `partner_access_token` | `partner_access_token` | `string` | No | No | Partner access token. Only for clients that requires authentication. We recommend to avoid this param. |
+| `partner_metadata` | `partner_metadata` | `Inline8897` | No | No | Partner metadata. Only for clients that requires special handling. We recommend to avoid this param. |
+| `partner_refresh_token` | `partner_refresh_token` | `string` | No | No | Partner refresh token. Only for clients that requires authentication. We recommend to avoid this param. |
+| `lead_form_id` | `lead_form_id` | `string` | No | No | Lead form ID. |
+| `webhook_url` | `webhook_url` | `string` | No | No | Standard HTTPS webhook URL. |
+
+## AdAccountsSubscriptionsPostResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8899` | Yes | No | — |
+
+## AdAccountTargetingAnalyticsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `startDate` | `startDate` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `endDate` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `targetingTypes` | `targetingTypes` | `Array<string>` | Yes | No | Targeting type breakdowns for the report. The reporting per targeting type is independent from each other. ["AGE_BUCKET_AND_GENDER"] is in BETA and not yet available to all users. |
+| `columns` | `columns` | `Array<string>` | Yes | No | Columns to retrieve, encoded as a comma-separated string. **NOTE**: Any metrics defined as MICRO_DOLLARS returns a value based on the advertiser profile's currency field. For USD, ($1/1,000,000, or $0.000001 - one one-ten-thousandth of a cent). it's microdollars. Otherwise, it's in microunits of the advertiser's currency. For example, if the advertiser's currency is GBP (British pound sterling), all MICRO_DOLLARS fields will be in GBP microunits (1/1,000,000 British pound). If a column has no value, it may not be returned. |
+| `granularity` | `granularity` | `string` | Yes | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEK - metrics are broken down weekly. MONTH - metrics are broken down monthly |
+| `clickWindowDays` | `clickWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. |
+| `engagementWindowDays` | `engagementWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for an engagement action. Engagements include saves, closeups, link clicks, and carousel card swipes. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. **Note:** This parameter no longer returns new data. However, you can still access historic data through **Sept 30, 2027**. |
+| `viewWindowDays` | `viewWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a view action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `1` day. |
+| `conversionReportTime` | `conversionReportTime` | `string` | No | No | The date by which the conversion metrics returned from this endpoint will be reported. There are two dates associated with a conversion event: the date that the user interacted with the ad, and the date that the user completed a conversion event. |
+| `attributionTypes` | `attributionTypes` | `Array<string>` | No | No | List of types of attribution for the conversion report |
+| `reportingTimezone` | `reportingTimezone` | `string` | No | No | Specify the timezone to be applied for the reporting. This feature is currently in BETA and is not available to all users. |
+
+## AdAccountTargetingAnalyticsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9135` | Yes | No | — |
+
+## AdAccountToAdAccountSharedAudience
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_id` | `audience_id` | `Inline50` | Yes | No | Unique identifier of an audience |
+| `permissions` | `permissions` | `Array<string>` | No | No | Permissions granted to the recipients. |
+| `recipient_account_ids` | `recipient_account_ids` | `Array<unknown>` | Yes | No | Ad account IDs to share with or revoke from (request) / that received the audience (response). |
+
+## AdAccountToAdAccountSharedAudienceUpdateWithRequiredBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_id` | `audience_id` | `Inline52` | Yes | No | Unique identifier of an audience |
+| `operation_type` | `operation_type` | `string` | Yes | No | Operation type to share a specific audience or revoke access to a previously shared audience |
+| `recipient_account_ids` | `recipient_account_ids` | `Array<unknown>` | Yes | No | Ad account IDs to share with or revoke from (request) / that received the audience (response). |
+
+## AdAccountToBusinessSharedAudience
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_id` | `audience_id` | `Inline54` | Yes | No | Unique identifier of an audience |
+| `permissions` | `permissions` | `Array<string>` | No | No | Permissions granted to the recipients. |
+| `recipient_business_ids` | `recipient_business_ids` | `Array<unknown>` | Yes | No | Business IDs to share with or revoke from (request) / that received the audience (response). |
+
+## AdAccountToBusinessSharedAudienceUpdateWithRequiredBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_id` | `audience_id` | `Inline56` | Yes | No | Unique identifier of an audience |
+| `operation_type` | `operation_type` | `string` | Yes | No | Operation type to share a specific audience or revoke access to a previously shared audience |
+| `recipient_business_ids` | `recipient_business_ids` | `Array<unknown>` | Yes | No | Business IDs to share with or revoke from (request) / that received the audience (response). |
+
+## AdAdsAnalyticsAsyncTargetingTypes
+
+`enum` model on the `json` wire format.
+
+**Values:** `KEYWORD`, `APPTYPE`, `GENDER`, `LOCATION`, `PLACEMENT`, `COUNTRY`, `TARGETED_INTEREST`, `PINNER_INTEREST`, `AUDIENCE_INCLUDE`, `GEO`, `AGE_BUCKET`, `REGION`, `MEDIA_TYPE`, `AGE_BUCKET_AND_GENDER`, `AUDIENCE_MULTIPLIER`, `CREATIVE_ENHANCEMENTS`, `LOCAL_ADS_STORE_CODE`
+
+## AdBatchCreateRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline59>`
+
+## AdBatchItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline65` | No | No | — |
+| `exceptions` | `exceptions` | `unknown` | No | No | — |
+
+## AdBatchUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_id` | `ad_group_id` | `string` | No | No | ID of the ad group that contains the ad. |
+| `android_deep_link` | `android_deep_link` | `string` | No | No | Deep link URL for Android devices. |
+| `carousel_android_deep_links` | `carousel_android_deep_links` | `Array<string>` | No | No | Comma-separated deep links for the carousel pin on Android. |
+| `carousel_destination_urls` | `carousel_destination_urls` | `Array<string>` | No | No | Comma-separated destination URLs for the carousel pin to promote. |
+| `carousel_ios_deep_links` | `carousel_ios_deep_links` | `Array<string>` | No | No | Comma-separated deep links for the carousel pin on iOS. |
+| `click_tracking_url` | `click_tracking_url` | `string` | No | No | Tracking url for the ad clicks. |
+| `collection_items_destination_url_template` | `collection_items_destination_url_template` | `string` | No | No | Destination URL template for all items within a collections drawer. |
+| `collections_header_type` | `collections_header_type` | `Inline75` | No | No | — |
+| `creative_type` | `creative_type` | `string` | No | No | Ad creative type enum. **Note:** SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. |
+| `customizable_cta_type` | `customizable_cta_type` | `string` | No | No | Select a call to action (CTA) to display below your ad. Available only for ads with direct links enabled. CTA options for consideration and conversion campaigns are LEARN_MORE, SHOP_NOW, BOOK_NOW, SIGN_UP, VISIT_SITE, BUY_NOW, GET_OFFER, ORDER_NOW, ADD_TO_CART (for conversion campaigns with add to cart conversion events only) |
+| `destination_url` | `destination_url` | `string` | No | No | Destination URL. |
+| `disclosure_type` | `disclosure_type` | `string` | No | No | Type of information in the page referenced by `disclosure_url`, provided either by the Food and Drug Administration (FDA) or the manufacturer. |
+| `disclosure_url` | `disclosure_url` | `string` | No | No | URL for a page that provides disclosures about a pharmaceutical product, such as potential side effects. Make sure the URL takes the user directly to the disclosure content and the referenced site is secure. |
+| `grid_click_type` | `grid_click_type` | `string` | No | No | Where a user is taken after clicking on an ad in grid. **Note:** This parameter is read-only and is set to `DIRECT_TO_DESTINATION` by default for direct links supported ads. `grid_click_type` values provided will be ignored. |
+| `id` | `id` | `string` | Yes | No | The ID of this ad. |
+| `ios_deep_link` | `ios_deep_link` | `string` | No | No | Deep link URL for iOS devices. |
+| `is_carting` | `is_carting` | `boolean` | No | No | Is the ad a carting/WTB ad? |
+| `is_collage_accepted_terms` | `is_collage_accepted_terms` | `boolean` | No | No | Whether the advertiser has accepted the terms and conditions for collage ad. |
+| `is_collage_single_destination` | `is_collage_single_destination` | `boolean` | No | No | Whether the collage ad has a single destination url override. |
+| `is_pin_deleted` | `is_pin_deleted` | `boolean` | No | No | Is original pin deleted? |
+| `is_removable` | `is_removable` | `boolean` | No | No | Is pin repinnable? |
+| `lead_form_id` | `lead_form_id` | `string` | No | No | Lead form ID for lead ad generation. |
+| `name` | `name` | `string` | No | No | Name of the ad - 255 chars max. |
+| `pin_id` | `pin_id` | `string` | No | No | Pin ID. This field may only be updated for draft ads. |
+| `quiz_pin_data` | `quiz_pin_data` | `Inline76` | No | No | Before creating a quiz ad, you must create an organic Pin using POST/Create Pin for each result in the quiz. Quiz ads cannot be saved by a Pinner. Quiz ad results can be saved. |
+| `status` | `status` | `string` | No | No | Entity status |
+| `tracking_urls` | `tracking_urls` | `Inline79` | No | No | Third-party tracking URLs. Up to three tracking URLs - with a max length of 2,000 - are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. For more information, see [Third-party and dynamic tracking](https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking). |
+| `view_tracking_url` | `view_tracking_url` | `string` | No | No | Tracking URL for ad impressions. |
+
+## AdBatchUpdateRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline81>`
+
+## AdBatchWriteResponseModel
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<Inline87>` | Yes | No | — |
+
+## AdCollectionsHeaderType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## AdCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_id` | `ad_group_id` | `string` | Yes | No | ID of the ad group that contains the ad. |
+| `android_deep_link` | `android_deep_link` | `string` | No | No | Deep link URL for Android devices. |
+| `carousel_android_deep_links` | `carousel_android_deep_links` | `Array<string>` | No | No | Comma-separated deep links for the carousel pin on Android. |
+| `carousel_destination_urls` | `carousel_destination_urls` | `Array<string>` | No | No | Comma-separated destination URLs for the carousel pin to promote. |
+| `carousel_ios_deep_links` | `carousel_ios_deep_links` | `Array<string>` | No | No | Comma-separated deep links for the carousel pin on iOS. |
+| `click_tracking_url` | `click_tracking_url` | `string` | No | No | Tracking url for the ad clicks. |
+| `collection_items_destination_url_template` | `collection_items_destination_url_template` | `string` | No | No | Destination URL template for all items within a collections drawer. |
+| `collections_header_type` | `collections_header_type` | `Inline98` | No | No | — |
+| `creative_type` | `creative_type` | `string` | Yes | No | Ad creative type enum. **Note:** SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. |
+| `customizable_cta_type` | `customizable_cta_type` | `string` | No | No | Select a call to action (CTA) to display below your ad. Available only for ads with direct links enabled. CTA options for consideration and conversion campaigns are LEARN_MORE, SHOP_NOW, BOOK_NOW, SIGN_UP, VISIT_SITE, BUY_NOW, GET_OFFER, ORDER_NOW, ADD_TO_CART (for conversion campaigns with add to cart conversion events only) |
+| `destination_url` | `destination_url` | `string` | No | No | Destination URL. |
+| `disclosure_type` | `disclosure_type` | `string` | No | No | Type of information in the page referenced by `disclosure_url`, provided either by the Food and Drug Administration (FDA) or the manufacturer. |
+| `disclosure_url` | `disclosure_url` | `string` | No | No | URL for a page that provides disclosures about a pharmaceutical product, such as potential side effects. Make sure the URL takes the user directly to the disclosure content and the referenced site is secure. |
+| `grid_click_type` | `grid_click_type` | `string` | No | No | Where a user is taken after clicking on an ad in grid. **Note:** This parameter is read-only and is set to `DIRECT_TO_DESTINATION` by default for direct links supported ads. `grid_click_type` values provided will be ignored. |
+| `ios_deep_link` | `ios_deep_link` | `string` | No | No | Deep link URL for iOS devices. |
+| `is_carting` | `is_carting` | `boolean` | No | No | Is the ad a carting/WTB ad? |
+| `is_collage_accepted_terms` | `is_collage_accepted_terms` | `boolean` | No | No | Whether the advertiser has accepted the terms and conditions for collage ad. |
+| `is_collage_single_destination` | `is_collage_single_destination` | `boolean` | No | No | Whether the collage ad has a single destination url override. |
+| `is_pin_deleted` | `is_pin_deleted` | `boolean` | No | No | Is original pin deleted? |
+| `is_removable` | `is_removable` | `boolean` | No | No | Is pin repinnable? |
+| `lead_form_id` | `lead_form_id` | `string` | No | No | Lead form ID for lead ad generation. |
+| `name` | `name` | `string` | No | No | Name of the ad - 255 chars max. |
+| `pin_id` | `pin_id` | `string` | Yes | No | Pin ID. This field may only be updated for draft ads. |
+| `quiz_pin_data` | `quiz_pin_data` | `Inline99` | No | No | Before creating a quiz ad, you must create an organic Pin using POST/Create Pin for each result in the quiz. Quiz ads cannot be saved by a Pinner. Quiz ad results can be saved. |
+| `status` | `status` | `string` | No | No | Entity status |
+| `tracking_urls` | `tracking_urls` | `Inline102` | No | No | Third-party tracking URLs. Up to three tracking URLs - with a max length of 2,000 - are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. For more information, see [Third-party and dynamic tracking](https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking). |
+| `view_tracking_url` | `view_tracking_url` | `string` | No | No | Tracking URL for ad impressions. |
+
+## AdCreateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_group_id` | `ad_group_id` | `string` | No | No | ID of the ad group that contains the ad. |
+| `android_deep_link` | `android_deep_link` | `string` | No | No | Deep link URL for Android devices. |
+| `carousel_android_deep_links` | `carousel_android_deep_links` | `Array<string>` | No | No | Comma-separated deep links for the carousel pin on Android. |
+| `carousel_destination_urls` | `carousel_destination_urls` | `Array<string>` | No | No | Comma-separated destination URLs for the carousel pin to promote. |
+| `carousel_ios_deep_links` | `carousel_ios_deep_links` | `Array<string>` | No | No | Comma-separated deep links for the carousel pin on iOS. |
+| `click_tracking_url` | `click_tracking_url` | `string` | No | No | Tracking url for the ad clicks. |
+| `creative_type` | `creative_type` | `string` | No | No | Ad creative type enum. **Note:** SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. |
+| `customizable_cta_type` | `customizable_cta_type` | `string` | No | No | Select a call to action (CTA) to display below your ad. Available only for ads with direct links enabled. CTA options for consideration and conversion campaigns are LEARN_MORE, SHOP_NOW, BOOK_NOW, SIGN_UP, VISIT_SITE, BUY_NOW, GET_OFFER, ORDER_NOW, ADD_TO_CART (for conversion campaigns with add to cart conversion events only) |
+| `destination_url` | `destination_url` | `string` | No | No | Destination URL. |
+| `disclosure_type` | `disclosure_type` | `string` | No | No | Type of information in the page referenced by `disclosure_url`, provided either by the Food and Drug Administration (FDA) or the manufacturer. |
+| `disclosure_url` | `disclosure_url` | `string` | No | No | URL for a page that provides disclosures about a pharmaceutical product, such as potential side effects. Make sure the URL takes the user directly to the disclosure content and the referenced site is secure. |
+| `grid_click_type` | `grid_click_type` | `string` | No | No | Where a user is taken after clicking on an ad in grid. **Note:** This parameter is read-only and is set to `DIRECT_TO_DESTINATION` by default for direct links supported ads. `grid_click_type` values provided will be ignored. |
+| `ios_deep_link` | `ios_deep_link` | `string` | No | No | Deep link URL for iOS devices. |
+| `is_carting` | `is_carting` | `boolean` | No | No | Is the ad a carting/WTB ad? |
+| `is_pin_deleted` | `is_pin_deleted` | `boolean` | No | No | Is original pin deleted? |
+| `is_removable` | `is_removable` | `boolean` | No | No | Is pin repinnable? |
+| `lead_form_id` | `lead_form_id` | `string` | No | No | Lead form ID for lead ad generation. |
+| `name` | `name` | `string` | No | No | Name of the ad - 255 chars max. |
+| `pin_id` | `pin_id` | `string` | No | No | Pin ID. |
+| `quiz_pin_data` | `quiz_pin_data` | `Inline104` | No | No | Before creating a quiz ad, you must create an organic Pin using POST/Create Pin for each result in the quiz. Quiz ads cannot be saved by a Pinner. Quiz ad results can be saved. |
+| `status` | `status` | `string` | No | No | Entity status |
+| `tracking_urls` | `tracking_urls` | `Inline107` | No | No | — |
+| `view_tracking_url` | `view_tracking_url` | `string` | No | No | Tracking URL for ad impressions. |
+
+## AdCreateRequestAllOf2
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AdDisapprovalReasons
+
+`enum` model on the `json` wire format.
+
+**Values:** `HASHTAGS`, `PROMOTIONS_AND_PRICES`, `TARGETING`, `LANDING_PAGE`, `CAPS_AND_SYMBOLS`, `SHOCKING`, `WEIGHT_LOSS`, `PROHIBITED_PRODUCT`, `AUTHENTICITY`, `NUDITY`, `CONFUSING_DESIGN`, `URGENCY`, `RATINGS`, `APP`, `ALCOHOL`, `CONTESTS`, `POLITICAL`, `OTHER`, `IMAGE`, `NAR`, `INCONSISTENT`, `CLICKBAIT`, `NO_DESCRIPTION`, `LOW_QUALITY`, `EXAGGERATED_CLAIMS`, `PINTEREST_BRAND`, `ALCOHOL_NO_SALE`, `LANDING_PAGE_SPEED`, `LANDING_PAGE_HARDWALL`, `LANDING_PAGE_BROKEN`, `LANDING_PAGE_QUALITY`, `OUT_OF_STOCK`, `IMAGE_LOW_QUALITY`, `IMAGE_BUSY`, `IMAGE_POORLY_EDITED`, `IMAGE_BEFORE_AFTER`, `UGC`, `FAKE_BUTTONS`, `WEAPONS`, `SENSITIVE`, `UNACCEPTABLE_BUSINESS`, `SUSPICIOUS_CLAIMS`, `PHARMA`, `SUSPICIOUS_SUPPLEMENTS`, `ILLEGAL_RECREATIONAL_DRUG`, `LOW_QUALITY_LANDING_PAGE`, `RESTRICTED_HEALTHCARE`, `INCONSISTENT_LANG_FR`
+
+## AdeColumn
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## AdeColumnType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADE_COST_PER_ACTION`, `ADE_ROAS`, `ADE_TOTAL_CONVERSIONS`, `ADE_TOTAL_VALUE_IN_MICRO_DOLLAR`, `ADE_AVERAGE_VALUE_IN_MICRO_DOLLAR`, `ADE_TOTAL_CLICK`, `ADE_TOTAL_CLICK_VALUE_IN_MICRO_DOLLAR`, `ADE_TOTAL_VIEW`, `ADE_TOTAL_VIEW_VALUE_IN_MICRO_DOLLAR`, `ADE_TOTAL_CONVERSION_RATE`, `ADE_WEB_COST_PER_ACTION`, `ADE_WEB_ROAS`, `ADE_TOTAL_WEB_CONVERSIONS`, `ADE_TOTAL_WEB_VALUE_IN_MICRO_DOLLAR`, `ADE_TOTAL_WEB_CLICK`, `ADE_TOTAL_WEB_CLICK_VALUE_IN_MICRO_DOLLAR`, `ADE_TOTAL_WEB_VIEW`, `ADE_TOTAL_WEB_VIEW_VALUE_IN_MICRO_DOLLAR`, `ADE_INAPP_COST_PER_ACTION`, `ADE_INAPP_ROAS`, `ADE_TOTAL_INAPP_CONVERSIONS`, `ADE_TOTAL_INAPP_VALUE_IN_MICRO_DOLLAR`, `ADE_TOTAL_INAPP_CLICK`, `ADE_TOTAL_INAPP_CLICK_VALUE_IN_MICRO_DOLLAR`, `ADE_TOTAL_INAPP_VIEW`, `ADE_TOTAL_INAPP_VIEW_VALUE_IN_MICRO_DOLLAR`, `ADE_OFFLINE_COST_PER_ACTION`, `ADE_OFFLINE_ROAS`, `ADE_TOTAL_OFFLINE_CONVERSIONS`, `ADE_TOTAL_OFFLINE_VALUE_IN_MICRO_DOLLAR`, `ADE_TOTAL_OFFLINE_CLICK`, `ADE_TOTAL_OFFLINE_CLICK_VALUE_IN_MICRO_DOLLAR`, `ADE_TOTAL_OFFLINE_VIEW`, `ADE_TOTAL_OFFLINE_VIEW_VALUE_IN_MICRO_DOLLAR`, `ADE_TOTAL_CONVERSION_PRODUCT_QUANTITY`, `ADE_TOTAL_CONVERSION_PRODUCT_VALUE`, `ADE_TOTAL_CONVERSION_PRODUCT_VALUE_IN_MICRO_UNITS`, `ADE_TOTAL_CONVERSION_PRODUCT_VALUE_IN_USD`, `ADE_TOTAL_CONVERSION_PRODUCT_VALUE_IN_MICRO_USD`, `ADE_TOTAL_WEB_CONVERSION_PRODUCT_QUANTITY`, `ADE_TOTAL_WEB_CONVERSION_PRODUCT_VALUE`, `ADE_TOTAL_WEB_CONVERSION_PRODUCT_VALUE_IN_MICRO_UNITS`, `ADE_TOTAL_WEB_CONVERSION_PRODUCT_VALUE_IN_USD`, `ADE_TOTAL_WEB_CONVERSION_PRODUCT_VALUE_IN_MICRO_USD`, `ADE_TOTAL_INAPP_CONVERSION_PRODUCT_QUANTITY`, `ADE_TOTAL_INAPP_CONVERSION_PRODUCT_VALUE`, `ADE_TOTAL_INAPP_CONVERSION_PRODUCT_VALUE_IN_MICRO_UNITS`, `ADE_TOTAL_INAPP_CONVERSION_PRODUCT_VALUE_IN_USD`, `ADE_TOTAL_INAPP_CONVERSION_PRODUCT_VALUE_IN_MICRO_USD`, `ADE_TOTAL_OFFLINE_CONVERSION_PRODUCT_QUANTITY`, `ADE_TOTAL_OFFLINE_CONVERSION_PRODUCT_VALUE`, `ADE_TOTAL_OFFLINE_CONVERSION_PRODUCT_VALUE_IN_MICRO_UNITS`, `ADE_TOTAL_OFFLINE_CONVERSION_PRODUCT_VALUE_IN_USD`, `ADE_TOTAL_OFFLINE_CONVERSION_PRODUCT_VALUE_IN_MICRO_USD`
+
+## AdGroup
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_targeting_enabled` | `auto_targeting_enabled` | `boolean` | No | No | Enable auto-targeting for ad group. Default value is True. Also known as ["Performance+ targeting"](https://help.pinterest.com/en/business/article/performance-plus-targeting). |
+| `bid_multiplier` | `bid_multiplier` | `number` | No | No | [Open beta](https://help.pinterest.com/en/business/article/beta-features) Bid multiplier for ad group. This value is a double between 0.1 and 10.0. Enter 0 to remove the bid multiplier. - Not currently supported for [Performance+ campaigns](https://help.pinterest.com/en/business/article/performance-plus-campaigns). |
+| `budget_type` | `budget_type` | `string` | No | No | Budget type. If DAILY, an ad group's daily spend will not exceed the budget parameter value. If LIFETIME, the end_time parameter is **REQUIRED**, and the ad group spend is spread evenly between the ad group `start_time` and `end_time` range. A CBO campaign automatically generates ad group budgets from its campaign budget to maximize campaign outcome. For CBO campaigns, only "CBO_ADGROUP" is allowed. For WEB_SESSIONS campaigns, only "LIFETIME" is allowed. For update, only draft ad groups may update budget type. |
+| `pacing_delivery_type` | `pacing_delivery_type` | `string` | No | No | Ad group pacing delivery type. With ACCELERATED, an ad group budget is spent as fast as possible. With STANDARD, an ad group budget is spent smoothly over a day. When using CBO, only the STANDARD pacing delivery type is allowed. |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Advertiser ID. |
+| `bid_in_micro_currency` | `bid_in_micro_currency` | `number` | No | No | Bid price in micro currency. This field is **REQUIRED** for the following campaign objective_type/billable_event combinations: AWARENESS/IMPRESSION, CONSIDERATION/CLICKTHROUGH, CATALOG_SALES/CLICKTHROUGH, VIDEO_VIEW/VIDEO_V_50_MRC. |
+| `bid_strategy_type` | `bid_strategy_type` | `string` | No | No | Bid strategy type. For Campaigns with Video Completion objectives, the only supported bid strategy type is AUTOMATIC_BID, also known as "Pinterest Performance+ bidding". |
+| `billable_event` | `billable_event` | `string` | No | No | Ad group billable event type. For update, only draft ad groups may update billable event. |
+| `budget_in_micro_currency` | `budget_in_micro_currency` | `number` | No | No | Budget in micro currency. This field is **REQUIRED** for non-CBO (campaign budget optimization) campaigns. A CBO campaign automatically generates ad group budgets from its campaign budget to maximize campaign outcome. A CBO campaign is limited to 70 or less ad groups. |
+| `campaign_id` | `campaign_id` | `string` | No | No | Campaign ID of the ad group. |
+| `conversion_learning_mode_type` | `conversion_learning_mode_type` | `Inline113` | No | No | oCPM learn mode |
+| `created_time` | `created_time` | `number` | No | No | Ad group creation time. Unix timestamp in seconds. |
+| `customer_segment_id` | `customer_segment_id` | `Inline114` | No | No | Customer segment ID applied to the ad group. We currently only support 1 customer segment per ad group. To use customer segments, do not set the `targeting_template_ids` field as well as the `AUDIENCE_INCLUDE` field of the `targeting_spec`. To clear the customer segment ID, set this field to '0'. |
+| `dca_assets` | `dca_assets` | `unknown` | No | No | [DCA] The Dynamic creative assets to use for DCA. Dynamic Creative Assembly (DCA) accepts basic creative assets of an ad (image, video, title, call to action, logo etc). Then it automatically generates optimized ad combinations based on these assets. |
+| `end_time` | `end_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group stop appearing. If not specified, ads run indefinitely unless you update the ad group by changing their status to `paused`. Cannot occur after `end_time` for parent campaign (if specified). Learn about [scheduling ads](https://help.pinterest.com/en/business/article/ads-manager-schedule-ads). For certain organizations ([Closed beta](https://help.pinterest.com/en/business/article/beta-features)): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `ext_features` | `ext_features` | `Inline115` | No | No | — |
+| `feed_profile_id` | `feed_profile_id` | `string` | No | No | Feed Profile ID associated to the adgroup. |
+| `id` | `id` | `string` | No | No | Ad group ID. |
+| `is_creative_optimization` | `is_creative_optimization` | `boolean` | No | No | Enable creative optimization for the ad group, default value is FALSE. When enabled, you allow Pinterest to automatically turn your product Pins into ads in different formats (collections and shopping) and deliver those ads to users at scale. |
+| `is_local_inventory` | `is_local_inventory` | `boolean` | No | No | Indicates whether the ad group should use the local inventory. |
+| `lifetime_frequency_cap` | `lifetime_frequency_cap` | `number` | No | No | Set a limit to the number of times a promoted pin from this campaign can be impressed by a pinner within the past rolling 30 days. Only available for CPM (cost per mille (1000 impressions)) ad groups. A CPM ad group has an IMPRESSION [billable_event](https://help.pinterest.com/en/business/article/billable-events) value. This field **REQUIRES** the `end_time` field. |
+| `local_inventory_radius_in_miles` | `local_inventory_radius_in_miles` | `number` | No | No | The targeting radius of the local inventory ads in miles. |
+| `name` | `name` | `string` | No | No | Ad group name. |
+| `optimization_goal_metadata` | `optimization_goal_metadata` | `Inline116` | No | No | Optimization goals for objective-based performance campaigns. **REQUIRED** when campaign's `objective_type` is set to `"WEB_CONVERSION"`. |
+| `performance_plus_campaign_settings` | `performance_plus_campaign_settings` | `Inline119` | No | No | Pinterest Performance+ campaign settings. |
+| `placement_group` | `placement_group` | `Inline120` | No | No | [Placement group](https://help.pinterest.com/en/business/article/placement-groups). |
+| `placement_traffic_type` | `placement_traffic_type` | `Inline121` | No | No | A targeting option that enables advertisers to choose whether to run ads in fullscreen feed, two column feed, or both |
+| `promotion_application_level` | `promotion_application_level` | `Inline122` | No | No | Specify if the promotion is applied at ad group or item level |
+| `promotion_id` | `promotion_id` | `string` | No | No | Promotion ID. To clear this field, set to null. |
+| `promotion_ids` | `promotion_ids` | `Array<string>` | No | No | Promotion IDs list. To clear this field, set to an empty array []. |
+| `start_time` | `start_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group start to appear. If not specified, ads appear during parent campaign's `start_time`. Cannot precede `start_time` for parent campaign (if specified). Learn about scheduling ads. For certain organizations (Closed beta): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `status` | `status` | `Inline123` | No | No | Ad group/entity status. |
+| `summary_status` | `summary_status` | `Inline124` | No | No | — |
+| `targeting_spec` | `targeting_spec` | `Inline125` | No | No | — |
+| `targeting_template_ids` | `targeting_template_ids` | `Array<unknown>` | No | No | Targeting template IDs applied to the ad group. We currently only support 1 targeting template per ad group. To use targeting templates, do not set any other targeting fields: targeting_spec, tracking_urls, auto_targeting_enabled, placement_group. To clear all targeting template IDs, set this field to ['0']. |
+| `tracking_urls` | `tracking_urls` | `Inline126` | No | No | Third-party tracking URLs. Up to three tracking URLs - with a max length of 2,000 - are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. For more information, see [Third-party and dynamic tracking](https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking). |
+| `type` | `type` | `string` | No | No | Always "adgroup". |
+| `updated_time` | `updated_time` | `number` | No | No | Ad group last update time. Unix timestamp in seconds. |
+
+## AdGroupAudienceSizing
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_size_lower_bound` | `audience_size_lower_bound` | `number` | No | No | The lower confidence bound of the estimated potential audience size. "Potential audience size" estimates the number of people you may be able to reach per month with your campaign. It is based on historical advertising data and the targeting criteria you select. It does not guarantee results or take into account factors such as bid, budget, schedule, seasonality or product experiments. |
+| `audience_size_upper_bound` | `audience_size_upper_bound` | `number` | No | No | The upper confidence bound of the estimated potential audience size. "Potential audience size" estimates the number of people you may be able to reach per month with your campaign. It is based on historical advertising data and the targeting criteria you select. It does not guarantee results or take into account factors such as bid, budget, schedule, seasonality or product experiments. |
+
+## AdGroupAudienceSizingCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_targeting_enabled` | `auto_targeting_enabled` | `boolean` | No | No | Enable auto-targeting for ad group. Default value is True. Also known as [Pinterest Performance+ targeting](https://help.pinterest.com/en/business/article/performance-plus-targeting). |
+| `creative_types` | `creative_types` | `Array<string>` | No | No | Pin creative types filter. **Note:** SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. |
+| `keywords` | `keywords` | `Array<Inline129>` | No | No | Array of keyword objects. If the keywords field is missing, all keywords will be targeted. |
+| `placement_group` | `placement_group` | `Inline130` | No | No | Placement group. |
+| `product_group_ids` | `product_group_ids` | `Array<string>` | No | No | Targeted product group IDs. **Note:** This can only be combined with shopping/catalog sales campaigns. For more information, [click here](https://help.pinterest.com/en/business/article/shopping-ads#section-14571). SHOPPING_RETARGETING must be included in targeting_spec object or this field will be ignored. |
+| `targeting_spec` | `targeting_spec` | `Inline131` | No | No | — |
+
+## AdGroupAudienceSizingCreativeTypes
+
+`enum` model on the `json` wire format.
+
+**Values:** `REGULAR`, `VIDEO`, `SHOPPING`, `CAROUSEL`, `MAX_VIDEO`, `SHOP_THE_PIN`, `COLLECTION`, `IDEA`
+
+## AdGroupAudienceSizingKeyword
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `match_type` | `match_type` | `string` | Yes | No | Keyword match type |
+| `value` | `value` | `string` | Yes | No | Keyword value (120 chars max). |
+
+## AdGroupAudienceSizingProductGroupId
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## AdGroupBase
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Advertiser ID. |
+| `bid_in_micro_currency` | `bid_in_micro_currency` | `number` | No | No | Bid price in micro currency. This field is **REQUIRED** for the following campaign objective_type/billable_event combinations: AWARENESS/IMPRESSION, CONSIDERATION/CLICKTHROUGH, CATALOG_SALES/CLICKTHROUGH, VIDEO_VIEW/VIDEO_V_50_MRC. |
+| `bid_strategy_type` | `bid_strategy_type` | `string` | No | No | Bid strategy type. For Campaigns with Video Completion objectives, the only supported bid strategy type is AUTOMATIC_BID, also known as "Pinterest Performance+ bidding". |
+| `billable_event` | `billable_event` | `string` | Yes | No | Ad group billable event type. For update, only draft ad groups may update billable event. |
+| `budget_in_micro_currency` | `budget_in_micro_currency` | `number` | No | No | Budget in micro currency. This field is **REQUIRED** for non-CBO (campaign budget optimization) campaigns. A CBO campaign automatically generates ad group budgets from its campaign budget to maximize campaign outcome. A CBO campaign is limited to 70 or less ad groups. |
+| `campaign_id` | `campaign_id` | `string` | Yes | No | Campaign ID of the ad group. |
+| `conversion_learning_mode_type` | `conversion_learning_mode_type` | `Inline136` | Yes | No | oCPM learn mode |
+| `created_time` | `created_time` | `number` | Yes | No | Ad group creation time. Unix timestamp in seconds. |
+| `customer_segment_id` | `customer_segment_id` | `Inline137` | No | No | Customer segment ID applied to the ad group. We currently only support 1 customer segment per ad group. To use customer segments, do not set the `targeting_template_ids` field as well as the `AUDIENCE_INCLUDE` field of the `targeting_spec`. To clear the customer segment ID, set this field to '0'. |
+| `dca_assets` | `dca_assets` | `unknown` | No | No | [DCA] The Dynamic creative assets to use for DCA. Dynamic Creative Assembly (DCA) accepts basic creative assets of an ad (image, video, title, call to action, logo etc). Then it automatically generates optimized ad combinations based on these assets. |
+| `end_time` | `end_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group stop appearing. If not specified, ads run indefinitely unless you update the ad group by changing their status to `paused`. Cannot occur after `end_time` for parent campaign (if specified). Learn about [scheduling ads](https://help.pinterest.com/en/business/article/ads-manager-schedule-ads). For certain organizations ([Closed beta](https://help.pinterest.com/en/business/article/beta-features)): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `ext_features` | `ext_features` | `Inline138` | No | No | — |
+| `feed_profile_id` | `feed_profile_id` | `string` | No | No | Feed Profile ID associated to the adgroup. |
+| `id` | `id` | `string` | Yes | No | Ad group ID. |
+| `is_creative_optimization` | `is_creative_optimization` | `boolean` | No | No | Enable creative optimization for the ad group, default value is FALSE. When enabled, you allow Pinterest to automatically turn your product Pins into ads in different formats (collections and shopping) and deliver those ads to users at scale. |
+| `is_local_inventory` | `is_local_inventory` | `boolean` | No | No | Indicates whether the ad group should use the local inventory. |
+| `lifetime_frequency_cap` | `lifetime_frequency_cap` | `number` | No | No | Set a limit to the number of times a promoted pin from this campaign can be impressed by a pinner within the past rolling 30 days. Only available for CPM (cost per mille (1000 impressions)) ad groups. A CPM ad group has an IMPRESSION [billable_event](https://help.pinterest.com/en/business/article/billable-events) value. This field **REQUIRES** the `end_time` field. |
+| `local_inventory_radius_in_miles` | `local_inventory_radius_in_miles` | `number` | No | No | The targeting radius of the local inventory ads in miles. |
+| `name` | `name` | `string` | Yes | No | Ad group name. |
+| `optimization_goal_metadata` | `optimization_goal_metadata` | `Inline139` | No | No | Optimization goals for objective-based performance campaigns. **REQUIRED** when campaign's `objective_type` is set to `"WEB_CONVERSION"`. |
+| `performance_plus_campaign_settings` | `performance_plus_campaign_settings` | `Inline142` | No | No | Pinterest Performance+ campaign settings. |
+| `placement_group` | `placement_group` | `Inline143` | No | No | [Placement group](https://help.pinterest.com/en/business/article/placement-groups). |
+| `placement_traffic_type` | `placement_traffic_type` | `Inline144` | No | No | A targeting option that enables advertisers to choose whether to run ads in fullscreen feed, two column feed, or both |
+| `promotion_application_level` | `promotion_application_level` | `Inline145` | No | No | Specify if the promotion is applied at ad group or item level |
+| `promotion_id` | `promotion_id` | `string` | No | No | Promotion ID. To clear this field, set to null. |
+| `promotion_ids` | `promotion_ids` | `Array<string>` | No | No | Promotion IDs list. To clear this field, set to an empty array []. |
+| `start_time` | `start_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group start to appear. If not specified, ads appear during parent campaign's `start_time`. Cannot precede `start_time` for parent campaign (if specified). Learn about scheduling ads. For certain organizations (Closed beta): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `status` | `status` | `Inline146` | No | No | Ad group/entity status. |
+| `summary_status` | `summary_status` | `Inline147` | Yes | No | — |
+| `targeting_spec` | `targeting_spec` | `Inline148` | No | No | — |
+| `targeting_template_ids` | `targeting_template_ids` | `Array<unknown>` | No | No | Targeting template IDs applied to the ad group. We currently only support 1 targeting template per ad group. To use targeting templates, do not set any other targeting fields: targeting_spec, tracking_urls, auto_targeting_enabled, placement_group. To clear all targeting template IDs, set this field to ['0']. |
+| `tracking_urls` | `tracking_urls` | `Inline149` | No | No | Third-party tracking URLs. Up to three tracking URLs - with a max length of 2,000 - are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. For more information, see [Third-party and dynamic tracking](https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking). |
+| `type` | `type` | `string` | Yes | No | Always "adgroup". |
+| `updated_time` | `updated_time` | `number` | Yes | No | Ad group last update time. Unix timestamp in seconds. |
+
+## AdGroupBatchCreateRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline151>`
+
+## AdGroupBatchUpdateRequest
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline166>`
+
+## AdGroupCommonTargetingTemplateIdsItems
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## AdGroupCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_targeting_enabled` | `auto_targeting_enabled` | `boolean` | No | No | Enable auto-targeting for ad group. Default value is True. Also known as ["Performance+ targeting"](https://help.pinterest.com/en/business/article/performance-plus-targeting). |
+| `bid_multiplier` | `bid_multiplier` | `number` | No | No | [Open beta](https://help.pinterest.com/en/business/article/beta-features) Bid multiplier for ad group. This value is a double between 0.1 and 10.0. Enter 0 to remove the bid multiplier. - Not currently supported for [Performance+ campaigns](https://help.pinterest.com/en/business/article/performance-plus-campaigns). |
+| `budget_type` | `budget_type` | `Inline194` | No | No | — |
+| `pacing_delivery_type` | `pacing_delivery_type` | `Inline195` | No | No | — |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Advertiser ID. |
+| `bid_in_micro_currency` | `bid_in_micro_currency` | `number` | No | No | Bid price in micro currency. This field is **REQUIRED** for the following campaign objective_type/billable_event combinations: AWARENESS/IMPRESSION, CONSIDERATION/CLICKTHROUGH, CATALOG_SALES/CLICKTHROUGH, VIDEO_VIEW/VIDEO_V_50_MRC. |
+| `bid_strategy_type` | `bid_strategy_type` | `string` | No | No | Bid strategy type. For Campaigns with Video Completion objectives, the only supported bid strategy type is AUTOMATIC_BID, also known as "Pinterest Performance+ bidding". |
+| `billable_event` | `billable_event` | `string` | No | No | Ad group billable event type. For update, only draft ad groups may update billable event. |
+| `budget_in_micro_currency` | `budget_in_micro_currency` | `number` | No | No | Budget in micro currency. This field is **REQUIRED** for non-CBO (campaign budget optimization) campaigns. A CBO campaign automatically generates ad group budgets from its campaign budget to maximize campaign outcome. A CBO campaign is limited to 70 or less ad groups. |
+| `campaign_id` | `campaign_id` | `string` | No | No | Campaign ID of the ad group. |
+| `conversion_learning_mode_type` | `conversion_learning_mode_type` | `Inline196` | No | No | oCPM learn mode |
+| `created_time` | `created_time` | `number` | No | No | Ad group creation time. Unix timestamp in seconds. |
+| `customer_segment_id` | `customer_segment_id` | `Inline197` | No | No | Customer segment ID applied to the ad group. We currently only support 1 customer segment per ad group. To use customer segments, do not set the `targeting_template_ids` field as well as the `AUDIENCE_INCLUDE` field of the `targeting_spec`. To clear the customer segment ID, set this field to '0'. |
+| `dca_assets` | `dca_assets` | `unknown` | No | No | [DCA] The Dynamic creative assets to use for DCA. Dynamic Creative Assembly (DCA) accepts basic creative assets of an ad (image, video, title, call to action, logo etc). Then it automatically generates optimized ad combinations based on these assets. |
+| `end_time` | `end_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group stop appearing. If not specified, ads run indefinitely unless you update the ad group by changing their status to `paused`. Cannot occur after `end_time` for parent campaign (if specified). Learn about [scheduling ads](https://help.pinterest.com/en/business/article/ads-manager-schedule-ads). For certain organizations ([Closed beta](https://help.pinterest.com/en/business/article/beta-features)): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `ext_features` | `ext_features` | `Inline198` | No | No | — |
+| `feed_profile_id` | `feed_profile_id` | `string` | No | No | Feed Profile ID associated to the adgroup. |
+| `id` | `id` | `string` | No | No | Ad group ID. |
+| `is_creative_optimization` | `is_creative_optimization` | `boolean` | No | No | Enable creative optimization for the ad group, default value is FALSE. When enabled, you allow Pinterest to automatically turn your product Pins into ads in different formats (collections and shopping) and deliver those ads to users at scale. |
+| `is_local_inventory` | `is_local_inventory` | `boolean` | No | No | Indicates whether the ad group should use the local inventory. |
+| `lifetime_frequency_cap` | `lifetime_frequency_cap` | `number` | No | No | Set a limit to the number of times a promoted pin from this campaign can be impressed by a pinner within the past rolling 30 days. Only available for CPM (cost per mille (1000 impressions)) ad groups. A CPM ad group has an IMPRESSION [billable_event](https://help.pinterest.com/en/business/article/billable-events) value. This field **REQUIRES** the `end_time` field. |
+| `local_inventory_radius_in_miles` | `local_inventory_radius_in_miles` | `number` | No | No | The targeting radius of the local inventory ads in miles. |
+| `name` | `name` | `string` | No | No | Ad group name. |
+| `optimization_goal_metadata` | `optimization_goal_metadata` | `Inline199` | No | No | Optimization goals for objective-based performance campaigns. **REQUIRED** when campaign's `objective_type` is set to `"WEB_CONVERSION"`. |
+| `performance_plus_campaign_settings` | `performance_plus_campaign_settings` | `Inline202` | No | No | Pinterest Performance+ campaign settings. |
+| `placement_group` | `placement_group` | `Inline203` | No | No | [Placement group](https://help.pinterest.com/en/business/article/placement-groups). |
+| `placement_traffic_type` | `placement_traffic_type` | `Inline204` | No | No | A targeting option that enables advertisers to choose whether to run ads in fullscreen feed, two column feed, or both |
+| `promotion_application_level` | `promotion_application_level` | `Inline205` | No | No | Specify if the promotion is applied at ad group or item level |
+| `promotion_id` | `promotion_id` | `string` | No | No | Promotion ID. To clear this field, set to null. |
+| `promotion_ids` | `promotion_ids` | `Array<string>` | No | No | Promotion IDs list. To clear this field, set to an empty array []. |
+| `start_time` | `start_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group start to appear. If not specified, ads appear during parent campaign's `start_time`. Cannot precede `start_time` for parent campaign (if specified). Learn about scheduling ads. For certain organizations (Closed beta): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `status` | `status` | `Inline206` | No | No | Ad group/entity status. |
+| `summary_status` | `summary_status` | `Inline207` | No | No | — |
+| `targeting_spec` | `targeting_spec` | `Inline208` | No | No | — |
+| `targeting_template_ids` | `targeting_template_ids` | `Array<unknown>` | No | No | Targeting template IDs applied to the ad group. We currently only support 1 targeting template per ad group. To use targeting templates, do not set any other targeting fields: targeting_spec, tracking_urls, auto_targeting_enabled, placement_group. To clear all targeting template IDs, set this field to ['0']. |
+| `tracking_urls` | `tracking_urls` | `Inline209` | No | No | Third-party tracking URLs. Up to three tracking URLs - with a max length of 2,000 - are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. For more information, see [Third-party and dynamic tracking](https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking). |
+| `type` | `type` | `string` | No | No | Always "adgroup". |
+| `updated_time` | `updated_time` | `number` | No | No | Ad group last update time. Unix timestamp in seconds. |
+
+## AdGroupCreateCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_targeting_enabled` | `auto_targeting_enabled` | `boolean` | No | No | Enable auto-targeting for ad group. Default value is True. Also known as ["Performance+ targeting"](https://help.pinterest.com/en/business/article/performance-plus-targeting). |
+| `bid_in_micro_currency` | `bid_in_micro_currency` | `number` | No | No | Bid price in micro currency. This field is **REQUIRED** for the following campaign objective_type/billable_event combinations: AWARENESS/IMPRESSION, CONSIDERATION/CLICKTHROUGH, CATALOG_SALES/CLICKTHROUGH, VIDEO_VIEW/VIDEO_V_50_MRC. |
+| `bid_multiplier` | `bid_multiplier` | `number` | No | No | [Open beta](https://help.pinterest.com/en/business/article/beta-features) Bid multiplier for ad group. This value is a double between 0.1 and 10.0. Enter 0 to remove the bid multiplier. - Not currently supported for [Performance+ campaigns](https://help.pinterest.com/en/business/article/performance-plus-campaigns). |
+| `bid_strategy_type` | `bid_strategy_type` | `string` | No | No | Bid strategy type. For Campaigns with Video Completion objectives, the only supported bid strategy type is AUTOMATIC_BID, also known as "Pinterest Performance+ bidding". |
+| `billable_event` | `billable_event` | `string` | Yes | No | Ad group billable event type. For update, only draft ad groups may update billable event. |
+| `budget_in_micro_currency` | `budget_in_micro_currency` | `number` | No | No | Budget in micro currency. This field is **REQUIRED** for non-CBO (campaign budget optimization) campaigns. A CBO campaign automatically generates ad group budgets from its campaign budget to maximize campaign outcome. A CBO campaign is limited to 70 or less ad groups. |
+| `budget_type` | `budget_type` | `Inline211` | No | No | — |
+| `campaign_id` | `campaign_id` | `string` | Yes | No | Campaign ID of the ad group. |
+| `customer_segment_id` | `customer_segment_id` | `Inline212` | No | No | Customer segment ID applied to the ad group. We currently only support 1 customer segment per ad group. To use customer segments, do not set the `targeting_template_ids` field as well as the `AUDIENCE_INCLUDE` field of the `targeting_spec`. To clear the customer segment ID, set this field to '0'. |
+| `end_time` | `end_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group stop appearing. If not specified, ads run indefinitely unless you update the ad group by changing their status to `paused`. Cannot occur after `end_time` for parent campaign (if specified). Learn about [scheduling ads](https://help.pinterest.com/en/business/article/ads-manager-schedule-ads). For certain organizations ([Closed beta](https://help.pinterest.com/en/business/article/beta-features)): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `ext_features` | `ext_features` | `Inline213` | No | No | — |
+| `feed_profile_id` | `feed_profile_id` | `string` | No | No | Feed Profile ID associated to the adgroup. |
+| `is_creative_optimization` | `is_creative_optimization` | `boolean` | No | No | Enable creative optimization for the ad group, default value is FALSE. When enabled, you allow Pinterest to automatically turn your product Pins into ads in different formats (collections and shopping) and deliver those ads to users at scale. |
+| `is_local_inventory` | `is_local_inventory` | `boolean` | No | No | Indicates whether the ad group should use the local inventory. |
+| `lifetime_frequency_cap` | `lifetime_frequency_cap` | `number` | No | No | Set a limit to the number of times a promoted pin from this campaign can be impressed by a pinner within the past rolling 30 days. Only available for CPM (cost per mille (1000 impressions)) ad groups. A CPM ad group has an IMPRESSION [billable_event](https://help.pinterest.com/en/business/article/billable-events) value. This field **REQUIRES** the `end_time` field. |
+| `local_inventory_radius_in_miles` | `local_inventory_radius_in_miles` | `number` | No | No | The targeting radius of the local inventory ads in miles. |
+| `name` | `name` | `string` | Yes | No | Ad group name. |
+| `optimization_goal_metadata` | `optimization_goal_metadata` | `Inline214` | No | No | Optimization goals for objective-based performance campaigns. **REQUIRED** when campaign's `objective_type` is set to `"WEB_CONVERSION"`. |
+| `pacing_delivery_type` | `pacing_delivery_type` | `Inline217` | No | No | — |
+| `performance_plus_campaign_settings` | `performance_plus_campaign_settings` | `Inline218` | No | No | Pinterest Performance+ campaign settings. |
+| `placement_group` | `placement_group` | `Inline219` | No | No | [Placement group](https://help.pinterest.com/en/business/article/placement-groups). |
+| `placement_traffic_type` | `placement_traffic_type` | `Inline220` | No | No | A targeting option that enables advertisers to choose whether to run ads in fullscreen feed, two column feed, or both |
+| `promotion_application_level` | `promotion_application_level` | `Inline221` | No | No | Specify if the promotion is applied at ad group or item level |
+| `promotion_id` | `promotion_id` | `string` | No | No | Promotion ID. To clear this field, set to null. |
+| `promotion_ids` | `promotion_ids` | `Array<string>` | No | No | Promotion IDs list. To clear this field, set to an empty array []. |
+| `start_time` | `start_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group start to appear. If not specified, ads appear during parent campaign's `start_time`. Cannot precede `start_time` for parent campaign (if specified). Learn about scheduling ads. For certain organizations (Closed beta): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `status` | `status` | `Inline222` | No | No | Ad group/entity status. |
+| `targeting_spec` | `targeting_spec` | `Inline223` | No | No | — |
+| `targeting_template_ids` | `targeting_template_ids` | `Array<unknown>` | No | No | Targeting template IDs applied to the ad group. We currently only support 1 targeting template per ad group. To use targeting templates, do not set any other targeting fields: targeting_spec, tracking_urls, auto_targeting_enabled, placement_group. To clear all targeting template IDs, set this field to ['0']. |
+| `tracking_urls` | `tracking_urls` | `Inline224` | No | No | Third-party tracking URLs. Up to three tracking URLs - with a max length of 2,000 - are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. For more information, see [Third-party and dynamic tracking](https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking). |
+
+## AdGroupCreateRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid_in_micro_currency` | `bid_in_micro_currency` | `number` | No | No | Bid price in micro currency. This field is **REQUIRED** for the following campaign objective_type/billable_event combinations: AWARENESS/IMPRESSION, CONSIDERATION/CLICKTHROUGH, CATALOG_SALES/CLICKTHROUGH. |
+| `bid_strategy_type` | `bid_strategy_type` | `string` | No | No | Bid strategy type. For Campaigns with Video Completion objectives, the only supported bid strategy type is AUTOMATIC_BID, also known as "Pinterest Performance+ bidding". |
+| `billable_event` | `billable_event` | `string` | No | No | Ad group billable event type. For update, only draft ad groups may update billable event. |
+| `budget_in_micro_currency` | `budget_in_micro_currency` | `number` | No | No | Budget in micro currency. This field is **REQUIRED** for non-CBO (campaign budget optimization) campaigns. A CBO campaign automatically generates ad group budgets from its campaign budget to maximize campaign outcome. A CBO campaign is limited to 70 or less ad groups. |
+| `budget_type` | `budget_type` | `Inline226` | No | No | — |
+| `campaign_id` | `campaign_id` | `string` | No | No | Campaign ID of the ad group. |
+| `end_time` | `end_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group stop appearing. If not specified, ads run indefinitely unless you update the ad group by changing their status to `paused`. Cannot occur after `end_time` for parent campaign (if specified). Learn about &lt;a href="/docs/api-features/managing-ads/#step-2-create-an-ad-group" target="blank"&gt;scheduling ads&lt;/a&gt;. For certain organizations (&lt;a href="/docs/getting-started/using-beta-and-restricted-features/" target="blank" target="blank"&gt;Closed beta&lt;/a&gt;): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `is_creative_optimization` | `is_creative_optimization` | `boolean` | No | No | Enable creative optimization for the ad group, default value is FALSE. When enabled, you allow Pinterest to automatically turn your product Pins into ads in different formats (collections and shopping) and deliver those ads to users at scale. |
+| `lifetime_frequency_cap` | `lifetime_frequency_cap` | `number` | No | No | Set a limit to the number of times a promoted pin from this campaign can be impressed by a pinner within the past rolling 30 days. Only available for CPM (cost per mille (1000 impressions)) ad groups. A CPM ad group has an IMPRESSION &lt;a href="/docs/redoc/#section/Billable-event"&gt;billable_event&lt;/a&gt; value. This field **REQUIRES** the `end_time` field. |
+| `name` | `name` | `string` | No | No | Ad group name. |
+| `optimization_goal_metadata` | `optimization_goal_metadata` | `Inline227` | No | No | Optimization goals for objective-based performance campaigns. **REQUIRED** when campaign's `objective_type` is set to `"WEB_CONVERSION"`. |
+| `pacing_delivery_type` | `pacing_delivery_type` | `Inline230` | No | No | — |
+| `placement_group` | `placement_group` | `Inline231` | No | No | &lt;a href="/docs/redoc/#section/Placement-group"&gt;Placement group&lt;/a&gt;. |
+| `promotion_application_level` | `promotion_application_level` | `string` | No | No | Specify if the promotion is applied at ad group or item level |
+| `promotion_id` | `promotion_id` | `string` | No | No | Promotion ID. To clear this field, set to null. |
+| `promotion_ids` | `promotion_ids` | `Array<string>` | No | No | Promotion IDs list. To clear this field, set to an empty array []. |
+| `start_time` | `start_time` | `number` | No | No | Timestamp in Unix format for scheduling when ads in the ad group start to appear. If not specified, ads appear during parent campaign's `start_time`. Cannot precede `start_time` for parent campaign (if specified). Learn about &lt;a href="/docs/api-features/managing-ads/#step-2-create-an-ad-group" target="blank"&gt;scheduling ads&lt;/a&gt;. For certain organizations (&lt;a href="/docs/getting-started/using-beta-and-restricted-features/" target="blank" target="blank"&gt;Closed beta&lt;/a&gt;): Supported for campaigns with Campaign Budget Optimization (CBO). For all organizations: Supported for campaigns without CBO. |
+| `status` | `status` | `Inline232` | No | No | Ad group/entity status. |
+| `targeting_spec` | `targeting_spec` | `Inline233` | No | No | Ad group targeting specification defining the ad group target audience. For example, `&#123;"APPTYPE":["iphone"], "GENDER":["male"], "LOCALE":["en-US"], "LOCATION":["501"], "MINIMUM_AGE":"18", "MAXIMUM_AGE":"65+"&#125;` |
+| `targeting_template_ids` | `targeting_template_ids` | `Array<string>` | No | No | Targeting template IDs applied to the ad group. We currently only support 1 targeting template per ad group. To use targeting templates, do not set any other targeting fields: targeting_spec, tracking_urls, auto_targeting_enabled, placement_group. To clear all targeting template IDs, set this field to ['0']. |
+| `tracking_urls` | `tracking_urls` | `Inline234` | No | No | Third-party tracking URLs.&lt;br&gt; JSON object with the format: &#123;"&lt;a href="/docs/redoc/#section/Tracking-URL-event"&gt;Tracking event enum&lt;/a&gt;":[URL string array],...&#125;&lt;br&gt; For example: &#123;"impression": ["URL1", "URL2"], "click": ["URL1", "URL2", "URL3"]&#125;.&lt;br&gt;Up to three tracking URLs are supported for each event type. Tracking URLs set at the ad group or ad level can override those set at the campaign level. May be null. Pass in an empty object - EmptyObject - to remove tracking URLs.&lt;br&gt;&lt;br&gt; For more information, see &lt;a href="https://help.pinterest.com/en/business/article/third-party-and-dynamic-tracking" target="_blank"&gt;Third-party and dynamic tracking&lt;/a&gt;. |
+| `auto_targeting_enabled` | `auto_targeting_enabled` | `boolean` | No | No | Enable auto-targeting for ad group. Default value is True. Also known as &lt;a href="https://help.pinterest.com/en/business/article/performance-plus-targeting" target="_blank"&gt;"Pinterest Performance+ targeting"&lt;/a&gt;. |
+| `bid_multiplier` | `bid_multiplier` | `number` | No | No | &lt;a href="/docs/getting-started/using-beta-and-restricted-features/" target="blank&gt;Open beta&lt;/a&gt; Bid multiplier for ad group. This value is a double between 0.1 and 10.0. Enter 0 to remove the bid multiplier. - Make sure the `bid_strategy` type for your ad group is set to `AUTOMATIC_BID`. - Not currently supported for &lt;a href="/docs/api-features/pinterest-performance-plus-setup/" target="blank"&gt;Pinterest Performance+ campaigns&lt;/a&gt;. |
+
+## AdGroupCreateRequestAllOf1
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_targeting_enabled` | `auto_targeting_enabled` | `boolean` | No | No | Enable auto-targeting for ad group. Default value is True. Also known as &lt;a href="https://help.pinterest.com/en/business/article/performance-plus-targeting" target="_blank"&gt;"Pinterest Performance+ targeting"&lt;/a&gt;. |
+| `bid_multiplier` | `bid_multiplier` | `number` | No | No | &lt;a href="/docs/getting-started/using-beta-and-restricted-features/" target="blank&gt;Open beta&lt;/a&gt; Bid multiplier for ad group. This value is a double between 0.1 and 10.0. Enter 0 to remove the bid multiplier. - Make sure the `bid_strategy` type for your ad group is set to `AUTOMATIC_BID`. - Not currently supported for &lt;a href="/docs/api-features/pinterest-performance-plus-setup/" target="blank"&gt;Pinterest Performance+ campaigns&lt;/a&gt;. |
+| `budget_type` | `budget_type` | `Inline236` | No | No | — |
+| `pacing_delivery_type` | `pacing_delivery_type` | `Inline237` | No | No | — |
+
+## AdGroupDeliveryEstimates
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_targeting_enabled` | `auto_targeting_enabled` | `boolean` | No | No | — |
+| `creative_types` | `creative_types` | `Array<string>` | No | No | Pin creative types filter. **Note:** SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. |
+| `keywords` | `keywords` | `Array<Inline239>` | No | No | Array of keyword objects. If the keywords field is missing, all keywords will be targeted. |
+| `monthly_frequency_cap` | `monthly_frequency_cap` | `number` | No | No | Set a limit to the number of times a promoted pin from this campaign can be impressed by a pinner within the past rolling 30 days. Only available for CPM (cost per mille (1000 impressions)) ad groups. |
+| `optimization_goal_metadata` | `optimization_goal_metadata` | `Inline240` | No | No | — |
+| `optimization_type` | `optimization_type` | `Inline243` | No | No | Optimization type for ad group delivery. Defaults to WEB_CONVERSION for WEB_CONVERSION/AWARENESS objectives, CLICKTHROUGH otherwise. |
+| `placement_group` | `placement_group` | `string` | No | No | Campaign placement group type |
+| `product_group_ids` | `product_group_ids` | `Array<string>` | No | No | Targeted product group IDs **Note:** This can only be combined with shopping/catalog sales campaigns. |
+| `targeting_spec` | `targeting_spec` | `Inline244` | No | No | — |
+
+## AdGroupDeliveryEstimatesKeywordsItems
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `match_type` | `match_type` | `Inline246` | Yes | No | — |
+| `value` | `value` | `string` | Yes | No | Keyword value (120 chars max). |
+
+## AdGroupIdType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## AdgroupPlacementGroupType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ALL`, `SEARCH`, `BROWSE`, `OTHER`
+
+## AdGroupsAnalyticsMetrics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AD_GROUP_ID` | `AD_GROUP_ID` | `string` | No | No | The ID of the ad group that this metrics belongs to. Returned as long as aggregate_report_rows is not true. |
+| `DATE` | `DATE` | `string` | No | No | Current metrics date. Only returned when granularity is a time-based value (`DAY`, `HOUR`, `WEEK`, `MONTH`) |
+
+## AdGroupsAnalyticsParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `startDate` | `startDate` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `endDate` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `adGroupIds` | `adGroupIds` | `Array<string>` | Yes | No | List of Ad group Ids to use to filter the results. |
+| `columns` | `columns` | `Array<string>` | Yes | No | Columns to retrieve, encoded as a comma-separated string. **NOTE**: Any metrics defined as MICRO_DOLLARS returns a value based on the advertiser profile's currency field. For USD, ($1/1,000,000, or $0.000001 - one one-ten-thousandth of a cent). it's microdollars. Otherwise, it's in microunits of the advertiser's currency. For example, if the advertiser's currency is GBP (British pound sterling), all MICRO_DOLLARS fields will be in GBP microunits (1/1,000,000 British pound). If a column has no value, it may not be returned. |
+| `granularity` | `granularity` | `string` | Yes | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEK - metrics are broken down weekly. MONTH - metrics are broken down monthly |
+| `clickWindowDays` | `clickWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. |
+| `engagementWindowDays` | `engagementWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for an engagement action. Engagements include saves, closeups, link clicks, and carousel card swipes. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. **Note:** This parameter no longer returns new data. However, you can still access historic data through **Sept 30, 2027**. |
+| `viewWindowDays` | `viewWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a view action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `1` day. |
+| `conversionReportTime` | `conversionReportTime` | `string` | No | No | The date by which the conversion metrics returned from this endpoint will be reported. There are two dates associated with a conversion event: the date that the user interacted with the ad, and the date that the user completed a conversion event. |
+| `aggregateReportRows` | `aggregateReportRows` | `boolean` | No | No | Determines if report rows should be aggregated across all requested entities. This feature is currently in BETA and is not available to all users. |
+| `reportingTimezone` | `reportingTimezone` | `string` | No | No | Specify the timezone to be applied for the reporting. This feature is currently in BETA and is not available to all users. |
+
+## AdGroupsAnalyticsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<Inline7445>` | Yes | No | — |
+
+## AdGroupsAudienceSizingParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `auto_targeting_enabled` | `auto_targeting_enabled` | `boolean` | No | No | Enable auto-targeting for ad group. Default value is True. Also known as [Pinterest Performance+ targeting](https://help.pinterest.com/en/business/article/performance-plus-targeting). |
+| `creative_types` | `creative_types` | `Array<string>` | No | No | Pin creative types filter. **Note:** SHOP_THE_PIN has been deprecated. Please use COLLECTION instead. |
+| `keywords` | `keywords` | `Array<Inline7447>` | No | No | Array of keyword objects. If the keywords field is missing, all keywords will be targeted. |
+| `placement_group` | `placement_group` | `Inline7448` | No | No | Placement group. |
+| `product_group_ids` | `product_group_ids` | `Array<string>` | No | No | Targeted product group IDs. **Note:** This can only be combined with shopping/catalog sales campaigns. For more information, [click here](https://help.pinterest.com/en/business/article/shopping-ads#section-14571). SHOPPING_RETARGETING must be included in targeting_spec object or this field will be ignored. |
+| `targeting_spec` | `targeting_spec` | `Inline7449` | No | No | — |
+
+## AdGroupsAudienceSizingResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7451` | Yes | No | — |
+
+## AdGroupsBidFloorGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bid_floor_specs` | `bid_floor_specs` | `Array<Inline7627>` | Yes | No | List of bid floor specifications. |
+| `targeting_spec` | `targeting_spec` | `Inline7634` | No | No | Ad group targeting specification defining the ad group target audience. |
+
+## AdGroupsBidFloorGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7636` | Yes | No | — |
+
+## AdGroupsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `body` | `body` | `Array<Inline7344>` | Yes | No | — |
+
+## AdGroupsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7359` | Yes | No | — |
+
+## AdGroupsDynamicTitlesDownloadCsvParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | Ad group ID. |
+
+## AdGroupsDynamicTitlesDownloadCsvResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7436` | Yes | No | — |
+
+## AdGroupsDynamicTitlesGetStatusParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | Ad group ID. |
+
+## AdGroupsDynamicTitlesGetStatusResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7439` | Yes | No | — |
+
+## AdGroupsDynamicTitlesGetUploadUrlParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | Ad group ID. |
+
+## AdGroupsDynamicTitlesGetUploadUrlResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7442` | Yes | No | — |
+
+## AdGroupsDynamicTitlesProcessCsvParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | Ad group ID. |
+| `request_id` | `request_id` | `string` | Yes | No | The request_id returned from the GET uploads endpoint. |
+
+## AdGroupsDynamicTitlesProcessCsvResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7433` | Yes | No | — |
+
+## AdGroupsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | Ad group ID. |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+
+## AdGroupsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7417` | Yes | No | — |
+
+## AdGroupsListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `order` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+| `campaignIds` | `campaignIds` | `Array<string>` | No | No | List of Campaign Ids to use to filter the results. |
+| `adGroupIds` | `adGroupIds` | `Array<unknown>` | No | No | List of Ad group Ids to retrieve keywords from. This feature is currently in BETA and is not available to all users. |
+| `entityStatuses` | `entityStatuses` | `Array<string>` | No | No | Entity status |
+| `translateInterestsToNames` | `translateInterestsToNames` | `boolean` | No | No | Return interests as text names (if value is true) rather than topic IDs. |
+
+## AdGroupsListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7329` | Yes | No | — |
+
+## AdGroupsTargetingAnalyticsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `adGroupIds` | `adGroupIds` | `Array<string>` | Yes | No | List of Ad group Ids to use to filter the results. |
+| `startDate` | `startDate` | `string` | Yes | No | Metric report start date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days back from today. |
+| `endDate` | `endDate` | `string` | Yes | No | Metric report end date (UTC). Format: YYYY-MM-DD. Cannot be more than 90 days past start_date. |
+| `targetingTypes` | `targetingTypes` | `Array<string>` | Yes | No | Targeting type breakdowns for the report. The reporting per targeting type is independent from each other. ["AGE_BUCKET_AND_GENDER", "CREATIVE_ENHANCEMENTS"] are in BETA and not yet available to all users. |
+| `columns` | `columns` | `Array<string>` | Yes | No | Columns to retrieve, encoded as a comma-separated string. **NOTE**: Any metrics defined as MICRO_DOLLARS returns a value based on the advertiser profile's currency field. For USD, ($1/1,000,000, or $0.000001 - one one-ten-thousandth of a cent). it's microdollars. Otherwise, it's in microunits of the advertiser's currency. For example, if the advertiser's currency is GBP (British pound sterling), all MICRO_DOLLARS fields will be in GBP microunits (1/1,000,000 British pound). If a column has no value, it may not be returned. |
+| `granularity` | `granularity` | `string` | Yes | No | TOTAL - metrics are aggregated over the specified date range. DAY - metrics are broken down daily. HOUR - metrics are broken down hourly. WEEK - metrics are broken down weekly. MONTH - metrics are broken down monthly |
+| `clickWindowDays` | `clickWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a pin click action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. |
+| `engagementWindowDays` | `engagementWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for an engagement action. Engagements include saves, closeups, link clicks, and carousel card swipes. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `30` days. **Note:** This parameter no longer returns new data. However, you can still access historic data through **Sept 30, 2027**. |
+| `viewWindowDays` | `viewWindowDays` | `number` | No | No | Number of days to use as the conversion attribution window for a view action. Applies to Pinterest Tag conversion metrics. Prior conversion tags use their defined attribution windows. If not specified, defaults to `1` day. |
+| `conversionReportTime` | `conversionReportTime` | `string` | No | No | The date by which the conversion metrics returned from this endpoint will be reported. There are two dates associated with a conversion event: the date that the user interacted with the ad, and the date that the user completed a conversion event. |
+| `attributionTypes` | `attributionTypes` | `Array<string>` | No | No | List of types of attribution for the conversion report |
+| `reportingTimezone` | `reportingTimezone` | `string` | No | No | Specify the timezone to be applied for the reporting. This feature is currently in BETA and is not available to all users. |
+| `sortColumns` | `sortColumns` | `Array<string>` | No | No | Sort Columns. |
+| `sortAscending` | `sortAscending` | `boolean` | No | No | Sort ascending. |
+
+## AdGroupsTargetingAnalyticsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7457` | Yes | No | — |
+
+## AdGroupSummaryStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `RUNNING`, `PAUSED`, `NOT_STARTED`, `COMPLETED`, `ADVERTISER_DISABLED`, `ARCHIVED`, `DRAFT`, `DELETED_DRAFT`
+
+## AdGroupsUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `body` | `body` | `Array<Inline7374>` | Yes | No | — |
+
+## AdGroupsUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7401` | Yes | No | — |
+
+## AdgroupTrackingFeatures
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `enabled` | `enabled` | `Array<string>` | No | No | Tracking features. To clear this field, set to null. |
+
+## AdgroupTrackingFeatureType
+
+`enum` model on the `json` wire format.
+
+**Values:** `TRENDS`, `CLONE_META`, `BULK_EDITOR`, `AD_ROTATION`
+
+## AdGroupTrackingURLs
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_verification` | `audience_verification` | `Array<string>` | No | No | — |
+| `buyable_button` | `buyable_button` | `Array<string>` | No | No | — |
+| `click` | `click` | `Array<string>` | No | No | — |
+| `engagement` | `engagement` | `Array<string>` | No | No | — |
+| `impression` | `impression` | `Array<string>` | No | No | — |

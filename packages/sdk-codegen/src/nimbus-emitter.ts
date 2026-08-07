@@ -70,6 +70,12 @@ const PLATFORM_DETAILS: Record<
     effectImport: "@openpromo/reddit/effect",
     order: 90,
   },
+  pinterest: {
+    label: "Pinterest",
+    packageName: "@openpromo/pinterest",
+    effectImport: "@openpromo/pinterest/effect",
+    order: 100,
+  },
   facebook: {
     label: "Facebook",
     packageName: "@openpromo/meta",

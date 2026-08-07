@@ -1,0 +1,82 @@
+---
+title: "Pinterest Terms endpoints"
+description: "2 generated Pinterest endpoint contracts for Terms."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 147
+  label: "Terms"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.terms.termsRelatedList
+
+`GET` `/terms/related`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (terms_related/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.terms.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `TermsRelatedListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `terms` | `query` | `Array<string>` | Yes | No | List of input terms. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.terms.termsSuggestedList
+
+`GET` `/terms/suggested`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (terms_suggested/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.terms.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `TermsSuggestedListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `term` | `query` | `string` | Yes | No | Input term. |
+| `limit` | `query` | `number` | No | No | Max suggested terms to return. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

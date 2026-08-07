@@ -1,0 +1,23 @@
+{
+  "platform": "pinterest",
+  "source": {
+    "kind": "openapi",
+    "location": "https://github.com/pinterest/api-description",
+    "revision": "1f14913381fe507d55e9e162c717b4b79f11077dcaf2329bb68d4f46940964a7"
+  },
+  "version": "v5",
+  "counts": {
+    "models": 11602,
+    "endpoints": 266,
+    "capabilities": 89
+  },
+  "coverage": {
+    "discoveredOperations": 266,
+    "excludedOperations": [],
+    "unresolvedSchemas": [],
+    "protocols": [
+      "json"
+    ],
+    "emittedOperations": 266
+  }
+}

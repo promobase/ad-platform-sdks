@@ -1,0 +1,123 @@
+---
+title: "Pinterest Catalogs endpoints"
+description: "3 generated Pinterest endpoint contracts for Catalogs."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 119
+  label: "Catalogs"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.catalogs.catalogsAvailableFilterValues
+
+`GET` `/catalogs/available_filter_values`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs/available_filter_values)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.catalogs.read` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsAvailableFilterValuesResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catalogId` | `query` | `string` | Yes | No | Filter entities for a given catalog_id. |
+| `feedId` | `query` | `string` | No | No | Filter entities for a given feed_id. If not given, all feeds are considered. |
+| `country` | `query` | `string` | No | No | Country for the Catalogs Items |
+| `language` | `query` | `string` | No | No | Language for the Catalogs Items |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogs.catalogsCreate
+
+`POST` `/catalogs`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs/create)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.catalogs.manage` |
+| Required scopes | `catalogs:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsCreateResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `catalog_type` | `body` | `string` | Yes | No | Type of the catalog entity. |
+| `name` | `body` | `string` | Yes | No | A human-friendly name associated to a catalog entity. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.catalogs.catalogsList
+
+`GET` `/catalogs`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (catalogs/list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.catalogs.read` |
+| Required scopes | `catalogs:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `CatalogsListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `query` | `string` | No | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

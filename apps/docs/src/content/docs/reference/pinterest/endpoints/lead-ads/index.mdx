@@ -1,0 +1,158 @@
+---
+title: "Pinterest Lead Ads endpoints"
+description: "4 generated Pinterest endpoint contracts for Lead Ads."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 131
+  label: "Lead Ads"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.leadAds.adAccountsSubscriptionsDelById
+
+`DELETE` `/ad_accounts/{ad_account_id}/leads/subscriptions/{subscription_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ad_accounts_subscriptions/del_by_id)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.leadAds.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AdAccountsSubscriptionsDelByIdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `subscriptionId` | `path` | `string` | Yes | No | Unique identifier of a subscription. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.leadAds.adAccountsSubscriptionsGetById
+
+`GET` `/ad_accounts/{ad_account_id}/leads/subscriptions/{subscription_id}`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ad_accounts_subscriptions/get_by_id)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.leadAds.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AdAccountsSubscriptionsGetByIdResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `subscriptionId` | `path` | `string` | Yes | No | Unique identifier of a subscription. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.leadAds.adAccountsSubscriptionsGetList
+
+`GET` `/ad_accounts/{ad_account_id}/leads/subscriptions`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ad_accounts_subscriptions/get_list)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.leadAds.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AdAccountsSubscriptionsGetListResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `query` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `query` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.leadAds.adAccountsSubscriptionsPost
+
+`POST` `/ad_accounts/{ad_account_id}/leads/subscriptions`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (ad_accounts_subscriptions/post)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `pinterest.leadAds.manage` |
+| Required scopes | `ads:write` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AdAccountsSubscriptionsPostResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `partner_access_token` | `body` | `string` | No | No | Partner access token. Only for clients that requires authentication. We recommend to avoid this param. |
+| `partner_metadata` | `body` | `Inline8901` | No | No | Partner metadata. Only for clients that requires special handling. We recommend to avoid this param. |
+| `partner_refresh_token` | `body` | `string` | No | No | Partner refresh token. Only for clients that requires authentication. We recommend to avoid this param. |
+| `lead_form_id` | `body` | `string` | No | No | Lead form ID. |
+| `webhook_url` | `body` | `string` | No | No | Standard HTTPS webhook URL. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

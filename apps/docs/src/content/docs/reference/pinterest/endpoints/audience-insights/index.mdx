@@ -1,0 +1,82 @@
+---
+title: "Pinterest Audience Insights endpoints"
+description: "2 generated Pinterest endpoint contracts for Audience Insights."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 104
+  label: "Audience Insights"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## pinterest.audienceInsights.audienceInsightsGet
+
+`GET` `/ad_accounts/{ad_account_id}/audience_insights`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (audience_insights/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.audienceInsights.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AudienceInsightsGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+| `audienceInsightType` | `query` | `string` | Yes | No | Type of audience insights. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## pinterest.audienceInsights.audienceInsightsScopeAndTypeGet
+
+`GET` `/ad_accounts/{ad_account_id}/insights/audiences`
+
+Generated from the Pinterest REST API v5 OpenAPI spec (audience_insights_scope_and_type/get)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pinterest.audienceInsights.read` |
+| Required scopes | `ads:read` |
+| Rate-limit bucket | `pinterest-api` |
+| Output | `AudienceInsightsScopeAndTypeGetResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `path` | `string` | Yes | No | Unique identifier of an ad account. |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

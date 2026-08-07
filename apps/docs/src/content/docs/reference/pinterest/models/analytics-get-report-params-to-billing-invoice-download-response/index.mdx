@@ -1,0 +1,914 @@
+---
+title: "Pinterest models: Analytics Get Report Params – Billing Invoice Download Response"
+description: "100 generated Pinterest model contracts, from AnalyticsGetReportParams through BillingInvoiceDownloadResponse."
+generated: true
+platform: "pinterest"
+sourceVersion: "v5"
+sidebar:
+  order: 1002
+  label: "Analytics Get Report Params – Billing Invoice Download Response"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## AnalyticsGetReportParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `token` | `token` | `string` | Yes | No | Token returned from the post request creation call |
+
+## AnalyticsGetReportResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9006` | Yes | No | — |
+
+## AnalyticsMetricsResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `daily_metrics` | `daily_metrics` | `Array<Inline448>` | No | No | Array with the requested daily metric records |
+| `summary_metrics` | `summary_metrics` | `Inline449` | No | No | The metric name and value over the requested period for each requested metric |
+
+## AnalyticsResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AppsflyerAudience
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `container_id` | `container_id` | `string` | Yes | No | The ID of the audience container |
+| `name` | `name` | `string` | Yes | No | The name of the audience |
+| `platform` | `platform` | `Inline452` | Yes | No | The platform of the audience |
+
+## AppsflyerAudienceCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `name` | `name` | `string` | Yes | No | The name of the audience |
+| `platform` | `platform` | `Inline454` | Yes | No | The platform of the audience |
+
+## AppsflyerAudienceSync
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AppsflyerAudienceSyncCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `container_id` | `container_id` | `string` | Yes | No | The container ID of the audience |
+| `url_adid_sha256` | `url_adid_sha256` | `string` | No | No | The pre-signed URL for SHA256 hashed GAID/IDFA file |
+| `url_email_sha256` | `url_email_sha256` | `string` | No | No | The pre-signed URL for SHA256 hashed email file |
+
+## AppsflyerPlatform
+
+`enum` model on the `json` wire format.
+
+**Values:** `android`, `ios`
+
+## AppTypeMultipliers
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `APP_TYPE` | `APP_TYPE` | `Inline459` | No | No | App type identifier. |
+
+## AssetAccessRequestError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `number` | No | No | Error code associated with the error in requesting asset access. |
+| `messages` | `messages` | `Array<string>` | No | No | — |
+
+## AssetAccessRequestsCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `asset_requests` | `asset_requests` | `Array<Inline9394>` | Yes | No | — |
+
+## AssetAccessRequestsCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9396` | Yes | No | — |
+
+## AssetGroupBinding
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_accounts_ids` | `ad_accounts_ids` | `Array<string>` | Yes | No | A list of ad account IDs under the asset group |
+| `asset_group_description` | `asset_group_description` | `string` | Yes | No | Asset group description |
+| `asset_group_name` | `asset_group_name` | `string` | Yes | No | Asset Group name |
+| `asset_group_types` | `asset_group_types` | `Array<string>` | Yes | No | Asset group types |
+| `catalogs_ids` | `catalogs_ids` | `Array<string>` | Yes | No | A list of catalog IDs under asset group |
+| `created_by` | `created_by` | `Inline462` | Yes | No | The data of the user that created the asset group. |
+| `created_time` | `created_time` | `number` | Yes | No | The creation time of the asset group |
+| `id` | `id` | `string` | Yes | No | Asset Group ID. |
+| `owner` | `owner` | `Inline463` | Yes | No | The data of the business that owns the asset group. |
+| `profiles_ids` | `profiles_ids` | `Array<string>` | Yes | No | A list of profile IDs under asset group |
+| `updated_time` | `updated_time` | `number` | Yes | No | The last update time of the asset group |
+
+## AssetGroupBindingAdAccountsIdsItems
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## AssetGroupBindingCatalogsIdsItems
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## AssetGroupBindingProfilesIdsItems
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## AssetGroupCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `asset_group` | `asset_group` | `Inline9260` | No | No | — |
+| `asset_group_description` | `asset_group_description` | `string` | Yes | No | Asset group description. |
+| `asset_group_name` | `asset_group_name` | `string` | Yes | No | Asset Group name. |
+| `asset_group_types` | `asset_group_types` | `Array<string>` | Yes | No | Asset group types. |
+
+## AssetGroupCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9263` | Yes | No | — |
+
+## AssetGroupDeleteError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_group_id` | `asset_group_id` | `string` | No | No | Asset group id of the exception. |
+| `code` | `code` | `number` | No | No | Error code associated with the error deleting asset group. |
+| `message` | `message` | `string` | No | No | Error message associated with the error deleting asset group. |
+
+## AssetGroupDeleteExceptions
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<Inline469>`
+
+## AssetGroupDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `asset_groups_to_delete` | `asset_groups_to_delete` | `Array<unknown>` | Yes | No | — |
+
+## AssetGroupDeleteResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9282` | Yes | No | — |
+
+## AssetGroupDeletion
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `deleted_asset_groups` | `deleted_asset_groups` | `Array<string>` | No | No | — |
+| `exceptions` | `exceptions` | `Array<Inline471>` | No | No | — |
+
+## AssetGroupDeletionDelete
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_groups_to_delete` | `asset_groups_to_delete` | `Array<unknown>` | Yes | No | — |
+
+## AssetGroupInput
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_group` | `asset_group` | `Inline474` | No | No | — |
+
+## AssetGroupInputCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_group` | `asset_group` | `Inline477` | No | No | — |
+| `asset_group_description` | `asset_group_description` | `string` | Yes | No | Asset group description. |
+| `asset_group_name` | `asset_group_name` | `string` | Yes | No | Asset Group name. |
+| `asset_group_types` | `asset_group_types` | `Array<string>` | Yes | No | Asset group types. |
+
+## AssetGroupModification
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `exceptions` | `exceptions` | `Array<Inline480>` | No | No | A list of errors associated with the asset groups. Will be returned if there is an error. |
+| `updated_asset_groups` | `updated_asset_groups` | `Array<Inline481>` | No | No | A list of successfully edited asset groups. |
+
+## AssetGroupModificationReadOrUpdate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_groups_to_update` | `asset_groups_to_update` | `Array<Inline484>` | No | No | A list of asset groups and the data that will be used to update them. |
+| `exceptions` | `exceptions` | `Array<Inline485>` | No | No | A list of errors associated with the asset groups. Will be returned if there is an error. |
+| `updated_asset_groups` | `updated_asset_groups` | `Array<Inline486>` | No | No | A list of successfully edited asset groups. |
+
+## AssetGroupType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BRAND`, `LOCATION_OR_LANGUAGE`, `PRODUCT_LINE`, `OTHER`
+
+## AssetGroupTypesCreate
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<string>`
+
+## AssetGroupTypesReadOrUpdateItem
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<string>`
+
+## AssetGroupUpdateError
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_group_id` | `asset_group_id` | `string` | No | No | — |
+| `code` | `code` | `number` | No | No | — |
+| `message` | `message` | `string` | No | No | — |
+
+## AssetGroupUpdateItemReadOrUpdateItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_group_id` | `asset_group_id` | `string` | Yes | No | Unique identifier of the asset group to update. |
+| `asset_group_types` | `asset_group_types` | `Array<string>` | No | No | Asset group types. |
+| `assets_to_add` | `assets_to_add` | `Array<string>` | No | No | A list of asset ids to add to the asset group. |
+| `assets_to_remove` | `assets_to_remove` | `Array<string>` | No | No | A list of asset ids to remove from the asset group. |
+| `description` | `description` | `string` | No | No | Asset group description. |
+| `name` | `name` | `string` | No | No | Asset Group name. |
+
+## AssetGroupUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `businessId` | `businessId` | `string` | Yes | No | Unique identifier of the requesting business. |
+| `asset_groups_to_update` | `asset_groups_to_update` | `Array<Inline9268>` | No | No | A list of asset groups and the data that will be used to update them. |
+| `exceptions` | `exceptions` | `Array<Inline9269>` | No | No | A list of errors associated with the asset groups. Will be returned if there is an error. |
+| `updated_asset_groups` | `updated_asset_groups` | `Array<Inline9270>` | No | No | A list of successfully edited asset groups. |
+
+## AssetGroupUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline9273` | Yes | No | — |
+
+## AssetIdPermissions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_group_info` | `asset_group_info` | `Inline494` | No | No | An object containing all the information specific to the provided asset group. This field will be populated only if asset_type equals 'ASSET_GROUP'. |
+| `asset_id` | `asset_id` | `string` | Yes | No | Unique identifier of a business asset. |
+| `asset_type` | `asset_type` | `string` | Yes | No | Type of asset. Currently we only support AD_ACCOUNT, PROFILE, ASSET_GROUP and CATALOG. |
+| `permissions` | `permissions` | `Array<string>` | Yes | No | Permission levels member or partner has on an asset. |
+
+## AssetIdToPermissions
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## AssetIdWithPermissions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Unique identifier of a business asset. |
+| `permissions` | `permissions` | `Array<string>` | No | No | Permission levels member or partner has on an asset. |
+
+## AssetPermissions
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Array<string>`
+
+## AssetPermissionType
+
+`enum` model on the `json` wire format.
+
+**Values:** `AGGREGATED_PERMISSION`, `DIRECT_PERMISSION`
+
+## AssetSearchBy
+
+`enum` model on the `json` wire format.
+
+**Values:** `NAME`, `ID`, `NAME_OR_ID`, `OWNER_NAME`, `NAME_OR_OWNER`
+
+## AssetSortBy
+
+`enum` model on the `json` wire format.
+
+**Values:** `NAME`, `ID`, `PERMISSIONS`
+
+## AssetTypeResponse
+
+`enum` model on the `json` wire format.
+
+**Values:** `AD_ACCOUNT`, `MERCHANT`, `PROFILE`, `ASSET_GROUP`, `PINNER_LIST`, `CONVERSION_TAG`, `CATALOG`, `CONVERSION_SEGMENT`
+
+## AttributionActionType
+
+`enum` model on the `json` wire format.
+
+**Values:** `view`, `click`
+
+## AttributionMatchType
+
+`enum` model on the `json` wire format.
+
+**Values:** `P`, `D`, `NA`
+
+## AttributionModel
+
+`enum` model on the `json` wire format.
+
+**Values:** `first_touch`, `last_touch`, `multi_touch`, `mmm`
+
+## AttributionScope
+
+`enum` model on the `json` wire format.
+
+**Values:** `view`, `engagement`, `click`
+
+## AttributionWindows
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `click_window_days` | `click_window_days` | `number` | No | No | — |
+| `engagement_window_days` | `engagement_window_days` | `number` | No | No | — |
+| `view_window_days` | `view_window_days` | `number` | No | No | — |
+
+## Audience
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Ad account ID. |
+| `audience_type` | `audience_type` | `Inline509` | No | No | Audience types: ACTALIKE, ENGAGEMENT, CUSTOMER_LIST and VISITOR |
+| `created_by_company_name` | `created_by_company_name` | `string` | No | No | The company that created this audience. |
+| `created_timestamp` | `created_timestamp` | `number` | No | No | Creation time. Unix timestamp in seconds. |
+| `description` | `description` | `string` | No | No | Audience description. |
+| `id` | `id` | `string` | No | No | Audience ID. |
+| `is_nca` | `is_nca` | `boolean` | No | No | Whether the audience derives from a new customer acquisition (expanded matching) customer list. Read-only. |
+| `name` | `name` | `string` | No | No | Audience name. |
+| `rule` | `rule` | `Inline510` | No | No | JSON object defining targeted audience users. Example rule formats per audience type: CUSTOMER_LIST: &#123; "customer_list_id": "&lt;customer list ID&gt;"&#125; ACTALIKE: &#123; "seed_id": ["&lt;audience ID&gt;"], "country": "US", "percentage": "10" &#125; (Valid countries include: "US", "CA", and "GB". Percentage should be 1-10. The targeted audience should be this % size across Pinterest.) VISITOR: &#123; "visitor_source_id": ["&lt;conversion tag ID&gt;"], "retention_days": "180", "event_source": &#123;"=": ["web", "mobile"]&#125;, "ingestion_source": &#123;"=": ["tag"]&#125;&#125; (Retention days should be 1-540. Retention applies to specific customers.) ENGAGEMENT: &#123;"engagement_domain": ["www.example.com"], "engager_type": 1&#125; Learn more about engagement audiences. |
+| `size` | `size` | `number` | No | No | Audience size. |
+| `status` | `status` | `Inline514` | No | No | Audience status. READY, INITIALIZING, TOO_SMALL - Each audience list needs to have at least 100 people with Pinterest accounts before you can start using it. |
+| `type` | `type` | `string` | No | No | Always "audience". |
+| `updated_timestamp` | `updated_timestamp` | `number` | No | No | Last update time. Unix timestamp in seconds. |
+
+## AudienceAccountType
+
+`enum` model on the `json` wire format.
+
+**Values:** `AD_ACCOUNT`, `BUSINESS_ACCOUNT`
+
+## AudienceCategory
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Interest ID. |
+| `index` | `index` | `number` | No | No | Interest affinity index. |
+| `key` | `key` | `string` | No | No | Interest unique key (same as ID). |
+| `name` | `name` | `string` | No | No | Interest name. |
+| `ratio` | `ratio` | `number` | No | No | Interest's percent of category's total audience. |
+| `subcategories` | `subcategories` | `Array<Inline517>` | No | No | Subcategory interest distribution |
+
+## AudienceDefinition
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date` | `date` | `string` | No | No | Generation date |
+| `scope` | `scope` | `string` | No | No | — |
+| `type` | `type` | `string` | No | No | — |
+
+## AudienceDemographics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ages` | `ages` | `Array<Inline520>` | No | No | Ages distribution. |
+| `countries` | `countries` | `Array<Inline521>` | No | No | Country area distribution. |
+| `devices` | `devices` | `Array<Inline522>` | No | No | Device usage distribution. |
+| `genders` | `genders` | `Array<Inline523>` | No | No | Gender distribution. |
+| `metros` | `metros` | `Array<Inline524>` | No | No | Geographic metro area distribution. |
+
+## AudienceDemographicValue
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `key` | `key` | `string` | No | No | Unique key for demographic item |
+| `name` | `name` | `string` | No | No | Display name for demographic |
+| `ratio` | `ratio` | `number` | No | No | Value of demographic item as a percent of total audience |
+
+## AudienceInsights
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `categories` | `categories` | `Array<Inline527>` | No | No | Category interest distribution |
+| `date` | `date` | `string` | No | No | Generation date |
+| `demographics` | `demographics` | `Inline528` | No | No | Audience demographics |
+| `size` | `size` | `number` | No | No | Population count. |
+| `size_is_upper_bound` | `size_is_upper_bound` | `boolean` | No | No | Indicates whether the audience size has been rounded up to the next highest upper boundary. |
+| `type` | `type` | `string` | No | No | — |
+
+## AudienceInsightsGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `audienceInsightType` | `audienceInsightType` | `string` | Yes | No | Type of audience insights. |
+
+## AudienceInsightsGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7553` | Yes | No | — |
+
+## AudienceInsightsScopeAndTypeGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+
+## AudienceInsightsScopeAndTypeGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline8818` | Yes | No | — |
+
+## AudienceInsightType
+
+`enum` model on the `json` wire format.
+
+**Values:** `YOUR_TOTAL_AUDIENCE`, `YOUR_ENGAGED_AUDIENCE`, `PINTEREST_TOTAL_AUDIENCE`
+
+## AudienceObjectiveType
+
+`enum` model on the `json` wire format.
+
+**Values:** `AWARENESS`, `CONSIDERATION`, `WEB_CONVERSION`, `CATALOG_SALES`, `VIDEO_COMPLETION`, `SALES`
+
+## AudienceOwnershipType
+
+`enum` model on the `json` wire format.
+
+**Values:** `OWNED`, `RECEIVED`
+
+## AudienceRule
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Ad account ID. |
+| `ad_id` | `ad_id` | `Array<string>` | No | No | Ad ID for engagement audience filter. |
+| `campaign_id` | `campaign_id` | `Array<string>` | No | No | Campaign ID for engagement audience filter. |
+| `country` | `country` | `string` | No | No | Valid countries include: "US", "CA", and "GB". |
+| `customer_list_id` | `customer_list_id` | `string` | No | No | Customer list ID. For CUSTOMER_LIST `audience_type`. |
+| `engagement_domain` | `engagement_domain` | `Array<string>` | No | No | The audience account's verified domain. **Required** for ENGAGEMENT `audience_type`. |
+| `engagement_type` | `engagement_type` | `string` | No | No | Engagement type enum. Optional for ENGAGEMENT `audience_type`. Supported values are `click`, `save`, `closeup`, `comment` and `like`. All engagements are included if this field is not set. |
+| `engager_type` | `engager_type` | `number` | No | No | Optional for ENGAGEMENT. Engager type value should be 1-2. |
+| `event` | `event` | `string` | No | No | A Pinterest tag event. Optional for VISITOR `audience_type`. Possible values are `pagevisit`, `signup`, `checkout`, `viewcategory`, `search`, `addtocart`, `watchvideo`, `lead`, and `custom`. This field also accepts a partner-defined Pinterest tag event. |
+| `event_data` | `event_data` | `Inline537` | No | No | Optional for VISITOR `audience_type`. With the Pinterest tag, you can use event data to capture event details from your website. This object lists all the available predefined event data fields in the Pinterest tag. You can include these event data fields as part of a VISITOR audience’s `rule`; however, you **must** specify an `event` for the `event_data` fields to be evaluated. Besides what’s listed, you can also create your own set of `event_data` fields and define their usages or purposes according to your website needs. However, the benefit of using the predefined event data fields is that we can provide various metrics based on those fields' data. Examples per `event` type: `pagevisit` "event_data": &#123; "page_name": "My online store 123 \| view items \| shoe" &#125; `signup` "event_data": &#123; "lead_type": "New release promotion" &#125; `checkout` "event_data": &#123; "value": 116, "order_quantity": 2, "currency": "USD", "line_items": [ &#123; "product_name": "Pillows (Set of 2)", "product_id": "11", "product_price": 48, "product_quantity": 1 &#125;, &#123; "product_name": "Pillows, Large (Set of 2)", "product_id": "15", "product_price": 68, "product_quantity": 1 &#125; ] &#125; `addtocart` "event_data": &#123; "value": 499, "order_quantity": 1, "currency": "USD", "line_items": [ &#123; "product_name": "Red leather boots", "product_id": "3486", "product_category": "shoe", "product_variant_id": "JB11103000", "product_price": 499, "product_quantity": "1", "product_brand": "My brand" &#125;]&#125; `watchvideo` "event_data": &#123; "video_title" : "My Product Video 01" &#125; `lead` "event_data": &#123; "lead_type": "Newsletter" &#125; |
+| `event_source` | `event_source` | `Inline539` | No | No | Optional for VISITOR. You can use it as a &#123;'=': [value]&#125;. Supported values are: web, mobile, offline |
+| `ingestion_source` | `ingestion_source` | `Inline540` | No | No | Optional for VISITOR. You can use it as a &#123;'=': [value]&#125;. Supported values are: tag, mmp, file_upload, conversions_api |
+| `objective_type` | `objective_type` | `Array<string>` | No | No | Objective for engagement audience filter. |
+| `percentage` | `percentage` | `number` | No | No | Percentage should be 1-10. The targeted audience should be this % size across Pinterest. |
+| `pin_id` | `pin_id` | `Array<string>` | No | No | IDs of engaged organic pins. Optional for ENGAGEMENT `audience_type`. For example, "pin_id:": ["34567"] |
+| `prefill` | `prefill` | `boolean` | No | No | Optional for VISITOR `audience_type`. If `true`, the specified rule on existing engagement data is applied to pre-populate the audience. If `false`, the audience is empty at creation time. The default is `true`. |
+| `retention_days` | `retention_days` | `number` | No | No | Number of days a Pinterest user remains in the audience. Optional for ENGAGEMENT and VISITOR `audience_type`. Accepted range is 1-540. Defaults to 180 if not specified. |
+| `seed_id` | `seed_id` | `Array<string>` | No | No | Audience ID(s). For ACTALIKE `audience_type`. |
+| `url` | `url` | `Array<string>` | No | No | Optional for ENGAGEMENT or VISITOR `audience_type`. For ENGAGEMENT, it is the engaged pin's URL. For VISITOR, you can use it as a string or a &#123;operator: value&#125; object for filtering visitors based on conversion tag event URLs. Supported operators are [ =, !=, contains, not_contains]. Example 1: "url": "http://www.myonlinestore123.com/view_item/shoe" Example 2: "url": &#123;"contains": "/view_item/shoe"&#125; |
+| `visitor_source_id` | `visitor_source_id` | `string` | No | No | The conversion tag ID, or the Pinterest tag ID, that you use on your website. For VISITOR `audience_type`. |
+
+## AudiencesCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Ad account ID. |
+| `audience_type` | `audience_type` | `Inline7560` | No | No | Audience types: ACTALIKE, ENGAGEMENT, CUSTOMER_LIST and VISITOR |
+| `description` | `description` | `string` | No | No | Audience description. |
+| `name` | `name` | `string` | No | No | Audience name. |
+| `rule` | `rule` | `Inline7561` | No | No | JSON object defining targeted audience users. Example rule formats per audience type: CUSTOMER_LIST: &#123; "customer_list_id": "&lt;customer list ID&gt;"&#125; ACTALIKE: &#123; "seed_id": ["&lt;audience ID&gt;"], "country": "US", "percentage": "10" &#125; (Valid countries include: "US", "CA", and "GB". Percentage should be 1-10. The targeted audience should be this % size across Pinterest.) VISITOR: &#123; "visitor_source_id": ["&lt;conversion tag ID&gt;"], "retention_days": "180", "event_source": &#123;"=": ["web", "mobile"]&#125;, "ingestion_source": &#123;"=": ["tag"]&#125;&#125; (Retention days should be 1-540. Retention applies to specific customers.) ENGAGEMENT: &#123;"engagement_domain": ["www.example.com"], "engager_type": 1&#125; Learn more about engagement audiences. |
+
+## AudiencesCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7566` | Yes | No | — |
+
+## AudiencesGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceId` | `audienceId` | `string` | Yes | No | Audience ID. |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+
+## AudiencesGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7607` | Yes | No | — |
+
+## AudiencesListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `bookmark` | `bookmark` | `string` | No | No | Cursor used to fetch the next page of items |
+| `pageSize` | `pageSize` | `number` | No | No | Maximum number of items to include in a single page. See documentation on Pagination for more information. |
+| `order` | `order` | `unknown` | No | No | The order in which to sort the items returned: "ASCENDING" or "DESCENDING" by ID. Note that higher-value IDs are associated with more-recently added items. |
+| `ownershipType` | `ownershipType` | `string` | No | No | — |
+| `excludeNca` | `excludeNca` | `boolean` | No | No | When true, excludes audiences derived from new customer acquisition (expanded matching) customer lists from the result. Defaults to false (include all). |
+
+## AudiencesListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7579` | Yes | No | — |
+
+## AudienceStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `INITIALIZING`, `READY`, `TOO_SMALL`, `ELIGIBLE`, `PERSONAS_INELIGIBLE_SIZE`, `PERSONAS_INITIALIZING`
+
+## AudienceSubcategory
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `index` | `index` | `number` | No | No | — |
+| `key` | `key` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `ratio` | `ratio` | `number` | No | No | — |
+
+## AudiencesUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audienceId` | `audienceId` | `string` | Yes | No | Audience ID. |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | Ad account ID. |
+| `audience_type` | `audience_type` | `Inline7586` | No | No | Audience types: ACTALIKE, ENGAGEMENT, CUSTOMER_LIST and VISITOR |
+| `description` | `description` | `string` | No | No | Audience description. |
+| `name` | `name` | `string` | No | No | Audience name. |
+| `operation_type` | `operation_type` | `Inline7587` | No | No | Audience operation type (update or remove). Only valid in update request body. |
+| `rule` | `rule` | `Inline7588` | No | No | JSON object defining targeted audience users. Example rule formats per audience type: CUSTOMER_LIST: &#123; "customer_list_id": "&lt;customer list ID&gt;"&#125; ACTALIKE: &#123; "seed_id": ["&lt;audience ID&gt;"], "country": "US", "percentage": "10" &#125; (Valid countries include: "US", "CA", and "GB". Percentage should be 1-10. The targeted audience should be this % size across Pinterest.) VISITOR: &#123; "visitor_source_id": ["&lt;conversion tag ID&gt;"], "retention_days": "180", "event_source": &#123;"=": ["web", "mobile"]&#125;, "ingestion_source": &#123;"=": ["tag"]&#125;&#125; (Retention days should be 1-540. Retention applies to specific customers.) ENGAGEMENT: &#123;"engagement_domain": ["www.example.com"], "engager_type": 1&#125; Learn more about engagement audiences. |
+
+## AudiencesUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7593` | Yes | No | — |
+
+## AudienceType
+
+`enum` model on the `json` wire format.
+
+**Values:** `CUSTOMER_LIST`, `VISITOR`, `ENGAGEMENT`, `ACTALIKE`, `PERSONA`
+
+## AudienceUpdateOperationType
+
+`enum` model on the `json` wire format.
+
+**Values:** `UPDATE`, `REMOVE`
+
+## AuthRespondInviteAction
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accept_invite` | `accept_invite` | `boolean` | Yes | No | Whether the invite/request is accepted. |
+| `asset_id_to_permissions` | `asset_id_to_permissions` | `Inline546` | No | No | An object mapping asset ids to lists of business permissions. This can be used to setting/requesting permissions on various assets. If accepting an invite or request, this object would be used to grant asset permissions to the member or partner. |
+
+## AuthRespondInvitesBody
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `invites` | `invites` | `Array<Inline548>` | Yes | No | — |
+
+## AuthRespondInvitesBodyItem
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `Inline550` | Yes | No | — |
+| `invite_id` | `invite_id` | `string` | Yes | No | Unique identifier of an invite. |
+
+## AutoTargetingEnabled
+
+`scalar` model on the `json` wire format.
+
+**Value:** `boolean`
+
+## AvailabilityFilter
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `AVAILABILITY` | `AVAILABILITY` | `Inline553` | Yes | No | — |
+
+## BaseBusinessAssets
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `asset_group_info` | `asset_group_info` | `Inline555` | No | No | An object containing all the information specific to the provided asset group. This field will be populated only if asset_type equals 'ASSET_GROUP'. |
+| `asset_id` | `asset_id` | `string` | No | No | Unique identifier of a business asset. |
+| `asset_type` | `asset_type` | `string` | No | No | Type of asset. Currently we only support AD_ACCOUNT, PROFILE, ASSET_GROUP and CATALOG. |
+| `permissions` | `permissions` | `Array<string>` | No | No | Permission levels the requesting business has on an asset. |
+
+## BaseInviteDataResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Unique identifier of the invite/request. |
+| `invite_data` | `invite_data` | `Inline558` | No | No | Metadata for the invite/request. |
+| `is_received_invite` | `is_received_invite` | `boolean` | No | No | Indicates whether the invite/request was received. |
+| `user` | `user` | `Inline559` | No | No | Metadata for the member/partner that was sent the invite/request. |
+
+## BasePreferredMediaType
+
+`enum` model on the `json` wire format.
+
+**Values:** `VIDEO`, `IMAGE`
+
+## BatchOperationStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `PROCESSING`, `COMPLETED`, `FAILED`
+
+## BidFloor
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid_floors` | `bid_floors` | `Array<number>` | No | No | A list of bid floors in micro currency. For example, [100000, 200000] |
+| `type` | `type` | `string` | No | No | Always the string 'bidfloor'. |
+
+## BidFloorCreate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid_floor_specs` | `bid_floor_specs` | `Array<Inline564>` | Yes | No | List of bid floor specifications. |
+| `targeting_spec` | `targeting_spec` | `Inline571` | No | No | Ad group targeting specification defining the ad group target audience. |
+
+## BidFloorObjectiveType
+
+`enum` model on the `json` wire format.
+
+**Values:** `AWARENESS`, `CONSIDERATION`, `WEB_CONVERSION`, `CATALOG_SALES`, `VIDEO_COMPLETION`, `SALES`
+
+## BidFloorSpec
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `billable_event` | `billable_event` | `Inline574` | Yes | No | Ad group billable event type. |
+| `countries` | `countries` | `Array<string>` | No | No | List of ISO 3166-1 alpha-2 country codes. |
+| `creative_type` | `creative_type` | `Inline575` | No | No | Creative type for the bid floor request. |
+| `currency` | `currency` | `Inline576` | Yes | No | Currency for the bid floor value. |
+| `objective_type` | `objective_type` | `Inline577` | No | No | Campaign objective type. |
+| `optimization_goal_metadata` | `optimization_goal_metadata` | `Inline578` | No | No | Optimization goal metadata. |
+
+## BidOptionsAgeBucketMultipliers
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `18-24` | `18-24` | `number` | No | No | — |
+| `25-34` | `25-34` | `number` | No | No | — |
+| `35-44` | `35-44` | `number` | No | No | — |
+| `45-49` | `45-49` | `number` | No | No | — |
+| `50-54` | `50-54` | `number` | No | No | — |
+| `55-64` | `55-64` | `number` | No | No | — |
+| `65+` | `65+` | `number` | No | No | — |
+
+## BidOptionsAppTypeMultipliers
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `android_mobile` | `android_mobile` | `number` | No | No | — |
+| `android_tablet` | `android_tablet` | `number` | No | No | — |
+| `ipad` | `ipad` | `number` | No | No | — |
+| `iphone` | `iphone` | `number` | No | No | — |
+| `web` | `web` | `number` | No | No | — |
+| `web_mobile` | `web_mobile` | `number` | No | No | — |
+
+## BidOptionsAudienceMultipliers
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_id` | `audience_id` | `string` | Yes | No | — |
+| `multiplier` | `multiplier` | `number` | Yes | No | — |
+
+## BidOptionsGenderMultipliers
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `female` | `female` | `number` | No | No | — |
+| `male` | `male` | `number` | No | No | — |
+
+## BidOptionsPlacementMultipliers
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `browse` | `browse` | `number` | No | No | — |
+| `related_pins` | `related_pins` | `number` | No | No | — |
+| `search` | `search` | `number` | No | No | — |
+
+## BidStrategyType
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## BillingInvoice
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | The ID of the ad account this invoice belongs to |
+| `ad_account_name` | `ad_account_name` | `string` | No | No | The name of the ad account this invoice belongs to |
+| `amount_billed_micro_currency` | `amount_billed_micro_currency` | `number` | No | No | The amount billed in this invoice. Denoted in micro currency |
+| `amount_discount_micro_currency` | `amount_discount_micro_currency` | `number` | No | No | The discount in this invoice. Denoted in micro currency |
+| `amount_net_micro_currency` | `amount_net_micro_currency` | `number` | No | No | The net amount in this invoice. Denoted in micro currency |
+| `amount_tax_micro_currency` | `amount_tax_micro_currency` | `number` | No | No | The tax in this invoice. Denoted in micro currency |
+| `bill_to_country` | `bill_to_country` | `string` | No | No | The country of the bill to address |
+| `billing_period_end_date` | `billing_period_end_date` | `string` | No | No | The end date of the billing period. Format: YYYY-MM-DD |
+| `billing_period_start_date` | `billing_period_start_date` | `string` | No | No | The start date of the billing period. Format: YYYY-MM-DD |
+| `currency` | `currency` | `string` | No | No | Currency Codes from ISO 4217 |
+| `document_type` | `document_type` | `Inline588` | No | No | The type of the document |
+| `id` | `id` | `string` | No | No | Unique identifier for the billing invoice |
+| `invoice_due_date` | `invoice_due_date` | `string` | No | No | The date the invoice is due. Format: YYYY-MM-DD |
+| `payment_terms` | `payment_terms` | `string` | No | No | The payment terms of the invoice |
+| `status` | `status` | `Inline589` | No | No | The status of the invoice |
+
+## BillingInvoiceDocumentType
+
+`enum` model on the `json` wire format.
+
+**Values:** `INVOICE`, `CREDIT_MEMO`
+
+## BillingInvoiceDownloadGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adAccountId` | `adAccountId` | `string` | Yes | No | Unique identifier of an ad account. |
+| `billingInvoiceId` | `billingInvoiceId` | `string` | Yes | No | Unique identifier of a billing invoice. |
+
+## BillingInvoiceDownloadGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Inline7647` | Yes | No | — |
+
+## BillingInvoiceDownloadResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `download_url` | `download_url` | `string` | No | No | The download url for the billing invoice |
+| `id` | `id` | `string` | No | No | The billing invoice id |
