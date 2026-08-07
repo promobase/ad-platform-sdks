@@ -1,4 +1,4 @@
-# @openpromo/ad-platforms-cli
+# @mosaic/ad-platforms-cli
 
 Command-line interface for OpenPromo ad platform SDKs.
 
@@ -6,19 +6,19 @@ The CLI is intentionally separate from the SDK runtime packages. It can depend o
 Commander, Zod, and SDK peer dependencies while keeping normal SDK imports small.
 
 ```sh
-npx @openpromo/ad-platforms-cli meta --help
-openpromo-ads meta instagram --help
+npx @mosaic/ad-platforms-cli meta --help
+mosaic-ads meta instagram --help
 op-ads meta instagram media publish-photo --help
-openpromo-ads linkedin posts create-text --help
-openpromo-ads youtube resources call --help
-openpromo-ads google-ads gaql search --help
+mosaic-ads linkedin posts create-text --help
+mosaic-ads youtube resources call --help
+mosaic-ads google-ads gaql search --help
 ```
 
 All commands accept `--input <json>` and `--input-file <path>` for structured
 arguments. Explicit flags override JSON input.
 
 ```sh
-openpromo-ads meta instagram media publish-photo \
+mosaic-ads meta instagram media publish-photo \
   --access-token "$META_ACCESS_TOKEN" \
   --ig-account-id "$META_IG_ACCOUNT_ID" \
   --image-url "https://example.com/image.jpg" \
@@ -41,17 +41,17 @@ Generated-heavy SDKs expose raw call escape hatches so agents can keep using
 operation:
 
 ```sh
-openpromo-ads youtube resources call \
+mosaic-ads youtube resources call \
   --resource videos \
   --operation list \
   --params '{"part":"snippet,status","id":"VIDEO_ID"}'
 
-openpromo-ads x raw call \
+mosaic-ads x raw call \
   --resource tweets \
   --operation createPosts \
   --body '{"text":"Hello from OpenPromo"}'
 
-openpromo-ads google-ads service call \
+mosaic-ads google-ads service call \
   --service campaignService \
   --method mutateCampaigns \
   --customer-id "$GOOGLE_ADS_CUSTOMER_ID" \
@@ -68,8 +68,8 @@ Tool names follow the command path, for example
 ```json
 {
   "mcpServers": {
-    "openpromo-ads": {
-      "command": "openpromo-ads",
+    "mosaic-ads": {
+      "command": "mosaic-ads",
       "args": ["mcp", "serve"]
     }
   }
@@ -79,5 +79,5 @@ Tool names follow the command path, for example
 You can also run the dedicated bin:
 
 ```sh
-openpromo-ads-mcp
+mosaic-ads-mcp
 ```

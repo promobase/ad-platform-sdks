@@ -74,3 +74,4 @@ export interface HomeListingGetFields {
   visibility: HomeListingGetVisibility;
   year_built: number;
 }
+

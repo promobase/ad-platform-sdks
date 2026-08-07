@@ -1,1 +1,1 @@
-export * from "@openpromo/google-business-profile/effect";
+export * from "@mosaic/google-business-profile/effect";

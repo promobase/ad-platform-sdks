@@ -235,10 +235,10 @@ export function emitObjectFile(ctx: EmitContext): string {
 
   // 4. Generate imports
   if (hasApis) {
-    out.push(`import type { ApiClient } from "@openpromo/sdk-runtime";`);
+    out.push(`import type { ApiClient } from "@mosaic/sdk-runtime";`);
   }
   if (hasGetEdges) {
-    out.push(`import { Cursor } from "@openpromo/sdk-runtime";`);
+    out.push(`import { Cursor } from "@mosaic/sdk-runtime";`);
     out.push(`import { metaPagination } from "../../pagination.ts";`);
   }
 

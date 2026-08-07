@@ -1,5 +1,5 @@
 {
-  "name": "@openpromo/reddit",
+  "name": "@mosaic/reddit",
   "version": "0.1.0",
   "description": "Type-safe TypeScript SDK for the Reddit Ads API v3 and Reddit OAuth",
   "keywords": [
@@ -55,11 +55,11 @@
     }
   },
   "dependencies": {
-    "@openpromo/sdk-runtime": "workspace:*",
+    "@mosaic/sdk-runtime": "workspace:*",
     "yaml": "^2.8.0"
   },
   "devDependencies": {
-    "@openpromo/sdk-codegen": "workspace:*"
+    "@mosaic/sdk-codegen": "workspace:*"
   },
   "engines": {
     "node": ">=18"

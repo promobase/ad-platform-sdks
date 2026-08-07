@@ -1,1 +1,1 @@
-export * from "@openpromo/tiktok/effect";
+export * from "@mosaic/tiktok/effect";

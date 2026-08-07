@@ -1,1 +1,1 @@
-export * from "@openpromo/x/effect";
+export * from "@mosaic/x/effect";

@@ -1,4 +1,4 @@
-import type { HttpClient } from "@openpromo/sdk-runtime";
+import type { HttpClient } from "@mosaic/sdk-runtime";
 
 import type { Campaign } from "../generated/v25/resources/Campaign.ts";
 import type { CampaignBudget } from "../generated/v25/resources/CampaignBudget.ts";

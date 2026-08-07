@@ -1,5 +1,5 @@
 {
-  "name": "@openpromo/bluesky",
+  "name": "@mosaic/bluesky",
   "version": "0.1.0",
   "description": "Type-safe TypeScript SDK for Bluesky and the AT Protocol (posts, feeds, profiles, graphs, notifications)",
   "keywords": [
@@ -55,10 +55,10 @@
     }
   },
   "dependencies": {
-    "@openpromo/sdk-runtime": "workspace:*"
+    "@mosaic/sdk-runtime": "workspace:*"
   },
   "devDependencies": {
-    "@openpromo/sdk-codegen": "workspace:*"
+    "@mosaic/sdk-codegen": "workspace:*"
   },
   "engines": {
     "node": ">=18"

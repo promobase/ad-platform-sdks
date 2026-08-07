@@ -1,4 +1,4 @@
-import type { AnyEndpointDescriptor, EndpointCatalog } from "@openpromo/sdk-runtime/effect";
+import type { AnyEndpointDescriptor, EndpointCatalog } from "@mosaic/sdk-runtime/effect";
 import { tool, type Tool } from "ai";
 import { Schema } from "effect";
 

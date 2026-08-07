@@ -1,4 +1,4 @@
-import type { ApiClient } from "@openpromo/sdk-runtime";
+import type { ApiClient } from "@mosaic/sdk-runtime";
 import type { AdAccountAccountControlsPostFields } from "./ad-account-account-controls-post.ts";
 
 export interface AdAccountAccountControlsFields {
@@ -12,3 +12,4 @@ export function adAccountAccountControlsNode(client: ApiClient, id: string) {
       client.post<AdAccountAccountControlsPostFields>(`${id}/account_controls`, params as Record<string, unknown>),
   };
 }
+

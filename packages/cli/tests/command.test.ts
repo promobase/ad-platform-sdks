@@ -77,7 +77,7 @@ describe("CLI command helpers", () => {
     }
 
     const help = helpOutput.join("");
-    expect(help).toContain("openpromo-ads meta instagram media publish-photo");
+    expect(help).toContain("mosaic-ads meta instagram media publish-photo");
     expect(help).toContain("--image-url <url>");
     expect(help).toContain("--input-file <path>");
   });

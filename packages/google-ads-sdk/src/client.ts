@@ -1,5 +1,5 @@
-import type { DelayFn, RateLimiter, RetryConfig } from "@openpromo/sdk-runtime";
-import { HttpClient } from "@openpromo/sdk-runtime";
+import type { DelayFn, RateLimiter, RetryConfig } from "@mosaic/sdk-runtime";
+import { HttpClient } from "@mosaic/sdk-runtime";
 
 import { parseGoogleAdsError } from "./errors.ts";
 

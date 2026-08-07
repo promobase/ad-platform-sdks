@@ -1,4 +1,4 @@
-import type { PlatformPublishResult } from "@openpromo/sdk-runtime";
+import type { PlatformPublishResult } from "@mosaic/sdk-runtime";
 import { Effect } from "effect";
 
 import type { createContainers } from "./containers.ts";

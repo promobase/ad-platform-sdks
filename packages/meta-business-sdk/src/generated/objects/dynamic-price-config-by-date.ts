@@ -1,4 +1,4 @@
-import type { ApiClient } from "@openpromo/sdk-runtime";
+import type { ApiClient } from "@mosaic/sdk-runtime";
 
 export interface DynamicPriceConfigByDateFields {
   checkin_date: string;

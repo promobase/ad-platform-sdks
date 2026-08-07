@@ -20,7 +20,7 @@ const result = await ads.operations.invoke("youtube.posts.metrics.get", {
 ## AI SDK
 
 ```ts
-import { toAiSdkTools } from "@openpromo/ad-platforms/operations/ai";
+import { toAiSdkTools } from "@mosaic/ad-platforms/operations/ai";
 
 const tools = toAiSdkTools(ads.operations, {
   platform: ["instagram", "youtube"],
@@ -30,7 +30,7 @@ const tools = toAiSdkTools(ads.operations, {
 ## Cloudflare Code Mode
 
 ```ts
-import { toCodemodeConnector } from "@openpromo/ad-platforms/operations/codemode";
+import { toCodemodeConnector } from "@mosaic/ad-platforms/operations/codemode";
 
 const connector = toCodemodeConnector(ads.operations, {
   platform: "instagram",
@@ -42,7 +42,7 @@ policy, replay behavior, and optional rollback support. It has no Cloudflare run
 
 ## MCP and CLI
 
-Install `@openpromo/ad-platforms-cli`, then run `openpromo-ads --help` or the stdio MCP server:
+Install `@mosaic/ad-platforms-cli`, then run `openpromo-ads --help` or the stdio MCP server:
 
 ```json
 {

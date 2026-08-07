@@ -7,7 +7,7 @@ import { registerPlatformCommands } from "./register.ts";
 export function createProgram(): Command {
   const program = new Command();
   program
-    .name("openpromo-ads")
+    .name("mosaic-ads")
     .description("CLI for OpenPromo ad platform SDKs")
     .version("0.1.0")
     .showHelpAfterError()

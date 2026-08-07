@@ -1,1 +1,1 @@
-export * from "@openpromo/sdk-runtime/effect";
+export * from "@mosaic/sdk-runtime/effect";

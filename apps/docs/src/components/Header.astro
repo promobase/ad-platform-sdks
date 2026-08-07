@@ -36,32 +36,8 @@ const showSections = sections.length >= 2;
     <div class="flex items-center gap-3">
       <a href="/" class="group" aria-label={`${config.title} home`}>
         <span class="flex items-center gap-2.5 text-foreground group-hover:text-primary transition-colors">
-          <img
-            src="/openpromo-logo.svg"
-            alt=""
-            width="28"
-            height="28"
-            class="openpromo-mark h-7 w-7 shrink-0"
-          />
-          <span class="relative block h-7 w-[6.75rem] shrink-0 overflow-hidden">
-            <img
-              src="/openpromo-wordmark-light.svg"
-              alt="OpenPromo"
-              width="667"
-              height="175"
-              class="openpromo-wordmark-light h-7 w-auto max-w-none"
-            />
-            <img
-              src="/openpromo-wordmark-dark.svg"
-              alt=""
-              width="667"
-              height="175"
-              class="openpromo-wordmark-dark h-7 w-auto max-w-none"
-            />
-          </span>
-          <span class="hidden rounded-full border border-border px-2 py-0.5 font-mono text-[0.625rem] uppercase tracking-[0.14em] text-muted-foreground sm:inline">
-            SDK docs
-          </span>
+          <span aria-hidden="true" class="mosaic-mark h-7 w-7 shrink-0"></span>
+          <span class="text-lg font-semibold tracking-tight">Mosaic</span>
         </span>
       </a>
 
@@ -116,3 +92,28 @@ const showSections = sections.length >= 2;
     </div>
   </div>
 </header>
+
+<style is:global>
+  /* Mosaic mark: four tiles forming one unified square. */
+  .mosaic-mark {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+    padding: 2px;
+    border-radius: 0.5rem;
+    background: linear-gradient(135deg, var(--nb-primary, var(--color-accent-strong)) 0%, color-mix(in oklch, var(--nb-primary, var(--color-accent-strong)) 55%, transparent) 100%);
+  }
+  .mosaic-mark::before,
+  .mosaic-mark::after {
+    content: "";
+    border-radius: 1.5px;
+    background: var(--nb-background, var(--color-canvas));
+  }
+  .mosaic-mark::before {
+    grid-area: 1 / 1;
+  }
+  .mosaic-mark::after {
+    grid-area: 2 / 2;
+  }
+</style>

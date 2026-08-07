@@ -8,3 +8,4 @@ export interface CustomAudienceMatchRateInsightsFields {
   phone_quality: string;
   phone_upload_volume_pct: number;
 }
+

@@ -1,17 +1,17 @@
-# @openpromo/snapchat
+# @mosaic/snapchat
 
 Type-safe TypeScript SDK for the **Snapchat Marketing API** — campaigns, ad squads, ads, media, creatives, audiences, targeting, and stats. Generated directly from the official Snap documentation (`developers.snap.com/marketing-api`), with OAuth built in.
 
 ## Install
 
 ```bash
-bun add @openpromo/snapchat
+bun add @mosaic/snapchat
 ```
 
 ## Quick start
 
 ```ts
-import { Snapchat } from "@openpromo/snapchat";
+import { Snapchat } from "@mosaic/snapchat";
 
 // OAuth — tokens are short-lived (60 min); use refreshToken to renew
 const oauth = Snapchat.OAuth({

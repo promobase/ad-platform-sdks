@@ -1,4 +1,4 @@
-# @openpromo/youtube
+# @mosaic/youtube
 
 Type-safe TypeScript SDK for YouTube Data API v3 publishing, uploads, and channel workflows.
 
@@ -26,7 +26,7 @@ bun --filter='./packages/youtube-sdk' run codegen:refresh
 ## Use
 
 ```ts
-import { YouTube } from "@openpromo/youtube";
+import { YouTube } from "@mosaic/youtube";
 
 const youtube = YouTube.createClient({
   accessToken: process.env.YOUTUBE_ACCESS_TOKEN!,

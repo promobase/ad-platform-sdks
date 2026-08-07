@@ -1,5 +1,5 @@
 import type { RemoveCampaignAutomaticallyCreatedAssetRequest, RemoveCampaignAutomaticallyCreatedAssetResponse } from "../index.ts";
-import type { HttpClient } from "@openpromo/sdk-runtime";
+import type { HttpClient } from "@mosaic/sdk-runtime";
 
 // Generated from google.ads.googleads.v25.services.AutomaticallyCreatedAssetRemovalService. Do not edit by hand.
 export const automaticallyCreatedAssetRemovalService = {

@@ -4,13 +4,13 @@
   <img src="https://raw.githubusercontent.com/promobase/identity/main/assets/logo.svg" width="96" alt="OpenPromo logo" />
 </a>
 
-# OpenPromo Ad Platform SDKs
+# Mosaic — Ad Platform SDKs
 
-**Type-safe TypeScript SDKs for every ad platform. AI-agent ready.**
+**Mosaic: one type-safe TypeScript SDK family for every ad platform. AI-agent ready.**
 
 Powering [**OpenPromo**](https://openpromo.app) — the AI-native social media workspace.
 
-[![npm](https://img.shields.io/npm/v/@openpromo/ad-platforms.svg?label=%40openpromo%2Fad-platforms)](https://www.npmjs.com/package/@openpromo/ad-platforms)
+[![npm](https://img.shields.io/npm/v/@mosaic/ad-platforms.svg?label=%40openpromo%2Fad-platforms)](https://www.npmjs.com/package/@mosaic/ad-platforms)
 [![CI](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml/badge.svg)](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
@@ -20,19 +20,19 @@ Powering [**OpenPromo**](https://openpromo.app) — the AI-native social media w
 
 ## What
 
-One SDK family for **Meta** (Facebook, Instagram, Threads), **TikTok**, **LinkedIn**, **X**, **YouTube**, **Google Business Profile**, and **Google Ads**. Fully typed, generated from official specs where available, with high-level clients for publishing, messaging, metrics, and ad management, plus AI tools and a discoverable CLI for agents.
+Mosaic is one SDK family for **Meta** (Facebook, Instagram, Threads), **TikTok**, **Snapchat**, **Reddit**, **Pinterest**, **Amazon Ads**, **Bluesky**, **LinkedIn**, **X**, **YouTube**, **Google Ads**, and **Google Business Profile**. Fully typed, generated from official specs and lexicons, with high-level clients for publishing, messaging, metrics, and ad management, plus AI tools and a discoverable CLI for agents.
 
 ## Install
 
 ```bash
-bun add @openpromo/ad-platforms
+bun add @mosaic/ad-platforms
 ```
 
 ## Use
 
 ```ts
-import { Meta, TikTok } from "@openpromo/ad-platforms";
-import { createAllTools } from "@openpromo/ad-platforms/ai";
+import { Meta, TikTok } from "@mosaic/ad-platforms";
+import { createAllTools } from "@mosaic/ad-platforms/ai";
 import { generateText } from "ai";
 import { anthropic } from "@ai-sdk/anthropic";
 
@@ -88,16 +88,16 @@ See [the Effect migration guide](./docs/effect-migration.md),
 
 | Package                                                                         | Description                                                     |
 | ------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| [`@openpromo/ad-platforms`](./packages/ad-platforms/)                           | Umbrella package — all platforms, single install                |
-| [`@openpromo/meta`](./packages/meta-business-sdk/)                              | Meta only (Facebook, Instagram, Threads)                        |
-| [`@openpromo/tiktok`](./packages/tiktok-business-sdk/)                          | TikTok only                                                     |
-| [`@openpromo/google-ads`](./packages/google-ads-sdk/)                           | Google Ads v25, ergonomic clients, and typed GAQL               |
-| [`@openpromo/google-business-profile`](./packages/google-business-profile-sdk/) | Google Business Profile locations, local posts, and performance |
-| [`@openpromo/linkedin`](./packages/linkedin-sdk/)                               | LinkedIn organic publishing, media, organizations, and OAuth    |
-| [`@openpromo/x`](./packages/x-sdk/)                                             | X posts, media upload, and user lookup                          |
-| [`@openpromo/youtube`](./packages/youtube-sdk/)                                 | YouTube Data API v3 and resumable uploads                       |
-| [`@openpromo/ad-platforms-cli`](./packages/cli/)                                | Agent-discoverable CLI and MCP server                           |
-| [`@openpromo/sdk-runtime`](./packages/sdk-runtime/)                             | Shared HTTP, pagination, retry, and rate-limit runtime          |
+| [`@mosaic/ad-platforms`](./packages/ad-platforms/)                           | Umbrella package — all platforms, single install                |
+| [`@mosaic/meta`](./packages/meta-business-sdk/)                              | Meta only (Facebook, Instagram, Threads)                        |
+| [`@mosaic/tiktok`](./packages/tiktok-business-sdk/)                          | TikTok only                                                     |
+| [`@mosaic/google-ads`](./packages/google-ads-sdk/)                           | Google Ads v25, ergonomic clients, and typed GAQL               |
+| [`@mosaic/google-business-profile`](./packages/google-business-profile-sdk/) | Google Business Profile locations, local posts, and performance |
+| [`@mosaic/linkedin`](./packages/linkedin-sdk/)                               | LinkedIn organic publishing, media, organizations, and OAuth    |
+| [`@mosaic/x`](./packages/x-sdk/)                                             | X posts, media upload, and user lookup                          |
+| [`@mosaic/youtube`](./packages/youtube-sdk/)                                 | YouTube Data API v3 and resumable uploads                       |
+| [`@mosaic/ad-platforms-cli`](./packages/cli/)                                | Agent-discoverable CLI and MCP server                           |
+| [`@mosaic/sdk-runtime`](./packages/sdk-runtime/)                             | Shared HTTP, pagination, retry, and rate-limit runtime          |
 
 OpenPromo consumers should start with the [first-party migration guide](./docs/openpromo-migration.md).
 

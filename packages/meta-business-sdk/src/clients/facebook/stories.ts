@@ -1,4 +1,4 @@
-import { ApiClient } from "@openpromo/sdk-runtime";
+import { ApiClient } from "@mosaic/sdk-runtime";
 
 import { FacebookApiError } from "../../errors.ts";
 import type { PublishPhotoStoryOptions, PublishVideoStoryOptions } from "./types.ts";

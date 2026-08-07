@@ -1,1 +1,1 @@
-export * from "@openpromo/google-ads/v25/effect";
+export * from "@mosaic/google-ads/v25/effect";

@@ -64,7 +64,7 @@ export async function writeEffectArtifacts({
       join(outputDir, "index.ts"),
       [
         "// This file is generated. Do not edit by hand.",
-        'import { createEndpointClient, type EndpointClient, type EndpointClientConfig } from "@openpromo/sdk-runtime/effect";',
+        'import { createEndpointClient, type EndpointClient, type EndpointClientConfig } from "@mosaic/sdk-runtime/effect";',
         'import { endpointDescriptors } from "./endpoints.ts";',
         "",
         'export { capabilities } from "./capabilities.ts";',

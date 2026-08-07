@@ -16,7 +16,7 @@
       },
     },
     "apps/docs": {
-      "name": "@openpromo/ad-platform-sdks-docs",
+      "name": "@mosaic/docs",
       "version": "0.0.1",
       "dependencies": {
         "@cloudflare/nimbus-docs": "0.8.2",
@@ -40,22 +40,22 @@
       },
     },
     "packages/ad-platforms": {
-      "name": "@openpromo/ad-platforms",
+      "name": "@mosaic/ad-platforms",
       "version": "0.7.0",
       "dependencies": {
-        "@openpromo/amazon-ads": "workspace:*",
-        "@openpromo/bluesky": "workspace:*",
-        "@openpromo/google-ads": "workspace:*",
-        "@openpromo/google-business-profile": "workspace:*",
-        "@openpromo/linkedin": "workspace:*",
-        "@openpromo/meta": "workspace:*",
-        "@openpromo/pinterest": "workspace:*",
-        "@openpromo/reddit": "workspace:*",
-        "@openpromo/sdk-runtime": "workspace:*",
-        "@openpromo/snapchat": "workspace:*",
-        "@openpromo/tiktok": "workspace:*",
-        "@openpromo/x": "workspace:*",
-        "@openpromo/youtube": "workspace:*",
+        "@mosaic/amazon-ads": "workspace:*",
+        "@mosaic/bluesky": "workspace:*",
+        "@mosaic/google-ads": "workspace:*",
+        "@mosaic/google-business-profile": "workspace:*",
+        "@mosaic/linkedin": "workspace:*",
+        "@mosaic/meta": "workspace:*",
+        "@mosaic/pinterest": "workspace:*",
+        "@mosaic/reddit": "workspace:*",
+        "@mosaic/sdk-runtime": "workspace:*",
+        "@mosaic/snapchat": "workspace:*",
+        "@mosaic/tiktok": "workspace:*",
+        "@mosaic/x": "workspace:*",
+        "@mosaic/youtube": "workspace:*",
         "effect": "^3.22.1",
       },
       "devDependencies": {
@@ -70,52 +70,52 @@
       ],
     },
     "packages/amazon-ads-sdk": {
-      "name": "@openpromo/amazon-ads",
+      "name": "@mosaic/amazon-ads",
       "version": "0.1.0",
       "dependencies": {
-        "@openpromo/sdk-runtime": "workspace:*",
+        "@mosaic/sdk-runtime": "workspace:*",
         "yaml": "^2.8.0",
       },
       "devDependencies": {
-        "@openpromo/sdk-codegen": "workspace:*",
+        "@mosaic/sdk-codegen": "workspace:*",
       },
       "peerDependencies": {
         "typescript": ">=5.9.3 <8",
       },
     },
     "packages/bluesky-sdk": {
-      "name": "@openpromo/bluesky",
+      "name": "@mosaic/bluesky",
       "version": "0.1.0",
       "dependencies": {
-        "@openpromo/sdk-runtime": "workspace:*",
+        "@mosaic/sdk-runtime": "workspace:*",
       },
       "devDependencies": {
-        "@openpromo/sdk-codegen": "workspace:*",
+        "@mosaic/sdk-codegen": "workspace:*",
       },
       "peerDependencies": {
         "typescript": ">=5.9.3 <8",
       },
     },
     "packages/cli": {
-      "name": "@openpromo/ad-platforms-cli",
+      "name": "@mosaic/ad-platforms-cli",
       "version": "0.6.1",
       "bin": {
-        "openpromo-ads": "./dist/index.js",
-        "openpromo-ads-mcp": "./dist/mcp.js",
+        "mosaic-ads": "./dist/index.js",
+        "mosaic-ads-mcp": "./dist/mcp.js",
         "op-ads": "./dist/index.js",
         "ad-platforms-cli": "./dist/index.js",
         "ad-platforms": "./dist/index.js",
       },
       "dependencies": {
         "@modelcontextprotocol/sdk": "^1.30.0",
-        "@openpromo/ad-platforms": "workspace:*",
-        "@openpromo/google-ads": "workspace:*",
-        "@openpromo/linkedin": "workspace:*",
-        "@openpromo/meta": "workspace:*",
-        "@openpromo/sdk-runtime": "workspace:*",
-        "@openpromo/tiktok": "workspace:*",
-        "@openpromo/x": "workspace:*",
-        "@openpromo/youtube": "workspace:*",
+        "@mosaic/ad-platforms": "workspace:*",
+        "@mosaic/google-ads": "workspace:*",
+        "@mosaic/linkedin": "workspace:*",
+        "@mosaic/meta": "workspace:*",
+        "@mosaic/sdk-runtime": "workspace:*",
+        "@mosaic/tiktok": "workspace:*",
+        "@mosaic/x": "workspace:*",
+        "@mosaic/youtube": "workspace:*",
         "ai": "^6.0.158",
         "commander": "^14.0.2",
         "typescript": "^7.0.2",
@@ -127,57 +127,57 @@
       },
     },
     "packages/google-ads-sdk": {
-      "name": "@openpromo/google-ads",
+      "name": "@mosaic/google-ads",
       "version": "0.3.1",
       "dependencies": {
-        "@openpromo/sdk-runtime": "workspace:*",
+        "@mosaic/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
       },
       "devDependencies": {
-        "@openpromo/sdk-codegen": "workspace:*",
+        "@mosaic/sdk-codegen": "workspace:*",
         "@types/bun": "latest",
         "protobufjs": "^7.6.5",
         "typescript": "^7.0.2",
       },
     },
     "packages/google-business-profile-sdk": {
-      "name": "@openpromo/google-business-profile",
+      "name": "@mosaic/google-business-profile",
       "version": "0.4.0",
       "dependencies": {
-        "@openpromo/sdk-runtime": "workspace:*",
+        "@mosaic/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
       },
       "devDependencies": {
-        "@openpromo/sdk-codegen": "workspace:*",
+        "@mosaic/sdk-codegen": "workspace:*",
       },
       "peerDependencies": {
         "typescript": ">=5.9.3 <8",
       },
     },
     "packages/linkedin-sdk": {
-      "name": "@openpromo/linkedin",
+      "name": "@mosaic/linkedin",
       "version": "0.7.0",
       "dependencies": {
-        "@openpromo/sdk-runtime": "workspace:*",
+        "@mosaic/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
       },
       "devDependencies": {
-        "@openpromo/sdk-codegen": "workspace:*",
+        "@mosaic/sdk-codegen": "workspace:*",
       },
       "peerDependencies": {
         "typescript": ">=5.9.3 <8",
       },
     },
     "packages/meta-business-sdk": {
-      "name": "@openpromo/meta",
+      "name": "@mosaic/meta",
       "version": "0.3.1",
       "dependencies": {
-        "@openpromo/sdk-runtime": "workspace:*",
+        "@mosaic/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
         "zod": "^4.4.3",
       },
       "devDependencies": {
-        "@openpromo/sdk-codegen": "workspace:*",
+        "@mosaic/sdk-codegen": "workspace:*",
         "@types/bun": "latest",
       },
       "peerDependencies": {
@@ -189,35 +189,35 @@
       ],
     },
     "packages/pinterest-sdk": {
-      "name": "@openpromo/pinterest",
+      "name": "@mosaic/pinterest",
       "version": "0.1.0",
       "dependencies": {
-        "@openpromo/sdk-runtime": "workspace:*",
+        "@mosaic/sdk-runtime": "workspace:*",
         "yaml": "^2.8.0",
       },
       "devDependencies": {
-        "@openpromo/sdk-codegen": "workspace:*",
+        "@mosaic/sdk-codegen": "workspace:*",
       },
       "peerDependencies": {
         "typescript": ">=5.9.3 <8",
       },
     },
     "packages/reddit-sdk": {
-      "name": "@openpromo/reddit",
+      "name": "@mosaic/reddit",
       "version": "0.1.0",
       "dependencies": {
-        "@openpromo/sdk-runtime": "workspace:*",
+        "@mosaic/sdk-runtime": "workspace:*",
         "yaml": "^2.8.0",
       },
       "devDependencies": {
-        "@openpromo/sdk-codegen": "workspace:*",
+        "@mosaic/sdk-codegen": "workspace:*",
       },
       "peerDependencies": {
         "typescript": ">=5.9.3 <8",
       },
     },
     "packages/sdk-codegen": {
-      "name": "@openpromo/sdk-codegen",
+      "name": "@mosaic/sdk-codegen",
       "version": "0.1.0",
       "dependencies": {
         "effect": "^3.22.1",
@@ -227,7 +227,7 @@
       },
     },
     "packages/sdk-runtime": {
-      "name": "@openpromo/sdk-runtime",
+      "name": "@mosaic/sdk-runtime",
       "version": "0.5.0",
       "dependencies": {
         "effect": "^3.22.1",
@@ -240,28 +240,28 @@
       },
     },
     "packages/snapchat-sdk": {
-      "name": "@openpromo/snapchat",
+      "name": "@mosaic/snapchat",
       "version": "0.1.0",
       "dependencies": {
-        "@openpromo/sdk-runtime": "workspace:*",
+        "@mosaic/sdk-runtime": "workspace:*",
       },
       "devDependencies": {
-        "@openpromo/sdk-codegen": "workspace:*",
+        "@mosaic/sdk-codegen": "workspace:*",
       },
       "peerDependencies": {
         "typescript": ">=5.9.3 <8",
       },
     },
     "packages/tiktok-business-sdk": {
-      "name": "@openpromo/tiktok",
+      "name": "@mosaic/tiktok",
       "version": "0.4.1",
       "dependencies": {
-        "@openpromo/sdk-runtime": "workspace:*",
+        "@mosaic/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
         "zod": "^4.4.3",
       },
       "devDependencies": {
-        "@openpromo/sdk-codegen": "workspace:*",
+        "@mosaic/sdk-codegen": "workspace:*",
         "@types/bun": "latest",
       },
       "peerDependencies": {
@@ -273,28 +273,28 @@
       ],
     },
     "packages/x-sdk": {
-      "name": "@openpromo/x",
+      "name": "@mosaic/x",
       "version": "0.6.0",
       "dependencies": {
-        "@openpromo/sdk-runtime": "workspace:*",
+        "@mosaic/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
       },
       "devDependencies": {
-        "@openpromo/sdk-codegen": "workspace:*",
+        "@mosaic/sdk-codegen": "workspace:*",
       },
       "peerDependencies": {
         "typescript": ">=5.9.3 <8",
       },
     },
     "packages/youtube-sdk": {
-      "name": "@openpromo/youtube",
+      "name": "@mosaic/youtube",
       "version": "0.6.0",
       "dependencies": {
-        "@openpromo/sdk-runtime": "workspace:*",
+        "@mosaic/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
       },
       "devDependencies": {
-        "@openpromo/sdk-codegen": "workspace:*",
+        "@mosaic/sdk-codegen": "workspace:*",
       },
       "peerDependencies": {
         "typescript": ">=5.9.3 <8",
@@ -628,6 +628,40 @@
 
     "@modelcontextprotocol/sdk": ["@modelcontextprotocol/sdk@1.30.0", "", { "dependencies": { "@hono/node-server": "^1.19.9 || ^2.0.5", "ajv": "^8.17.1", "ajv-formats": "^3.0.1", "content-type": "^1.0.5", "cors": "^2.8.5", "cross-spawn": "^7.0.5", "eventsource": "^3.0.2", "eventsource-parser": "^3.0.0", "express": "^5.2.1", "express-rate-limit": "^8.2.1", "hono": "^4.11.4", "jose": "^6.1.3", "json-schema-typed": "^8.0.2", "pkce-challenge": "^5.0.0", "raw-body": "^3.0.0", "zod": "^3.25 || ^4.0", "zod-to-json-schema": "^3.25.1" }, "peerDependencies": { "@cfworker/json-schema": "^4.1.1" }, "optionalPeers": ["@cfworker/json-schema"] }, "sha512-xKd8OIzlqNzcqcNumGAa6g+PW2kjD5vrpcKOnfldAUPP3j7lnqMPwlTXQm8gF+UwH72z0lqaRbjr9hqGz0eITA=="],
 
+    "@mosaic/ad-platforms": ["@mosaic/ad-platforms@workspace:packages/ad-platforms"],
+
+    "@mosaic/ad-platforms-cli": ["@mosaic/ad-platforms-cli@workspace:packages/cli"],
+
+    "@mosaic/amazon-ads": ["@mosaic/amazon-ads@workspace:packages/amazon-ads-sdk"],
+
+    "@mosaic/bluesky": ["@mosaic/bluesky@workspace:packages/bluesky-sdk"],
+
+    "@mosaic/docs": ["@mosaic/docs@workspace:apps/docs"],
+
+    "@mosaic/google-ads": ["@mosaic/google-ads@workspace:packages/google-ads-sdk"],
+
+    "@mosaic/google-business-profile": ["@mosaic/google-business-profile@workspace:packages/google-business-profile-sdk"],
+
+    "@mosaic/linkedin": ["@mosaic/linkedin@workspace:packages/linkedin-sdk"],
+
+    "@mosaic/meta": ["@mosaic/meta@workspace:packages/meta-business-sdk"],
+
+    "@mosaic/pinterest": ["@mosaic/pinterest@workspace:packages/pinterest-sdk"],
+
+    "@mosaic/reddit": ["@mosaic/reddit@workspace:packages/reddit-sdk"],
+
+    "@mosaic/sdk-codegen": ["@mosaic/sdk-codegen@workspace:packages/sdk-codegen"],
+
+    "@mosaic/sdk-runtime": ["@mosaic/sdk-runtime@workspace:packages/sdk-runtime"],
+
+    "@mosaic/snapchat": ["@mosaic/snapchat@workspace:packages/snapchat-sdk"],
+
+    "@mosaic/tiktok": ["@mosaic/tiktok@workspace:packages/tiktok-business-sdk"],
+
+    "@mosaic/x": ["@mosaic/x@workspace:packages/x-sdk"],
+
+    "@mosaic/youtube": ["@mosaic/youtube@workspace:packages/youtube-sdk"],
+
     "@napi-rs/wasm-runtime": ["@napi-rs/wasm-runtime@1.2.2", "", { "dependencies": { "@tybys/wasm-util": "^0.10.3" }, "peerDependencies": { "@emnapi/core": "^1.7.1 || ^2.0.0-alpha.3", "@emnapi/runtime": "^1.7.1 || ^2.0.0-alpha.3" } }, "sha512-JfB4kuJQjaoHuCTseIINHtHWeJnvgEcxjwA5t/Y00ZgaOO1Crz3fjT/p8kT28zA/Caz7oiUMn3d6H2yOVCVwuw=="],
 
     "@nodelib/fs.scandir": ["@nodelib/fs.scandir@2.1.5", "", { "dependencies": { "@nodelib/fs.stat": "2.0.5", "run-parallel": "^1.1.9" } }, "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g=="],
@@ -635,40 +669,6 @@
     "@nodelib/fs.stat": ["@nodelib/fs.stat@2.0.5", "", {}, "sha512-RkhPPp2zrqDAQA/2jNhnztcPAlv64XdhIp7a7454A5ovI7Bukxgt7MX7udwAu3zg1DcpPU0rz3VV1SeaqvY4+A=="],
 
     "@nodelib/fs.walk": ["@nodelib/fs.walk@1.2.8", "", { "dependencies": { "@nodelib/fs.scandir": "2.1.5", "fastq": "^1.6.0" } }, "sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg=="],
-
-    "@openpromo/ad-platform-sdks-docs": ["@openpromo/ad-platform-sdks-docs@workspace:apps/docs"],
-
-    "@openpromo/ad-platforms": ["@openpromo/ad-platforms@workspace:packages/ad-platforms"],
-
-    "@openpromo/ad-platforms-cli": ["@openpromo/ad-platforms-cli@workspace:packages/cli"],
-
-    "@openpromo/amazon-ads": ["@openpromo/amazon-ads@workspace:packages/amazon-ads-sdk"],
-
-    "@openpromo/bluesky": ["@openpromo/bluesky@workspace:packages/bluesky-sdk"],
-
-    "@openpromo/google-ads": ["@openpromo/google-ads@workspace:packages/google-ads-sdk"],
-
-    "@openpromo/google-business-profile": ["@openpromo/google-business-profile@workspace:packages/google-business-profile-sdk"],
-
-    "@openpromo/linkedin": ["@openpromo/linkedin@workspace:packages/linkedin-sdk"],
-
-    "@openpromo/meta": ["@openpromo/meta@workspace:packages/meta-business-sdk"],
-
-    "@openpromo/pinterest": ["@openpromo/pinterest@workspace:packages/pinterest-sdk"],
-
-    "@openpromo/reddit": ["@openpromo/reddit@workspace:packages/reddit-sdk"],
-
-    "@openpromo/sdk-codegen": ["@openpromo/sdk-codegen@workspace:packages/sdk-codegen"],
-
-    "@openpromo/sdk-runtime": ["@openpromo/sdk-runtime@workspace:packages/sdk-runtime"],
-
-    "@openpromo/snapchat": ["@openpromo/snapchat@workspace:packages/snapchat-sdk"],
-
-    "@openpromo/tiktok": ["@openpromo/tiktok@workspace:packages/tiktok-business-sdk"],
-
-    "@openpromo/x": ["@openpromo/x@workspace:packages/x-sdk"],
-
-    "@openpromo/youtube": ["@openpromo/youtube@workspace:packages/youtube-sdk"],
 
     "@opentelemetry/api": ["@opentelemetry/api@1.9.0", "", {}, "sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg=="],
 
@@ -2072,9 +2072,9 @@
 
     "@mdx-js/mdx/estree-walker": ["estree-walker@3.0.3", "", { "dependencies": { "@types/estree": "^1.0.0" } }, "sha512-7RUKfXgSMMkzt6ZuXmqapOurLGPPfgj6l9uRZ7lRGolvk0y2yocc35LdcxKC5PQZdn2DMqioAQ2NoWcrTKmm6g=="],
 
-    "@openpromo/ad-platform-sdks-docs/typescript": ["typescript@6.0.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw=="],
+    "@mosaic/ad-platforms-cli/ai": ["ai@6.0.240", "", { "dependencies": { "@ai-sdk/gateway": "3.0.162", "@ai-sdk/provider": "3.0.14", "@ai-sdk/provider-utils": "4.0.41", "@opentelemetry/api": "^1.9.0" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-nVytcmJmHAR+1UU3KlRQJ8Un8gePSAcbTfvShNGfbG9hYnQWKdyFRZWa4QBlKH5yiNLNqSS4Y9u0T0KcbY6FkA=="],
 
-    "@openpromo/ad-platforms-cli/ai": ["ai@6.0.240", "", { "dependencies": { "@ai-sdk/gateway": "3.0.162", "@ai-sdk/provider": "3.0.14", "@ai-sdk/provider-utils": "4.0.41", "@opentelemetry/api": "^1.9.0" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-nVytcmJmHAR+1UU3KlRQJ8Un8gePSAcbTfvShNGfbG9hYnQWKdyFRZWa4QBlKH5yiNLNqSS4Y9u0T0KcbY6FkA=="],
+    "@mosaic/docs/typescript": ["typescript@6.0.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw=="],
 
     "@rolldown/binding-wasm32-wasi/@emnapi/core": ["@emnapi/core@2.0.0-alpha.3", "", { "dependencies": { "@emnapi/wasi-threads": "2.0.1", "tslib": "^2.4.0" } }, "sha512-AZypUeJ/yByuxyS7BlSNRDOMLMlROYtjYdIAuBmJssVz1UJDSeYxLrdizhXCFYhedC5bqd/ASy8EuNXbVVXp9g=="],
 
@@ -2174,11 +2174,11 @@
 
     "@iconify/tools/svgo/css-tree": ["css-tree@2.3.1", "", { "dependencies": { "mdn-data": "2.0.30", "source-map-js": "^1.0.1" } }, "sha512-6Fv1DV/TYw//QF5IzQdqsNDjx/wc8TrMBZsqjL9eW01tWb7R7k/mq+/VXfJCl7SoD5emsJop9cOByJZfs8hYIw=="],
 
-    "@openpromo/ad-platforms-cli/ai/@ai-sdk/gateway": ["@ai-sdk/gateway@3.0.162", "", { "dependencies": { "@ai-sdk/provider": "3.0.14", "@ai-sdk/provider-utils": "4.0.41", "@vercel/oidc": "3.2.0" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-Ful2sKX4/5iRIULrbKAN88VSduJKVxEIqub84uBT4SZkhYnu6pfWaFEzZOrjCwMf+ScWuxiFSAkZeXFphTji2w=="],
+    "@mosaic/ad-platforms-cli/ai/@ai-sdk/gateway": ["@ai-sdk/gateway@3.0.162", "", { "dependencies": { "@ai-sdk/provider": "3.0.14", "@ai-sdk/provider-utils": "4.0.41", "@vercel/oidc": "3.2.0" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-Ful2sKX4/5iRIULrbKAN88VSduJKVxEIqub84uBT4SZkhYnu6pfWaFEzZOrjCwMf+ScWuxiFSAkZeXFphTji2w=="],
 
-    "@openpromo/ad-platforms-cli/ai/@ai-sdk/provider": ["@ai-sdk/provider@3.0.14", "", { "dependencies": { "json-schema": "^0.4.0" } }, "sha512-5X1k57JBJ4H7H1QjX7CnJYAB1I19r/trVZTMcSms7/kLNZ8RaU4Nt2agcwZzv82Hfx6Q7/TOLU7agAKeFfc8cA=="],
+    "@mosaic/ad-platforms-cli/ai/@ai-sdk/provider": ["@ai-sdk/provider@3.0.14", "", { "dependencies": { "json-schema": "^0.4.0" } }, "sha512-5X1k57JBJ4H7H1QjX7CnJYAB1I19r/trVZTMcSms7/kLNZ8RaU4Nt2agcwZzv82Hfx6Q7/TOLU7agAKeFfc8cA=="],
 
-    "@openpromo/ad-platforms-cli/ai/@ai-sdk/provider-utils": ["@ai-sdk/provider-utils@4.0.41", "", { "dependencies": { "@ai-sdk/provider": "3.0.14", "@standard-schema/spec": "^1.1.0", "eventsource-parser": "^3.0.8", "undici": "^5.29.0" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-I7hhjfw01yEI8NkuAsT8Mv6xbWFr/lqLXMdaJQ2zWfXEpxog1eT7skDcv1+RY29/+5btzH8wD+vVvy48bk9oNQ=="],
+    "@mosaic/ad-platforms-cli/ai/@ai-sdk/provider-utils": ["@ai-sdk/provider-utils@4.0.41", "", { "dependencies": { "@ai-sdk/provider": "3.0.14", "@standard-schema/spec": "^1.1.0", "eventsource-parser": "^3.0.8", "undici": "^5.29.0" }, "peerDependencies": { "zod": "^3.25.76 || ^4.1.8" } }, "sha512-I7hhjfw01yEI8NkuAsT8Mv6xbWFr/lqLXMdaJQ2zWfXEpxog1eT7skDcv1+RY29/+5btzH8wD+vVvy48bk9oNQ=="],
 
     "@rolldown/binding-wasm32-wasi/@emnapi/core/@emnapi/wasi-threads": ["@emnapi/wasi-threads@2.0.1", "", { "dependencies": { "tslib": "^2.4.0" } }, "sha512-9DsSk+o5NBX0CCJT8s0EROGSGxjR/tKu6aBTaVyq+SjAEQH4XcdcRxPBRzsBLizTTJ49MJjF+jgu3qnO9GLQcQ=="],
 
@@ -2280,7 +2280,7 @@
 
     "@iconify/tools/svgo/css-tree/mdn-data": ["mdn-data@2.0.30", "", {}, "sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA=="],
 
-    "@openpromo/ad-platforms-cli/ai/@ai-sdk/provider-utils/undici": ["undici@5.29.0", "", { "dependencies": { "@fastify/busboy": "^2.0.0" } }, "sha512-raqeBD6NQK4SkWhQzeYKd1KmIG6dllBOTt55Rmkt4HtI9mwdWtJljnrXjAFUBLTSN67HWrOIZ3EPF4kjUw80Bg=="],
+    "@mosaic/ad-platforms-cli/ai/@ai-sdk/provider-utils/undici": ["undici@5.29.0", "", { "dependencies": { "@fastify/busboy": "^2.0.0" } }, "sha512-raqeBD6NQK4SkWhQzeYKd1KmIG6dllBOTt55Rmkt4HtI9mwdWtJljnrXjAFUBLTSN67HWrOIZ3EPF4kjUw80Bg=="],
 
     "miniflare/sharp/@img/sharp-freebsd-wasm32/@img/sharp-wasm32": ["@img/sharp-wasm32@0.35.2", "", { "dependencies": { "@emnapi/runtime": "^1.11.1" } }, "sha512-Mrv4JQNYVQ94xH+jzZ9r+gowleN8mv2FTgKT+PI6bx5C0G8TdNYndu161pg2i7uoBwxy2ImPMHrJOM2LZef7Bw=="],
 

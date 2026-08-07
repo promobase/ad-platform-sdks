@@ -1,4 +1,4 @@
-import { ApiError } from "@openpromo/sdk-runtime";
+import { ApiError } from "@mosaic/sdk-runtime";
 
 /**
  * Error thrown for Reddit Ads API failures.

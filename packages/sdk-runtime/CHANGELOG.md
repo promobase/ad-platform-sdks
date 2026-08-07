@@ -1,4 +1,4 @@
-# @openpromo/sdk-runtime
+# @mosaic/sdk-runtime
 
 ## 0.5.0
 
@@ -40,7 +40,7 @@
 
 ### Patch Changes
 
-- [`b40d994`](https://github.com/promobase/ad-platform-sdks/commit/b40d99483e033e530bc461737430c8fb786d88d8) Thanks [@rayli09](https://github.com/rayli09)! - Move the public package family to the OpenPromo `@openpromo/*` scope and update workspace imports, docs, and CLI branding.
+- [`b40d994`](https://github.com/promobase/ad-platform-sdks/commit/b40d99483e033e530bc461737430c8fb786d88d8) Thanks [@rayli09](https://github.com/rayli09)! - Move the public package family to the OpenPromo `@mosaic/*` scope and update workspace imports, docs, and CLI branding.
 
 ## 0.2.2
 
@@ -60,8 +60,8 @@
 
 ### Minor Changes
 
-- [`4767096`](https://github.com/promobase/ad-platform-sdks/commit/4767096c5b66667c5c60dbc109fff556a6374257) Thanks [@rayli09](https://github.com/rayli09)! - Initial release of `@openpromo/google-ads` with full v23 codegen (184 resources, 111 services, 543 enums), customer-bound ergonomic wrappers for the campaign lifecycle (`customer.campaignBudgets`, `.campaigns`, `.adGroups`, `.adGroupAds`, `.ads`), and a typed GAQL query builder with field-literal autocomplete and row-level narrowing (`customer.gaql.from("campaign").select(...).execute()`).
+- [`4767096`](https://github.com/promobase/ad-platform-sdks/commit/4767096c5b66667c5c60dbc109fff556a6374257) Thanks [@rayli09](https://github.com/rayli09)! - Initial release of `@mosaic/google-ads` with full v23 codegen (184 resources, 111 services, 543 enums), customer-bound ergonomic wrappers for the campaign lifecycle (`customer.campaignBudgets`, `.campaigns`, `.adGroups`, `.adGroupAds`, `.ads`), and a typed GAQL query builder with field-literal autocomplete and row-level narrowing (`customer.gaql.from("campaign").select(...).execute()`).
 
-  Added a generic `HttpClient` to `@openpromo/sdk-runtime` for JSON/Bearer APIs, shared by the Google Ads SDK.
+  Added a generic `HttpClient` to `@mosaic/sdk-runtime` for JSON/Bearer APIs, shared by the Google Ads SDK.
 
-  `@openpromo/ad-platforms` now re-exports the `Google` namespace alongside `Meta` and `TikTok`.
+  `@mosaic/ad-platforms` now re-exports the `Google` namespace alongside `Meta` and `TikTok`.

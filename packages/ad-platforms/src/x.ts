@@ -5,7 +5,7 @@ export type {
   XDirectMessageEventsResponse,
   XOAuthConfig,
   XOAuthTokenResponse,
-} from "@openpromo/x";
+} from "@mosaic/x";
 export {
   createPkcePair as createXPkcePair,
   createXDirectMessages,
@@ -16,4 +16,4 @@ export {
   XApiEnvironment,
   XApiError,
   XApiTimeoutError,
-} from "@openpromo/x";
+} from "@mosaic/x";

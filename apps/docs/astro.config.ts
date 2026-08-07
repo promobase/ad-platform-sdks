@@ -5,13 +5,13 @@ import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 
 const nimbusConfig = defineNimbusConfig({
-  site: "https://docs.openpromo.app",
-  title: "OpenPromo SDKs",
-  description: "Type-safe TypeScript SDKs and agent tools for every major ad and social platform.",
+  site: "https://chat-sdk.dev",
+  title: "Mosaic SDKs",
+  description: "Mosaic — one type-safe SDK family for every major ad and social platform.",
   locale: "en",
   github: "https://github.com/promobase/ad-platform-sdks",
   editPattern: "https://github.com/promobase/ad-platform-sdks/edit/master/{path}",
-  socialImageAlt: "OpenPromo Ad Platform SDK documentation",
+  socialImageAlt: "Mosaic SDK documentation",
 });
 
 export default defineConfig({

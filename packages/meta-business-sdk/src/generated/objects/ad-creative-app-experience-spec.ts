@@ -3,3 +3,4 @@ export interface AdCreativeAppExperienceSpecFields {
   show_spotlights: Record<string, unknown>;
   website_summary: Record<string, unknown>;
 }
+

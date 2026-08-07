@@ -1,5 +1,5 @@
 {
-  "name": "@openpromo/snapchat",
+  "name": "@mosaic/snapchat",
   "version": "0.1.0",
   "description": "Type-safe TypeScript SDK for the Snapchat Marketing API (Ads, Media, Creatives, Stats) and OAuth",
   "keywords": [
@@ -56,10 +56,10 @@
     }
   },
   "dependencies": {
-    "@openpromo/sdk-runtime": "workspace:*"
+    "@mosaic/sdk-runtime": "workspace:*"
   },
   "devDependencies": {
-    "@openpromo/sdk-codegen": "workspace:*"
+    "@mosaic/sdk-codegen": "workspace:*"
   },
   "engines": {
     "node": ">=18"

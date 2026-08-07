@@ -1,12 +1,12 @@
 # Google Ads SDK — Design Spec
 
 **Date:** 2026-04-12
-**Package:** `@openpromo/google-ads`
+**Package:** `@mosaic/google-ads`
 **Status:** Approved, ready for implementation plan
 
 ## Goal
 
-Build a type-safe, runtime-agnostic TypeScript SDK for the Google Ads API v23, generated from protobuf definitions via REST transcoding. Ships as a new workspace package in the `ad-platform-sdks` monorepo, re-exported through the `@openpromo/ad-platforms` umbrella.
+Build a type-safe, runtime-agnostic TypeScript SDK for the Google Ads API v23, generated from protobuf definitions via REST transcoding. Ships as a new workspace package in the `ad-platform-sdks` monorepo, re-exported through the `@mosaic/ad-platforms` umbrella.
 
 ## Motivation
 
@@ -40,19 +40,19 @@ Three-layer stack, mirroring the Meta SDK:
 │  generated/v23/resources/*          │  message types from .proto
 │  generated/v23/enums/*              │  proto enums as string unions
 ├─ Runtime ───────────────────────────┤
-│  @openpromo/sdk-runtime ApiClient   │  fetch, retry, auth headers
+│  @mosaic/sdk-runtime ApiClient   │  fetch, retry, auth headers
 └─────────────────────────────────────┘
 ```
 
 - **Codegen input:** `vendor/googleapis/` (git submodule pinned to a commit that has `google/ads/googleads/v23/`).
 - **Codegen output:** `packages/google-ads-sdk/src/generated/v23/**`, committed, marked `linguist-generated` in `.gitattributes`.
-- **Runtime:** reuses `@openpromo/sdk-runtime` `ApiClient` with a custom header injector.
+- **Runtime:** reuses `@mosaic/sdk-runtime` `ApiClient` with a custom header injector.
 
 ## Repo layout
 
 ```
 packages/google-ads-sdk/
-├── package.json              # @openpromo/google-ads, deps: sdk-runtime
+├── package.json              # @mosaic/google-ads, deps: sdk-runtime
 ├── tsconfig.json
 ├── CLAUDE.md                 # package-local notes
 ├── vendor/                   # git submodule: googleapis/googleapis (pinned)
@@ -79,7 +79,7 @@ packages/google-ads-sdk/
     └── services.test.ts
 ```
 
-The monorepo `CLAUDE.md` packages table gets a new row for `@openpromo/google-ads`. `packages/ad-platforms/package.json` gains a workspace dep and re-exports `Google` from `src/index.ts`.
+The monorepo `CLAUDE.md` packages table gets a new row for `@mosaic/google-ads`. `packages/ad-platforms/package.json` gains a workspace dep and re-exports `Google` from `src/index.ts`.
 
 ## Codegen pipeline
 
@@ -158,7 +158,7 @@ export interface GoogleAdsClientOptions {
 export function createClient(opts: GoogleAdsClientOptions): GoogleAdsClient;
 ```
 
-Wraps `@openpromo/sdk-runtime` `ApiClient` with a header injector:
+Wraps `@mosaic/sdk-runtime` `ApiClient` with a header injector:
 
 ```ts
 const apiClient = new ApiClient({
@@ -214,7 +214,7 @@ for await (const row of Google.Ads.paginate(
 }
 ```
 
-Reuses the `Cursor` helper from `@openpromo/sdk-runtime` (same pattern as Meta's graph cursor).
+Reuses the `Cursor` helper from `@mosaic/sdk-runtime` (same pattern as Meta's graph cursor).
 
 `searchStream` consumes the full response body in v1 and exposes the same iterable surface. True streaming (newline-delimited JSON as it arrives) is deferred.
 
@@ -235,7 +235,7 @@ export const Google = {
 Consumer usage:
 
 ```ts
-import { Google } from "@openpromo/google-ads";
+import { Google } from "@mosaic/google-ads";
 
 const client = Google.createClient({
   getAccessToken: async () => db.getGoogleToken(userId),
@@ -261,12 +261,12 @@ for await (const row of Google.Ads.paginate(
 
 ## Umbrella integration
 
-`packages/ad-platforms/package.json` adds `"@openpromo/google-ads": "workspace:*"`.
+`packages/ad-platforms/package.json` adds `"@mosaic/google-ads": "workspace:*"`.
 
 `packages/ad-platforms/src/index.ts` adds:
 
 ```ts
-export { Google } from "@openpromo/google-ads";
+export { Google } from "@mosaic/google-ads";
 ```
 
 `createAllTools` does **not** get a `google` key in v1 (tools deferred).

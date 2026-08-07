@@ -1,4 +1,4 @@
-import type { SdkIr, TypeRefIr } from "@openpromo/sdk-codegen";
+import type { SdkIr, TypeRefIr } from "@mosaic/sdk-codegen";
 
 import { schemaToTsName } from "./emitter.ts";
 import type { EndpointSpec, TypeRef } from "./lexicon.ts";

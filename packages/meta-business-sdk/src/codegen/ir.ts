@@ -1,4 +1,4 @@
-import type { SdkIr, TypeRefIr } from "@openpromo/sdk-codegen";
+import type { SdkIr, TypeRefIr } from "@mosaic/sdk-codegen";
 
 import type { EnumMap } from "./enum-extractor.ts";
 import type { Spec } from "./parser.ts";

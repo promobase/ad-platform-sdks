@@ -8,3 +8,4 @@ export interface HighDemandPeriodGetFields {
   time_start: string;
   weekly_schedule: unknown[];
 }
+

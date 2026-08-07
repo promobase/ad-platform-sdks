@@ -2,7 +2,7 @@
  * Namespaced API for the Amazon Ads SDK.
  *
  * Usage:
- *   import { AmazonAds } from "@openpromo/amazon-ads";
+ *   import { AmazonAds } from "@mosaic/amazon-ads";
  *
  *   // LWA OAuth
  *   const oauth = AmazonAds.OAuth({ clientId, clientSecret, redirectUri });

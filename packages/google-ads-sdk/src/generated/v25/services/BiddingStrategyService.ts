@@ -1,5 +1,5 @@
 import type { MutateBiddingStrategiesRequest, MutateBiddingStrategiesResponse } from "../index.ts";
-import type { HttpClient } from "@openpromo/sdk-runtime";
+import type { HttpClient } from "@mosaic/sdk-runtime";
 
 // Generated from google.ads.googleads.v25.services.BiddingStrategyService. Do not edit by hand.
 export const biddingStrategyService = {

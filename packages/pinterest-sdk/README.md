@@ -1,17 +1,17 @@
-# @openpromo/pinterest
+# @mosaic/pinterest
 
 Type-safe TypeScript SDK for the **Pinterest REST API v5** — pins, boards, ads (campaigns, ad groups, ads, targeting), catalogs, conversions, and analytics. Generated from Pinterest's official OpenAPI spec (`pinterest/api-description`), with Pinterest OAuth built in.
 
 ## Install
 
 ```bash
-bun add @openpromo/pinterest
+bun add @mosaic/pinterest
 ```
 
 ## Quick start
 
 ```ts
-import { Pinterest } from "@openpromo/pinterest";
+import { Pinterest } from "@mosaic/pinterest";
 
 // OAuth — create an app at https://developers.pinterest.com/apps/
 const oauth = Pinterest.OAuth({

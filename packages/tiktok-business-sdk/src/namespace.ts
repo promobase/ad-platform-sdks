@@ -2,7 +2,7 @@
  * Namespaced API for the TikTok Business SDK.
  *
  * Usage:
- *   import { TikTok } from "@openpromo/tiktok";
+ *   import { TikTok } from "@mosaic/tiktok";
  *
  *   // OAuth
  *   const oauth = TikTok.OAuth({ clientKey: "...", clientSecret: "...", redirectUri: "..." });

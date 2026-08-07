@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
-import { writeEffectArtifacts } from "@openpromo/sdk-codegen";
+import { writeEffectArtifacts } from "@mosaic/sdk-codegen";
 
 import { emitBarrel, emitSchemaInterfaces, emitTagClient, emitTagParamsTypes } from "./emitter.ts";
 import { redditCanonicalIr } from "./ir.ts";

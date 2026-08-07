@@ -2,7 +2,7 @@
  * Namespaced API for the Reddit SDK.
  *
  * Usage:
- *   import { Reddit } from "@openpromo/reddit";
+ *   import { Reddit } from "@mosaic/reddit";
  *
  *   // OAuth
  *   const oauth = Reddit.OAuth({ clientId, clientSecret, redirectUri });

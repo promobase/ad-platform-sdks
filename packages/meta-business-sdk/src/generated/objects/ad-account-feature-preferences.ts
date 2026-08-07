@@ -1,4 +1,4 @@
-import type { ApiClient } from "@openpromo/sdk-runtime";
+import type { ApiClient } from "@mosaic/sdk-runtime";
 import type { AdAccountFeaturePreferencesPostFields } from "./ad-account-feature-preferences-post.ts";
 
 export interface AdAccountFeaturePreferencesFields {
@@ -12,3 +12,4 @@ export function adAccountFeaturePreferencesNode(client: ApiClient, id: string) {
       client.post<AdAccountFeaturePreferencesPostFields>(`${id}/feature_preferences`, params as Record<string, unknown>),
   };
 }
+

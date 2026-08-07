@@ -1,5 +1,5 @@
 import type { MutateCustomizerAttributesRequest, MutateCustomizerAttributesResponse } from "../index.ts";
-import type { HttpClient } from "@openpromo/sdk-runtime";
+import type { HttpClient } from "@mosaic/sdk-runtime";
 
 // Generated from google.ads.googleads.v23.services.CustomizerAttributeService. Do not edit by hand.
 export const customizerAttributeService = {

@@ -1,17 +1,17 @@
-# @openpromo/bluesky
+# @mosaic/bluesky
 
 Type-safe TypeScript SDK for **Bluesky and the AT Protocol** — posts (with rich text facets and image embeds), feeds, profiles, graph operations, notifications, and sessions. Generated directly from the official AT Protocol lexicons.
 
 ## Install
 
 ```bash
-bun add @openpromo/bluesky
+bun add @mosaic/bluesky
 ```
 
 ## Quick start
 
 ```ts
-import { Bluesky } from "@openpromo/bluesky";
+import { Bluesky } from "@mosaic/bluesky";
 
 // Auth: app passwords are the standard for bots and agents.
 // Create one at Settings → Security → App passwords.

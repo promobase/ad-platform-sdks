@@ -1,5 +1,5 @@
 {
-  "name": "@openpromo/amazon-ads",
+  "name": "@mosaic/amazon-ads",
   "version": "0.1.0",
   "description": "Type-safe TypeScript SDK for the Amazon Ads API v3 (Sponsored Products, Sponsored Brands, Sponsored Display) and LWA OAuth",
   "keywords": [
@@ -56,11 +56,11 @@
     }
   },
   "dependencies": {
-    "@openpromo/sdk-runtime": "workspace:*",
+    "@mosaic/sdk-runtime": "workspace:*",
     "yaml": "^2.8.0"
   },
   "devDependencies": {
-    "@openpromo/sdk-codegen": "workspace:*"
+    "@mosaic/sdk-codegen": "workspace:*"
   },
   "engines": {
     "node": ">=18"

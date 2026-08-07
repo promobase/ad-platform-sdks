@@ -1,4 +1,4 @@
-# @openpromo/linkedin
+# @mosaic/linkedin
 
 Type-safe TypeScript SDK for LinkedIn organic publishing, OAuth, and the complete documented
 Marketing API operation surface.
@@ -21,15 +21,15 @@ different supported monthly release.
 ## Install
 
 ```bash
-bun add @openpromo/linkedin
+bun add @mosaic/linkedin
 # or
-npm install @openpromo/linkedin
+npm install @mosaic/linkedin
 ```
 
 ## Use
 
 ```ts
-import { LinkedIn } from "@openpromo/linkedin";
+import { LinkedIn } from "@mosaic/linkedin";
 
 const linkedin = LinkedIn.createClient({
   accessToken: process.env.LINKEDIN_ACCESS_TOKEN!,
@@ -99,7 +99,7 @@ import {
   createLinkedInGeneratedClient,
   LinkedInClient,
   linkedinOperations,
-} from "@openpromo/linkedin";
+} from "@mosaic/linkedin";
 
 const client = new LinkedInClient({ accessToken: process.env.LINKEDIN_ACCESS_TOKEN! });
 const api = createLinkedInGeneratedClient(client);

@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
 
-import { ResponseDecodeError } from "@openpromo/sdk-runtime/effect";
+import { ResponseDecodeError } from "@mosaic/sdk-runtime/effect";
 import { Effect } from "effect";
 
 import {

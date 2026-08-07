@@ -1,4 +1,4 @@
-import type { HttpClient } from "@openpromo/sdk-runtime";
+import type { HttpClient } from "@mosaic/sdk-runtime";
 
 import type { AdGroup } from "../generated/v25/resources/AdGroup.ts";
 import type { AdGroupAd } from "../generated/v25/resources/AdGroupAd.ts";

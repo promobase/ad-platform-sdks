@@ -123,7 +123,7 @@ adds validation without duplicating the entire protobuf graph.
 
 ## Runtime Service Graph
 
-`@openpromo/sdk-runtime/effect` owns the stable execution primitives:
+`@mosaic/sdk-runtime/effect` owns the stable execution primitives:
 
 - `HttpTransport`: interruptible Fetch execution and response-body acquisition.
 - `RateLimiter`: gates requests and observes provider response headers.

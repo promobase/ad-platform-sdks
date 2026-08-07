@@ -1,5 +1,5 @@
 import type { MutateCustomerConversionGoalsRequest, MutateCustomerConversionGoalsResponse } from "../index.ts";
-import type { HttpClient } from "@openpromo/sdk-runtime";
+import type { HttpClient } from "@mosaic/sdk-runtime";
 
 // Generated from google.ads.googleads.v23.services.CustomerConversionGoalService. Do not edit by hand.
 export const customerConversionGoalService = {

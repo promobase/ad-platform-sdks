@@ -5,7 +5,7 @@ import {
   type EndpointIr,
   type SdkIr,
   type TypeRefIr,
-} from "@openpromo/sdk-codegen";
+} from "@mosaic/sdk-codegen";
 
 import type { LinkedInPostmanSnapshot } from "./postman.ts";
 
@@ -366,7 +366,7 @@ await writeEffectArtifacts({
 await Bun.write(
   new URL("../src/generated/effect/index.ts", import.meta.url),
   `// This file is generated. Do not edit by hand.
-import { createEndpointClient, type AnyEndpointDescriptor, type EndpointClient, type EndpointClientConfig } from "@openpromo/sdk-runtime/effect";
+import { createEndpointClient, type AnyEndpointDescriptor, type EndpointClient, type EndpointClientConfig } from "@mosaic/sdk-runtime/effect";
 import { endpointDescriptors } from "./endpoints.ts";
 
 export { capabilities } from "./capabilities.ts";

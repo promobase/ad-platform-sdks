@@ -1,5 +1,5 @@
-import type { ApiClient } from "@openpromo/sdk-runtime";
-import { Cursor } from "@openpromo/sdk-runtime";
+import type { ApiClient } from "@mosaic/sdk-runtime";
+import { Cursor } from "@mosaic/sdk-runtime";
 import { metaPagination } from "../../pagination.ts";
 import type { ProductCatalogCheckBatchRequestStatusGetFields } from "./product-catalog-check-batch-request-status-get.ts";
 
@@ -25,3 +25,4 @@ export function productCatalogCheckBatchRequestStatusNode(client: ApiClient, id:
       new Cursor<Pick<ProductCatalogCheckBatchRequestStatusGetFields, F[number]>>(client, `${id}/check_batch_request_status`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
   };
 }
+

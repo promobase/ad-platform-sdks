@@ -5,12 +5,12 @@ import type {
   AnyOperation,
   OperationCatalog,
   OperationSearchOptions,
-} from "@openpromo/ad-platforms/operations";
+} from "@mosaic/ad-platforms/operations";
 import type {
   AnyEndpointDescriptor,
   EndpointCatalog,
   EndpointSearchOptions,
-} from "@openpromo/sdk-runtime/effect";
+} from "@mosaic/sdk-runtime/effect";
 import { Command } from "commander";
 import { z } from "zod";
 

@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { mkdir, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
-import { writeEffectArtifacts } from "@openpromo/sdk-codegen";
+import { writeEffectArtifacts } from "@mosaic/sdk-codegen";
 
 import { emitBarrel, emitCategory, groupByCategory } from "./emitter.ts";
 import { tiktokCanonicalIr } from "./ir.ts";

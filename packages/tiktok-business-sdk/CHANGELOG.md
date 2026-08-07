@@ -1,4 +1,4 @@
-# @openpromo/tiktok
+# @mosaic/tiktok
 
 ## 0.4.1
 
@@ -9,7 +9,7 @@
   Google Business Profile discovery suite. Record provider auth and protocol metadata and improve
   Google Ads protobuf reference fidelity.
 - Updated dependencies [[`24aa151`](https://github.com/promobase/ad-platform-sdks/commit/24aa1514bfad63fa817e9124ba8e0674d9951484)]:
-  - @openpromo/sdk-runtime@0.5.0
+  - @mosaic/sdk-runtime@0.5.0
 
 ## 0.4.0
 
@@ -22,7 +22,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`61c19de`](https://github.com/promobase/ad-platform-sdks/commit/61c19de459fc70eb32231a13022708ff69d743ea)]:
-  - @openpromo/sdk-runtime@0.4.0
+  - @mosaic/sdk-runtime@0.4.0
 
 ## 0.3.0
 
@@ -35,7 +35,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`a5574eb`](https://github.com/promobase/ad-platform-sdks/commit/a5574eb5e62e06f40667ca1984a9b3930d6a305b)]:
-  - @openpromo/sdk-runtime@0.3.0
+  - @mosaic/sdk-runtime@0.3.0
 
 ## 0.2.0
 
@@ -60,16 +60,16 @@
 - [#13](https://github.com/promobase/ad-platform-sdks/pull/13) [`c9b8e76`](https://github.com/promobase/ad-platform-sdks/commit/c9b8e761bf71e676985b00cbdccd930ad0fb50e7) Thanks [@rayli09](https://github.com/rayli09)! - Publish registry-safe dependency ranges instead of leaking `workspace:*` specifiers into npm metadata.
 
 - Updated dependencies [[`c9b8e76`](https://github.com/promobase/ad-platform-sdks/commit/c9b8e761bf71e676985b00cbdccd930ad0fb50e7), [`c9b8e76`](https://github.com/promobase/ad-platform-sdks/commit/c9b8e761bf71e676985b00cbdccd930ad0fb50e7)]:
-  - @openpromo/sdk-runtime@0.2.4
+  - @mosaic/sdk-runtime@0.2.4
 
 ## 0.0.5
 
 ### Patch Changes
 
-- [`b40d994`](https://github.com/promobase/ad-platform-sdks/commit/b40d99483e033e530bc461737430c8fb786d88d8) Thanks [@rayli09](https://github.com/rayli09)! - Move the public package family to the OpenPromo `@openpromo/*` scope and update workspace imports, docs, and CLI branding.
+- [`b40d994`](https://github.com/promobase/ad-platform-sdks/commit/b40d99483e033e530bc461737430c8fb786d88d8) Thanks [@rayli09](https://github.com/rayli09)! - Move the public package family to the OpenPromo `@mosaic/*` scope and update workspace imports, docs, and CLI branding.
 
 - Updated dependencies [[`b40d994`](https://github.com/promobase/ad-platform-sdks/commit/b40d99483e033e530bc461737430c8fb786d88d8)]:
-  - @openpromo/sdk-runtime@0.2.3
+  - @mosaic/sdk-runtime@0.2.3
 
 ## 0.0.4
 
@@ -80,7 +80,7 @@
   Move AI tool helpers behind `/ai` subpath exports so the plain SDK entry points do not require resolving the optional `ai` peer dependency.
 
 - Updated dependencies [[`bacac64`](https://github.com/promobase/ad-platform-sdks/commit/bacac648a15e055d39675df9c35585e90ee5af2d)]:
-  - @openpromo/sdk-runtime@0.2.2
+  - @mosaic/sdk-runtime@0.2.2
 
 ## 0.0.3
 
@@ -89,11 +89,11 @@
 - [`da4a79a`](https://github.com/promobase/ad-platform-sdks/commit/da4a79ad8ddf8cc7b65eebd5cf3c24320a12b584) Thanks [@rayli09](https://github.com/rayli09)! - Ship compiled `dist/` output instead of raw `.ts` source so non-bun consumers (Node, older bundlers, `tsc` from a consumer project) can install without choking on `.ts` imports or re-parsing generated trees. Package entry points switch to `dist/{index,...}.{js,d.ts}`; the `exports` map keeps a `"bun"` condition pointing at `src/` so the monorepo's own workspace loop stays build-free. Every package gains `engines: { node: ">=18" }` and bundles `LICENSE`.
 
 - Updated dependencies [[`da4a79a`](https://github.com/promobase/ad-platform-sdks/commit/da4a79ad8ddf8cc7b65eebd5cf3c24320a12b584)]:
-  - @openpromo/sdk-runtime@0.2.1
+  - @mosaic/sdk-runtime@0.2.1
 
 ## 0.0.2
 
 ### Patch Changes
 
 - Updated dependencies [[`4767096`](https://github.com/promobase/ad-platform-sdks/commit/4767096c5b66667c5c60dbc109fff556a6374257)]:
-  - @openpromo/sdk-runtime@0.2.0
+  - @mosaic/sdk-runtime@0.2.0

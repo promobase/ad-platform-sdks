@@ -1,7 +1,7 @@
 // Auto-generated client factory — do not edit
 
-import { ApiClient } from "@openpromo/sdk-runtime";
-import type { ApiClientOptions as BaseOptions } from "@openpromo/sdk-runtime";
+import { ApiClient } from "@mosaic/sdk-runtime";
+import type { ApiClientOptions as BaseOptions } from "@mosaic/sdk-runtime";
 import { FacebookApiError } from "../errors.ts";
 import { BatchBuilder, executeBatch, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";
 import { offlineProductItemNode } from "./objects/offline-product-item.ts";
@@ -313,9 +313,9 @@ import { productCatalogDataSourcesNode } from "./objects/product-catalog-data-so
 export interface MetaClientOptions extends Omit<BaseOptions, 'baseUrl' | 'onError'> {
   baseUrl?: string;
   apiVersion?: string;
-  rateLimiter?: import('@openpromo/sdk-runtime').RateLimiter;
-  delay?: import('@openpromo/sdk-runtime').DelayFn;
-  retry?: Partial<import('@openpromo/sdk-runtime').RetryConfig>;
+  rateLimiter?: import('@mosaic/sdk-runtime').RateLimiter;
+  delay?: import('@mosaic/sdk-runtime').DelayFn;
+  retry?: Partial<import('@mosaic/sdk-runtime').RetryConfig>;
 }
 
 export function createTypedClient(opts: MetaClientOptions) {

@@ -1,4 +1,4 @@
-# @openpromo/sdk-codegen
+# @mosaic/sdk-codegen
 
 ## 0.1.0
 

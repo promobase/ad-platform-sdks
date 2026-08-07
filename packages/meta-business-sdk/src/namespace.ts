@@ -2,7 +2,7 @@
  * Namespaced API for the Meta Business SDK.
  *
  * Usage:
- *   import { Meta } from "@openpromo/meta";
+ *   import { Meta } from "@mosaic/meta";
  *   const api = Meta.createClient({ accessToken: "..." });
  *   const ig = Meta.Instagram.createClient({ api, igAccountId: "..." });
  */

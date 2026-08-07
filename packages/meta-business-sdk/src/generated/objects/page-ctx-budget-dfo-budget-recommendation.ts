@@ -16,3 +16,4 @@ export interface PageCTXBudgetDFOBudgetRecommendationFields {
   zo_budget_purchases: string;
   zo_budget_value: string;
 }
+

@@ -1,4 +1,4 @@
-import { createClient, createCustomer, Google } from "@openpromo/google-ads";
+import { createClient, createCustomer, Google } from "@mosaic/google-ads";
 import type { Command } from "commander";
 import { z } from "zod";
 

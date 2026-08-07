@@ -4,13 +4,13 @@
   <img src="https://openpromo.app/logo.svg" width="80" alt="openpromo" />
 </a>
 
-# @openpromo/ad-platforms
+# @mosaic/ad-platforms
 
 **Type-safe TypeScript SDKs for every ad platform. One install. AI-agent ready.**
 
 Powering [**openpromo.app**](https://openpromo.app) — the AI-native social media workspace.
 
-[![npm](https://img.shields.io/npm/v/@openpromo/ad-platforms.svg?label=%40openpromo%2Fad-platforms)](https://www.npmjs.com/package/@openpromo/ad-platforms)
+[![npm](https://img.shields.io/npm/v/@mosaic/ad-platforms.svg?label=%40openpromo%2Fad-platforms)](https://www.npmjs.com/package/@mosaic/ad-platforms)
 [![CI](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml/badge.svg)](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
@@ -25,9 +25,9 @@ One umbrella package for **Meta** (Facebook, Instagram, Threads), **TikTok**, **
 ## Install
 
 ```bash
-bun add @openpromo/ad-platforms
+bun add @mosaic/ad-platforms
 # or
-npm install @openpromo/ad-platforms
+npm install @mosaic/ad-platforms
 ```
 
 ## Agent-native operations
@@ -38,9 +38,9 @@ want consistent cross-platform semantics. Provider SDKs remain available as the 
 Configure existing platform clients once and use the normalized direct API:
 
 ```ts
-import { Meta, TikTok } from "@openpromo/ad-platforms";
-import { createAdPlatforms } from "@openpromo/ad-platforms/operations";
-import { YouTube } from "@openpromo/ad-platforms/youtube";
+import { Meta, TikTok } from "@mosaic/ad-platforms";
+import { createAdPlatforms } from "@mosaic/ad-platforms/operations";
+import { YouTube } from "@mosaic/ad-platforms/youtube";
 
 const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
 const instagram = Meta.Instagram.createClient({ api: meta, igAccountId: "ig_123" });
@@ -76,7 +76,7 @@ const result = await ads.operations.invoke("youtube.posts.metrics.get", {
 ### AI SDK
 
 ```ts
-import { toAiSdkTools } from "@openpromo/ad-platforms/operations/ai";
+import { toAiSdkTools } from "@mosaic/ad-platforms/operations/ai";
 
 const tools = toAiSdkTools(ads.operations, { platform: ["instagram", "youtube"] });
 ```
@@ -87,7 +87,7 @@ The Code Mode adapter has no Cloudflare runtime dependency. It returns a structu
 definition whose `tools` can be returned directly from a `CodemodeConnector.tools()` implementation.
 
 ```ts
-import { toCodemodeConnector } from "@openpromo/ad-platforms/operations/codemode";
+import { toCodemodeConnector } from "@mosaic/ad-platforms/operations/codemode";
 
 const instagram = toCodemodeConnector(ads.operations, { platform: "instagram" });
 
@@ -102,8 +102,8 @@ replay behavior, and optional rollback support derived from the canonical operat
 
 ### MCP and CLI hosts
 
-`@openpromo/ad-platforms-cli/mcp` exports `registerOperationCatalog()`. The companion
-`@openpromo/ad-platforms-cli/operations` entry exports `registerOperationCatalogCommands()` for
+`@mosaic/ad-platforms-cli/mcp` exports `registerOperationCatalog()`. The companion
+`@mosaic/ad-platforms-cli/operations` entry exports `registerOperationCatalogCommands()` for
 adding `operations list`, `search`, `describe`, and `invoke` commands to a Commander program.
 
 The initial catalog intentionally contains read-only `posts.getMetrics` operations for Instagram,
@@ -114,10 +114,10 @@ operation layer.
 ## Use
 
 ```ts
-import { Meta, TikTok, LinkedIn, Google } from "@openpromo/ad-platforms";
-import { X } from "@openpromo/ad-platforms/x";
-import { YouTube } from "@openpromo/ad-platforms/youtube";
-import { createAllTools } from "@openpromo/ad-platforms/ai";
+import { Meta, TikTok, LinkedIn, Google } from "@mosaic/ad-platforms";
+import { X } from "@mosaic/ad-platforms/x";
+import { YouTube } from "@mosaic/ad-platforms/youtube";
+import { createAllTools } from "@mosaic/ad-platforms/ai";
 import { generateText } from "ai";
 import { anthropic } from "@ai-sdk/anthropic";
 
@@ -204,12 +204,12 @@ await generateText({
 
 | Package | Description |
 |---------|-------------|
-| [`@openpromo/meta`](https://www.npmjs.com/package/@openpromo/meta) | Meta only (Facebook, Instagram, Threads) |
-| [`@openpromo/tiktok`](https://www.npmjs.com/package/@openpromo/tiktok) | TikTok only |
-| [`@openpromo/linkedin`](https://www.npmjs.com/package/@openpromo/linkedin) | LinkedIn only |
-| [`@openpromo/x`](https://www.npmjs.com/package/@openpromo/x) | X only |
-| [`@openpromo/youtube`](https://www.npmjs.com/package/@openpromo/youtube) | YouTube only |
-| [`@openpromo/google-ads`](https://www.npmjs.com/package/@openpromo/google-ads) | Google Ads only |
+| [`@mosaic/meta`](https://www.npmjs.com/package/@mosaic/meta) | Meta only (Facebook, Instagram, Threads) |
+| [`@mosaic/tiktok`](https://www.npmjs.com/package/@mosaic/tiktok) | TikTok only |
+| [`@mosaic/linkedin`](https://www.npmjs.com/package/@mosaic/linkedin) | LinkedIn only |
+| [`@mosaic/x`](https://www.npmjs.com/package/@mosaic/x) | X only |
+| [`@mosaic/youtube`](https://www.npmjs.com/package/@mosaic/youtube) | YouTube only |
+| [`@mosaic/google-ads`](https://www.npmjs.com/package/@mosaic/google-ads) | Google Ads only |
 
 ## License
 

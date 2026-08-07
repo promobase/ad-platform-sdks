@@ -1,17 +1,17 @@
-# @openpromo/amazon-ads
+# @mosaic/amazon-ads
 
 Type-safe TypeScript SDK for the **Amazon Ads API v3** — Sponsored Products, Sponsored Brands, Sponsored Display, and the core Amazon Ads API. Generated from Amazon's official OpenAPI specs, with Login with Amazon (LWA) OAuth built in.
 
 ## Install
 
 ```bash
-bun add @openpromo/amazon-ads
+bun add @mosaic/amazon-ads
 ```
 
 ## Quick start
 
 ```ts
-import { AmazonAds } from "@openpromo/amazon-ads";
+import { AmazonAds } from "@mosaic/amazon-ads";
 
 // LWA OAuth — register an app at https://advertising.amazon.com/ (Login with Amazon)
 const oauth = AmazonAds.OAuth({

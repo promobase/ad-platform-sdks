@@ -1,15 +1,15 @@
-import { createGoogleBusinessProfileClient } from "@openpromo/google-business-profile";
-import type { LinkedInMemberPostMetric } from "@openpromo/linkedin";
-import { LinkedIn } from "@openpromo/linkedin";
+import { createGoogleBusinessProfileClient } from "@mosaic/google-business-profile";
+import type { LinkedInMemberPostMetric } from "@mosaic/linkedin";
+import { LinkedIn } from "@mosaic/linkedin";
 import {
   createClient as createMetaClient,
   createFacebookPageClient,
   createInstagramClient,
   createThreadsClient,
-} from "@openpromo/meta";
-import { createTikTokClient, createTikTokDeveloperClient } from "@openpromo/tiktok";
-import { X } from "@openpromo/x";
-import { YouTubeClient } from "@openpromo/youtube";
+} from "@mosaic/meta";
+import { createTikTokClient, createTikTokDeveloperClient } from "@mosaic/tiktok";
+import { X } from "@mosaic/x";
+import { YouTubeClient } from "@mosaic/youtube";
 import { Schema } from "effect";
 
 import { createOperationCatalog, defineOperation, type OperationMiddleware } from "./core.ts";

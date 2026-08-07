@@ -1,4 +1,4 @@
-import type { ApiClient } from "@openpromo/sdk-runtime";
+import type { ApiClient } from "@mosaic/sdk-runtime";
 import type { AdCampaignGroupBudgetSchedulesPostFields } from "./ad-campaign-group-budget-schedules-post.ts";
 
 export interface AdCampaignGroupBudgetSchedulesFields {
@@ -12,3 +12,4 @@ export function adCampaignGroupBudgetSchedulesNode(client: ApiClient, id: string
       client.post<AdCampaignGroupBudgetSchedulesPostFields>(`${id}/budget_schedules`, params as Record<string, unknown>),
   };
 }
+

@@ -1,5 +1,5 @@
 {
-  "name": "@openpromo/youtube",
+  "name": "@mosaic/youtube",
   "version": "0.6.0",
   "description": "Type-safe TypeScript SDK for YouTube Data API v3 publishing, uploads, and channel workflows",
   "keywords": [
@@ -67,11 +67,11 @@
     }
   },
   "dependencies": {
-    "@openpromo/sdk-runtime": "workspace:*",
+    "@mosaic/sdk-runtime": "workspace:*",
     "effect": "^3.22.1"
   },
   "devDependencies": {
-    "@openpromo/sdk-codegen": "workspace:*"
+    "@mosaic/sdk-codegen": "workspace:*"
   },
   "engines": {
     "node": ">=18"

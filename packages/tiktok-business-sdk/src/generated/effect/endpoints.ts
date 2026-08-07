@@ -1,5 +1,5 @@
 // This file is generated. Do not edit by hand.
-import { defineEndpointDescriptor } from "@openpromo/sdk-runtime/effect";
+import { defineEndpointDescriptor } from "@mosaic/sdk-runtime/effect";
 import { Schema } from "effect";
 import * as Models from "./schemas.ts";
 

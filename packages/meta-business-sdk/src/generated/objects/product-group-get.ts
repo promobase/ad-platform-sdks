@@ -7,3 +7,4 @@ export interface ProductGroupGetFields {
   retailer_id: string;
   variants: unknown[];
 }
+

@@ -12,3 +12,4 @@ export interface AdCampaignGoalFields {
   lookalike_inclusions: string[];
   type: number;
 }
+

@@ -1,4 +1,4 @@
-# @openpromo/google-business-profile
+# @mosaic/google-business-profile
 
 Type-safe SDK for Google Business Profile account discovery, locations, local posts, OAuth, post
 insights, and location performance metrics.
@@ -15,7 +15,7 @@ bun --filter='./packages/google-business-profile-sdk' run codegen:refresh
 ```
 
 ```ts
-import { GoogleBusinessProfile } from "@openpromo/google-business-profile";
+import { GoogleBusinessProfile } from "@mosaic/google-business-profile";
 
 const client = GoogleBusinessProfile.createClient({ accessToken });
 const locations = await client.resources.locations.list("accounts/123");

@@ -13,20 +13,20 @@ interface PlatformTile {
 }
 
 const platforms: PlatformTile[] = [
-  { name: "Facebook", icon: "simple-icons:facebook", color: "#0866FF", endpoints: 1451, package: "@openpromo/meta" },
-  { name: "Instagram", icon: "simple-icons:instagram", color: "#E4405F", endpoints: 1451, package: "@openpromo/meta" },
-  { name: "Threads", icon: "simple-icons:threads", color: "#999999", endpoints: 1451, package: "@openpromo/meta" },
-  { name: "TikTok", icon: "simple-icons:tiktok", color: "#25F4EE", endpoints: 531, package: "@openpromo/tiktok" },
-  { name: "Snapchat", icon: "simple-icons:snapchat", color: "#FFFC00", endpoints: 214, package: "@openpromo/snapchat" },
-  { name: "Reddit", icon: "simple-icons:reddit", color: "#FF4500", endpoints: 40, package: "@openpromo/reddit" },
-  { name: "Pinterest", icon: "simple-icons:pinterest", color: "#E60023", endpoints: 266, package: "@openpromo/pinterest" },
-  { name: "Amazon Ads", icon: "simple-icons:amazon", color: "#FF9900", endpoints: 166, package: "@openpromo/amazon-ads" },
-  { name: "Bluesky", icon: "simple-icons:bluesky", color: "#0285FF", endpoints: 197, package: "@openpromo/bluesky" },
-  { name: "LinkedIn", icon: "simple-icons:linkedin", color: "#0A66C2", endpoints: 303, package: "@openpromo/linkedin" },
-  { name: "X", icon: "simple-icons:x", color: "#D4D4D8", endpoints: 176, package: "@openpromo/x" },
-  { name: "YouTube", icon: "simple-icons:youtube", color: "#FF0000", endpoints: 98, package: "@openpromo/youtube" },
-  { name: "Google Ads", icon: "simple-icons:googleads", color: "#4285F4", endpoints: 169, package: "@openpromo/google-ads" },
-  { name: "Google Business Profile", icon: "simple-icons:google", color: "#4285F4", endpoints: 139, package: "@openpromo/google-business-profile" },
+  { name: "Facebook", icon: "simple-icons:facebook", color: "#0866FF", endpoints: 1451, package: "@mosaic/meta" },
+  { name: "Instagram", icon: "simple-icons:instagram", color: "#E4405F", endpoints: 1451, package: "@mosaic/meta" },
+  { name: "Threads", icon: "simple-icons:threads", color: "#999999", endpoints: 1451, package: "@mosaic/meta" },
+  { name: "TikTok", icon: "simple-icons:tiktok", color: "#25F4EE", endpoints: 531, package: "@mosaic/tiktok" },
+  { name: "Snapchat", icon: "simple-icons:snapchat", color: "#FFFC00", endpoints: 214, package: "@mosaic/snapchat" },
+  { name: "Reddit", icon: "simple-icons:reddit", color: "#FF4500", endpoints: 40, package: "@mosaic/reddit" },
+  { name: "Pinterest", icon: "simple-icons:pinterest", color: "#E60023", endpoints: 266, package: "@mosaic/pinterest" },
+  { name: "Amazon Ads", icon: "simple-icons:amazon", color: "#FF9900", endpoints: 166, package: "@mosaic/amazon-ads" },
+  { name: "Bluesky", icon: "simple-icons:bluesky", color: "#0285FF", endpoints: 197, package: "@mosaic/bluesky" },
+  { name: "LinkedIn", icon: "simple-icons:linkedin", color: "#0A66C2", endpoints: 303, package: "@mosaic/linkedin" },
+  { name: "X", icon: "simple-icons:x", color: "#D4D4D8", endpoints: 176, package: "@mosaic/x" },
+  { name: "YouTube", icon: "simple-icons:youtube", color: "#FF0000", endpoints: 98, package: "@mosaic/youtube" },
+  { name: "Google Ads", icon: "simple-icons:googleads", color: "#4285F4", endpoints: 169, package: "@mosaic/google-ads" },
+  { name: "Google Business Profile", icon: "simple-icons:google", color: "#4285F4", endpoints: 139, package: "@mosaic/google-business-profile" },
 ];
 
 const platformCount = new Set(platforms.map((p) => p.package)).size;
@@ -50,7 +50,7 @@ const totalCapabilities = 987;
           </h1>
           <p class="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
             {platformCount} ad and social platforms behind one install —
-            <code class="font-mono text-foreground">bun add @openpromo/ad-platforms</code>.
+            <code class="font-mono text-foreground">bun add @mosaic/ad-platforms</code>.
             Provider-complete, generated from canonical contracts, agent-ready.
           </p>
           <div class="mt-9 flex flex-wrap gap-3">
@@ -175,9 +175,9 @@ const totalCapabilities = 987;
       <section class="mx-auto max-w-6xl px-6 py-16">
         <div class="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div class="flex items-center gap-2 text-sm text-muted-foreground">
-            <img src="/openpromo-logo.svg" alt="" width="20" height="20" class="openpromo-mark h-5 w-5" />
+            <span class="mosaic-mark h-5 w-5 shrink-0"></span>
             <span>
-              MIT licensed and powering <a class="text-foreground underline underline-offset-4" href="https://openpromo.app">OpenPromo</a>.
+              MIT licensed — built by <a class="text-foreground underline underline-offset-4" href="https://openpromo.app">OpenPromo</a>.
             </span>
           </div>
           <div class="flex flex-wrap gap-2">
