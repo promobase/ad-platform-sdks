@@ -1,0 +1,17 @@
+// Auto-generated client for BrandStoreEditions — do not edit
+import type { AmazonAdsApiClient } from "../../../api-client.ts";
+import type { ListBrandStoreEditionResponse } from "../types.ts";
+import type { ListBrandStoreEditionParams } from "../params.ts";
+
+/** BrandStoreEditions — 1 endpoints */
+export function createBrandstoreeditionsClient(api: AmazonAdsApiClient) {
+  return {
+    /** ListBrandStoreEdition
+   * Requires OAuth2: advertising::campaign_management. */
+    async listBrandStoreEdition(params: ListBrandStoreEditionParams): Promise<ListBrandStoreEditionResponse> {
+      const query = params;
+      const envelope = await api.get<ListBrandStoreEditionResponse>(`/adsApi/v1/brandStoreEditions`, query);
+      return envelope;
+    },
+  };
+}

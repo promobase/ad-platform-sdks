@@ -1,0 +1,23 @@
+{
+  "platform": "amazon-ads",
+  "source": {
+    "kind": "openapi",
+    "location": "https://github.com/pinterest/api-description",
+    "revision": "93fa50011836e3f4a6d3beff320735c8f9f77c7ee14fe212899b346a7ba344cc"
+  },
+  "version": "v5",
+  "counts": {
+    "models": 3167,
+    "endpoints": 80,
+    "capabilities": 28
+  },
+  "coverage": {
+    "discoveredOperations": 80,
+    "excludedOperations": [],
+    "unresolvedSchemas": [],
+    "protocols": [
+      "json"
+    ],
+    "emittedOperations": 80
+  }
+}

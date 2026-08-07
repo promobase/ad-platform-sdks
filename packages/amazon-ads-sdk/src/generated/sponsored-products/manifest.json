@@ -1,0 +1,104 @@
+{
+  "source": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json",
+  "specSha256": "93fa50011836e3f4a6d3beff320735c8f9f77c7ee14fe212899b346a7ba344cc",
+  "endpoints": 80,
+  "tags": [
+    {
+      "name": "Ad groups",
+      "endpoints": 4
+    },
+    {
+      "name": "BudgetRules",
+      "endpoints": 10
+    },
+    {
+      "name": "Consolidated Recommendations",
+      "endpoints": 2
+    },
+    {
+      "name": "Campaign negative keywords",
+      "endpoints": 4
+    },
+    {
+      "name": "Campaign negative targeting clauses",
+      "endpoints": 4
+    },
+    {
+      "name": "Campaigns",
+      "endpoints": 4
+    },
+    {
+      "name": "Optimization Rules",
+      "endpoints": 4
+    },
+    {
+      "name": "Budget Usage",
+      "endpoints": 1
+    },
+    {
+      "name": "Budget recommendations and missed opportunities",
+      "endpoints": 1
+    },
+    {
+      "name": "BudgetRulesRecommendation",
+      "endpoints": 2
+    },
+    {
+      "name": "Budget Recommendation New Campaigns",
+      "endpoints": 1
+    },
+    {
+      "name": "Multi Country Theme-based bid recommendations",
+      "endpoints": 1
+    },
+    {
+      "name": "Keyword Targets",
+      "endpoints": 2
+    },
+    {
+      "name": "Keywords",
+      "endpoints": 4
+    },
+    {
+      "name": "Negative keywords",
+      "endpoints": 4
+    },
+    {
+      "name": "Negative targeting clauses",
+      "endpoints": 4
+    },
+    {
+      "name": "Product Targeting",
+      "endpoints": 6
+    },
+    {
+      "name": "Product ads",
+      "endpoints": 4
+    },
+    {
+      "name": "Campaign Optimization Rules",
+      "endpoints": 6
+    },
+    {
+      "name": "Keyword Group Targeting Recommendations",
+      "endpoints": 1
+    },
+    {
+      "name": "TargetPromotionGroups",
+      "endpoints": 5
+    },
+    {
+      "name": "Targeting clauses",
+      "endpoints": 4
+    },
+    {
+      "name": "Theme-based bid recommendations",
+      "endpoints": 1
+    },
+    {
+      "name": "Product Recommendation Service",
+      "endpoints": 1
+    }
+  ],
+  "schemas": 669
+}

@@ -65,7 +65,8 @@
     "@openpromo/snapchat": "workspace:*",
     "effect": "^3.22.1",
     "@openpromo/reddit": "workspace:*",
-    "@openpromo/pinterest": "workspace:*"
+    "@openpromo/pinterest": "workspace:*",
+    "@openpromo/amazon-ads": "workspace:*"
   },
   "peerDependencies": {
     "typescript": ">=5.9.3 <8",

@@ -1,0 +1,44 @@
+{
+  "source": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/SponsoredDisplay_prod_3p.json",
+  "specSha256": "62fa89c449f5c40926b3c7caef7675f4381f81839f34741393db7d52d463ab07",
+  "endpoints": 22,
+  "tags": [
+    {
+      "name": "Snapshot APIs",
+      "endpoints": 3
+    },
+    {
+      "name": "Brand Safety Request Results",
+      "endpoints": 1
+    },
+    {
+      "name": "Brand Safety Request Status",
+      "endpoints": 2
+    },
+    {
+      "name": "Brand Safety Deny List Domains",
+      "endpoints": 3
+    },
+    {
+      "name": "BudgetRules",
+      "endpoints": 8
+    },
+    {
+      "name": "Budget Usage",
+      "endpoints": 1
+    },
+    {
+      "name": "Budget Recommendations",
+      "endpoints": 1
+    },
+    {
+      "name": "Recommendations",
+      "endpoints": 1
+    },
+    {
+      "name": "Targeting Recommendations",
+      "endpoints": 2
+    }
+  ],
+  "schemas": 155
+}

@@ -1,0 +1,68 @@
+{
+  "name": "@openpromo/amazon-ads",
+  "version": "0.1.0",
+  "description": "Type-safe TypeScript SDK for the Amazon Ads API v3 (Sponsored Products, Sponsored Brands, Sponsored Display) and LWA OAuth",
+  "keywords": [
+    "amazon",
+    "amazon-ads",
+    "sponsored-products",
+    "sponsored-brands",
+    "sponsored-display",
+    "advertising",
+    "marketing-api",
+    "typescript",
+    "type-safe",
+    "sdk"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/promobase/ad-platform-sdks",
+    "directory": "packages/amazon-ads-sdk"
+  },
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist/**/*",
+    "src/**/*",
+    "README.md"
+  ],
+  "scripts": {
+    "codegen": "bun src/codegen/index.ts",
+    "codegen:refresh": "bun scripts/refresh-spec.ts && bun run codegen",
+    "codegen:check": "bun run codegen && git -C ../.. diff --exit-code -- packages/amazon-ads-sdk/src/generated packages/amazon-ads-sdk/vendor apps/docs/src/content/docs/reference/amazon-ads",
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test tests/",
+    "prepublishOnly": "bun run clean && bun run build",
+    "prepack": "node ../../scripts/publish-manifest.mjs prepare",
+    "postpack": "node ../../scripts/publish-manifest.mjs restore"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "typescript": ">=5.9.3 <8"
+  },
+  "exports": {
+    ".": {
+      "bun": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "@openpromo/sdk-runtime": "workspace:*",
+    "yaml": "^2.8.0"
+  },
+  "devDependencies": {
+    "@openpromo/sdk-codegen": "workspace:*"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

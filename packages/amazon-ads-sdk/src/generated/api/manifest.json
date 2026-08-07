@@ -1,0 +1,32 @@
+{
+  "source": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonAdsAPI_prod_3p.json",
+  "specSha256": "9dd61a7e5aa339ad8bd9c6f479489cb3583807ee326653f9bfde95764206863d",
+  "endpoints": 8,
+  "tags": [
+    {
+      "name": "BrandStoreEditions",
+      "endpoints": 1
+    },
+    {
+      "name": "BrandStoreEditionPublishVersions",
+      "endpoints": 2
+    },
+    {
+      "name": "BrandStorePages",
+      "endpoints": 2
+    },
+    {
+      "name": "BrandStores",
+      "endpoints": 1
+    },
+    {
+      "name": "AdGroupForecasts",
+      "endpoints": 1
+    },
+    {
+      "name": "CampaignForecasts",
+      "endpoints": 1
+    }
+  ],
+  "schemas": 323
+}

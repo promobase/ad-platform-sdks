@@ -76,6 +76,12 @@ const PLATFORM_DETAILS: Record<
     effectImport: "@openpromo/pinterest/effect",
     order: 100,
   },
+  "amazon-ads": {
+    label: "Amazon Ads",
+    packageName: "@openpromo/amazon-ads",
+    effectImport: "@openpromo/amazon-ads/effect",
+    order: 110,
+  },
   facebook: {
     label: "Facebook",
     packageName: "@openpromo/meta",

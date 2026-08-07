@@ -1,0 +1,84 @@
+---
+title: "Amazon Ads SDK reference"
+description: "Generated reference for 8 Amazon Ads endpoints and 2743 models."
+generated: true
+platform: "amazon-ads"
+sourceVersion: "v5"
+sidebar:
+  order: 110
+  label: "Amazon Ads"
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+Install the platform package and import either its high-level client or its generated Effect client.
+
+```bash
+bun add @openpromo/amazon-ads
+```
+
+```ts
+import { createEffectClient } from "@openpromo/amazon-ads/effect";
+
+const client = createEffectClient();
+```
+
+| Contract | Value |
+| --- | --- |
+| Platform | Amazon Ads |
+| API version | `v5` |
+| Source | `openapi: https://github.com/pinterest/api-description` |
+| Endpoints | 8 |
+| Models | 2743 |
+| Capabilities | 6 |
+
+## Endpoints
+
+- [Ad Group Forecasts](/reference/amazon-ads/endpoints/ad-group-forecasts)
+- [Brand Store Edition Publish Versions](/reference/amazon-ads/endpoints/brand-store-edition-publish-versions)
+- [Brand Store Editions](/reference/amazon-ads/endpoints/brand-store-editions)
+- [Brand Store Pages](/reference/amazon-ads/endpoints/brand-store-pages)
+- [Brand Stores](/reference/amazon-ads/endpoints/brand-stores)
+- [Campaign Forecasts](/reference/amazon-ads/endpoints/campaign-forecasts)
+
+## Models
+
+- [Ads Brand Stores Api Contract Bad Gateway Response Content – Ads Brand Stores Api Contract Create Store Product Grid Widget](/reference/amazon-ads/models/ads-brand-stores-api-contract-bad-gateway-response-conte-to-ads-brand-stores-api-contract-create-store-product-grid)
+- [Ads Brand Stores Api Contract Create Store Product Selector Answer – Ads Brand Stores Api Contract Store Mobile Image Content](/reference/amazon-ads/models/ads-brand-stores-api-contract-create-store-product-selec-to-ads-brand-stores-api-contract-store-mobile-image-content)
+- [Ads Brand Stores Api Contract Store Mobile Image With Text Content – DSP Forecast Periodicity](/reference/amazon-ads/models/ads-brand-stores-api-contract-store-mobile-image-with-te-to-dsp-forecast-periodicity)
+- [DSP Forecast Value – Inline1093](/reference/amazon-ads/models/dsp-forecast-value-to-inline1093)
+- [Inline1095 – Inline1203](/reference/amazon-ads/models/inline1095-to-inline1203)
+- [Inline1204 – Inline1332](/reference/amazon-ads/models/inline1204-to-inline1332)
+- [Inline1333 – Inline1435](/reference/amazon-ads/models/inline1333-to-inline1435)
+- [Inline1436 – Inline1529](/reference/amazon-ads/models/inline1436-to-inline1529)
+- [Inline153 – Inline1624](/reference/amazon-ads/models/inline153-to-inline1624)
+- [Inline1625 – Inline1745](/reference/amazon-ads/models/inline1625-to-inline1745)
+- [Inline1746 – Inline1859](/reference/amazon-ads/models/inline1746-to-inline1859)
+- [Inline186 – Inline1956](/reference/amazon-ads/models/inline186-to-inline1956)
+- [Inline1957 – Inline2048](/reference/amazon-ads/models/inline1957-to-inline2048)
+- [Inline2049 – Inline2145](/reference/amazon-ads/models/inline2049-to-inline2145)
+- [Inline2146 – Inline2242](/reference/amazon-ads/models/inline2146-to-inline2242)
+- [Inline2245 – Inline237](/reference/amazon-ads/models/inline2245-to-inline237)
+- [Inline2370 – Inline246](/reference/amazon-ads/models/inline2370-to-inline246)
+- [Inline2460 – Inline2559](/reference/amazon-ads/models/inline2460-to-inline2559)
+- [Inline256 – Inline2650](/reference/amazon-ads/models/inline256-to-inline2650)
+- [Inline2651 – Inline2741](/reference/amazon-ads/models/inline2651-to-inline2741)
+- [Inline2742 – Inline368](/reference/amazon-ads/models/inline2742-to-inline368)
+- [Inline369 – Inline460](/reference/amazon-ads/models/inline369-to-inline460)
+- [Inline461 – Inline551](/reference/amazon-ads/models/inline461-to-inline551)
+- [Inline552 – Inline642](/reference/amazon-ads/models/inline552-to-inline642)
+- [Inline643 – Inline772](/reference/amazon-ads/models/inline643-to-inline772)
+- [Inline773 – Inline879](/reference/amazon-ads/models/inline773-to-inline879)
+- [Inline88 – Inline97](/reference/amazon-ads/models/inline88-to-inline97)
+- [Inline970 – Update Brand Store Page Response](/reference/amazon-ads/models/inline970-to-update-brand-store-page-response)
+
+## Capabilities
+
+| Capability | Summary | Required scopes |
+| --- | --- | --- |
+| `amazon-ads.adGroupForecasts.manage` | Manage AdGroupForecasts via Pinterest API | `advertising::campaign_management` |
+| `amazon-ads.brandStoreEditionPublishVersions.manage` | Manage BrandStoreEditionPublishVersions via Pinterest API | `advertising::campaign_management` |
+| `amazon-ads.brandStoreEditions.read` | Read BrandStoreEditions via Pinterest API | `advertising::campaign_management` |
+| `amazon-ads.brandStorePages.manage` | Manage BrandStorePages via Pinterest API | `advertising::campaign_management` |
+| `amazon-ads.brandStores.manage` | Manage BrandStores via Pinterest API | `advertising::campaign_management` |
+| `amazon-ads.campaignForecasts.manage` | Manage CampaignForecasts via Pinterest API | `advertising::campaign_management` |

@@ -6,6 +6,7 @@ export const PlatformIdSchema = Schema.Literal(
   "google-business-profile",
   "instagram",
   "linkedin",
+  "amazon-ads",
   "meta",
   "pinterest",
   "reddit",

@@ -1,0 +1,49 @@
+---
+title: "Amazon Ads Brand Store Editions endpoints"
+description: "1 generated Amazon Ads endpoint contract for Brand Store Editions."
+generated: true
+platform: "amazon-ads"
+sourceVersion: "v5"
+sidebar:
+  order: 102
+  label: "Brand Store Editions"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.brandStoreEditions.listBrandStoreEdition
+
+`GET` `/adsApi/v1/brandStoreEditions`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (ListBrandStoreEdition)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `amazon-ads.brandStoreEditions.read` |
+| Required scopes | `advertising::campaign_management` |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `ListBrandStoreEditionResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brandStoreId` | `query` | `string` | Yes | No | — |
+| `nextToken` | `query` | `string` | No | No | — |
+| `maxResults` | `query` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

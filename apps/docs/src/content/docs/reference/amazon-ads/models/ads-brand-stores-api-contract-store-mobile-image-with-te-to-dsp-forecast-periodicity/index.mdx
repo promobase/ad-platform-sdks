@@ -1,0 +1,1016 @@
+---
+title: "Amazon Ads models: Ads Brand Stores Api Contract Store Mobile Image With Text Content – DSP Forecast Periodicity"
+description: "100 generated Amazon Ads model contracts, from AdsBrandStoresApiContractStoreMobileImageWithTextContent through DSPForecastPeriodicity."
+generated: true
+platform: "amazon-ads"
+sourceVersion: "v5"
+sidebar:
+  order: 1002
+  label: "Ads Brand Stores Api Contract Store Mobile Image With Text Content – DSP Forecast Periodicity"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## AdsBrandStoresApiContractStoreMobileImageWithTextContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `altText` | `altText` | `string` | No | No | Alternative text for the mobile image. |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier for mobile. |
+| `assetTags` | `assetTags` | `string` | No | No | Tags associated with the mobile asset. |
+| `bleedImage` | `bleedImage` | `string` | No | No | **StoreBleedImageType Enum:** \| StoreBleedImageType \| Description \| \| --- \| --- \| \| `NONE` \| No image bleed \| \| `SIDE` \| Side image bleed \| \| `CORNER` \| Corner image bleed \| \| `ALL` \| All sides image bleed \| |
+| `canvasData` | `canvasData` | `Inline1379` | No | No | — |
+| `cropBoxData` | `cropBoxData` | `Inline1380` | No | No | — |
+| `hideTitle` | `hideTitle` | `boolean` | No | No | Whether to hide the title on mobile. |
+| `imageHeight` | `imageHeight` | `number` | No | No | Height of the mobile image. |
+| `imageKey` | `imageKey` | `string` | No | No | Key identifier for the mobile image. |
+| `imageOffsetLeft` | `imageOffsetLeft` | `number` | No | No | Left offset for mobile image positioning. |
+| `imageOffsetTop` | `imageOffsetTop` | `number` | No | No | Top offset for mobile image positioning. |
+| `imageUrl` | `imageUrl` | `string` | No | No | URL of the mobile image. |
+| `imageWidth` | `imageWidth` | `number` | No | No | Width of the mobile image. |
+| `isAiGen` | `isAiGen` | `boolean` | No | No | Whether the mobile image is AI-generated. |
+| `layout` | `layout` | `string` | No | No | **StoreImageLayout Enum:** \| StoreImageLayout \| Description \| \| --- \| --- \| \| `COVER` \| Cover layout \| \| `CONTAIN` \| Contain layout \| \| `TEXT` \| Text layout \| |
+| `renderTileLayers` | `renderTileLayers` | `boolean` | No | No | Whether to render tile layers on mobile. |
+| `shape` | `shape` | `string` | No | No | **StoreImageShape Enum:** \| StoreImageShape \| Description \| \| --- \| --- \| \| `SQUARE` \| Square shape \| |
+| `text` | `text` | `string` | No | No | Text content for mobile. |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `textOption` | `textOption` | `string` | No | No | **StoreTextOption Enum:** \| StoreTextOption \| Description \| \| --- \| --- \| \| `TEXT_OVER_IMAGE` \| Text overlaid on image \| \| `TEXT_NEXT_TO_IMAGE` \| Text next to image \| |
+| `tileLayers` | `tileLayers` | `Array<Inline1381>` | No | No | Layer configuration for the mobile tile. |
+| `title` | `title` | `string` | No | No | Title for mobile display. |
+| `verticalAlign` | `verticalAlign` | `string` | No | No | **StoreVerticalAlign Enum:** \| StoreVerticalAlign \| Description \| \| --- \| --- \| \| `TOP` \| Top alignment \| \| `MIDDLE` \| Middle alignment \| \| `BOTTOM` \| Bottom alignment \| |
+
+## AdsBrandStoresApiContractStorePageContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | Description of the page |
+| `template` | `template` | `string` | Yes | No | **StorePageTemplate Enum:** \| StorePageTemplate \| Description \| \| --- \| --- \| \| `PRODUCT_GRID` \| Template displaying products in a grid layout \| \| `HIGHLIGHT` \| Template for highlighting specific content \| \| `MARQUEE` \| Template featuring a prominent marquee section \| \| `BLANK` \| Empty template for custom layouts \| \| `PRODUCT_COLLECTION` \| Template for displaying collections of products \| |
+| `title` | `title` | `string` | No | No | For store page, title of the page; for SB landing page, this can be optional |
+| `widgets` | `widgets` | `Array<Inline1384 \| Inline1387 \| Inline1420 \| Inline1426 \| Inline1429 \| Inline1439 \| Inline1452 \| Inline1454 \| Inline1456 \| Inline1459 \| Inline1466 \| Inline1469 \| Inline1474 \| Inline1477 \| Inline1482 \| Inline1486 \| Inline1500 \| Inline1502 \| Inline1505>` | No | No | Collection of widgets displayed on the page |
+
+## AdsBrandStoresApiContractStorePageTemplate
+
+`enum` model on the `json` wire format.
+
+**Values:** `BLANK`, `HIGHLIGHT`, `MARQUEE`, `PRODUCT_COLLECTION`, `PRODUCT_GRID`
+
+## AdsBrandStoresApiContractStorePageType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BRAND_STORE_PAGE`, `LANDING_PAGE`
+
+## AdsBrandStoresApiContractStorePageVersion
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pageId` | `pageId` | `string` | Yes | No | Identifier of the page |
+| `version` | `version` | `number` | Yes | No | Version number of the page |
+
+## AdsBrandStoresApiContractStorePageWidget
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline1511 \| Inline1514 \| Inline1547 \| Inline1553 \| Inline1556 \| Inline1566 \| Inline1579 \| Inline1581 \| Inline1583 \| Inline1586 \| Inline1593 \| Inline1596 \| Inline1601 \| Inline1604 \| Inline1609 \| Inline1613 \| Inline1627 \| Inline1629 \| Inline1632`
+
+## AdsBrandStoresApiContractStoreProductCarouselContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `callToActionData` | `callToActionData` | `Inline1635` | No | No | — |
+| `searchContent` | `searchContent` | `Inline1636` | No | No | — |
+| `tag` | `tag` | `string` | Yes | No | Unique tag for the content. |
+| `type` | `type` | `string` | Yes | No | **StoreWidgetSectionType Enum:** \| StoreWidgetSectionType \| Description \| \| --- \| --- \| \| `HERO` \| Section type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `DEALS_AND_COUPONS` \| Section type for StoreDealsWidget and StoreDealsContent type \| \| `GALLERY` \| Section type for StoreGalleryWidget \| \| `PRODUCT_COLLECTION` \| Section type for StoreProductCollectionWidget \| \| `PRODUCT_GRID` \| Section type for StoreProductGridWidget and type for StoreProductCollectionASINGrid \| \| `SHOP_THE_LOOK_CAROUSEL` \| Section type for StoreShopTheLookWidget and type for StoreShopTheLookContent \| \| `MANUALLY_CURATED_PRODUCT_CAROUSEL` \| Section type for StoreManuallyCuratedProductCarouselWidget and StoreCarouselContent type \| \| `RECOMMENDED` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `PREMIUM_BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `LIVE_VIDEO` \| Section type for StoreLiveVideoWidget \| \| `BANNER` \| Section type for StoreBannerWidget \| |
+
+## AdsBrandStoresApiContractStoreProductCarouselSearch
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `node` | `node` | `string` | No | No | Node identifier for search |
+| `type` | `type` | `string` | No | No | **StoreProductCarouselSearchType Enum:** \| StoreProductCarouselSearchType \| Description \| \| --- \| --- \| \| `RECOMMENDATION_FOR_YOU` \| Personalized recommendations \| \| `BEST_SELLING` \| Best selling items \| |
+
+## AdsBrandStoresApiContractStoreProductCarouselSearchType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BEST_SELLING`, `RECOMMENDATION_FOR_YOU`
+
+## AdsBrandStoresApiContractStoreProductCarouselWidget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline1640` | Yes | No | — |
+| `content` | `content` | `Inline1641` | Yes | No | — |
+
+## AdsBrandStoresApiContractStoreProductCollectionASINGrid
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bulk` | `bulk` | `boolean` | No | No | Whether this is a bulk configuration. |
+| `description` | `description` | `string` | No | No | Description of the product grid. |
+| `displayProductGridHeader` | `displayProductGridHeader` | `boolean` | No | No | Whether to display the product grid header. |
+| `includeOutOfStock` | `includeOutOfStock` | `boolean` | No | No | Whether to include out of stock products. |
+| `isAutomatedProductGrid` | `isAutomatedProductGrid` | `boolean` | No | No | Whether the product grid is automatically populated |
+| `keyword` | `keyword` | `string` | No | No | Keyword for product filtering. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | List of ASINs, maximum 60 unique items. |
+| `sort` | `sort` | `string` | No | No | Sort order for products. |
+| `tag` | `tag` | `string` | No | No | Unique tag for the tile to track performance. |
+| `title` | `title` | `string` | No | No | Title of the product grid. |
+| `type` | `type` | `string` | Yes | No | **StoreWidgetSectionType Enum:** \| StoreWidgetSectionType \| Description \| \| --- \| --- \| \| `HERO` \| Section type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `DEALS_AND_COUPONS` \| Section type for StoreDealsWidget and StoreDealsContent type \| \| `GALLERY` \| Section type for StoreGalleryWidget \| \| `PRODUCT_COLLECTION` \| Section type for StoreProductCollectionWidget \| \| `PRODUCT_GRID` \| Section type for StoreProductGridWidget and type for StoreProductCollectionASINGrid \| \| `SHOP_THE_LOOK_CAROUSEL` \| Section type for StoreShopTheLookWidget and type for StoreShopTheLookContent \| \| `MANUALLY_CURATED_PRODUCT_CAROUSEL` \| Section type for StoreManuallyCuratedProductCarouselWidget and StoreCarouselContent type \| \| `RECOMMENDED` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `PREMIUM_BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `LIVE_VIDEO` \| Section type for StoreLiveVideoWidget \| \| `BANNER` \| Section type for StoreBannerWidget \| |
+| `variation` | `variation` | `string` | No | No | Variation of the product grid. |
+
+## AdsBrandStoresApiContractStoreProductCollectionContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `collectionTags` | `collectionTags` | `string` | No | No | Tags associated with the collection. |
+| `productGridConversionTimestamp` | `productGridConversionTimestamp` | `number` | No | No | Timestamp of product grid conversion. |
+| `tag` | `tag` | `string` | No | No | Unique tag for the content. |
+| `type` | `type` | `string` | No | No | **StoreWidgetType Enum:** \| StoreWidgetType \| Description \| \| --- \| --- \| \| `HERO` \| Widget type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `PRODUCT_GRID` \| Widget type for StoreProductGridWidget and StoreDealsWidget \| \| `GALLERY` \| Widget type for StoreGalleryWidget and StoreGalleryContent type \| \| `PRODUCT_COLLECTION` \| Widget type for StoreProductCollectionWidget and StoreProductCollection type \| \| `MULTI_MEDIA_CAROUSEL` \| Widget type for StoreShopTheLookWidget, StoreManuallyCuratedProductCarouselWidget and StoreProductCarouselWidget \| \| `PRODUCT_CAROUSEL` \| Widget type for StoreProductCarouselWidget \| \| `LIVE_VIDEO` \| Widget type and content type for StoreLiveVideoWidget \| \| `BANNER` \| Widget type and content type for StoreBannerWidget \| |
+
+## AdsBrandStoresApiContractStoreProductCollectionImageTile
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline1646` | Yes | No | — |
+| `content` | `content` | `Inline1647` | No | No | — |
+| `flexHeight` | `flexHeight` | `boolean` | No | No | Whether the height is flexible. |
+| `mobileContent` | `mobileContent` | `Inline1651` | No | No | — |
+| `uploadMobileImage` | `uploadMobileImage` | `boolean` | No | No | Whether to upload a mobile-specific image. |
+| `variation` | `variation` | `string` | Yes | No | **StoreImageWithTextTileVariation Enum:** \| StoreImageWithTextTileVariation \| Description \| \| --- \| --- \| \| `IMAGE_WITH_TEXT` \| Image with text variation \| |
+
+## AdsBrandStoresApiContractStoreProductCollectionTile
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline1656 \| Inline1665`
+
+## AdsBrandStoresApiContractStoreProductCollectionWidget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `aiMetadata` | `aiMetadata` | `Array<Inline1667>` | No | No | Metadata about AI generated fields. |
+| `commonProperties` | `commonProperties` | `Inline1668` | Yes | No | — |
+| `content` | `content` | `Inline1669` | No | No | — |
+| `tiles` | `tiles` | `Array<Inline1670 \| Inline1679>` | Yes | No | The tiles for the product collection. Exactly two tiles are required. |
+
+## AdsBrandStoresApiContractStoreProductGridContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bulk` | `bulk` | `boolean` | No | No | Whether this is a bulk product grid. |
+| `description` | `description` | `string` | No | No | Description of the product grid. |
+| `displayProductGridHeader` | `displayProductGridHeader` | `boolean` | No | No | Whether to display the grid header. |
+| `excludedProductAsins` | `excludedProductAsins` | `Array<string>` | No | No | List of product ASINs exclude when dynamic. |
+| `includeOutOfStock` | `includeOutOfStock` | `boolean` | No | No | Whether to include out of stock products. |
+| `isAutomatedProductGrid` | `isAutomatedProductGrid` | `boolean` | No | No | Whether the product grid is automatically populated |
+| `keyword` | `keyword` | `string` | No | No | Keyword for product filtering. |
+| `pinnedProductAsins` | `pinnedProductAsins` | `Array<string>` | No | No | List of product ASINs include when dynamic. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | List of product ASINs. |
+| `productType` | `productType` | `string` | No | No | Type of products to display |
+| `search` | `search` | `Inline1681` | No | No | — |
+| `showOnlyMarkdown` | `showOnlyMarkdown` | `boolean` | No | No | Whether to only show products on markdown. |
+| `sort` | `sort` | `string` | No | No | Sort order for products. |
+| `tag` | `tag` | `string` | No | No | Unique tag for the content. |
+| `title` | `title` | `string` | No | No | Title of the product grid. |
+| `type` | `type` | `string` | No | No | Type of the content. |
+
+## AdsBrandStoresApiContractStoreProductGridSearch
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brandId` | `brandId` | `string` | No | No | brand id to search. |
+| `includeOutOfStock` | `includeOutOfStock` | `boolean` | No | No | Whether to include out of stock products in search. |
+| `keyword` | `keyword` | `string` | No | No | Search keyword. |
+| `node` | `node` | `string` | No | No | Node identifier for search. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | List of product ASINs. |
+| `sort` | `sort` | `string` | No | No | Sort order for search results. |
+
+## AdsBrandStoresApiContractStoreProductGridWidget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline1684` | Yes | No | — |
+| `content` | `content` | `Inline1685` | Yes | No | — |
+
+## AdsBrandStoresApiContractStoreProductSelectorAnswer
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image` | `image` | `Inline1687` | No | No | Represents an image used in the product selector introduction |
+| `nextStep` | `nextStep` | `string` | Yes | No | Reference to the next question or step in the selection flow |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | List of ASINs associated with this answer |
+| `tag` | `tag` | `string` | Yes | No | Unique identifier for the answer |
+| `text` | `text` | `string` | No | No | Display text for the answer option |
+
+## AdsBrandStoresApiContractStoreProductSelectorButtonColor
+
+`enum` model on the `json` wire format.
+
+**Values:** `BLACK`, `TRANSPARENT`, `WHITE`
+
+## AdsBrandStoresApiContractStoreProductSelectorDesignOptions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backgroundColor` | `backgroundColor` | `string` | Yes | No | Background color in hex or named color value |
+| `backgroundShape` | `backgroundShape` | `string` | Yes | No | Shape of the background container |
+| `buttonColor` | `buttonColor` | `string` | No | No | **StoreProductSelectorButtonColor Enum:** \| StoreProductSelectorButtonColor \| Description \| \| --- \| --- \| \| `WHITE` \| White button color \| \| `BLACK` \| Black button color \| \| `TRANSPARENT` \| Transparent button color \| |
+| `buttonShape` | `buttonShape` | `string` | Yes | No | Shape style for buttons in the selector |
+| `textAlignment` | `textAlignment` | `string` | Yes | No | Alignment of text elements (left, center, right) |
+| `textSize` | `textSize` | `string` | Yes | No | Size of the text elements |
+| `textStyle` | `textStyle` | `string` | Yes | No | Font family or style to be used |
+| `textWeight` | `textWeight` | `string` | Yes | No | Font weight for text elements |
+
+## AdsBrandStoresApiContractStoreProductSelectorImage
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | Yes | No | Asset ID of the image |
+| `fileName` | `fileName` | `string` | No | No | File name of the image |
+| `imageUrl` | `imageUrl` | `string` | Yes | No | URL of the image |
+| `layout` | `layout` | `string` | No | No | **StoreProductSelectorImageLayout Enum:** \| StoreProductSelectorImageLayout \| Description \| \| --- \| --- \| \| `TOP` \| Top image layout \| \| `LEFT` \| Left image layout \| \| `RIGHT` \| Right image layout \| \| `BOTTOM` \| Bottom image layout \| |
+
+## AdsBrandStoresApiContractStoreProductSelectorImageLayout
+
+`enum` model on the `json` wire format.
+
+**Values:** `BOTTOM`, `LEFT`, `RIGHT`, `TOP`
+
+## AdsBrandStoresApiContractStoreProductSelectorImageOptions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image` | `image` | `Inline1693` | Yes | No | Represents an image used in the product selector introduction |
+| `layoutConfiguration` | `layoutConfiguration` | `Inline1694` | Yes | No | Layout configuration for desktop and mobile views |
+
+## AdsBrandStoresApiContractStoreProductSelectorIntroduction
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `buttonText` | `buttonText` | `string` | Yes | No | Text displayed on the introduction button |
+| `description` | `description` | `string` | Yes | No | Description text for the introduction section |
+| `heading` | `heading` | `string` | Yes | No | Heading text for the introduction section |
+| `headline` | `headline` | `string` | No | No | Headline text for the introduction section |
+| `imageOptions` | `imageOptions` | `Inline1696` | Yes | No | Image options for the product selector introduction |
+| `isEnabled` | `isEnabled` | `boolean` | Yes | No | Flag indicating whether the introduction is enabled |
+
+## AdsBrandStoresApiContractStoreProductSelectorLayoutConfiguration
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `desktopLayout` | `desktopLayout` | `string` | Yes | No | **StoreProductSelectorImageLayout Enum:** \| StoreProductSelectorImageLayout \| Description \| \| --- \| --- \| \| `TOP` \| Top image layout \| \| `LEFT` \| Left image layout \| \| `RIGHT` \| Right image layout \| \| `BOTTOM` \| Bottom image layout \| |
+| `mobileLayout` | `mobileLayout` | `string` | Yes | No | **StoreProductSelectorImageLayout Enum:** \| StoreProductSelectorImageLayout \| Description \| \| --- \| --- \| \| `TOP` \| Top image layout \| \| `LEFT` \| Left image layout \| \| `RIGHT` \| Right image layout \| \| `BOTTOM` \| Bottom image layout \| |
+
+## AdsBrandStoresApiContractStoreProductSelectorQuestion
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `answerList` | `answerList` | `Array<Inline1700>` | No | No | List of possible answers for this question |
+| `areImagesEnabled` | `areImagesEnabled` | `boolean` | No | No | Flag indicating whether images are enabled |
+| `description` | `description` | `string` | No | No | Additional descriptive text or context for the question |
+| `hasImage` | `hasImage` | `boolean` | No | No | Flag indicating whether the question has an image |
+| `tag` | `tag` | `string` | Yes | No | Unique identifier for the question |
+| `text` | `text` | `string` | No | No | Main question text displayed to the user |
+
+## AdsBrandStoresApiContractStoreProductSelectorResults
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `buttonText` | `buttonText` | `string` | No | No | Text to display on the call-to-action button |
+| `description` | `description` | `string` | No | No | Descriptive text explaining the results |
+| `disclaimer` | `disclaimer` | `string` | Yes | No | Legal or additional information text for the results |
+| `headline` | `headline` | `string` | Yes | No | Main heading text for the results section |
+| `storeUrl` | `storeUrl` | `string` | No | No | URL to the store page for the selected products |
+
+## AdsBrandStoresApiContractStoreProductSelectorWidget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `designOptions` | `designOptions` | `Inline1703` | Yes | No | Visual styling options for the product selector widget |
+| `introduction` | `introduction` | `Inline1704` | No | No | Introduction section for the product selector widget |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Master list of ASINs available in the selector |
+| `questionList` | `questionList` | `Array<Inline1706>` | No | No | Ordered list of questions in the selector flow |
+| `results` | `results` | `Inline1707` | Yes | No | Configuration for displaying product selector results |
+
+## AdsBrandStoresApiContractStoreProductTile
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline1709` | Yes | No | — |
+| `content` | `content` | `Inline1710` | No | No | — |
+
+## AdsBrandStoresApiContractStoreProductTileContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bleedImage` | `bleedImage` | `string` | No | No | **StoreBleedImageType Enum:** \| StoreBleedImageType \| Description \| \| --- \| --- \| \| `NONE` \| No image bleed \| \| `SIDE` \| Side image bleed \| \| `CORNER` \| Corner image bleed \| \| `ALL` \| All sides image bleed \| |
+| `displayOutOfStockASIN` | `displayOutOfStockASIN` | `boolean` | No | No | Whether to display out of stock ASIN. |
+| `layout` | `layout` | `string` | No | No | **StoreLayoutType Enum:** \| StoreLayoutType \| Description \| \| --- \| --- \| \| `DEFAULT` \| Default layout configuration \| \| `SHOWCASE` \| Showcase layout configuration for featured display \| |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the product. |
+| `text` | `text` | `string` | No | No | Description text for the product. |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `title` | `title` | `string` | No | No | Title of the product. |
+
+## AdsBrandStoresApiContractStoreProductWidget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline1713` | Yes | No | — |
+| `tiles` | `tiles` | `Array<Inline1714>` | Yes | No | The product tile configuration. Exactly one tile is required. |
+
+## AdsBrandStoresApiContractStorePublishState
+
+`enum` model on the `json` wire format.
+
+**Values:** `DRAFT`, `PUBLISH`
+
+## AdsBrandStoresApiContractStorePublishStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `DRAFT`, `REVIEW_IN_PROGRESS`
+
+## AdsBrandStoresApiContractStoreShoppableImageContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `croppedImage` | `croppedImage` | `Inline1719` | No | No | — |
+| `points` | `points` | `Array<Inline1721>` | No | No | Interactive points on the image. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the point. |
+| `renderTileLayers` | `renderTileLayers` | `boolean` | No | No | Whether to render tile layers. |
+| `textOption` | `textOption` | `string` | No | No | **StoreShoppableTextOption Enum:** \| StoreShoppableTextOption \| Description \| \| --- \| --- \| \| `TEXT_UNDER_INTERACTIVE_IMAGE` \| Text under interactive image \| \| `NO_TEXT_UNDER_INTERACTIVE_IMAGE` \| No text under interactive image \| \| `TEXT_OVER_IMAGE` \| Text over interactive image \| |
+| `tileLayers` | `tileLayers` | `Array<Inline1722>` | No | No | Layer configuration for the tile. |
+
+## AdsBrandStoresApiContractStoreShoppableImageTile
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline1725` | Yes | No | — |
+| `content` | `content` | `Inline1726` | No | No | — |
+
+## AdsBrandStoresApiContractStoreShoppableImageWidget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline1732` | Yes | No | — |
+| `tiles` | `tiles` | `Array<Inline1733>` | Yes | No | The shoppable image tile configuration. Exactly one tile is required. |
+
+## AdsBrandStoresApiContractStoreShoppablePoint
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `coordinates` | `coordinates` | `Inline1740` | Yes | No | — |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the point. |
+| `tag` | `tag` | `string` | No | No | Unique tag for the point. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## AdsBrandStoresApiContractStoreShoppableTextOption
+
+`enum` model on the `json` wire format.
+
+**Values:** `NO_TEXT_UNDER_INTERACTIVE_IMAGE`, `TEXT_OVER_IMAGE`, `TEXT_UNDER_INTERACTIVE_IMAGE`
+
+## AdsBrandStoresApiContractStoreShopTheLookContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bulk` | `bulk` | `boolean` | No | No | Whether this is a bulk configuration. |
+| `callToActionData` | `callToActionData` | `Inline1743` | No | No | — |
+| `includeOutOfStock` | `includeOutOfStock` | `boolean` | No | No | Whether to include out of stock items. |
+| `keyword` | `keyword` | `string` | No | No | Keyword for searching. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | List of product ASINs, maximum 25 unique items. |
+| `search` | `search` | `Inline1744` | No | No | — |
+| `slides` | `slides` | `Array<Inline1745 \| Inline1746>` | No | No | List of slides in the carousel. |
+| `tag` | `tag` | `string` | No | No | Unique tag for the content. |
+| `text` | `text` | `string` | No | No | Text content. |
+| `title` | `title` | `string` | No | No | Title of the content. |
+| `type` | `type` | `string` | No | No | **StoreWidgetSectionType Enum:** \| StoreWidgetSectionType \| Description \| \| --- \| --- \| \| `HERO` \| Section type for StoreHeroImageWidget \| \| `EDITORIAL_ROW` \| Widget type for StoreCustomCodeWidget, StoreImageWithTextWidget, StoreImageWidget, StoreProductWidget, StoreShoppableImageWidget, StoreTextWidget, StoreTileWidget, StoreVideoWidget and StoreAWLSWidget \| \| `DEALS_AND_COUPONS` \| Section type for StoreDealsWidget and StoreDealsContent type \| \| `GALLERY` \| Section type for StoreGalleryWidget \| \| `PRODUCT_COLLECTION` \| Section type for StoreProductCollectionWidget \| \| `PRODUCT_GRID` \| Section type for StoreProductGridWidget and type for StoreProductCollectionASINGrid \| \| `SHOP_THE_LOOK_CAROUSEL` \| Section type for StoreShopTheLookWidget and type for StoreShopTheLookContent \| \| `MANUALLY_CURATED_PRODUCT_CAROUSEL` \| Section type for StoreManuallyCuratedProductCarouselWidget and StoreCarouselContent type \| \| `RECOMMENDED` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `PREMIUM_BEST_SELLING` \| Section type for StoreProductCarouselWidget and StoreProductCarouselContent type \| \| `LIVE_VIDEO` \| Section type for StoreLiveVideoWidget \| \| `BANNER` \| Section type for StoreBannerWidget \| |
+
+## AdsBrandStoresApiContractStoreShopTheLookSearch
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `includeOutOfStock` | `includeOutOfStock` | `boolean` | No | No | Whether to include out of stock items in search. |
+| `keyword` | `keyword` | `string` | No | No | Search keyword. |
+| `node` | `node` | `string` | No | No | Node identifier for search. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for search filtering. |
+
+## AdsBrandStoresApiContractStoreShopTheLookSlide
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline1749 \| Inline1750`
+
+## AdsBrandStoresApiContractStoreShopTheLookWidget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline1752` | Yes | No | — |
+| `content` | `content` | `Inline1753` | No | No | — |
+
+## AdsBrandStoresApiContractStoreSlideType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ASIN`, `IMAGE`
+
+## AdsBrandStoresApiContractStoreTextAlignment
+
+`enum` model on the `json` wire format.
+
+**Values:** `CENTER`, `JUSTIFY`, `LEFT`, `RIGHT`
+
+## AdsBrandStoresApiContractStoreTextContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bold` | `bold` | `boolean` | Yes | No | Whether text should be bold. |
+| `bondCustomerServiceLink` | `bondCustomerServiceLink` | `boolean` | No | No | Whether to include customer service link. |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `customUrl` | `customUrl` | `string` | No | No | Custom URL for the content. |
+| `pageId` | `pageId` | `string` | No | No | Identifier for the page. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single product ASIN for the content. |
+| `text` | `text` | `string` | Yes | No | Main text content. |
+| `textAlign` | `textAlign` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `title` | `title` | `string` | Yes | No | Title of the content. |
+| `uppercase` | `uppercase` | `boolean` | Yes | No | Whether text should be uppercase. |
+
+## AdsBrandStoresApiContractStoreTextOption
+
+`enum` model on the `json` wire format.
+
+**Values:** `TEXT_NEXT_TO_IMAGE`, `TEXT_OVER_IMAGE`
+
+## AdsBrandStoresApiContractStoreTextOptionType
+
+`enum` model on the `json` wire format.
+
+**Values:** `NO_TEXT_OVER_VIDEO`, `TEXT_OVER_VIDEO`
+
+## AdsBrandStoresApiContractStoreTextTile
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline1763` | Yes | No | — |
+| `content` | `content` | `Inline1764` | No | No | — |
+
+## AdsBrandStoresApiContractStoreTextWidget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline1766` | Yes | No | — |
+| `tiles` | `tiles` | `Array<Inline1767>` | Yes | No | Single text tile configuration. |
+
+## AdsBrandStoresApiContractStoreTile
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline1770 \| Inline1779 \| Inline1784 \| Inline1786 \| Inline1792 \| Inline1794 \| Inline1798 \| Inline1800`
+
+## AdsBrandStoresApiContractStoreTileBorderSize
+
+`enum` model on the `json` wire format.
+
+**Values:** `LARGE`, `MEDIUM`, `NONE`, `SMALL`
+
+## AdsBrandStoresApiContractStoreTileLayer
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `colorPalette` | `colorPalette` | `string` | No | No | **StoreColorPalette Enum:** \| StoreColorPalette \| Description \| \| --- \| --- \| \| `DEFAULT` \| Default color scheme \| \| `DEFAULT_INVERTED` \| Inverted default color scheme \| \| `SOLID_WHITE` \| Solid white color scheme \| \| `SOLID_BLACK` \| Solid black color scheme \| \| `TRANSLUCENT_WHITE` \| Translucent white color scheme \| \| `TRANSLUCENT_BLACK` \| Translucent black color scheme \| \| `TRANSPARENT_BLACK` \| Transparent black color scheme \| \| `TRANSPARENT_WHITE` \| Transparent white color scheme \| |
+| `content` | `content` | `Inline1804` | No | No | — |
+| `coverTile` | `coverTile` | `boolean` | No | No | Whether the layer covers the entire tile. |
+| `margin` | `margin` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `opacity` | `opacity` | `number` | No | No | Opacity level of the layer. |
+| `outOfBounds` | `outOfBounds` | `boolean` | No | No | Whether the layer is out of bounds. |
+| `padding` | `padding` | `string` | No | No | **StoreTileBorderSize Enum:** \| StoreTileBorderSize \| Description \| \| --- \| --- \| \| `NONE` \| No border \| \| `SMALL` \| Small border size \| \| `MEDIUM` \| Medium border size \| \| `LARGE` \| Large border size \| |
+| `position` | `position` | `Inline1805` | No | No | — |
+| `tag` | `tag` | `string` | No | No | Unique tag for the tile layer to track performance. |
+| `type` | `type` | `string` | No | No | **StoreTileType Enum:** \| StoreTileType \| Description \| \| --- \| --- \| \| `TEXT` \| Tile type for StoreTextTile and tile layers \| \| `IMAGE` \| Tile type for StoreImageTile, StoreImageWithTextTile, StoreMetadataItem type \| \| `PRODUCT` \| Tile type for StoreProductTile and StoreShoppablePoint type \| \| `INTERACTIVE_IMAGE` \| Tile type for StoreShoppableImageTile \| \| `VIDEO` \| Tile type for StoreVideoTile \| \| `CUSTOM_CODE` \| Tile type for StoreCustomCodeTile \| \| `EMPTY` \| Tile type for StoreEmptyTile \| \| `EXTERNAL_WIDGET` \| Tile type for StoreAWLSTile \| |
+
+## AdsBrandStoresApiContractStoreTileLayerContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bodyText` | `bodyText` | `string` | No | No | Body text for the layer. |
+| `bondCustomerServiceLink` | `bondCustomerServiceLink` | `boolean` | No | No | Whether to include a customer service link. |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text for the layer. |
+| `callToActionType` | `callToActionType` | `string` | No | No | **StoreCallToActionType Enum:** \| StoreCallToActionType \| Description \| \| --- \| --- \| \| `LINK` \| Link type call to action \| \| `BUTTON` \| Button type call to action \| |
+| `customUrl` | `customUrl` | `string` | No | No | Custom URL for the layer. |
+| `headerText` | `headerText` | `string` | No | No | Header text for the layer. |
+| `pageId` | `pageId` | `string` | No | No | Page identifier for the layer. |
+| `prefixText` | `prefixText` | `string` | No | No | Prefix text for the layer. |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | Single ASIN for the layer. |
+| `tileTextAlignment` | `tileTextAlignment` | `string` | No | No | **StoreTextAlignment Enum:** \| StoreTextAlignment \| Description \| \| --- \| --- \| \| `LEFT` \| Left alignment. Default value configured for StoreEmptyTile \| \| `CENTER` \| Center alignment \| \| `RIGHT` \| Right alignment \| \| `JUSTIFY` \| Justified alignment \| |
+| `tileTextSize` | `tileTextSize` | `string` | No | No | **StoreTileTextSize Enum:** \| StoreTileTextSize \| Description \| \| --- \| --- \| \| `MINI` \| Mini text size \| \| `SMALL` \| Small text size \| \| `MEDIUM` \| Medium text size \| \| `LARGE` \| Large text size \| |
+
+## AdsBrandStoresApiContractStoreTilePosition
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `x` | `x` | `string` | No | No | **HorizontalPosition Enum:** \| HorizontalPosition \| Description \| \| --- \| --- \| \| `LEFT` \| Left position \| \| `CENTER` \| Center position \| \| `RIGHT` \| Right position \| |
+| `y` | `y` | `string` | No | No | **VerticalPosition Enum:** \| VerticalPosition \| Description \| \| --- \| --- \| \| `TOP` \| Top position \| \| `MIDDLE` \| Middle position \| \| `BOTTOM` \| Bottom position \| |
+
+## AdsBrandStoresApiContractStoreTileSize
+
+`enum` model on the `json` wire format.
+
+**Values:** `LARGE`, `MEDIUM`, `MINI`, `SMALL`
+
+## AdsBrandStoresApiContractStoreTileTextSize
+
+`enum` model on the `json` wire format.
+
+**Values:** `LARGE`, `MEDIUM`, `MINI`, `SMALL`
+
+## AdsBrandStoresApiContractStoreTileType
+
+`enum` model on the `json` wire format.
+
+**Values:** `CUSTOM_CODE`, `EMPTY`, `EXTERNAL_WIDGET`, `IMAGE`, `INTERACTIVE_IMAGE`, `PRODUCT`, `TEXT`, `VIDEO`
+
+## AdsBrandStoresApiContractStoreTileWidget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline1812` | Yes | No | — |
+| `rowHeight` | `rowHeight` | `number` | No | No | Height of the row in pixels. |
+| `tiles` | `tiles` | `Array<Inline1813 \| Inline1822 \| Inline1827 \| Inline1829 \| Inline1835 \| Inline1837 \| Inline1841 \| Inline1843>` | Yes | No | The tiles for the widget. Minimum 2 and maximum 8 tiles are allowed. |
+
+## AdsBrandStoresApiContractStoreVerticalAlign
+
+`enum` model on the `json` wire format.
+
+**Values:** `BOTTOM`, `MIDDLE`, `TOP`
+
+## AdsBrandStoresApiContractStoreVideoContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | No | No | Asset identifier. |
+| `assetTags` | `assetTags` | `string` | No | No | Tags associated with the asset. |
+| `autoPlay` | `autoPlay` | `boolean` | No | No | Whether video should auto-play. |
+| `callToAction` | `callToAction` | `string` | No | No | Call to action text. |
+| `canvasData` | `canvasData` | `Inline1847` | No | No | — |
+| `customUrl` | `customUrl` | `string` | No | No | Custom URL for the content. |
+| `imageHeight` | `imageHeight` | `number` | No | No | Height of the image. |
+| `imageKey` | `imageKey` | `string` | No | No | Key for the image asset. |
+| `imageOffsetLeft` | `imageOffsetLeft` | `number` | No | No | Left offset for image positioning. |
+| `imageOffsetTop` | `imageOffsetTop` | `number` | No | No | Top offset for image positioning. |
+| `imageUrl` | `imageUrl` | `string` | No | No | URL of the image. |
+| `imageWidth` | `imageWidth` | `number` | No | No | Width of the image. |
+| `mute` | `mute` | `boolean` | No | No | Whether video should be muted. |
+| `pageId` | `pageId` | `string` | No | No | Page identifier |
+| `productAsins` | `productAsins` | `Array<string>` | No | No | List of product ASINs. |
+| `renderTileLayers` | `renderTileLayers` | `boolean` | No | No | Whether to render tile layers. |
+| `resourceId` | `resourceId` | `string` | No | No | Resource identifier. |
+| `text` | `text` | `string` | No | No | Text content. |
+| `textAlign` | `textAlign` | `string` | No | No | Text alignment. |
+| `textOption` | `textOption` | `string` | No | No | **StoreTextOptionType Enum:** \| StoreTextOptionType \| Description \| \| --- \| --- \| \| `NO_TEXT_OVER_VIDEO` \| No text overlay on video \| \| `TEXT_OVER_VIDEO` \| Text overlay on video \| |
+| `tileLayers` | `tileLayers` | `Array<Inline1848>` | No | No | Configuration for tile layers. |
+| `title` | `title` | `string` | No | No | Title of the content. |
+| `videoAssetId` | `videoAssetId` | `string` | No | No | Video asset identifier. |
+| `videoAssetTags` | `videoAssetTags` | `string` | No | No | Tags associated with the video asset. |
+| `videoDescription` | `videoDescription` | `string` | No | No | Description of the video. |
+| `videoKey` | `videoKey` | `string` | No | No | Key for the video asset. |
+| `videoName` | `videoName` | `string` | No | No | Name of the video. |
+| `videoSize` | `videoSize` | `number` | No | No | Size of the video in bytes. |
+| `videoUrl` | `videoUrl` | `string` | No | No | URL of the video. |
+
+## AdsBrandStoresApiContractStoreVideoRevealVideos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `desktop` | `desktop` | `Inline1851` | Yes | No | Configuration for a single video reveal video asset |
+| `mobile` | `mobile` | `Inline1852` | Yes | No | Configuration for a single video reveal video asset |
+
+## AdsBrandStoresApiContractStoreVideoRevealVRVideo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `assetId` | `assetId` | `string` | Yes | No | Unique identifier for the video asset |
+| `url` | `url` | `string` | Yes | No | URL of the video content |
+
+## AdsBrandStoresApiContractStoreVideoRevealWidget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `backgroundColor` | `backgroundColor` | `string` | Yes | No | Background color (CSS property) |
+| `csmTag` | `csmTag` | `string` | Yes | No | CSM tracking tag for the video reveal |
+| `fadeoutDuration` | `fadeoutDuration` | `string` | Yes | No | Fadeout duration (in ms) |
+| `objectFit` | `objectFit` | `string` | Yes | No | Object fit (CSS property) |
+| `skipReveal` | `skipReveal` | `boolean` | Yes | No | Skip reveal (to be used in development only) |
+| `throttleLimit` | `throttleLimit` | `string` | Yes | No | Play video every X minutes |
+| `videos` | `videos` | `Inline1855` | Yes | No | Collection of video assets for different device types |
+
+## AdsBrandStoresApiContractStoreVideoTile
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline1858` | Yes | No | — |
+| `content` | `content` | `Inline1859` | No | No | — |
+
+## AdsBrandStoresApiContractStoreVideoWidget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `commonProperties` | `commonProperties` | `Inline1863` | Yes | No | — |
+| `tiles` | `tiles` | `Array<Inline1864>` | Yes | No | The content configuration for the video widget. |
+
+## AdsBrandStoresApiContractStoreWidgetSectionType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BANNER`, `BEST_SELLING`, `DEALS_AND_COUPONS`, `EDITORIAL_ROW`, `GALLERY`, `HERO`, `LIVE_VIDEO`, `MANUALLY_CURATED_PRODUCT_CAROUSEL`, `PREMIUM_BEST_SELLING`, `PRODUCT_COLLECTION`, `PRODUCT_GRID`, `RECOMMENDED`, `SHOP_THE_LOOK_CAROUSEL`
+
+## AdsBrandStoresApiContractStoreWidgetType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BANNER`, `EDITORIAL_ROW`, `GALLERY`, `HERO`, `LIVE_VIDEO`, `MULTI_MEDIA_CAROUSEL`, `PRODUCT_CAROUSEL`, `PRODUCT_COLLECTION`, `PRODUCT_GRID`
+
+## AdsBrandStoresApiContractTag
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `key` | `key` | `string` | Yes | No | A custom key value pair entered by the advertiser. For ADSP Campaigns and Ad Groups, Amazon creates a COMMENTS key when the Comments field is populated in UI. |
+| `value` | `value` | `string` | Yes | No | A custom key value pair entered by the advertiser. |
+
+## AdsBrandStoresApiContractTooManyRequestsResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | **ErrorCode Enum:** \| ErrorCode \| Description \| \| --- \| --- \| \| `INTERNAL_ERROR` \| The server encountered an unexpected condition that prevented it from fulfilling the request. \| \| `UNAUTHORIZED` \| The request lacks the necessary credentials. \| \| `FORBIDDEN` \| The caller is not authorized to make the given request. \| \| `TOO_MANY_REQUESTS` \| There have been too many requests, please slow down your call rate. \| \| `NOT_FOUND` \| The requested resource does not exist. \| \| `BAD_REQUEST` \| The request is not valid considering the documented schema. \| \| `CONFLICT` \| Operation could not be completed due to a conflict. Please retry your request. \| \| `DUPLICATE_RESOURCE_ID_FOUND` \| Multiple resources share the same ID. Remove the duplicate ID. \| |
+| `message` | `message` | `string` | Yes | No | — |
+
+## AdsBrandStoresApiContractUnauthorizedResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | **ErrorCode Enum:** \| ErrorCode \| Description \| \| --- \| --- \| \| `INTERNAL_ERROR` \| The server encountered an unexpected condition that prevented it from fulfilling the request. \| \| `UNAUTHORIZED` \| The request lacks the necessary credentials. \| \| `FORBIDDEN` \| The caller is not authorized to make the given request. \| \| `TOO_MANY_REQUESTS` \| There have been too many requests, please slow down your call rate. \| \| `NOT_FOUND` \| The requested resource does not exist. \| \| `BAD_REQUEST` \| The request is not valid considering the documented schema. \| \| `CONFLICT` \| Operation could not be completed due to a conflict. Please retry your request. \| \| `DUPLICATE_RESOURCE_ID_FOUND` \| Multiple resources share the same ID. Remove the duplicate ID. \| |
+| `message` | `message` | `string` | Yes | No | — |
+
+## AdsBrandStoresApiContractUpdateBrandStoreEditionPublishVersionRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brandStoreEditionPublishVersions` | `brandStoreEditionPublishVersions` | `Array<Inline1874>` | Yes | No | — |
+
+## AdsBrandStoresApiContractUpdateBrandStorePageRequest
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brandStorePages` | `brandStorePages` | `Array<Inline1876>` | Yes | No | — |
+
+## AdsBrandStoresApiContractUpdateStorePageContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | Description of the page |
+| `template` | `template` | `string` | No | No | **StorePageTemplate Enum:** \| StorePageTemplate \| Description \| \| --- \| --- \| \| `PRODUCT_GRID` \| Template displaying products in a grid layout \| \| `HIGHLIGHT` \| Template for highlighting specific content \| \| `MARQUEE` \| Template featuring a prominent marquee section \| \| `BLANK` \| Empty template for custom layouts \| \| `PRODUCT_COLLECTION` \| Template for displaying collections of products \| |
+| `title` | `title` | `string` | No | No | For store page, title of the page; for SB landing page, this can be optional |
+| `widgets` | `widgets` | `Array<Inline2000 \| Inline2003 \| Inline2036 \| Inline2042 \| Inline2045 \| Inline2055 \| Inline2068 \| Inline2070 \| Inline2072 \| Inline2075 \| Inline2082 \| Inline2085 \| Inline2090 \| Inline2093 \| Inline2098 \| Inline2102 \| Inline2116 \| Inline2118 \| Inline2121>` | No | No | Collection of widgets displayed on the page |
+
+## AdsBrandStoresApiContractVerticalPosition
+
+`enum` model on the `json` wire format.
+
+**Values:** `BOTTOM`, `MIDDLE`, `TOP`
+
+## BadGatewayResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | — |
+
+## BadRequestResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | — |
+
+## ContentTooLargeResponseContent
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | Yes | No | — |
+| `message` | `message` | `string` | Yes | No | — |
+
+## DSPAdGroupForecast
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupForecastDescription` | `adGroupForecastDescription` | `Inline2128` | Yes | No | The description of which adGroup and what features are enabled for a forecast. |
+| `creationDateTime` | `creationDateTime` | `string` | Yes | No | The creation date of the adGroup forecast. |
+| `forecastDetails` | `forecastDetails` | `Inline2129` | Yes | No | The forecast result of current adGroup or campaign. |
+| `warnings` | `warnings` | `Array<Inline2141>` | No | No | Warnings of the adGroup forecast. |
+
+## DSPAdGroupForecastDescription
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupId` | `adGroupId` | `string` | Yes | No | — |
+| `enabledFeatures` | `enabledFeatures` | `Inline2143` | Yes | No | For the user to specify which features to enable in the forecast result. |
+
+## DSPAdGroupForecastMultiStatusResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline2145>` | No | No | — |
+| `success` | `success` | `Array<Inline2146>` | No | No | — |
+
+## DSPAdGroupForecastMultiStatusSuccess
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupForecast` | `adGroupForecast` | `Inline2161` | Yes | No | — |
+| `index` | `index` | `number` | Yes | No | — |
+
+## DSPBudget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budgetValue` | `budgetValue` | `Inline2176` | Yes | No | — |
+
+## DSPBudgetValue
+
+`scalar` model on the `json` wire format.
+
+**Value:** `Inline2178`
+
+## DSPCampaignForecast
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `availableForecastFlights` | `availableForecastFlights` | `Array<Inline2180>` | No | No | The combination of existing flight settings and proposed flight settings based on forecasting. |
+| `campaignForecastDescription` | `campaignForecastDescription` | `Inline2181` | Yes | No | The description of which adGroup and what features are enabled for a forecast. |
+| `creationDateTime` | `creationDateTime` | `string` | Yes | No | The creation date of the campaign forecast. |
+| `flightForecasts` | `flightForecasts` | `Array<Inline2183>` | No | No | The forecast results of multiple flights of the campaign. |
+
+## DSPCampaignForecastDescription
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignId` | `campaignId` | `string` | Yes | No | The unique identifier of the campaign the ad group belongs to. |
+| `enabledFeatures` | `enabledFeatures` | `Inline2200` | Yes | No | For the user to specify which features to enable in the forecast result. |
+| `flightIds` | `flightIds` | `Array<string>` | No | No | The unique identifier of the flight. |
+| `replanningSettings` | `replanningSettings` | `Inline2201` | No | No | Forecast request of a flight with adjusted settings. |
+
+## DSPCampaignForecastMultiStatusResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `Array<Inline2203>` | No | No | — |
+| `success` | `success` | `Array<Inline2204>` | No | No | — |
+
+## DSPCampaignForecastMultiStatusSuccess
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignForecast` | `campaignForecast` | `Inline2224` | Yes | No | — |
+| `index` | `index` | `number` | Yes | No | — |
+
+## DSPCurrencyCode
+
+`enum` model on the `json` wire format.
+
+**Values:** `AED`, `AUD`, `BRL`, `CAD`, `CHF`, `CNY`, `DKK`, `EGP`, `EUR`, `GBP`, `INR`, `JPY`, `MXN`, `MXP`, `NGN`, `NOK`, `NZD`, `PLN`, `SAR`, `SEK`, `SGD`, `TRY`, `USD`, `ZAR`
+
+## DSPCurve
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `focusPoint` | `focusPoint` | `Array<Inline2245>` | No | No | — |
+| `periodicity` | `periodicity` | `string` | No | No | — |
+| `points` | `points` | `Array<Inline2247>` | No | No | — |
+
+## DSPDeliverInFullConfidence
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `value` | `value` | `string` | Yes | No | — |
+
+## DSPDeliverInFullConfidenceLevel
+
+`enum` model on the `json` wire format.
+
+**Values:** `HIGH`, `LOW`, `MEDIUM`, `UNAVAILABLE`
+
+## DSPEnabledFeaturesInAdGroupForecast
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignSettingsCache` | `campaignSettingsCache` | `boolean` | No | No | Describe if the forecast will use cached settings of a campaign. |
+| `curve` | `curve` | `boolean` | No | No | Describe if the user want to see curve or not. |
+| `metrics` | `metrics` | `Inline2252` | No | No | Describe how user select to see all metrics or selected ones. |
+
+## DSPEnabledFeaturesInCampaignForecast
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaignSettingsCache` | `campaignSettingsCache` | `boolean` | No | No | Describe if the forecast will use cached settings of a campaign. |
+| `curve` | `curve` | `boolean` | No | No | Describe if the user want to see curve or not. |
+| `metrics` | `metrics` | `Inline2254` | No | No | Describe how user select to see all metrics or selected ones. |
+| `replanning` | `replanning` | `boolean` | No | No | Describe if the forecast will show replanning recommendation. |
+
+## DSPFlightForecast
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `curves` | `curves` | `Array<Inline2256>` | No | No | The forecasting curves of a flight based on different periodicities. |
+| `deliverInFullConfidence` | `deliverInFullConfidence` | `Inline2260` | No | No | Desciption of how confident we delivery 100% of the ads for the specific metric. |
+| `flightId` | `flightId` | `string` | Yes | No | The flightId of the flight. |
+| `forecastEndDateTime` | `forecastEndDateTime` | `string` | Yes | No | The endtime of the flight for forecasting. |
+| `forecastStartDateTime` | `forecastStartDateTime` | `string` | Yes | No | The starttime of the flight for forecasting. |
+| `metrics` | `metrics` | `Array<Inline2261>` | No | No | The different metrics to measure the performance of the flight. |
+| `remainingBudget` | `remainingBudget` | `Inline2262` | Yes | No | — |
+| `replanning` | `replanning` | `Array<Inline2263>` | No | No | The recommendation for replanning. |
+| `spend` | `spend` | `number` | Yes | No | The amount of money spend for this flight. |
+| `totalBudget` | `totalBudget` | `Inline2270` | Yes | No | — |
+| `warnings` | `warnings` | `Array<Inline2271>` | No | No | Warnings of the campaign forecast. |
+
+## DSPForecastDetails
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `curves` | `curves` | `Array<Inline2273>` | No | No | The forecast curve of Bid/Spend vs the metric type. |
+| `metrics` | `metrics` | `Array<Inline2277>` | No | No | The type of metric of this forecast. |
+| `replanning` | `replanning` | `Array<Inline2278>` | No | No | The recommendation to help user to replan for the adGroup or campaign. |
+
+## DSPForecastFlight
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `Inline2286` | Yes | No | — |
+| `endDateTime` | `endDateTime` | `string` | Yes | No | — |
+| `flightId` | `flightId` | `string` | No | No | The ID associated with the flight. |
+| `startDateTime` | `startDateTime` | `string` | Yes | No | The start date of the flight. |
+
+## DSPForecastMetric
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `metric` | `metric` | `string` | Yes | No | — |
+| `periodicity` | `periodicity` | `string` | No | No | — |
+| `value` | `value` | `Inline2288` | Yes | No | — |
+
+## DSPForecastMetricsDescription
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `allMetrics` | `allMetrics` | `boolean` | Yes | No | If it is true, all the supported metrics would return. |
+| `selectedMetrics` | `selectedMetrics` | `string` | No | No | — |
+
+## DSPForecastPeriodicity
+
+`enum` model on the `json` wire format.
+
+**Values:** `DAILY`, `LIFETIME`, `MONTHLY`, `WEEKLY`

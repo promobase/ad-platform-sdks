@@ -220,3 +220,19 @@ export {
   PinterestApiError,
   PinterestScopes,
 } from "@openpromo/pinterest";
+
+// --- Amazon Ads ---
+export type {
+  AmazonAdsApiClientOptions,
+  AmazonAdsOAuthConfig,
+  AmazonAdsOAuthTokenResponse,
+  AmazonAdsScope,
+} from "@openpromo/amazon-ads";
+export {
+  AmazonAds,
+  AmazonAdsApiClient,
+  AmazonAdsApiError,
+  AmazonAdsBaseUrls,
+  createAmazonAdsOAuth,
+  AmazonAdsScopes,
+} from "@openpromo/amazon-ads";

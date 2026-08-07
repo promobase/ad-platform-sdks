@@ -1,0 +1,47 @@
+---
+title: "Amazon Ads Ad Group Forecasts endpoints"
+description: "1 generated Amazon Ads endpoint contract for Ad Group Forecasts."
+generated: true
+platform: "amazon-ads"
+sourceVersion: "v5"
+sidebar:
+  order: 100
+  label: "Ad Group Forecasts"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (openapi: https://github.com/pinterest/api-description). Do not edit by hand. */}
+
+## amazon-ads.adGroupForecasts.dSPRetrieveAdGroupForecast
+
+`POST` `/adsApi/v1/retrieve/adGroupForecasts/dsp`
+
+Generated from the Amazon Ads API v3 OpenAPI spec (DSPRetrieveAdGroupForecast)
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `amazon-ads.adGroupForecasts.manage` |
+| Required scopes | `advertising::campaign_management` |
+| Rate-limit bucket | `amazon-ads-api` |
+| Output | `DSPRetrieveAdGroupForecastResponse` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adGroupForecastDescriptions` | `body` | `Array<Inline2484>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 404 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

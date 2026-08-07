@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "source": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/",
+  "license": "Amazon Advertising API Terms",
+  "specs": [
+    {
+      "name": "SponsoredProducts",
+      "file": "SponsoredProducts_prod_3p.json",
+      "version": "3.0",
+      "sha256": "93fa50011836e3f4a6d3beff320735c8f9f77c7ee14fe212899b346a7ba344cc"
+    },
+    {
+      "name": "SponsoredBrands",
+      "file": "SponsoredBrands_prod_3p.json",
+      "version": "3.0",
+      "sha256": "7aec06523e3d0574191ee906d6af2990f8ca123acbee94873f10c45918a5250e"
+    },
+    {
+      "name": "SponsoredDisplay",
+      "file": "SponsoredDisplay_prod_3p.json",
+      "version": "3.0",
+      "sha256": "62fa89c449f5c40926b3c7caef7675f4381f81839f34741393db7d52d463ab07"
+    },
+    {
+      "name": "AmazonAdsAPI",
+      "file": "AmazonAdsAPI_prod_3p.json",
+      "version": "3.0",
+      "sha256": "9dd61a7e5aa339ad8bd9c6f479489cb3583807ee326653f9bfde95764206863d"
+    }
+  ]
+}

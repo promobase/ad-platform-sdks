@@ -1,0 +1,80 @@
+{
+  "source": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/SponsoredBrands_prod_3p.json",
+  "specSha256": "7aec06523e3d0574191ee906d6af2990f8ca123acbee94873f10c45918a5250e",
+  "endpoints": 56,
+  "tags": [
+    {
+      "name": "Ads",
+      "endpoints": 12
+    },
+    {
+      "name": "Ad Creatives",
+      "endpoints": 6
+    },
+    {
+      "name": "BudgetRules",
+      "endpoints": 8
+    },
+    {
+      "name": "Budget Usage",
+      "endpoints": 1
+    },
+    {
+      "name": "Budget Recommendations",
+      "endpoints": 1
+    },
+    {
+      "name": "BudgetRulesRecommendation",
+      "endpoints": 1
+    },
+    {
+      "name": "Insights",
+      "endpoints": 1
+    },
+    {
+      "name": "Forecast",
+      "endpoints": 1
+    },
+    {
+      "name": "Targeting recommendations",
+      "endpoints": 1
+    },
+    {
+      "name": "Recommendations",
+      "endpoints": 1
+    },
+    {
+      "name": "Keyword Recommendations",
+      "endpoints": 1
+    },
+    {
+      "name": "SB Optimization Recommendations",
+      "endpoints": 1
+    },
+    {
+      "name": "Optimization Rules",
+      "endpoints": 5
+    },
+    {
+      "name": "Product targeting categories",
+      "endpoints": 3
+    },
+    {
+      "name": "AdGroups",
+      "endpoints": 4
+    },
+    {
+      "name": "Campaigns",
+      "endpoints": 4
+    },
+    {
+      "name": "V3 Campaign Migration",
+      "endpoints": 4
+    },
+    {
+      "name": "Ad Migrations",
+      "endpoints": 1
+    }
+  ],
+  "schemas": 351
+}

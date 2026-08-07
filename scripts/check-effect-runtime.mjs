@@ -80,6 +80,38 @@ const entries = [
     750,
     200,
   ],
+  [
+    "amazon-ads-sp",
+    "packages/amazon-ads-sdk/src/generated/sponsored-products/effect/index.ts",
+    "packages/amazon-ads-sdk/src/generated/sponsored-products/effect/manifest.json",
+    2_500_000,
+    750,
+    60,
+  ],
+  [
+    "amazon-ads-sb",
+    "packages/amazon-ads-sdk/src/generated/sponsored-brands/effect/index.ts",
+    "packages/amazon-ads-sdk/src/generated/sponsored-brands/effect/manifest.json",
+    1_500_000,
+    750,
+    40,
+  ],
+  [
+    "amazon-ads-sd",
+    "packages/amazon-ads-sdk/src/generated/sponsored-display/effect/index.ts",
+    "packages/amazon-ads-sdk/src/generated/sponsored-display/effect/manifest.json",
+    800_000,
+    750,
+    15,
+  ],
+  [
+    "amazon-ads-api",
+    "packages/amazon-ads-sdk/src/generated/api/effect/index.ts",
+    "packages/amazon-ads-sdk/src/generated/api/effect/manifest.json",
+    1_200_000,
+    750,
+    6,
+  ],
 ];
 
 let failed = false;

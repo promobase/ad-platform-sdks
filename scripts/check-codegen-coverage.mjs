@@ -11,6 +11,10 @@ const manifests = [
   "packages/snapchat-sdk/src/generated/effect/manifest.json",
   "packages/reddit-sdk/src/generated/effect/manifest.json",
   "packages/pinterest-sdk/src/generated/effect/manifest.json",
+  "packages/amazon-ads-sdk/src/generated/sponsored-products/effect/manifest.json",
+  "packages/amazon-ads-sdk/src/generated/sponsored-brands/effect/manifest.json",
+  "packages/amazon-ads-sdk/src/generated/sponsored-display/effect/manifest.json",
+  "packages/amazon-ads-sdk/src/generated/api/effect/manifest.json",
 ];
 
 for (const path of manifests) {
