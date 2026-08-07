@@ -1,7 +1,7 @@
 {
   "name": "@mosaic/ad-platforms",
-  "version": "0.7.0",
-  "description": "Unified type-safe TypeScript SDK for Meta (Facebook, Instagram, Threads), TikTok, LinkedIn, X, YouTube, and future ad platforms \u2014 single install, single namespace",
+  "version": "0.8.0",
+  "description": "Unified type-safe TypeScript SDK for Meta (Facebook, Instagram, Threads), TikTok, LinkedIn, X, YouTube, and future ad platforms — single install, single namespace",
   "keywords": [
     "meta",
     "facebook",

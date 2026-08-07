@@ -1,5 +1,18 @@
 # @mosaic/ad-platforms-cli
 
+## 0.6.2
+
+### Patch Changes
+
+- Updated dependencies [[`183e0c6`](https://github.com/promobase/ad-platform-sdks/commit/183e0c6bc05f66b365246da23844e04c9c502b73), [`537365f`](https://github.com/promobase/ad-platform-sdks/commit/537365f101d89211713306e2ea4ad06df50b3e1f), [`0fdf7fb`](https://github.com/promobase/ad-platform-sdks/commit/0fdf7fb34547b1772b1ecb3467af3d9e38651739), [`fff8359`](https://github.com/promobase/ad-platform-sdks/commit/fff8359973103f9055727424b07f6c0242d0f105), [`fff8359`](https://github.com/promobase/ad-platform-sdks/commit/fff8359973103f9055727424b07f6c0242d0f105)]:
+  - @mosaic/ad-platforms@0.8.0
+  - @mosaic/google-ads@0.3.1
+  - @mosaic/linkedin@0.7.0
+  - @mosaic/meta@0.3.1
+  - @mosaic/tiktok@0.4.1
+  - @mosaic/x@0.6.0
+  - @mosaic/youtube@0.6.0
+
 ## 0.6.1
 
 ### Patch Changes
