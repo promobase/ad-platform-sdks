@@ -1,6 +1,8 @@
-# Contributing
+# Contributing to Mosaic
 
-Thanks for your interest in contributing to `ad-platform-sdks`.
+Thanks for helping make Mosaic a useful, durable open-source SDK family. Contributions are welcome
+in provider coverage, code generation, runtime reliability, documentation, examples, and developer
+tooling.
 
 ## Dev setup
 
@@ -78,3 +80,9 @@ After running codegen, run `bun run typecheck` to verify the output.
 ## License
 
 By contributing you agree your changes will be licensed under [MIT](./LICENSE).
+
+## Project identity
+
+Mosaic is the open-source project name. The packages currently publish under the existing
+`@openpromo/*` namespace and are maintained by [OpenPromo](https://openpromo.app); do not rename
+package identifiers or repository URLs as part of a focused contribution.
