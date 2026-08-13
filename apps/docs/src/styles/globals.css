@@ -209,8 +209,16 @@ body {
   display: none;
 }
 
-[data-mode="dark"] .openpromo-mark {
-  filter: invert(1);
+.mosaic-mark-dark {
+  display: none;
+}
+
+[data-mode="dark"] .mosaic-mark-light {
+  display: none;
+}
+
+[data-mode="dark"] .mosaic-mark-dark {
+  display: block;
 }
 
 [data-mode="dark"] .openpromo-wordmark-light {

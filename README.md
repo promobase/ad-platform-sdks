@@ -1,154 +1,139 @@
 <div align="center">
 
-<a href="https://openpromo.app">
-  <img src="https://raw.githubusercontent.com/promobase/identity/main/assets/logo.svg" width="96" alt="OpenPromo logo" />
+<a href="https://mosaic.openpromo.app">
+  <img src="./apps/docs/public/mosaic-mark.svg" width="88" alt="Mosaic" />
 </a>
 
-# Mosaic — Ad Platform SDKs
+# Mosaic
 
-```
- __  __                 _      
-|  \/  | ___  ___  __ _(_) ___ 
-| |\/| |/ _ \/ __|/ _` | |/ __|
-| |  | | (_) \__ \ (_| | | (__ 
-|_|  |_|\___/|___/\__,_|_|\___|
-```
+**Open-source, type-safe TypeScript SDKs for social and advertising platforms.**
 
-**Mosaic: one type-safe TypeScript SDK family for every ad platform. AI-agent ready.**
-
-Powering [**OpenPromo**](https://openpromo.app) — the AI-native social media workspace.
+One install for provider-native clients, generated API contracts, publishing workflows, metrics,
+and agent-ready operations.
 
 [![npm](https://img.shields.io/npm/v/@openpromo/ad-platforms.svg?label=%40openpromo%2Fad-platforms)](https://www.npmjs.com/package/@openpromo/ad-platforms)
 [![CI](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml/badge.svg)](https://github.com/promobase/ad-platform-sdks/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
+[Documentation](https://mosaic.openpromo.app) · [Contributing](./CONTRIBUTING.md) · [GitHub](https://github.com/promobase/ad-platform-sdks)
+
 </div>
 
----
+## What is Mosaic?
 
-## What
+Mosaic is a family of runtime-agnostic TypeScript SDKs for **Meta** (Facebook, Instagram,
+Threads), **TikTok**, **Snapchat**, **Reddit**, **Pinterest**, **Amazon Ads**, **Bluesky**,
+**LinkedIn**, **X**, **YouTube**, **Google Ads**, and **Google Business Profile**.
 
-Mosaic is one SDK family for **Meta** (Facebook, Instagram, Threads), **TikTok**, **Snapchat**, **Reddit**, **Pinterest**, **Amazon Ads**, **Bluesky**, **LinkedIn**, **X**, **YouTube**, **Google Ads**, and **Google Business Profile**. Fully typed, generated from official specs and lexicons, with high-level clients for publishing, messaging, metrics, and ad management, plus AI tools and a discoverable CLI for agents.
+It keeps the provider-specific surface intact while giving applications a shared foundation for
+authentication, retries, pagination, publishing, metrics, and agent tooling. Generated clients are
+derived from official specifications, lexicons, and API descriptions wherever possible.
 
-## Install
+## Quick start
 
 ```bash
 bun add @openpromo/ad-platforms
 ```
 
-## Use
-
 ```ts
-import { Meta, TikTok } from "@openpromo/ad-platforms";
-import { createAllTools } from "@openpromo/ad-platforms/ai";
-import { generateText } from "ai";
-import { anthropic } from "@ai-sdk/anthropic";
+import { Meta } from "@openpromo/ad-platforms";
 
-const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
-const ig = Meta.Instagram.createClient({ api: meta, igAccountId: "ig_123" });
+const meta = Meta.createClient({
+  accessToken: process.env.META_TOKEN!,
+});
 
-// Publish a reel from a public URL — handles container creation and polling
-await ig.media.publishVideo({
+const instagram = Meta.Instagram.createClient({
+  api: meta,
+  igAccountId: "ig_123",
+});
+
+await instagram.media.publishVideo({
   videoUrl: "https://cdn.example.com/reel.mp4",
   caption: "New drop 🔥",
 });
-
-// Give an AI agent access to every platform
-const tools = createAllTools({
-  meta: { api: meta, igAccountId: "ig_123", pageId: "p_456", pageAccessToken: "..." },
-  tiktok: { accessToken: "...", businessId: "biz_789" },
-});
-
-await generateText({
-  model: anthropic("claude-sonnet-4-20250514"),
-  tools,
-  maxSteps: 10,
-  prompt: "Post this photo to Instagram and TikTok, then reply to recent comments",
-});
 ```
 
-## Features
+## Why Mosaic?
 
-- **985 typed Meta Graph API objects** with 503 real enum values (not `string`)
-- **Google Ads API v25** with typed GAQL, plus a retained raw v23 compatibility export
-- **531 generated TikTok Marketing API endpoints** across 71 current documentation categories
-- **Snapchat Marketing API** — 214 endpoints generated from the official docs (campaigns, media uploads, targeting, stats)
-- **Reddit Ads API v3** — 40 endpoints from a pinned OpenAPI spec (accounts, campaigns, ad groups, audiences)
-- **Pinterest REST API v5** — 266 endpoints from Pinterest's official spec (ads, boards, pins, catalogs)
-- **Amazon Ads API v3** — 166 endpoints across Sponsored Products, Sponsored Brands, and Sponsored Display
-- **Bluesky + AT Protocol** — 197 endpoints from the official lexicons (posts, feeds, graphs, notifications)
-- **Field-level type narrowing** — `Pick<CampaignFields, "id" | "name">` on every query
-- **Publishing clients** for Instagram, Facebook, Threads, and TikTok (photo, video/reel, carousel, story)
-- **Full inbox** — DMs, comments, private replies with Zod-validated webhook payloads
-- **OAuth** — token exchange, long-lived tokens, refresh for all platforms
-- **Organic metrics** — normalized single and bounded-concurrency bulk reads with raw provider payloads
-- **Google Business Profile** — locations, local posts, post insights, and location performance
-- **Rate limiting** — auto-parses Meta's `x-app-usage` headers, runtime-agnostic throttling
-- **Retry with exponential backoff** — automatic recovery from 5xx and network errors
-- **Batch API** — typed multi-request batches for Meta
-- **58 AI SDK tools** — type-safe, filterable, with middleware and two-stage routing
-- **Agent-native operation catalog** — shared schemas and execution for direct clients, AI SDK,
-  Code Mode, MCP, and CLI hosts
-- **Effect-native contracts and runtime** — generated Effect Schema, typed error channels, Layers,
-  cancellation, and a Promise projection from the same endpoint descriptor
-- **Runtime agnostic** — native `fetch`, no axios, works in Bun, Node, Deno, edge
-
-See [the Effect migration guide](./docs/effect-migration.md),
-[the architecture](./docs/effect-native-architecture.md), and
-[the OpenPromo ownership boundary](./docs/openpromo-migration.md).
+- **Generated coverage** — provider APIs become typed clients from canonical contracts instead of
+  hand-maintained endpoint lists.
+- **One runtime** — shared HTTP, pagination, retry, rate-limit, and error primitives across every
+  package.
+- **Provider-native when it matters** — use the full native API surface, or opt into normalized
+  operations for portable workflows.
+- **Agent-ready** — the same operation contracts project into direct clients, AI SDK tools, MCP,
+  Code Mode, and the CLI.
+- **Runtime agnostic** — native `fetch`; works in Bun, Node, Deno, and edge runtimes.
 
 ## Packages
 
-| Package                                                                         | Description                                                     |
-| ------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| [`@openpromo/ad-platforms`](./packages/ad-platforms/)                           | Umbrella package — all platforms, single install                |
-| [`@openpromo/meta`](./packages/meta-business-sdk/)                              | Meta only (Facebook, Instagram, Threads)                        |
-| [`@openpromo/tiktok`](./packages/tiktok-business-sdk/)                          | TikTok only                                                     |
-| [`@openpromo/google-ads`](./packages/google-ads-sdk/)                           | Google Ads v25, ergonomic clients, and typed GAQL               |
-| [`@openpromo/google-business-profile`](./packages/google-business-profile-sdk/) | Google Business Profile locations, local posts, and performance |
-| [`@openpromo/linkedin`](./packages/linkedin-sdk/)                               | LinkedIn organic publishing, media, organizations, and OAuth    |
-| [`@openpromo/x`](./packages/x-sdk/)                                             | X posts, media upload, and user lookup                          |
-| [`@openpromo/youtube`](./packages/youtube-sdk/)                                 | YouTube Data API v3 and resumable uploads                       |
-| [`@openpromo/snapchat`](./packages/snapchat-sdk/)                             | Snapchat Marketing API — 214 docs-generated endpoints           |
-| [`@openpromo/reddit`](./packages/reddit-sdk/)                                 | Reddit Ads API v3 — 40 endpoints from a pinned spec             |
-| [`@openpromo/pinterest`](./packages/pinterest-sdk/)                           | Pinterest REST API v5 — 266 endpoints from the official spec    |
-| [`@openpromo/amazon-ads`](./packages/amazon-ads-sdk/)                         | Amazon Ads API v3 — 166 endpoints across SP, SB, and SD         |
-| [`@openpromo/bluesky`](./packages/bluesky-sdk/)                               | Bluesky + AT Protocol — 197 lexicon-generated endpoints         |
-| [`@openpromo/ad-platforms-cli`](./packages/cli/)                                | Agent-discoverable CLI and MCP server                           |
-| [`@openpromo/sdk-runtime`](./packages/sdk-runtime/)                             | Shared HTTP, pagination, retry, and rate-limit runtime          |
+| Package | Description |
+| --- | --- |
+| [`@openpromo/ad-platforms`](./packages/ad-platforms/) | Umbrella package — all platforms, one install |
+| [`@openpromo/meta`](./packages/meta-business-sdk/) | Meta, Facebook, Instagram, and Threads |
+| [`@openpromo/tiktok`](./packages/tiktok-business-sdk/) | TikTok Business and Developer APIs |
+| [`@openpromo/google-ads`](./packages/google-ads-sdk/) | Google Ads, typed GAQL, and generated services |
+| [`@openpromo/google-business-profile`](./packages/google-business-profile-sdk/) | Locations, local posts, and performance |
+| [`@openpromo/linkedin`](./packages/linkedin-sdk/) | LinkedIn publishing, organizations, and OAuth |
+| [`@openpromo/x`](./packages/x-sdk/) | X posts, media upload, and user lookup |
+| [`@openpromo/youtube`](./packages/youtube-sdk/) | YouTube Data API and resumable uploads |
+| [`@openpromo/snapchat`](./packages/snapchat-sdk/) | Snapchat Marketing API |
+| [`@openpromo/reddit`](./packages/reddit-sdk/) | Reddit Ads API |
+| [`@openpromo/pinterest`](./packages/pinterest-sdk/) | Pinterest REST API |
+| [`@openpromo/amazon-ads`](./packages/amazon-ads-sdk/) | Amazon Ads API |
+| [`@openpromo/bluesky`](./packages/bluesky-sdk/) | Bluesky and AT Protocol |
+| [`@openpromo/ad-platforms-cli`](./packages/cli/) | CLI and MCP surfaces for agents |
+| [`@openpromo/sdk-runtime`](./packages/sdk-runtime/) | Shared transport and runtime primitives |
 
-OpenPromo consumers should start with the [first-party migration guide](./docs/openpromo-migration.md).
+## Project structure
 
-## Why
+```text
+packages/sdk-runtime       shared HTTP, retry, pagination, and errors
+packages/*-sdk             provider-specific clients and generated contracts
+packages/ad-platforms      cross-platform exports and operation catalog
+packages/cli                CLI and MCP presentation surfaces
+apps/docs                  Mosaic documentation and API reference
+```
 
-The official ad platform SDKs are either untyped JavaScript, incomplete, or abandoned. If you've used `facebook-nodejs-business-sdk`, you know — `params: Object` everywhere, no autocomplete, no compile-time safety.
+Read the [architecture guide](./docs/effect-native-architecture.md) for the contract and runtime
+boundaries, or start with the [documentation site](https://mosaic.openpromo.app).
 
-We built this because [openpromo.app](https://openpromo.app) needs production-grade typed access to every major ad platform, and the AI agents powering it need structured tools they can reason about. Everything here is battle-tested in production.
+## Contributing
+
+Mosaic is intended to be useful beyond one application. Contributions are welcome in provider
+coverage, code generation, runtime reliability, documentation, examples, and developer tooling.
+
+Start with [CONTRIBUTING.md](./CONTRIBUTING.md). Before opening a pull request, run the narrowest
+relevant checks plus `git diff --check`; cross-package or generated-code changes should use the
+full repository gates described there.
 
 ## Development
 
 ```bash
 git clone --recurse-submodules https://github.com/promobase/ad-platform-sdks.git
 cd ad-platform-sdks
-bun install
+bun install --frozen-lockfile
 
-# Workspace gates
 bun run lint
 bun run format:check
-bun run typecheck # Native TypeScript 7 compiler (formerly tsgo)
+bun run typecheck
 bun run build
 bun run test
+```
 
-# Example provider codegen
+Provider codegen examples:
+
+```bash
 (cd packages/meta-business-sdk && bun run codegen)
 (cd packages/google-ads-sdk && bun run codegen)
 (cd packages/tiktok-business-sdk && bun run codegen:refresh)
-(cd packages/snapchat-sdk && bun run codegen)
-(cd packages/reddit-sdk && bun run codegen)
-(cd packages/pinterest-sdk && bun run codegen)
-(cd packages/amazon-ads-sdk && bun run codegen)
-(cd packages/bluesky-sdk && bun run codegen)
 ```
+
+## Provenance
+
+Mosaic is maintained by [OpenPromo](https://openpromo.app) and was originally built to power its
+AI-native social media workspace. The public SDK packages currently publish under the existing
+`@openpromo/*` namespace; this project identity refresh does not change package names or imports.
 
 ## License
 
