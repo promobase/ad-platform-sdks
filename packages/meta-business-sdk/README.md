@@ -106,6 +106,9 @@ These generated contract surfaces are separate from the hand-authored
 `@openpromo/meta/webhooks` Valibot schemas, which model provider webhook
 payloads and event extraction.
 
+For a compile-checked OAuth → connected-account → workflow publishing → webhook handoff flow, see
+[`examples/openpromo-integration-flow.ts`](./examples/openpromo-integration-flow.ts).
+
 ## Features
 
 - **985 typed Graph API objects** — AdAccount, Campaign, AdSet, Ad, Page, Business, and more
@@ -115,6 +118,7 @@ payloads and event extraction.
 - **Worker-safe webhook leaf** — Valibot schemas, Web Crypto verification, and typed Facebook/Instagram/Threads/WhatsApp event extraction via `@openpromo/meta/webhooks`
 - **Native messaging transports** — typed Messenger, Instagram publishing, and WhatsApp Cloud API operations via `@openpromo/meta/transports`
 - **OAuth** — token exchange, long-lived tokens, refresh
+- **WhatsApp Cloud API** — typed text, media, template, interactive sends, webhook messages, and delivery statuses
 - **Rate limiting** — auto-parses Graph API `x-app-usage` headers, runtime-agnostic throttling
 - **Retry with exponential backoff** — automatic recovery from 5xx and network errors
 - **Batch API** — typed multi-request batches

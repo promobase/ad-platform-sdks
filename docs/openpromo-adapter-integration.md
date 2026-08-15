@@ -4,6 +4,9 @@ Mosaic is the provider transport boundary for OpenPromo. OpenPromo remains the
 owner of workspace/account persistence, encrypted credentials, refresh timing,
 workflow checkpoints, and publisher/domain behavior.
 
+The executable, compile-checked version of these composition seams lives in
+[`packages/meta-business-sdk/examples/openpromo-integration-flow.ts`](../packages/meta-business-sdk/examples/openpromo-integration-flow.ts).
+
 ## Normalized OAuth seam
 
 Provider packages keep their existing `OAuth` helpers for compatibility and add

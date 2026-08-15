@@ -1,0 +1,141 @@
+---
+title: End-to-end integration examples
+description: Compose OAuth, connected accounts, provider-native publishing, and webhooks without moving application ownership into Mosaic.
+sidebar:
+  order: 30
+  label: End-to-end examples
+---
+
+The repository includes a compile-checked [integration flow example](https://github.com/promobase/ad-platform-sdks/blob/master/packages/meta-business-sdk/examples/openpromo-integration-flow.ts). It shows the seams an application owns around Mosaic:
+
+1. Exchange an OAuth callback and validate state.
+2. Resolve provider account metadata and map it into an application connection.
+3. Run provider mutations inside explicit workflow steps.
+4. Verify a webhook, extract typed events, and enqueue them for domain processing.
+
+The example deliberately does not define an `Ent`, persistence model, queue schema, Inbox handler,
+approval policy, or content state machine. Those are application concerns.
+
+## OAuth to a connected account
+
+```ts
+const grant = await exchangeFacebookCode({
+  config: { appId, appSecret, redirectUri },
+  code: callbackCode,
+  callbackState,
+  expectedState: storedState,
+});
+
+const connection = await grant.match({
+  ok: (tokenSet) =>
+    resolveFacebookPage({
+      config: { appId, appSecret, redirectUri },
+      accessToken: tokenSet.accessToken,
+      pageId,
+    }),
+  err: (error) => {
+    // Persist a typed connection failure or show a retryable error.
+    throw error;
+  },
+});
+```
+
+Mosaic returns typed provider data and OAuth errors. The host encrypts and persists tokens,
+performs refresh locking, and decides how a connection is represented.
+
+## Provider publishing inside workflow steps
+
+For a one-request mutation, keep the provider call in one step:
+
+```ts
+const published = await publishFacebookTextPost(
+  connection,
+  "Hello from a durable workflow",
+  workflow,
+);
+```
+
+For a multi-request provider flow, keep every external effect and provider ID visible to the
+workflow. Instagram media publishing is a representative example:
+
+```ts
+const published = await publishInstagramImage(
+  {
+    accessToken,
+    instagramAccountId,
+    imageUrl,
+    caption,
+  },
+  workflow,
+);
+```
+
+The example creates a container, polls its provider status with workflow sleeps, publishes it, and
+reads the permalink. Mosaic returns those provider-native IDs and statuses; the application maps
+them into its own content and receipt records.
+
+## WhatsApp Cloud API
+
+WhatsApp is available as a typed Cloud API transport and webhook surface. It uses the access token
+and phone number ID supplied by the host; it does not currently expose a normalized `WhatsApp.oauth`
+adapter in Mosaic.
+
+```ts
+const sent = await sendWhatsAppText(
+  {
+    accessToken,
+    phoneNumberId,
+    to: customerPhoneNumber,
+    body: "Your order is ready.",
+  },
+  workflow,
+);
+```
+
+Inbound messages and delivery statuses use the same verify → parse → enqueue boundary:
+
+```ts
+return handleWhatsAppWebhook(request, {
+  META_VERIFY_TOKEN: env.META_VERIFY_TOKEN,
+  META_APP_SECRET: env.META_APP_SECRET,
+  enqueue: (events) => env.WHATSAPP_EVENTS.sendBatch(
+    events.map((event) => ({ body: event })),
+  ),
+});
+```
+
+The extracted event is discriminated as `message`, `status`, or `unknown`, with the phone number
+ID and WABA ID attached for host-side account resolution.
+
+## Webhook verification to queue handoff
+
+```ts
+export async function onRequest(request: Request, env: Env) {
+  return handleFacebookWebhook(request, {
+    META_VERIFY_TOKEN: env.META_VERIFY_TOKEN,
+    META_APP_SECRET: env.META_APP_SECRET,
+    enqueue: (events) => env.FACEBOOK_EVENTS.sendBatch(
+      events.map((event) => ({ body: event })),
+    ),
+  });
+}
+```
+
+The handler verifies the challenge or signature, validates the payload with the Valibot-backed
+schema, extracts discriminated provider events, and acknowledges after queue admission. OpenPromo
+or another host then owns idempotency, account resolution, Inbox/domain handlers, and durable
+receipts.
+
+## Ownership boundary
+
+| Concern | Application | Mosaic |
+| --- | --- | --- |
+| OAuth state store and encrypted tokens | Yes | No |
+| Connected-account records | Yes | No |
+| Provider HTTP, response types, OAuth adapters | No | Yes |
+| Workflow steps and retry/reconciliation policy | Yes | No |
+| Webhook verification and typed extraction | No | Yes |
+| Queue admission, idempotency, Inbox processing | Yes | No |
+
+See [Meta webhooks](/guides/webhooks), [Publishing and workflows](/guides/publishing-and-workflows),
+and the [OpenPromo integration guide](/guides/openpromo) for the individual boundaries.
