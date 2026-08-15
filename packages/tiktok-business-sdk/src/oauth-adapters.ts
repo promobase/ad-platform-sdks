@@ -1,9 +1,9 @@
 import {
   AllPlatforms,
-  assertOAuthState,
   createPkcePair,
   OAuthAdapterError,
   secondsFromNow,
+  type OAuthRefreshInput,
   type OAuthAdapterWithResults,
   type OAuthTokenSet,
   withOAuthResults,
@@ -51,6 +51,21 @@ export interface TikTokAdvertiserInfo {
   readonly advertiser_id: string;
   readonly advertiser_name: string;
   readonly profile_image_url?: string;
+}
+
+function unsupportedAdvertiserOAuthAction(action: "refresh" | "revoke"): never {
+  throw new OAuthAdapterError(
+    `TikTok Marketing API does not expose ${action} for advertiser credentials; reauthorize the account`,
+    {
+      provider: AllPlatforms.TIKTOK,
+      phase: action,
+      providerData: {
+        credentialFamily: "marketing-api",
+        supported: false,
+        reason: "The Business API advertiser flow exposes authorization-code exchange only.",
+      },
+    },
+  );
 }
 
 export interface TikTokBusinessProfile {
@@ -130,6 +145,25 @@ const advertiserInfoResponseSchema = v.object({
   ),
 });
 
+function assertSecureOAuthState(
+  provider: AllPlatforms,
+  state: string | undefined,
+  expectedState: string | undefined,
+): void {
+  if (!state || !expectedState) {
+    throw new OAuthAdapterError("OAuth state and expectedState are required", {
+      provider,
+      phase: "validate",
+    });
+  }
+  if (state !== expectedState) {
+    throw new OAuthAdapterError("OAuth state mismatch", {
+      provider,
+      phase: "validate",
+    });
+  }
+}
+
 function businessTokenSet(raw: TokenResponse): OAuthTokenSet<TikTokBusinessOAuthData> {
   return {
     accessToken: raw.access_token,
@@ -182,7 +216,7 @@ export function createTikTokBusinessOAuthAdapter(
       };
     },
     async exchangeCode(input) {
-      assertOAuthState(input.state, input.expectedState);
+      assertSecureOAuthState(AllPlatforms.TIKTOK, input.state, input.expectedState);
       const raw = v.parse(businessTokenSchema, await legacy.exchangeCode(input.code));
       return businessTokenSet(raw);
     },
@@ -241,7 +275,7 @@ export function createTikTokDeveloperOAuthAdapter(
       };
     },
     async exchangeCode(input) {
-      assertOAuthState(input.state, input.expectedState);
+      assertSecureOAuthState(AllPlatforms.TIKTOK, input.state, input.expectedState);
       if (!input.codeVerifier) {
         throw new OAuthAdapterError("TikTok Developer OAuth requires a code verifier", {
           provider: AllPlatforms.TIKTOK,
@@ -274,6 +308,8 @@ export function createTikTokDeveloperOAuthAdapter(
 export function createTikTokAdvertiserOAuthAdapter(
   config: TikTokAdvertiserOAuthConfig,
 ): OAuthAdapterWithResults<TikTokAdvertiserOAuthData> & {
+  refresh(input: OAuthRefreshInput): Promise<never>;
+  revoke(input: { token: string; tokenType?: "access_token" | "refresh_token" }): Promise<never>;
   listAdvertisers(input: {
     accessToken: string;
     advertiserIds: readonly string[];
@@ -300,7 +336,7 @@ export function createTikTokAdvertiserOAuthAdapter(
       };
     },
     async exchangeCode(input) {
-      assertOAuthState(input.state, input.expectedState);
+      assertSecureOAuthState(AllPlatforms.TIKTOK, input.state, input.expectedState);
       const response = await fetchImpl(
         "https://business-api.tiktok.com/open_api/v1.3/oauth2/access_token/",
         {
@@ -329,6 +365,12 @@ export function createTikTokAdvertiserOAuthAdapter(
         scopes: [...(input.scopes ?? [])],
         providerData: { ...envelope.data, credentialFamily: "marketing-api" },
       };
+    },
+    async refresh() {
+      return unsupportedAdvertiserOAuthAction("refresh");
+    },
+    async revoke() {
+      return unsupportedAdvertiserOAuthAction("revoke");
     },
     async listAdvertisers(input: { accessToken: string; advertiserIds: readonly string[] }) {
       const params = new URLSearchParams({

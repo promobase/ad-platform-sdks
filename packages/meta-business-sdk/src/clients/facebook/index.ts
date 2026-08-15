@@ -26,14 +26,12 @@ const DEFAULT_WEBHOOK_FIELDS = [
 export type * from "./types.ts";
 
 export function createFacebookPageClient(opts: FacebookPageClientOptions) {
-  const api =
-    opts.api ??
-    createGraphClient({
-      accessToken: opts.accessToken,
-      apiVersion: opts.apiVersion,
-      fetch: opts.fetch,
-      signal: opts.signal,
-    });
+  const api = createGraphClient({
+    accessToken: opts.accessToken,
+    apiVersion: opts.apiVersion,
+    fetch: opts.fetch,
+    signal: opts.signal,
+  });
   const pageId = opts.pageId;
   const accessToken = opts.accessToken;
   const page = api.page(pageId);

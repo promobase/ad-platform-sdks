@@ -11,7 +11,7 @@ tableOfContents: false
 ---
 
 {/* @generated */}
-{/* fingerprint: sha256:19d4f9c4c3082a1d1dfc677048566449789a0fe4c75d8c7d06006fd4ffca5a64 */}
+{/* fingerprint: sha256:fb4b9e769d1fc1deaeadba68eb9ba2e0a2778b4d9aa76fbd5400af03b533a9d4 */}
 {/* DO NOT EDIT: generated file; changes will be overwritten. */}
 
 {/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
@@ -577,7 +577,7 @@ GET IGUser content_publishing_limit
 | Execution | `inline` |
 | Idempotency | `safe` |
 | Capabilities | `iGUser.read` |
-| Required scopes | None declared |
+| Required scopes | `instagram_basic` |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `ContentPublishingLimitResponseFields` |
 
@@ -772,7 +772,7 @@ GET IGUser insights
 | Execution | `inline` |
 | Idempotency | `safe` |
 | Capabilities | `iGUser.read` |
-| Required scopes | None declared |
+| Required scopes | `instagram_manage_insights` |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `InstagramInsightsResultFields` |
 
@@ -948,7 +948,7 @@ POST IGUser media
 | Execution | `durable` |
 | Idempotency | `unsafe` |
 | Capabilities | `iGUser.manage` |
-| Required scopes | None declared |
+| Required scopes | `instagram_content_publish` |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `IGMediaFields` |
 
@@ -1005,7 +1005,7 @@ POST IGUser media_publish
 | Execution | `durable` |
 | Idempotency | `unsafe` |
 | Capabilities | `iGUser.manage` |
-| Required scopes | None declared |
+| Required scopes | `instagram_content_publish` |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `IGMediaFields` |
 

@@ -1,4 +1,8 @@
-import type { IGUserFields } from "./types.ts";
+import type {
+  IGUserFields,
+  InstagramAccountInsightsOptions,
+  InstagramInsightsResultFields,
+} from "./types.ts";
 
 type CreateClientReturn = ReturnType<typeof import("../../generated/index.ts").createClient>;
 
@@ -20,6 +24,29 @@ export function createAccount(api: CreateClientReturn, igAccountId: string) {
             "biography",
           ] as (keyof IGUserFields)[]),
       });
+    },
+
+    /** Read account-level insights with provider-native metric and period names. */
+    async insights(opts: InstagramAccountInsightsOptions) {
+      return api
+        .iGUser(igAccountId)
+        .insights({
+          fields: [
+            "name",
+            "period",
+            "values",
+            "total_value",
+          ] as (keyof InstagramInsightsResultFields)[],
+          params: {
+            metric: [...opts.metrics],
+            period: [...opts.period],
+            since: opts.since,
+            until: opts.until,
+            timeframe: opts.timeframe,
+            breakdown: opts.breakdown ? [...opts.breakdown] : undefined,
+          },
+        })
+        .toArray();
     },
   };
 }

@@ -11,7 +11,7 @@ tableOfContents: false
 ---
 
 {/* @generated */}
-{/* fingerprint: sha256:c7902da8f6abff0f217cade873901316f27b3ddfad361361329dd8ceb4a1bdf7 */}
+{/* fingerprint: sha256:f92f4aba1c22e1a9ebf9cb41bf5d3574d9d4c09a44f54e298aa6ea718e1ff18e */}
 {/* DO NOT EDIT: generated file; changes will be overwritten. */}
 
 {/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
@@ -166,7 +166,7 @@ GET IGUserForIGOnlyAPI insights
 | Execution | `inline` |
 | Idempotency | `safe` |
 | Capabilities | `iGUserForIGOnlyAPI.read` |
-| Required scopes | None declared |
+| Required scopes | `instagram_manage_insights` |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `InsightsResultFields` |
 
@@ -274,7 +274,7 @@ POST IGUserForIGOnlyAPI media
 | Execution | `durable` |
 | Idempotency | `unsafe` |
 | Capabilities | `iGUserForIGOnlyAPI.manage` |
-| Required scopes | None declared |
+| Required scopes | `instagram_content_publish` |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `unknown` |
 
@@ -430,7 +430,7 @@ POST IGUserForIGOnlyAPI messages
 | Execution | `durable` |
 | Idempotency | `unsafe` |
 | Capabilities | `iGUserForIGOnlyAPI.manage` |
-| Required scopes | None declared |
+| Required scopes | `instagram_manage_messages` |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `Record<string, unknown>` |
 
@@ -677,7 +677,7 @@ DELETE IGUserForIGOnlyAPI subscribed_apps
 | Execution | `durable` |
 | Idempotency | `unsafe` |
 | Capabilities | `iGUserForIGOnlyAPI.manage` |
-| Required scopes | None declared |
+| Required scopes | `instagram_manage_messages` |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `Record<string, unknown>` |
 
@@ -710,7 +710,7 @@ GET IGUserForIGOnlyAPI subscribed_apps
 | Execution | `inline` |
 | Idempotency | `safe` |
 | Capabilities | `iGUserForIGOnlyAPI.read` |
-| Required scopes | None declared |
+| Required scopes | `instagram_manage_messages` |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `unknown` |
 
@@ -743,7 +743,7 @@ POST IGUserForIGOnlyAPI subscribed_apps
 | Execution | `durable` |
 | Idempotency | `unsafe` |
 | Capabilities | `iGUserForIGOnlyAPI.manage` |
-| Required scopes | None declared |
+| Required scopes | `instagram_manage_messages` |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `unknown` |
 

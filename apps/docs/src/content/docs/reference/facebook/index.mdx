@@ -10,7 +10,7 @@ sidebar:
 ---
 
 {/* @generated */}
-{/* fingerprint: sha256:ecee6bf754f0727785092604611e820c372eb6e81396ed2e8aaf9f406f25d035 */}
+{/* fingerprint: sha256:4eecea90f5db4a2b4905e42b6b60b6f3e4f3b0056b6aed4849fefb6ee9bb1c42 */}
 {/* DO NOT EDIT: generated file; changes will be overwritten. */}
 
 {/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
@@ -584,21 +584,21 @@ const client = createEffectClient();
 | `iGAccessTokenForIGOnlyAPI.read` | Read Facebook Graph IGAccessTokenForIGOnlyAPI | None declared |
 | `iGBCAdsPermission.read` | Read Facebook Graph IGBCAdsPermission | None declared |
 | `iGBoostMediaAd.read` | Read Facebook Graph IGBoostMediaAd | None declared |
-| `iGComment.manage` | Manage Facebook Graph IGComment | None declared |
+| `iGComment.manage` | Manage Facebook Graph IGComment | `instagram_manage_comments` |
 | `iGComment.read` | Read Facebook Graph IGComment | None declared |
-| `iGMedia.manage` | Manage Facebook Graph IGMedia | None declared |
-| `iGMedia.read` | Read Facebook Graph IGMedia | None declared |
+| `iGMedia.manage` | Manage Facebook Graph IGMedia | `instagram_manage_comments` |
+| `iGMedia.read` | Read Facebook Graph IGMedia | `instagram_manage_comments`<br />`instagram_manage_insights` |
 | `iGMediaBoostEligibilityInfo.read` | Read Facebook Graph IGMediaBoostEligibilityInfo | None declared |
 | `iGMediaForIGOnlyAPI.manage` | Manage Facebook Graph IGMediaForIGOnlyAPI | None declared |
 | `iGMediaForIGOnlyAPI.read` | Read Facebook Graph IGMediaForIGOnlyAPI | None declared |
 | `iGRefreshAccessTokenForIGOnlyAPI.read` | Read Facebook Graph IGRefreshAccessTokenForIGOnlyAPI | None declared |
 | `iGUpcomingEvent.manage` | Manage Facebook Graph IGUpcomingEvent | None declared |
 | `iGUpcomingEvent.read` | Read Facebook Graph IGUpcomingEvent | None declared |
-| `iGUser.manage` | Manage Facebook Graph IGUser | None declared |
-| `iGUser.read` | Read Facebook Graph IGUser | None declared |
+| `iGUser.manage` | Manage Facebook Graph IGUser | `instagram_content_publish` |
+| `iGUser.read` | Read Facebook Graph IGUser | `instagram_basic`<br />`instagram_manage_insights` |
 | `iGUserExportForCAM.read` | Read Facebook Graph IGUserExportForCAM | None declared |
-| `iGUserForIGOnlyAPI.manage` | Manage Facebook Graph IGUserForIGOnlyAPI | None declared |
-| `iGUserForIGOnlyAPI.read` | Read Facebook Graph IGUserForIGOnlyAPI | None declared |
+| `iGUserForIGOnlyAPI.manage` | Manage Facebook Graph IGUserForIGOnlyAPI | `instagram_content_publish`<br />`instagram_manage_messages` |
+| `iGUserForIGOnlyAPI.read` | Read Facebook Graph IGUserForIGOnlyAPI | `instagram_manage_insights`<br />`instagram_manage_messages` |
 | `imageCopyright.manage` | Manage Facebook Graph ImageCopyright | None declared |
 | `imageCopyright.read` | Read Facebook Graph ImageCopyright | None declared |
 | `imageCopyrightDispute.read` | Read Facebook Graph ImageCopyrightDispute | None declared |
@@ -646,8 +646,8 @@ const client = createEffectClient();
 | `openGraphContext.read` | Read Facebook Graph OpenGraphContext | None declared |
 | `organization.read` | Read Facebook Graph Organization | None declared |
 | `ownedDomain.read` | Read Facebook Graph OwnedDomain | None declared |
-| `page.manage` | Manage Facebook Graph Page | None declared |
-| `page.read` | Read Facebook Graph Page | None declared |
+| `page.manage` | Manage Facebook Graph Page | `pages_manage_metadata`<br />`pages_manage_posts`<br />`pages_messaging` |
+| `page.read` | Read Facebook Graph Page | `pages_manage_metadata`<br />`read_insights` |
 | `pageCallToAction.manage` | Manage Facebook Graph PageCallToAction | None declared |
 | `pageCallToAction.read` | Read Facebook Graph PageCallToAction | None declared |
 | `pageInsightsAsyncExportRun.read` | Read Facebook Graph PageInsightsAsyncExportRun | None declared |

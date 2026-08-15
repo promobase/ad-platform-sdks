@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:53dc5a2065fe665777bc8f6e2024c49b8dcdf40c6d331f0f4dfc52cb2facaf73
+// fingerprint: sha256:3eb6c52d86de00dbf4c2d4054a382abca07b02734dfdfa92949983476bde187f
 // DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
@@ -452,12 +452,17 @@ export const capabilities = [
   {
     "id": "mentions.manage",
     "summary": "Manage TikTok Mentions",
-    "requiredScopes": []
+    "requiredScopes": [
+      "comment.list.manage"
+    ]
   },
   {
     "id": "mentions.read",
     "summary": "Read TikTok Mentions",
-    "requiredScopes": []
+    "requiredScopes": [
+      "biz.brand.insights",
+      "comment.list"
+    ]
   },
   {
     "id": "music.manage",

@@ -20,6 +20,8 @@ export interface EndpointSpec {
   category: string;
   requestParams: ParamSpec[];
   responseFields: ParamSpec[];
+  /** Permission scopes declared in the official endpoint documentation. */
+  requiredScopes: string[];
 }
 
 /** Parse a TikTok doc page into an EndpointSpec. Returns null if not a valid API endpoint page. */
@@ -53,6 +55,8 @@ export function parseDoc(doc: DocContent): EndpointSpec | null {
   // Parse response fields
   const responseFields = sections.responseBlock ? parseXtable(sections.responseBlock) : [];
 
+  const requiredScopes = extractRequiredScopes(content);
+
   // Build nested tree from flat list
   const requestTree = buildNestTree(requestParams);
   const responseTree = buildNestTree(responseFields);
@@ -69,7 +73,14 @@ export function parseDoc(doc: DocContent): EndpointSpec | null {
     // their public response type must describe the data payload rather than the
     // outer code/message/request_id envelope.
     responseFields: unwrapResponseData(responseTree),
+    requiredScopes,
   };
+}
+
+function extractRequiredScopes(content: string): string[] {
+  const match = content.match(/Required permission scopes?\*{0,2}\s*:\s*([^\n]+)/i);
+  if (!match?.[1]) return [];
+  return [...match[1].matchAll(/`([^`]+)`/g)].map((scope) => scope[1]!).filter(Boolean);
 }
 
 function unwrapResponseData(fields: ParamSpec[]): ParamSpec[] {

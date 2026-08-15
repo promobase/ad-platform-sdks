@@ -19,7 +19,6 @@ const rejectingFetch = (async () => {
 test("exposes the complete OpenPromo first-party provider surface", () => {
   const graphApi = Facebook.createGraphClient({ accessToken: "graph", fetch: rejectingFetch });
   const facebook = Facebook.createClient({
-    api: graphApi,
     pageId: "page",
     accessToken: "page-token",
     fetch: rejectingFetch,

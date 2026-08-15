@@ -15,8 +15,10 @@ export interface PublishResult {
 export interface PublishPhotoOptions {
   imageUrl: string;
   caption?: string;
+  altText?: string;
   collaborators?: string[];
   locationId?: string;
+  userTags?: Record<string, unknown>[];
 }
 
 /** Publish a video post to the feed (all feed videos are reels). */
@@ -26,6 +28,10 @@ export interface PublishVideoOptions {
   collaborators?: string[];
   coverUrl?: string;
   locationId?: string;
+  altText?: string;
+  shareToFeed?: boolean;
+  trialParams?: Record<string, unknown>;
+  userTags?: Record<string, unknown>[];
 }
 
 export interface CarouselItem {
@@ -44,6 +50,27 @@ export interface PublishCarouselOptions {
 export interface PublishStoryOptions {
   imageUrl?: string;
   videoUrl?: string;
+}
+
+export type InstagramAttachmentType = "image" | "video" | "audio" | "file";
+
+export type InstagramAttachment =
+  | { type: InstagramAttachmentType; url: string }
+  | { type: "MEDIA_SHARE"; mediaId: string };
+
+export interface InstagramQuickReply {
+  contentType: "text";
+  title: string;
+  payload: string;
+}
+
+export interface InstagramAccountInsightsOptions {
+  metrics: readonly string[];
+  period: readonly string[];
+  since?: string;
+  until?: string;
+  timeframe?: string;
+  breakdown?: readonly string[];
 }
 
 export interface PollingConfig {

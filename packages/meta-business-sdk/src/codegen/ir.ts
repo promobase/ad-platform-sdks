@@ -4,6 +4,147 @@ import type { EnumMap } from "./enum-extractor.ts";
 import type { Spec } from "./parser.ts";
 import { enumTypeToTsName, parseGenericType } from "./type-resolver.ts";
 
+type ScopeRule = {
+  readonly specName: string;
+  readonly method: Spec["apis"][number]["method"];
+  readonly endpoint: string;
+  readonly requiredScopes: readonly string[];
+};
+
+/**
+ * Curated Graph permission metadata for the operations Mosaic owns directly.
+ *
+ * The Graph API spec does not carry permission annotations, so this intentionally
+ * covers only stable Page/Instagram operations documented by Meta's Messenger and
+ * Instagram API collections. An empty list means "not declared", not "public".
+ */
+const CURATED_SCOPE_RULES: readonly ScopeRule[] = [
+  { specName: "Page", method: "POST", endpoint: "feed", requiredScopes: ["pages_manage_posts"] },
+  { specName: "Page", method: "POST", endpoint: "messages", requiredScopes: ["pages_messaging"] },
+  {
+    specName: "Page",
+    method: "GET",
+    endpoint: "insights",
+    requiredScopes: ["read_insights"],
+  },
+  {
+    specName: "Page",
+    method: "GET",
+    endpoint: "subscribed_apps",
+    requiredScopes: ["pages_manage_metadata"],
+  },
+  {
+    specName: "Page",
+    method: "POST",
+    endpoint: "subscribed_apps",
+    requiredScopes: ["pages_manage_metadata"],
+  },
+  {
+    specName: "Page",
+    method: "DELETE",
+    endpoint: "subscribed_apps",
+    requiredScopes: ["pages_manage_metadata"],
+  },
+  {
+    specName: "IGUser",
+    method: "POST",
+    endpoint: "media",
+    requiredScopes: ["instagram_content_publish"],
+  },
+  {
+    specName: "IGUser",
+    method: "POST",
+    endpoint: "media_publish",
+    requiredScopes: ["instagram_content_publish"],
+  },
+  {
+    specName: "IGUser",
+    method: "GET",
+    endpoint: "content_publishing_limit",
+    requiredScopes: ["instagram_basic"],
+  },
+  {
+    specName: "IGUser",
+    method: "GET",
+    endpoint: "insights",
+    requiredScopes: ["instagram_manage_insights"],
+  },
+  {
+    specName: "IGUserForIGOnlyAPI",
+    method: "POST",
+    endpoint: "media",
+    requiredScopes: ["instagram_content_publish"],
+  },
+  {
+    specName: "IGUserForIGOnlyAPI",
+    method: "POST",
+    endpoint: "media_publish",
+    requiredScopes: ["instagram_content_publish"],
+  },
+  {
+    specName: "IGUserForIGOnlyAPI",
+    method: "POST",
+    endpoint: "messages",
+    requiredScopes: ["instagram_manage_messages"],
+  },
+  {
+    specName: "IGUserForIGOnlyAPI",
+    method: "GET",
+    endpoint: "insights",
+    requiredScopes: ["instagram_manage_insights"],
+  },
+  {
+    specName: "IGUserForIGOnlyAPI",
+    method: "GET",
+    endpoint: "subscribed_apps",
+    requiredScopes: ["instagram_manage_messages"],
+  },
+  {
+    specName: "IGUserForIGOnlyAPI",
+    method: "POST",
+    endpoint: "subscribed_apps",
+    requiredScopes: ["instagram_manage_messages"],
+  },
+  {
+    specName: "IGUserForIGOnlyAPI",
+    method: "DELETE",
+    endpoint: "subscribed_apps",
+    requiredScopes: ["instagram_manage_messages"],
+  },
+  {
+    specName: "IGMedia",
+    method: "GET",
+    endpoint: "comments",
+    requiredScopes: ["instagram_manage_comments"],
+  },
+  {
+    specName: "IGMedia",
+    method: "POST",
+    endpoint: "comments",
+    requiredScopes: ["instagram_manage_comments"],
+  },
+  {
+    specName: "IGMedia",
+    method: "GET",
+    endpoint: "insights",
+    requiredScopes: ["instagram_manage_insights"],
+  },
+  {
+    specName: "IGComment",
+    method: "POST",
+    endpoint: "replies",
+    requiredScopes: ["instagram_manage_comments"],
+  },
+];
+
+function requiredScopesFor(specName: string, method: ScopeRule["method"], endpoint?: string) {
+  return (
+    CURATED_SCOPE_RULES.find(
+      (rule) => rule.specName === specName && rule.method === method && rule.endpoint === endpoint,
+    )?.requiredScopes ?? []
+  );
+}
+
 export function facebookGraphCanonicalIr(
   specs: ReadonlyMap<string, Spec>,
   enums: EnumMap,
@@ -42,12 +183,19 @@ export function facebookGraphCanonicalIr(
     for (const api of spec.apis) {
       const action = api.name?.replace(/^#/, "") || api.endpoint || api.method.toLowerCase();
       const effect = api.method === "GET" ? "read" : api.method === "DELETE" ? "delete" : "write";
+      const requiredScopes = requiredScopesFor(specName, api.method, api.endpoint);
       const capabilityId = `${lowerCamel(specName)}.${effect === "read" ? "read" : "manage"}`;
       if (!capabilityMap.has(capabilityId)) {
         capabilityMap.set(capabilityId, {
           id: capabilityId,
           summary: `${effect === "read" ? "Read" : "Manage"} Facebook Graph ${specName}`,
-          requiredScopes: [],
+          requiredScopes: [...requiredScopes],
+        });
+      } else {
+        const capability = capabilityMap.get(capabilityId)!;
+        capabilityMap.set(capabilityId, {
+          ...capability,
+          requiredScopes: [...new Set([...capability.requiredScopes, ...requiredScopes])].sort(),
         });
       }
       const baseId = `Facebook${pascal(specName)}${pascal(action)}`;
@@ -88,7 +236,7 @@ export function facebookGraphCanonicalIr(
         effect,
         execution: effect === "read" ? "inline" : "durable",
         idempotency: api.method === "GET" ? "safe" : "unsafe",
-        requiredScopes: [],
+        requiredScopes: [...requiredScopes],
         capabilities: [capabilityId],
         rateLimitBucket: "facebook-graph-api",
         authSchemes: ["AccessToken"],

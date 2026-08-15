@@ -19,6 +19,18 @@ test("parseDoc accepts angle-bracket endpoint URLs", () => {
   expect(parsed?.method).toBe("POST");
 });
 
+test("parseDoc extracts official TikTok Business permission scopes", () => {
+  const parsed = parseDoc(
+    doc(`
+**Endpoint** https://business-api.tiktok.com/open_api/v1.3/business/mention/video/get/
+**Method** GET
+**Required permission scopes**: \`biz.brand.insights\`, \`comment.list\`
+`),
+  );
+
+  expect(parsed?.requiredScopes).toEqual(["biz.brand.insights", "comment.list"]);
+});
+
 test("parseDoc accepts spaced xtable fences used by Accounts documentation", () => {
   const parsed = parseDoc(
     doc(`

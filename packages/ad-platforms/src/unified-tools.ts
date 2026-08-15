@@ -1,9 +1,8 @@
 /**
  * Unified AI tools across all ad platforms.
  *
- * Each provider is configured directly by platform. The Graph client may be
- * shared by Facebook, Instagram, and campaigns, but the public configuration
- * does not introduce a family-level grouping.
+ * Each provider is configured directly by platform. Graph clients may be shared
+ * by Instagram and campaigns, while the Facebook Page helper owns its Page token.
  */
 import {
   createCampaignTools,
@@ -17,7 +16,6 @@ import { createTikTokTools } from "@openpromo/tiktok/ai";
 export interface CreateAllToolsOptions {
   /** Facebook Page configuration. */
   facebook?: {
-    api: GraphClient;
     pageId: string;
     pageAccessToken: string;
   };
@@ -59,7 +57,6 @@ export function createAllTools(opts: CreateAllToolsOptions) {
     tools = {
       ...tools,
       ...createFacebookTools({
-        api: opts.facebook.api,
         pageId: opts.facebook.pageId,
         accessToken: opts.facebook.pageAccessToken,
       }),

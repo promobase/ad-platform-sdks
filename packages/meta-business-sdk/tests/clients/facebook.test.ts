@@ -28,7 +28,7 @@ test("publishPost sends POST to /page_id/feed", async () => {
   mockFetchSequence([{ body: { id: "123_456" } }]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   const result = await fb.feed.publishPost({ message: "Hello Facebook!" });
   expect(result.id).toBe("123_456");
@@ -63,7 +63,7 @@ test("publishPost with scheduled time sets published=false", async () => {
   mockFetchSequence([{ body: { id: "123_456" } }]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   await fb.feed.publishPost({
     message: "Scheduled post",
@@ -82,7 +82,7 @@ test("publishPhoto sends POST to /page_id/photos", async () => {
   mockFetchSequence([{ body: { id: "photo_1", post_id: "123_456" } }]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   const result = await fb.feed.publishPhoto({ url: "https://example.com/photo.jpg" });
   expect(result.id).toBe("photo_1");
@@ -92,7 +92,7 @@ test("publishVideo sends POST to /page_id/videos", async () => {
   mockFetchSequence([{ body: { id: "video_1" } }]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   const result = await fb.feed.publishVideo({
     url: "https://example.com/video.mp4",
@@ -115,7 +115,7 @@ test("list feeds returns Page posts", async () => {
   ]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   const posts = await fb.feed.list({ limit: 10 });
   expect(posts).toHaveLength(2);
@@ -125,7 +125,7 @@ test("deletePost sends DELETE", async () => {
   mockFetchSequence([{ body: { success: true } }]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   await fb.feed.deletePost("123_456");
 
@@ -146,7 +146,7 @@ test("publishMultiPhoto uploads each photo then creates feed with attached_media
   ]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   const result = await fb.feed.publishMultiPhoto({
     photos: [{ url: "https://example.com/1.jpg" }, { url: "https://example.com/2.jpg" }],
@@ -183,7 +183,7 @@ test("publishVideoReel performs 3-phase upload", async () => {
   ]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   const result = await fb.feed.publishVideoReel({
     videoUrl: "https://example.com/video.mp4",
@@ -247,7 +247,7 @@ test("publishVideoReel throws on upload failure", async () => {
   ]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   await expect(
     fb.feed.publishVideoReel({ videoUrl: "https://example.com/video.mp4" }),
@@ -270,7 +270,7 @@ test("getVideoStatus returns parsed status phases", async () => {
   ]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   const status = await fb.feed.getVideoStatus("vid_123");
   expect(status.uploadingPhase?.status).toBe("complete");
@@ -302,7 +302,7 @@ test("fetchAttachments returns post attachment data", async () => {
   ]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   const attachments = await fb.feed.fetchAttachments("post_123");
   expect(attachments).toHaveLength(1);
@@ -314,7 +314,7 @@ test("fetchAttachments returns empty array when no attachments", async () => {
   mockFetchSequence([{ body: {} }]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   const attachments = await fb.feed.fetchAttachments("post_123");
   expect(attachments).toEqual([]);
@@ -326,7 +326,7 @@ test("getPermalink returns permalink URL", async () => {
   mockFetchSequence([{ body: { permalink_url: "https://www.facebook.com/page/posts/123" } }]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   const permalink = await fb.feed.getPermalink("post_123");
   expect(permalink).toBe("https://www.facebook.com/page/posts/123");
@@ -336,7 +336,7 @@ test("getPermalink returns undefined when not available", async () => {
   mockFetchSequence([{ body: {} }]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   const permalink = await fb.feed.getPermalink("post_123");
   expect(permalink).toBeUndefined();
@@ -348,7 +348,7 @@ test("stories.publishPhoto sends POST to /page_id/photo_stories", async () => {
   mockFetchSequence([{ body: { id: "story_123", post_id: "page_123_456" } }]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   const result = await fb.stories.publishPhoto({ photoUrl: "https://example.com/photo.jpg" });
   expect(result.id).toBe("story_123");
@@ -371,7 +371,7 @@ test("stories.publishVideo performs 3-phase upload", async () => {
   ]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   const result = await fb.stories.publishVideo({
     videoUrl: "https://example.com/story.mp4",
@@ -427,7 +427,7 @@ test("stories.publishVideo throws on upload failure", async () => {
   ]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   await expect(
     fb.stories.publishVideo({ videoUrl: "https://example.com/video.mp4" }),
@@ -443,7 +443,7 @@ test("comments create and list", async () => {
   ]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   const created = await fb.comments.create("post_123", "Nice post!");
   expect(created.id).toBe("comment_1");
@@ -458,7 +458,7 @@ test("account get returns Page info", async () => {
   mockFetchSequence([{ body: { id: "page_123", name: "My Page", fan_count: 1000 } }]);
 
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   const info = await fb.account.get(["id", "name", "fan_count"]);
   expect(info.name).toBe("My Page");
@@ -469,7 +469,7 @@ test("account get returns Page info", async () => {
 test("webhooks.subscribe calls subscribed_apps endpoint", async () => {
   mockFetchSequence([{ body: { success: true } }]);
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
   const result = await fb.webhooks.subscribe();
   expect(result.success).toBe(true);
 });
@@ -477,7 +477,7 @@ test("webhooks.subscribe calls subscribed_apps endpoint", async () => {
 test("webhooks.subscribe defaults to parser-supported Page webhook fields", async () => {
   mockFetchSequence([{ body: { success: true } }]);
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   await fb.webhooks.subscribe();
 
@@ -574,7 +574,7 @@ test("Facebook OAuth exposes profile, permissions, and reconnect Page informatio
 test("Facebook Page webhook subscription can be removed", async () => {
   mockFetchSequence([{ body: { success: true } }]);
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
 
   await fb.webhooks.unsubscribe();
 

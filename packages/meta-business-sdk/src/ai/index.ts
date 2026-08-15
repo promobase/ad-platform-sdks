@@ -62,7 +62,6 @@ export function createTools<const T extends ToolGroup[] = ToolGroup[]>(
     tools = {
       ...tools,
       ...createFacebookTools({
-        api: opts.api,
         pageId: opts.pageId,
         accessToken: opts.pageAccessToken,
       }),

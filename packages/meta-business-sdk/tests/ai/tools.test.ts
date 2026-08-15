@@ -48,7 +48,7 @@ test("createInstagramTools returns all IG tool definitions", () => {
 
 test("createFacebookTools returns all FB tool definitions", () => {
   const api = createClient({ accessToken: "tok" });
-  const tools = createFacebookTools({ api, pageId: "page_123", accessToken: "tok" });
+  const tools = createFacebookTools({ pageId: "page_123", accessToken: "tok" });
 
   expect(tools.fb_publish_post).toBeDefined();
   expect(tools.fb_publish_photo).toBeDefined();
@@ -131,7 +131,7 @@ test("fb_get_account tool executes correctly", async () => {
   mockFetchJson({ id: "page_123", name: "Test Page" });
 
   const api = createClient({ accessToken: "tok" });
-  const tools = createFacebookTools({ api, pageId: "page_123", accessToken: "tok" });
+  const tools = createFacebookTools({ pageId: "page_123", accessToken: "tok" });
 
   const result: any = await tools.fb_get_account.execute!(
     {},

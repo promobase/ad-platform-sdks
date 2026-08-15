@@ -12,7 +12,7 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Facebook | in_progress | in_progress | in_progress | verified | verified: v26 refresh | verified | in_progress |
 | Instagram | in_progress | in_progress | in_progress | verified | verified: v26 refresh | verified | in_progress |
-| TikTok Business | in_progress | in_progress | in_progress | in_progress | verified with scope metadata gap | verified | in_progress |
+| TikTok Business | in_progress | in_progress | in_progress | in_progress | verified: source scopes | verified | in_progress |
 
 ## Cross-platform work items
 
@@ -20,8 +20,8 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | --- | --- | --- | --- | --- | --- |
 | AUTH-01 | Separate Instagram Login from Facebook Graph/Page credentials | verified | Mosaic | `createLoginClient` and `createFacebookGraphClient` select distinct hosts and expose credential-family metadata | Host/token pairing tests and distinct credential-family types pass |
 | AUTH-02 | Preserve OAuth scopes and connection-family metadata | verified | Mosaic | Shared OAuth exchange/refresh inputs now carry scopes; Meta and TikTok adapters retain scopes and typed credential families while preserving platform identity | Meta and TikTok OAuth fixtures retain scopes and family metadata |
-| AUTH-03 | Validate secure OAuth state by default | planned | Mosaic + consumer integration | Legacy helpers allow optional state | Unsafe path removed or explicitly marked low-level |
-| TRAN-01 | Use one explicit Page access token in Facebook clients | planned | Mosaic | `api` and `accessToken` can diverge | Client construction rejects ambiguous credentials |
+| AUTH-03 | Validate secure OAuth state by default | verified | Mosaic + consumer integration | Curated Meta and TikTok adapters require both callback state and stored expected state; low-level legacy helpers remain intentionally separate | Adapter fixtures cover missing and mismatched state |
+| TRAN-01 | Use one explicit Page access token in Facebook clients | verified | Mosaic | `createFacebookPageClient` constructs its generated transport from the one explicit Page token; `api` injection was removed from the curated boundary | Meta client, AI, CLI, and messaging fixtures pass without ambiguous credentials |
 | TRAN-02 | Unify TikTok generated and curated request transport | verified | Mosaic | Generated endpoints and curated JSON, multipart, app-credential, and mixed-credential property clients now use `clients/request.ts`; OAuth and Developer API remain intentionally provider-specific | Shared transport tests cover bearer JSON, multipart, app-credential management, typed errors, and cancellation |
 | TRAN-03 | Refresh Meta API version and generated inputs | verified | Mosaic | Pinned Meta codegen input advanced from v25.0 to official `origin/main` v26.0; generated TypeScript, Valibot, Effect, and docs outputs were regenerated | `986` specs, `503` enums, `305` accessors; Meta typecheck, tests, and build pass |
 | WEB-01 | Consolidate Meta webhook verifiers | verified | Mosaic | Legacy Meta parser exports now route to the canonical Web Crypto verifier; byte bodies are supported | Root and leaf exports share strict implementation; focused parser tests pass |
@@ -29,7 +29,7 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | WEB-03 | Add TikTok Business webhook leaf and Valibot schemas | verified | Mosaic | TikTok webhook schemas now use Valibot; `@openpromo/tiktok/webhooks` and umbrella `@openpromo/ad-platforms/tiktok/webhooks` build | Leaf and umbrella builds pass; webhook fixtures pass |
 | WEB-04 | Reconcile TikTok Business webhook event management | verified | Mosaic | Account management is limited to VIDEO/COMMENT and Business Messaging has explicit DIRECT_MESSAGE setup | Official categories and setup behavior are fixture-tested |
 | GEN-01 | Correct Instagram generated Effect partition | verified | Mosaic codegen | Removed Facebook-shaped Instagram and Threads Effect aliases; Nimbus reference generation now states when a platform has no generated Effect contract | No public Instagram/Threads alias points to Facebook descriptors |
-| GEN-02 | Populate documented required scopes/capabilities | planned | Mosaic codegen | Generated Meta/TikTok descriptors mostly expose empty scopes | Source-backed scope metadata fixtures |
+| GEN-02 | Populate documented required scopes/capabilities | verified | Mosaic codegen | TikTok scopes are extracted from official cached docs; Meta curated Page/Instagram operations use a reviewed source-backed rule table. Empty means undeclared, not public | TikTok parser fixture, generated descriptors, capability manifests, and Meta generated descriptors pass |
 | PUB-01 | Add TikTok umbrella platform leaf | verified | Mosaic | `@openpromo/ad-platforms/tiktok` and `/tiktok/webhooks` source/build entries exist | Umbrella build and dist subpath imports pass |
 | PUB-02 | Verify all platform-first exports against dist | verified | Mosaic release | `scripts/check-published-subpaths.mjs` imports every Meta, umbrella, and TikTok Business `import` export from clean `dist` output | Clean package builds plus 109 published entrypoints import successfully |
 
@@ -41,7 +41,7 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | FB-02 | Page text/photo/carousel/comment CRUD | verified | Curated helpers plus generated Graph escape hatch |
 | FB-03 | Regular video publishing | blocked | Current `/videos` + `file_url` path needs revalidation against Video API |
 | FB-04 | Reels scheduling | planned | Add `SCHEDULED` and `scheduled_publish_time` if current source confirms |
-| FB-05 | Messenger send surface | in_progress | Typed basics exist; message tags/content variants remain |
+| FB-05 | Messenger send surface | in_progress | Typed text, media, quick replies, and message-tag helpers now exist; templates remain a follow-up |
 | FB-06 | Page webhook subscriptions | verified | Defaults include current messaging lifecycle, handover, standby, and feed fields; extraction emits typed lifecycle and standby events |
 | FB-07 | Worker-safe webhook verification | verified | Legacy verifier exports route to the canonical strict implementation; focused tests cover prefix rejection and byte bodies |
 
@@ -51,11 +51,11 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | --- | --- | --- | --- |
 | IG-01 | Instagram Login OAuth | verified | Official API OAuth authorize host and messaging scope defaults corrected; focused OAuth tests pass |
 | IG-02 | Facebook Login/Graph compatibility | verified | Explicit Facebook Graph and Instagram Login client factories select different Graph hosts |
-| IG-03 | Image/Reel/carousel/story publishing | in_progress | Core flow exists; current options and input constraints need parity |
+| IG-03 | Image/Reel/carousel/story publishing | in_progress | Core flow plus alt text, user tags, share-to-feed, and trial parameters are typed; provider-specific constraint coverage remains |
 | IG-04 | Resumable video upload | verified | Existing flow is structurally present; refresh version/source proof |
-| IG-05 | Messaging | in_progress | Text/image/private reply exist; current media/template/reaction types missing |
+| IG-05 | Messaging | in_progress | Typed text, media, published-media share, quick replies, and private replies exist; templates/reactions remain |
 | IG-06 | Comments/moderation | in_progress | Core actions exist; replies and comment toggles remain |
-| IG-07 | Account/media insights | planned | Account insights need a curated typed client |
+| IG-07 | Account/media insights | verified | Curated account insights and media insights preserve generated metric result types and provider-native metric names |
 | IG-08 | Webhooks/subscriptions | verified | Current messaging, edit, reaction, comment, mention, live-comment, story-insight, and standby fields are parsed and extracted as discriminated events |
 | IG-09 | Generated Effect entrypoint | verified | No misleading Instagram Effect entrypoint is published; use native client plus generated TypeScript/Valibot contracts until a true partition exists |
 
@@ -64,13 +64,13 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | ID | Capability | Status | Notes |
 | --- | --- | --- | --- |
 | TT-01 | Business OAuth | verified | Business adapter retains provider-granted scopes and identifies the `business-login` credential family |
-| TT-02 | Marketing/Advertiser OAuth | in_progress | Marketing adapter now identifies the `marketing-api` family and preserves caller scope context; refresh/revoke semantics remain |
+| TT-02 | Marketing/Advertiser OAuth | verified | Marketing adapter identifies the `marketing-api` family, preserves caller scopes, and explicitly returns typed unsupported-operation errors for refresh/revoke because the documented advertiser flow exposes authorization-code exchange only |
 | TT-03 | Generated Marketing API | verified | Broad generated surface; live-doc refresh and scope metadata remain |
 | TT-04 | Curated Business account/content clients | verified | Account, comments, discovery, mentions, messaging, Spark Ads, properties, webhooks, photos, and videos use the shared typed transport; OAuth and Developer API retain dedicated semantics |
 | TT-05 | TikTok Business webhook management | verified | Official VIDEO/COMMENT account categories plus explicit DIRECT_MESSAGE setup are typed and tested |
 | TT-06 | TikTok Business webhook parsing | verified | Valibot schemas, official comment/message event variants, and hardened signature verification are tested |
 | TT-07 | TikTok platform-first leaf | verified | `@openpromo/tiktok/webhooks`, `@openpromo/ad-platforms/tiktok`, and `/tiktok/webhooks` build |
-| TT-08 | Generated TypeScript/Valibot/Effect parity | in_progress | Targets exist; verify generated source and error behavior together |
+| TT-08 | Generated TypeScript/Valibot/Effect parity | verified | Scope-aware IR regeneration retains TypeScript/Valibot/Effect outputs and generated fingerprints; TikTok Effect descriptors now include documented permission scopes |
 
 ## Update protocol
 

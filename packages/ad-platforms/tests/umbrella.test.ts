@@ -47,7 +47,6 @@ test("createAllTools combines direct platforms and TikTok tools", () => {
   const api = Facebook.createGraphClient({ accessToken: "tok" });
   const tools = createAllTools({
     facebook: {
-      api,
       pageId: "page_123",
       pageAccessToken: "tok",
     },

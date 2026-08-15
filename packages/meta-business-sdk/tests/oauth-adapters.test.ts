@@ -70,6 +70,9 @@ describe("Graph OAuth adapters", () => {
     await expect(
       facebook.exchangeCode({ code: "code", state: "wrong", expectedState: "stored" }),
     ).rejects.toThrow("OAuth state mismatch");
+    await expect(facebook.exchangeCode({ code: "code" })).rejects.toThrow(
+      "OAuth state and expectedState are required",
+    );
 
     const threads = createThreadsOAuthAdapter({
       appId: "app",

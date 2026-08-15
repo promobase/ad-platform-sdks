@@ -8,7 +8,7 @@ afterAll(async () => {
     stderr: "inherit",
   });
   await process.exited;
-});
+}, 30_000);
 
 test("runCodegen generates Campaign object file", async () => {
   await runCodegen({

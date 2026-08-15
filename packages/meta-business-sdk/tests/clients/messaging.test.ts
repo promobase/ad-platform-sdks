@@ -79,6 +79,27 @@ test("IG messaging.send sends an attachment DM", async () => {
   expect((body.message as any).attachment.payload.url).toBe("https://example.com/pic.jpg");
 });
 
+test("IG messaging exposes typed quick replies and published-media attachments", async () => {
+  mockFetchSequence([
+    { body: { message_id: "mid_2a", recipient_id: "user_2" } },
+    { body: { message_id: "mid_2b", recipient_id: "user_2" } },
+  ]);
+  const api = createClient({ accessToken: "tok" });
+  const ig = createInstagramClient({ api, igAccountId: "ig_456", polling: testPolling });
+
+  await ig.messaging.sendText("user_2", "Choose", [
+    { contentType: "text", title: "Yes", payload: "yes" },
+  ]);
+  await ig.messaging.sendAttachment("user_2", { type: "MEDIA_SHARE", mediaId: "media_1" });
+
+  const calls = (globalThis.fetch as any).mock.calls as [string, RequestInit][];
+  const first = parseFormBody(calls[0]![1]);
+  expect((first.message as any).quick_replies[0].content_type).toBe("text");
+  const second = parseFormBody(calls[1]![1]);
+  expect((second.message as any).attachment.type).toBe("MEDIA_SHARE");
+  expect((second.message as any).attachment.payload.id).toBe("media_1");
+});
+
 test("IG messaging.reply replies to a specific message", async () => {
   mockFetchSequence([{ body: { message_id: "mid_3", recipient_id: "user_1" } }]);
   const api = createClient({ accessToken: "tok" });
@@ -158,7 +179,7 @@ test("IG comments.delete deletes a comment", async () => {
 test("FB messaging.send sends a Messenger DM", async () => {
   mockFetchSequence([{ body: { message_id: "mid_fb_1", recipient_id: "psid_1" } }]);
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_1", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_1", accessToken: "tok" });
 
   const result = await fb.messaging.send("psid_1", { text: "Hello from Page!" });
   expect(result.messageId).toBe("mid_fb_1");
@@ -172,10 +193,36 @@ test("FB messaging.send sends a Messenger DM", async () => {
   expect((body.message as any).text).toBe("Hello from Page!");
 });
 
+test("FB messaging exposes typed attachments, quick replies, and message tags", async () => {
+  mockFetchSequence([
+    { body: { message_id: "mid_fb_1a", recipient_id: "psid_1" } },
+    { body: { message_id: "mid_fb_1b", recipient_id: "psid_1" } },
+  ]);
+  const api = createClient({ accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_1", accessToken: "tok" });
+
+  await fb.messaging.sendText("psid_1", "Choose", {
+    quickReplies: [{ contentType: "text", title: "Yes", payload: "yes" }],
+  });
+  await fb.messaging.sendAttachment(
+    "psid_1",
+    { type: "image", url: "https://example.com/image.jpg" },
+    { messagingType: "MESSAGE_TAG", tag: "POST_PURCHASE_UPDATE" },
+  );
+
+  const calls = (globalThis.fetch as any).mock.calls as [string, RequestInit][];
+  const first = parseFormBody(calls[0]![1]);
+  expect((first.message as any).quick_replies[0].payload).toBe("yes");
+  const second = parseFormBody(calls[1]![1]);
+  expect((second.message as any).attachment.type).toBe("image");
+  expect(second.messaging_type).toBe("MESSAGE_TAG");
+  expect(second.tag).toBe("POST_PURCHASE_UPDATE");
+});
+
 test("FB messaging.reply replies to a message", async () => {
   mockFetchSequence([{ body: { message_id: "mid_fb_2", recipient_id: "psid_1" } }]);
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_1", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_1", accessToken: "tok" });
 
   const result = await fb.messaging.reply("psid_1", "mid_original", "Got it!");
   expect(result.messageId).toBe("mid_fb_2");
@@ -190,7 +237,7 @@ test("FB messaging.reply replies to a message", async () => {
 test("FB comments.reply creates a nested reply", async () => {
   mockFetchSequence([{ body: { id: "nested_1" } }]);
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_1", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_1", accessToken: "tok" });
 
   const result = await fb.comments.reply("comment_fb_1", "Nested reply!");
   expect(result.id).toBe("nested_1");
@@ -202,7 +249,7 @@ test("FB comments.reply creates a nested reply", async () => {
 test("FB comments.hide hides a comment", async () => {
   mockFetchSequence([{ body: { success: true } }]);
   const api = createClient({ accessToken: "tok" });
-  const fb = createFacebookPageClient({ api, pageId: "page_1", accessToken: "tok" });
+  const fb = createFacebookPageClient({ pageId: "page_1", accessToken: "tok" });
 
   await fb.comments.hide("comment_fb_2");
 

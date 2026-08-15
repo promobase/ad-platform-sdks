@@ -42,8 +42,10 @@ export function createMedia(
           containers.create({
             image_url: opts.imageUrl,
             caption: opts.caption,
+            alt_text: opts.altText,
             collaborators: opts.collaborators,
             location_id: opts.locationId,
+            user_tags: opts.userTags,
           }),
         catch: unknownToError,
       });
@@ -76,6 +78,10 @@ export function createMedia(
             collaborators: opts.collaborators,
             cover_url: opts.coverUrl,
             location_id: opts.locationId,
+            alt_text: opts.altText,
+            share_to_feed: opts.shareToFeed,
+            trial_params: opts.trialParams,
+            user_tags: opts.userTags,
           }),
         catch: unknownToError,
       });

@@ -13,10 +13,9 @@ export type { PagePostFields } from "../../generated/objects/page-post.ts";
 export type { PhotoFields } from "../../generated/objects/photo.ts";
 
 export interface FacebookPageClientOptions {
-  /** Optional preconfigured generated client; created automatically when omitted. */
-  api?: ReturnType<typeof import("../../generated/index.ts").createClient>;
   pageId: string;
-  accessToken: string; // needed for video upload flows (reels, stories)
+  /** The single Page access token used by every operation on this client. */
+  accessToken: string;
   fetch?: typeof fetch;
   signal?: AbortSignal;
   apiVersion?: string;
@@ -102,6 +101,27 @@ export interface PublishVideoReelOptions {
   videoUrl: string;
   description?: string;
   videoState?: "PUBLISHED" | "DRAFT";
+}
+
+export type MessengerAttachmentType = "image" | "video" | "audio" | "file";
+
+export interface MessengerAttachment {
+  type: MessengerAttachmentType;
+  url: string;
+}
+
+export interface MessengerQuickReply {
+  contentType: "text";
+  title: string;
+  payload: string;
+  imageUrl?: string;
+}
+
+export type MessengerMessagingType = "RESPONSE" | "UPDATE" | "MESSAGE_TAG";
+
+export interface MessengerSendOptions {
+  messagingType?: MessengerMessagingType;
+  tag?: string;
 }
 
 export interface PublishPhotoStoryOptions {

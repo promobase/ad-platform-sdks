@@ -51,7 +51,6 @@ export function createFacebook(input: GraphAuthInput & { pageId?: string }): any
     env: "META_ACCESS_TOKEN",
   });
   return createFacebookPageClient({
-    api: createMetaApi({ ...input, accessToken }),
     pageId: requireValue(input.pageId ?? process.env.META_PAGE_ID, {
       name: "pageId",
       env: "META_PAGE_ID",

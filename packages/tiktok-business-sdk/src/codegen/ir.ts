@@ -29,6 +29,13 @@ export function tiktokCanonicalIr(
         requiredScopes: [],
       });
     }
+    const capability = capabilities.get(capabilityId)!;
+    const requiredScopes = new Set(capability.requiredScopes);
+    endpoint.requiredScopes.forEach((scope) => requiredScopes.add(scope));
+    capabilities.set(capabilityId, {
+      ...capability,
+      requiredScopes: [...requiredScopes].sort(),
+    });
     const count = (ids.get(baseName) ?? 0) + 1;
     ids.set(baseName, count);
     const id = `TikTok${baseName}${count === 1 ? "" : count}`;
@@ -60,7 +67,7 @@ export function tiktokCanonicalIr(
       effect,
       execution: effect === "read" || category === "authentication" ? "inline" : "durable",
       idempotency: endpoint.method === "GET" ? "safe" : "unsafe",
-      requiredScopes: [],
+      requiredScopes: [...endpoint.requiredScopes],
       capabilities: [capabilityId],
       rateLimitBucket: "tiktok-business-api",
       authSchemes: [endpoint.auth],

@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:e0f07106e88a556d62e1de3580d088030d1bb5fa1ce64977bfe316f8775c8c6d
+// fingerprint: sha256:ec7d78721aa0a489d01750a9272f6ee95c1bb86904bafc7de2860158b42610ae
 // DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 import { defineEndpointDescriptor } from "@openpromo/sdk-runtime/effect";
@@ -3752,7 +3752,7 @@ export const tiktok_mentions_businessCommentReplyCreate2 = defineEndpointDescrip
   effect: "write",
   execution: "durable",
   idempotency: "unsafe",
-  requiredScopes: [],
+  requiredScopes: ["comment.list.manage"],
   capabilities: ["mentions.manage"],
   rateLimitBucket: "tiktok-business-api",
   authSchemes: ["access_token"],
@@ -3874,7 +3874,7 @@ export const tiktok_mentions_businessMentionCommentGet = defineEndpointDescripto
   effect: "read",
   execution: "inline",
   idempotency: "safe",
-  requiredScopes: [],
+  requiredScopes: ["biz.brand.insights","comment.list"],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
   authSchemes: ["access_token"],
@@ -3903,7 +3903,7 @@ export const tiktok_mentions_businessMentionCommentList = defineEndpointDescript
   effect: "read",
   execution: "inline",
   idempotency: "safe",
-  requiredScopes: [],
+  requiredScopes: ["biz.brand.insights","comment.list"],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
   authSchemes: ["access_token"],
@@ -4044,7 +4044,7 @@ export const tiktok_mentions_businessMentionHashtagVideoList = defineEndpointDes
   effect: "read",
   execution: "inline",
   idempotency: "safe",
-  requiredScopes: [],
+  requiredScopes: ["biz.brand.insights"],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
   authSchemes: ["access_token"],
@@ -4083,7 +4083,7 @@ export const tiktok_mentions_businessMentionTopHashtagList = defineEndpointDescr
   effect: "read",
   execution: "inline",
   idempotency: "safe",
-  requiredScopes: [],
+  requiredScopes: ["biz.brand.insights"],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
   authSchemes: ["access_token"],
@@ -4108,7 +4108,7 @@ export const tiktok_mentions_businessMentionTopWordList = defineEndpointDescript
   effect: "read",
   execution: "inline",
   idempotency: "safe",
-  requiredScopes: [],
+  requiredScopes: ["biz.brand.insights"],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
   authSchemes: ["access_token"],
@@ -4133,7 +4133,7 @@ export const tiktok_mentions_businessMentionVideoGet = defineEndpointDescriptor(
   effect: "read",
   execution: "inline",
   idempotency: "safe",
-  requiredScopes: [],
+  requiredScopes: ["biz.brand.insights"],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
   authSchemes: ["access_token"],
@@ -4160,7 +4160,7 @@ export const tiktok_mentions_businessMentionVideoList = defineEndpointDescriptor
   effect: "read",
   execution: "inline",
   idempotency: "safe",
-  requiredScopes: [],
+  requiredScopes: ["biz.brand.insights"],
   capabilities: ["mentions.read"],
   rateLimitBucket: "tiktok-business-api",
   authSchemes: ["access_token"],

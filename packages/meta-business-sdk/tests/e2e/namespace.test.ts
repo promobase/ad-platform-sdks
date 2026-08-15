@@ -46,7 +46,7 @@ test("Instagram.createClient returns the Instagram client", () => {
 
 test("Facebook.createClient returns the Facebook Page client", () => {
   const api = createGraphClient({ accessToken: "tok" });
-  const fb = Facebook.createClient({ api, pageId: "page_123", accessToken: "tok" });
+  const fb = Facebook.createClient({ pageId: "page_123", accessToken: "tok" });
   expect(fb.feed).toBeDefined();
   expect(fb.stories).toBeDefined();
   expect(fb.comments).toBeDefined();

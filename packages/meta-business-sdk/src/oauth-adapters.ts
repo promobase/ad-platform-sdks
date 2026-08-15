@@ -1,6 +1,5 @@
 import {
   AllPlatforms,
-  assertOAuthState,
   createPkcePair,
   OAuthAdapterError,
   secondsFromNow,
@@ -63,6 +62,25 @@ function rejectPkce(provider: string, pkce: unknown): void {
   }
 }
 
+function assertSecureOAuthState(
+  provider: AllPlatforms,
+  state: string | undefined,
+  expectedState: string | undefined,
+): void {
+  if (!state || !expectedState) {
+    throw new OAuthAdapterError("OAuth state and expectedState are required", {
+      provider,
+      phase: "validate",
+    });
+  }
+  if (state !== expectedState) {
+    throw new OAuthAdapterError("OAuth state mismatch", {
+      provider,
+      phase: "validate",
+    });
+  }
+}
+
 function tokenExpiry(expiresIn: number): Date {
   return secondsFromNow(expiresIn) as Date;
 }
@@ -118,7 +136,7 @@ export function createFacebookOAuthAdapter(config: FacebookOAuthConfig): OAuthAd
       };
     },
     async exchangeCode(input) {
-      assertOAuthState(input.state, input.expectedState);
+      assertSecureOAuthState(AllPlatforms.FACEBOOK, input.state, input.expectedState);
       const shortLived = v.parse(
         facebookShortLivedTokenSchema,
         await legacy.exchangeCode(input.code),
@@ -200,7 +218,7 @@ export function createInstagramOAuthAdapter(config: InstagramOAuthConfig): OAuth
       };
     },
     async exchangeCode(input) {
-      assertOAuthState(input.state, input.expectedState);
+      assertSecureOAuthState(AllPlatforms.INSTAGRAM, input.state, input.expectedState);
       const shortLived = v.parse(
         instagramShortLivedTokenSchema,
         await legacy.exchangeCode(input.code),
@@ -263,7 +281,7 @@ export function createThreadsOAuthAdapter(config: ThreadsOAuthConfig): OAuthAdap
       };
     },
     async exchangeCode(input) {
-      assertOAuthState(input.state, input.expectedState);
+      assertSecureOAuthState(AllPlatforms.THREADS, input.state, input.expectedState);
       if (!input.codeVerifier) {
         throw new OAuthAdapterError("Threads OAuth requires a code verifier", {
           provider: AllPlatforms.THREADS,

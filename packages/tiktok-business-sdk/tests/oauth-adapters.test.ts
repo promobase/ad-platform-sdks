@@ -47,7 +47,11 @@ describe("TikTok OAuth adapters", () => {
       }) as unknown as typeof fetch,
     });
 
-    const grant = await adapter.exchangeCode({ code: "code", state: "state" });
+    const grant = await adapter.exchangeCode({
+      code: "code",
+      state: "state",
+      expectedState: "state",
+    });
     const refreshed = await adapter.refresh!({ refreshToken: grant.refreshToken });
     const profile = await adapter.getProfile({
       accessToken: refreshed.accessToken,
@@ -90,6 +94,7 @@ describe("TikTok OAuth adapters", () => {
     const grant = await adapter.exchangeCode({
       code: "code",
       state: "state",
+      expectedState: "state",
       scopes: ["advertiser.read"],
     });
     const advertisers = await adapter.listAdvertisers({
@@ -102,6 +107,15 @@ describe("TikTok OAuth adapters", () => {
     expect(grant.scopes).toEqual(["advertiser.read"]);
     expect(grant.providerData.credentialFamily).toBe("marketing-api");
     expect(advertisers[0]?.advertiser_id).toBe("adv-1");
+    await expect(adapter.refresh({ refreshToken: "unsupported" })).rejects.toThrow(
+      "does not expose refresh",
+    );
+    await expect(adapter.revoke({ token: "unsupported" })).rejects.toThrow(
+      "does not expose revoke",
+    );
+    await expect(adapter.exchangeCode({ code: "code" })).rejects.toThrow(
+      "OAuth state and expectedState are required",
+    );
   });
 
   test("requires PKCE for the Developer compatibility flow", async () => {

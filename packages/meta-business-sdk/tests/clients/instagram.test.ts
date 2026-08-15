@@ -53,6 +53,30 @@ test("publishPhoto creates container, polls, publishes", async () => {
   expect(result.id).toBe("post_123");
 });
 
+test("publishPhoto forwards accessibility and tagging options", async () => {
+  mockFetchSequence([
+    { body: { id: "container_1" } },
+    { body: { status_code: "FINISHED" } },
+    { body: { id: "post_123" } },
+  ]);
+
+  const api = createClient({ accessToken: "tok" });
+  const ig = createInstagramClient({ api, igAccountId: "ig_456", polling: testPolling });
+  await ig.media.publishPhoto({
+    imageUrl: "https://example.com/photo.jpg",
+    altText: "A product photo",
+    userTags: [{ username: "creator", x: 0.5, y: 0.5 }],
+  });
+
+  const [, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [
+    string,
+    RequestInit,
+  ];
+  const body = new URLSearchParams(init.body as string);
+  expect(body.get("alt_text")).toBe("A product photo");
+  expect(body.get("user_tags")).toContain("creator");
+});
+
 test("publishReel polls with IN_PROGRESS then FINISHED", async () => {
   mockFetchSequence([
     { body: { id: "container_1" } }, // create
@@ -163,6 +187,18 @@ test("comments create and list", async () => {
   const list = await ig.comments.list("post_123");
   expect(list).toHaveLength(1);
   expect(list[0]!.text).toBe("Hello");
+});
+
+test("account.insights returns typed account-level metrics", async () => {
+  mockFetchSequence([{ body: { data: [{ name: "reach", period: "day", values: [] }] } }]);
+  const api = createClient({ accessToken: "tok" });
+  const ig = createInstagramClient({ api, igAccountId: "ig_456" });
+
+  const result = await ig.account.insights({ metrics: ["reach"], period: ["day"] });
+  expect(result[0]?.name).toBe("reach");
+
+  const [url] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [string];
+  expect(url).toContain("ig_456/insights");
 });
 
 test("polling throws on ERROR status", async () => {

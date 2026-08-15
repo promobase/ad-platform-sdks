@@ -11,7 +11,7 @@ tableOfContents: false
 ---
 
 {/* @generated */}
-{/* fingerprint: sha256:151dc46f36905095208c6bd32119ee172e31a0d7aba0ef8852c38ec96beba3a0 */}
+{/* fingerprint: sha256:26b2c13af540ab9bdeca63c75c975494812e8e876223e45c7fc1237f72a7bbcc */}
 {/* DO NOT EDIT: generated file; changes will be overwritten. */}
 
 {/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
@@ -1590,7 +1590,7 @@ POST Page feed
 | Execution | `durable` |
 | Idempotency | `unsafe` |
 | Capabilities | `page.manage` |
-| Required scopes | None declared |
+| Required scopes | `pages_manage_posts` |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `PageFields` |
 
@@ -1905,7 +1905,7 @@ GET Page insights
 | Execution | `inline` |
 | Idempotency | `safe` |
 | Capabilities | `page.read` |
-| Required scopes | None declared |
+| Required scopes | `read_insights` |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `InsightsResultFields` |
 
@@ -2421,7 +2421,7 @@ POST Page messages
 | Execution | `durable` |
 | Idempotency | `unsafe` |
 | Capabilities | `page.manage` |
-| Required scopes | None declared |
+| Required scopes | `pages_messaging` |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `PageFields` |
 

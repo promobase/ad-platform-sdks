@@ -11,7 +11,7 @@ tableOfContents: false
 ---
 
 {/* @generated */}
-{/* fingerprint: sha256:bbfa0006d9c8a2e4035ad1a7038d0489d2d9984bc5d768f1fb2c8b9a0d858ce0 */}
+{/* fingerprint: sha256:a692788a8262706a924f3ee8bfb433410728eacf455faf6725d9171fd43f67d8 */}
 {/* DO NOT EDIT: generated file; changes will be overwritten. */}
 
 {/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
@@ -1298,7 +1298,7 @@ DELETE Page subscribed_apps
 | Execution | `durable` |
 | Idempotency | `unsafe` |
 | Capabilities | `page.manage` |
-| Required scopes | None declared |
+| Required scopes | `pages_manage_metadata` |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `Record<string, unknown>` |
 
@@ -1331,7 +1331,7 @@ GET Page subscribed_apps
 | Execution | `inline` |
 | Idempotency | `safe` |
 | Capabilities | `page.read` |
-| Required scopes | None declared |
+| Required scopes | `pages_manage_metadata` |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `ApplicationFields` |
 
@@ -1364,7 +1364,7 @@ POST Page subscribed_apps
 | Execution | `durable` |
 | Idempotency | `unsafe` |
 | Capabilities | `page.manage` |
-| Required scopes | None declared |
+| Required scopes | `pages_manage_metadata` |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `PageFields` |
 

@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:8944efa2da08c169f26d98f9677f1a1d0e8dc010197766eb20c464fb9351a03a
+// fingerprint: sha256:afc74ae0edf7b254f6f1622962d5a990c5a06c73df1c79d5cb6b488abd55f007
 // DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
@@ -1062,7 +1062,9 @@ export const capabilities = [
   {
     "id": "iGComment.manage",
     "summary": "Manage Facebook Graph IGComment",
-    "requiredScopes": []
+    "requiredScopes": [
+      "instagram_manage_comments"
+    ]
   },
   {
     "id": "iGComment.read",
@@ -1072,12 +1074,17 @@ export const capabilities = [
   {
     "id": "iGMedia.manage",
     "summary": "Manage Facebook Graph IGMedia",
-    "requiredScopes": []
+    "requiredScopes": [
+      "instagram_manage_comments"
+    ]
   },
   {
     "id": "iGMedia.read",
     "summary": "Read Facebook Graph IGMedia",
-    "requiredScopes": []
+    "requiredScopes": [
+      "instagram_manage_comments",
+      "instagram_manage_insights"
+    ]
   },
   {
     "id": "iGMediaBoostEligibilityInfo.read",
@@ -1112,12 +1119,17 @@ export const capabilities = [
   {
     "id": "iGUser.manage",
     "summary": "Manage Facebook Graph IGUser",
-    "requiredScopes": []
+    "requiredScopes": [
+      "instagram_content_publish"
+    ]
   },
   {
     "id": "iGUser.read",
     "summary": "Read Facebook Graph IGUser",
-    "requiredScopes": []
+    "requiredScopes": [
+      "instagram_basic",
+      "instagram_manage_insights"
+    ]
   },
   {
     "id": "iGUserExportForCAM.read",
@@ -1127,12 +1139,18 @@ export const capabilities = [
   {
     "id": "iGUserForIGOnlyAPI.manage",
     "summary": "Manage Facebook Graph IGUserForIGOnlyAPI",
-    "requiredScopes": []
+    "requiredScopes": [
+      "instagram_content_publish",
+      "instagram_manage_messages"
+    ]
   },
   {
     "id": "iGUserForIGOnlyAPI.read",
     "summary": "Read Facebook Graph IGUserForIGOnlyAPI",
-    "requiredScopes": []
+    "requiredScopes": [
+      "instagram_manage_insights",
+      "instagram_manage_messages"
+    ]
   },
   {
     "id": "imageCopyright.manage",
@@ -1372,12 +1390,19 @@ export const capabilities = [
   {
     "id": "page.manage",
     "summary": "Manage Facebook Graph Page",
-    "requiredScopes": []
+    "requiredScopes": [
+      "pages_manage_metadata",
+      "pages_manage_posts",
+      "pages_messaging"
+    ]
   },
   {
     "id": "page.read",
     "summary": "Read Facebook Graph Page",
-    "requiredScopes": []
+    "requiredScopes": [
+      "pages_manage_metadata",
+      "read_insights"
+    ]
   },
   {
     "id": "pageCallToAction.manage",
