@@ -414,6 +414,15 @@ test("low-level containers API works directly", async () => {
   expect(published.id).toBe("post_1");
 });
 
+test("container status exposes documented PUBLISHED status", async () => {
+  mockFetchSequence([{ body: { status_code: "PUBLISHED" } }]);
+
+  const api = createClient({ accessToken: "tok" });
+  const ig = createInstagramClient({ api, igAccountId: "ig_456" });
+
+  await expect(ig.containers.getStatus("c1")).resolves.toBe("PUBLISHED");
+});
+
 test("resumable upload rejects a malformed provider result", async () => {
   mockFetchSequence([{ body: {} }]);
 

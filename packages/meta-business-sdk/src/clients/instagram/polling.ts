@@ -1,5 +1,6 @@
 import { Data, Effect } from "effect";
 
+import type { InstagramContainerStatus } from "../../transports/instagram.ts";
 import type { PollingConfig } from "./types.ts";
 
 const DEFAULT_DELAY = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
@@ -19,7 +20,7 @@ export interface WaitOptions {
   containerId: string;
   isVideo: boolean;
   polling: PollingConfig;
-  getStatus: (containerId: string) => Promise<string>;
+  getStatus: (containerId: string) => Promise<InstagramContainerStatus>;
   label?: string; // for error messages
 }
 

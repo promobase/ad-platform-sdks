@@ -2,14 +2,17 @@ import * as v from "valibot";
 
 import type { ContentPublishingLimitResponseFields } from "../../generated/objects/content-publishing-limit-response.ts";
 import type { IGUserCreateMediaParams } from "../../generated/objects/ig-user.ts";
-import type { ShadowIGMediaBuilderFields } from "../../generated/objects/shadow-ig-media-builder.ts";
+import {
+  parseInstagramContainerStatus,
+  type InstagramContainerStatus,
+} from "../../transports/instagram.ts";
 import type { PublishResult } from "./types.ts";
 
 type CreateClientReturn = ReturnType<typeof import("../../generated/index.ts").createClient>;
 type IGUserNode = ReturnType<CreateClientReturn["iGUser"]>;
 
 /** Container status as returned by the API. */
-export type ContainerStatus = ShadowIGMediaBuilderFields["status_code"];
+export type ContainerStatus = InstagramContainerStatus;
 
 export type CreateContainerParams = IGUserCreateMediaParams;
 
@@ -103,11 +106,11 @@ export function createContainers(
     },
 
     /** Check container processing status using the generated ShadowIGMediaBuilder node. */
-    async getStatus(containerId: string): Promise<string> {
+    async getStatus(containerId: string): Promise<ContainerStatus> {
       const result = await api.shadowIGMediaBuilder(containerId).get({
         fields: ["status_code"],
       });
-      return result.status_code;
+      return parseInstagramContainerStatus(result.status_code);
     },
 
     /** Publish a finished container using the generated IGUser.createMediaPublish() endpoint. */

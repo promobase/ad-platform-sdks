@@ -44,6 +44,25 @@ await ig.media.publishVideo({
   caption: "New drop 🔥",
 });
 
+// Container status values are typed by the Instagram transport adapter.
+import {
+  InstagramContainerStatusCodes,
+  isInstagramContainerStatusCode,
+} from "@openpromo/meta/transports";
+
+const status = await ig.containers.getStatus("container_123");
+if (
+  status === InstagramContainerStatusCodes.Finished ||
+  status === InstagramContainerStatusCodes.Published
+) {
+  await ig.containers.publish("container_123");
+} else if (isInstagramContainerStatusCode(status)) {
+  // Handle a documented non-terminal status.
+} else {
+  // Preserve and observe a status introduced by Meta after this SDK release.
+  console.warn("Unknown Instagram container status", status);
+}
+
 // Facebook Page publishing
 const fb = Facebook.createClient({
   api: graph,

@@ -1,3 +1,5 @@
+import * as v from "valibot";
+
 import { requestJson, type TransportClientOptions } from "./http.ts";
 
 export type InstagramTransportOptions = TransportClientOptions & {
@@ -12,7 +14,47 @@ export type InstagramMediaContainerInput = {
   readonly isCarouselItem?: boolean;
 };
 
-export type InstagramContainerStatus = "IN_PROGRESS" | "FINISHED" | "ERROR" | "EXPIRED";
+/**
+ * Status values currently documented by Meta for an Instagram media container.
+ *
+ * The upstream Graph schema exposes `status_code` as a string, so this is an
+ * adapter-level contract rather than a generated type. Keep the open string
+ * branch in `InstagramContainerStatus` below for forward compatibility when
+ * Meta adds a status before the Graph schema catches up.
+ */
+export const InstagramContainerStatusCodes = {
+  Expired: "EXPIRED",
+  Error: "ERROR",
+  Finished: "FINISHED",
+  InProgress: "IN_PROGRESS",
+  Published: "PUBLISHED",
+} as const;
+
+export type InstagramContainerStatusCode =
+  (typeof InstagramContainerStatusCodes)[keyof typeof InstagramContainerStatusCodes];
+
+/** A provider status code, including values introduced after this SDK release. */
+export type InstagramContainerStatus = InstagramContainerStatusCode | (string & {});
+
+export const InstagramContainerStatusCodeSchema = v.picklist([
+  InstagramContainerStatusCodes.Expired,
+  InstagramContainerStatusCodes.Error,
+  InstagramContainerStatusCodes.Finished,
+  InstagramContainerStatusCodes.InProgress,
+  InstagramContainerStatusCodes.Published,
+]);
+
+/** Returns true when Meta returned one of its currently documented status codes. */
+export function isInstagramContainerStatusCode(
+  value: string,
+): value is InstagramContainerStatusCode {
+  return v.is(InstagramContainerStatusCodeSchema, value);
+}
+
+/** Validate a raw Graph value without rejecting future provider status codes. */
+export function parseInstagramContainerStatus(value: unknown): InstagramContainerStatus {
+  return v.parse(v.string(), value);
+}
 
 export type InstagramMediaContainerResult = { readonly containerId: string };
 export type InstagramMediaStatusResult = {
@@ -51,19 +93,22 @@ export function createInstagramTransport(opts: InstagramTransportOptions) {
     async getMediaContainerStatus(input: {
       readonly containerId: string;
     }): Promise<InstagramMediaStatusResult> {
-      const result = await requestJson<{
-        readonly id: string;
-        readonly status_code: InstagramContainerStatus;
-      }>(
-        opts,
-        "instagram",
-        "instagram.get_media_container_status",
-        input.containerId + "?fields=status_code",
-        {
-          method: "GET",
-        },
+      const result = v.parse(
+        v.object({ id: v.string(), status_code: v.string() }),
+        await requestJson<unknown>(
+          opts,
+          "instagram",
+          "instagram.get_media_container_status",
+          input.containerId + "?fields=status_code",
+          {
+            method: "GET",
+          },
+        ),
       );
-      return { containerId: result.id, status: result.status_code };
+      return {
+        containerId: result.id,
+        status: parseInstagramContainerStatus(result.status_code),
+      };
     },
 
     async publishMediaContainer(input: {

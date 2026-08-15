@@ -12,6 +12,7 @@ export type {
 export { createFacebookMessengerTransport } from "./facebook-messenger.ts";
 export type {
   InstagramContainerStatus,
+  InstagramContainerStatusCode,
   InstagramMediaContainerInput,
   InstagramMediaContainerResult,
   InstagramMediaStatusResult,
@@ -19,7 +20,13 @@ export type {
   InstagramPublishedMediaResult,
   InstagramTransportOptions,
 } from "./instagram.ts";
-export { createInstagramTransport } from "./instagram.ts";
+export {
+  createInstagramTransport,
+  InstagramContainerStatusCodes,
+  InstagramContainerStatusCodeSchema,
+  isInstagramContainerStatusCode,
+  parseInstagramContainerStatus,
+} from "./instagram.ts";
 export type {
   WhatsAppApiErrorPayload,
   WhatsAppClientOptions,

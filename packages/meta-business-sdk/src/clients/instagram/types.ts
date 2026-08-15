@@ -6,6 +6,10 @@ export type { IGUserCreateMediaParams, IGUserFields } from "../../generated/obje
 export type { InstagramInsightsResultFields } from "../../generated/objects/instagram-insights-result.ts";
 // Re-export generated container type
 export type { ShadowIGMediaBuilderFields } from "../../generated/objects/shadow-ig-media-builder.ts";
+export type {
+  InstagramContainerStatus,
+  InstagramContainerStatusCode,
+} from "../../transports/instagram.ts";
 
 export interface PublishResult {
   id: string;

@@ -2,7 +2,10 @@ import { expect, test } from "bun:test";
 
 import { createFacebookMessengerTransport } from "../../src/transports/facebook-messenger.ts";
 import { PlatformTransportError } from "../../src/transports/http.ts";
-import { createInstagramTransport } from "../../src/transports/instagram.ts";
+import {
+  createInstagramTransport,
+  isInstagramContainerStatusCode,
+} from "../../src/transports/index.ts";
 
 const credentials = {
   accessToken: "workflow-secret",
@@ -44,12 +47,29 @@ test("Instagram transport exposes one atomic serializable operation per step", a
 
   expect(created).toEqual({ containerId: "container_1" });
   expect(status).toEqual({ containerId: "container_1", status: "FINISHED" });
+  expect(isInstagramContainerStatusCode(status.status)).toBe(true);
   expect(published).toEqual({ mediaId: "media_1" });
   expect(permalink).toEqual({ mediaId: "media_1", permalink: "https://instagram.example/media_1" });
   expect(requests).toHaveLength(4);
   expect(requests.map((request) => request.init?.method)).toEqual(["POST", "GET", "POST", "GET"]);
   expect(JSON.stringify(created)).not.toContain("workflow-secret");
   expect(JSON.stringify(status)).not.toContain("workflow-secret");
+});
+
+test("Instagram container status preserves undocumented future provider values", async () => {
+  const transport = createInstagramTransport({
+    ...credentials,
+    instagramAccountId: "ig_123",
+    fetch: async () =>
+      new Response(JSON.stringify({ id: "container_1", status_code: "PAUSED_BY_REVIEW" }), {
+        status: 200,
+      }),
+  });
+
+  const result = await transport.getMediaContainerStatus({ containerId: "container_1" });
+
+  expect(result).toEqual({ containerId: "container_1", status: "PAUSED_BY_REVIEW" });
+  expect(isInstagramContainerStatusCode(result.status)).toBe(false);
 });
 
 test("Messenger transport uses a native typed send operation", async () => {
