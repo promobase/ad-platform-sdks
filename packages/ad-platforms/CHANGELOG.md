@@ -1,5 +1,31 @@
 # @openpromo/ad-platforms
 
+## 1.0.0
+
+### Major Changes
+
+- [`e715e0b`](https://github.com/promobase/ad-platform-sdks/commit/e715e0b3b806bde3e50bad736c1a6ea810cf6378) Thanks [@rayli09](https://github.com/rayli09)! - Add the canonical `AllPlatforms` identifiers and Valibot runtime schema,
+  normalized OAuth adapters for OpenPromo's first-party flows, and first-party
+  quality typed low-level Facebook, Instagram, and TikTok client operations for
+  Mosaic consumers.
+
+### Patch Changes
+
+- Updated dependencies [[`e715e0b`](https://github.com/promobase/ad-platform-sdks/commit/e715e0b3b806bde3e50bad736c1a6ea810cf6378), [`d745356`](https://github.com/promobase/ad-platform-sdks/commit/d74535616061f4a0eddb42e6b8bd4f24a8565908), [`70ca858`](https://github.com/promobase/ad-platform-sdks/commit/70ca8589c2570c13d738c7f9551ed4b2724d77ef), [`73f4b90`](https://github.com/promobase/ad-platform-sdks/commit/73f4b9019e8ecc0295e4969d5e136af8a87fab9b)]:
+  - @openpromo/sdk-runtime@0.6.0
+  - @openpromo/meta@1.0.0
+  - @openpromo/tiktok@0.5.0
+  - @openpromo/linkedin@0.8.0
+  - @openpromo/youtube@0.7.0
+  - @openpromo/x@0.7.0
+  - @openpromo/google-business-profile@0.5.0
+  - @openpromo/snapchat@0.3.0
+  - @openpromo/reddit@0.3.0
+  - @openpromo/pinterest@0.3.0
+  - @openpromo/bluesky@0.3.0
+  - @openpromo/google-ads@0.4.0
+  - @openpromo/amazon-ads@0.3.0
+
 ## 0.9.0
 
 ### Minor Changes

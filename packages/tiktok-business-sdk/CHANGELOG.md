@@ -1,5 +1,25 @@
 # @openpromo/tiktok
 
+## 0.5.0
+
+### Minor Changes
+
+- [`e715e0b`](https://github.com/promobase/ad-platform-sdks/commit/e715e0b3b806bde3e50bad736c1a6ea810cf6378) Thanks [@rayli09](https://github.com/rayli09)! - Add the canonical `AllPlatforms` identifiers and Valibot runtime schema,
+  normalized OAuth adapters for OpenPromo's first-party flows, and first-party
+  quality typed low-level Facebook, Instagram, and TikTok client operations for
+  Mosaic consumers.
+
+- [`70ca858`](https://github.com/promobase/ad-platform-sdks/commit/70ca8589c2570c13d738c7f9551ed4b2724d77ef) Thanks [@rayli09](https://github.com/rayli09)! - Generate TypeScript model types and lightweight Valibot schemas from the same
+  canonical SDK IR across all generated platform packages, alongside their
+  existing Effect surfaces. Webhook schemas remain hand-authored and separate.
+
+### Patch Changes
+
+- [`d745356`](https://github.com/promobase/ad-platform-sdks/commit/d74535616061f4a0eddb42e6b8bd4f24a8565908) Thanks [@rayli09](https://github.com/rayli09)! - Expose Better Result-backed OAuth adapter outcomes through `.result`, with
+  tagged `OAuthAdapterError` values and preserved provider-specific adapter types.
+- Updated dependencies [[`e715e0b`](https://github.com/promobase/ad-platform-sdks/commit/e715e0b3b806bde3e50bad736c1a6ea810cf6378), [`d745356`](https://github.com/promobase/ad-platform-sdks/commit/d74535616061f4a0eddb42e6b8bd4f24a8565908), [`73f4b90`](https://github.com/promobase/ad-platform-sdks/commit/73f4b9019e8ecc0295e4969d5e136af8a87fab9b)]:
+  - @openpromo/sdk-runtime@0.6.0
+
 ## 0.4.1
 
 ### Patch Changes

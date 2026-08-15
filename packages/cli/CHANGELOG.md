@@ -1,5 +1,19 @@
 # @openpromo/ad-platforms-cli
 
+## 0.6.4
+
+### Patch Changes
+
+- Updated dependencies [[`e715e0b`](https://github.com/promobase/ad-platform-sdks/commit/e715e0b3b806bde3e50bad736c1a6ea810cf6378), [`d745356`](https://github.com/promobase/ad-platform-sdks/commit/d74535616061f4a0eddb42e6b8bd4f24a8565908), [`70ca858`](https://github.com/promobase/ad-platform-sdks/commit/70ca8589c2570c13d738c7f9551ed4b2724d77ef), [`73f4b90`](https://github.com/promobase/ad-platform-sdks/commit/73f4b9019e8ecc0295e4969d5e136af8a87fab9b)]:
+  - @openpromo/sdk-runtime@0.6.0
+  - @openpromo/meta@1.0.0
+  - @openpromo/ad-platforms@1.0.0
+  - @openpromo/tiktok@0.5.0
+  - @openpromo/linkedin@0.8.0
+  - @openpromo/youtube@0.7.0
+  - @openpromo/x@0.7.0
+  - @openpromo/google-ads@0.4.0
+
 ## 0.6.3
 
 ### Patch Changes
