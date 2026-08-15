@@ -1,5 +1,12 @@
 # @openpromo/google-ads
 
+## 0.4.1
+
+### Patch Changes
+
+- Updated dependencies [[`269d091`](https://github.com/promobase/ad-platform-sdks/commit/269d09195c5e33b995c90333674f423b0fd0241e), [`6a12a9c`](https://github.com/promobase/ad-platform-sdks/commit/6a12a9cd0a18980bb9a44fb334e9bc606e3a894f), [`3e4a908`](https://github.com/promobase/ad-platform-sdks/commit/3e4a9082099715fa2720a1240c88c250db1cdd82)]:
+  - @openpromo/sdk-runtime@0.7.0
+
 ## 0.4.0
 
 ### Minor Changes

@@ -1,5 +1,47 @@
 # @openpromo/ad-platforms
 
+## 2.0.0
+
+### Major Changes
+
+- [`ce1dd41`](https://github.com/promobase/ad-platform-sdks/commit/ce1dd418029f65e60ce61254e8c8c438fdf69127) Thanks [@rayli09](https://github.com/rayli09)! - Remove Facebook-shaped Instagram and Threads Effect aliases. Generated reference output now states
+  when a platform has no source-backed Effect partition instead of advertising an incorrect client.
+
+### Minor Changes
+
+- [`b634096`](https://github.com/promobase/ad-platform-sdks/commit/b63409694bc926969595ddcaa03bab8123ad8415) Thanks [@rayli09](https://github.com/rayli09)! - Complete a first-party platform parity slice with secure curated OAuth state validation, a
+  single-credential Facebook Page client boundary, typed Facebook/Instagram messaging and publishing
+  helpers, Instagram account insights, generated Meta permission metadata, and source-extracted TikTok
+  Business permission metadata. TikTok Marketing API refresh/revoke limitations are now explicit typed
+  adapter errors.
+
+- [`269d091`](https://github.com/promobase/ad-platform-sdks/commit/269d09195c5e33b995c90333674f423b0fd0241e) Thanks [@rayli09](https://github.com/rayli09)! - Add explicit Instagram credential-family clients, hardened Meta webhook parity, and first-class
+  TikTok Business webhook parsing, management, and platform-first entrypoints.
+
+- [`269d091`](https://github.com/promobase/ad-platform-sdks/commit/269d09195c5e33b995c90333674f423b0fd0241e) Thanks [@rayli09](https://github.com/rayli09)! - Add platform-first Facebook, Instagram, WhatsApp, and webhook entrypoints to the umbrella package.
+  Keep the existing `@openpromo/meta` distribution available as a compatibility path.
+
+- [`3e4a908`](https://github.com/promobase/ad-platform-sdks/commit/3e4a9082099715fa2720a1240c88c250db1cdd82) Thanks [@rayli09](https://github.com/rayli09)! - Add provider-specific OAuth scope catalogs and typed adapter inputs across the supported platform
+  SDKs. Add an explicit `customOAuthScope` escape hatch for provider permissions not yet in a catalog,
+  while preserving provider-granted scopes as forward-compatible strings.
+
+### Patch Changes
+
+- Updated dependencies [[`b634096`](https://github.com/promobase/ad-platform-sdks/commit/b63409694bc926969595ddcaa03bab8123ad8415), [`269d091`](https://github.com/promobase/ad-platform-sdks/commit/269d09195c5e33b995c90333674f423b0fd0241e), [`f538ded`](https://github.com/promobase/ad-platform-sdks/commit/f538dede24d5e0c05db051d127877b7984e392b4), [`115e0d6`](https://github.com/promobase/ad-platform-sdks/commit/115e0d6f3a0a7fdf820d34ff08d8baa0ad3f2108), [`ce1dd41`](https://github.com/promobase/ad-platform-sdks/commit/ce1dd418029f65e60ce61254e8c8c438fdf69127), [`6a12a9c`](https://github.com/promobase/ad-platform-sdks/commit/6a12a9cd0a18980bb9a44fb334e9bc606e3a894f), [`118f255`](https://github.com/promobase/ad-platform-sdks/commit/118f255c412181bc75c4c61dfdc1aa41f4ae052f), [`c1f3e19`](https://github.com/promobase/ad-platform-sdks/commit/c1f3e19e1f94cb464e109dde5d7af14ff2ee84a1), [`3e4a908`](https://github.com/promobase/ad-platform-sdks/commit/3e4a9082099715fa2720a1240c88c250db1cdd82)]:
+  - @openpromo/meta@2.0.0
+  - @openpromo/tiktok@0.6.0
+  - @openpromo/sdk-runtime@0.7.0
+  - @openpromo/linkedin@0.9.0
+  - @openpromo/youtube@0.8.0
+  - @openpromo/google-business-profile@0.6.0
+  - @openpromo/x@0.8.0
+  - @openpromo/pinterest@0.3.1
+  - @openpromo/snapchat@0.3.1
+  - @openpromo/reddit@0.3.1
+  - @openpromo/amazon-ads@0.3.1
+  - @openpromo/bluesky@0.3.1
+  - @openpromo/google-ads@0.4.1
+
 ## 1.0.0
 
 ### Major Changes
