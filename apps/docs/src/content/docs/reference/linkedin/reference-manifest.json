@@ -3,7 +3,7 @@
   "platform": "linkedin",
   "version": "202607",
   "endpointCount": 303,
-  "modelCount": 0,
+  "modelCount": 15,
   "capabilityCount": 19,
   "endpointPages": [
     "endpoints/account",
@@ -23,5 +23,5 @@
     "endpoints/post",
     "endpoints/reporting-roi"
   ],
-  "modelPages": []
+  "modelPages": ["models/linked-in-call-to-action-to-linked-in-visibility"]
 }

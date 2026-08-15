@@ -1,0 +1,1239 @@
+---
+title: "TikTok Business models: Tto Creator Link Request Confirm Params – Tt Video Info Response User Info"
+description: "100 generated TikTok Business model contracts, from TtoCreatorLinkRequestConfirmParams through TtVideoInfoResponseUserInfo."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 1023
+  label: "Tto Creator Link Request Confirm Params – Tt Video Info Response User Info"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## TtoCreatorLinkRequestConfirmParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creator_id` | `creator_id` | `string` | Yes | No | Application specific unique ID of the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1768493902119937#item-link-Obtain%20a%20Creator%20access%20token) or [/tt_user/oauth2/refresh_token/](https://business-api.tiktok.com/portal/docs?id=1768493902119937#item-link-Renew%20a%20Creator%20access%20token) to this field. |
+| `link_request_id` | `link_request_id` | `string` | Yes | No | The ID of the linking request. To obtain the ID, use [/tto/creator/link/request/get/](https://business-api.tiktok.com/portal/docs?id=1837247726007298) and check the returned `link_request_id`. |
+| `action` | `action` | `"APPROVE" \| "REJECT"` | Yes | No | Action to be taken. Enum values: `APPROVE`: To approve the linking request.`REJECT`: To reject the linking request. |
+
+## TtoCreatorLinkRequestConfirmResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## TtoCreatorLinkRequestGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creator_id` | `creator_id` | `string` | Yes | No | Application specific unique ID of the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1768493902119937#item-link-Obtain%20a%20Creator%20access%20token) or [/tt_user/oauth2/refresh_token/](https://business-api.tiktok.com/portal/docs?id=1768493902119937#item-link-Renew%20a%20Creator%20access%20token) to this field. |
+| `tto_invite_link` | `tto_invite_link` | `string` | Yes | No | The invite link associated with a TTO Creator Marketplace campaign that the creator (TikTok account) has been invited to. To create a TTO Creator Marketplace campaign as a brand and obtain the associated invite link, use [/tto/tcm/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1815693549459458). |
+
+## TtoCreatorLinkRequestGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_id` | `campaign_id` | `string` | No | No | The ID of the TTO Creator Marketplace campaign. |
+| `spark_authorization_days` | `spark_authorization_days` | `number` | No | No | The default Spark Ads authorization days for videos uploaded to the campaign. Enum values: 0, 7, 30, 60, 180, 365. |
+| `link_requests` | `link_requests` | `Array<TtoCreatorLinkRequestGetResponseLinkRequests>` | No | No | A list of linking requests that the creator has received. |
+
+## TtoCreatorLinkRequestGetResponseLinkRequests
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | The ID of the creator video that has been requested to be linked to the campaign. |
+| `link_request_id` | `link_request_id` | `string` | No | No | The ID of the linking request. You can pass the ID to [/tto/creator/link/request/confirm/](https://business-api.tiktok.com/portal/docs?id=1837247744649345) to approve or reject the linking request. |
+
+## TtoOauth2InfoParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+
+## TtoOauth2InfoResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | No | No | The ID of the TTO Creator Marketplace account. |
+| `account_name` | `account_name` | `string` | No | No | The name of the TTO Creator Marketplace account. |
+| `timezone` | `timezone` | `string` | No | No | The time zone code of the TTO Creator Marketplace account. Example: `America/Los_Angeles`. To find out the time zone that a time zone code corresponds to, see [Time zone](https://business-api.tiktok.com/portal/docs?id=1737586324313089). |
+| `country` | `country` | `string` | No | No | The country or region code of the TTO Creator Marketplace account. Example: `US`. To find out the country or region that a country or region code corresponds to, see [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010). |
+| `business_verification_status` | `business_verification_status` | `"NOT_SUBMITTED" \| "UNDER_REVIEW" \| "NOT_PASSED" \| "PASSED" \| "EXPIRED"` | No | No | The business verification status of the TTO Creator Marketplace account. Enum values:`NOT_SUBMITTED`: The account has not been submitted for business verification review.`UNDER_REVIEW`: The account is under business verification review.`NOT_PASSED`: The account has failed the business verification review.`PASSED`: The account has passed the business verification review.`EXPIRED`: The business verification for the account has expired. Learn more about [Business Verification on TikTok One](https://ads.tiktok.com/help/article/how-to-verify-your-business-for-tiktok-one). |
+
+## TtoOauth2TcmParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | Yes | No | ID of your developer application. To find the App ID, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `secret` | `secret` | `string` | Yes | No | Secret of your developer application. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+
+## TtoOauth2TcmResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_ids` | `tto_tcm_account_ids` | `Array<string>` | No | No | The ID list of TikTok One Creator Marketplace accounts that authorized the developer app (`app_id`). |
+
+## TtoTcmAnchorCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `anchor_type` | `anchor_type` | `string` | Yes | No | The type of anchor. Enum values:`WEB_ANCHOR`: Webpage anchor. A type of anchor through which you can display your website link above the creator's video description. |
+| `anchor_sub_type` | `anchor_sub_type` | `string` | No | No | Required when `anchor_type` is `WEB_ANCHOR`. The specific type of webpage anchor. Enum values:`DESTINATION`: Web destination link. This type directs viewers to a web destination link that can be opened in TikTok. The anchor shows up both in the creator's video and the comment section. Note: The web destination link is available for countries where TikTok Shop is not yet available. TikTok Shop is currently available in Indonesia, Thailand, Vietnam, Philippines, Malaysia, Singapore, United States, United Kingdom, and Saudi Arabia. |
+| `category_label_id` | `category_label_id` | `number` | No | No | Required when `anchor_sub_type` is `DESTINATION`. The ID of the category of your product or service. To learn about the supported values, see Supported values for `category_label_id`. |
+| `country_code` | `country_code` | `string` | Yes | No | The code of the country or region. The app information from this country or region's app store will be used. This anchor won’t be available in other countries or regions. When `anchor_sub_type` is `DESTINATION`, the supported values vary based on `category_label_id`. To learn about the supported values for a specific category ID, see Supported values for `category_label_id`. To learn about the country or region that the code represents, see [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010). Example: `AU`. |
+| `call_to_action` | `call_to_action` | `TtoTcmAnchorCreateParamsCallToAction` | Yes | No | Anchor link information. |
+| `anchor_title` | `anchor_title` | `string` | Yes | No | The title of the anchor. When `anchor_sub_type` is `DESTINATION`, the enum values are:`WATCH_NOW`: Watch Now.`LISTEN_NOW`: Listen Now.`READ_MORE`: Read More.`SHOW_NOW`: Shop Now.`GET_OFFER`: Get Offer.`LEARN_MORE`: Learn More.`CONTACT_US`: Contact Us.`JOIN_NOW`: Join Now.`APPLY_NOW`: Apply Now. |
+| `anchor_name` | `anchor_name` | `string` | Yes | No | The name of the anchor. Length limit: 32 characters. This information will not be shown to users in TikTok App. |
+| `upload_type` | `upload_type` | `"UPLOAD_BY_FILE" \| "UPLOAD_BY_URL"` | Yes | No | The upload method for thumbnail. Enum values:`UPLOAD_BY_FILE`: Upload by file. You need to specify `thumbnail_file` simultaneously.`UPLOAD_BY_URL`: Upload by URL. You need to specify `thumbnail_url` simultaneously. |
+| `thumbnail_file` | `thumbnail_file` | `unknown` | No | No | Required when `upload_type` is `UPLOAD_BY_FILE`. The thumbnail file for the anchor. Specification requirements: File size: within 2 MB.Format: JPEG, PNG, and GIF.Resolution: 210 (width) x 375 (height) pixels. This information will not be shown to users in TikTok App. |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | Required when `upload_type` is `UPLOAD_BY_URL`. A publicly accessible thumbnail URL for the anchor. Specification requirements: File size: within 2 MB.Format: JPEG, PNG, and GIF.Resolution: 210 (width) x 375 (height) pixels. This information will not be shown to users in TikTok App. |
+
+## TtoTcmAnchorCreateParamsCallToAction
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `landing_page_url` | `landing_page_url` | `string` | No | No | Required when `anchor_sub_type` is `DESTINATION`. The URL of the page that the anchor will redirect viewers to. This page shows more information about your product or service. Ensure that the link provided is a product or service detail page. Otherwise, the anchor may be rejected during review. |
+
+## TtoTcmAnchorCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `anchor_id` | `anchor_id` | `string` | No | No | The ID of the anchor. |
+| `status` | `status` | `string` | No | No | The status of the anchor. Enum value: `IN_REVIEW`: under review. |
+| `anchor_type` | `anchor_type` | `string` | No | No | The type of anchor. Enum value: `WEB_ANCHOR`: Webpage anchor. An anchor type through which you can display your website link above the creator's video description. |
+| `anchor_sub_type` | `anchor_sub_type` | `string` | No | No | The specific type of webpage anchor. Enum value: `DESTINATION`: Web destination link. This type directs viewers to a web destination link that can be opened in TikTok. The anchor shows up both in the creator's video and the comment section. |
+| `category_label_id` | `category_label_id` | `number` | No | No | The ID of the category of your product or service. To learn about the supported values, see Supported values for `category_label_id`. |
+| `country_code` | `country_code` | `string` | No | No | The code of the country or region. The app information from this country or region's app store will be used. This anchor won’t be available in other countries or regions. To learn about the country or region that the code represents, see [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010). Example: `AU`. |
+| `call_to_action` | `call_to_action` | `TtoTcmAnchorCreateResponseCallToAction` | No | No | Anchor link information. |
+| `anchor_title` | `anchor_title` | `string` | No | No | The title of the anchor. |
+| `anchor_name` | `anchor_name` | `string` | No | No | The name of the anchor. |
+| `anchor_sub_title` | `anchor_sub_title` | `string` | No | No | When `anchor_sub_type` is `DESTINATION`, this field returns an empty string (`""`). The title of the anchor, which is used to tell TikTok users what you're promoting about your product or service. |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | The thumbnail URL for the anchor. The URL won't expire. |
+
+## TtoTcmAnchorCreateResponseCallToAction
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `landing_page_url` | `landing_page_url` | `string` | No | No | The URL of the page that the anchor will redirect viewers to. This page shows more information about your product or service. |
+
+## TtoTcmAnchorDeleteParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `anchor_id` | `anchor_id` | `string` | Yes | No | Anchor ID. To obtain a draft anchor within your TikTok One (TTO) Creator Marketplace account, use [/tto/tcm/anchor/get/](https://business-api.tiktok.com/portal/docs?id=1826564965840066) and confirm that the `status` of the anchor is `DRAFT`. |
+
+## TtoTcmAnchorDeleteResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## TtoTcmAnchorGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `anchor_ids` | `anchor_ids` | `Array<string>` | No | No | A list of anchor IDs. Max size: 100. If `anchor_ids` is not passed, all anchors within the TTO Creator Marketplace account will be returned. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. |
+
+## TtoTcmAnchorGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `anchors` | `anchors` | `Array<TtoTcmAnchorGetResponseAnchors>` | No | No | A list of anchors. |
+| `page_info` | `page_info` | `TtoTcmAnchorGetResponsePageInfo` | No | No | Pagination Information. |
+
+## TtoTcmAnchorGetResponseAnchors
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `anchor_id` | `anchor_id` | `string` | No | No | The ID of the anchor. |
+| `status` | `status` | `"DRAFT" \| "CREATED" \| "IN_REVIEW" \| "APPROVED" \| "REJECTED_BY_AUDIT"` | No | No | The status of the anchor. Enum value: `DRAFT`: The anchor is in draft mode.`CREATED`: The anchor has been created but has not been under review.`IN_REVIEW`: The anchor is under review.`APPROVED`: The anchor has passed review.`REJECTED_BY_AUDIT`: The anchor was rejected during the review. |
+| `anchor_type` | `anchor_type` | `string` | No | No | The type of anchor. Enum value: `WEB_ANCHOR`: Webpage anchor. A type of anchor through which you can display your website link above the creator's video description. |
+| `anchor_sub_type` | `anchor_sub_type` | `"DESTINATION" \| "ECOMMERCE" \| "ENTERTAINMENT"` | No | No | Returned when `anchor_type` is `WEB_ANCHOR`. The specific type of webpage anchor. Enum value: `DESTINATION`: Web destination link. This type directs viewers to a web destination link that can be opened in TikTok. The anchor shows up both in the creator's video and the comment section.`ECOMMERCE`: E-commerce template. This type directs viewers to an internal landing page where brands can add a coupon link. The anchor shows up only in the creator's video comment section.`ENTERTAINMENT`: Entertainment template. This type directs viewers to an internal landing page where brands can add a video clip. The anchor shows up only in the creator's video comment section. |
+| `country_code` | `country_code` | `string` | No | No | The code of the country or region. The app information from this country or region's app store will be used. This anchor won’t be available in other countries or regions. To learn about the country or region that the code represents, see [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010). |
+| `call_to_action` | `call_to_action` | `TtoTcmAnchorGetResponseAnchorsCallToAction` | No | No | Anchor link information. |
+| `anchor_title` | `anchor_title` | `string` | No | No | The title of the anchor. |
+| `anchor_name` | `anchor_name` | `string` | No | No | The name of the anchor. |
+| `anchor_sub_title` | `anchor_sub_title` | `string` | No | No | The title of the anchor, which is used to tell TikTok users what you're promoting about your product or service. When `anchor_sub_type` is `DESTINATION`, this field will be null. |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | The thumbnail URL for the anchor. |
+| `coupon_link` | `coupon_link` | `TtoTcmAnchorGetResponseAnchorsCouponLink` | No | No | This field returns a non-null value only when `anchor_sub_type` is `ECOMMERCE`. Information about the coupon link that redirects users to a page with more information about your campaign discount. |
+| `pixel_id` | `pixel_id` | `string` | No | No | The ID of the pixel that measures and analyzes campaign performance. |
+| `creator_preview_url` | `creator_preview_url` | `string` | No | No | The preview URL of the anchor and landing page that you can use for mobile phone preview purposes. The URL won't expire. |
+| `advertiser_preview_url` | `advertiser_preview_url` | `string` | No | No | The mobile preview URL of the anchor and landing page that you can use for desktop preview purposes. The URL won't expire. When `anchor_sub_type` is `DESTINATION`, this field will be null. |
+
+## TtoTcmAnchorGetResponseAnchorsCallToAction
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `landing_page_url` | `landing_page_url` | `string` | No | No | The URL of the page that the anchor will redirect viewers to. This page shows more information about your product or service. |
+| `ios_download_link` | `ios_download_link` | `string` | No | No | The iOS download link where people can download your app. When `anchor_type` is `WEB_ANCHOR`, this field will be null. |
+| `ios_deep_link` | `ios_deep_link` | `string` | No | No | The iOS download deeplink where people can download your app. When `anchor_type` is `WEB_ANCHOR`, this field will be null. |
+| `android_download_link` | `android_download_link` | `string` | No | No | The Android download link where people can download your app. When `anchor_type` is `WEB_ANCHOR`, this field will be null. |
+| `android_deep_link` | `android_deep_link` | `string` | No | No | The Android download deeplink where people can download your app. When `anchor_type` is `WEB_ANCHOR`, this field will be null. |
+
+## TtoTcmAnchorGetResponseAnchorsCouponLink
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `discount` | `discount` | `number` | No | No | Discount. For instance, a `discount` of `5` means 5% off. |
+| `coupon_url` | `coupon_url` | `string` | No | No | Coupon URL. |
+| `coupon_code` | `coupon_code` | `string` | No | No | Coupon code. |
+
+## TtoTcmAnchorGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Current page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total number of pages. |
+
+## TtoTcmBrandProfileCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `brand_name` | `brand_name` | `string` | Yes | No | Brand name. Length limit: 60 characters. Note: Once set, this field cannot be updated. |
+| `brand_industry_id` | `brand_industry_id` | `string` | Yes | No | The ID of the brand industry. For enum values, see [Brand Profile industry IDs](https://business-api.tiktok.com/portal/docs?id=1830336456075458). Note: Once set, this field cannot be updated. |
+| `brand_website` | `brand_website` | `string` | Yes | No | Brand website link. The link should start with `https://`. |
+| `logo_url` | `logo_url` | `string` | Yes | No | The URL of the brand logo image. Specification requirements:File format: JPG, PNG, or GIF.Aspect ratio: 1:1.File size: Up to 5MB. Note: Once set, this field cannot be updated. |
+| `tiktok_account_url` | `tiktok_account_url` | `string` | No | No | The URL of your TikTok account. The URL should start with `https://www.tiktok.com/@`. If you provide this URL when creating a Brand Profile, creators can view your linked account directly on your profile. This improves brand authenticity and transparency before you collaborate. To find the URL of your TikTok account, navigate to your TikTok profile, click the Share button, and copy the link. |
+
+## TtoTcmBrandProfileCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brand_profile_id` | `brand_profile_id` | `string` | No | No | The ID of the created Brand Profile. |
+| `brand_name` | `brand_name` | `string` | No | No | Brand name. |
+| `brand_industry_id` | `brand_industry_id` | `string` | No | No | The ID of the brand industry. |
+| `brand_website` | `brand_website` | `string` | No | No | Brand website link. |
+| `logo_url` | `logo_url` | `string` | No | No | The URL of the brand logo image for your TTO Creator Marketplace account. Note: This URL is system-generated for the logo image and is different from the URL specified through `logo_url` in the request for Brand Profile creation. |
+| `tiktok_account_url` | `tiktok_account_url` | `string` | No | No | The URL of your TikTok account. If no TikTok account URL is provided for creating the Brand Profile, this field will be an empty string (`""`). |
+
+## TtoTcmBrandProfileGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `brand_profile_ids` | `brand_profile_ids` | `Array<string>` | No | No | The IDs of existing Brand Profiles to filter the results by. Max size: 20. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-100. Default value: 10. |
+
+## TtoTcmBrandProfileGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brands` | `brands` | `Array<TtoTcmBrandProfileGetResponseBrands>` | No | No | List of Brand Profiles. |
+| `page_info` | `page_info` | `TtoTcmBrandProfileGetResponsePageInfo` | No | No | Page information. |
+
+## TtoTcmBrandProfileGetResponseBrands
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `brand_profile_id` | `brand_profile_id` | `string` | No | No | The ID of the Brand Profile. |
+| `brand_name` | `brand_name` | `string` | No | No | Brand name. |
+| `brand_industry` | `brand_industry` | `string` | No | No | The ID of the brand industry. |
+| `brand_website` | `brand_website` | `string` | No | No | Brand website link. |
+| `logo_url` | `logo_url` | `string` | No | No | The URL of the brand logo image for your TTO Creator Marketplace account. Note: This URL is system-generated for the logo image and is different from the URL specified through `logo_url` in the request for Brand Profile creation. |
+| `tiktok_account_url` | `tiktok_account_url` | `string` | No | No | The URL of your TikTok account. If no TikTok account URL is provided for creating the Brand Profile, this field will be an empty string (`""`). |
+
+## TtoTcmBrandProfileGetResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total number of pages. |
+
+## TtoTcmCampaignCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `campaign_type` | `campaign_type` | `string` | No | No | The type of the TTO Creator Marketplace campaign. Enum value:`CAMPAIGN`: A campaign with a [campaign-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Campaign-level%20invite%20link).Default value: `CAMPAIGN`. |
+| `brand_profile_id` | `brand_profile_id` | `string` | No | No | Either `brand_profile_id` or `brand_name` is required. The ID of a Brand Profile within the TTO Creator Marketplace account to associate with the campaign.To create a Brand Profile and obtain the Brand Profile ID, use [/tto/tcm/brand/profile/create/](https://business-api.tiktok.com/portal/docs?id=1830335387914241).To retrieve existing Brand Profile IDs, use [/tto/tcm/brand/profile/get/](https://business-api.tiktok.com/portal/docs?id=1830335437705217). |
+| `brand_name` | `brand_name` | `string` | No | No | Either `brand_profile_id` or `brand_name` is required. Brand name. Length limit: 60 characters. Note: If you are updating an existing campaign (with `campaign_id` specified in the request), the current campaign `brand_name` value will be used regardless of the value you pass in. |
+| `campaign_name` | `campaign_name` | `string` | Yes | No | Campaign name. Your campaign name should be informative and stand out to creators. You can follow the format [product name - product description] to tell creators about the basics of your brand or product. Length limit: 120 characters. Example: `CapCut - video editor` Note: If you are updating an existing campaign (with `campaign_id` specified in the request), the current campaign `campaign_name` value will be used regardless of the value you pass in. |
+| `campaign_description` | `campaign_description` | `string` | No | No | Campaign description. Provide relevant information about your campaign, such as your product's positioning, target audiences, and core features. Length limit: 1,000 characters. Note: If you are updating an existing campaign (with `campaign_id` specified in the request), the current campaign `campaign_description` value will be used regardless of the value you pass in. |
+| `anchor_id` | `anchor_id` | `string` | No | No | ID of the anchor to associate with the campaign. Anchors are links you add to your post that help viewers learn more about your product or service. The anchor is only visible to audiences in the anchor’s target country. Performance data of the anchor can only be measured when the creator's country matches the anchor’s target country. The video is still visible to the creator's audience, but the anchor attached is only visible to audiences in the anchor's country. To obtain the anchors within your TTO Creator Marketplace account, use [/tto/tcm/anchor/get/](https://business-api.tiktok.com/portal/docs?id=1826564965840066). |
+| `advertiser_ids` | `advertiser_ids` | `Array<string>` | No | No | A list of ad accounts to associate the campaign with. When a creator's video is linked to the campaign, these ad accounts will automatically be granted Spark Ads authorization for the video and the video will be automatically synced to the creative library of these ad accounts. When you specify `advertiser_ids`, `default_spark_ads_requested_authorization_days` is required. Max size: 50. To obtain the IDs of the ad accounts that you can access via `Access-Token`, use [/oauth2/advertiser/get/](https://business-api.tiktok.com/portal/docs?id=1738455508553729). |
+| `default_spark_ads_requested_authorization_days` | `default_spark_ads_requested_authorization_days` | `number` | No | No | Valid when you are creating a new campaign.Required when `advertiser_ids` is specified.Optional when `advertiser_ids` is not specified.Ignored when you are updating an existing campaign. The default number of authorization days you want to request from the creator to boost all of the videos uploaded for the campaign as Spark Ads. Value range: 0-365. Default value: 0. Once this field is set to a value other than the value 0, when a creator accepts the invitation and uploads videos to the campaign, the creator automatically grants you Spark Ads authorization for the videos for the specified number of days. |
+| `handle_names` | `handle_names` | `Array<string>` | Yes | No | The handle name list of TikTok creators that you want to invite to the campaign. Max size: 100. For new campaigns, specify the handle names of TikTok Creators to invite. For existing campaigns, specify additional handle names to invite. The new Creators will be added to the existing list. For example, if you created a campaign with `handle_names` as `["&#123;&#123;handle_name_1&#125;&#125;","&#123;&#123;handle_name_2&#125;&#125;"]` and want to invite two more creators, you can pass `campaign_id` and set `handle_names` to `["&#123;&#123;handle_name_3&#125;&#125;","&#123;&#123;handle_name_4&#125;&#125;"]`. The `handle_names` value of the updated campaign will be `["&#123;&#123;handle_name_1&#125;&#125;","&#123;&#123;handle_name_2&#125;&#125;","&#123;&#123;handle_name_3&#125;&#125;","&#123;&#123;handle_name_4&#125;&#125;"]`. |
+| `send_notification` | `send_notification` | `boolean` | No | No | Whether to send a notification regarding the TTO Creator Marketplace campaign invitation to the inboxes of invited TikTok creators (`handle_names`). The creators can open the notification to join the campaign. Supported values: `true`,`false`. Default value: `false`. |
+| `campaign_id` | `campaign_id` | `string` | No | No | Valid when you are updating an existing campaign. If this field is passed, all the other fields except `tto_tcm_account_id` and `handle_names` will be ignored. The ID of an existing TTO Creator Marketplace campaign. When you pass this field, you need to pass `handle_names` simultaneously to add new Creators to an existing campaign. |
+| `business_account_handle` | `business_account_handle` | `string` | No | No | The handle (username) of the Business Account. When you include this parameter during campaign creation, the creator will have the option to message the brand directly when they open the generated invite link (invite_link). Only applicable when the handle is a non-EU Business Account.Note: Associating a Business Account with a TTO Creator Marketplace Campaign during campaign creation is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+
+## TtoTcmCampaignCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_id` | `campaign_id` | `string` | No | No | The ID of the TTO Creator Marketplace campaign. |
+| `brand_name` | `brand_name` | `string` | No | No | Brand name. |
+| `campaign_name` | `campaign_name` | `string` | No | No | Campaign name. |
+| `handle_names` | `handle_names` | `Array<string>` | No | No | The handle name list of TikTok creators that the campaign is for. Note: Due to the latency in data processing, `handle_names` may be an empty list (`[]`) when creators have been invited to a campaign. If you encounter an empty list, you can wait for some time and use the [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258) endpoint to confirm the handle name list of creators invited to the campaign. |
+| `campaign_description` | `campaign_description` | `string` | No | No | Campaign description. |
+| `anchor_id` | `anchor_id` | `string` | No | No | The ID of the anchor that is associated with the campaign. |
+| `advertiser_ids` | `advertiser_ids` | `Array<string>` | No | No | A list of ad accounts that the campaign is associated with. When a creator's video is linked to the campaign, these ad accounts will automatically be granted Spark Ads authorization for the video. |
+| `spark_ads_requested_authorization_days` | `spark_ads_requested_authorization_days` | `number` | No | No | The default Spark Ads authorization days for videos uploaded to the campaign. Enum values: 0, 7, 30, 60, 180, 365. |
+| `invite_link` | `invite_link` | `string` | No | No | The invite link that is associated with the TikTok One Creator Marketplace campaign. The invite link will not expire. |
+| `create_time` | `create_time` | `string` | No | No | The time when the campaign was created, in the format of `YYYY-MM-DD HH:MM:SS`(UTC+0 time). Example: `2024-01-01 00:00:01`. |
+| `campaign_type` | `campaign_type` | `"CAMPAIGN" \| "BRAND_LINK"` | No | No | The type of the TTO Creator Marketplace campaign. Enum values:`CAMPAIGN`: A campaign with a [campaign-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Campaign-level%20invite%20link).`BRAND_LINK`: A campaign with a [brand-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Brand-level%20invite%20link). |
+| `brand_profile_id` | `brand_profile_id` | `string` | No | No | The ID of the Brand Profile associated with the campaign. |
+| `country_codes` | `country_codes` | `Array<string>` | No | No | Returned when at least one creator specified in the request parameter `handle_names` has been successfully invited to the campaign. The list of countries or region codes associated with the campaign. Example: `["US"]`. |
+| `failed_handle_names` | `failed_handle_names` | `Array<string>` | No | No | Returned when at least one creator specified in the request parameter `handle_names` failed to be invited to the campaign. The list of handles that failed to be added to the campaign. For example, if you provided `["handle_name_1","handle_name_2"]` in the request parameter `handle_names` and `handle_name_1` was successfully added while `handle_name_2` failed, the response will show `handle_names` as `["handle_name_1"]` and `failed_handle_names` as `["handle_name_2"]`. |
+| `dm_info` | `dm_info` | `string` | No | No | Direct messaging link information. |
+| `business_account_handle` | `business_account_handle` | `string` | No | No | The handle (username) of the Business Account. |
+| `dm_allowed` | `dm_allowed` | `boolean` | No | No | Whether direct messaging is allowed. Supported values: `true`(allowed), `false`(not allowed). |
+
+## TtoTcmCampaignLinkParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TikTok One Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `campaign_id` | `campaign_id` | `string` | Yes | No | The ID of an existing TTO Creator Marketplace campaign. To obtain a list of TTO Creator Marketplace campaigns, use [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258). |
+| `video_id` | `video_id` | `string` | Yes | No | The ID of a creator's public video to be linked to the campaign. To obtain a list of creator videos, use [/tcm/creator/authorized/video/list/](https://business-api.tiktok.com/portal/docs?id=1735827480228865). Note: Videos that have been linked to any other TikTok Creator Marketplace campaigns or TTO Creator Marketplace campaigns are not supported.The creator of the video needs to have been invited to the campaign. |
+| `action` | `action` | `"LINK" \| "REVOKE"` | Yes | No | Action to be taken. Enum values:`LINK`: Send a request to the creator for linking the video to the campaign. If such a request has been sent, the system will send a reminder notification to the creator. After you send a linking request, you need to wait for 24 hours to send a reminder notification. Otherwise, an error will occur. You can send up to two reminder notifications for a linking request. `REVOKE`: Revoke a linking request. You can only use this value when the creator has not accepted or rejected the request. You can only revoke each linking request once. |
+
+## TtoTcmCampaignLinkResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | The ID of the creator video to be linked to the campaign. |
+| `status` | `status` | `"IN_REVIEW" \| "REVOKE"` | No | No | The status of the request. Enum values:`IN_REVIEW`: Sent to the creator and pending the creator's acceptance or rejection. `REVOKE`: Revoked. |
+| `last_reminded_timestamp` | `last_reminded_timestamp` | `string` | No | No | The last time when the linking request or the reminder notification was sent to the creator, in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format. Example: `2025-01-01T00:00:01Z`. |
+| `number_of_requests` | `number_of_requests` | `number` | No | No | The number of linking requests that you have sent for the video. Example: 1. |
+| `campaign_type` | `campaign_type` | `"CAMPAIGN" \| "BRAND_LINK"` | No | No | The type of the TTO Creator Marketplace campaign. Enum values:`CAMPAIGN`: A campaign with a [campaign-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Campaign-level%20invite%20link).`BRAND_LINK`: A campaign with a [brand-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Brand-level%20invite%20link). |
+
+## TtoTcmCampaignLinkStatusParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `campaign_ids` | `campaign_ids` | `Array<string>` | No | No | The IDs of existing TTO Creator Marketplace campaigns to filter the results by. To obtain a list of TTO Creator Marketplace campaigns, use [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258). Max size: 50. |
+| `handle_names` | `handle_names` | `Array<string>` | No | No | The creator handle names to filter the results by. Max size: 50. |
+| `campaign_type` | `campaign_type` | `"CAMPAIGN" \| "BRAND_LINK"` | No | No | The type of the TTO Creator Marketplace campaign. Enum values:`CAMPAIGN`: A campaign with a [campaign-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Campaign-level%20invite%20link).`BRAND_LINK`: A campaign with a [brand-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Brand-level%20invite%20link). If this field is not specified, all campaigns will be returned. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-50. Default value: 10. |
+
+## TtoTcmCampaignLinkStatusResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_infos` | `video_infos` | `Array<TtoTcmCampaignLinkStatusResponseVideoInfos>` | No | No | Information about the linking requests for videos. |
+| `page_info` | `page_info` | `TtoTcmCampaignLinkStatusResponsePageInfo` | No | No | Pagination information. |
+
+## TtoTcmCampaignLinkStatusResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Current page size. |
+| `total_page` | `total_page` | `number` | No | No | Total number of pages. |
+| `total_number` | `total_number` | `number` | No | No | Total number of campaigns. |
+
+## TtoTcmCampaignLinkStatusResponseVideoInfos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | The ID of a creator's public video to be linked to the campaign. |
+| `status` | `status` | `"IN_REVIEW" \| "APPROVE" \| "REJECTED" \| "REVOKE"` | No | No | The status of the request. Enum values:`IN_REVIEW`: Sent to the creator and pending the creator's acceptance or rejection. `APPROVE`: Approved by the creator.`REJECTED`: Rejected by the creator. `REVOKE`: Revoked. |
+| `campaign_id` | `campaign_id` | `string` | No | No | The ID of the TTO Creator Marketplace campaign. |
+| `last_reminded_timestamp` | `last_reminded_timestamp` | `string` | No | No | The last time when the linking request or the reminder notification was sent to the creator, in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format. Example: `2025-01-01T00:00:01Z`. |
+| `number_of_requests` | `number_of_requests` | `number` | No | No | The number of requests for linking the video (`video_id`) to the campaign (`campaign_id`) that you have sent to the creator. Example: 1. |
+| `campaign_type` | `campaign_type` | `"CAMPAIGN" \| "BRAND_LINK"` | No | No | The type of the TTO Creator Marketplace campaign. Enum values:`CAMPAIGN`: A campaign with a [campaign-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Campaign-level%20invite%20link).`BRAND_LINK`: A campaign with a [brand-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Brand-level%20invite%20link). |
+| `link_request_id` | `link_request_id` | `string` | No | No | ID of the linking request. You can share the ID with the invited creator so that the creator can use [/tto/creator/link/request/confirm/](https://business-api.tiktok.com/portal/docs?id=1837247744649345) to approve or reject the linking request. |
+
+## TtoTcmCampaignParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TikTok One Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `campaign_ids` | `campaign_ids` | `Array<string>` | No | No | The ID list of TikTok One Creator Marketplace campaigns. Max size: 5. To create a campaign and obtain the campaign ID, use [/tto/tcm/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1815693549459458). |
+| `campaign_type` | `campaign_type` | `"CAMPAIGN" \| "BRAND_LINK"` | No | No | The type of the TTO Creator Marketplace campaign. Enum value:`CAMPAIGN`: A campaign with a [campaign-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Campaign-level%20invite%20link).`BRAND_LINK`: A campaign with a [brand-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Brand-level%20invite%20link).Default value: `CAMPAIGN`. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-5. Default value: 5. |
+
+## TtoTcmCampaignResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaigns` | `campaigns` | `Array<TtoTcmCampaignResponseCampaigns>` | No | No | The list of TTO Creator Marketplace campaigns. |
+| `page_info` | `page_info` | `TtoTcmCampaignResponsePageInfo` | No | No | Page information. |
+| `dm_info` | `dm_info` | `string` | No | No | Direct messaging link information. |
+| `business_account_handle` | `business_account_handle` | `string` | No | No | The handle (username) of the Business Account. |
+| `dm_allowed` | `dm_allowed` | `boolean` | No | No | Whether direct messaging is allowed. Supported values: `true`(allowed), `false`(not allowed). |
+
+## TtoTcmCampaignResponseCampaigns
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_id` | `campaign_id` | `string` | No | No | The ID of the TTO Creator Marketplace campaign. |
+| `campaign_type` | `campaign_type` | `"CAMPAIGN" \| "BRAND_LINK"` | No | No | The type of the TTO Creator Marketplace campaign. Enum values:`CAMPAIGN`: A campaign with a [campaign-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Campaign-level%20invite%20link).`BRAND_LINK`: A campaign with a [brand-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Brand-level%20invite%20link). |
+| `brand_profile_id` | `brand_profile_id` | `string` | No | No | The ID of the Brand Profile associated with the campaign. |
+| `brand_name` | `brand_name` | `string` | No | No | Brand name. |
+| `campaign_name` | `campaign_name` | `string` | No | No | Campaign name. |
+| `handle_names` | `handle_names` | `Array<string>` | No | No | The handle name list of TikTok creators that the campaign is for. |
+| `campaign_description` | `campaign_description` | `string` | No | No | Campaign description. |
+| `anchor_id` | `anchor_id` | `string` | No | No | The ID of the anchor that is associated with the campaign. |
+| `video_ids` | `video_ids` | `Array<string>` | No | No | List of video IDs linked to the campaign. |
+| `advertiser_ids` | `advertiser_ids` | `Array<string>` | No | No | A list of ad accounts that the campaign is associated with. When a creator's video is linked to the campaign, these ad accounts will automatically be granted Spark Ads authorization for the video. |
+| `spark_ads_requested_authorization_days` | `spark_ads_requested_authorization_days` | `number` | No | No | The default Spark Ads authorization days for videos uploaded to the campaign. Enum values: 0, 7, 30, 60, 180, 365. |
+| `invite_link` | `invite_link` | `string` | No | No | The invite link that is associated with the TTO Creator Marketplace campaign. |
+| `create_time` | `create_time` | `string` | No | No | The time when the campaign was created, in the format of `YYYY-MM-DD HH:MM:SS`(UTC+0 time). Example: `2024-01-01 00:00:01`. |
+| `country_codes` | `country_codes` | `Array<string>` | No | No | The list of country or region codes associated with the TTO Creator Marketplace campaign. This field represents the regions where the creators invited to the campaign are located. To learn about the values that might be returned for this field, see [Location code](https://business-api.tiktok.com/portal/docs?id=1737585867307010). You can pass the field value to the Header parameter `Country-Code` in [/tto/tcm/report/](https://business-api.tiktok.com/portal/docs?id=1815693573340162) to obtain video-level reports for a specific region for a TikTok One Creator Marketplace campaign. Example: `CA`. |
+
+## TtoTcmCampaignResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total number of pages. |
+
+## TtoTcmCampaignUpdateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `campaign_id` | `campaign_id` | `string` | Yes | No | The ID of an existing TTO Creator Marketplace campaign. To retrieve existing campaigns with your TTO Creator Marketplace account, use [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258). |
+| `campaign_type` | `campaign_type` | `"CAMPAIGN" \| "BRAND_LINK"` | Yes | No | The type of the TTO Creator Marketplace campaign. Enum value:`CAMPAIGN`: A campaign with a [campaign-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Campaign-level%20invite%20link).`BRAND_LINK`: A campaign with a [brand-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Brand-level%20invite%20link). |
+| `handle_names` | `handle_names` | `Array<string>` | No | No | Valid only when a campaign with a campaign-level invite link is specified through `campaign_id`.Not supported when a campaign with a brand-level invite link is specified through `campaign_id`. The handle name list of additional TikTok creators that you want to invite to the campaign with a campaign-level invite link. The new creators will be added to the existing list. Max size: 100. For example, if you created a campaign with `handle_names` as `["&#123;&#123;handle_name_1&#125;&#125;","&#123;&#123;handle_name_2&#125;&#125;"]` and want to invite two more creators, you can pass `campaign_id` and set `handle_names` to `["&#123;&#123;handle_name_3&#125;&#125;","&#123;&#123;handle_name_4&#125;&#125;"]`. The `handle_names` value of the updated campaign will be `["&#123;&#123;handle_name_1&#125;&#125;","&#123;&#123;handle_name_2&#125;&#125;","&#123;&#123;handle_name_3&#125;&#125;","&#123;&#123;handle_name_4&#125;&#125;"]`. |
+| `send_notification` | `send_notification` | `boolean` | No | No | Valid only for a campaign with a campaign-level invite link. To retrieve such a campaign, use [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258) and select one campaign with `campaign_type` as `CAMPAIGN`. Whether to send a notification regarding the TTO Creator Marketplace campaign invitation to the inboxes of invited TikTok creators (`handle_names`). The creators can open the notification to join the campaign. Supported values: `true`,`false`. Default value: `false`. |
+| `advertiser_ids` | `advertiser_ids` | `Array<string>` | No | No | A list of additional ad accounts to associate the campaign with. When a creator's video is linked to the campaign, these ad accounts will automatically be granted Spark Ads authorization for the video. You can specify ad accounts that share the same business center, legal entity, or logged in email. Max size: 50. For example, if you created a campaign with `advertiser_ids` as `["&#123;&#123;advertiser_id_1&#125;&#125;","&#123;&#123;advertiser_id_2&#125;&#125;"]` and want to invite two more creators, you can set `advertiser_ids` to `["&#123;&#123;advertiser_id_3&#125;&#125;","&#123;&#123;advertiser_id_4&#125;&#125;"]`. The `advertiser_ids` value of the updated campaign will be `["&#123;&#123;advertiser_id_1&#125;&#125;","&#123;&#123;advertiser_id_2&#125;&#125;","&#123;&#123;advertiser_id_3&#125;&#125;","&#123;&#123;advertiser_id_4&#125;&#125;"]`. |
+
+## TtoTcmCampaignUpdateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `campaign_id` | `campaign_id` | `string` | No | No | The ID of the TTO Creator Marketplace campaign. |
+| `brand_name` | `brand_name` | `string` | No | No | Brand name. |
+| `campaign_name` | `campaign_name` | `string` | No | No | Campaign name. |
+| `handle_names` | `handle_names` | `Array<string>` | No | No | The handle name list of TikTok creators that the campaign is for. |
+| `campaign_description` | `campaign_description` | `string` | No | No | Campaign description. |
+| `anchor_id` | `anchor_id` | `string` | No | No | The ID of the anchor that is associated with the campaign. |
+| `advertiser_ids` | `advertiser_ids` | `Array<string>` | No | No | A list of ad accounts that the campaign is associated with. When a creator's video is linked to the campaign, these ad accounts will automatically be granted Spark Ads authorization for the video. |
+| `spark_ads_requested_authorization_days` | `spark_ads_requested_authorization_days` | `number` | No | No | The default Spark Ads authorization days for videos uploaded to the campaign. Enum values: 0, 7, 30, 60, 180, 365. |
+| `invite_link` | `invite_link` | `string` | No | No | The invite link that is associated with the TTO Creator Marketplace campaign. The invite link will not expire. |
+| `create_time` | `create_time` | `string` | No | No | The time when the campaign was created, in the format of `YYYY-MM-DD HH:MM:SS`(UTC+0 time). Example: `2024-01-01 00:00:01`. |
+| `campaign_type` | `campaign_type` | `"CAMPAIGN" \| "BRAND_LINK"` | No | No | The type of the TTO Creator Marketplace campaign. Enum values:`CAMPAIGN`: A campaign with a [campaign-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Campaign-level%20invite%20link).`BRAND_LINK`: A campaign with a [brand-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Brand-level%20invite%20link). |
+| `brand_profile_id` | `brand_profile_id` | `string` | No | No | The ID of the Brand Profile associated with the campaign. |
+| `country_codes` | `country_codes` | `Array<string>` | No | No | Returned when at least one creator specified in the request parameter `handle_names` has been successfully invited to the campaign. The list of countries or region codes associated with the campaign. Example: `["US"]`. |
+| `failed_handle_names` | `failed_handle_names` | `Array<string>` | No | No | Returned when at least one creator specified in the request parameter `handle_names` failed to be invited to the campaign. The list of handles that failed to be added to the campaign. For example, if you provided `["handle_name_1","handle_name_2"]` in the request parameter `handle_names` and `handle_name_1` was successfully added while `handle_name_2` failed, the response will show `handle_names` as `["handle_name_1"]` and `failed_handle_names` as `["handle_name_2"]`. |
+
+## TtoTcmCategoryLabelParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TikTok One Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `label_type` | `label_type` | `"RANKING" \| "SEARCH"` | Yes | No | The type of label. Enum value:`RANKING`: ranking label. A label that can be used with [/tto/tcm/rank/](https://business-api.tiktok.com/portal/docs?id=1816378813274113) for ranking creators.`SEARCH`: search label. A label that can be used with [/tto/tcm/creator/discover/](https://business-api.tiktok.com/portal/docs?id=1825017307843585) for discovering creators. |
+
+## TtoTcmCategoryLabelResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `industry_labels` | `industry_labels` | `Array<TtoTcmCategoryLabelResponseIndustryLabels>` | No | No | The list of creator industry labels, which can be used to obtain Branded Content creator rankings on TTO Creator Leaderboard. Creator industry labels are assigned to creators based on the commercial content they produce, including ad creatives and branded content on their TikTok accounts, and represent their commercial experience in certain industries. |
+| `content_labels` | `content_labels` | `Array<TtoTcmCategoryLabelResponseContentLabels>` | No | No | The list of content tag labels, which can be used to obtain Organic Content creator rankings on TTO Creator Leaderboard. Content tag labels are assigned to creators based on the main focus of the creator’s TikTok account, and represent the direction of the creator’s organic content. |
+
+## TtoTcmCategoryLabelResponseContentLabels
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `label_id` | `label_id` | `string` | No | No | The ID of the content tag label. |
+| `label_name` | `label_name` | `string` | No | No | The name of the content tag label. |
+
+## TtoTcmCategoryLabelResponseIndustryLabels
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `label_id` | `label_id` | `string` | No | No | The ID of the creator industry label. |
+| `label_name` | `label_name` | `string` | No | No | The name of the creator industry label. |
+
+## TtoTcmCreatorDiscoverParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TikTok One Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `country_codes` | `country_codes` | `Array<string>` | Yes | No | Filter by the country or region codes of the creators. If you pass multiple codes, these codes should be from the same regional category. For enum values and regional category for each code, see List of values for `country_codes`. |
+| `state_provinces` | `state_provinces` | `Array<string>` | No | No | Valid only when `country_codes` is `["US"]`. Filter by the states or provinces of the creators. Currently, only U.S. states are supported. For enum values, see List of values for `state_provinces`. |
+| `content_label_ids` | `content_label_ids` | `Array<string>` | No | No | Filter by the IDs of video content tags. A video content tag is a main focus of the creator’s TikTok account and primarily represents the direction of the creator’s organic content. Max size: 100. To obtain a list of video content tag IDs, use [/tto/tcm/category/label/](https://business-api.tiktok.com/portal/docs?id=1816372654109698) with `label_type` set to `SEARCH` and retrieve the IDs from the response parameter `label_id` within the object array `content_labels`. |
+| `industry_label_ids` | `industry_label_ids` | `Array<string>` | No | No | Filter by the IDs of industry tags. An industry tag indicates the creator industry that is assigned to creators based on the commercial content they produce, including ad creatives and branded content on their TikTok accounts, and represents their commercial experience in certain industries. Max size: 100. To obtain a list of industry tag IDs, use [/tto/tcm/category/label/](https://business-api.tiktok.com/portal/docs?id=1816372654109698) with `label_type` set to `SEARCH` and retrieve the IDs from the response parameter `label_id` within the object array `industry_labels`. |
+| `min_followers` | `min_followers` | `number` | No | No | Filter by the minimum number of followers. Default value: 0. |
+| `max_followers` | `max_followers` | `number` | No | No | Filter by the maximum number of followers. This field doesn’t have a default value. |
+| `languages` | `languages` | `Array<string>` | No | No | Filter by language. For enum values, see List of values for `languages`. By default, the results are not filtered by languages. |
+| `min_creator_price` | `min_creator_price` | `number` | No | No | Filter by the minimum creator starting price, in the currency specified by `creator_price_currency`. Default value: 0. |
+| `max_creator_price` | `max_creator_price` | `number` | No | No | Filter by the maximum creator starting price, in the currency specified by `creator_price_currency`. This field doesn’t have a default value. |
+| `creator_price_currency` | `creator_price_currency` | `string` | No | No | The currency for creator starting price filters `min_creator_price` and `max_creator_price`. Enum value: `USD`. Default value: `USD`. |
+| `min_avg_views` | `min_avg_views` | `number` | No | No | Filter by the minimum average views. Average views represent the number of views that the creator’s videos received. Default value: 0. |
+| `max_avg_views` | `max_avg_views` | `number` | No | No | Filter by the maximum average views. This field doesn’t have a default value. |
+| `min_median_views` | `min_median_views` | `number` | No | No | Filter by the minimum median views. Median views represent the middle value in the range of views across a creator’s recent videos, ranked lowest to highest, which showcases the typical video view count of their content. Default value: 0. |
+| `max_median_views` | `max_median_views` | `number` | No | No | Filter by the maximum median views. This field doesn’t have a default value. |
+| `min_engagement_rate` | `min_engagement_rate` | `number` | No | No | Filter by the minimum engagement rate. Engagement rate represents how much people interacted with content. It’s calculated by taking the total number of comments, likes, and shares divided by video views. Value range: 0-1. Default value: 0. |
+| `max_engagement_rate` | `max_engagement_rate` | `number` | No | No | Filter by the maximum engagement rate. Value range: 0-1. This field doesn’t have a default value. |
+| `follower_country_codes` | `follower_country_codes` | `Array<string>` | No | No | Filter by the codes of followers’ locations. For enum values, see List of values for `follower_country_codes`. |
+| `follower_gender_ratio` | `follower_gender_ratio` | `"FEMALE_50" \| "FEMALE_60" \| "FEMALE_70" \| "MALE_50" \| "MALE_60" \| "MALE_70"` | No | No | Filter by followers’ gender ratio. Enum values:`FEMALE_50`: Percentage of audience who are female is over 50%.`FEMALE_60`: Percentage of audience who are female is over 60%.`FEMALE_70`: Percentage of audience who are female is over 70%.`MALE_50`: Percentage of audience who are male is over 50%.`MALE_60`: Percentage of audience who are male is over 60%.`MALE_70`: Percentage of audience who are male is over 70%. |
+| `follower_age` | `follower_age` | `string` | No | No | Filter by followers’ majority age group. Enum values:`18-24`: 18-24.`25-34`: 25-34.`35-44`: 35-44.`45-54`: 45-54.`55+`: 55+. |
+| `keyword_search` | `keyword_search` | `string` | No | No | The keyword to search for creators. Length limit: 100 characters. Fuzzy match is supported. |
+| `sort_field` | `sort_field` | `"RELEVANCE" \| "FOLLOWERS" \| "MEDIAN_VIEWS" \| "ENGAGEMENT_RATE"` | No | No | The specific metric by which to sort the results. Enum values:`RELEVANCE`: relevance.`FOLLOWERS`: followers.`MEDIAN_VIEWS`: median views.`ENGAGEMENT_RATE`: engagement rate.Default value: `RELEVANCE`. You can sort the returned data using this field. |
+| `sort_order` | `sort_order` | `"ASC" \| "DESC"` | No | No | The order in which to sort the results. Enum values:`ASC`: Ascending.`DESC`: Descending. Default value: `DESC`. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥1. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Current page size. Value range: 1-200. Default value: 24. |
+
+## TtoTcmCreatorDiscoverResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creators` | `creators` | `Array<TtoTcmCreatorDiscoverResponseCreators>` | No | No | Discovered creators. |
+| `page_info` | `page_info` | `TtoTcmCreatorDiscoverResponsePageInfo` | No | No | Pagination information. |
+
+## TtoTcmCreatorDiscoverResponseCreators
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `handle_name` | `handle_name` | `string` | No | No | The handle name (username) of the creator. |
+| `display_name` | `display_name` | `string` | No | No | The display name of the creator. |
+| `profile_image` | `profile_image` | `string` | No | No | Temporary URL for profile photo of the creator. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Once the URL expires, you need to call [/tto/tcm/creator/discover/](https://business-api.tiktok.com/portal/docs?id=1825017307843585) to obtain a new URL. |
+| `followers_count` | `followers_count` | `number` | No | No | The total number of followers of the creator. |
+| `following_count` | `following_count` | `number` | No | No | The total number of accounts that the creator follows on TikTok. |
+| `likes_count` | `likes_count` | `number` | No | No | The total number of times people have liked the creator's videos. |
+| `videos_count` | `videos_count` | `number` | No | No | The total number of public videos posted by the creator. |
+
+## TtoTcmCreatorDiscoverResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## TtoTcmCreatorPublicParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `handle_name` | `handle_name` | `string` | Yes | No | The handle name of the TTO Creator Marketplace creator that you want to search for. The exact match is supported. Note: If you specify the handle name of a creator that is not on TTO Creator Marketplace yet, an error will occur. |
+
+## TtoTcmCreatorPublicResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `handle_name` | `handle_name` | `string` | No | No | The unique handle name of the creator. |
+| `display_name` | `display_name` | `string` | No | No | The display name of the creator. |
+| `profile_image` | `profile_image` | `string` | No | No | Temporary URL for profile photo of the creator. Validity period: around seven days. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Once the URL expires, you can call [/tto/tcm/creator/public/](https://business-api.tiktok.com/portal/docs?id=1828185358712897) to obtain a new URL. |
+| `bio` | `bio` | `string` | No | No | The bio description of the creator. Note: If the bio spans multiple lines, any line breaks within the bio will be represented as `\n` in the field value. |
+| `followers_count` | `followers_count` | `number` | No | No | The number of followers for the creator. Example: 100. |
+| `following_count` | `following_count` | `number` | No | No | The number of accounts that the creator is following. Example: 100. |
+| `videos_count` | `videos_count` | `number` | No | No | The number of public videos posted by the creator. Example: 100. |
+| `likes_count` | `likes_count` | `number` | No | No | The number of likes on public videos posted by the creator. Example: 100. |
+| `creator_id` | `creator_id` | `string` | No | No | The unique ID of the creator. Example: `1234567891234567891`. |
+| `median_views` | `median_views` | `number` | No | No | Median views. The middle value in the range of views across the creator's recent 30 videos, ranked lowest to highest, which showcases the typical video view count of their content. |
+| `engagement_rate` | `engagement_rate` | `number` | No | No | Engagement rate. The percentage of people interacted with content across the creator's recent 30 videos. It's calculated by taking the total number of comments, likes, and shares divided by video views. Example: 0.13669180870056152. |
+| `creator_price` | `creator_price` | `number` | No | No | The starting price of the creator. Example: 500. |
+| `currency` | `currency` | `string` | No | No | The currency for the starting price, in ISO 4217 format. Example: `USD`. |
+| `industry_labels` | `industry_labels` | `Array<TtoTcmCreatorPublicResponseIndustryLabels>` | No | No | The list of creator industry labels, which can be used to obtain Branded Content creator rankings on TTO Creator Leaderboard. Creator industry labels are assigned to creators based on the commercial content they produce, including ad creatives and branded content on their TikTok accounts, and represent their commercial experience in certain industries. Each `label_id` can be used in [/tto/tcm/rank/](https://business-api.tiktok.com/portal/docs?id=1816378813274113) to obtain a list of up to 100 US creators who rank highest for that label. |
+| `content_labels` | `content_labels` | `Array<TtoTcmCreatorPublicResponseContentLabels>` | No | No | The list of content tag labels, which can be used to obtain Organic Content creator rankings on TTO Creator Leaderboard. Content tag labels are assigned to creators based on the main focus of the creator’s TikTok account, and represent the direction of the creator’s organic content. Each `label_id` can be used in [/tto/tcm/rank/](https://business-api.tiktok.com/portal/docs?id=1816378813274113) to obtain a list of up to 100 US creators who rank highest for that label. |
+
+## TtoTcmCreatorPublicResponseContentLabels
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `label_id` | `label_id` | `string` | No | No | The ID of the content tag label. Example: `11005001007`. |
+| `label_name` | `label_name` | `string` | No | No | The name of the content tag label. Example: `Shooting Games`. |
+
+## TtoTcmCreatorPublicResponseIndustryLabels
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `label_id` | `label_id` | `string` | No | No | The ID of the creator industry label. Example: `20000000000`. |
+| `label_name` | `label_name` | `string` | No | No | The name of the creator industry label. Example: `Apps`. |
+
+## TtoTcmCreatorPublicVideoListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `handle_name` | `handle_name` | `string` | Yes | No | The handle name of the TTO Creator Marketplace creator that you want to search for. The exact match is supported. Note: If you specify the handle name of a creator that is not on TTO Creator Marketplace yet, an error will occur. |
+| `video_ids` | `video_ids` | `Array<string>` | No | No | The IDs of the videos to filter the results by. Max size: 25. If this field is not specified, the results won't be filtered by video IDs. |
+| `cursor` | `cursor` | `number` | No | No | The timestamp cursor of the video from which you want to retrieve subsequent videos. If the response parameter `has_more` is `true`, pass the returned `cursor` to this parameter in the next request to retrieve the subsequent videos. Default value: 0. By default, the most recent videos will be returned. |
+| `limit` | `limit` | `number` | No | No | The number of posts to return for each request. Value range: 1-25. Default value: 10. |
+
+## TtoTcmCreatorPublicVideoListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `posts` | `posts` | `Array<TtoTcmCreatorPublicVideoListResponsePosts>` | No | No | The list of public posts of the creator. |
+| `page_info` | `page_info` | `TtoTcmCreatorPublicVideoListResponsePageInfo` | No | No | Pagination information. |
+
+## TtoTcmCreatorPublicVideoListResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `has_more` | `has_more` | `boolean` | No | No | Whether more videos are available. Supported values: `true`, `false`. |
+| `cursor` | `cursor` | `number` | No | No | The timestamp cursor that marks the time of the last video returned in the current request. If `has_more` in the response is `true`, you can pass the value to the `cursor` parameter in your subsequent request to retrieve subsequent posts. Example: `1734031433000`. |
+
+## TtoTcmCreatorPublicVideoListResponsePosts
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `display_name` | `display_name` | `string` | No | No | The display name of the creator. |
+| `video_id` | `video_id` | `string` | No | No | Unique identifier for the video. Example: `1234567890`. |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | Temporary URL for the video thumbnail. Validity period: around seven days. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Once the URL expires, you need to call [/tto/tcm/creator/public/video/list/](https://business-api.tiktok.com/portal/docs?id=1828185411810305) to obtain a new URL. |
+| `embed_url` | `embed_url` | `string` | No | No | An embeddable link for this TikTok video. This URL can be used to embed the TikTok video in external websites or applications. If the privacy setting of the post is "Friends" or "Only you", the video will not be viewable through this link. |
+| `caption` | `caption` | `string` | No | No | Video description. |
+| `likes` | `likes` | `number` | No | No | Likes. Total number of likes on the video. Example: 100. |
+| `comments` | `comments` | `number` | No | No | Comments. Total number of comments on the video. Example: 100. |
+| `shares` | `shares` | `number` | No | No | Shares. Total number of times the video has been shared. Example: 100. |
+| `favorites` | `favorites` | `number` | No | No | Favorites. The total number of times the video has been added to favorites. Example: 100. |
+| `video_views` | `video_views` | `number` | No | No | Video views. The number of times viewers who watched the video. Example: 100. Note: Replays will not be counted. |
+| `create_time` | `create_time` | `string` | No | No | The time when the video was created, in Unix/epoch timestamp in milliseconds (UTC+0 time). Example: `1743090990000`. |
+| `caption_hashtags` | `caption_hashtags` | `Array<string>` | No | No | A list of hashtags that appear in the post caption. |
+| `mentioned_accounts` | `mentioned_accounts` | `Array<string>` | No | No | A list of the display names of TikTok accounts that have been @mentioned in the post caption. |
+| `collaboration_status` | `collaboration_status` | `"PAID_PARTNERSHIP" \| "CREATOR_EARNS_COMMISSION" \| "NONE"` | No | No | A status indicating if the post has been used as Branded Content. Enum values:`PAID_PARTNERSHIP`: Posts linked to TTO Campaign Links.`CREATOR_EARNS_COMMISSION`: TikTok Shop creator earns commission from affiliate links, learn more [here](https://ads.tiktok.com/help/article/faqs-affiliate-creatives-authorization?lang=en).`NONE` |
+
+## TtoTcmCreatorStatusGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TTO Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `handle_names` | `handle_names` | `Array<string>` | Yes | No | The handle names of TikTok Creators. Max size: 20. |
+
+## TtoTcmCreatorStatusGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `onboarding_status` | `onboarding_status` | `Array<TtoTcmCreatorStatusGetResponseOnboardingStatus>` | No | No | The onboarding status data for Creators. |
+
+## TtoTcmCreatorStatusGetResponseOnboardingStatus
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `handle_name` | `handle_name` | `string` | No | No | The handle name that was checked. |
+| `status` | `status` | `"IN" \| "NOT_IN" \| "INVALID"` | No | No | The onboarding status of the Creator. Enum values:`IN`: The Creator has joined TTO Creator Marketplace.`NOT_IN`: The Creator has not joined TTO Creator Marketplace.`INVALID`: The specified handle name (`handle_name`) is invalid. |
+
+## TtoTcmRankParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TikTok One Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `ranking_type` | `ranking_type` | `"BRANDED_CONTENT" \| "ORGANIC_CONTENT"` | Yes | No | The type of ranking. Enum values: `BRANDED_CONTENT`: ranking by branded content.`ORGANIC_CONTENT`: ranking by organic content. |
+| `time_period` | `time_period` | `"WEEK" \| "MONTH"` | Yes | No | The time period for the ranking. Enum values: `WEEK`: one week. `MONTH`: one month. |
+| `time_period_lookback` | `time_period_lookback` | `"ONE" \| "TWO" \| "THREE" \| "MONTH"` | Yes | No | The specific lookback period for the ranking. Enum values: `ONE`: the most recent available period. `TWO`: the second most recent period. `THREE`: the third most recent period. For example, if the most recent available monthly period is October and you set `time_period` to `MONTH` and `time_period_lookback` to `TWO`, the system will return ranking data for September. |
+| `label_id` | `label_id` | `string` | Yes | No | Creator label ID. When `ranking_type` is `BRANDED_CONTENT`, specify creator industry labels via this field.To obtain creator industry labels, use [/tto/tcm/category/label/](https://business-api.tiktok.com/portal/docs?id=1816372654109698). The creator industry labels will be available from the returned `industry_labels`. When `ranking_type` is `ORGANIC_CONTENT`, specify content tag labels via this field.To obtain content tag labels, use [/tto/tcm/category/label/](https://business-api.tiktok.com/portal/docs?id=1816372654109698). The content tag labels will be available from the returned `content_labels`. |
+| `country_code` | `country_code` | `string` | Yes | No | The code of the country or region that the creator ranking is for. Currently, the only supported enum value is `US` because the creator ranking data is only available for the United States. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥ 1. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-100. Default value: 20. |
+
+## TtoTcmRankResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creators` | `creators` | `Array<TtoTcmRankResponseCreators>` | No | No | The list of up to the top 100 creators, sorted by rank. Note: The actual number of returned creators may be less than 100, depending on the available data at the time of the query. |
+| `last_updated_at` | `last_updated_at` | `string` | No | No | The UTC+0 time when the ranking data was last updated, in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format. Example: `2024-11-19T14:14:22Z`. |
+| `page_info` | `page_info` | `TtoTcmRankResponsePageInfo` | No | No | Pagination information. |
+
+## TtoTcmRankResponseCreators
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ranking_change` | `ranking_change` | `string` | No | No | The change in rank position for the creator compared to the rank in the last time period. A positive `rank_change` indicates an increase in rank. For example, if the rank position shifts from 5 to 1, `rank_change` will be `+4`.A negative `rank_change` indicates a decrease in rank. For example, if the rank position shifts from 1 to 5, `rank_change` will be `-4`.A `rank_change` of `0` indicates no changes in rank. A `rank_change` marked as `N/A` indicates that the creator was not present in the top ranking list in the last time period. |
+| `profile_image` | `profile_image` | `string` | No | No | The temporary URL for the profile image of the creator, which needs to be re-acquired after expiration. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Example: `https://p16-sign.tiktokcdn-us.com/obj/tos-useast5-avt-0123-tx/ab123456789d1234567ab54de76f0d3b?lk3s=429d27ce&nonce=42773&refresh_token=123a4ab1234567a1aa1a11a1aa11aa1a&x-expires=1732046400&x-signature=aa1Q11aa1Da1a1aVZO%1Fa1oADaL1%1D&shp=111d11ce&shcp=-`. |
+| `country` | `country` | `string` | No | No | The code of the country or region where the creator is located. Currently, the only supported enum value is `US` because the creator ranking data is only available for the United States. |
+| `handle` | `handle` | `string` | No | No | The handle name of the creator. |
+| `display_name` | `display_name` | `string` | No | No | The display name of the creator. |
+| `industry_labels` | `industry_labels` | `Array<TtoTcmRankResponseCreatorsIndustryLabels>` | No | No | The list of industry labels associated with the creator. Creator industry labels are assigned to creators based on the commercial content they produce, including ad creatives and branded content on their TikTok accounts, and represent their commercial experience in certain industries. Note: Creators who no longer have the queried label may still be returned in the results. This is because the label was associated with them at the time the rank was generated. However, these labels can change over time, so a creator might lose a label after the rank has been generated. |
+| `content_labels` | `content_labels` | `Array<TtoTcmRankResponseCreatorsContentLabels>` | No | No | The list of content tag labels associated with the creator. Content tag labels are assigned to creators based on the main focus of the creator’s TikTok account, and represent the direction of the creator’s organic content. Note: Creators who no longer have the queried label may still be returned in the results. This is because the label was associated with them at the time the rank was generated. However, these labels can change over time, so a creator might lose a label after the rank has been generated. |
+| `score` | `score` | `number` | No | No | When `ranking_type` is `BRANDED_CONTENT`, this field represents commercial score, which is calculated based on the creator’s experience with commercial content with and the performance of their past commercial content.When `ranking_type` is `ORGANIC_CONTENT`, this field represents follower growth score (an indicator of how quickly the creator’s follower count is growing), which is calculated based on the creator’s follower count growth and video performance within the specified time period. Example: 81.56906666666666. |
+| `number_of_followers` | `number_of_followers` | `number` | No | No | Follower count. The creator’s current follower count. Example: 242703. |
+| `branded_content_video_views` | `branded_content_video_views` | `number` | No | No | Branded content video views. The total views of all branded content videos, where the video’s branded content toggle was enabled, produced by the Creator within the specified time period. Example: 528377. Note: This field returns a non-null value only when `ranking_type` is `BRANDED_CONTENT` in the request. |
+| `branded_content_engagement_rate` | `branded_content_engagement_rate` | `number` | No | No | Branded content engagement rate. The engagement rate of branded content within the specified time period, calculated as (total number of comments, likes, and shares of branded content) / (total video views). For example, a value of 3.02 means the branded content engagement rate is 3.02%. Note: This field returns a non-null value only when `ranking_type` is `BRANDED_CONTENT` in the request. |
+| `total_video_views` | `total_video_views` | `number` | No | No | Total video views. The total number of views from all of the creator’s videos within the specified time period. Example: 633516. |
+| `engagement_rate` | `engagement_rate` | `number` | No | No | Engagement rate. The collective engagement rate for all of the creator’s videos during the specified time period. This is calculated as (total number of comments, likes and shares)/(total video views). For example, a value of 2.97 means the branded content engagement rate is 2.97%. |
+| `starting_price` | `starting_price` | `number` | No | No | The creator’s starting base price. Example: 30000. Note: If the creator’s starting base pay is not set, the value of this field will be null. |
+| `starting_price_currency` | `starting_price_currency` | `string` | No | No | The currency for the creator’s starting base price. Example: `USD`. Note: If the creator’s starting base pay is not set, the value of this field will be an empty string (`""`). |
+| `follower_growth` | `follower_growth` | `number` | No | No | The number of followers gained during the specified time period. Example: 180476. Note: This field returns a non-null value only when `ranking_type` is `ORGANIC_CONTENT` in the request. |
+
+## TtoTcmRankResponseCreatorsContentLabels
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `label_name` | `label_name` | `string` | No | No | The ID of the content tag label. |
+| `label_id` | `label_id` | `string` | No | No | The name of the content tag label. |
+
+## TtoTcmRankResponseCreatorsIndustryLabels
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `label_id` | `label_id` | `string` | No | No | The ID of the creator industry label. |
+| `label_name` | `label_name` | `string` | No | No | The name of the creator industry label. |
+
+## TtoTcmRankResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## TtoTcmReportParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | Yes | No | The ID of the TikTok One Creator Marketplace account. To obtain the IDs of the accounts that you can access via `Access-Token`, use [/tto/oauth2/tcm/](https://business-api.tiktok.com/portal/docs?id=1815693478150146). |
+| `campaign_id` | `campaign_id` | `string` | Yes | No | The ID of a TikTok One Creator Marketplace campaign with a [campaign-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Campaign-level%20invite%20link) or [brand-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Brand-level%20invite%20link). To create a campaign and obtain the campaign ID, use [/tto/tcm/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1815693549459458). |
+| `start_date` | `start_date` | `string` | No | No | Required when `end_date` is passed. If you specify both `start_date` and `end_date`, the response will include the `daily_stats` parameter that shows the daily metrics for the specified time range.If you don't specify both `start_date` and `end_date`, the response will not include the daily metrics (`daily_stats`). Report start date, in the format of `YYYY-MM-DD` (UTC+0 time). The `start_date` should not be earlier than the campaign creation time. To obtain the campaign creation time, check the `create_time` returned from [/tto/tcm/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1815693549459458) or [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258). Example: `2024-01-01`. |
+| `end_date` | `end_date` | `string` | No | No | Required when `start_date` is passed. If you specify both `start_date` and `end_date`, the response will include the `daily_stats` parameter that shows the daily metrics for the specified time range.If you don't specify both `start_date` and `end_date`, the response will not include the daily metrics (`daily_stats`). Report end date, in the format of `YYYY-MM-DD` (UTC+0 time). Example: `2024-02-01`. |
+| `page` | `page` | `number` | No | No | Current page number. This field specifies which page of results to retrieve. The number of pages is based on the total number of records and the `page_size`. Default value: 1. Value range: ≥ 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. This specifies the number of records (the performance metrics for videos linked to the specified campaign ID) that you try to retrieve for each request. Default value: 25. Value range: 1-100. |
+
+## TtoTcmReportResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tto_tcm_account_id` | `tto_tcm_account_id` | `string` | No | No | The ID of the TikTok One Creator Marketplace account. |
+| `campaign_id` | `campaign_id` | `string` | No | No | The ID of the TikTok One Creator Marketplace campaign. |
+| `country_code` | `country_code` | `string` | No | No | A country or region code that is associated with the TikTok One Creator Marketplace campaign. |
+| `campaign_type` | `campaign_type` | `"CAMPAIGN" \| "BRAND_LINK"` | No | No | The type of the TTO Creator Marketplace campaign. Enum values:`CAMPAIGN`: A campaign with a [campaign-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Campaign-level%20invite%20link).`BRAND_LINK`: A campaign with a [brand-level invite link](https://business-api.tiktok.com/portal/docs?id=1830337139853313#item-link-Brand-level%20invite%20link). |
+| `campaign_channel_type` | `campaign_channel_type` | `"STANDARD_CAMPAIGN" \| "LITE_CAMPAIGN" \| "API_LITE_CAMPAIGN"` | No | No | The channel type where the campaign was created. Enum values: `STANDARD_CAMPAIGN`: A Standard Campaign created on the TikTok One platform.`LITE_CAMPAIGN`: A Lite Campaign created on the TikTok One platform.`API_LITE_CAMPAIGN`: A Lite Campaign created via the API. |
+| `page_info` | `page_info` | `TtoTcmReportResponsePageInfo` | No | No | Pagination information. |
+| `videos` | `videos` | `Array<TtoTcmReportResponseVideos>` | No | No | The list of videos that have been linked to the TikTok One Creator Marketplace campaign. |
+
+## TtoTcmReportResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Current page size. |
+| `total_page` | `total_page` | `number` | No | No | Total number of pages. |
+| `total_number` | `total_number` | `number` | No | No | Total number of videos. Note: This number is country-specific and depends on the header parameter `Country-Code`. For example, if a campaign includes two videos in the US and one video in Canada, `total_number` will be 2 when `Country-Code` is set to `US`, and 1 when set to `CA`. |
+
+## TtoTcmReportResponseVideos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_info` | `video_info` | `TtoTcmReportResponseVideosVideoInfo` | No | No | Information about the video. |
+| `reach_organic` | `reach_organic` | `number` | No | No | Organic reach (unique viewers). The estimated number of unique viewers who viewed the video at least once from organic traffic. |
+| `reach_paid` | `reach_paid` | `number` | No | No | Paid reach (unique viewers). The estimated number of unique viewers who viewed the video at least once from paid traffic. |
+| `video_completion_rate_organic` | `video_completion_rate_organic` | `number` | No | No | Organic video completion rate. The percentage of viewers who watched a video in its entirety. It’s calculated by dividing the number of complete video views by total number of video views. |
+| `video_completion_rate_paid` | `video_completion_rate_paid` | `number` | No | No | Paid video completion rate. The percentage of viewers who watched a video in its entirety. It’s calculated by dividing the number of complete video views by total number of video views. |
+| `average_view_time_organic` | `average_view_time_organic` | `number` | No | No | Organic average view time, in seconds. The average amount of time viewers spend watching a video. It’s calculated by dividing the total organic play time of the video by the total number of video views. |
+| `average_view_time_paid` | `average_view_time_paid` | `number` | No | No | Paid average view time, in seconds. The average amount of time viewers spend watching a video. It’s calculated by dividing the total paid play times of the video by the total number of video views. |
+| `organic_two_seconds_views` | `organic_two_seconds_views` | `number` | No | No | Organic 2-Second video views. Percentage of views that lasted at least 2 seconds long. It's calculated as the number of organic views that lasted more than 2 seconds divided by views. |
+| `paid_two_seconds_views` | `paid_two_seconds_views` | `number` | No | No | Paid 2-Second video views. Percentage of views that lasted at least 2 seconds long. It's calculated as the number of paid views that lasted more than 2 seconds divided by views. |
+| `organic_six_seconds_views` | `organic_six_seconds_views` | `number` | No | No | Organic 6-Second video views. Percentage of views that lasted at least 6 seconds long. It's calculated as the number of organic views that lasted more than 6 seconds divided by views. |
+| `paid_six_seconds_views` | `paid_six_seconds_views` | `number` | No | No | Paid 6-Second video views. Percentage of views that lasted at least 6 seconds. It's calculated as the number of paid views that lasted more than 6 seconds divided by views. |
+| `audience_language_distribution` | `audience_language_distribution` | `Array<TtoTcmReportResponseVideosAudienceLanguageDistribution>` | No | No | Distribution of video views by audience countries. Updated daily. |
+| `creator_info` | `creator_info` | `TtoTcmReportResponseVideosCreatorInfo` | No | No | Information about the TikTok Creator. |
+| `ad_clicks` | `ad_clicks` | `number` | No | No | The number of clicks on your ads. |
+| `ad_conversions` | `ad_conversions` | `number` | No | No | The number of times your ad achieved an outcome based on the objective and settings you selected. Note: This field is based on the selected campaign objective and settings. |
+| `ad_cost` | `ad_cost` | `number` | No | No | Ads cost. The estimated total amount of money you've spent on your campaign, ad group, or ad during its schedule. Updated in real time. |
+| `ad_cpa` | `ad_cpa` | `number` | No | No | Cost per conversion. The average amount of money you've spent on a paid conversion. Updated in real time. |
+| `ad_cpc` | `ad_cpc` | `number` | No | No | The average amount of money you've spent on a paid click. |
+| `ad_cpm` | `ad_cpm` | `number` | No | No | The average amount of money you've spent per 1,000 paid impressions. |
+| `ad_ctr` | `ad_ctr` | `number` | No | No | CTR (destination). The percentage of times people saw your ad and performed a click. Updated in real time. |
+| `ad_cvr` | `ad_cvr` | `number` | No | No | Conversion rate (CVR). The percentage of conversions from all impressions on your ads. Updated in real time. |
+| `ad_impressions` | `ad_impressions` | `number` | No | No | Impressions. The number of times your ads were on screen. Updated in real time. |
+| `video_views` | `video_views` | `number` | No | No | Total views. Total number of times the video has been watched. Updated in real time |
+| `video_views_organic` | `video_views_organic` | `number` | No | No | Organic video views. Total number of views acquired through organic delivery, and not through [Spark Ads](https://business-api.tiktok.com/portal/docs?id=1739470744631298). Updated in real time |
+| `video_views_paid` | `video_views_paid` | `number` | No | No | Paid views. Total number of views acquired through [Spark Ads](https://business-api.tiktok.com/portal/docs?id=1739470744631298). Updated in real time |
+| `reach` | `reach` | `number` | No | No | Reach (Unique viewers). Estimated number of unique users who viewed the video at least once. Updated daily |
+| `engagement_count` | `engagement_count` | `number` | No | No | Engagement count. Total number of likes (`likes`), shares (`shares`), and comments (`comments`). Updated in real time |
+| `engagement_rate` | `engagement_rate` | `number` | No | No | Engagement rate, calculated as the engagement count (`engagement_count`) divided by the total number of views (`video_views`). Updated in real time |
+| `engagement_rate_organic` | `engagement_rate_organic` | `number` | No | No | Organic engagement rate. The percentage of the audience who interacted with the campaign or video through organic delivery. It is calculated by dividing the number of organic interactions (likes, comments, and shares from non-paid views) by the total number of organic video views. Updated in real time |
+| `engagement_rate_paid` | `engagement_rate_paid` | `number` | No | No | Paid engagement rate. The percentage of the audience who interacted with the campaign or video through Spark Ads. It is calculated by dividing the number of paid interactions (likes, comments, and shares from paid views) by the total number of paid video views. Updated in real time |
+| `video_completion_rate` | `video_completion_rate` | `number` | No | No | Video completion rate, calculated as total completed video views divided by the total number of views (`video_views`). Updated in real time for the first seven days after the post was created and then updated daily afterwards |
+| `likes` | `likes` | `number` | No | No | Likes. Total number of likes associated with the video. Updated in real time |
+| `likes_organic` | `likes_organic` | `number` | No | No | Organic likes. Total number of likes generated through non-paid (organic) delivery. Updated in real time |
+| `likes_paid` | `likes_paid` | `number` | No | No | Paid likes. Total number of likes generated through Spark Ads. Updated in real time |
+| `comments` | `comments` | `number` | No | No | Comments. Total number of comments associated with the video. Updated in real time |
+| `comments_organic` | `comments_organic` | `number` | No | No | Organic comments. Total number of comments generated through non-paid (organic) delivery. Updated in real time |
+| `comments_paid` | `comments_paid` | `number` | No | No | Paid comments. Total number of comments generated through Spark Ads. Updated in real time |
+| `shares` | `shares` | `number` | No | No | Shares. Total number of shares associated with the video. Updated in real time |
+| `shares_organic` | `shares_organic` | `number` | No | No | Organic shares. Total number of shares generated through non-paid (organic) delivery. Updated in real time |
+| `shares_paid` | `shares_paid` | `number` | No | No | Paid shares. Total number of shares generated through Spark Ads. Updated in real time |
+| `favorites` | `favorites` | `number` | No | No | Favorites. Total number of favorites received from the video. Updated daily |
+| `favorites_organic` | `favorites_organic` | `number` | No | No | Organic favorites. Total number of favorites received from the video through non-paid (organic) delivery. Updated daily |
+| `favorites_paid` | `favorites_paid` | `number` | No | No | Paid favorites. Total number of favorites received from the video through Spark Ads. Updated daily |
+| `total_play_time` | `total_play_time` | `number` | No | No | Total play time, in seconds. Total amount of time users spend watching the video. Updated in real time for the first seven days after the post was created and then updated daily afterwards |
+| `average_view_time` | `average_view_time` | `number` | No | No | Average view time, in seconds. Average amount of time users spend watching the video, calculated as the total play time (`total_play_time`) divided by views (`video_views`). Updated in real time for the first seven days after the post was created and then updated daily afterwards |
+| `two_seconds_views` | `two_seconds_views` | `number` | No | No | 2-Second video views. Percentage of views that lasted more than two seconds, calculated as the number of views that lasted more than 2 seconds divided by views (`video_views`). Updated daily |
+| `six_seconds_views` | `six_seconds_views` | `number` | No | No | 6-Second video views. Percentage of views that lasted more than six seconds, calculated as the number of views that lasted more than six seconds divided by views (`video_views`). Updated daily |
+| `video_view_retention` | `video_view_retention` | `string` | No | No | A list of numbers indicating the video retention rate at each second. For instance, the value `[1, 0.61, 0.27, 0.2, 0.16, 0.14, 0.11, 0.09, 0.08, 0.07, 0.07, 0.06, 0.05, 0.05, 0.05, 0.04, 0.04]` indicates that during the first second, the video retention rate decreases from 100% to 61%. Updated in real time for the first seven days after the post was created and then updated daily afterwards |
+| `video_views_by_source` | `video_views_by_source` | `TtoTcmReportResponseVideosVideoViewsBySource` | No | No | View sources. Breakdown of how viewers were exposed to the video. Updated in real time for the first seven days after the post was created and then updated daily afterwards |
+| `audience_genders_distribution` | `audience_genders_distribution` | `Array<TtoTcmReportResponseVideosAudienceGendersDistribution>` | No | No | Breakdown of male and female users among viewers. Updated daily |
+| `audience_countries_distribution` | `audience_countries_distribution` | `Array<TtoTcmReportResponseVideosAudienceCountriesDistribution>` | No | No | Distribution of video views by audience countries. Updated daily |
+| `audience_age_distribution` | `audience_age_distribution` | `Array<TtoTcmReportResponseVideosAudienceAgeDistribution>` | No | No | Breakdown of viewers by age group. Updated daily |
+| `audience_device_distribution` | `audience_device_distribution` | `Array<TtoTcmReportResponseVideosAudienceDeviceDistribution>` | No | No | Breakdown of viewers by operating system. Updated daily |
+| `audience_locale_distribution` | `audience_locale_distribution` | `Array<TtoTcmReportResponseVideosAudienceLocaleDistribution>` | No | No | Breakdown of viewers by state-level locales in the country or region. Only available for the US. Updated daily |
+| `audience_interest_distribution` | `audience_interest_distribution` | `Array<TtoTcmReportResponseVideosAudienceInterestDistribution>` | No | No | Breakdown of viewers by interest categories. Updated daily |
+| `anchor_id` | `anchor_id` | `string` | No | No | The ID of the anchor that is associated with the campaign. |
+| `anchor_metrics` | `anchor_metrics` | `TtoTcmReportResponseVideosAnchorMetrics` | No | No | Anchor metrics. |
+| `daily_stats` | `daily_stats` | `Array<TtoTcmReportResponseVideosDailyStats>` | No | No | Daily statistics breakdown. Note: `daily_stats` is only available for the most recent 90 days. If the specified `start_date` and `end_date` fall outside this 90-day window, `daily_stats` will return null.We won't fill in the missing metrics with any default value (such as 0), so if one metric is missing from one day, that means the data is not available. |
+
+## TtoTcmReportResponseVideosAnchorMetrics
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `anchor_views` | `anchor_views` | `number` | No | No | Anchor views. Total number of times the anchor has been viewed. |
+| `anchor_clicks` | `anchor_clicks` | `number` | No | No | Anchor clicks. Total number of clicks on the anchor. |
+| `anchor_unique_views` | `anchor_unique_views` | `number` | No | No | Unique anchor views. The number of unique viewers who saw the anchor. |
+| `anchor_unique_clicks` | `anchor_unique_clicks` | `number` | No | No | Unique anchor clicks. The number of times the anchor was clicked by distinct users. |
+
+## TtoTcmReportResponseVideosAudienceAgeDistribution
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age` | `age` | `string` | No | No | Age group. Enum values:`1`: 13-17. `2`: 18-24.`3`: 25-34. `4`: 35-44 `5`: 45-54.`6`: 55+. |
+| `percentage` | `percentage` | `number` | No | No | Percentage. |
+
+## TtoTcmReportResponseVideosAudienceCountriesDistribution
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | No | No | Country or region code. Example: `US`. |
+| `percentage` | `percentage` | `number` | No | No | Percentage. |
+
+## TtoTcmReportResponseVideosAudienceDeviceDistribution
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `device` | `device` | `string` | No | No | Device operating system. Enum values:`android`: Android.`ios`: iOS. |
+| `percentage` | `percentage` | `number` | No | No | Percentage. |
+
+## TtoTcmReportResponseVideosAudienceGendersDistribution
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `gender` | `gender` | `"FEMALE" \| "MALE"` | No | No | Gender. Enum values: `FEMALE`: female. `MALE`: male. Note: This field might return `null` if the system cannot determine the gender. |
+| `percentage` | `percentage` | `number` | No | No | Percentage. |
+
+## TtoTcmReportResponseVideosAudienceInterestDistribution
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `interest_tag` | `interest_tag` | `string` | No | No | The ID of the interest category. To learn about the corresponding interest category name for each interest category ID, see Mapping between interest category ID and name. |
+| `percentage` | `percentage` | `number` | No | No | Percentage. |
+
+## TtoTcmReportResponseVideosAudienceLanguageDistribution
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `language` | `language` | `string` | No | No | The language code representing the user’s configured browsing language. You can use this value to map language codes to languages by using [/tool/language/](https://business-api.tiktok.com/portal/docs?id=1737188554152962). Example: `en`. |
+| `percentage` | `percentage` | `number` | No | No | The percentage of the audience using a language. Example: `0.10526315789473684`. A value of 0.10526315789473684 indicates a percentage of approx. 10.52%. |
+
+## TtoTcmReportResponseVideosAudienceLocaleDistribution
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `locale` | `locale` | `string` | No | No | State-level locale. For enum values, see [Location IDs](https://business-api.tiktok.com/portal/docs?id=1739311040498689). |
+| `percentage` | `percentage` | `number` | No | No | Percentage. Total number of viewers in the state (`locale`) divided by the total number of viewers in the country or region. |
+
+## TtoTcmReportResponseVideosCreatorInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `display_name` | `display_name` | `string` | No | No | The display name of the Creator. |
+| `handle_name` | `handle_name` | `string` | No | No | The handle name of the Creator. |
+
+## TtoTcmReportResponseVideosDailyStats
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date` | `date` | `string` | No | No | Date, in the format of `YYYY-MM-DD` (UTC+0 time). |
+| `views` | `views` | `number` | No | No | Total views. Total number of times the video has been watched on the date. |
+| `video_views_organic` | `video_views_organic` | `number` | No | No | Organic video views. Total number of views acquired through organic delivery, and not through [Spark Ads](https://business-api.tiktok.com/portal/docs/create-spark-ads/v1.3) on the date. |
+| `video_views_paid` | `video_views_paid` | `number` | No | No | Paid views. Total number of views acquired through [Spark Ads](https://business-api.tiktok.com/portal/docs/create-spark-ads/v1.3) on the date. |
+| `engagement_rate` | `engagement_rate` | `number` | No | No | Engagement rate, calculated as the total number of likes (`likes`), shares (`shares`), and comments (`comments`) divided by the total number of views (`views`) on the date. |
+| `engagement_rate_organic` | `engagement_rate_organic` | `number` | No | No | Organic engagement rate. Engagement rate acquired through organic delivery, and not through [Spark Ads](https://business-api.tiktok.com/portal/docs/create-spark-ads/v1.3) on the date. |
+| `engagement_rate_paid` | `engagement_rate_paid` | `number` | No | No | Paid engagement rate. Engagement rate acquired through [Spark Ads](https://business-api.tiktok.com/portal/docs/create-spark-ads/v1.3) on the date. |
+| `video_completion_rate` | `video_completion_rate` | `number` | No | No | Video completion rate, calculated as total completed video views divided by the total number of views (`views`) on the date. |
+| `likes` | `likes` | `number` | No | No | Likes. Total number of likes associated with the video on the date. |
+| `likes_organic` | `likes_organic` | `number` | No | No | Organic likes. Total number of likes acquired through organic delivery, and not through [Spark Ads](https://business-api.tiktok.com/portal/docs/create-spark-ads/v1.3) on the date. |
+| `likes_paid` | `likes_paid` | `number` | No | No | Paid likes. Total number of likes acquired through [Spark Ads](https://business-api.tiktok.com/portal/docs/create-spark-ads/v1.3) on the date. |
+| `comments` | `comments` | `number` | No | No | Comments. Total number of comments associated with the video on the date. |
+| `comments_organic` | `comments_organic` | `number` | No | No | Organic comments. Total number of comments acquired through organic delivery, and not through [Spark Ads](https://business-api.tiktok.com/portal/docs/create-spark-ads/v1.3) on the date. |
+| `comments_paid` | `comments_paid` | `number` | No | No | Paid comments. Total number of comments acquired through [Spark Ads](https://business-api.tiktok.com/portal/docs/create-spark-ads/v1.3) on the date. |
+| `shares` | `shares` | `number` | No | No | Shares. Total number of shares associated with the video on the date. |
+| `shares_organic` | `shares_organic` | `number` | No | No | Organic shares. Total number of shares acquired through organic delivery, and not through [Spark Ads](https://business-api.tiktok.com/portal/docs/create-spark-ads/v1.3) on the date. |
+| `shares_paid` | `shares_paid` | `number` | No | No | Paid shares. Total number of shares acquired through [Spark Ads](https://business-api.tiktok.com/portal/docs/create-spark-ads/v1.3) on the date. |
+| `favorites` | `favorites` | `number` | No | No | Favorites. Total number of favorites received from the video on the date. |
+| `favorites_organic` | `favorites_organic` | `number` | No | No | Organic favorites. Total number of favorites received from the video through organic delivery, and not through [Spark Ads](https://business-api.tiktok.com/portal/docs/create-spark-ads/v1.3) on the date. |
+| `favorites_paid` | `favorites_paid` | `number` | No | No | Paid favorites. Total number of favorites received from the video through [Spark Ads](https://business-api.tiktok.com/portal/docs/create-spark-ads/v1.3) on the date. |
+
+## TtoTcmReportResponseVideosVideoInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `create_time` | `create_time` | `string` | No | No | The time when the video was published, in the format of `YYYY-MM-DD HH:MM:SS` (UTC+0 time). Example: `2024-01-01 00:00:01`. |
+| `embed_url` | `embed_url` | `string` | No | No | An embeddable link to the TikTok video. This URL can be used to embed the TikTok video in external websites or applications. Example: `https://v77.tiktokcdn.com/&#123;&#123;embed_url&#125;&#125;`. |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | Temporary URL for thumbnail of the video. Expiration date-time is included in the `x-expires` query param as Epoch/Unix time in seconds. Example: `https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/12345678a12e3456a02017dcf822217e_1725607566?lk3s=c6b69ba0&nonce=51584&refresh_token=73f581ee21c7de32951926a0104f51a2&x-expires=1729173600&x-signature=vIBf8%2Bmp4%2FxXQpKrca1B5%2B%2FfpTU%3D&shp=c6b69ba0&shcp=-`. |
+| `video_id` | `video_id` | `string` | No | No | The unique identifier for the video. |
+| `authorization_code` | `authorization_code` | `string` | No | No | The Spark Ads authorization code for the video. |
+
+## TtoTcmReportResponseVideosVideoViewsBySource
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `for_you` | `for_you` | `number` | No | No | Video views from For You page. |
+| `hashtag` | `hashtag` | `number` | No | No | Video views from hashtag. |
+| `sound` | `sound` | `number` | No | No | Video views from sound. |
+| `personal_profile` | `personal_profile` | `number` | No | No | Video views from personal profile. |
+| `search` | `search` | `number` | No | No | Video views from search. |
+| `following` | `following` | `number` | No | No | Video views from following. |
+| `other` | `other` | `number` | No | No | Video views from other. |
+
+## TtUserOauth2RefreshTokenParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `client_id` | `client_id` | `string` | Yes | No | ID of your developer app. To find the App ID, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `client_secret` | `client_secret` | `string` | Yes | No | Secret of your developer app. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `grant_type` | `grant_type` | `string` | Yes | No | The way of generating the access token. The allowed enum value: `refresh_token`: To generate the access token by refresh token. |
+| `refresh_token` | `refresh_token` | `string` | Yes | No | Refresh token to renew an existing access token. You can obtain the refresh token in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) endpoint when you generate an access token. |
+
+## TtUserOauth2RefreshTokenResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## TtUserOauth2RevokeParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `client_id` | `client_id` | `string` | Yes | No | ID of your developer application. To find the App ID, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `client_secret` | `client_secret` | `string` | Yes | No | Secret of your developer application. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `access_token` | `access_token` | `string` | Yes | No | The TikTok account access token that you want to revoke. You can either create a new access token via [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1833997638479041) or obtain a renewed access token via [/tt_user/oauth2/refresh_token/](https://business-api.tiktok.com/portal/docs?id=1833997679342594). |
+
+## TtUserOauth2RevokeResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## TtUserOauth2TokenParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `client_id` | `client_id` | `string` | Yes | No | ID of your developer app. To find the App ID, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `client_secret` | `client_secret` | `string` | Yes | No | Secret of your developer app. To find the Secret, navigate to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `grant_type` | `grant_type` | `string` | Yes | No | The way of generating the access token. The allowed enum value: `authorization_code`: To generate the access token by authorization code. |
+| `auth_code` | `auth_code` | `string` | Yes | No | The authorization code (`auth_code`) generated by your TikTok account holder authorization URL. The code is valid for 10 minutes and can only be used once. To find out how to get the authorization code based on the type of API you use, see the "Authorization URL" row in [Comparing authorization for different APIs](https://business-api.tiktok.com/portal/docs?id=1781891256601602#item-link-Comparing%20authorization%20for%20different%20APIs). |
+| `redirect_uri` | `redirect_uri` | `string` | Yes | No | The redirect URL which the client will be directed to. Its value must be the same as the TikTok account holder redirect URL set in the app. |
+
+## TtUserOauth2TokenResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `access_token` | `access_token` | `string` | No | No | The short-term token for permission verification. The token expires in one day. If you want to renew a short-term access token, use [/tt_user/oauth2/refresh_token/](https://business-api.tiktok.com/portal/docs?id=1833997679342594) with a refresh token obtained from `/tt_user/oauth2/token/`. The refresh token remains valid for one year. If you want to revoke a short-term access token, use [/tt_user/oauth2/revoke/](https://business-api.tiktok.com/portal/docs?id=1833997665030145). |
+| `token_type` | `token_type` | `string` | No | No | The type of token. Enum value: `Bearer`: Bearer token. Anyone in possession of the token can use it to access the associated resources. |
+| `scope` | `scope` | `string` | No | No | The scope of permissions granted to the access token. |
+| `expires_in` | `expires_in` | `number` | No | No | The time remaining until the access token expires, measured in seconds. |
+| `refresh_token` | `refresh_token` | `string` | No | No | The refresh token, which can be used to renew the access token. The refresh token is valid for one year. Note: Retain this field for `access_token` renewal. |
+| `refresh_token_expires_in` | `refresh_token_expires_in` | `number` | No | No | The time remaining until the refresh token expires, measured in seconds. |
+| `open_id` | `open_id` | `string` | No | No | Application specific unique ID of the TikTok account. |
+
+## TtUserTokenInfoGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | Yes | No | ID of your developer application. You can find the App ID by navigating to [My Apps](https://ads.tiktok.com/marketing_api/apps/) &gt; App Detail &gt; Basic Information. |
+| `access_token` | `access_token` | `string` | Yes | No | Access token authorized by TikTok accounts. For details, see [Authentication](https://business-api.tiktok.com/portal/docs?id=1738084387220481#item-link-Obtain%20a%20TikTok%20account%20access%20token). |
+
+## TtUserTokenInfoGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | No | No | ID of your developer application. |
+| `scope` | `scope` | `string` | No | No | Scope of permissions for the specified access token. For instance, `"user.info.basic,video.list"`. |
+| `creator_id` | `creator_id` | `string` | No | No | Application specific unique ID of the TikTok Account. Note: You can pass the value of this field to the parameter `business_id` in [Accounts API](https://ads.tiktok.com/marketing_api/docs?id=1737944775511041) requests. |
+
+## TtVideoAuthorizeParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser id |
+| `auth_code` | `auth_code` | `string` | Yes | No | The authorization code for the Spark Ads post. Note: Replace "+" in your authorization code with "%2B". Otherwise, you may get an invalid authorization code error. For example, you can replace the "+" in the code "#XtjblzbEuOGK/BvHj4V/K0i71JL3Wu2fgRtOJrZSSf4SrPAedegtn+IH+UXr3f4=" and specify "#XtjblzbEuOGK/BvHj4V/K0i71JL3Wu2fgRtOJrZSSf4SrPAedegtn%2BIH%2BUXr3f4=". |
+| `original_post_auth_code` | `original_post_auth_code` | `string` | No | No | If this post is a duet or stitch from another post or it mentions another video, you also need to get the authorization code for the original post. Use this field to specify the authorization code for the original post. Note: Currently, the post can only mention at most one video. |
+
+## TtVideoAuthorizeResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## TtVideoInfoParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `auth_code` | `auth_code` | `string` | Yes | No | The authorization code for the Spark Ads post. Note: Replace "+" in your authorization code with "%2B". Otherwise, you may get an invalid authorization code error. For example, you can replace the "+" in the code "#XtjblzbEuOGK/BvHj4V/K0i71JL3Wu2fgRtOJrZSSf4SrPAedegtn+IH+UXr3f4=" and specify "#XtjblzbEuOGK/BvHj4V/K0i71JL3Wu2fgRtOJrZSSf4SrPAedegtn%2BIH%2BUXr3f4=". |
+
+## TtVideoInfoResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auth_info` | `auth_info` | `TtVideoInfoResponseAuthInfo` | No | No | Information about the authorization. |
+| `item_info` | `item_info` | `TtVideoInfoResponseItemInfo` | No | No | Information about the Spark Ads post. |
+| `user_info` | `user_info` | `TtVideoInfoResponseUserInfo` | No | No | Information about the TikTok account. |
+| `video_info` | `video_info` | `TtVideoInfoResponseVideoInfo` | No | No | Information about the video post. Note: When `item_type` is `CAROUSEL`, the values for the parameters within the `video_info` object will be null. |
+
+## TtVideoInfoResponseAuthInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auth_end_time` | `auth_end_time` | `string` | No | No | The time when the authorization code expires (UTC+0), in the format of 2017-01-01 00:00:00. |
+| `auth_start_time` | `auth_start_time` | `string` | No | No | The time when the authorization code becomes valid (UTC+0), in the format of 2017-01-01 00:00:00. |
+
+## TtVideoInfoResponseItemInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auth_code` | `auth_code` | `string` | No | No | The authorization code for the Spark Ads post. |
+| `item_id` | `item_id` | `string` | No | No | The ID of the Spark Ads post. |
+| `item_type` | `item_type` | `"VIDEO" \| "CAROUSEL"` | No | No | The type of Spark Ads post. Enum values: `VIDEO`: video post.`CAROUSEL`: photo post. |
+| `text` | `text` | `string` | No | No | The description of the Spark Ads post. |
+| `status` | `status` | `string` | No | No | The status of the Spark Ads post. For enum values, see [Enumerations-TikTok Post Item Status](https://business-api.tiktok.com/portal/docs?id=1737174886619138#item-link-TikTok%20Post%20Item%20Status). |
+| `carousel_info` | `carousel_info` | `TtVideoInfoResponseItemInfoCarouselInfo` | No | No | Information about the photo post. Note: When `item_type` is `VIDEO`, the value of this field will be null. |
+| `stitch_original_item_id` | `stitch_original_item_id` | `string` | No | No | If the post is a stitch from another post, the item ID of the original post. |
+| `duet_original_item_id` | `duet_original_item_id` | `string` | No | No | If the post is a duet from another post, the item ID of the original post. |
+| `is_multi_duet_stitch` | `is_multi_duet_stitch` | `boolean` | No | No | Whether this is a duet or stitch post that is created based on another duet or stitch post. |
+| `mentioned_item_ids` | `mentioned_item_ids` | `Array<string>` | No | No | If the post mentions another video, the item IDs of the original posts. Note: The post can only mention at most one video. |
+| `anchor_list` | `anchor_list` | `string` | No | No | Information about anchors in the post (video). |
+| `id` | `id` | `string` | No | No | Anchor ID. |
+| `title` | `title` | `string` | No | No | Anchor title. |
+| `product_regions` | `product_regions` | `Array<string>` | No | No | Regions where the ad can be deployed. |
+| `url` | `url` | `string` | No | No | Item URL. |
+| `spu_id` | `spu_id` | `string` | No | No | Returned only when the post contains a product anchor link The SPU ID of the product that the post is associated with. |
+| `spu_name` | `spu_name` | `string` | No | No | Returned only when the post contains a product anchor link The name of the product that the post is associated with. |
+| `store_id` | `store_id` | `string` | No | No | Returned only when the post contains a product anchor link The ID of the TikTok Shop that the product belongs to. |
+
+## TtVideoInfoResponseItemInfoCarouselInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_info` | `image_info` | `Array<TtVideoInfoResponseItemInfoCarouselInfoImageInfo>` | No | No | Information about the images used in the photo post. The images are returned in the same order as they are shown in the photo post. |
+| `music_info` | `music_info` | `TtVideoInfoResponseItemInfoCarouselInfoMusicInfo` | No | No | Information about the music used in the photo post. Note: If the photo post is directly published in the TikTok App without music, the value of this field will be null. |
+
+## TtVideoInfoResponseItemInfoCarouselInfoImageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_url` | `image_url` | `string` | No | No | The URL of the image. Validity period: 90 days. |
+| `image_height` | `image_height` | `number` | No | No | The height of the image, measured in pixels. |
+| `image_width` | `image_width` | `number` | No | No | The width of the image, measured in pixels. |
+
+## TtVideoInfoResponseItemInfoCarouselInfoMusicInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `music_url` | `music_url` | `string` | No | No | The URL of the music. Validity period: 90 days. |
+| `music_duration` | `music_duration` | `number` | No | No | The duration of the music, in seconds. |
+
+## TtVideoInfoResponseUserInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tiktok_name` | `tiktok_name` | `string` | No | No | The user name of the TikTok account. |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID. |
+| `identity_type` | `identity_type` | `string` | No | No | Identity Type. |

@@ -92,3 +92,8 @@ Generated output lives in `src/generated/` (types + endpoint clients + Effect ar
 | `Snapchat.ApiClient` | Core HTTP client (Bearer auth, retry, rate limit, multipart uploads) |
 | `Snapchat.ApiError` | Typed error class |
 | `Snapchat.Cursor` | Async-iterable pagination cursor |
+
+## Generated contracts
+
+Generated TypeScript and Valibot contracts are available from `@openpromo/snapchat/types` and
+`@openpromo/snapchat/valibot`; the existing Effect surface remains at `@openpromo/snapchat/effect`.

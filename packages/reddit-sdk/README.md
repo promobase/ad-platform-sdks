@@ -87,3 +87,8 @@ Generated output lives in `src/generated/` (types + endpoint clients + Effect ar
 | `Reddit.Scopes` | `AdsRead`, `AdsEdit`, `History` scopes |
 | `Reddit.ApiClient` | Core HTTP client (Bearer auth, retry, rate limit, envelope unwrap) |
 | `Reddit.ApiError` | Typed error class |
+
+## Generated contracts
+
+Generated TypeScript and Valibot contracts are available from `@openpromo/reddit/types` and
+`@openpromo/reddit/valibot`; the existing Effect surface remains at `@openpromo/reddit/effect`.

@@ -144,3 +144,8 @@ The checked-in source manifest records included and intentionally excluded works
 - [LinkedIn 3-Legged OAuth Flow](https://learn.microsoft.com/en-us/linkedin/shared/authentication/authorization-code-flow) - source for authorization and token exchange.
 - [Programmatic Refresh Tokens](https://learn.microsoft.com/en-us/linkedin/shared/authentication/programmatic-refresh-tokens) - source for refresh token exchange behavior.
 - [Sign In with LinkedIn using OpenID Connect](https://learn.microsoft.com/linkedin/consumer/integrations/self-serve/sign-in-with-linkedin-v2) - source for `/v2/userinfo`.
+
+## Generated contracts
+
+Generated TypeScript and Valibot contracts are available from `@openpromo/linkedin/types` and
+`@openpromo/linkedin/valibot`; the existing Effect surface remains at `@openpromo/linkedin/effect`.

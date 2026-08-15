@@ -3,6 +3,8 @@ import { createHash } from "node:crypto";
 import {
   writeEffectArtifacts,
   type EndpointIr,
+  type FieldIr,
+  type ModelIr,
   type SdkIr,
   type TypeRefIr,
 } from "@openpromo/sdk-codegen";
@@ -13,6 +15,142 @@ const stringType = { kind: "primitive", name: "string" } as const;
 const numberType = { kind: "primitive", name: "number" } as const;
 const jsonType = { kind: "primitive", name: "json" } as const;
 const voidType = { kind: "literal", value: true } as const;
+const ref = (target: string): TypeRefIr => ({ kind: "reference", target });
+const arrayOf = (items: TypeRefIr): TypeRefIr => ({ kind: "array", items });
+const field = (name: string, type: TypeRefIr, required = false): FieldIr => ({
+  name,
+  type,
+  required,
+  nullable: false,
+});
+const objectModel = (name: string, fields: readonly FieldIr[]): ModelIr => ({
+  kind: "object",
+  id: `linkedin.${name}`,
+  name,
+  wire: "json",
+  fields,
+});
+const enumModel = (name: string, values: readonly string[], open = false): ModelIr => ({
+  kind: "enum",
+  id: `linkedin.${name}`,
+  name,
+  wire: "json",
+  values,
+  ...(open ? { open: true } : {}),
+});
+
+const models: ModelIr[] = [
+  {
+    kind: "scalar",
+    id: "linkedin.LinkedInUrn",
+    name: "LinkedInUrn",
+    wire: "json",
+    value: stringType,
+  },
+  enumModel("LinkedInVisibility", ["PUBLIC", "CONNECTIONS"]),
+  enumModel("LinkedInCallToActionLabel", [
+    "APPLY",
+    "DOWNLOAD",
+    "LEARN_MORE",
+    "SIGN_UP",
+    "SUBSCRIBE",
+    "REGISTER",
+    "JOIN",
+    "ATTEND",
+    "REQUEST_DEMO",
+    "SEE_MORE",
+    "BUY_NOW",
+    "SHOP_NOW",
+    "VIEW_QUOTE",
+  ]),
+  enumModel(
+    "LinkedInLifecycleState",
+    ["DRAFT", "PUBLISHED", "PUBLISH_REQUESTED", "PUBLISH_FAILED"],
+    true,
+  ),
+  objectModel("LinkedInCallToAction", [
+    field("label", ref("LinkedInCallToActionLabel"), true),
+    field("url", stringType, true),
+  ]),
+  objectModel("LinkedInPostOptions", [
+    field("visibility", ref("LinkedInVisibility")),
+    field("isReshareDisabledByAuthor", { kind: "primitive", name: "boolean" }),
+    field("callToAction", ref("LinkedInCallToAction")),
+    field("altText", stringType),
+  ]),
+  objectModel("LinkedInDistribution", [
+    field(
+      "feedDistribution",
+      {
+        kind: "union",
+        variants: [
+          { kind: "literal", value: "MAIN_FEED" },
+          { kind: "literal", value: "NONE" },
+        ],
+      },
+      true,
+    ),
+    field("targetEntities", arrayOf(jsonType)),
+    field("thirdPartyDistributionChannels", arrayOf(stringType)),
+  ]),
+  objectModel("LinkedInPostResult", [
+    field("postUrn", stringType, true),
+    field("body", jsonType, true),
+  ]),
+  objectModel("LinkedInPost", [
+    field("id", stringType, true),
+    field("author", stringType, true),
+    field("commentary", stringType),
+    field("visibility", ref("LinkedInVisibility")),
+    field("distribution", ref("LinkedInDistribution")),
+    field("lifecycleState", ref("LinkedInLifecycleState")),
+    field("publishedAt", numberType),
+    field("createdAt", numberType),
+    field("lastModifiedAt", numberType),
+    field("content", { kind: "record", values: jsonType }),
+    field("isReshareDisabledByAuthor", { kind: "primitive", name: "boolean" }),
+  ]),
+  objectModel("LinkedInImageUploadSession", [
+    field("uploadUrl", stringType, true),
+    field("imageUrn", ref("LinkedInUrn"), true),
+    field("uploadUrlExpiresAt", numberType),
+  ]),
+  objectModel("LinkedInVideoUploadInstruction", [
+    field("uploadUrl", stringType, true),
+    field("firstByte", numberType, true),
+    field("lastByte", numberType, true),
+  ]),
+  objectModel("LinkedInVideoUploadOptions", [
+    field("uploadCaptions", { kind: "primitive", name: "boolean" }),
+    field("uploadThumbnail", { kind: "primitive", name: "boolean" }),
+    field("templateName", stringType),
+    field("linkbackContext", stringType),
+  ]),
+  objectModel("LinkedInVideoUploadSession", [
+    field("videoUrn", ref("LinkedInUrn"), true),
+    field("uploadInstructions", arrayOf(ref("LinkedInVideoUploadInstruction")), true),
+    field("uploadToken", stringType),
+    field("uploadUrlsExpireAt", numberType),
+  ]),
+  objectModel("LinkedInUserInfo", [
+    field("sub", stringType, true),
+    field("name", stringType, true),
+    field("given_name", stringType),
+    field("family_name", stringType),
+    field("picture", stringType),
+    field("email", stringType),
+    field("email_verified", { kind: "primitive", name: "boolean" }),
+    field("locale", { kind: "record", values: stringType }),
+  ]),
+  objectModel("LinkedInTokenResponse", [
+    field("access_token", stringType, true),
+    field("expires_in", numberType, true),
+    field("refresh_token", stringType),
+    field("refresh_token_expires_in", numberType),
+    field("scope", stringType),
+    field("token_type", stringType, true),
+  ]),
+];
 
 type Parameter = EndpointIr["parameters"][number];
 const parameter = (
@@ -333,7 +471,7 @@ const ir: SdkIr = {
       .digest("hex"),
   },
   version: snapshot.apiVersion,
-  models: [],
+  models,
   endpoints,
   capabilities: capabilities.map(([id, summary]) => ({
     id,
@@ -359,6 +497,7 @@ const ir: SdkIr = {
 
 await writeEffectArtifacts({
   outputDir: new URL("../src/generated/effect", import.meta.url).pathname,
+  contractOutputDir: new URL("../src/generated", import.meta.url).pathname,
   docsOutputDir: new URL("../../../apps/docs/src/content/docs/reference", import.meta.url).pathname,
   ir,
 });

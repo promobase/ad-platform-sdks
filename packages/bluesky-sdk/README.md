@@ -72,3 +72,8 @@ Client sections: `actor`, `feed`, `graph`, `repo`, `server`, `notification`, `id
 | `Bluesky.posts.createPost(opts)` | Publishing convenience — richtext facets + image embeds |
 | `Bluesky.ApiClient` | Core HTTP client (app-password or session auth) |
 | `Bluesky.ApiError` | Typed error class |
+
+## Generated contracts
+
+Generated TypeScript and Valibot contracts are available from `@openpromo/bluesky/types` and
+`@openpromo/bluesky/valibot`; the existing Effect surface remains at `@openpromo/bluesky/effect`.

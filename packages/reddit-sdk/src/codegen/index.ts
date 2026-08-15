@@ -65,6 +65,7 @@ async function main() {
   console.log("[codegen] Step 4: Emitting Effect artifacts...");
   await writeEffectArtifacts({
     outputDir: join(OUTPUT_DIR, "effect"),
+    contractOutputDir: OUTPUT_DIR,
     docsOutputDir: join(import.meta.dir, "../../../../apps/docs/src/content/docs/reference"),
     ir: redditCanonicalIr(spec.endpoints, spec.schemas, sourceRevision),
   });

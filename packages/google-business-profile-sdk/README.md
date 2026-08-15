@@ -29,3 +29,9 @@ const post = await client.resources.localPosts.create("accounts/123/locations/45
 
 The SDK exposes provider primitives only. Store tokens, schedule work, retry durable operations, and
 persist normalized results in the consuming application.
+
+## Generated contracts
+
+Generated TypeScript and Valibot contracts are available from
+`@openpromo/google-business-profile/types` and `@openpromo/google-business-profile/valibot`; the
+existing Effect surface remains at `@openpromo/google-business-profile/effect`.

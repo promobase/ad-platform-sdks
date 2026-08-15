@@ -106,6 +106,7 @@ async function main() {
     console.log("[codegen]   Emitting Effect artifacts...");
     await writeEffectArtifacts({
       outputDir: join(apiDir, "effect"),
+      contractOutputDir: apiDir,
       docsOutputDir: join(import.meta.dir, "../../../../apps/docs/src/content/docs/reference"),
       ir: amazonAdsCanonicalIr(
         spec.endpoints,

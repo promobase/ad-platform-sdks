@@ -14,6 +14,7 @@ const sourceChecksum = createHash("sha256").update(source).digest("hex");
 
 await writeEffectArtifacts({
   outputDir,
+  contractOutputDir: join(root, "packages/x-sdk/src/generated"),
   docsOutputDir: join(root, "apps/docs/src/content/docs/reference"),
   ir: buildIr(document),
 });

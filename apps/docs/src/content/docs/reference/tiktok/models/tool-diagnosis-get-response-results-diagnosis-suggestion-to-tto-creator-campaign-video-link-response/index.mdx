@@ -1,0 +1,1082 @@
+---
+title: "TikTok Business models: Tool Diagnosis Get Response Results Diagnosis Suggestions Event Track – Tto Creator Campaign Video Link Response"
+description: "100 generated TikTok Business model contracts, from ToolDiagnosisGetResponseResultsDiagnosisSuggestionsEventTrack through TtoCreatorCampaignVideoLinkResponse."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 1022
+  label: "Tool Diagnosis Get Response Results Diagnosis Suggestions Event Track – Tto Creator Campaign Video Link Response"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## ToolDiagnosisGetResponseResultsDiagnosisSuggestionsEventTrack
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `suggestion_time` | `suggestion_time` | `string` | No | No | The date and time (UTC + 0 time) when the issue was detected and the suggestion was generated, in the format of "YYYY-MM-DD HH:MM:SS". Example: "2024-01-01 00:00:01". |
+| `suggestion_id` | `suggestion_id` | `string` | No | No | Suggestion ID. |
+| `issue_suggestion` | `issue_suggestion` | `string` | No | No | The suggestion for the issue. Enum values: `PIXEL`: This pixel had no activity in the last 7 days. Test your pixel settings. |
+| `pixel_id` | `pixel_id` | `string` | No | No | Pixel ID. |
+| `pixel_code` | `pixel_code` | `string` | No | No | Pixel code. |
+
+## ToolDiagnosisSearchHealthParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `adgroup_id` | `adgroup_id` | `string` | No | No | Ad group ID. Specify this field if you want to get the diagnoses for an existing ad group. To get the IDs of ad groups within a Search Ads Campaign, use [/adgroup/get/](https://business-api.tiktok.com/portal/docs?id=1739314558673922) with the filter field `campaign_ids` set to the ID of a Search Ads Campaign. Note: If both `adgroup id` and `ad_ids` are specified, `adgroup id` will be ignored. |
+| `ad_ids` | `ad_ids` | `Array<string>` | No | No | A list of ad IDs. Specify this field if you want to get the diagnoses for existing ads The ad IDs must belong to the same ad group. Max size: 50. To get the IDs of ads within a Search Ads Group, use [/ad/get/](https://business-api.tiktok.com/portal/docs?id=1735735588640770) with the filter field `adgroup_ids` set to the ID of a Search Ads Group within a Search Ads Campaign. Note: If both `adgroup id` and `ad_ids` are specified, `adgroup id` will be ignored. |
+
+## ToolDiagnosisSearchHealthResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `search_health_status` | `search_health_status` | `"GOOD" \| "NEED_IMPROVEMENT" \| "NO_DATA"` | No | No | The overall search health status. This status provides an overview of how well your ad groups or ads are set up. Enum values:`GOOD`: Good. You’re set up for better performance.`NEED_IMPROVEMENT`: Need improvement. `NO_DATA`: No data. |
+| `search_volume` | `search_volume` | `ToolDiagnosisSearchHealthResponseSearchVolume` | No | No | Detailed metrics of search volume for your keywords. |
+| `total_keyword_count` | `total_keyword_count` | `number` | No | No | The total number of search keywords. |
+| `total_relevant_keyword_count` | `total_relevant_keyword_count` | `number` | No | No | The total number of search keywords found to be relevant to the ad group or ads. |
+| `keyword_relevance` | `keyword_relevance` | `Array<ToolDiagnosisSearchHealthResponseKeywordRelevance>` | No | No | Details on the relevance of keywords to the ad group or ads. |
+| `bid_budget` | `bid_budget` | `ToolDiagnosisSearchHealthResponseBidBudget` | No | No | Details on bid and budget diagnosis. |
+
+## ToolDiagnosisSearchHealthResponseBidBudget
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bid_budget_status` | `bid_budget_status` | `"GOOD" \| "LOW_BID_AND_BUDGET" \| "LOW_BUDGET" \| "LOW_BID" \| "NO_DATA"` | No | No | The result from bid and budget analysis. Enum values:`GOOD`: Good.`LOW_BID_AND_BUDGET`: Low bid and budget.`LOW_BUDGET`: Low budget.`LOW_BID`: Low bid.`NO_DATA`: No data. |
+| `bid_suggestion_status` | `bid_suggestion_status` | `"GOOD" \| "LOW" \| "NO_DATA"` | No | No | The diagnostic result specifically for the bid. Enum values:`GOOD`: Good.`LOW`: Low bid.`NO_DATA`: No data. |
+| `suggested_value` | `suggested_value` | `string` | No | No | The recommended bid price. Based on historical data, your ad groups or ads might get more conversions by increasing your bid to at least this value. |
+
+## ToolDiagnosisSearchHealthResponseKeywordRelevance
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adgroup_id` | `adgroup_id` | `string` | No | No | Ad group ID. |
+| `ad_id` | `ad_id` | `string` | No | No | Ad ID. |
+| `keyword_relevance_status` | `keyword_relevance_status` | `"TO_BE_CALCULATED" \| "PARTIALLY_RELEVANT" \| "RELEVANT" \| "IRRELEVANT"` | No | No | The result from keyword relevance analysis. Enum values:`TO_BE_CALCULATED`: to be calculated.`PARTIALLY_RELEVANT`: partially relevant.`RELEVANT`: relevant.`IRRELEVANT`: irrelevant. |
+| `relevant_keyword_count` | `relevant_keyword_count` | `number` | No | No | The number of relevant search keywords. |
+| `relevant_keywords` | `relevant_keywords` | `Array<string>` | No | No | A list of relevant search keywords. |
+| `irrelevant_keyword_count` | `irrelevant_keyword_count` | `number` | No | No | The number of irrelevant search keywords. |
+| `irrelevant_keywords` | `irrelevant_keywords` | `Array<string>` | No | No | A list of irrelevant search keywords. |
+
+## ToolDiagnosisSearchHealthResponseSearchVolume
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `diagnosis_result` | `diagnosis_result` | `"HIGH" \| "MEDIUM" \| "LOW" \| "INVALID"` | No | No | The result from search volume analysis. Enum values:`HIGH`: high.`MEDIUM`: medium.`LOW`: low.`INVALID`: invalid. |
+| `total_monthly_searches` | `total_monthly_searches` | `number` | No | No | The estimated number of searches that your keywords get each month. This number is subject to change according to your match type setting. Broad matches can help maximize the search volume. |
+
+## ToolHashtagGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `keyword_ids` | `keyword_ids` | `Array<string>` | Yes | No | List of keyword IDs |
+
+## ToolHashtagGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywords_status` | `keywords_status` | `Array<ToolHashtagGetResponseKeywordsStatus>` | No | No | Keyword information. |
+
+## ToolHashtagGetResponseKeywordsStatus
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword` | `keyword` | `string` | No | No | Keyword |
+| `keyword_id` | `keyword_id` | `string` | No | No | Keyword ID |
+| `keyword_status` | `keyword_status` | `"ONLINE" \| "OFFLINE"` | No | No | Enum: `ONLINE` (available for use), `OFFLINE` (not available for use) |
+
+## ToolHashtagRecommendParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `keywords` | `keywords` | `Array<string>` | Yes | No | Keywords that you want to get recommended hashtags for. If you specify multiple unrelated keywords and set `operator` to `AND`, it is possible that no recommended hashtags are returned. Max size: 10. |
+| `operator` | `operator` | `"AND" \| "OR"` | No | No | The operator to be used between the keywords. Enum values: `AND`: Recommended hashtags will be generated based on all the keywords specified in `keywords`. `OR`: Recommended hashtags will be generated separately for each individual keyword in `keywords`. Default value: `AND`. |
+
+## ToolHashtagRecommendResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommend_keywords` | `recommend_keywords` | `Array<ToolHashtagRecommendResponseRecommendKeywords>` | No | No | Recommend hashtags. |
+
+## ToolHashtagRecommendResponseRecommendKeywords
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `input_keyword` | `input_keyword` | `string` | No | No | Returned only when `operator` is set to `OR` and more than one keyword is specified in `keywords` in the request. The specific keyword for which the recommended hashtag is generated. For instance, if the hashtag "#gametime" is recommended for the keyword "game", the returned `input_keyword` will be `"game"`, and `keyword` will be `"#gametime"`. |
+| `keyword` | `keyword` | `string` | No | No | Recommended hashtag. |
+| `keyword_id` | `keyword_id` | `string` | No | No | Hashtag keyword ID. It can be passed to the `action_category_ids` field when creating an ad group using [/adgroup/create/](https://business-api.tiktok.com/portal/docs?id=1739499616346114). You need to set `action_scene` to `HASHTAG_RELATED` simultaneously to target users who watched TikTok videos with the hashtag. |
+| `keyword_status` | `keyword_status` | `"ONLINE" \| "OFFLINE"` | No | No | Keyword status. Enum values: `ONLINE` (available for use), `OFFLINE` (not available for use). |
+
+## ToolInterestCategoryParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `version` | `version` | `number` | No | No | Version of interest category. Enum values:`1`(`interest_category`), `2` (`interest_category_v2`)。Default: `2`. |
+| `language` | `language` | `string` | No | No | Category name language in repsonse. Default value: `en`. Supported languages: `en`, ` zh`, ` ja`, ` de`, ` es`, ` fr`, ` id`, ` it`, ` ko`, ` ru`, ` th`, ` tr`, ` vi`, ` ar`, ` pt`, ` ms`. For details, see [Enumeration - Language Code](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `placements` | `placements` | `Array<string>` | No | No | The apps where you want to deliver your ads. For enum values, see [Enumeration - Placement](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). The interest categories available for different placements may be different, and the field only takes effect when `version` = `2`. |
+| `special_industries` | `special_industries` | `Array<"HOUSING" \| "EMPLOYMENT" \| "CREDIT">` | No | No | Special ad categories. Enum values:`HOUSING`: Ads for real estate listings, homeowners insurance, mortgage loans or other related opportunities.`EMPLOYMENT`: Ads for job offers, internship, professional certification programs or other related opportunities.`CREDIT`: Ads for credit card offers, auto loans, long-term financing or other related opportunities. Note: This field is generally available to advertisers registered in America or Canada. Advertisers who are not registered in America or Canada but want to target these countries with special ad categories need to apply for an additional allowlist. |
+
+## ToolInterestCategoryResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `interest_categories` | `interest_categories` | `Array<ToolInterestCategoryResponseInterestCategories>` | No | No | Interest category list. To determine the corresponding names for gaming-related interest category IDs, see [Interest category](https://business-api.tiktok.com/portal/docs?id=1738865030529025). |
+
+## ToolInterestCategoryResponseInterestCategories
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `interest_category_id` | `interest_category_id` | `string` | No | No | Interest category ID |
+| `interest_category_name` | `interest_category_name` | `string` | No | No | Interest category name |
+| `level` | `level` | `number` | No | No | Level |
+| `sub_category_ids` | `sub_category_ids` | `Array<string>` | No | No | Subcategory ID list |
+| `special_industries` | `special_industries` | `Array<"HOUSING" \| "EMPLOYMENT" \| "CREDIT">` | No | No | Special ad categories. Enum values:`HOUSING`: Ads for real estate listings, homeowners insurance, mortgage loans or other related opportunities.`EMPLOYMENT`: Ads for job offers, internship, professional certification programs or other related opportunities.`CREDIT`: Ads for credit card offers, auto loans, long-term financing or other related opportunities. Note: If the returned value is empty(`[]`), it means that the interest categories do not support any special ad categories. |
+| `placements` | `placements` | `Array<string>` | No | No | Available placement for this interest category. Returning an empty list means unlimited. Please refer to [Enumeration-Placement](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138) for details of enum values. |
+
+## ToolInterestKeywordGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `keyword_query` | `keyword_query` | `Array<ToolInterestKeywordGetParamsKeywordQuery>` | No | No | Information of the additional interest category you want to get. Max size = 50. |
+| `filtering` | `filtering` | `ToolInterestKeywordGetParamsFiltering` | No | No | Filtering conditions. |
+
+## ToolInterestKeywordGetParamsFiltering
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `audience_type` | `audience_type` | `"GENERAL_INTEREST" \| "PURCHASE_INTENTION"` | No | No | The audience type that you want to filter by. Enum values:`GENERAL_INTEREST`: General interest. The audiences have a general, long-term interest in a video category.`PURCHASE_INTENTION`: Purchase intent. The audiences' recent behavior suggests they may buy something related to a content category.Default value: `GENERAL_INTEREST`. |
+
+## ToolInterestKeywordGetParamsKeywordQuery
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword_id` | `keyword_id` | `string` | Yes | No | Additional interest category ID. |
+| `language` | `language` | `string` | No | No | Additional interest category language. Default value: `en`. Supported languages: `fr`, `id`, `it`, `ja`, `ms`, `ar`, `vi`, `en`, `ru`, `es`, `th`, `tr`, `hi`, `zh`, `de`, `ko`. |
+
+## ToolInterestKeywordGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keywords` | `keywords` | `Array<ToolInterestKeywordGetResponseKeywords>` | No | No | List of additional interest categories. |
+
+## ToolInterestKeywordGetResponseKeywords
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword` | `keyword` | `string` | No | No | Additional interest category. |
+| `keyword_id` | `keyword_id` | `string` | No | No | Additional interest category ID. |
+| `status` | `status` | `"EFFECTIVE" \| "INEFFECTIVE"` | No | No | Whether an additional interest category will be effective. Enum values: `EFFECTIVE`, `INEFFECTIVE`. An additional interest category is effective if using it can reach a reasonable number of people. An additional interest category is ineffective if the projected audience size is too small. Note: Only effective additional interest categories can be used in ad groups to target audiences. |
+
+## ToolInterestKeywordRecommendParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `keywords` | `keywords` | `Array<string>` | No | No | Either `keywords` or `keyword` has to be set. If `keywords` and `keyword` are passed simultaneously, `keyword` will be ignored. A list of seed keywords that you provide to search for additional interest categories. Each seed keyword will be used separately to generate corresponding additional interest categories. Max size: 10. |
+| `keyword` | `keyword` | `string` | No | No | Either `keywords` or `keyword` has to be set. If `keywords` and `keyword` are passed simultaneously, `keyword` will be ignored. One seed keyword that you provide to search for additional interest categories. |
+| `mode` | `mode` | `"FUZZ_MATCH" \| "SEMANTIC_RECOMMEND"` | No | No | Search mode. Enum values: `FUZZ_MATCH`, `SEMANTIC_RECOMMEND`. Default value: `FUZZ_MATCH`. |
+| `language` | `language` | `string` | No | No | Keyword language. Enum values: `fr`, `id`, `it`, `ja`, `ms`, `ar`, `vi`, `en`, `ru`, `es`, `th`, `tr`, `hi`, `zh`, `de`, `ko`. Default value: `en`. Note that target audience languages are not limited by keyword languages. You can use English categories to target audience that do not speak English. |
+| `limit` | `limit` | `number` | No | No | Number of additional interest categories you want to get. Default value: 50. Value range: 1-50. |
+| `audience_type` | `audience_type` | `"GENERAL_INTEREST" \| "PURCHASE_INTENTION"` | No | No | Audience type. Enum values: `GENERAL_INTEREST`: General interest. The audiences have a general, long-term interest in a video category. `PURCHASE_INTENTION` (deprecated): Purchase intent. The audiences' recent behavior suggests they may buy something related to a content category. Default value: `GENERAL_INTEREST`. |
+
+## ToolInterestKeywordRecommendResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommended_keywords` | `recommended_keywords` | `Array<ToolInterestKeywordRecommendResponseRecommendedKeywords>` | No | No | A list of additional interest categories. |
+
+## ToolInterestKeywordRecommendResponseRecommendedKeywords
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `input_keyword` | `input_keyword` | `string` | No | No | Returned only when `keywords` is included in the request and contains more than one keyword. The specific seed keyword for which the additional interest category is generated. For instance, if the additional interest category "Tester" is generated for the seed keyword "test", the returned `input_keyword` will be `"test"`, and `keyword` will be `"Tester"`. |
+| `keyword` | `keyword` | `string` | No | No | Additional interest category. |
+| `keyword_id` | `keyword_id` | `string` | No | No | ID of the additional interest category. |
+| `language` | `language` | `string` | No | No | Language of the additional interest category. Enum values: `fr`, `id`, `it`, `ja`, `ms`, `ar`, `vi`, `en`, `ru`, `es`, `th`, `tr`, `hi`, `zh`, `de`, `ko`. |
+| `status` | `status` | `"EFFECTIVE" \| "INEFFECTIVE"` | No | No | Whether the additional interest category will be effective. Enum values: `EFFECTIVE`: effective. An additional interest category is effective if using it can reach a reasonable number of people. `INEFFECTIVE`: ineffective. An additional interest category is ineffective if the estimated audience size is too small. Note: Only effective additional interest categories can be used in ad groups to target audiences. |
+
+## ToolLanguageParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+
+## ToolLanguageResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `languages` | `languages` | `Array<ToolLanguageResponseLanguages>` | No | No | Language list. |
+
+## ToolLanguageResponseLanguages
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | Language code. You can pass the value of this field to `languages` in [/adgroup/create/](https://business-api.tiktok.com/portal/docs?id=1739499616346114) for language targeting. Example: `en`. |
+| `name` | `name` | `string` | No | No | Language name. Example: `English`. |
+
+## ToolOpenUrlParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `url` | `url` | `string` | Yes | No | Open URL that you want to get the internal link for. |
+| `url_type` | `url_type` | `"USER_PROFILE" \| "VIDEO" \| "HASHTAG_CHALLENGE" \| "MUSIC" \| "STICKER" \| "STICKER_SHOOTER"` | Yes | No | Type of the open TikTok URL. Enum: `USER_PROFILE``VIDEO`: Video detail page`HASHTAG_CHALLENGE`: Hashtag challenge page`MUSIC`: Music page`STICKER`: Sticker (special effect) page`STICKER_SHOOTER`: Shoot a video with a sticker (special effect). |
+
+## ToolOpenUrlResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `open_url` | `open_url` | `string` | No | No | TikTok internal link. |
+| `supported_regions` | `supported_regions` | `Array<string>` | No | No | Countries and/or regions that the sticker (special effect) can be used. Returned when `url_type` is `STICKER` or `STICKER_SHOOTER`. |
+
+## ToolOsVersionParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `os_type` | `os_type` | `"ANDROID" \| "IOS"` | Yes | No | OS type. Enum values: `ANDROID`,`IOS`. |
+
+## ToolOsVersionResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `os_versions` | `os_versions` | `Array<ToolOsVersionResponseOsVersions>` | No | No | OS versions list. |
+
+## ToolOsVersionResponseOsVersions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `os_id` | `os_id` | `string` | No | No | OS versions ID. |
+| `os_type` | `os_type` | `string` | No | No | OS type. |
+| `version` | `version` | `string` | No | No | OS version. |
+| `name` | `name` | `string` | No | No | OS version name. |
+
+## ToolPhoneRegionCodeParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+
+## ToolPhoneRegionCodeResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `phone_region_code_infos` | `phone_region_code_infos` | `Array<ToolPhoneRegionCodeResponsePhoneRegionCodeInfos>` | No | No | Information about the region codes, region names, and region calling codes for phone numbers. |
+
+## ToolPhoneRegionCodeResponsePhoneRegionCodeInfos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `phone_region_name` | `phone_region_name` | `string` | No | No | The name of the region of a phone number. Example: `"Austria"`. |
+| `phone_region_code` | `phone_region_code` | `string` | No | No | The region code for a phone number. Example: `"AT"`. |
+| `phone_region_calling_code` | `phone_region_calling_code` | `string` | No | No | The region calling code for a phone number. Example: `"+43"`. |
+
+## ToolRegionParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `placements` | `placements` | `Array<string>` | Yes | No | The apps where you want to deliver your ads. For enum values, see [Enumeration - Placement](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138) |
+| `objective_type` | `objective_type` | `string` | Yes | No | Your objective type. For enum values and descriptions, see [Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737585562434561). |
+| `app_promotion_type` | `app_promotion_type` | `"APP_INSTALL" \| "APP_RETARGETING" \| "APP_PREREGISTRATION" \| "MINIS"` | No | No | Required when `objective_type` is `APP_PROMOTION`. App promotion type. Enum value:`APP_INSTALL`: App install. Get new users to install your app.`APP_RETARGETING`: App retargeting. Re-engage existing app users to take action in your app.`APP_PREREGISTRATION`: App pre-registration. Get new users to pre-register before your app launches. To learn about how to create Manual App Pre-registration ads, refer to [here](https://business-api.tiktok.com/portal/docs/create-app-pre-registration-ads/v1.3).`MINIS`: TikTok Minis or Series. Promote your Series, mini series, or mini game by optimizing for organic and ads traffic.To learn more about the campaign type where this setting is supported, see [Create an Upgraded Smart+ Upgraded Smart+ TikTok Growth Max: Mini Dramas campaign](https://business-api.tiktok.com/portal/docs/create-an-upgraded-smart-minis-campaign/v1.3) and [Create an Upgraded Smart+ TikTok Growth Max: Drama Series campaign](https://business-api.tiktok.com/portal/docs/create-an-upgraded-smart-mini-series-feed-campaign/v1.3). |
+| `level_range` | `level_range` | `"ALL" \| "TO_COUNTRY" \| "TO_PROVINCE" \| "TO_CITY" \| "TO_DISTRICT"` | No | No | Location level you want to get. Enum values: `ALL`: all levels`TO_COUNTRY`: only country or region level `TO_PROVINCE`: country and province level; DMA and Metropolitan are at province level.`TO_CITY`: country, province, and city levels`TO_DISTRICT`: country, province, city, and district levels. |
+| `language` | `language` | `string` | No | No | The language of the returned location name (`name`). Default value: `en` (English). To find out the allowed values, see List of values for `language`. Note:If the specified language is not supported, it will be ignored and the default value `en` will be used.If a supported non-English language is specified, the names of locations outside the native country or region associated with that language might not be translated. For example, if you set `language` to `ja` (Japanese), the names of locations outside Japan might not be translated. |
+| `shopping_ads_type` | `shopping_ads_type` | `"VIDEO" \| "LIVE" \| "PRODUCT_SHOPPING_ADS"` | No | No | Valid only when `objective_type` is `PRODUCT_SALES`. Shopping ads type. Enum values: `VIDEO`: Video Shopping Ads.`LIVE`: Live Shopping Ads.`PRODUCT_SHOPPING_ADS`: Product Shopping Ads. To find out the introduction to different Shopping Ads types and the steps of creating [Video Shopping Ads](https://business-api.tiktok.com/portal/docs?id=1741942291730434), [Live Shopping Ads](https://business-api.tiktok.com/portal/docs?id=1754162402455554), and [Product Shopping Ads](https://business-api.tiktok.com/portal/docs?id=1785886237030401), see [Create Shopping Ads](https://business-api.tiktok.com/portal/docs?id=1741942179356738). |
+| `promotion_type` | `promotion_type` | `string` | No | No | Promotion type (Optimization location). For enum values, see [Enumeration - Promotion Type](https://business-api.tiktok.com/portal/docs?id=1737174886619138#item-link-Promotion%20Type). |
+| `promotion_target_type` | `promotion_target_type` | `"INSTANT_PAGE" \| "EXTERNAL_WEBSITE"` | No | No | Valid when `objective_type` is `LEAD_GENERATION`. The promotion type for Lead Generation objective. Enum values: `INSTANT_PAGE`：Instant Form. To create a fast-loading in-app TikTok Instant Form to collect more leads. `EXTERNAL_WEBSITE`：Website Form. To use a landing page that has the Website Form or the TikTok Instant Page that redirects to the website with the Website Form to collect more leads. |
+| `operating_system` | `operating_system` | `"ANDROID" \| "IOS"` | No | No | Operating systems that you want to target. Enum values: `ANDROID`, `IOS`. |
+| `brand_safety_type` | `brand_safety_type` | `"NO_BRAND_SAFETY" \| "EXPANDED_INVENTORY" \| "STANDARD_INVENTORY" \| "LIMITED_INVENTORY" \| "THIRD_PARTY" \| "APP_PROMOTION" \| "WEB_CONVERSIONS" \| "TRAFFIC" \| "LEAD_GENERATION"` | No | No | Brand safety type. Valid only when `placements` is set as `PLACEMENT_TIKTOK`. Default value: `NO_BRAND_SAFETY`. Enum values: `NO_BRAND_SAFETY`: To not use any brand safety solution. Full inventory, which means your ads may appear next to some content featuring mature themes. `EXPANDED_INVENTORY`: Use TikTok's brand safety solution. Expanded inventory means that your ads will appear next to content where most inappropriate content has been removed, and that does not contain mature themes. In the next API version, `EXPANDED_INVENTORY` will replace `NO_BRAND_SAFETY` and will be the default brand safety option.`STANDARD_INVENTORY`: Use TikTok's brand safety solution. Standard inventory means that ads will appear next to content that is appropriate for most brands. `LIMITED_INVENTORY`: Use TikTok's brand safety solution. Limited inventory means that your ads will not appear next to content that contains mature themes.`THIRD_PARTY`: Use a third-party brand safety solution. You also need to pass in a value to the `brand_safety_partner` field. Note: Pre-bid first-party Brand Safety solutions for `APP_PROMOTION`, `WEB_CONVERSIONS`, `TRAFFIC`, `LEAD_GENERATION` objectives in Auction ads, and pre-bid third-party brand safety solutions are currently allowlist-only features. If you would like to access them, please contact your TikTok representative. See [Brand safety](https://ads.tiktok.com/marketing_api/docs?id=1739381752981505) to learn about the supported advertising objectives for pre-bid Brand Safety filtering. |
+| `brand_safety_partner` | `brand_safety_partner` | `"IAS" \| "OPEN_SLATE"` | No | No | Brand safety partner. Required when `brand_safety_type` is `THIRD_PARTY`, and `placements` needs to be set as `PLACEMENT_TIKTOK`. Enum values: `IAS`, `OPEN_SLATE`(The partner is named DoubleVerify on TikTok Ads Manager because the partner has been acquired by DoubleVerify). Note: Pre-bid third-party brand safety solutions are currently allowlist-only features. If you would like to access them, please contact your TikTok representative. |
+| `rf_campaign_type` | `rf_campaign_type` | `"STANDARD" \| "PULSE"` | No | No | When `objective_type` is specified as `RF_REACH`, use this field to set the campaign as a TikTok Pulse campaign, then you can get available premium contextual tags. Enum values: `STANDARD` (Reach & Frequency campaign), `PULSE` (TikTok Pulse campaign). If you set this field as `PULSE`, only one location ID (`location_id`) will be returned. Note: Do not pass in this field when `objective_type` is not specified as `RF_REACH`.You need to pass the `location_id` value returned in this endpoint to `location_ids` when you use [/adgroup/rf/create/](https://ads.tiktok.com/marketing_api/docs?id=1738235338194945) to create a TikTok Pulse ad group. |
+
+## ToolRegionResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `region_list` | `region_list` | `Array<string>` | No | No | List of country or region codes |
+| `region_info` | `region_info` | `Array<ToolRegionResponseRegionInfo>` | No | No | Information about the available locations |
+
+## ToolRegionResponseRegionInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `location_id` | `location_id` | `string` | No | No | Location ID |
+| `name` | `name` | `string` | No | No | Location name |
+| `parent_id` | `parent_id` | `string` | No | No | ID of the parent location. Returns 0 if no parents |
+| `region_code` | `region_code` | `string` | No | No | Country or region code. For example, "DE". |
+| `next_level_ids` | `next_level_ids` | `Array<string>` | No | No | List of children locations. |
+| `area_type` | `area_type` | `"ADMIN" \| "METROPOLITAN_OR_DMA"` | No | No | Location type. Enum values: `ADMIN`, `METROPOLITAN_OR_DMA`. |
+| `level` | `level` | `"COUNTRY" \| "PROVINCE" \| "CITY" \| "DISTRICT"` | No | No | Location level. Enum values: `COUNTRY`(country or region level), `PROVINCE`, `CITY`(city or county level), `DISTRICT`(district or city level). DMA and metropolitans are at the province level. |
+| `support_below_18` | `support_below_18` | `boolean` | No | No | Whether the location supports ads to be delivered to people under 18 years of age. |
+
+## ToolSearchKeywordKeywordIdeaParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `keywords` | `keywords` | `Array<string>` | Yes | No | A list of keywords. You can specify products or services closely related to your business. Max size: 10. Length limit for each keyword: 80 characters. Only English words are supported.Emojis and special symbols such as # are not supported. Note: For optimal results, provide all keywords in lowercase. Providing uppercase keyword is not recommended. |
+| `order_field` | `order_field` | `"AVG_MONTHLY_SEARCHES" \| "THREE_MONTH_CHANGE" \| "YEAR_OVER_YEAR_CHANGE" \| "COMPETITION"` | No | No | Sorting logic. Enum values:`AVG_MONTHLY_SEARCHES`: Sort the results by the range of average monthly searches as indicated by the response parameters `avg_monthly_searches_lower` and `avg_monthly_searches_upper`.`THREE_MONTH_CHANGE`: Sort the results by the response parameter `three_month_change`.`YEAR_OVER_YEAR_CHANGE`: Sort the results by the response parameter `year_over_year_change`.`COMPETITION`: Sort the results by the response parameter `competition`.Default value: `AVG_MONTHLY_SEARCHES`. |
+| `order_type` | `order_type` | `"ASC" \| "DESC"` | No | No | Sorting order. Enum values:`ASC`: ascending.`DESC`: descending.Default value: `DESC`. |
+| `brand_type` | `brand_type` | `"BRAND" \| "NON_BRAND" \| "ALL"` | No | No | Brand type. Enum values:`BRAND`: Brand.`NON_BRAND`: Non-brand.`ALL`: All.Default value: `ALL`. Note: This filter is only available when `country_codes` is set to `["US"]`. For all other countries or regions, `ALL` is the default and only allowed value. |
+| `country_codes` | `country_codes` | `Array<string>` | No | No | The location code of the country or region that you want to target. Max size: 1. Default value: `US`. For enum values, see List of values for `country_codes`. Note: Discovering new keywords for supported non-US locations outside of your home country is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+
+## ToolSearchKeywordKeywordIdeaResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `total_search_volume_lower` | `total_search_volume_lower` | `number` | No | No | The start of the range of total search volume for all the suggested keywords (`keywords`). |
+| `total_search_volume_upper` | `total_search_volume_upper` | `number` | No | No | The end of the range of total search volume for all the suggested keywords (`keywords`). |
+| `keywords` | `keywords` | `Array<ToolSearchKeywordKeywordIdeaResponseKeywords>` | No | No | A list of suggested keywords relevant to the specified keyword or keywords based on the specified targeting country or region (`country_codes`). |
+
+## ToolSearchKeywordKeywordIdeaResponseKeywords
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommended_keyword` | `recommended_keyword` | `string` | No | No | Keyword. A suggested keyword relevant to the specified keyword or keywords. |
+| `avg_monthly_searches_lower` | `avg_monthly_searches_lower` | `number` | No | No | Average monthly searches (Low). This is the start of the range of the average number of monthly searches for the past month of a keyword and similar terms based on the specified targeting country or region. |
+| `avg_monthly_searches_upper` | `avg_monthly_searches_upper` | `number` | No | No | Average monthly searches (High). This is the end of the range of the average number of monthly searches for the past month of a keyword and similar terms based on the specified targeting country or region. |
+| `three_month_change` | `three_month_change` | `number` | No | No | 3 month change. This data compares the monthly search volume of the most recent month's data to the data from two months before. |
+| `year_over_year_change` | `year_over_year_change` | `number` | No | No | YoY change. This data compares the monthly search volume of the last month to the same month last year. |
+| `competition` | `competition` | `"HIGH" \| "MEDIUM" \| "LOW"` | No | No | Competition. This shows how competitive ad placement is for a keyword, based on unique advertiser count bidding on the keyword in the last month. Enum values: `HIGH`: High.`MEDIUM`: Medium.`LOW`: Low. |
+| `estimated_cpc_lower` | `estimated_cpc_lower` | `number` | No | No | Estimated CPC (Low), in USD. This is the start of the range of CPC of what advertisers paid in the last month for the keyword’s top of search page ad based on specified targeting country or region. The average CPC of your keywords may vary. |
+| `estimated_cpc_upper` | `estimated_cpc_upper` | `number` | No | No | Estimated CPC (High), in USD. This is the end of the range of CPC of what advertisers have paid in the last month for the keyword’s top of search page ad based on specified targeting country or region. The average CPC of your keywords may vary. |
+
+## ToolSearchKeywordRecommendParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `search_queries` | `search_queries` | `Array<string>` | No | No | Required when you want to obtain suggested search keywords based on search queries. You can only specify one among `search_queries`, `ad_ids` and `landing_page_urls`. A list of search queries. You can specify products, services, or brands as search queries. Max size: 5. Length limit for each query: 80 characters. Only English words are supported.Emojis and special symbols such as # are not supported. |
+| `ad_ids` | `ad_ids` | `Array<string>` | No | No | Required when you want to obtain suggested search keywords based on specific ads. You can only specify one among `search_queries`, `ad_ids` and `landing_page_urls`. A list of ad IDs. Max size: 1. Note: Obtaining suggested search keywords based on specific ads is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `landing_page_urls` | `landing_page_urls` | `Array<string>` | No | No | Required when you want to obtain suggested search keywords based on URLs. You can only specify one among `search_queries`, `ad_ids` and `landing_page_urls`. A list of landing page URLs. Max size: 5. No length limit for each landing page URL. Note: Obtaining suggested search keywords based on URLs is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. |
+| `regions` | `regions` | `Array<string>` | Yes | No | A list of country or region codes. Currently, the only supported value is `US`. |
+| `order_field` | `order_field` | `"RELEVANCE" \| "MONTHLY_SEARCHES"` | No | No | Sorting logic. Enum values:`RELEVANCE`: Sort the results by relevance.`MONTHLY_SEARCHES`: Sort the results by the response parameter `monthly_searches`. Default value when `search_queries` is specified: `RELEVANCE`. Note: When `ad_ids` or `landing_page_urls` is specified, you can only set this field to `MONTHLY_SEARCHES`. |
+| `order_type` | `order_type` | `"ASC" \| "DESC"` | No | No | Valid only when `order_field` is `MONTHLY_SEARCHES`. Sorting order. Enum values:`ASC`: ascending.`DESC`: descending. Default value: `DESC`. Note: When `ad_ids` or `landing_page_urls` is specified, you can only set this field to `DESC`. |
+| `total_size` | `total_size` | `number` | No | No | The total number of recommended keywords to return. Value range: 1-1,000. Default value: 1,000. |
+| `page` | `page` | `number` | No | No | Current page number. Value range: ≥1. Default value: 1. |
+| `page_size` | `page_size` | `number` | No | No | Page size. Value range: 1-1,000. Default value: 50. |
+
+## ToolSearchKeywordRecommendResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommended_keywords` | `recommended_keywords` | `Array<ToolSearchKeywordRecommendResponseRecommendedKeywords>` | No | No | A list of recommended search keywords. |
+| `page_info` | `page_info` | `ToolSearchKeywordRecommendResponsePageInfo` | No | No | Pagination information. |
+
+## ToolSearchKeywordRecommendResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | Current page number. |
+| `page_size` | `page_size` | `number` | No | No | Page size. |
+| `total_number` | `total_number` | `number` | No | No | Total number of results. |
+| `total_page` | `total_page` | `number` | No | No | Total pages of results. |
+
+## ToolSearchKeywordRecommendResponseRecommendedKeywords
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommended_keyword` | `recommended_keyword` | `string` | No | No | Recommended search keyword. |
+| `monthly_searches` | `monthly_searches` | `number` | No | No | Predicted monthly searches. Prediction is based on historical data for your reference. |
+
+## ToolTargetingCategoryRecommendParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `region_codes` | `region_codes` | `Array<string>` | Yes | No | List of country or region codes. For example: `["US", "JP", "KR"]` |
+| `app_id` | `app_id` | `string` | No | No | ID of the mobile app that you want to promote. This field in optional and only valid if you want to promote a mobile app. |
+
+## ToolTargetingCategoryRecommendResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `interest_categories` | `interest_categories` | `Array<ToolTargetingCategoryRecommendResponseInterestCategories>` | No | No | Recommended interest categories. |
+| `action_categories` | `action_categories` | `Array<ToolTargetingCategoryRecommendResponseActionCategories>` | No | No | Recommended action categories. |
+
+## ToolTargetingCategoryRecommendResponseActionCategories
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action_category_id` | `action_category_id` | `string` | No | No | Action category ID. It can be used as one of the targeting settings when creating an ad group. |
+| `action_category_name` | `action_category_name` | `string` | No | No | Action category name. |
+| `description` | `description` | `string` | No | No | Action category description. |
+| `scene` | `scene` | `"CREATOR_RELATED" \| "VIDEO_RELATED"` | No | No | Action category scene. Enum values: `CREATOR_RELATED`, `VIDEO_RELATED`. |
+| `special_industries` | `special_industries` | `Array<"HOUSING" \| "EMPLOYMENT" \| "CREDIT">` | No | No | Ad categories. Enum values:`HOUSING`: Ads for real estate listings, homeowners insurance, mortgage loans or other related opportunities.`EMPLOYMENT`: Ads for job offers, internship, professional certification programs or other related opportunities.`CREDIT`: Ads for credit card offers, auto loans, long-term financing or other related opportunities.Note: If the returned value is empty(`[]`), it means that the interest categories do not support any industry types.This field is only supported for advertisers who are registered in America or Canada. |
+
+## ToolTargetingCategoryRecommendResponseInterestCategories
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `interest_category_id` | `interest_category_id` | `string` | No | No | Interest category ID. It can used as one of the targeting settings when creating an ad group. |
+| `interest_category_name` | `interest_category_name` | `string` | No | No | Interest category name. |
+| `placements` | `placements` | `Array<string>` | No | No | List of placements that the interest categories can be used. If blank is returned, it means the interest category can be used in all placements. |
+| `special_industries` | `special_industries` | `Array<"HOUSING" \| "EMPLOYMENT" \| "CREDIT">` | No | No | Ad categories. Enum values: `HOUSING`: Ads for real estate listings, homeowners insurance, mortgage loans or other related opportunities.`EMPLOYMENT`: Ads for job offers, internship, professional certification programs or other related opportunities.`CREDIT`: Ads for credit card offers, auto loans, long-term financing or other related opportunities. Note: If the returned value is empty(`[]`), it means that the interest categories do not support any industry types.This field is only supported for advertisers who are registered in America or Canada. |
+
+## ToolTargetingInfoParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `scene` | `scene` | `"GEO" \| "ISP"` | No | No | The targeting type that the specified `targeting_ids` is used for. Enum values: `GEO`: Geographical targeting, which consists of administrative region targeting and zip code targeting (or postal code targeting).`ISP` : Internet Service Provider targeting. Default value: `GEO`. |
+| `targeting_ids` | `targeting_ids` | `Array<string>` | Yes | No | Targeting tag IDs. You can pass in location IDs, zip code IDs or postal code IDs, a combination of location IDs, zip code IDs or postal code IDs, or ISP IDs. Max size: 1,000. You can get location IDs, zip code IDs, or postal code IDs via `geo_id` returned from [/tool/targeting/search/](https://ads.tiktok.com/marketing_api/docs?id=1761236883355649), or get location IDs via `location_id` returned from [/tool/region/](https://ads.tiktok.com/marketing_api/docs?id=1737189539571713). You can get ISP IDs via `isp_id` returned from [/tool/targeting/list/](https://ads.tiktok.com/marketing_api/docs?id=1762962378261506). |
+| `objective_type` | `objective_type` | `"REACH" \| "TRAFFIC" \| "VIDEO_VIEWS" \| "LEAD_GENERATION" \| "ENGAGEMENT" \| "APP_PROMOTION" \| "WEB_CONVERSIONS" \| "PRODUCT_SALES"` | No | No | Required when `scene` is set as `GEO`. Campaign objective. The allowed enum values: `REACH`, `TRAFFIC`, `VIDEO_VIEWS`, `LEAD_GENERATION`, `ENGAGEMENT`, `APP_PROMOTION`, `WEB_CONVERSIONS`, `PRODUCT_SALES`. For descriptions of the objectives, see [Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737585562434561). |
+| `promotion_type` | `promotion_type` | `string` | No | No | Required when `scene` is set as `GEO` and `objective_type` is NOT set as `REACH`, `VIDEO_VIEWS`, or `ENGAGEMENT`. Promotion type and you can decide where you'd like to promote your products using this field. For enum values, see [Enumeration - Promotion Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `placements` | `placements` | `Array<string>` | No | No | Required when `scene` is set as `GEO`. The apps where you want to deliver your ads. For enum values, see [Enumeration - Placement](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). Note: If you want to get information about zip code IDs to be used for zip code targeting or postal code IDs to be used for postal code targeting, the value of this field needs to include `PLACEMENT_TIKTOK`. |
+| `operating_system` | `operating_system` | `"ANDROID" \| "IOS"` | No | No | Valid only when `scene` is set as `GEO`. Device operating system that you want to target. Enum values: `ANDROID`, `IOS`. |
+| `brand_safety_type` | `brand_safety_type` | `"NO_BRAND_SAFETY" \| "EXPANDED_INVENTORY" \| "STANDARD_INVENTORY" \| "LIMITED_INVENTORY" \| "THIRD_PARTY" \| "APP_PROMOTION" \| "WEB_CONVERSIONS" \| "TRAFFIC" \| "LEAD_GENERATION"` | No | No | Brand safety type. Valid only when `scene` is set as `GEO` and `placements` is set as `PLACEMENT_TIKTOK`. Default value: `NO_BRAND_SAFETY`. Enum values: `NO_BRAND_SAFETY`: To not use any brand safety solution. Full inventory, which means your ads may appear next to some content featuring mature themes. `EXPANDED_INVENTORY`: Use TikTok's brand safety solution. Expanded inventory means that your ads will appear next to content where most inappropriate content has been removed, and that does not contain mature themes. In the next API version, `EXPANDED_INVENTORY` will replace `NO_BRAND_SAFETY` and will be the default brand safety option.`STANDARD_INVENTORY`: Use TikTok's brand safety solution. Standard inventory means that ads will appear next to content that is appropriate for most brands. `LIMITED_INVENTORY`: Use TikTok's brand safety solution. Limited inventory means that your ads will not appear next to content that contains mature themes.`THIRD_PARTY`: Use a third-party brand safety solution. You also need to pass in a value to the `brand_safety_partner` field. To get the countries and regions that your ads can be deployed to based on your brand safety settings, use the [/tool/region/](https://ads.tiktok.com/marketing_api/docs?id=1737189539571713) endpoint. Note: Pre-bid first-party Brand Safety solutions for `APP_PROMOTION`, `WEB_CONVERSIONS`, `TRAFFIC`, `LEAD_GENERATION` objectives in Auction ads, and pre-bid third-party brand safety solutions are currently allowlist-only features. If you would like to access them, please contact your TikTok representative. See [Brand safety](https://ads.tiktok.com/marketing_api/docs?id=1739381752981505) to learn about the supported advertising objectives for pre-bid Brand Safety filtering. |
+| `brand_safety_partner` | `brand_safety_partner` | `"IAS" \| "OPEN_SLATE"` | No | No | Required only when `brand_safety_type` is `THIRD_PARTY`. Brand safety partner. Enum values: `IAS`, `OPEN_SLATE`(The partner is named DoubleVerify on TikTok Ads Manager because the partner has been acquired by DoubleVerify). Note: Pre-bid third-party brand safety solutions are currently allowlist-only features. If you would like to access them, please contact your TikTok representative. |
+
+## ToolTargetingInfoResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targeting_tag_list` | `targeting_tag_list` | `Array<ToolTargetingInfoResponseTargetingTagList>` | No | No | Information about the targeting tags that are matched by the specified targeting tag IDs. |
+| `parent_tags` | `parent_tags` | `Array<ToolTargetingInfoResponseParentTags>` | No | No | Information about all the parent targeting tags. |
+
+## ToolTargetingInfoResponseParentTags
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targeting_type` | `targeting_type` | `string` | No | No | The targeting type that the parent targeting tag is used for. Enum values: `GEO` (Geographical targeting, which consists of administrative region targeting and zip code targeting (or postal code targeting)). |
+| `name` | `name` | `string` | No | No | The name of the parent targeting tag. |
+| `status_info` | `status_info` | `ToolTargetingInfoResponseParentTagsStatusInfo` | No | No | Information about the status of the parent targeting tag. |
+| `geo` | `geo` | `ToolTargetingInfoResponseParentTagsGeo` | No | No | Information about the parent targeting tag that is used for location targeting. Returned when `targeting_type` is `GEO`. |
+
+## ToolTargetingInfoResponseParentTagsGeo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `geo_id` | `geo_id` | `string` | No | No | Parent location ID, zip code ID, or postal code ID. When the corresponding `geo_type` is `ZIP_CODE`, you can pass the value of this field to `zipcode_ids` when calling [/adgroup/create/](https://ads.tiktok.com/marketing_api/docs?id=1739499616346114), [/adgroup/update/](https://ads.tiktok.com/marketing_api/docs?id=1739586761631745) or [/ad/audience_size/estimate/](https://ads.tiktok.com/marketing_api/docs?id=1740302379236353). When the corresponding `geo_type` is not `ZIP_CODE`, you can pass the value of this field to `location_ids` when calling [/adgroup/create/](https://ads.tiktok.com/marketing_api/docs?id=1739499616346114), [/adgroup/update/](https://ads.tiktok.com/marketing_api/docs?id=1739586761631745) or [/ad/audience_size/estimate/](https://ads.tiktok.com/marketing_api/docs?id=1740302379236353). |
+| `geo_type` | `geo_type` | `"COUNTRY" \| "PROVINCE" \| "CITY" \| "DISTRICT" \| "DMA" \| "ZIP_CODE"` | No | No | The type of location that the `geo_id` corresponds to. Enum values: `COUNTRY` (country), `PROVINCE` (province), `CITY` (city), `DISTRICT` (district), `DMA` (DMA), `ZIP_CODE` (zip code or postal code). |
+| `description` | `description` | `string` | No | No | The description of the parent location. |
+| `region_code` | `region_code` | `string` | No | No | The code of the country or region that the parent location belongs to. |
+| `parent_id` | `parent_id` | `string` | No | No | ID of the parent location for the parent location. Returns `0` if no parent location exists. |
+
+## ToolTargetingInfoResponseParentTagsStatusInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `"ENABLED" \| "DISABLED"` | No | No | The status of the parent targeting tag. Enum values: `ENABLED` (can be used for targeting), `DISABLED` (cannot be used for targeting). |
+| `reason` | `reason` | `"OFFLINE" \| "NOT_SUPPORTED"` | No | No | The reason why the parent targeting tag cannot be used for targeting. Returned when `status` = `DISABLED`. Enum values: `OFFLINE`: The parent targeting tag is offline.`NOT_SUPPORTED`: The parent targeting tag is not offline but is not supported for the specified settings. |
+
+## ToolTargetingInfoResponseTargetingTagList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targeting_type` | `targeting_type` | `"GEO" \| "ISP"` | No | No | The targeting type that the targeting tag is used for. Enum values: `GEO`: Geographical targeting, which consists of administrative region targeting and zip code targeting (or postal code targeting).`ISP`: Internet Service Provider targeting. |
+| `name` | `name` | `string` | No | No | The name of the targeting tag. |
+| `status_info` | `status_info` | `ToolTargetingInfoResponseTargetingTagListStatusInfo` | No | No | Information about the status of the targeting tag. |
+| `geo` | `geo` | `ToolTargetingInfoResponseTargetingTagListGeo` | No | No | Information about the targeting tag that is used for location targeting. Returned when `targeting_type` is `GEO`. |
+| `isp` | `isp` | `ToolTargetingInfoResponseTargetingTagListIsp` | No | No | Information about the targeting tag that is used for Internet service provider targeting. Returned when `targeting_type` is `ISP`. |
+
+## ToolTargetingInfoResponseTargetingTagListGeo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `geo_id` | `geo_id` | `string` | No | No | Location ID, zip code ID, or postal code ID. Location IDs can be used for administrative region targeting while zip code IDs can be used for zip code targeting and postal code IDs can be used for postal code targeting. When the corresponding `geo_type` is `ZIP_CODE`, you can pass the value of this field as zip code ID or postal code ID to `zipcode_ids` when calling [/adgroup/create/](https://ads.tiktok.com/marketing_api/docs?id=1739499616346114), [/adgroup/update/](https://ads.tiktok.com/marketing_api/docs?id=1739586761631745) or [/ad/audience_size/estimate/](https://ads.tiktok.com/marketing_api/docs?id=1740302379236353). When the corresponding `geo_type` is not `ZIP_CODE`, you can pass the value of this field as location ID to `location_ids` when calling [/adgroup/create/](https://ads.tiktok.com/marketing_api/docs?id=1739499616346114), [/adgroup/update/](https://ads.tiktok.com/marketing_api/docs?id=1739586761631745) or [/ad/audience_size/estimate/](https://ads.tiktok.com/marketing_api/docs?id=1740302379236353). |
+| `geo_type` | `geo_type` | `"COUNTRY" \| "PROVINCE" \| "CITY" \| "DISTRICT" \| "DMA" \| "ZIP_CODE"` | No | No | The type of location that the `geo_id` corresponds to. Enum values: `COUNTRY` (country), `PROVINCE` (province), `CITY` (city), `DISTRICT` (district), `DMA` (DMA), `ZIP_CODE` (zip code or postal code). |
+| `description` | `description` | `string` | No | No | The description of the targeted location. |
+| `region_code` | `region_code` | `string` | No | No | The code of the country or region that the targeted location belongs to. |
+| `parent_id` | `parent_id` | `string` | No | No | ID of the parent location. Returns `0` if no parent location exists. |
+
+## ToolTargetingInfoResponseTargetingTagListIsp
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `isp_id` | `isp_id` | `string` | No | No | The ID of the Internet service provider that you can target. |
+| `location_id` | `location_id` | `string` | No | No | The location ID that the `isp_id` can be used together with. Only location IDs at the country or region level are supported. |
+| `region_code` | `region_code` | `string` | No | No | The code of the region or country that the `isp_id` belongs to. |
+
+## ToolTargetingInfoResponseTargetingTagListStatusInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `"ENABLED" \| "DISABLED"` | No | No | The status of the targeting tag. Enum values: `ENABLED` (can be used for targeting), `DISABLED`(cannot be used for targeting). |
+| `reason` | `reason` | `"OFFLINE" \| "NOT_SUPPORTED"` | No | No | The reason why the targeting tag cannot be used for targeting. Returned when `status` = `DISABLED`. Enum values: `OFFLINE`: The targeting tag is offline. `NOT_SUPPORTED`: The targeting tag is not offline but is not supported for the specified settings. |
+
+## ToolTargetingListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `location_ids` | `location_ids` | `Array<string>` | Yes | No | IDs of the locations that you want to get the supported `ISP` IDs for. Max size: 1000. To find out the list of location IDs, see [Location IDs](https://ads.tiktok.com/marketing_api/docs?id=1739311040498689). Note: You need to pass location IDs at the country or region level. To get the available locations and corresponding IDs based on your placement and objective, use the [/tool/region/](https://ads.tiktok.com/marketing_api/docs?id=1737189539571713) and the returned `level` for location IDs at the country or region level will be `COUNTRY`. |
+| `scene` | `scene` | `string` | Yes | No | The targeting type that the targeting tags are used for. The allowed enum values: `ISP` ( Internet Service Provider targeting). |
+
+## ToolTargetingListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targeting_tag_list` | `targeting_tag_list` | `Array<ToolTargetingListResponseTargetingTagList>` | No | No | Information about the targeting tags. |
+| `parent_tags` | `parent_tags` | `Array<string>` | No | No | Information about all the parent targeting tags. |
+
+## ToolTargetingListResponseTargetingTagList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targeting_type` | `targeting_type` | `string` | No | No | The targeting type that the targeting tag is used for. Enum values: `ISP` ( Internet Service Provider targeting). |
+| `name` | `name` | `string` | No | No | The name of the targeting tag. |
+| `status_info` | `status_info` | `ToolTargetingListResponseTargetingTagListStatusInfo` | No | No | Information about the status of the targeting tag. |
+| `isp` | `isp` | `ToolTargetingListResponseTargetingTagListIsp` | No | No | Information about the targeting tag that is used for Internet service provider targeting. |
+| `geo` | `geo` | `string` | No | No | Information about the targeting tag that is used for location targeting. |
+
+## ToolTargetingListResponseTargetingTagListIsp
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `isp_id` | `isp_id` | `string` | No | No | The ID of the Internet service provider that you can target. |
+| `location_id` | `location_id` | `string` | No | No | The location ID that the `isp_id` can be used together with. Only location IDs at the country or region level are supported. |
+| `region_code` | `region_code` | `string` | No | No | The code of the region or country that the `isp_id` belongs to. |
+
+## ToolTargetingListResponseTargetingTagListStatusInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `"ENABLED" \| "DISABLED"` | No | No | The status of the targeting tag. Enum values: `ENABLED` (can be used for targeting), `DISABLED`(cannot be used for targeting). |
+| `reason` | `reason` | `"OFFLINE" \| "NOT_SUPPORTED"` | No | No | The reason why the targeting tag cannot be used for targeting. Returned when `status` = `DISABLED`. Enum values: `OFFLINE`: The targeting tag is offline. `NOT_SUPPORTED`: The targeting tag is not offline but is not supported for the specified settings. |
+
+## ToolTargetingSearchParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `objective_type` | `objective_type` | `"REACH" \| "TRAFFIC" \| "VIDEO_VIEWS" \| "LEAD_GENERATION" \| "ENGAGEMENT" \| "APP_PROMOTION" \| "WEB_CONVERSIONS" \| "PRODUCT_SALES"` | Yes | No | Campaign objective. The allowed enum values: `REACH`, `TRAFFIC`, `VIDEO_VIEWS`, `LEAD_GENERATION`, `ENGAGEMENT`, `APP_PROMOTION`, `WEB_CONVERSIONS`, `PRODUCT_SALES`. For descriptions of the objectives, see [Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737585562434561). |
+| `promotion_type` | `promotion_type` | `string` | No | No | Promotion type and you can decide where you'd like to promote your products using this field. You need to specify the field when advertising objective (`objective_type`) for your campaign is NOT set as `REACH`, `VIDEO_VIEWS`, or `ENGAGEMENT`. For enum values, see [Enumeration - Promotion Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `placements` | `placements` | `Array<string>` | Yes | No | The apps where you want to deliver your ads. For enum values, see [Enumeration - Placement](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). Note: If you want to fuzzy search for a zip code ID to be used for zip code targeting or a postal code ID to be used for postal code targeting, the value of this field needs to include `PLACEMENT_TIKTOK`. |
+| `search_type` | `search_type` | `"FUZZY_SEARCH" \| "BATCH_REGION_SEARCH" \| "BATCH_ZIPCODE_SEARCH"` | Yes | No | The type of search you want to perform. Enum values: `FUZZY_SEARCH`: To fuzzy search for a single location ID, a zip code ID, or a postal code ID. For this search type, you can only pass one keyword to `keywords` and a maximum of 100 results will be returned.`BATCH_REGION_SEARCH`: To search for location IDs in batch. Fuzzy search is supported. For this search type, you can pass up to 1,000 keywords to `keywords`, and for each keyword a maximum of 5 results ordered by relevance will be returned. `BATCH_ZIPCODE_SEARCH`: To search for zip code IDs or postal code IDs in batch. Exact search is supported. For this search type, you can pass up to 1,000 keywords to `keywords`, and for each keyword one result or no result will be returned. Note: Targeting postal code areas in Brazil, Indonesia, Thailand, and Vietnam is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative. The enum values `BATCH_ZIPCODE_SEARCH` and `BATCH_REGION_SEARCH` can only be used to search for IDs of zip codes (or postal codes) or locations. In contrast, you can use `FUZZY_SEARCH` to search for a single ID of a zip code (or postal code) or location. |
+| `keywords` | `keywords` | `Array<string>` | Yes | No | The keywords that you use to search for targeting tags. Length limit: 1 when `search_type` is `FUZZY_SEARCH`.1,000 when `search_type` is `BATCH_REGION_SEARCH` or `BATCH_ZIPCODE_SEARCH`. If you set `search_type` as `BATCH_ZIPCODE_SEARCH`, you need to pass zip codes or postal codes as keywords because this search type only supports exact search.For US zip code targeting, provide the five-digit US zip codes as keywords. Example: `["10001","10002"]`.For Canadian postal code targeting, provide the three-character Forward Sortation Area (FSA) portions of Canadian postal codes as keywords. Example: `["A0A","A0B"]`.For Brazil postal code targeting, provide the first five digits of postal codes as keywords. Example: `["81480","18072"]`.For Indonesia postal code targeting, provide the five-digit postal codes as keywords. Example: `["20371","12120"]`.For Thailand postal code targeting, provide the five-digit postal codes as keywords. Example: `["30000","40000"]`. For Vietnam postal code targeting, provide the first three digits of postal codes as keywords. Example: `["718","719"]`. |
+| `geo_types` | `geo_types` | `Array<"COUNTRY" \| "PROVINCE" \| "CITY" \| "DISTRICT" \| "DMA" \| "ZIP_CODE" \| "FUZZY_SEARCH" \| "BATCH_ZIPCODE_SEARCH" \| "BATCH_REGION_SEARCH">` | No | No | The types of locations that you want to filter the results by. Enum values: `COUNTRY` (country or region), `PROVINCE` (province), `CITY` (city or county), `DISTRICT` (district or city), `DMA` (DMA), `ZIP_CODE` (zip code or postal code). When you specify `search_type` as `FUZZY_SEARCH`, the allowed enum values for this field are `ZIP_CODE`, `COUNTRY`, `PROVINCE`, `CITY`, `DISTRICT`, and `DMA`. When you specify `search_type` as `BATCH_ZIPCODE_SEARCH`, the allowed enum value for this field is `ZIP_CODE`. When you specify `search_type` as `BATCH_REGION_SEARCH`, the allowed enum values for this field are `COUNTRY`, `PROVINCE`, `CITY`, `DISTRICT`, and `DMA`. |
+| `region_codes` | `region_codes` | `Array<string>` | No | No | The codes of targeted countries or regions that you want to filter the results by. When you specify `search_type` as `BATCH_ZIPCODE_SEARCH` or `BATCH_REGION_SEARCH`, this field is required and needs to be set as `US` (the US) , `CA` (Canada), `BR` (Brazil), `ID` (Indonesia), `TH` (Thailand), or `VN` (Vietnam). When you specify `search_type` as `FUZZY_SEARCH`, this field is optional and you can pass any supported country or region code to this field. To find out the complete list of country or region codes, see [Location code](https://ads.tiktok.com/marketing_api/docs?id=1737585867307010). |
+| `operating_system` | `operating_system` | `"ANDROID" \| "IOS"` | No | No | Device operating system that you want to target. Enum values: `ANDROID`, `IOS`. |
+| `brand_safety_type` | `brand_safety_type` | `"NO_BRAND_SAFETY" \| "EXPANDED_INVENTORY" \| "STANDARD_INVENTORY" \| "LIMITED_INVENTORY" \| "THIRD_PARTY" \| "APP_PROMOTION" \| "WEB_CONVERSIONS" \| "TRAFFIC" \| "LEAD_GENERATION"` | No | No | Brand safety type. Valid only when `placements` is set as `PLACEMENT_TIKTOK`. Default value: `NO_BRAND_SAFETY`. Enum values: `NO_BRAND_SAFETY`: To not use any brand safety solution. Full inventory, which means your ads may appear next to some content featuring mature themes. `EXPANDED_INVENTORY`: Use TikTok's brand safety solution. Expanded inventory means that your ads will appear next to content where most inappropriate content has been removed, and that does not contain mature themes. In the next API version, `EXPANDED_INVENTORY` will replace `NO_BRAND_SAFETY` and will be the default brand safety option.`STANDARD_INVENTORY`: Use TikTok's brand safety solution. Standard inventory means that ads will appear next to content that is appropriate for most brands. `LIMITED_INVENTORY`: Use TikTok's brand safety solution. Limited inventory means that your ads will not appear next to content that contains mature themes.`THIRD_PARTY`: Use a third-party brand safety solution. You also need to pass in a value to the `brand_safety_partner` field. To get the countries and regions that your ads can be deployed to based on your brand safety settings, use the [/tool/region/](https://ads.tiktok.com/marketing_api/docs?id=1737189539571713) endpoint. Note: Pre-bid first-party Brand Safety solutions for `APP_PROMOTION`, `WEB_CONVERSIONS`, `TRAFFIC`, `LEAD_GENERATION` objectives in Auction ads, and pre-bid third-party brand safety solutions are currently allowlist-only features. If you would like to access them, please contact your TikTok representative. See [Brand safety](https://ads.tiktok.com/marketing_api/docs?id=1739381752981505) to learn about the supported advertising objectives for pre-bid Brand Safety filtering. |
+| `brand_safety_partner` | `brand_safety_partner` | `"IAS" \| "OPEN_SLATE"` | No | No | Required only when `brand_safety_type` is `THIRD_PARTY`. Brand safety partner. Enum values: `IAS`, `OPEN_SLATE`(The partner is named DoubleVerify on TikTok Ads Manager because the partner has been acquired by DoubleVerify). Note: Pre-bid third-party brand safety solutions are currently allowlist-only features. If you would like to access them, please contact your TikTok representative. |
+
+## ToolTargetingSearchResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targeting_tag_list` | `targeting_tag_list` | `Array<ToolTargetingSearchResponseTargetingTagList>` | No | No | Information about the targeting tags that are matched by the specified keyword or keywords. Note: Multiple targeting tags of different names (`name`) may be returned for the same `keyword`. |
+| `parent_tags` | `parent_tags` | `Array<ToolTargetingSearchResponseParentTags>` | No | No | Information about all the parent targeting tags. |
+
+## ToolTargetingSearchResponseParentTags
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `targeting_type` | `targeting_type` | `string` | No | No | The targeting type that the parent targeting tag is used for. Enum values: `GEO` (Geographical targeting, which consists of administrative region targeting and zip code targeting (or postal code targeting)). |
+| `name` | `name` | `string` | No | No | The name of the parent targeting tag. |
+| `status_info` | `status_info` | `ToolTargetingSearchResponseParentTagsStatusInfo` | No | No | Information about the status of the parent targeting tag. |
+| `geo` | `geo` | `ToolTargetingSearchResponseParentTagsGeo` | No | No | Information about the parent targeting tag that is used for location targeting. Returned when `targeting_type` is `GEO`. |
+
+## ToolTargetingSearchResponseParentTagsGeo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `geo_id` | `geo_id` | `string` | No | No | Parent location ID, zip code ID, or postal code ID. When the corresponding `geo_type` is `ZIP_CODE`, you can pass the value of this field to `zipcode_ids` when calling [/adgroup/create/](https://ads.tiktok.com/marketing_api/docs?id=1739499616346114), [/adgroup/update/](https://ads.tiktok.com/marketing_api/docs?id=1739586761631745) or [/ad/audience_size/estimate/](https://ads.tiktok.com/marketing_api/docs?id=1740302379236353). When the corresponding `geo_type` is not `ZIP_CODE`, you can pass the value of this field to `location_ids` when calling [/adgroup/create/](https://ads.tiktok.com/marketing_api/docs?id=1739499616346114), [/adgroup/update/](https://ads.tiktok.com/marketing_api/docs?id=1739586761631745) or [/ad/audience_size/estimate/](https://ads.tiktok.com/marketing_api/docs?id=1740302379236353). |
+| `geo_type` | `geo_type` | `"COUNTRY" \| "PROVINCE" \| "CITY" \| "DISTRICT" \| "DMA" \| "ZIP_CODE"` | No | No | The type of location that the `geo_id` corresponds to. Enum values: `COUNTRY` (country), `PROVINCE` (province), `CITY` (city or county), `DISTRICT` (district or city), `DMA` (DMA), `ZIP_CODE` (zip code or postal code). |
+| `description` | `description` | `string` | No | No | The description of the parent location. |
+| `region_code` | `region_code` | `string` | No | No | The code of the country or region that the parent location belongs to. |
+| `parent_id` | `parent_id` | `string` | No | No | ID of the parent location for the parent location. Returns `0` if no parent location exists. |
+
+## ToolTargetingSearchResponseParentTagsStatusInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `"ENABLED" \| "DISABLED"` | No | No | The status of the parent targeting tag. Enum values: `ENABLED` (can be used for targeting), `DISABLED` (cannot be used for targeting). |
+| `reason` | `reason` | `"OFFLINE" \| "NOT_SUPPORTED"` | No | No | The reason why the parent targeting tag cannot be used for targeting. Returned when `status` = `DISABLED`. Enum values: `OFFLINE`: The parent targeting tag is offline.`NOT_SUPPORTED`: The parent targeting tag is not offline but is not supported for the specified settings. |
+
+## ToolTargetingSearchResponseTargetingTagList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `keyword` | `keyword` | `string` | No | No | The keyword that is used to search for targeting tags. |
+| `targeting_type` | `targeting_type` | `string` | No | No | The targeting type that the targeting tag is used for. Enum values: `GEO` (Geographical targeting, which consists of administrative region targeting and zip code targeting (or postal code targeting)). |
+| `name` | `name` | `string` | No | No | The name of the targeting tag. |
+| `status_info` | `status_info` | `ToolTargetingSearchResponseTargetingTagListStatusInfo` | No | No | Information about the status of the targeting tag. |
+| `geo` | `geo` | `ToolTargetingSearchResponseTargetingTagListGeo` | No | No | Information about the targeting tag that is used for location targeting. Returned when `targeting_type` is `GEO`. |
+
+## ToolTargetingSearchResponseTargetingTagListGeo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `geo_id` | `geo_id` | `string` | No | No | Location ID, zip code ID, or postal code ID. Location IDs can be used for administrative region targeting while zip code IDs can be used for zip code targeting and postal code IDs can be used for postal code targeting. When the corresponding `geo_type` is `ZIP_CODE`, you can pass the value of this field as zip code ID or postal code ID to `zipcode_ids` when calling [/adgroup/create/](https://ads.tiktok.com/marketing_api/docs?id=1739499616346114), [/adgroup/update/](https://ads.tiktok.com/marketing_api/docs?id=1739586761631745) or [/ad/audience_size/estimate/](https://ads.tiktok.com/marketing_api/docs?id=1740302379236353). When the corresponding `geo_type` is not `ZIP_CODE`, you can pass the value of this field as location ID to `location_ids` when calling [/adgroup/create/](https://ads.tiktok.com/marketing_api/docs?id=1739499616346114), [/adgroup/update/](https://ads.tiktok.com/marketing_api/docs?id=1739586761631745) or [/ad/audience_size/estimate/](https://ads.tiktok.com/marketing_api/docs?id=1740302379236353). |
+| `geo_type` | `geo_type` | `"COUNTRY" \| "PROVINCE" \| "CITY" \| "DISTRICT" \| "DMA" \| "ZIP_CODE"` | No | No | The type of location that the `geo_id` corresponds to. Enum values: `COUNTRY` (country), `PROVINCE` (province), `CITY` (city or county), `DISTRICT` (district or city), `DMA` (DMA), `ZIP_CODE` (zip code or postal code). |
+| `description` | `description` | `string` | No | No | The description of the targeted location. |
+| `region_code` | `region_code` | `string` | No | No | The code of the country or region that the targeted location belongs to. |
+| `parent_id` | `parent_id` | `string` | No | No | ID of the parent location. Returns `0` if no parent location exists. |
+
+## ToolTargetingSearchResponseTargetingTagListStatusInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `"ENABLED" \| "DISABLED"` | No | No | The status of the targeting tag. Enum values: `ENABLED` (can be used for targeting), `DISABLED` (cannot be used for targeting). |
+| `reason` | `reason` | `"OFFLINE" \| "NOT_SUPPORTED"` | No | No | The reason why the targeting tag cannot be used for targeting. Returned when `status` = `DISABLED`. Enum values: `OFFLINE`: The targeting tag is offline. `NOT_SUPPORTED`: The targeting tag is not offline but is not supported for the specified settings. |
+
+## ToolTimezoneParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+
+## ToolTimezoneResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `timezones` | `timezones` | `Array<ToolTimezoneResponseTimezones>` | No | No | Time Zone list. |
+
+## ToolTimezoneResponseTimezones
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `timezone` | `timezone` | `string` | No | No | Time zone. For example, "Pacific/Auckland". |
+| `gmt_offset` | `gmt_offset` | `string` | No | No | Offset from GMT. For example, "GMT+12:00". |
+
+## ToolUrlValidateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `url` | `url` | `string` | Yes | No | The URL that you want to get verification results for. |
+
+## ToolUrlValidateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `landing_page_url_info` | `landing_page_url_info` | `ToolUrlValidateResponseLandingPageUrlInfo` | No | No | Information about the URL. |
+
+## ToolUrlValidateResponseLandingPageUrlInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `validate_info` | `validate_info` | `ToolUrlValidateResponseLandingPageUrlInfoValidateInfo` | No | No | Information about the verification results for the URL. |
+
+## ToolUrlValidateResponseLandingPageUrlInfoValidateInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_scheme_link` | `is_scheme_link` | `boolean` | No | No | Whether the URL is a custom URL scheme. |
+| `is_valid_url` | `is_valid_url` | `boolean` | No | No | Whether the URL is a valid URL (Apple’s universal link, Android App Link, or custom URL scheme). |
+| `is_valid_scheme` | `is_valid_scheme` | `boolean` | No | No | Whether the URL is a valid custom URL scheme. |
+
+## ToolVastOptionParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID |
+| `objective_type` | `objective_type` | `string` | Yes | No | Your objective type. For enum values and descriptions, see [Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737585562434561). |
+| `region_codes` | `region_codes` | `Array<string>` | No | No | List of country or region codes. For example: `["US", "JP", "KR"]`. See [Appendix - Location code](https://ads.tiktok.com/marketing_api/docs?id=1737585867307010) for enum values. |
+| `brand_safety_type` | `brand_safety_type` | `"STANDARD_INVENTORY" \| "LIMITED_INVENTORY"` | No | No | Brand safety type. The allowed enum values: `STANDARD_INVENTORY`: Use TikTok's brand safety solution. Standard inventory means that ads will appear next to content that is appropriate for most brands. `LIMITED_INVENTORY`: Use TikTok's brand safety solution. Limited inventory means that your ads will not appear next to content that contains mature themes. To get the countries and regions that your ads can be deployed to based on your brand safety settings, use the [/tool/region/](https://ads.tiktok.com/marketing_api/docs?id=1737189539571713) endpoint. |
+
+## ToolVastOptionResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `option_list` | `option_list` | `Array<ToolVastOptionResponseOptionList>` | No | No | The list of post-bid third-party measurement partners. |
+
+## ToolVastOptionResponseOptionList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `partner` | `partner` | `"MOAT" \| "DOUBLE_VERIFY" \| "IAS" \| "ZEFR"` | No | No | Post-bid third-party brand safety or viewability measurement partner. Enum values: `MOAT`, `DOUBLE_VERIFY`, `IAS`, `ZEFR`. You can set post-bid third-party measurement partners at the ad level via `viewability_postbid_partner` and `brand_safety_postbid_partner` when calling [/ad/create/](https://ads.tiktok.com/marketing_api/docs?id=1739953377508354). |
+| `partner_name` | `partner_name` | `string` | No | No | Name of the post-bid third-party brand safety or viewability measurement partner. |
+| `vast_type` | `vast_type` | `"VIEWABILITY" \| "BRAND_SAFETY"` | No | No | The type of post-bid third-party measurement that the partner offers. Enum values: `VIEWABILITY` (viewability measurement), `BRAND_SAFETY` (brand safety measurement). |
+| `is_require_url` | `is_require_url` | `boolean` | No | No | Whether you need to provide a VAST URL when you choose the post-bid third-party measurement partner. |
+| `is_available` | `is_available` | `boolean` | No | No | Whether you can choose the post-bid third-party measurement partner when creating or updating ads. |
+| `unavailable_reason` | `unavailable_reason` | `Array<ToolVastOptionResponseOptionListUnavailableReason>` | No | No | The information about why you cannot select the post-bid third-party measurement partner. Returned when `is_available` = `False`. |
+
+## ToolVastOptionResponseOptionListUnavailableReason
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `reason` | `reason` | `string` | No | No | The reason why you cannot choose the post-bid third-party measurement partner. |
+| `reason_type` | `reason_type` | `"UNSUPPORTED_PARTNER" \| "UNSUPPORTED_OBJ_TYPE" \| "UNSUPPORTED_COUNTRY" \| "UNSUPPORTED_PREBID"` | No | No | The reason type. Enum values: `UNSUPPORTED_PARTNER`: You are not authorized to choose this partner. `UNSUPPORTED_OBJ_TYPE`: The partner is not supported for the specified advertising objective. `UNSUPPORTED_COUNTRY`: The partner is not supported for one or more of the specified country or region codes. `UNSUPPORTED_PREBID`: The partner is not supported for post-bid third-party measurement because of your pre-bid brand safety setting via `brand_safety_type` in the request. |
+
+## ToolVboStatusParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `objective_type` | `objective_type` | `string` | Yes | No | Advertising objective. Set this field to `APP_PROMOTION`, `WEB_CONVERSIONS`, or `PRODUCT_SALES`. When you set this field to any other objective, `vo_status` will be `NOT_SUPPORT` because these objectives are not supported for VBO. For enum values and descriptions, see [Objectives](https://ads.tiktok.com/marketing_api/docs?id=1737585562434561). Note: When `objective_type` is set to `PRODUCT_SALES` and `promotion_type` is set to `LIVE_SHOPPING` or `VIDEO_SHOPPING`, do not pass in `pixel_id` or `app_id`. Otherwise, pass in either `pixel_id` or `app_id`. |
+| `app_promotion_type` | `app_promotion_type` | `"APP_INSTALL" \| "APP_RETARGETING" \| "MINIS"` | No | No | Required when `objective_type` is `APP_PROMOTION`. App promotion type. Enum values: `APP_INSTALL`: Get new users to install your app. `APP_RETARGETING`: Re-engage existing users to take action in your app.`MINIS`: TikTok Minis. Get people to watch your series or play your games with TikTok Minis.To learn more about the campaign type where this setting is supported, see [Create an Upgraded Smart+ Minis Campaign](https://business-api.tiktok.com/portal/docs?id=1853377811982657). Note: Only the enum value `APP_INSTALL` can be used in an iOS14 Dedicated Campaign. |
+| `campaign_type` | `campaign_type` | `string` | No | No | Do not pass `campaign_type` and `ios14_quota_type` at the same time. If both fields are passed, `ios14_quota_type` will be ignored. Campaign type. Enums values: `REGULAR_CAMPAIGN`: non-iOS 14 Dedicated Campaign. `IOS14_CAMPAIGN`: iOS 14 Dedicated Campaign. The value `IOS14_CAMPAIGN` can only be used when: `objective_type` is `PRODUCT_SALES`. `objective_type` is `APP_PROMOTION` and `app_promotion_type` is `APP_INSTALL`. |
+| `is_advanced_dedicated_campaign` | `is_advanced_dedicated_campaign` | `boolean` | No | No | Whether the campaign is an Advanced Dedicated Campaign. Advanced Dedicated Campaigns leverage advanced delivery models that benefit from real-time signals. Supported values: `true`, `false`. Default value: `false`. To learn about how to create such campaigns, see [Create Advanced Dedicated Campaigns](https://business-api.tiktok.com/portal/docs?id=1797011827608577). Note: Once set, this field cannot be updated. |
+| `disable_skan_campaign` | `disable_skan_campaign` | `boolean` | No | No | Valid only when the following conditions are all met: `objective_type` is `APP_PROMOTION`.`app_promotion_type` is `APP_INSTALL`.`campaign_type` is `IOS14_CAMPAIGN`.`app_id` is set to the ID of an iOS app that is eligible for [Advanced Dedicated Campaigns](https://business-api.tiktok.com/portal/docs?id=1797011827608577). To confirm whether an app is eligible for Advanced Dedicated Campaigns, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786) and check the returned `advanced_dedicated_campaign_allowed`. Whether to disable SKAN (SKAdNetwork) attribution, Apple's conversion attribution solution for iOS campaigns Enum values:`true`: To disable SKAN attribution. The campaign will not be bound by [Dedicated Campaign quota limits](https://business-api.tiktok.com/portal/docs?id=1752256248260610) and you will be able to retrieve [Self Attribution Network (SAN) metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SAN%20metrics) for the campaign. However, you cannot retrieve [SKAN reporting metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SKAN%20metrics) for the campaign. Learn more about [SAN integration](https://ads.tiktok.com/help/article/about-self-attribution-transition). For a Dedicated Campaign using an app that is eligible for Advanced Dedicated Campaigns, you need to enable SKAN attribution or Advanced Dedicated Campaign or both. You cannot disable SKAN attribution and Advanced Dedicated Campaign simultaneously.`false`: To enable SKAN attribution. The campaign will be bound by [Dedicated Campaign quota limits](https://business-api.tiktok.com/portal/docs?id=1752256248260610) and you will be able to retrieve [SKAN metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SKAN%20metrics) for the campaign.If you enable Advanced Dedicated Campaign by setting `is_advanced_dedicated_campaign` to `true` simultaneously, you'll be able to retrieve both [SAN](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SAN%20metrics) and [SKAN reporting metrics](https://business-api.tiktok.com/portal/docs?id=1751443967255553#item-link-SKAN%20metrics) for the campaign. Note: Disabling SKAN attribution for Dedicated Campaigns is currently an allowlist-only feature. If you would like to access it, please contact your TikTok representative.If you are allowlisted for disabling SKAN attribution for Dedicated Campaigns, you cannot set `bid_type` to `BID_TYPE_CUSTOM` at the ad group level when the following conditions are all met:At the campaign level: `is_advanced_dedicated_campaign` is `false`.`disable_skan_campaign` is `false`.At the ad group level:`optimization_goal` is `INSTALL` or `IN_APP_EVENT`.Once set, this field cannot be updated.Getting access to Advanced Dedicated Campaign requires the app to meet certain criteria. If your app is ineligible for Advanced Dedicated Campaign, reach out to your TikTok representative. Your TikTok representative will be able to provide troubleshooting support to help your app get access to Advanced Dedicated Campaign. |
+| `bid_align_type` | `bid_align_type` | `"SAN" \| "SKAN"` | No | No | Valid only when the following conditions are all met: `objective_type` is `APP_PROMOTION`.`app_promotion_type` is `APP_INSTALL`.`campaign_type` is `IOS14_CAMPAIGN`.`app_id` is set to the ID of an iOS app that is eligible for [Advanced Dedicated Campaigns](https://business-api.tiktok.com/portal/docs?id=1797011827608577). To confirm whether an app is eligible for Advanced Dedicated Campaigns, use [/app/list/](https://business-api.tiktok.com/portal/docs?id=1740859313270786) and check the returned `advanced_dedicated_campaign_allowed`. The attribution type for the Dedicated Campaign. The type determines which attribution network the target CPA or ROAS at the ad group level is based on. Enum value:`SAN`: Self Attributing Network(SAN).`SKAN`: SKAdNetwork (SKAN). When `is_advanced_dedicated_campaign` is `true` and you are not allowlisted for disabling SKAN attribution for Dedicated Campaigns, set this field to `SKAN`.When `is_advanced_dedicated_campaign` is `true`, you are allowlisted for disabling SKAN attribution for Dedicated Campaigns, and `disable_skan_campaign` is `false`, set this field to `SAN`.When `is_advanced_dedicated_campaign` is `true` and `disable_skan_campaign` is `true`, set this field to `SAN`.When `is_advanced_dedicated_campaign` is `false` and `disable_skan_campaign` is `false`, set this field to `SKAN`. |
+| `promotion_type` | `promotion_type` | `string` | Yes | No | Promotion type and you can decide where you'd like to promote your products using this field. For enum values, see [Enumeration - Promotion Type](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138#item-link-Promotion%20Type). Note: When `objective_type` is set to `PRODUCT_SALES` and `promotion_type` is set to `LIVE_SHOPPING` or `VIDEO_SHOPPING`, do not pass in `pixel_id` or `app_id`. Otherwise, pass in either `pixel_id` or `app_id`. |
+| `placements` | `placements` | `Array<string>` | Yes | No | The apps where you want to deliver your ads. Note: Currently, we support `PLACEMENT_TIKTOK`, `PLACEMENT_PANGLE` and `PLACEMENT_GLOBAL_APP_BUNDLE`. For Product Sales campaigns (`objective_type` = `PRODUCT_SALES`), only TikTok placement (`PLACEMENT_TIKTOK`) is supported. |
+| `ios14_quota_type` | `ios14_quota_type` | `"OCCUPIED" \| "UNOCCUPIED"` | No | No | Do not pass `campaign_type` and `ios14_quota_type` at the same time. If both fields are passed, `ios14_quota_type` will be ignored. We recommend using `campaign_type` alone when you specify an iOS 14 Dedicated Campaign. `campaign_type` as `REGULAR_CAMPAIGN` or `ios14_quota_type` as `UNOCCUPIED` both indicate a non-iOS 14 Dedicated Campaign.`campaign_type` as `IOS14_CAMPAIGN` or `ios14_quota_type` as `OCCUPIED` both indicate an iOS 14 Dedicated Campaign. Whether the campaign will be counted towards the iOS 14 Dedicated Campaign quota. Enum values: `OCCUPIED`: The campaign is an iOS 14 Dedicated Campaign. `UNOCCUPIED`: The campaign is not an iOS 14 Dedicated Campaign. |
+| `campaign_app_profile_page_state` | `campaign_app_profile_page_state` | `"ON" \| "OFF"` | No | No | Whether to use App Profile Page at the campaign level to optimize delivery. Enum values: `ON`, `OFF`. You can use the field only when `objective_type` is `APP_PROMOTION` and your campaign is an iOS14 Dedicated Campaign (`ios14_quota_type` =`OCCUPIED`). Otherwise, an error will occur. |
+| `pixel_id` | `pixel_id` | `string` | No | No | Not supported when `objective_type` is set to `PRODUCT_SALES` and `promotion_type` is set to `LIVE_SHOPPING` or `VIDEO_SHOPPING` or when `app_promotion_type` is `MINIS`. Otherwise, pass in either `pixel_id` or `app_id`. Pixel ID. When you pass in this field, you need to specify `optimization_event` at the same time. To get Pixel IDs, use the [/pixel/list/](https://ads.tiktok.com/marketing_api/docs?id=1740858697598978) endpoint. |
+| `app_id` | `app_id` | `string` | No | No | Not supported when `objective_type` is set to `PRODUCT_SALES` and `promotion_type` is set to `LIVE_SHOPPING` or `VIDEO_SHOPPING` or when `app_promotion_type` is `MINIS`. Otherwise, pass in either `pixel_id` or `app_id`. The Application ID of the promoted app. To get App IDs, use the [/app/list/](https://ads.tiktok.com/marketing_api/docs?id=1740859313270786) endpoint. |
+| `optimization_event` | `optimization_event` | `string` | No | No | Required when `pixel_id` is passed. Ignored when `app_id` is passed. Conversion event for the ad group. See [Conversion events](https://ads.tiktok.com/marketing_api/docs?id=1739361474981889) for more. |
+| `store_id` | `store_id` | `string` | No | No | Valid only when `objective_type` is `PRODUCT_SALES`. ID of the TikTok Shop. Note: To get the TikTok Shop ID, you can use [/bc/asset/get/](https://ads.tiktok.com/marketing_api/docs?id=1739432717798401): When in the response `asset_type` is `TIKTOK_SHOP`, the returned `asset_id` is the TikTok Shop ID. |
+| `is_smart_performance_campaign` | `is_smart_performance_campaign` | `boolean` | No | No | Whether the campaign is a Smart+ Campaign or not. Enum values: `true`, `false`. |
+| `campaign_automation_type` | `campaign_automation_type` | `"MANUAL" \| "SMART_PLUS" \| "UPGRADED_SMART_PLUS"` | No | No | Campaign automation type. Enum values:`MANUAL`: Manual Campaigns.`SMART_PLUS`: Smart+ Campaigns.`UPGRADED_SMART_PLUS`: Upgraded Smart+ Campaigns, a new automated campaign type. To learn more about Upgraded Smart+ Campaigns, see [Upgraded Smart+ Campaign](https://business-api.tiktok.com/portal/docs?id=1853452461203458). |
+| `budget_optimize_on` | `budget_optimize_on` | `boolean` | No | No | Whether to enable Campaign Budget Optimization (CBO). Enum values: `true`, `false`. For details about CBO, see [Campaign Budget Optimization](https://ads.tiktok.com/marketing_api/docs?id=1739381757818881). |
+
+## ToolVboStatusResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `vo_status` | `vo_status` | `"QUALIFIED" \| "NO_EVENT" \| "NO_VALUE" \| "INSUFFICIENT_EVENTS" \| "NOT_SUPPORT"` | No | No | The status of VBO for Web or VBO IAP for App for the settings in the request. Enum values: `QUALIFIED`: Eligible. `NO_EVENT`: Not eligible because the pixel (`pixel_id`) or App (`app_id`) has not accumulated any event. `NO_VALUE`: Not eligible because the pixel (`pixel_id`) or App (`app_id`) has not accumulated any value. `INSUFFICIENT_EVENTS`: Not eligible because the pixel (`pixel_id`) or App (`app_id`) has not accumulated enough events. `NOT_SUPPORT`: Not eligible for any of the following reasons: The settings are not supported. The settings are supported, but you are not allowlisted to use the allowlist-only feature specified through the settings. |
+| `vo_min` | `vo_min` | `"QUALIFIED" \| "NO_EVENT" \| "NO_VALUE" \| "INSUFFICIENT_EVENTS" \| "NOT_SUPPORT"` | No | No | The status of the Cost Cap bidding strategy for the settings in the request when VBO for Web or VBO IAP for App is enabled. Enum values: `QUALIFIED`: Eligible. `NO_EVENT`: Not eligible because the pixel (`pixel_id`) or App (`app_id`) has not accumulated any event. `NO_VALUE`: Not eligible because the pixel (`pixel_id`) or App (`app_id`) has not accumulated any value. `INSUFFICIENT_EVENTS`: Not eligible because the pixel (`pixel_id`) or App (`app_id`) has not accumulated enough events.`NOT_SUPPORT`: Not eligible for any of the following reasons: The settings are not supported. The settings are supported, but you are not allowlisted to use the allowlist-only feature specified through the settings. Note: The Cost Cap bidding strategy is no longer supported for VBO. Therefore, the value of this field is always `NOT_SUPPORT`. |
+| `vo_min_roas` | `vo_min_roas` | `"QUALIFIED" \| "NO_EVENT" \| "NO_VALUE" \| "INSUFFICIENT_EVENTS" \| "NOT_SUPPORT"` | No | No | The status of the bidding strategy Minimum ROAS for the settings in the request when VBO for Web or VBO IAP for App is enabled. Enum values: `QUALIFIED`: Eligible. `NO_EVENT`: Not eligible because the pixel (`pixel_id`) or App (`app_id`) has not accumulated any event. `NO_VALUE`: Not eligible because the pixel (`pixel_id`) or App (`app_id`) has not accumulated any value. `INSUFFICIENT_EVENTS`: Not eligible because the pixel (`pixel_id`) or App (`app_id`) has not accumulated enough events. `NOT_SUPPORT`: Not eligible for any of the following reasons: The settings are not supported. The settings are supported, but you are not allowlisted to use the allowlist-only feature specified through the settings. |
+| `vo_highest_value` | `vo_highest_value` | `"QUALIFIED" \| "NO_EVENT" \| "NO_VALUE" \| "INSUFFICIENT_EVENTS" \| "NOT_SUPPORT"` | No | No | The status of the bidding strategy Highest Value for the settings in the request when VBO for Web or VBO IAP for App is enabled. Enum values: `QUALIFIED`: Eligible. `NO_EVENT`: Not eligible because the pixel (`pixel_id`) or App (`app_id`) has not accumulated any event. `NO_VALUE`: Not eligible because the pixel (`pixel_id`) or App (`app_id`) has not accumulated any value. `INSUFFICIENT_EVENTS`: Not eligible because the pixel (`pixel_id`) or App (`app_id`) has not accumulated enough events. `NOT_SUPPORT`: Not eligible for any of the following reasons: The settings are not supported. The settings are supported, but you are not allowlisted to use the allowlist-only feature specified through the settings. |
+| `vo_iaa_min_roas` | `vo_iaa_min_roas` | `"QUALIFIED" \| "NO_EVENT" \| "NO_VALUE" \| "INSUFFICIENT_EVENTS" \| "NOT_SUPPORT"` | No | No | The status of the Day 7 bidding strategy Minimum ROAS (Day 7 ROAS) for the settings in the request when VBO IAA for App is enabled. Enum values: `QUALIFIED`: Eligible. `NO_EVENT`: Not eligible because the App (`app_id`) has not accumulated any event.`NO_VALUE`: Not eligible because the App (`app_id`) has not accumulated any events with a conversion value greater than 0. `INSUFFICIENT_EVENTS`: Not eligible because the App (`app_id`) has not accumulated enough events with a conversion value greater than 0. `NOT_SUPPORT`: Not eligible for any of the following reasons: The settings are not supported. The settings are supported, but the App (`app_id`) has not met the unlocking criteria for the feature. |
+| `vo_iaa_highest_value` | `vo_iaa_highest_value` | `"QUALIFIED" \| "NO_EVENT" \| "NO_VALUE" \| "INSUFFICIENT_EVENTS" \| "NOT_SUPPORT"` | No | No | The status of the Day 7 bidding strategy Highest Value (Day 7 Highest Value) for the settings in the request when VBO IAA for App is enabled. Enum values: `QUALIFIED`: Eligible.`NO_EVENT`: Not eligible because the App (`app_id`) has not accumulated any event.`NO_VALUE`: Not eligible because the App (`app_id`) has not accumulated any events with a conversion value greater than 0. `INSUFFICIENT_EVENTS`: Not eligible because the App (`app_id`) has not accumulated enough events with a conversion value greater than 0.`NOT_SUPPORT`: Not eligible for any of the following reasons: The settings are not supported. The settings are supported, but the App (`app_id`) has not met the unlocking criteria for the feature. |
+| `vo_iaa_min_roas_zero_day` | `vo_iaa_min_roas_zero_day` | `"QUALIFIED" \| "NO_EVENT" \| "NO_VALUE" \| "INSUFFICIENT_EVENTS" \| "NOT_SUPPORT"` | No | No | The status of the Day 0 bidding strategy Minimum ROAS (Day 0 ROAS) for the settings in the request when VBO IAA for App is enabled. Enum values: `QUALIFIED`: Eligible. `NO_EVENT`: Not eligible because the App (`app_id`) has not accumulated any event.`NO_VALUE`: Not eligible because the App (`app_id`) has not accumulated any events with a conversion value greater than 0. `INSUFFICIENT_EVENTS`: Not eligible because the App (`app_id`) has not accumulated enough events with a conversion value greater than 0. `NOT_SUPPORT`: Not eligible for any of the following reasons: The settings are not supported. The settings are supported, but the advertiser (`advertiser_id`) has not been allowlisted for day 0 bidding of VBO IAA. |
+| `vo_iaa_highest_value_zero_day` | `vo_iaa_highest_value_zero_day` | `"QUALIFIED" \| "NO_EVENT" \| "NO_VALUE" \| "INSUFFICIENT_EVENTS" \| "NOT_SUPPORT"` | No | No | The status of the Day 0 bidding strategy Highest Value (Day 0 Highest Value) for the settings in the request when VBO IAA for App is enabled. Enum values: `QUALIFIED`: Eligible.`NO_EVENT`: Not eligible because the App (`app_id`) has not accumulated any event.`NO_VALUE`: Not eligible because the App (`app_id`) has not accumulated any events with a conversion value greater than 0. `INSUFFICIENT_EVENTS`: Not eligible because the App (`app_id`) has not accumulated enough events with a conversion value greater than 0.`NOT_SUPPORT`: Not eligible for any of the following reasons: The settings are not supported. The settings are supported, but the advertiser (`advertiser_id`) has not been allowlisted for day 0 bidding of VBO IAA. |
+| `roas_status_day7` | `roas_status_day7` | `"QUALIFIED" \| "NO_EVENT" \| "NO_VALUE" \| "INSUFFICIENT_EVENTS" \| "NOT_SUPPORT"` | No | No | The status of the Day 7 bidding strategy Minimum ROAS (Day 7 ROAS) for the settings in the request when VBO IAP for App is enabled. Enum values: `QUALIFIED`: Eligible. `NO_EVENT`: Not eligible because the App (`app_id`) has not accumulated any event. `NO_VALUE`: Not eligible because the App (`app_id`) has not accumulated any events with a conversion value greater than 0. `INSUFFICIENT_EVENTS`: Not eligible because the App (`app_id`) has not accumulated enough events with a conversion value greater than 0.`NOT_SUPPORT`: Not eligible for any of the following reasons: The settings are not supported.The settings are supported, but the App (`app_id`) has not been allowlisted for day 7 bidding of VBO IAP. |
+| `highest_value_status_day7` | `highest_value_status_day7` | `"QUALIFIED" \| "NO_EVENT" \| "NO_VALUE" \| "INSUFFICIENT_EVENTS" \| "NOT_SUPPORT"` | No | No | The status of the Day 7 bidding strategy Highest Value (Day 7 Highest Value) for the settings in the request when VBO IAP for App is enabled. Enum values: `QUALIFIED`: Eligible. `NO_EVENT`: Not eligible because the App (`app_id`) has not accumulated any event. `NO_VALUE`: Not eligible because the App (`app_id`) has not accumulated any events with a conversion value greater than 0. `INSUFFICIENT_EVENTS`: Not eligible because the App (`app_id`) has not accumulated enough events with a conversion value greater than 0.`NOT_SUPPORT`: Not eligible for any of the following reasons:The settings are not supported.The settings are supported, but the App (`app_id`) has not been allowlisted for day 7 bidding of VBO IAP. |
+| `roas_status_day0` | `roas_status_day0` | `"QUALIFIED" \| "NO_EVENT" \| "NO_VALUE" \| "INSUFFICIENT_EVENTS" \| "NOT_SUPPORT"` | No | No | The status of the Day 0 bidding strategy Minimum ROAS (Day 7 ROAS) for the settings in the request when VBO IAP for App is enabled. Enum values: `QUALIFIED`: Eligible. `NO_EVENT`: Not eligible because the App (`app_id`) has not accumulated any event. `NO_VALUE`: Not eligible because the App (`app_id`) has not accumulated any events with a conversion value greater than 0. `INSUFFICIENT_EVENTS`: Not eligible because the App (`app_id`) has not accumulated enough events with a conversion value greater than 0.`NOT_SUPPORT`: Not eligible for any of the following reasons:The settings are not supported.The settings are supported, but the App (`app_id`) has not been allowlisted for day 0 bidding of VBO IAP. |
+| `highest_value_status_day0` | `highest_value_status_day0` | `"QUALIFIED" \| "NO_EVENT" \| "NO_VALUE" \| "INSUFFICIENT_EVENTS" \| "NOT_SUPPORT"` | No | No | The status of the Day 0 bidding strategy Highest Value (Day 7 Highest Value) for the settings in the request when VBO IAP for App is enabled. Enum values: `QUALIFIED`: Eligible. `NO_EVENT`: Not eligible because the App (`app_id`) has not accumulated any event. `NO_VALUE`: Not eligible because the App (`app_id`) has not accumulated any events with a conversion value greater than 0. `INSUFFICIENT_EVENTS`: Not eligible because the App (`app_id`) has not accumulated enough events with a conversion value greater than 0.`NOT_SUPPORT`: Not eligible for any of the following reasons:The settings are not supported.The settings are supported, but the App (`app_id`) has not been allowlisted for day 0 bidding of VBO IAP. |
+
+## TtoCreatorAuthorizedParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creator_id` | `creator_id` | `string` | Yes | No | Application specific unique ID of the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs/get-renew-or-revoke-a-creator-access-token/v1.3#item-link-Obtain%20a%20Creator%20access%20token) or [/tt_user/oauth2/refresh_token/](https://business-api.tiktok.com/portal/docs/get-renew-or-revoke-a-creator-access-token/v1.3#item-link-Renew%20a%20Creator%20access%20token) to this field. |
+| `fields` | `fields` | `Array<string>` | No | No | Requested fields. If this field is not set, the default fields (`profile_image` and `display_name`) will be returned. |
+
+## TtoCreatorAuthorizedResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `profile_image` | `profile_image` | `string` | No | No | Temporary URL for the profile photo of the creator. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Validity period: around seven days. |
+| `handle_name` | `handle_name` | `string` | No | No | The username (handle) of the creator. |
+| `display_name` | `display_name` | `string` | No | No | The display name (nickname) for the creator. |
+| `bio` | `bio` | `string` | No | No | The bio description of the creator. |
+| `following_count` | `following_count` | `number` | No | No | The total number of accounts that the creator is following. |
+| `followers_count` | `followers_count` | `number` | No | No | The total number of followers for the creator. |
+| `likes_count` | `likes_count` | `number` | No | No | Total likes. The total number of times people have liked the creator's published videos. |
+| `videos_count` | `videos_count` | `number` | No | No | The total number of public videos posted by the creator. |
+| `creator_rate` | `creator_rate` | `TtoCreatorAuthorizedResponseCreatorRate` | No | No | Creator starting rate. |
+| `country_code` | `country_code` | `string` | No | No | The code of the country or region where the creator is located, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) format. Example: `US`. |
+| `content_labels` | `content_labels` | `Array<TtoCreatorAuthorizedResponseContentLabels>` | No | No | The list of creator industry labels. Creator industry labels are assigned to creators based on the commercial content they produce, including ad creatives and branded content on their TikTok accounts, and represent their commercial experience in certain industries. |
+| `industry_labels` | `industry_labels` | `Array<TtoCreatorAuthorizedResponseIndustryLabels>` | No | No | The list of content tag labels. Content tag labels are assigned to creators based on the main focus of the creator’s TikTok account, and represent the direction of the creator’s organic content. |
+| `audience_countries` | `audience_countries` | `Array<TtoCreatorAuthorizedResponseAudienceCountries>` | No | No | Three countries or regions that have the largest audience size. |
+| `audience_genders` | `audience_genders` | `Array<TtoCreatorAuthorizedResponseAudienceGenders>` | No | No | Audience gender information. |
+| `audience_ages` | `audience_ages` | `Array<TtoCreatorAuthorizedResponseAudienceAges>` | No | No | Audience age distribution. |
+| `audience_devices` | `audience_devices` | `Array<TtoCreatorAuthorizedResponseAudienceDevices>` | No | No | Audience device information. |
+| `audience_usages` | `audience_usages` | `Array<TtoCreatorAuthorizedResponseAudienceUsages>` | No | No | Audience TikTok usage. |
+
+## TtoCreatorAuthorizedResponseAudienceAges
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `age` | `age` | `string` | No | No | Age group. Enum values: `25-34`, `35-44`, `55+`, `Other`. |
+| `percentage` | `percentage` | `number` | No | No | Percentage. |
+
+## TtoCreatorAuthorizedResponseAudienceCountries
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `country` | `country` | `string` | No | No | Country or region name, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) format. Example: `US`. |
+| `percentage` | `percentage` | `number` | No | No | Percentage. |
+
+## TtoCreatorAuthorizedResponseAudienceDevices
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `device` | `device` | `"APPLE" \| "SAMSUNG" \| "XIAOMI" \| "OPPO" \| "MOTOROLA" \| "OTHER"` | No | No | Device. Enum values: `APPLE`: Apple.`SAMSUNG`: Samsung.`XIAOMI`: Xiaomi.`OPPO`: Oppo.`MOTOROLA`: Motorola.`OTHER`: Other. |
+| `percentage` | `percentage` | `number` | No | No | Percentage. |
+
+## TtoCreatorAuthorizedResponseAudienceGenders
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `gender` | `gender` | `string` | No | No | Gender. Enum values: `Female`, `Male`. |
+| `percentage` | `percentage` | `number` | No | No | Percentage. |
+
+## TtoCreatorAuthorizedResponseAudienceUsages
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `usage` | `usage` | `string` | No | No | Whether the audience uses TikTok frequently. Enum values: `active`: An audience is defined as active if they have logged into the TikTok app within the last 30 days.`inactive`: Inactive. |
+| `percentage` | `percentage` | `number` | No | No | Percentage. |
+
+## TtoCreatorAuthorizedResponseContentLabels
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `label_id` | `label_id` | `number` | No | No | The ID of the creator industry label. Example: 11015001. |
+| `label_name` | `label_name` | `string` | No | No | The name of the creator industry label. Example: `Tech Products & Tests`. |
+
+## TtoCreatorAuthorizedResponseCreatorRate
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `rate` | `rate` | `number` | No | No | Amount of the rate. |
+| `currency` | `currency` | `string` | No | No | Currency for the rate amount, in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code format. Example: `EUR`. |
+
+## TtoCreatorAuthorizedResponseIndustryLabels
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `label_id` | `label_id` | `number` | No | No | The ID of the content tag label. Example: 23000000000. |
+| `label_name` | `label_name` | `string` | No | No | The name of the content tag label. Example: `News & Entertainment`. |
+
+## TtoCreatorAuthorizedVideoListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creator_id` | `creator_id` | `string` | Yes | No | Application specific unique ID of the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs/get-renew-or-revoke-a-creator-access-token/v1.3#item-link-Obtain%20a%20Creator%20access%20token) or [/tt_user/oauth2/refresh_token/](https://business-api.tiktok.com/portal/docs/get-renew-or-revoke-a-creator-access-token/v1.3#item-link-Renew%20a%20Creator%20access%20token) to this field. |
+| `video_ids` | `video_ids` | `Array<string>` | No | No | The IDs of the videos to retrieve information for. If `video_ids` is provided, `limit` and `cursor` will be ignored. |
+| `limit` | `limit` | `number` | No | No | The number of videos that you want to retrieve per request. Value range: 1-10. Default value: 10. |
+| `cursor` | `cursor` | `number` | No | No | Timestamp cursor. The videos before the timestamp value in milliseconds will be returned in reverse-chronological order. By default, the value is 0 and the most recent videos will be returned. |
+
+## TtoCreatorAuthorizedVideoListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `posts` | `posts` | `Array<TtoCreatorAuthorizedVideoListResponsePosts>` | No | No | List of posts within the creator's TikTok account. |
+| `has_more` | `has_more` | `boolean` | No | No | Whether an additional page of data is available. Supported values: `true`, `false`. |
+| `cursor` | `cursor` | `number` | No | No | Timestamp cursor. The time value of the last item returned in milliseconds according to the current request. You need to use this cursor value in your subsequent request to get the remaining videos. |
+
+## TtoCreatorAuthorizedVideoListResponsePosts
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | Unique identifier for the video. |
+| `display_name` | `display_name` | `string` | No | No | The display name (nickname) for the creator. |
+| `thumbnail_url` | `thumbnail_url` | `string` | No | No | Temporary URL for profile photo of the creator. The expiration time is included in the URL after the `x-expires` parameter, in the format of an Epoch/Unix timestamp in seconds. Validity period: around 7 days. |
+| `embed_url` | `embed_url` | `string` | No | No | An embeddable link for this TikTok video. This URL can be used to embed the TikTok video in external websites or applications. |
+| `caption` | `caption` | `string` | No | No | Video description. |
+| `likes` | `likes` | `number` | No | No | Likes. Total number of likes on the video. |
+| `comments` | `comments` | `number` | No | No | Comments. Total number of comments on the video. |
+| `shares` | `shares` | `number` | No | No | Shares. Total number of times the video has been shared. |
+| `video_views` | `video_views` | `number` | No | No | Video views. The number of times viewers watched your video. |
+| `favorites` | `favorites` | `number` | No | No | Favorites. The total number of times the video has been added to favorites. |
+| `create_time` | `create_time` | `string` | No | No | The time when the video was created, in the format of an Epoch/Unix timestamp in milliseconds. Example: `1749206540000`. |
+| `caption_hashtags` | `caption_hashtags` | `Array<string>` | No | No | A list of hashtags that appear in the post caption. |
+| `mentioned_accounts` | `mentioned_accounts` | `Array<string>` | No | No | A list of the display names of TikTok accounts that have been @mentioned in the post caption. |
+| `collaboration_status` | `collaboration_status` | `"PAID_PARTNERSHIP" \| "CREATOR_EARNS_COMMISSION" \| "NONE"` | No | No | A status indicating if the post has been used as Branded Content. Enum values:`PAID_PARTNERSHIP`: Posts linked to TTO Campaign Links.`CREATOR_EARNS_COMMISSION`: TikTok Shop creator earns commission from affiliate links, learn more [here](https://ads.tiktok.com/help/article/faqs-affiliate-creatives-authorization?lang=en).`NONE` |
+
+## TtoCreatorCampaignJoinParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creator_id` | `creator_id` | `string` | Yes | No | Application specific unique ID of the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1768493902119937#item-link-Obtain%20a%20Creator%20access%20token) or [/tt_user/oauth2/refresh_token/](https://business-api.tiktok.com/portal/docs?id=1768493902119937#item-link-Renew%20a%20Creator%20access%20token) to this field. |
+| `tto_invite_link` | `tto_invite_link` | `string` | Yes | No | An invite link that is associated with a TTO Creator Marketplace campaign. To create a TTO Creator Marketplace campaign and obtain the associated invite link, use [/tto/tcm/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1815693549459458). Note: If the invite link is a campaign level invite link (the `campaign_type` of the associated campaign is `CAMPAIGN`), the creator should be one of the creators invited to the campaign. To confirm this, use [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258) and check whether the returned `handle_names` includes the handle name of the creator (`creator_id`). If the invite link is a brand level invite link (the `campaign_type` of the associated campaign is `BRAND`), the creator can be any TTO creator. |
+
+## TtoCreatorCampaignJoinResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## TtoCreatorCampaignVideoLinkParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creator_id` | `creator_id` | `string` | Yes | No | Application specific unique ID of the TikTok account. Pass the value of the `open_id` field returned in the response of [/tt_user/oauth2/token/](https://business-api.tiktok.com/portal/docs?id=1768493902119937#item-link-Obtain%20a%20Creator%20access%20token) or [/tt_user/oauth2/refresh_token/](https://business-api.tiktok.com/portal/docs?id=1768493902119937#item-link-Renew%20a%20Creator%20access%20token) to this field. |
+| `tto_invite_link` | `tto_invite_link` | `string` | Yes | No | An invite link that is associated with a TTO Creator Marketplace campaign. To create a TTO Creator Marketplace campaign and obtain the associated invite link, use [/tto/tcm/campaign/create/](https://business-api.tiktok.com/portal/docs?id=1815693549459458). Note: If the invite link is a campaign level invite link (the `campaign_type` of the associated campaign is `CAMPAIGN`), the creator should be one of the creators invited to the campaign. To confirm this, use [/tto/tcm/campaign/](https://business-api.tiktok.com/portal/docs?id=1815693562720258) and check whether the returned `handle_names` includes the handle name of the creator (`creator_id`). If the invite link is a brand level invite link (the `campaign_type` of the associated campaign is `BRAND`), the creator can be any TTO creator. |
+| `video_id` | `video_id` | `string` | Yes | No | The ID of a video posted by the TTO creator. To obtain a list of videos posted by a TTO creator, use [/tto/creator/authorized/video/list/](https://business-api.tiktok.com/portal/docs?id=1834913554657282). To publish a video post from the TikTok account of a TTO creator, use [/business/video/publish/](https://business-api.tiktok.com/portal/docs?id=1762228496095234). Note: The ID cannot be of a video that has been linked to an existing TTO Creator Marketplace campaign. |
+
+## TtoCreatorCampaignVideoLinkResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.

@@ -96,6 +96,18 @@
       "import": "./dist/generated/effect/index.js",
       "default": "./dist/generated/effect/index.js"
     },
+    "./types": {
+      "bun": "./src/generated/types/index.ts",
+      "types": "./dist/generated/types/index.d.ts",
+      "import": "./dist/generated/types/index.js",
+      "default": "./dist/generated/types/index.js"
+    },
+    "./valibot": {
+      "bun": "./src/generated/valibot/index.ts",
+      "types": "./dist/generated/valibot/index.d.ts",
+      "import": "./dist/generated/valibot/index.js",
+      "default": "./dist/generated/valibot/index.js"
+    },
     "./webhooks": {
       "bun": "./src/webhooks/index.ts",
       "types": "./dist/webhooks/index.d.ts",

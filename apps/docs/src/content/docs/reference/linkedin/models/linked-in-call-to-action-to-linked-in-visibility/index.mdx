@@ -1,0 +1,164 @@
+---
+title: "LinkedIn models: Linked In Call To Action – Linked In Visibility"
+description: "15 generated LinkedIn model contracts, from LinkedInCallToAction through LinkedInVisibility."
+generated: true
+platform: "linkedin"
+sourceVersion: "202607"
+sidebar:
+  order: 1000
+  label: "Linked In Call To Action – Linked In Visibility"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (vendor-json: spec/linkedin-postman.snapshot.json). Do not edit by hand. */}
+
+## LinkedInCallToAction
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `label` | `label` | `LinkedInCallToActionLabel` | Yes | No | — |
+| `url` | `url` | `string` | Yes | No | — |
+
+## LinkedInCallToActionLabel
+
+`enum` model on the `json` wire format.
+
+**Values:** `APPLY`, `DOWNLOAD`, `LEARN_MORE`, `SIGN_UP`, `SUBSCRIBE`, `REGISTER`, `JOIN`, `ATTEND`, `REQUEST_DEMO`, `SEE_MORE`, `BUY_NOW`, `SHOP_NOW`, `VIEW_QUOTE`
+
+## LinkedInDistribution
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `feedDistribution` | `feedDistribution` | `"MAIN_FEED" \| "NONE"` | Yes | No | — |
+| `targetEntities` | `targetEntities` | `Array<json>` | No | No | — |
+| `thirdPartyDistributionChannels` | `thirdPartyDistributionChannels` | `Array<string>` | No | No | — |
+
+## LinkedInImageUploadSession
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uploadUrl` | `uploadUrl` | `string` | Yes | No | — |
+| `imageUrn` | `imageUrn` | `LinkedInUrn` | Yes | No | — |
+| `uploadUrlExpiresAt` | `uploadUrlExpiresAt` | `number` | No | No | — |
+
+## LinkedInLifecycleState
+
+`enum` model on the `json` wire format.
+
+**Values:** `DRAFT`, `PUBLISHED`, `PUBLISH_REQUESTED`, `PUBLISH_FAILED`
+
+## LinkedInPost
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | Yes | No | — |
+| `author` | `author` | `string` | Yes | No | — |
+| `commentary` | `commentary` | `string` | No | No | — |
+| `visibility` | `visibility` | `LinkedInVisibility` | No | No | — |
+| `distribution` | `distribution` | `LinkedInDistribution` | No | No | — |
+| `lifecycleState` | `lifecycleState` | `LinkedInLifecycleState` | No | No | — |
+| `publishedAt` | `publishedAt` | `number` | No | No | — |
+| `createdAt` | `createdAt` | `number` | No | No | — |
+| `lastModifiedAt` | `lastModifiedAt` | `number` | No | No | — |
+| `content` | `content` | `Record<string, json>` | No | No | — |
+| `isReshareDisabledByAuthor` | `isReshareDisabledByAuthor` | `boolean` | No | No | — |
+
+## LinkedInPostOptions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `visibility` | `visibility` | `LinkedInVisibility` | No | No | — |
+| `isReshareDisabledByAuthor` | `isReshareDisabledByAuthor` | `boolean` | No | No | — |
+| `callToAction` | `callToAction` | `LinkedInCallToAction` | No | No | — |
+| `altText` | `altText` | `string` | No | No | — |
+
+## LinkedInPostResult
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `postUrn` | `postUrn` | `string` | Yes | No | — |
+| `body` | `body` | `json` | Yes | No | — |
+
+## LinkedInTokenResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `access_token` | `access_token` | `string` | Yes | No | — |
+| `expires_in` | `expires_in` | `number` | Yes | No | — |
+| `refresh_token` | `refresh_token` | `string` | No | No | — |
+| `refresh_token_expires_in` | `refresh_token_expires_in` | `number` | No | No | — |
+| `scope` | `scope` | `string` | No | No | — |
+| `token_type` | `token_type` | `string` | Yes | No | — |
+
+## LinkedInUrn
+
+`scalar` model on the `json` wire format.
+
+**Value:** `string`
+
+## LinkedInUserInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `sub` | `sub` | `string` | Yes | No | — |
+| `name` | `name` | `string` | Yes | No | — |
+| `given_name` | `given_name` | `string` | No | No | — |
+| `family_name` | `family_name` | `string` | No | No | — |
+| `picture` | `picture` | `string` | No | No | — |
+| `email` | `email` | `string` | No | No | — |
+| `email_verified` | `email_verified` | `boolean` | No | No | — |
+| `locale` | `locale` | `Record<string, string>` | No | No | — |
+
+## LinkedInVideoUploadInstruction
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uploadUrl` | `uploadUrl` | `string` | Yes | No | — |
+| `firstByte` | `firstByte` | `number` | Yes | No | — |
+| `lastByte` | `lastByte` | `number` | Yes | No | — |
+
+## LinkedInVideoUploadOptions
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `uploadCaptions` | `uploadCaptions` | `boolean` | No | No | — |
+| `uploadThumbnail` | `uploadThumbnail` | `boolean` | No | No | — |
+| `templateName` | `templateName` | `string` | No | No | — |
+| `linkbackContext` | `linkbackContext` | `string` | No | No | — |
+
+## LinkedInVideoUploadSession
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `videoUrn` | `videoUrn` | `LinkedInUrn` | Yes | No | — |
+| `uploadInstructions` | `uploadInstructions` | `Array<LinkedInVideoUploadInstruction>` | Yes | No | — |
+| `uploadToken` | `uploadToken` | `string` | No | No | — |
+| `uploadUrlsExpireAt` | `uploadUrlsExpireAt` | `number` | No | No | — |
+
+## LinkedInVisibility
+
+`enum` model on the `json` wire format.
+
+**Values:** `PUBLIC`, `CONNECTIONS`

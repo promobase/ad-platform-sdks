@@ -89,3 +89,9 @@ For a single install covering Meta + TikTok + Google Ads, use [`@openpromo/ad-pl
 ## License
 
 MIT © [OpenPromo](https://openpromo.app)
+
+## Generated contracts
+
+Versioned generated TypeScript and Valibot contracts are available from
+`@openpromo/google-ads/v25/types` and `@openpromo/google-ads/v25/valibot`; the existing Effect
+surface remains at `@openpromo/google-ads/v25/effect`.

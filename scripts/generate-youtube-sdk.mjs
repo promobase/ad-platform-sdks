@@ -103,6 +103,7 @@ writeFileSync(join(outDir, "resources.ts"), `${emitResources()}\n`);
 writeFileSync(join(outDir, "auxiliary.ts"), `${emitAuxiliaryResources()}\n`);
 await writeEffectArtifacts({
   outputDir: join(outDir, "effect"),
+  contractOutputDir: outDir,
   docsOutputDir: join(root, "apps/docs/src/content/docs/reference"),
   ir: buildCanonicalIr(),
 });

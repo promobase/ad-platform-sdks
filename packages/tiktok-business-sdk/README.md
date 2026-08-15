@@ -88,3 +88,19 @@ For a single install covering Meta + TikTok + Google Ads, use [`@openpromo/ad-pl
 ## License
 
 MIT © [OpenPromo](https://openpromo.app)
+
+## Generated contracts
+
+The SDK also publishes wire-oriented generated contracts from the same source
+IR as its Effect client:
+
+```ts
+import { parse } from "valibot";
+import { AccountVerificationFiletypeParamsSchema } from "@openpromo/tiktok/valibot";
+import type { AccountVerificationFiletypeParams } from "@openpromo/tiktok/types";
+
+const params: AccountVerificationFiletypeParams = parse(
+  AccountVerificationFiletypeParamsSchema,
+  input,
+);
+```

@@ -3,16 +3,16 @@
   "source": {
     "kind": "documentation",
     "location": "https://business-api.tiktok.com/gateway/api/doc/client",
-    "revision": "6bae3e3883ced526b0bd4ef133e13ae516cd7b1f7c29c391f5473320b26bc20b"
+    "revision": "9132ec458257e9f70a80af18f45b51e775b6bd8e9599cce4fb4080ac62e2799a"
   },
   "version": "business-api",
   "counts": {
-    "models": 2408,
-    "endpoints": 531,
-    "capabilities": 130
+    "models": 2422,
+    "endpoints": 539,
+    "capabilities": 132
   },
   "coverage": {
-    "discoveredOperations": 531,
+    "discoveredOperations": 539,
     "excludedOperations": [],
     "unresolvedSchemas": [
       "File | Blob"
@@ -21,6 +21,6 @@
       "json",
       "multipart"
     ],
-    "emittedOperations": 531
+    "emittedOperations": 539
   }
 }

@@ -49,6 +49,7 @@ for (const [service, url] of services) {
 
 await writeEffectArtifacts({
   outputDir,
+  contractOutputDir: join(root, "packages/google-business-profile-sdk/src/generated"),
   docsOutputDir: join(root, "apps/docs/src/content/docs/reference"),
   ir: buildIr(),
 });

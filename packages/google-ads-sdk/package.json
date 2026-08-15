@@ -53,6 +53,18 @@
       "types": "./dist/generated/v25/effect/index.d.ts",
       "import": "./dist/generated/v25/effect/index.js",
       "default": "./dist/generated/v25/effect/index.js"
+    },
+    "./v25/types": {
+      "bun": "./src/generated/v25/types/index.ts",
+      "types": "./dist/generated/v25/types/index.d.ts",
+      "import": "./dist/generated/v25/types/index.js",
+      "default": "./dist/generated/v25/types/index.js"
+    },
+    "./v25/valibot": {
+      "bun": "./src/generated/v25/valibot/index.ts",
+      "types": "./dist/generated/v25/valibot/index.d.ts",
+      "import": "./dist/generated/v25/valibot/index.js",
+      "default": "./dist/generated/v25/valibot/index.js"
     }
   },
   "files": [
@@ -77,7 +89,8 @@
   },
   "dependencies": {
     "@openpromo/sdk-runtime": "workspace:*",
-    "effect": "^3.22.1"
+    "effect": "^3.22.1",
+    "valibot": "^1.4.2"
   },
   "devDependencies": {
     "@openpromo/sdk-codegen": "workspace:*",

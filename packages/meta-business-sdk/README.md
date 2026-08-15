@@ -93,6 +93,24 @@ const campaign = await meta.adAccount("act_123").campaigns.list({
 });
 ```
 
+## Generated contracts
+
+The canonical Graph API model contract is emitted into separate, opt-in
+surfaces from the same provider IR:
+
+```ts
+import { parse } from "valibot";
+import { CampaignFieldsSchema } from "@openpromo/meta/valibot";
+import type { CampaignFields } from "@openpromo/meta/types";
+
+const campaign: CampaignFields = parse(CampaignFieldsSchema, input);
+```
+
+`@openpromo/meta/effect` provides the Effect schemas and endpoint descriptors.
+These generated contract surfaces are separate from the hand-authored
+`@openpromo/meta/webhooks` Valibot schemas, which model provider webhook
+payloads and event extraction.
+
 ## Features
 
 - **985 typed Graph API objects** — AdAccount, Campaign, AdSet, Ad, Page, Business, and more

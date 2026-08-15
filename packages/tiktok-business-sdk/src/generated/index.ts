@@ -49,6 +49,7 @@ export { createIdentity } from "./endpoints/identity.ts";
 export { createImages } from "./endpoints/images.ts";
 export { createLeads } from "./endpoints/leads.ts";
 export { createMediaMixModeling } from "./endpoints/media-mix-modeling.ts";
+export { createMcpAuthorization } from "./endpoints/mcp-authorization.ts";
 export { createMentions } from "./endpoints/mentions.ts";
 export { createMusic } from "./endpoints/music.ts";
 export { createNegativeKeywords } from "./endpoints/negative-keywords.ts";

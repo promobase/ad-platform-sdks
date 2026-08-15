@@ -1,6 +1,7 @@
 export { emitEndpointDescriptors } from "./descriptor-emitter.ts";
 export type { WriteEffectArtifactsOptions } from "./artifacts.ts";
-export { writeEffectArtifacts } from "./artifacts.ts";
+export type { WriteContractArtifactsOptions } from "./artifacts.ts";
+export { writeContractArtifacts, writeEffectArtifacts } from "./artifacts.ts";
 export type {
   CapabilityIr,
   CoverageIr,
@@ -30,5 +31,11 @@ export {
   validateSdkIr,
 } from "./ir.ts";
 export { emitEffectSchemaModule, emitModel, emitTypeRef } from "./schema-emitter.ts";
+export type { CodegenTarget, CodegenTargetContext, GeneratedFile } from "./targets.ts";
+export { effectTarget, typescriptTarget, valibotTarget } from "./targets.ts";
+export type { WriteTargetArtifactsOptions } from "./artifacts.ts";
+export { writeTargetArtifacts } from "./artifacts.ts";
+export { emitTypeScriptModule } from "./typescript-emitter.ts";
+export { emitValibotSchemaModule } from "./valibot-emitter.ts";
 export type { NimbusReferenceManifest, WriteNimbusReferenceOptions } from "./nimbus-emitter.ts";
 export { writeNimbusReference } from "./nimbus-emitter.ts";

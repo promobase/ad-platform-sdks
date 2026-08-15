@@ -1,6 +1,8 @@
 import {
   writeEffectArtifacts,
   type EndpointIr,
+  type FieldIr,
+  type ModelIr,
   type SdkIr,
   type TypeRefIr,
 } from "@openpromo/sdk-codegen";
@@ -9,6 +11,152 @@ const stringType = { kind: "primitive", name: "string" } as const;
 const numberType = { kind: "primitive", name: "number" } as const;
 const jsonType = { kind: "primitive", name: "json" } as const;
 const voidType = { kind: "literal", value: true } as const;
+const ref = (target: string): TypeRefIr => ({ kind: "reference", target });
+const arrayOf = (items: TypeRefIr): TypeRefIr => ({ kind: "array", items });
+const field = (name: string, type: TypeRefIr, required = false): FieldIr => ({
+  name,
+  type,
+  required,
+  nullable: false,
+});
+const objectModel = (name: string, fields: readonly FieldIr[]): ModelIr => ({
+  kind: "object",
+  id: `google-business-profile.${name}`,
+  name,
+  wire: "json",
+  fields,
+});
+const enumModel = (name: string, values: readonly string[], open = false): ModelIr => ({
+  kind: "enum",
+  id: `google-business-profile.${name}`,
+  name,
+  wire: "json",
+  values,
+  ...(open ? { open: true } : {}),
+});
+
+const models: ModelIr[] = [
+  objectModel("GoogleOAuthTokenResponse", [
+    field("access_token", stringType, true),
+    field("expires_in", numberType, true),
+    field("refresh_token", stringType),
+    field("scope", stringType),
+    field("token_type", stringType, true),
+    field("id_token", stringType),
+  ]),
+  enumModel(
+    "GoogleBusinessAccountType",
+    ["PERSONAL", "LOCATION_GROUP", "USER_GROUP", "ORGANIZATION"],
+    true,
+  ),
+  objectModel("BusinessAccount", [
+    field("name", stringType, true),
+    field("accountName", stringType),
+    field("type", ref("GoogleBusinessAccountType")),
+    field("role", stringType),
+    field("verificationState", stringType),
+    field("vettedState", stringType),
+    field("accountNumber", stringType),
+    field("permissionLevel", stringType),
+  ]),
+  objectModel("BusinessLocation", [
+    field("name", stringType, true),
+    field("title", stringType),
+    field("storeCode", stringType),
+    field("languageCode", stringType),
+    field("websiteUri", stringType),
+    field("phoneNumbers", jsonType),
+    field("storefrontAddress", { kind: "record", values: jsonType }),
+    field("metadata", { kind: "record", values: jsonType }),
+    field("categories", { kind: "record", values: jsonType }),
+    field("regularHours", { kind: "record", values: jsonType }),
+  ]),
+  objectModel("GoogleDate", [
+    field("year", numberType, true),
+    field("month", numberType, true),
+    field("day", numberType, true),
+  ]),
+  objectModel("GoogleTimeOfDay", [
+    field("hours", numberType),
+    field("minutes", numberType),
+    field("seconds", numberType),
+    field("nanos", numberType),
+  ]),
+  objectModel("TimeInterval", [
+    field("startDate", ref("GoogleDate"), true),
+    field("startTime", ref("GoogleTimeOfDay")),
+    field("endDate", ref("GoogleDate")),
+    field("endTime", ref("GoogleTimeOfDay")),
+  ]),
+  enumModel("LocalPostTopicType", ["STANDARD", "EVENT", "OFFER", "ALERT"]),
+  enumModel("LocalPostActionType", ["BOOK", "ORDER", "SHOP", "LEARN_MORE", "SIGN_UP", "CALL"]),
+  enumModel("LocalPostMediaFormat", ["PHOTO", "VIDEO"]),
+  objectModel("LocalPostMedia", [
+    field("mediaFormat", ref("LocalPostMediaFormat"), true),
+    field("sourceUrl", stringType, true),
+    field("name", stringType),
+  ]),
+  objectModel("LocalPostCallToAction", [
+    field("actionType", ref("LocalPostActionType"), true),
+    field("url", stringType),
+  ]),
+  objectModel("LocalPostEvent", [
+    field("title", stringType, true),
+    field("schedule", ref("TimeInterval"), true),
+  ]),
+  objectModel("LocalPostOffer", [
+    field("couponCode", stringType),
+    field("redeemOnlineUrl", stringType),
+    field("termsConditions", stringType),
+  ]),
+  objectModel("LocalPost", [
+    field("name", stringType),
+    field("languageCode", stringType, true),
+    field("summary", stringType),
+    field("topicType", ref("LocalPostTopicType"), true),
+    field("callToAction", ref("LocalPostCallToAction")),
+    field("event", ref("LocalPostEvent")),
+    field("offer", ref("LocalPostOffer")),
+    field("media", arrayOf(ref("LocalPostMedia"))),
+    field("createTime", stringType),
+    field("updateTime", stringType),
+    field("state", stringType),
+    field("searchUrl", stringType),
+  ]),
+  enumModel("DailyMetric", [
+    "BUSINESS_IMPRESSIONS_DESKTOP_MAPS",
+    "BUSINESS_IMPRESSIONS_DESKTOP_SEARCH",
+    "BUSINESS_IMPRESSIONS_MOBILE_MAPS",
+    "BUSINESS_IMPRESSIONS_MOBILE_SEARCH",
+    "BUSINESS_CONVERSATIONS",
+    "BUSINESS_DIRECTION_REQUESTS",
+    "CALL_CLICKS",
+    "WEBSITE_CLICKS",
+    "BUSINESS_BOOKINGS",
+    "BUSINESS_FOOD_ORDERS",
+    "BUSINESS_FOOD_MENU_CLICKS",
+  ]),
+  objectModel("GoogleDatedValue", [field("date", ref("GoogleDate")), field("value", stringType)]),
+  objectModel("GoogleTimeSeries", [field("datedValues", arrayOf(ref("GoogleDatedValue")))]),
+  objectModel("DailyMetricTimeSeries", [
+    field("dailyMetric", ref("DailyMetric")),
+    field("dailySubEntityType", { kind: "record", values: jsonType }),
+    field("timeSeries", ref("GoogleTimeSeries")),
+  ]),
+  enumModel(
+    "LocalPostMetricType",
+    ["LOCAL_POST_VIEWS_SEARCH", "LOCAL_POST_ACTIONS_CALL_TO_ACTION"],
+    true,
+  ),
+  objectModel("LocalPostMetricValue", [
+    field("metric", ref("LocalPostMetricType")),
+    field("totalValue", { kind: "record", values: stringType }),
+  ]),
+  objectModel("LocalPostMetrics", [
+    field("localPostName", stringType, true),
+    field("metricValues", arrayOf(ref("LocalPostMetricValue"))),
+  ]),
+];
 type Parameter = EndpointIr["parameters"][number];
 const p = (
   name: string,
@@ -170,7 +318,7 @@ const ir: SdkIr = {
   platform: "google-business-profile",
   source: { kind: "handwritten", location: "src/{oauth,resources,types}.ts" },
   version: "v1+v4",
-  models: [],
+  models,
   endpoints,
   capabilities: capabilities.map(([id, summary]) => ({
     id,
@@ -181,6 +329,7 @@ const ir: SdkIr = {
 
 await writeEffectArtifacts({
   outputDir: new URL("../src/generated/effect", import.meta.url).pathname,
+  contractOutputDir: new URL("../src/generated", import.meta.url).pathname,
   docsOutputDir: new URL("../../../apps/docs/src/content/docs/reference", import.meta.url).pathname,
   ir,
 });

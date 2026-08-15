@@ -1,7 +1,7 @@
 {
   "source": "https://business-api.tiktok.com/gateway/api/doc/client",
-  "docPages": 540,
-  "endpoints": 531,
+  "docPages": 549,
+  "endpoints": 539,
   "categories": [
     {
       "name": "Accounts",
@@ -194,6 +194,10 @@
     {
       "name": "Media Mix Modeling",
       "endpoints": 4
+    },
+    {
+      "name": "MCP Authorization",
+      "endpoints": 8
     },
     {
       "name": "Mentions",

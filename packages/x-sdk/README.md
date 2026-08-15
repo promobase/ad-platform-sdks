@@ -40,3 +40,8 @@ console.log(post.data?.id);
 
 `client.tweets` and the `@openpromo/x/tweets` export remain as compatibility aliases for the
 upstream `posts` resource name introduced in OpenAPI 2.167.
+
+## Generated contracts
+
+Generated TypeScript and Valibot contracts are available from `@openpromo/x/types` and
+`@openpromo/x/valibot`; the existing Effect surface remains at `@openpromo/x/effect`.

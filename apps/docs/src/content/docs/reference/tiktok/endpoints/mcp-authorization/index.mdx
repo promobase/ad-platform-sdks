@@ -1,0 +1,229 @@
+---
+title: "TikTok Business MCP Authorization endpoints"
+description: "8 generated TikTok Business endpoint contracts for MCP Authorization."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 147
+  label: "MCP Authorization"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## tiktok.mCPAuthorization.nOpenMcpServer
+
+`POST` `/open_mcp/{server}/`
+
+Generated from TikTok documentation 1873496895169554
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `mCPAuthorization.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `NOpenMcpServerResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mCPAuthorization.nOpenMcpServerOauthRegister
+
+`POST` `/open_mcp/{server}/oauth/register/`
+
+Generated from TikTok documentation 1873496757798466
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `mCPAuthorization.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `NOpenMcpServerOauthRegisterResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mCPAuthorization.nOpenMcpServerOauthRevoke
+
+`POST` `/open_mcp/{server}/oauth/revoke/`
+
+Generated from TikTok documentation 1873496798816274
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `mCPAuthorization.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `NOpenMcpServerOauthRevokeResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mCPAuthorization.nOpenMcpServerOauthToken
+
+`POST` `/open_mcp/{server}/oauth/token/`
+
+Generated from TikTok documentation 1873496785750401
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `mCPAuthorization.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `NOpenMcpServerOauthTokenResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mCPAuthorization.nOpenMcpServerOauthToken2
+
+`POST` `/open_mcp/{server}/oauth/token/`
+
+Generated from TikTok documentation 1873496870932225
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `mCPAuthorization.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `NOpenMcpServerOauthTokenResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mCPAuthorization.nOpenMcpServerOauthWellKnownOpenidConfiguration
+
+`GET` `/open_mcp/{server}/oauth/.well-known/openid-configuration/`
+
+Generated from TikTok documentation 1873496729194769
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mCPAuthorization.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `NOpenMcpServerOauthWellKnownOpenidConfigurationResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mCPAuthorization.nPortalMcpTt4bAuthorize
+
+`GET` `/portal/mcp-tt4b-authorize/`
+
+Generated from TikTok documentation 1873496771526337
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mCPAuthorization.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `NPortalMcpTt4bAuthorizeResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## tiktok.mCPAuthorization.nWellKnownOauthProtectedResourceOpenMcpServer
+
+`GET` `/.well-known/oauth-protected-resource/open_mcp/{server}/`
+
+Generated from TikTok documentation 1873496742612993
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mCPAuthorization.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `tiktok-business-api` |
+| Output | `NWellKnownOauthProtectedResourceOpenMcpServerResponse` |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

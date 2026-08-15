@@ -5,13 +5,17 @@ import { join } from "node:path";
 
 import { Effect } from "effect";
 
-import { writeEffectArtifacts } from "../src/artifacts.ts";
+import { writeContractArtifacts, writeEffectArtifacts } from "../src/artifacts.ts";
 import {
   decodeSdkIr,
   emitEffectSchemaModule,
   emitEndpointDescriptors,
+  typescriptTarget,
   type SdkIr,
   validateSdkIr,
+  valibotTarget,
+  writeContractArtifacts as writeContractArtifactsFromIndex,
+  writeTargetArtifacts,
   writeNimbusReference,
 } from "../src/index.ts";
 
@@ -134,6 +138,52 @@ test("Schema emitter generates decoded and encoded types from the same contract"
     'Schema.optional(Schema.NullOr(Schema.DateFromString)).pipe(Schema.fromKey("published_at"))',
   );
   expect(emitEffectSchemaModule(ir)).toContain("readonly published_at?: string | null");
+});
+
+test("target adapters emit deterministic TypeScript and Valibot artifacts from the same IR", async () => {
+  const ir = await Effect.runPromise(decodeSdkIr(fixture));
+  const typeScriptFiles = typescriptTarget.emit({ ir, models: ir.models });
+  const valibotFiles = valibotTarget.emit({ ir, models: ir.models });
+
+  expect(typeScriptFiles.map((file) => file.path)).toEqual(["types.ts", "index.ts"]);
+  expect(valibotFiles.map((file) => file.path)).toEqual(["schemas.ts", "index.ts"]);
+  expect(typeScriptFiles[0]!.content).toContain("readonly published_at?: string | null;");
+  expect(valibotFiles[0]!.content).toContain(
+    "published_at: v.optional(v.nullable(v.pipe(v.string(), v.isoTimestamp()))),",
+  );
+  expect(valibotFiles[0]!.content).toContain(
+    "export const VideoSchema: v.GenericSchema<unknown, Video>",
+  );
+});
+
+test("target writer rejects unsafe adapter paths", async () => {
+  const ir = await Effect.runPromise(decodeSdkIr(fixture));
+
+  await expect(
+    writeTargetArtifacts({
+      outputDir: await mkdtemp(join(tmpdir(), "openpromo-codegen-target-")),
+      ir,
+      target: {
+        id: "unsafe",
+        emit: () => [{ path: "../escape.ts", content: "" }],
+      },
+    }),
+  ).rejects.toThrow("unsafe path");
+});
+
+test("contract writer emits the standard TypeScript and Valibot directories", async () => {
+  const ir = await Effect.runPromise(decodeSdkIr(fixture));
+  const outputDir = await mkdtemp(join(tmpdir(), "openpromo-codegen-contracts-"));
+
+  await writeContractArtifacts({ outputDir, ir });
+
+  expect(await readFile(join(outputDir, "types", "types.ts"), "utf8")).toContain(
+    "export interface Video",
+  );
+  expect(await readFile(join(outputDir, "valibot", "schemas.ts"), "utf8")).toContain(
+    "export const VideoSchema",
+  );
+  expect(writeContractArtifactsFromIndex).toBe(writeContractArtifacts);
 });
 
 test("descriptor emitter carries operation and capability metadata", async () => {

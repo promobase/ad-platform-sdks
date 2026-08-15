@@ -23,6 +23,11 @@ bun --filter='./packages/youtube-sdk' run codegen
 bun --filter='./packages/youtube-sdk' run codegen:refresh
 ```
 
+## Generated contracts
+
+Generated TypeScript and Valibot contracts are available from `@openpromo/youtube/types` and
+`@openpromo/youtube/valibot`; the existing Effect surface remains at `@openpromo/youtube/effect`.
+
 ## Use
 
 ```ts

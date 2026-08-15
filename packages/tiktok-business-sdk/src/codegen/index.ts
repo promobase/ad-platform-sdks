@@ -83,6 +83,7 @@ async function main() {
     .digest("hex");
   await writeEffectArtifacts({
     outputDir: join(OUTPUT_DIR, "effect"),
+    contractOutputDir: OUTPUT_DIR,
     docsOutputDir: join(import.meta.dir, "../../../../apps/docs/src/content/docs/reference"),
     ir: tiktokCanonicalIr(endpoints, sourceRevision),
   });

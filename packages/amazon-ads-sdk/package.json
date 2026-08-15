@@ -60,11 +60,35 @@
       "import": "./dist/generated/sponsored-products/effect/index.js",
       "default": "./dist/generated/sponsored-products/effect/index.js"
     },
+    "./sponsored-products/types": {
+      "bun": "./src/generated/sponsored-products/types/index.ts",
+      "types": "./dist/generated/sponsored-products/types/index.d.ts",
+      "import": "./dist/generated/sponsored-products/types/index.js",
+      "default": "./dist/generated/sponsored-products/types/index.js"
+    },
+    "./sponsored-products/valibot": {
+      "bun": "./src/generated/sponsored-products/valibot/index.ts",
+      "types": "./dist/generated/sponsored-products/valibot/index.d.ts",
+      "import": "./dist/generated/sponsored-products/valibot/index.js",
+      "default": "./dist/generated/sponsored-products/valibot/index.js"
+    },
     "./sponsored-brands/effect": {
       "bun": "./src/generated/sponsored-brands/effect/index.ts",
       "types": "./dist/generated/sponsored-brands/effect/index.d.ts",
       "import": "./dist/generated/sponsored-brands/effect/index.js",
       "default": "./dist/generated/sponsored-brands/effect/index.js"
+    },
+    "./sponsored-brands/types": {
+      "bun": "./src/generated/sponsored-brands/types/index.ts",
+      "types": "./dist/generated/sponsored-brands/types/index.d.ts",
+      "import": "./dist/generated/sponsored-brands/types/index.js",
+      "default": "./dist/generated/sponsored-brands/types/index.js"
+    },
+    "./sponsored-brands/valibot": {
+      "bun": "./src/generated/sponsored-brands/valibot/index.ts",
+      "types": "./dist/generated/sponsored-brands/valibot/index.d.ts",
+      "import": "./dist/generated/sponsored-brands/valibot/index.js",
+      "default": "./dist/generated/sponsored-brands/valibot/index.js"
     },
     "./sponsored-display/effect": {
       "bun": "./src/generated/sponsored-display/effect/index.ts",
@@ -72,17 +96,42 @@
       "import": "./dist/generated/sponsored-display/effect/index.js",
       "default": "./dist/generated/sponsored-display/effect/index.js"
     },
+    "./sponsored-display/types": {
+      "bun": "./src/generated/sponsored-display/types/index.ts",
+      "types": "./dist/generated/sponsored-display/types/index.d.ts",
+      "import": "./dist/generated/sponsored-display/types/index.js",
+      "default": "./dist/generated/sponsored-display/types/index.js"
+    },
+    "./sponsored-display/valibot": {
+      "bun": "./src/generated/sponsored-display/valibot/index.ts",
+      "types": "./dist/generated/sponsored-display/valibot/index.d.ts",
+      "import": "./dist/generated/sponsored-display/valibot/index.js",
+      "default": "./dist/generated/sponsored-display/valibot/index.js"
+    },
     "./api/effect": {
       "bun": "./src/generated/api/effect/index.ts",
       "types": "./dist/generated/api/effect/index.d.ts",
       "import": "./dist/generated/api/effect/index.js",
       "default": "./dist/generated/api/effect/index.js"
+    },
+    "./api/types": {
+      "bun": "./src/generated/api/types/index.ts",
+      "types": "./dist/generated/api/types/index.d.ts",
+      "import": "./dist/generated/api/types/index.js",
+      "default": "./dist/generated/api/types/index.js"
+    },
+    "./api/valibot": {
+      "bun": "./src/generated/api/valibot/index.ts",
+      "types": "./dist/generated/api/valibot/index.d.ts",
+      "import": "./dist/generated/api/valibot/index.js",
+      "default": "./dist/generated/api/valibot/index.js"
     }
   },
   "dependencies": {
     "@openpromo/sdk-runtime": "workspace:*",
     "yaml": "^2.8.0",
-    "effect": "^3.22.1"
+    "effect": "^3.22.1",
+    "valibot": "^1.4.2"
   },
   "devDependencies": {
     "@openpromo/sdk-codegen": "workspace:*"

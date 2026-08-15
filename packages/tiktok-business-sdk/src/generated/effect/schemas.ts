@@ -34217,6 +34217,146 @@ export const MmmApiHistoryResponse: Schema.Schema<MmmApiHistoryResponse, MmmApiH
   historical_requests: Schema.optional(Schema.Array(Schema.String)),
 });
 
+export interface NOpenMcpServerOauthRegisterParams {
+
+}
+export interface NOpenMcpServerOauthRegisterParamsEncoded {
+
+}
+export const NOpenMcpServerOauthRegisterParams: Schema.Schema<NOpenMcpServerOauthRegisterParams, NOpenMcpServerOauthRegisterParamsEncoded, never> = Schema.Struct({
+
+});
+
+export interface NOpenMcpServerOauthRegisterResponse {
+
+}
+export interface NOpenMcpServerOauthRegisterResponseEncoded {
+
+}
+export const NOpenMcpServerOauthRegisterResponse: Schema.Schema<NOpenMcpServerOauthRegisterResponse, NOpenMcpServerOauthRegisterResponseEncoded, never> = Schema.Struct({
+
+});
+
+export interface NOpenMcpServerOauthRevokeParams {
+
+}
+export interface NOpenMcpServerOauthRevokeParamsEncoded {
+
+}
+export const NOpenMcpServerOauthRevokeParams: Schema.Schema<NOpenMcpServerOauthRevokeParams, NOpenMcpServerOauthRevokeParamsEncoded, never> = Schema.Struct({
+
+});
+
+export interface NOpenMcpServerOauthRevokeResponse {
+
+}
+export interface NOpenMcpServerOauthRevokeResponseEncoded {
+
+}
+export const NOpenMcpServerOauthRevokeResponse: Schema.Schema<NOpenMcpServerOauthRevokeResponse, NOpenMcpServerOauthRevokeResponseEncoded, never> = Schema.Struct({
+
+});
+
+export interface NOpenMcpServerOauthTokenParams {
+
+}
+export interface NOpenMcpServerOauthTokenParamsEncoded {
+
+}
+export const NOpenMcpServerOauthTokenParams: Schema.Schema<NOpenMcpServerOauthTokenParams, NOpenMcpServerOauthTokenParamsEncoded, never> = Schema.Struct({
+
+});
+
+export interface NOpenMcpServerOauthTokenResponse {
+
+}
+export interface NOpenMcpServerOauthTokenResponseEncoded {
+
+}
+export const NOpenMcpServerOauthTokenResponse: Schema.Schema<NOpenMcpServerOauthTokenResponse, NOpenMcpServerOauthTokenResponseEncoded, never> = Schema.Struct({
+
+});
+
+export interface NOpenMcpServerOauthWellKnownOpenidConfigurationParams {
+
+}
+export interface NOpenMcpServerOauthWellKnownOpenidConfigurationParamsEncoded {
+
+}
+export const NOpenMcpServerOauthWellKnownOpenidConfigurationParams: Schema.Schema<NOpenMcpServerOauthWellKnownOpenidConfigurationParams, NOpenMcpServerOauthWellKnownOpenidConfigurationParamsEncoded, never> = Schema.Struct({
+
+});
+
+export interface NOpenMcpServerOauthWellKnownOpenidConfigurationResponse {
+
+}
+export interface NOpenMcpServerOauthWellKnownOpenidConfigurationResponseEncoded {
+
+}
+export const NOpenMcpServerOauthWellKnownOpenidConfigurationResponse: Schema.Schema<NOpenMcpServerOauthWellKnownOpenidConfigurationResponse, NOpenMcpServerOauthWellKnownOpenidConfigurationResponseEncoded, never> = Schema.Struct({
+
+});
+
+export interface NOpenMcpServerParams {
+
+}
+export interface NOpenMcpServerParamsEncoded {
+
+}
+export const NOpenMcpServerParams: Schema.Schema<NOpenMcpServerParams, NOpenMcpServerParamsEncoded, never> = Schema.Struct({
+
+});
+
+export interface NOpenMcpServerResponse {
+
+}
+export interface NOpenMcpServerResponseEncoded {
+
+}
+export const NOpenMcpServerResponse: Schema.Schema<NOpenMcpServerResponse, NOpenMcpServerResponseEncoded, never> = Schema.Struct({
+
+});
+
+export interface NPortalMcpTt4bAuthorizeParams {
+
+}
+export interface NPortalMcpTt4bAuthorizeParamsEncoded {
+
+}
+export const NPortalMcpTt4bAuthorizeParams: Schema.Schema<NPortalMcpTt4bAuthorizeParams, NPortalMcpTt4bAuthorizeParamsEncoded, never> = Schema.Struct({
+
+});
+
+export interface NPortalMcpTt4bAuthorizeResponse {
+
+}
+export interface NPortalMcpTt4bAuthorizeResponseEncoded {
+
+}
+export const NPortalMcpTt4bAuthorizeResponse: Schema.Schema<NPortalMcpTt4bAuthorizeResponse, NPortalMcpTt4bAuthorizeResponseEncoded, never> = Schema.Struct({
+
+});
+
+export interface NWellKnownOauthProtectedResourceOpenMcpServerParams {
+
+}
+export interface NWellKnownOauthProtectedResourceOpenMcpServerParamsEncoded {
+
+}
+export const NWellKnownOauthProtectedResourceOpenMcpServerParams: Schema.Schema<NWellKnownOauthProtectedResourceOpenMcpServerParams, NWellKnownOauthProtectedResourceOpenMcpServerParamsEncoded, never> = Schema.Struct({
+
+});
+
+export interface NWellKnownOauthProtectedResourceOpenMcpServerResponse {
+
+}
+export interface NWellKnownOauthProtectedResourceOpenMcpServerResponseEncoded {
+
+}
+export const NWellKnownOauthProtectedResourceOpenMcpServerResponse: Schema.Schema<NWellKnownOauthProtectedResourceOpenMcpServerResponse, NWellKnownOauthProtectedResourceOpenMcpServerResponseEncoded, never> = Schema.Struct({
+
+});
+
 export interface Oauth2AccessTokenParams {
   readonly app_id: string;
   readonly secret: string;

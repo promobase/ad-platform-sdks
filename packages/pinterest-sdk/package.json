@@ -54,12 +54,31 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
+    },
+    "./effect": {
+      "bun": "./src/generated/effect/index.ts",
+      "types": "./dist/generated/effect/index.d.ts",
+      "import": "./dist/generated/effect/index.js",
+      "default": "./dist/generated/effect/index.js"
+    },
+    "./types": {
+      "bun": "./src/generated/types/index.ts",
+      "types": "./dist/generated/types/index.d.ts",
+      "import": "./dist/generated/types/index.js",
+      "default": "./dist/generated/types/index.js"
+    },
+    "./valibot": {
+      "bun": "./src/generated/valibot/index.ts",
+      "types": "./dist/generated/valibot/index.d.ts",
+      "import": "./dist/generated/valibot/index.js",
+      "default": "./dist/generated/valibot/index.js"
     }
   },
   "dependencies": {
     "@openpromo/sdk-runtime": "workspace:*",
     "yaml": "^2.8.0",
-    "effect": "^3.22.1"
+    "effect": "^3.22.1",
+    "valibot": "^1.4.2"
   },
   "devDependencies": {
     "@openpromo/sdk-codegen": "workspace:*"

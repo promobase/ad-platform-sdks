@@ -8,15 +8,20 @@ function urlToPascalName(url: string): string {
     .replace(/^https?:\/\/[^/]+/, "")
     .replace(/^\/open_api\/v[\d.]+\//, "")
     .replace(/\/$/, "");
-  return path
-    .split("/")
-    .map((segment) =>
-      segment
-        .split("_")
-        .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
-        .join(""),
-    )
+  return path.split("/").map(toPascalSegment).join("");
+}
+
+function toPascalSegment(value: string): string {
+  return value
+    .split(/[^a-zA-Z0-9]+/)
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join("");
+}
+
+function toCamelSegment(value: string): string {
+  const pascal = toPascalSegment(value);
+  return pascal ? pascal.charAt(0).toLowerCase() + pascal.slice(1) : "call";
 }
 
 /** "AdGet" → "ad-get" */
@@ -134,8 +139,8 @@ function deriveMethodName(spec: EndpointSpec): string {
   if (segments.length >= 2) {
     const resource = segments[segments.length - 2]!;
     const action = segments[segments.length - 1]!;
-    const camelAction = action.replace(/_([a-z])/g, (_, c: string) => c.toUpperCase());
-    const camelResource = resource.replace(/_([a-z])/g, (_, c: string) => c.toUpperCase());
+    const camelAction = toCamelSegment(action);
+    const camelResource = toCamelSegment(resource);
 
     // Special handling for common verbs
     if (["get", "list", "create", "update", "delete"].includes(action)) {
@@ -146,7 +151,7 @@ function deriveMethodName(spec: EndpointSpec): string {
 
   // Fallback: just camelCase the last segment
   const last = segments[segments.length - 1] ?? "call";
-  return last.replace(/_([a-z])/g, (_, c) => c.toUpperCase());
+  return toCamelSegment(last);
 }
 
 // ─── Category File Emitter ───────────────────────────────────────────
@@ -163,6 +168,7 @@ export function emitCategory(category: string, specs: EndpointSpec[]): CategoryO
   const typesLines: string[] = [`// Auto-generated types for ${category} — do not edit`, ""];
   const methodLines: string[] = [];
   const typeImports: string[] = [];
+  const importedTypes = new Set<string>();
 
   const usedMethodNames = new Set<string>();
   for (const spec of specs) {
@@ -178,7 +184,11 @@ export function emitCategory(category: string, specs: EndpointSpec[]): CategoryO
     typesLines.push(emitInterface(responseName, spec.responseFields));
     typesLines.push("");
 
-    typeImports.push(paramsName, responseName);
+    for (const typeName of [paramsName, responseName]) {
+      if (importedTypes.has(typeName)) continue;
+      importedTypes.add(typeName);
+      typeImports.push(typeName);
+    }
 
     // Deduplicate method names
     let methodName = deriveMethodName(spec);

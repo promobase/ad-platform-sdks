@@ -100,3 +100,9 @@ Generated output lives in `src/generated/{api}/` (types + endpoint clients + Eff
 | `AmazonAds.BaseUrls` | `Na`, `Eu`, `Fe` region endpoints |
 | `AmazonAds.ApiClient` | Core HTTP client (3 required headers, retry, rate limit) |
 | `AmazonAds.ApiError` | Typed error class |
+
+## Generated contracts
+
+Each Amazon Ads API surface publishes generated TypeScript and Valibot contracts alongside its
+Effect surface. For example, use `@openpromo/amazon-ads/sponsored-products/types` and
+`@openpromo/amazon-ads/sponsored-products/valibot` for Sponsored Products.

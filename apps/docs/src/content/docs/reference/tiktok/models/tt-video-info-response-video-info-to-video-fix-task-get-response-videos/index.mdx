@@ -1,0 +1,245 @@
+---
+title: "TikTok Business models: Tt Video Info Response Video Info – Video Fix Task Get Response Videos"
+description: "22 generated TikTok Business model contracts, from TtVideoInfoResponseVideoInfo through VideoFixTaskGetResponseVideos."
+generated: true
+platform: "tiktok"
+sourceVersion: "business-api"
+sidebar:
+  order: 1024
+  label: "Tt Video Info Response Video Info – Video Fix Task Get Response Videos"
+tableOfContents: false
+---
+
+{/* Generated from canonical SdkIr (documentation: https://business-api.tiktok.com/gateway/api/doc/client). Do not edit by hand. */}
+
+## TtVideoInfoResponseVideoInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bit_rate` | `bit_rate` | `number` | No | No | Video bit rate, in bps. |
+| `duration` | `duration` | `number` | No | No | The duration of the video, in seconds. |
+| `size` | `size` | `number` | No | No | The size of the video, in bytes. |
+| `width` | `width` | `number` | No | No | The width of the video. |
+| `height` | `height` | `number` | No | No | The height of the video. |
+| `video_id` | `video_id` | `string` | No | No | Video ID. |
+| `file_name` | `file_name` | `string` | No | No | Video name. |
+| `poster_url` | `poster_url` | `string` | No | No | The URL to the video poster. It is valid for an hour. When it expires, you need to call the endpoint again to get a new URL. |
+| `preview_url` | `preview_url` | `string` | No | No | The preview URL for the video. It is valid for an hour. When it expires, you need to call the endpoint again to get a new URL. |
+| `signature` | `signature` | `string` | No | No | MD5 for the video. |
+
+## TtVideoListParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | The Advertiser ID. |
+| `item_types` | `item_types` | `Array<"VIDEO" \| "CAROUSEL">` | No | No | The types of Spark Ads posts to filter. Enum values:`VIDEO`: video post. `CAROUSEL`: photo post. Default value: `["VIDEO", "CAROUSEL"]`. |
+| `keyword` | `keyword` | `string` | No | No | The text or TikTok post ID as a keyword to search TikTok posts by. If you want to search for TikTok posts based on text, provide a text string with a maximum length of 500 characters. This search type supports searching in multiple languages and fuzzy matches. Example: "summer". If you want to search for TikTok posts based on `item_id`, provide a numeric string with a minimum length of 19 characters. This search type supports exact matches. Example: "1234567891234567891" |
+| `page` | `page` | `number` | No | No | The current page number. The default value is `1`. The value must be ≥ 1. |
+| `page_size` | `page_size` | `number` | No | No | The page size. The default value: `20`. The value must be in the range of 1-50. |
+
+## TtVideoListResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `list` | `list` | `Array<TtVideoListResponseList>` | No | No | Information about the list of Spark Ads posts. |
+| `page_info` | `page_info` | `TtVideoListResponsePageInfo` | No | No | The information about pagination. |
+
+## TtVideoListResponseList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `item_info` | `item_info` | `TtVideoListResponseListItemInfo` | No | No | Information about the Spark Ads post. |
+| `video_info` | `video_info` | `TtVideoListResponseListVideoInfo` | No | No | Information about the video post. Note: When `item_type` is `CAROUSEL`, the values for the parameters within the `video_info` object will be null. When `item_type` is `VIDEO` and status is not `HESITATE_RECOMMEND`, `ONLY_AUTHOR_SEE`, or `ONLY_FRIEND_SEE`, there will be no data for parameters within the `video_info` object and the values for these parameters might be null, `0`, or `""` (empty string). |
+| `user_info` | `user_info` | `TtVideoListResponseListUserInfo` | No | No | Information about the TikTok account. |
+| `auth_info` | `auth_info` | `TtVideoListResponseListAuthInfo` | No | No | Information about the authorization. |
+
+## TtVideoListResponseListAuthInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `invite_start_time` | `invite_start_time` | `string` | No | No | The time when the authorization starts (UTC+0), in the format of 2017-01-01 00:00:00. |
+| `auth_start_time` | `auth_start_time` | `string` | No | No | The time when the authorization code becomes valid (UTC+0), in the format of 2017-01-01 00:00:00. |
+| `ad_auth_status` | `ad_auth_status` | `string` | No | No | The authorization status. For allowed values, see [Enumeration-TikTok Post Authorization Status](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `auth_end_time` | `auth_end_time` | `string` | No | No | The time when the authorization code expires (UTC+0), in the format of 2017-01-01 00:00:00. |
+
+## TtVideoListResponseListItemInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auth_code` | `auth_code` | `string` | No | No | The authorization code for the Spark Ads post. |
+| `item_id` | `item_id` | `string` | No | No | The ID of the Spark Ads post. |
+| `text` | `text` | `string` | No | No | The description of the Spark Ads post. |
+| `status` | `status` | `string` | No | No | Item status. For enum values, see [Enumerations-TikTok Post Item Status](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `item_type` | `item_type` | `"VIDEO" \| "CAROUSEL"` | No | No | The type of Spark Ads post. Enum values: `VIDEO`: video post. `CAROUSEL`: photo post. |
+| `carousel_info` | `carousel_info` | `TtVideoListResponseListItemInfoCarouselInfo` | No | No | Information about the photo post. Note: When `item_type` is `VIDEO`, the value of this field will be null. |
+| `anchor_list` | `anchor_list` | `Array<TtVideoListResponseListItemInfoAnchorList>` | No | No | Information about anchors in the post (video). |
+
+## TtVideoListResponseListItemInfoAnchorList
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | Anchor ID. |
+| `title` | `title` | `string` | No | No | Anchor title. |
+| `status` | `status` | `"CHECK_ING" \| "CHECK_FAILED" \| "CHECK_SUCCESS"` | No | No | Anchor status. Enum values: `CHECK_ING` (anchor review in progress), `CHECK_FAILED` (anchor review failed), `CHECK_SUCCESS` (anchor review successful). |
+| `product_regions` | `product_regions` | `Array<string>` | No | No | Regions where the ad can be deployed. |
+| `url` | `url` | `string` | No | No | Item URL. |
+| `spu_id` | `spu_id` | `string` | No | No | Returned only when the post contains a product anchor link The SPU ID of the product that the post is associated with. |
+| `spu_name` | `spu_name` | `string` | No | No | Returned only when the post contains a product anchor link The name of the product that the post is associated with. |
+| `store_id` | `store_id` | `string` | No | No | Returned only when the post contains a product anchor link The ID of the TikTok Shop that the product belongs to. |
+
+## TtVideoListResponseListItemInfoCarouselInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_info` | `image_info` | `Array<TtVideoListResponseListItemInfoCarouselInfoImageInfo>` | No | No | Information about the images used in the photo post. The images are returned in the same order as they are shown in the photo post. |
+| `music_info` | `music_info` | `TtVideoListResponseListItemInfoCarouselInfoMusicInfo` | No | No | Information about the music used in the photo post. Note: If the photo post is directly published in the TikTok App without music, the value of this field will be null. |
+
+## TtVideoListResponseListItemInfoCarouselInfoImageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `image_url` | `image_url` | `string` | No | No | The URL of the image. Validity period: 90 days. |
+| `image_height` | `image_height` | `number` | No | No | The height of the image, measured in pixels. |
+| `image_width` | `image_width` | `number` | No | No | The width of the image, measured in pixels. |
+
+## TtVideoListResponseListItemInfoCarouselInfoMusicInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `music_url` | `music_url` | `string` | No | No | The URL of the music. Validity period: 90 days. |
+| `music_duration` | `music_duration` | `number` | No | No | The duration of the music, in seconds. |
+
+## TtVideoListResponseListUserInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tiktok_name` | `tiktok_name` | `string` | No | No | The user name of the TikTok account. |
+| `identity_id` | `identity_id` | `string` | No | No | Identity ID. |
+| `identity_type` | `identity_type` | `string` | No | No | Identity Type. |
+
+## TtVideoListResponseListVideoInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bit_rate` | `bit_rate` | `number` | No | No | Video bit rate, in bps. |
+| `duration` | `duration` | `number` | No | No | The duration of the video, in seconds. |
+| `size` | `size` | `number` | No | No | The size of the video, in bytes. |
+| `height` | `height` | `number` | No | No | The height of the video. |
+| `width` | `width` | `number` | No | No | The width of the video. |
+| `poster_url` | `poster_url` | `string` | No | No | The URL to the video poster. It is valid for an hour. When it expires, you need to call the endpoint again to get a new URL. |
+| `preview_url` | `preview_url` | `string` | No | No | The preview URL for the video. It is valid for an hour. When it expires, you need to call the endpoint again to get a new URL. Note: Returns empty string `""` if the authorization expires or if the TikTok Post Item Status (value of `status` under `item_info`) is not `HESITATE_RECOMMEND` (Made public). For the enum values of TikTok Post Item Status, see [Enumerations-TikTok Post Item Status](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138). |
+| `signature` | `signature` | `string` | No | No | MD5 for the video file. |
+
+## TtVideoListResponsePageInfo
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page` | `page` | `number` | No | No | The current page number. |
+| `page_size` | `page_size` | `number` | No | No | The size of the page. |
+| `total_number` | `total_number` | `number` | No | No | The total number of results. |
+| `total_page` | `total_page` | `number` | No | No | The total number of pages. |
+
+## TtVideoUnbindParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | The advertiser ID |
+| `item_id` | `item_id` | `string` | Yes | No | The ID of the Spark Ads post |
+
+## TtVideoUnbindResponse
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## VideoFixTaskCreateParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. |
+| `tasks` | `tasks` | `Array<VideoFixTaskCreateParamsTasks>` | No | No | Task info. Max size is 10. |
+
+## VideoFixTaskCreateParamsTasks
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | Yes | No | ID of the Video that you want to fix. |
+| `auto_bind_enabled` | `auto_bind_enabled` | `boolean` | No | No | Whether to automatically upload the fixed video to your creative library. Default value:`False`. |
+
+## VideoFixTaskCreateResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tasks` | `tasks` | `Array<VideoFixTaskCreateResponseTasks>` | No | No | Task info. Max size is 10. |
+
+## VideoFixTaskCreateResponseTasks
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | Video ID. Returned when there are no issues detected. |
+| `fix_task_id` | `fix_task_id` | `string` | No | No | Fix task ID. Returned when issues are detected. |
+| `flaw_types` | `flaw_types` | `Array<"LOW_RESOLUTION" \| "ILLEGAL_VIDEO_SIZE" \| "NO_BGM" \| "BLACK_EDGE" \| "ILLEGAL_DURATION">` | No | No | Returned when issues are detected. Video issue types. Enum values: `LOW_RESOLUTION`: Video resolution is lower than 540x960 px, which doesn't meet our requirements.`ILLEGAL_VIDEO_SIZE`: The video size is not correct. Use the standard video size: Square (1:1) / Vertical (9:16) / Horizontal (16:9). `NO_BGM`(deprecated): The ad or video has no background audio, or the background audio is incoherent/unclear. `BLACK_EDGE`(deprecated) : A video image contains black bars, which affects user experience and is not allowed. `ILLEGAL_DURATION`(deprecated): Video length is either longer than 60s or shorter than 5s, which doesn't meet our requirements. |
+
+## VideoFixTaskGetParams
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `task_id` | `task_id` | `string` | Yes | No | Fix task ID. Pass in the `fix_task_id` you get from the response of the [/video/fix/task/create/](https://ads.tiktok.com/marketing_api/docs?id=1741468875279361) or [/file/video/ad/upload/](https://ads.tiktok.com/marketing_api/docs?id=1737587322856449)endpoint. |
+| `advertiser_id` | `advertiser_id` | `string` | Yes | No | Advertiser ID. Note: If `task_id` and `advertiser_id` do not match, we will return an error message. |
+
+## VideoFixTaskGetResponse
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `status` | `status` | `"PROCESSING" \| "FAILED" \| "SUCCESS"` | No | No | Task status. Enum values: `PROCESSING`, `FAILED`, `SUCCESS`. |
+| `error_msg` | `error_msg` | `string` | No | No | Error message. Returned only when the status is `FAILED`. |
+| `videos` | `videos` | `Array<VideoFixTaskGetResponseVideos>` | No | No | Fixed video info. Max size is 3. Returned only when the status is `SUCCESS`. |
+
+## VideoFixTaskGetResponseVideos
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `video_id` | `video_id` | `string` | No | No | Fixed video ID. |
+| `video_url` | `video_url` | `string` | No | No | Fixed video preview URL. Valid only for 7 days. |

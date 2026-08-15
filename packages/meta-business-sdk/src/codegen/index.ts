@@ -123,13 +123,16 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   const sourceRevision = Bun.spawnSync(["git", "-C", join(specsDir, "../.."), "rev-parse", "HEAD"])
     .stdout.toString()
     .trim();
+  const canonicalIr = metaCanonicalIr(specs, extractedEnums, {
+    version: sourceVersion,
+    revision: sourceRevision || undefined,
+  });
+
   await writeEffectArtifacts({
     outputDir: join(outputDir, "effect"),
+    contractOutputDir: outputDir,
     docsOutputDir: join(import.meta.dir, "../../../../apps/docs/src/content/docs/reference"),
-    ir: metaCanonicalIr(specs, extractedEnums, {
-      version: sourceVersion,
-      revision: sourceRevision || undefined,
-    }),
+    ir: canonicalIr,
   });
 
   // 10. Emit client-factory.ts

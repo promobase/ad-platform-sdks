@@ -96,3 +96,8 @@ Generated output lives in `src/generated/` (types + endpoint clients + Effect ar
 | `Pinterest.Scopes` | All 16 documented OAuth scopes |
 | `Pinterest.ApiClient` | Core HTTP client (Bearer auth, retry, rate limit) |
 | `Pinterest.ApiError` | Typed error class |
+
+## Generated contracts
+
+Generated TypeScript and Valibot contracts are available from `@openpromo/pinterest/types` and
+`@openpromo/pinterest/valibot`; the existing Effect surface remains at `@openpromo/pinterest/effect`.

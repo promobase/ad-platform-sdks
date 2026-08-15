@@ -427,6 +427,16 @@ export const capabilities = [
     "requiredScopes": []
   },
   {
+    "id": "mCPAuthorization.manage",
+    "summary": "Manage TikTok MCP Authorization",
+    "requiredScopes": []
+  },
+  {
+    "id": "mCPAuthorization.read",
+    "summary": "Read TikTok MCP Authorization",
+    "requiredScopes": []
+  },
+  {
     "id": "mediaMixModeling.manage",
     "summary": "Manage TikTok Media Mix Modeling",
     "requiredScopes": []
