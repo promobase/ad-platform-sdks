@@ -1,0 +1,58 @@
+---
+title: Publishing and workflows
+description: Compose provider-native publishing calls safely inside durable application workflows.
+sidebar:
+  order: 45
+  label: Publishing and workflows
+---
+
+Mosaic provides provider-native publishing clients and low-level transport operations. It does not
+own your content entities, approval policy, durable state machine, or workflow naming. Keep those
+concerns in the application that owns the business domain.
+
+## Put external effects in workflow steps
+
+```ts
+const instagram = await connectedAccount.provider();
+
+const container = await step.do("instagram-create-container", () =>
+  instagram.containers.create({ image_url, caption }),
+);
+
+const published = await step.do("instagram-publish-container", () =>
+  instagram.containers.publish(container.id),
+);
+```
+
+Each provider call that can create or mutate remote state should be visible to the workflow. Use
+the provider's returned IDs and status values for reconciliation. Polling belongs in workflow sleep
+or retry primitives, not in an SDK-level cross-platform publication state machine.
+
+## Keep the adapter boundary small
+
+An application-owned connected-account adapter can load credentials and construct the provider
+client:
+
+```ts
+import { Facebook } from "@openpromo/meta";
+import { AllPlatforms } from "@openpromo/sdk-runtime/platforms";
+
+class ConnectedFacebookPage {
+  readonly platform = AllPlatforms.FACEBOOK;
+
+  async provider() {
+    const credentials = await this.credentials.ensureValid();
+    return Facebook.createClient({
+      pageId: this.externalAccountId,
+      accessToken: credentials.accessToken,
+    });
+  }
+}
+```
+
+Mosaic should not receive workspace IDs, persistence callbacks, encryption services, or domain
+entities. The application owns connected-account resolution, idempotency, reviews, receipts, and
+reconciliation. Mosaic returns provider-native response types and provider operation IDs.
+
+For the OpenPromo-specific ownership boundary and more detailed examples, see the
+[OpenPromo integration guide](/guides/openpromo).

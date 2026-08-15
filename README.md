@@ -62,8 +62,8 @@ await instagram.media.publishVideo({
   hand-maintained endpoint lists.
 - **One runtime** — shared HTTP, pagination, retry, rate-limit, and error primitives across every
   package.
-- **Provider-native when it matters** — use the full native API surface, or opt into normalized
-  operations for portable workflows.
+- **Provider-native when it matters** — use the full native API surface and compose portable
+  workflows in your application or workflow runtime.
 - **Agent-ready** — the same operation contracts project into direct clients, AI SDK tools, MCP,
   Code Mode, and the CLI.
 - **Runtime agnostic** — native `fetch`; works in Bun, Node, Deno, and edge runtimes.

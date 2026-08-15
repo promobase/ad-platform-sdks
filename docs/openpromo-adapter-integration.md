@@ -139,7 +139,7 @@ OpenPromo's publisher method names or content entities. Each provider call
 that has external side effects remains visible to the workflow; convenience
 methods are optional composition helpers.
 
-### Result boundary and mutation outcomes
+### Result boundary
 
 Mosaic keeps its Effect runtime for Effect-native callers, but the ergonomic
 Promise-facing provider boundary should also support `better-result`. This lets
@@ -157,18 +157,13 @@ const result = await Result.tryPromise({
 
 const value = result.match({
   ok: (value) => value,
-  err: (error) => {
-    if (error._tag === "MutationOutcomeUnknown") {
-      return { state: "reconcile", operationId: error.operationId } as const;
-    }
-    return { state: "failed", error } as const;
-  },
+  err: (error) => ({ state: "failed", error }) as const,
 });
 ```
 
 OAuth adapters expose both compatibility methods that throw and a typed,
-non-throwing `.result` façade. Every first-party adapter is wrapped this way,
-including its provider-specific discovery helpers:
+non-throwing `.result` façade for `authorize`, `exchangeCode`, and available
+token lifecycle methods:
 
 ```ts
 const facebook = Facebook.oauth({ appId, appSecret, redirectUri });
@@ -191,29 +186,22 @@ const account = grant.match({
 
 `withOAuthResults(adapter)` is also exported for custom adapters. It preserves
 the adapter's generic provider token type and extra methods, so OpenPromo can
-adopt the result boundary without rewriting existing adapter consumers. Use
-`Result.match` or `matchError` at route/workflow boundaries; do not unwrap in a
-durable step unless the step intentionally treats the error as terminal.
+adopt the result boundary without rewriting existing adapter consumers. The
+provider-specific discovery methods remain provider-native and keep their
+existing Promise/error behavior. Use `Result.match` or `matchError` at
+route/workflow boundaries; do not unwrap in a durable step unless the step
+intentionally treats the error as terminal.
 
 `Result` is a Promise-boundary convenience, not a replacement for Workflow
 control flow. OpenPromo still places each effect in `step.do`, uses
 `step.sleep` for provider polling, and owns any domain-specific state machine.
 The existing throwing Promise methods remain available for callers that prefer
 exceptions, and Effect consumers continue using the typed Effect error channel.
-The `MutationOutcomeUnknown` branch is available when an operation is backed by
-Mosaic's shared effect runtime; legacy provider clients that only throw an HTTP
-error cannot infer whether a timed-out mutation was committed until they are
-moved behind that seam.
-
-Provider mutations must distinguish these concepts:
-
-```ts
-type MutationOutcome = "not_started" | "committed" | "unknown";
-```
-
 Mosaic returns provider-native response types and provider operation IDs. It
 does not invent a cross-platform publication state or placeholder external ID;
-OpenPromo owns reconciliation and any content/publisher state projection.
+OpenPromo owns reconciliation and any content/publisher state projection. If a
+runtime reports that a request outcome is uncertain, the application decides
+how to reconcile it; that is not a Mosaic publication abstraction.
 
 `forPlacementSpec()` and other OpenPromo content/account wiring stay in
 OpenPromo. Mosaic only owns Graph/API requests, response validation, provider

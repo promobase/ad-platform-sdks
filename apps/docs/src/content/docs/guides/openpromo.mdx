@@ -7,8 +7,8 @@ sidebar:
 ---
 
 The SDKs own provider protocol mechanics: authentication inputs, request/response contracts,
-pagination, retry classification, rate-limit signals, publishing primitives, inbox primitives, and
-normalized post metrics.
+pagination, retry classification, rate-limit signals, provider-native publishing primitives,
+provider-native inbox primitives, and normalized post metrics.
 
 OpenPromo—or any product built on the SDKs—should own the durable control plane:
 
@@ -21,3 +21,7 @@ OpenPromo—or any product built on the SDKs—should own the durable control pl
 Adopt read-only account, content, inbox, and metrics calls first and compare stored provider
 fixtures. Migrate writes after idempotency and reconciliation are proven. Keep provider payloads
 alongside normalized records so new fields can be backfilled without re-fetching historical data.
+
+For generated TypeScript, Valibot, and Effect contracts, see [Generated contracts](/guides/generated-contracts).
+For webhook verification and event extraction, see [Meta webhooks](/guides/webhooks). For durable
+external effects, see [Publishing and workflows](/guides/publishing-and-workflows).

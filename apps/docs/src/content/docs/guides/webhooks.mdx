@@ -1,0 +1,58 @@
+---
+title: Meta webhooks
+description: Verify, parse, and extract typed Meta webhook events at a Worker-safe boundary.
+sidebar:
+  order: 35
+  label: Meta webhooks
+---
+
+Meta webhook handling is available from the small `@openpromo/meta/webhooks` leaf export. It uses
+Web Crypto and Valibot, so a Cloudflare Worker does not need to import the full generated Graph
+client.
+
+## Verify and parse
+
+```ts
+import { webhooks } from "@openpromo/meta/webhooks";
+
+const parsed = await webhooks.facebook.safeParse({
+  body: await request.arrayBuffer(),
+  signature: request.headers.get("X-Hub-Signature-256") ?? "",
+  appSecret: env.META_APP_SECRET,
+});
+
+if (!parsed.success) {
+  return new Response("invalid webhook", { status: 401 });
+}
+
+for (const event of webhooks.facebook.events(parsed.data)) {
+  // Translate the provider event into your own durable domain command.
+  console.log(event.kind);
+}
+```
+
+Use `parse` when the route wants an exception for invalid input, or `safeParse` when the route
+wants a typed `{ success, data, error }` result. The parser verifies `X-Hub-Signature-256`, parses
+JSON, and validates the provider payload.
+
+## Challenge verification and acknowledgement
+
+```ts
+const challenge = webhooks.verifyChallenge({
+  "hub.mode": requestUrl.searchParams.get("hub.mode") ?? undefined,
+  "hub.verify_token": requestUrl.searchParams.get("hub.verify_token") ?? undefined,
+  "hub.challenge": requestUrl.searchParams.get("hub.challenge") ?? undefined,
+}, env.META_VERIFY_TOKEN);
+
+return challenge.valid && challenge.challenge
+  ? new Response(challenge.challenge, { status: 200 })
+  : new Response("forbidden", { status: 403 });
+```
+
+Keep the HTTP route responsible for verification and fast acknowledgement. Queue or otherwise
+admit the validated payload before doing durable product work. OpenPromo owns connected-account
+resolution, idempotency, persistence, Inbox handlers, and policy; Mosaic only owns provider
+verification, schemas, and event extraction.
+
+The same namespace exposes Facebook, Instagram, Threads, and WhatsApp schemas. WhatsApp also
+exposes its typed Cloud API client from the webhook leaf for small Worker bundles.

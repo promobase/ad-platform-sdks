@@ -78,13 +78,6 @@ if (webhook.success) {
 // WhatsApp transport
 import { WhatsApp } from "@openpromo/meta";
 
-const instagram = Instagram.createClient({ api: graph, igAccountId: "ig_123" });
-const facebook = Facebook.createClient({
-  api: graph,
-  pageId: "page_456",
-  accessToken: process.env.META_TOKEN!,
-});
-const threadsClient = Threads.createClient({ accessToken: "threads_token", threadsUserId: "t_789" });
 const whatsapp = WhatsApp.createClient({ accessToken: "wa_token", phoneNumberId: "phone_123" });
 
 // Graph API with field-level narrowing

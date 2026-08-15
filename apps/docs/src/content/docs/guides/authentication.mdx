@@ -9,6 +9,42 @@ sidebar:
 Authentication is configured on the provider client. Generated endpoint descriptors intentionally
 do not own tokens, OAuth storage, or tenant selection.
 
+## OAuth adapters
+
+First-party providers expose a normalized OAuth shape while preserving provider-specific token
+data and account-discovery methods. Existing throwing methods remain available; use `.result` at
+route or workflow boundaries when explicit error branching is more ergonomic.
+
+```ts
+import { Facebook } from "@openpromo/meta";
+
+const oauth = Facebook.oauth({ appId, appSecret, redirectUri });
+const authorization = await oauth.authorize({
+  scopes: ["pages_show_list", "pages_manage_posts"],
+  state: opaqueState,
+});
+
+// Persist state, and codeVerifier when a provider uses PKCE.
+const grant = await oauth.result.exchangeCode({
+  code,
+  state: callbackState,
+  expectedState: storedState,
+});
+
+const tokenSet = grant.match({
+  ok: (value) => value,
+  err: (error) => {
+    console.error(error.details.provider, error.details.phase);
+    return undefined;
+  },
+});
+```
+
+OAuth adapters return typed `OAuthAdapterError` values with a provider and phase such as
+`authorize`, `exchange`, `refresh`, or `validate`. OpenPromo owns encrypted persistence, refresh
+locking, account resolution, and token redaction. See the [platform identifiers](#platform-identifiers)
+section when storing a cross-platform provider identity.
+
 ## Credential patterns
 
 | Platform | Client input |
@@ -35,3 +71,17 @@ Provider scopes are listed beside generated capabilities and endpoints in the [A
 reference](/reference). Treat an absent generated scope as “not declared by the source,” not proof
 that no permission is required; consult the provider's current app-review documentation before
 shipping.
+
+## Platform identifiers
+
+Use the shared runtime values for durable selectors and discriminated application records:
+
+```ts
+import { AllPlatforms, AllPlatformsSchema } from "@openpromo/sdk-runtime/platforms";
+
+const provider = AllPlatforms.FACEBOOK;
+```
+
+These are direct provider identities. There is no family-level `META` value; Facebook, Instagram,
+Threads, and WhatsApp are represented separately even though they share the `@openpromo/meta`
+package.
