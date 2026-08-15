@@ -1,5 +1,21 @@
 # @openpromo/sdk-runtime
 
+## 0.6.0
+
+### Minor Changes
+
+- [`e715e0b`](https://github.com/promobase/ad-platform-sdks/commit/e715e0b3b806bde3e50bad736c1a6ea810cf6378) Thanks [@rayli09](https://github.com/rayli09)! - Add the canonical `AllPlatforms` identifiers and Valibot runtime schema,
+  normalized OAuth adapters for OpenPromo's first-party flows, and first-party
+  quality typed low-level Facebook, Instagram, and TikTok client operations for
+  Mosaic consumers.
+
+- [`d745356`](https://github.com/promobase/ad-platform-sdks/commit/d74535616061f4a0eddb42e6b8bd4f24a8565908) Thanks [@rayli09](https://github.com/rayli09)! - Expose Better Result-backed OAuth adapter outcomes through `.result`, with
+  tagged `OAuthAdapterError` values and preserved provider-specific adapter types.
+
+- [`73f4b90`](https://github.com/promobase/ad-platform-sdks/commit/73f4b9019e8ecc0295e4969d5e136af8a87fab9b) Thanks [@rayli09](https://github.com/rayli09)! - Add a `better-result` Promise boundary and explicit idempotency and
+  reconciliation outcomes for provider operations. Publishing orchestration and
+  provider-specific result shapes remain in the consuming application.
+
 ## 0.5.0
 
 ### Minor Changes
