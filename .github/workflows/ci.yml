@@ -21,6 +21,9 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      - name: Build workspace
+        run: bun run build
+
       - name: Lint (Oxlint)
         run: bun run lint
 
@@ -35,9 +38,6 @@ jobs:
 
       - name: Typecheck workspace
         run: bun run typecheck
-
-      - name: Build workspace
-        run: bun run build
 
       - name: Validate publish manifests
         run: bun run release:check
