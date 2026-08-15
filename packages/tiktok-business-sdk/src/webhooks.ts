@@ -1,3 +1,5 @@
+import * as v from "valibot";
+
 import {
   type CommentWebhookEvent,
   commentWebhookEventSchema,
@@ -16,29 +18,82 @@ export * from "./webhook-schemas.ts";
 
 // --- Webhook Signature Verification ---
 
+export interface WebhookSignatureOptions {
+  /** Maximum accepted absolute age of the signed delivery, in seconds. */
+  maxAgeSeconds?: number;
+  /** Injectable current Unix timestamp for deterministic tests. */
+  now?: number;
+}
+
+interface ParsedSignature {
+  timestamp: number;
+  signature: Uint8Array<ArrayBuffer>;
+}
+
+function parseSignatureHeader(value: string): ParsedSignature | undefined {
+  const fields = new Map<string, string>();
+  for (const part of value.split(",")) {
+    const separator = part.indexOf("=");
+    if (separator < 1) return undefined;
+
+    const key = part.slice(0, separator).trim();
+    const fieldValue = part.slice(separator + 1).trim();
+    if (!key || !fieldValue || fields.has(key)) return undefined;
+    fields.set(key, fieldValue);
+  }
+
+  const timestampValue = fields.get("t");
+  const signatureValue = fields.get("s");
+  if (!timestampValue || !signatureValue || !/^\d+$/.test(timestampValue)) return undefined;
+  if (!/^[0-9a-f]{64}$/i.test(signatureValue)) return undefined;
+
+  const timestamp = Number(timestampValue);
+  if (!Number.isSafeInteger(timestamp)) return undefined;
+
+  const bytes = new Uint8Array(signatureValue.length / 2);
+  for (let index = 0; index < bytes.length; index += 1) {
+    bytes[index] = Number.parseInt(signatureValue.slice(index * 2, index * 2 + 2), 16);
+  }
+  return { timestamp, signature: bytes };
+}
+
 /**
- * Verify the HMAC-SHA256 signature on a TikTok webhook payload.
- * Uses Web Crypto API (works in Bun, Deno, Node 19+, browsers).
+ * Verify TikTok's `TikTok-Signature` header for a raw webhook body.
+ *
+ * TikTok signs `${timestamp}.${rawBody}` with HMAC-SHA256. The signature
+ * header has the form `t=<unix-seconds>,s=<hex-signature>`.
  */
 export async function verifyWebhookSignature(
   body: string | ArrayBuffer,
   signature: string,
   appSecret: string,
+  options: WebhookSignatureOptions = {},
 ): Promise<boolean> {
+  const parsed = parseSignatureHeader(signature);
+  if (!parsed) return false;
+
+  const maxAgeSeconds = options.maxAgeSeconds ?? 300;
+  if (!Number.isFinite(maxAgeSeconds) || maxAgeSeconds < 0) return false;
+
+  const now = options.now ?? Math.floor(Date.now() / 1000);
+  if (!Number.isFinite(now) || Math.abs(now - parsed.timestamp) > maxAgeSeconds) return false;
+
+  const bodyText = typeof body === "string" ? body : new TextDecoder().decode(new Uint8Array(body));
   const encoder = new TextEncoder();
   const key = await crypto.subtle.importKey(
     "raw",
     encoder.encode(appSecret),
     { name: "HMAC", hash: "SHA-256" },
     false,
-    ["sign"],
+    ["verify"],
   );
-  const bodyBytes = typeof body === "string" ? encoder.encode(body) : body;
-  const signed = await crypto.subtle.sign("HMAC", key, bodyBytes);
-  const hex = Array.from(new Uint8Array(signed))
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
-  return hex === signature;
+
+  return crypto.subtle.verify(
+    "HMAC",
+    key,
+    parsed.signature,
+    encoder.encode(`${parsed.timestamp}.${bodyText}`),
+  );
 }
 
 // --- Parse Error ---
@@ -58,22 +113,32 @@ export class WebhookParseError extends Error {
 // --- Types ---
 
 export interface WebhookParseOptions {
+  /** The exact raw request body used to calculate TikTok's signature. */
   body: string;
+  /** The value of the TikTok-Signature request header. */
   signature: string;
   appSecret: string;
+  signatureOptions?: WebhookSignatureOptions;
 }
 
 export type WebhookParseResult<T> =
   | { success: true; data: T }
   | { success: false; error: WebhookParseError };
 
+type WebhookSchema = v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>>;
+
 // --- Core verify + parse ---
 
-async function verifyAndParse<T>(
+async function verifyAndParse<TSchema extends WebhookSchema>(
   opts: WebhookParseOptions,
-  schema: { safeParse: (data: unknown) => { success: boolean; data?: T; error?: unknown } },
-): Promise<WebhookParseResult<T>> {
-  const validSig = await verifyWebhookSignature(opts.body, opts.signature, opts.appSecret);
+  schema: TSchema,
+): Promise<WebhookParseResult<v.InferOutput<TSchema>>> {
+  const validSig = await verifyWebhookSignature(
+    opts.body,
+    opts.signature,
+    opts.appSecret,
+    opts.signatureOptions,
+  );
   if (!validSig) {
     return {
       success: false,
@@ -84,23 +149,23 @@ async function verifyAndParse<T>(
   let json: unknown;
   try {
     json = JSON.parse(opts.body);
-  } catch (e) {
+  } catch (error) {
     return {
       success: false,
-      error: new WebhookParseError("INVALID_JSON", "Failed to parse webhook body as JSON", e),
+      error: new WebhookParseError("INVALID_JSON", "Failed to parse webhook body as JSON", error),
     };
   }
 
-  const result = schema.safeParse(json);
+  const result = v.safeParse(schema, json);
   if (result.success) {
-    return { success: true, data: result.data as T };
+    return { success: true, data: result.output };
   }
   return {
     success: false,
     error: new WebhookParseError(
       "INVALID_PAYLOAD",
       "Webhook payload validation failed",
-      result.error,
+      result.issues,
     ),
   };
 }
@@ -110,16 +175,6 @@ async function verifyAndParse<T>(
 /**
  * Verify signature, parse event, and auto-parse the content JSON — all in one call.
  * Returns a discriminated union. Switch on `data.event` to narrow the content type.
- *
- * ```ts
- * const result = await safeParseTikTokWebhook({ body, signature, appSecret });
- * if (!result.success) return;
- * switch (result.data.event) {
- *   case "post.publish.publicly_available":
- *     console.log(result.data.content.post_id);  // typed!
- *     break;
- * }
- * ```
  */
 export async function safeParseTikTokWebhook(
   opts: WebhookParseOptions,
@@ -134,7 +189,7 @@ export async function safeParseVideoWebhook(
   return verifyAndParse(opts, videoWebhookEventSchema);
 }
 
-/** Safe-parse, narrowed to COMMENT events only. */
+/** Safe-parse, narrowed to COMMENT update events only. */
 export async function safeParseCommentWebhook(
   opts: WebhookParseOptions,
 ): Promise<WebhookParseResult<CommentWebhookEvent>> {
@@ -148,7 +203,7 @@ export async function safeParseMentionWebhook(
   return verifyAndParse(opts, mentionWebhookEventSchema);
 }
 
-/** Safe-parse, narrowed to DIRECT_MESSAGE events only. */
+/** Safe-parse, narrowed to Business Messaging events only. */
 export async function safeParseDMWebhook(
   opts: WebhookParseOptions,
 ): Promise<WebhookParseResult<DMWebhookEvent>> {

@@ -1,19 +1,19 @@
 ---
-title: Meta webhooks
-description: Verify, parse, and extract typed Meta webhook events at a Worker-safe boundary.
+title: Platform webhooks
+description: Verify, parse, and extract typed platform webhook events at a Worker-safe boundary.
 sidebar:
   order: 35
-  label: Meta webhooks
+  label: Platform webhooks
 ---
 
-Meta webhook handling is available from the small `@openpromo/meta/webhooks` leaf export. It uses
-Web Crypto and Valibot, so a Cloudflare Worker does not need to import the full generated Graph
-client.
+Platform webhook handling is available from the small `@openpromo/ad-platforms/webhooks` leaf
+export. It uses Web Crypto and Valibot, so a Cloudflare Worker does not need to import the full
+generated Graph client.
 
 ## Verify and parse
 
 ```ts
-import { webhooks } from "@openpromo/meta/webhooks";
+import { webhooks } from "@openpromo/ad-platforms/webhooks";
 
 const parsed = await webhooks.facebook.safeParse({
   body: await request.arrayBuffer(),
@@ -55,4 +55,21 @@ resolution, idempotency, persistence, Inbox handlers, and policy; Mosaic only ow
 verification, schemas, and event extraction.
 
 The same namespace exposes Facebook, Instagram, Threads, and WhatsApp schemas. WhatsApp also
-exposes its typed Cloud API client from the webhook leaf for small Worker bundles.
+exposes its typed Cloud API client from the webhook leaf for small Worker bundles. The older
+`@openpromo/meta/webhooks` path remains available for compatibility.
+
+TikTok Business webhooks are kept in their own leaf because they use a different signature and
+payload contract:
+
+```ts
+import { safeParseTikTokWebhook } from "@openpromo/ad-platforms/tiktok/webhooks";
+
+const parsed = await safeParseTikTokWebhook({
+  body: await request.text(),
+  signature: request.headers.get("TikTok-Signature") ?? "",
+  appSecret: env.TIKTOK_APP_SECRET,
+});
+```
+
+This surface is limited to TikTok API for Business; it does not cover consumer TikTok Login Kit
+or consumer Content Posting API flows.

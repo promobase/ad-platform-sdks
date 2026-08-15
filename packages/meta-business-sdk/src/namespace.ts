@@ -15,10 +15,17 @@ import type {
   FacebookPageClientOptions,
 } from "./clients/facebook/types.ts";
 // Instagram
-import { createInstagramClient, createInstagramOAuth } from "./clients/instagram/index.ts";
+import {
+  createFacebookGraphInstagramClient,
+  createInstagramClient,
+  createInstagramLoginClient,
+  createInstagramOAuth,
+} from "./clients/instagram/index.ts";
 import type {
   InstagramClientOptions,
+  InstagramCredentialFamily,
   OAuthConfig as InstagramOAuthConfig,
+  InstagramTransportOptions,
 } from "./clients/instagram/types.ts";
 // Threads
 import { createThreadsClient, createThreadsOAuth } from "./clients/threads/index.ts";
@@ -81,6 +88,8 @@ export const Facebook = {
 /** Direct Instagram platform surface. */
 export const Instagram = {
   createClient: createInstagramClient,
+  createLoginClient: createInstagramLoginClient,
+  createFacebookGraphClient: createFacebookGraphInstagramClient,
   OAuth: createInstagramOAuth,
   oauth: createInstagramOAuthAdapter,
   Webhooks: instagramWebhooks,
@@ -104,7 +113,9 @@ export type {
   FacebookOAuthConfig,
   FacebookPageClientOptions,
   InstagramClientOptions,
+  InstagramCredentialFamily,
   InstagramOAuthConfig,
+  InstagramTransportOptions,
   GraphClientOptions,
   ResolveBatchHandles,
   ThreadsClientOptions,

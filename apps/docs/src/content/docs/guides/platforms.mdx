@@ -8,17 +8,18 @@ sidebar:
 
 | Platform | Package | High-level focus |
 | --- | --- | --- |
-| Facebook | `@openpromo/meta` | Graph API, Page publishing, messaging, OAuth, webhooks |
-| Instagram | `@openpromo/meta` | Publishing, messaging, OAuth, webhooks, Graph API |
-| Threads | `@openpromo/meta` | Publishing, replies, OAuth, Graph API |
-| WhatsApp | `@openpromo/meta` | Cloud API messaging and webhooks |
-| TikTok | `@openpromo/tiktok` | Publishing, comments, insights, webhooks, generated Business API |
+| Facebook | `@openpromo/ad-platforms/facebook` | Graph API, Page publishing, messaging, OAuth, webhooks |
+| Instagram | `@openpromo/ad-platforms/instagram` | Publishing, messaging, OAuth, webhooks, Graph API |
+| Threads | `@openpromo/ad-platforms` | Publishing, replies, OAuth, Graph API |
+| WhatsApp | `@openpromo/ad-platforms/whatsapp` | Cloud API messaging and webhooks |
+| TikTok Business | `@openpromo/ad-platforms/tiktok` or `@openpromo/tiktok` | Business publishing, comments, insights, webhooks, generated Business API |
 | Google Ads | `@openpromo/google-ads` | Customer-bound resources, typed GAQL, generated v25 services |
 | Google Business Profile | `@openpromo/google-business-profile` | Locations, local posts, post insights, location performance |
 | LinkedIn | `@openpromo/linkedin` | Organizations, organic posts, comments, assets, OAuth |
 | X | `@openpromo/x` | Posts, users, direct messages, media upload, metrics |
 | YouTube | `@openpromo/youtube` | Data API resources, resumable uploads, comments, statistics |
 
-The umbrella `@openpromo/ad-platforms` package re-exports common entrypoints while each provider
-package remains independently installable. Use the provider-native client for side effects and the
-generated contract subpaths for exact operations, parameters, models, scopes, and source versions.
+The umbrella `@openpromo/ad-platforms` package re-exports common entrypoints and exposes
+platform-first leaf entrypoints. The older `@openpromo/meta` package remains independently
+installable for compatibility. Use the provider-native client for side effects and the generated
+contract subpaths for exact operations, parameters, models, scopes, and source versions.

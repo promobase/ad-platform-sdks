@@ -56,10 +56,24 @@ export interface PollingConfig {
 export interface InstagramClientOptions {
   api: ReturnType<typeof import("../../generated/index.ts").createClient>;
   igAccountId: string;
+  /** Identifies which provider credential family owns the Graph client. */
+  credentialFamily?: InstagramCredentialFamily;
   polling?: Partial<PollingConfig>;
   fetch?: typeof fetch;
   signal?: AbortSignal;
 }
+
+/** Instagram Business API credential families use different Graph hosts. */
+export type InstagramCredentialFamily = "instagram-login" | "facebook-login";
+
+export type InstagramTransportOptions = Omit<
+  import("../../generated/client-factory.ts").GraphClientOptions,
+  "accessToken" | "baseUrl"
+> & {
+  accessToken: string;
+  igAccountId: string;
+  polling?: Partial<PollingConfig>;
+};
 
 // OAuth types
 export interface OAuthConfig {

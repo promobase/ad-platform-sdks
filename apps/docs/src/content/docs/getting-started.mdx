@@ -15,18 +15,20 @@ integration.
 bun add @openpromo/ad-platforms
 ```
 
-Individual packages such as `@openpromo/meta`, `@openpromo/tiktok`, and `@openpromo/youtube` are
-available when bundle isolation matters.
+Platform-first entrypoints such as `@openpromo/ad-platforms/facebook`,
+`@openpromo/ad-platforms/instagram`, and `@openpromo/ad-platforms/tiktok`, plus individual
+provider packages such as `@openpromo/tiktok` and `@openpromo/youtube`, are available when bundle
+isolation matters.
 
 ## Create clients
 
 ```ts
-import { Meta, TikTok } from "@openpromo/ad-platforms";
+import { Instagram } from "@openpromo/ad-platforms/instagram";
+import { TikTok } from "@openpromo/ad-platforms";
 import { YouTube } from "@openpromo/ad-platforms/youtube";
 
-const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
-const instagram = Meta.Instagram.createClient({
-  api: meta,
+const instagram = Instagram.createLoginClient({
+  accessToken: process.env.INSTAGRAM_TOKEN!,
   igAccountId: "ig_123",
 });
 

@@ -251,10 +251,10 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
     `export { BatchBuilder, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";`,
   );
   barrelLines.push(
-    `export { createInstagramClient, createInstagramOAuth } from "../clients/index.ts";`,
+    `export { createFacebookGraphInstagramClient, createInstagramClient, createInstagramLoginClient, createInstagramOAuth } from "../clients/index.ts";`,
   );
   barrelLines.push(
-    `export type { InstagramClientOptions, InstagramOAuthConfig } from "../clients/index.ts";`,
+    `export type { InstagramClientOptions, InstagramCredentialFamily, InstagramOAuthConfig, InstagramTransportOptions } from "../clients/index.ts";`,
   );
   barrelLines.push(
     `export { createFacebookPageClient, createFacebookOAuth } from "../clients/index.ts";`,

@@ -16,7 +16,7 @@ data and account-discovery methods. Existing throwing methods remain available; 
 route or workflow boundaries when explicit error branching is more ergonomic.
 
 ```ts
-import { Facebook } from "@openpromo/meta";
+import { Facebook } from "@openpromo/ad-platforms/facebook";
 
 const oauth = Facebook.oauth({ appId, appSecret, redirectUri });
 const authorization = await oauth.authorize({
@@ -49,7 +49,7 @@ section when storing a cross-platform provider identity.
 
 | Platform | Client input |
 | --- | --- |
-| Meta, TikTok, LinkedIn, X, YouTube | An access token for the connected account |
+| Facebook, Instagram, Threads, WhatsApp, TikTok, LinkedIn, X, YouTube | An access token for the connected account |
 | Google Ads | An async access-token provider plus developer token and optional manager account |
 | Google Business Profile | An access token; your application owns refresh and persistence |
 
@@ -83,5 +83,5 @@ const provider = AllPlatforms.FACEBOOK;
 ```
 
 These are direct provider identities. There is no family-level `META` value; Facebook, Instagram,
-Threads, and WhatsApp are represented separately even though they share the `@openpromo/meta`
-package.
+Threads, and WhatsApp are represented separately. The older `@openpromo/meta` package remains
+available as a compatibility distribution for the shared Graph implementation.

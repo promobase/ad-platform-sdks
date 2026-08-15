@@ -3,8 +3,9 @@ import type { TikTokResponse, WebhookConfig, WebhookEventType } from "./types.ts
 const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
 
 /**
- * Webhook management for TikTok Business API.
- * Webhooks deliver events for VIDEO (publish lifecycle) and COMMENT activity.
+ * Webhook management for TikTok API for Business.
+ * Account webhooks deliver VIDEO (post publishing) and COMMENT update events;
+ * Business Messaging uses the separate DIRECT_MESSAGE category.
  */
 export function createWebhooks(config: WebhookConfig) {
   const { appId, appSecret } = config;
@@ -84,13 +85,18 @@ export function createWebhooks(config: WebhookConfig) {
       });
     },
 
-    /** Convenience: set up both VIDEO and COMMENT webhooks. */
+    /** Convenience: set up both official Accounts API webhook categories. */
     async setupAll(callbackUrl: string): Promise<void> {
       await this.update("VIDEO", callbackUrl);
       await this.update("COMMENT", callbackUrl);
     },
 
-    /** Convenience: tear down both VIDEO and COMMENT webhooks. */
+    /** Convenience: subscribe to the Business Messaging webhook category. */
+    async setupBusinessMessaging(callbackUrl: string): Promise<void> {
+      await this.update("DIRECT_MESSAGE", callbackUrl);
+    },
+
+    /** Convenience: tear down both official Accounts API webhook categories. */
     async teardownAll(): Promise<void> {
       await this.delete("VIDEO");
       await this.delete("COMMENT");

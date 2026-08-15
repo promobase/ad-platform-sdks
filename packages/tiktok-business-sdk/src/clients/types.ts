@@ -292,7 +292,14 @@ export interface AddPropertyOptions {
 
 // -- Webhooks --
 
-export type WebhookEventType = "VIDEO" | "COMMENT" | "BRAND_MENTION" | "DIRECT_MESSAGE";
+/** TikTok Accounts API webhook categories. */
+export type AccountWebhookEventType = "VIDEO" | "COMMENT";
+
+/** TikTok Business Messaging webhook categories. */
+export type BusinessMessagingWebhookEventType = "DIRECT_MESSAGE";
+
+/** Categories accepted by the shared TikTok Business webhook endpoints. */
+export type WebhookEventType = AccountWebhookEventType | BusinessMessagingWebhookEventType;
 
 export interface WebhookConfig {
   appId: string;

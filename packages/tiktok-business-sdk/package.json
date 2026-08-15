@@ -81,6 +81,12 @@
       "import": "./dist/ai/index.js",
       "default": "./dist/ai/index.js"
     },
+    "./webhooks": {
+      "bun": "./src/webhooks.ts",
+      "types": "./dist/webhooks.d.ts",
+      "import": "./dist/webhooks.js",
+      "default": "./dist/webhooks.js"
+    },
     "./generated": {
       "bun": "./src/generated/index.ts",
       "types": "./dist/generated/index.d.ts",

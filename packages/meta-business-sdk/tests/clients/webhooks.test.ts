@@ -16,6 +16,10 @@ import {
   verifyWebhookSignature,
   WebhookParseError,
 } from "../../src/clients/webhooks.ts";
+import {
+  verifyWebhookChallenge as verifyCanonicalWebhookChallenge,
+  verifyWebhookSignature as verifyCanonicalWebhookSignature,
+} from "../../src/webhooks/verify.ts";
 
 // Shared helper: sign a body with HMAC-SHA256
 async function signBody(body: string, secret: string): Promise<string> {
@@ -35,6 +39,11 @@ async function signBody(body: string, secret: string): Promise<string> {
 }
 
 // --- Challenge verification ---
+
+test("legacy verifier exports route to the worker-safe canonical implementation", () => {
+  expect(verifyWebhookChallenge).toBe(verifyCanonicalWebhookChallenge);
+  expect(verifyWebhookSignature).toBe(verifyCanonicalWebhookSignature);
+});
 
 test("verifyWebhookChallenge returns challenge on valid request", () => {
   const result = verifyWebhookChallenge(
@@ -77,6 +86,13 @@ test("verifyWebhookSignature validates correct HMAC signature", async () => {
 
 test("verifyWebhookSignature rejects wrong signature", async () => {
   const valid = await verifyWebhookSignature('{"test":"data"}', "sha256=deadbeef", "secret");
+  expect(valid).toBe(false);
+});
+
+test("verifyWebhookSignature rejects signatures with a non-canonical prefix", async () => {
+  const body = '{"test":"data"}';
+  const signature = await signBody(body, "secret");
+  const valid = await verifyWebhookSignature(body, `not-${signature}`, "secret");
   expect(valid).toBe(false);
 });
 
@@ -289,6 +305,35 @@ test("parseFacebookWebhook parses DM messaging events", async () => {
 
   const result = await parseFacebookWebhook({ body, signature, appSecret: "secret" });
   expect(result.entry[0]!.messaging![0]!.message!.text).toBe("Hi from Messenger");
+});
+
+test("legacy Facebook parser accepts worker-safe byte bodies", async () => {
+  const payload = {
+    object: "page",
+    entry: [
+      {
+        id: "page_1",
+        time: 1700000000,
+        messaging: [
+          {
+            sender: { id: "sender_1" },
+            recipient: { id: "page_1" },
+            timestamp: 1700000001,
+            message: { mid: "mid_1", text: "bytes" },
+          },
+        ],
+      },
+    ],
+  };
+  const body = JSON.stringify(payload);
+  const signature = await signBody(body, "secret");
+
+  const result = await parseFacebookWebhook({
+    body: new TextEncoder().encode(body),
+    signature,
+    appSecret: "secret",
+  });
+  expect(result.entry[0]!.messaging![0]!.message!.text).toBe("bytes");
 });
 
 // --- Threads webhook parsing ---

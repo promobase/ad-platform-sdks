@@ -182,6 +182,42 @@
       "types": "./dist/youtube.d.ts",
       "import": "./dist/youtube.js",
       "default": "./dist/youtube.js"
+    },
+    "./facebook": {
+      "bun": "./src/facebook.ts",
+      "types": "./dist/facebook.d.ts",
+      "import": "./dist/facebook.js",
+      "default": "./dist/facebook.js"
+    },
+    "./instagram": {
+      "bun": "./src/instagram.ts",
+      "types": "./dist/instagram.d.ts",
+      "import": "./dist/instagram.js",
+      "default": "./dist/instagram.js"
+    },
+    "./whatsapp": {
+      "bun": "./src/whatsapp.ts",
+      "types": "./dist/whatsapp.d.ts",
+      "import": "./dist/whatsapp.js",
+      "default": "./dist/whatsapp.js"
+    },
+    "./tiktok": {
+      "bun": "./src/tiktok.ts",
+      "types": "./dist/tiktok.d.ts",
+      "import": "./dist/tiktok.js",
+      "default": "./dist/tiktok.js"
+    },
+    "./tiktok/webhooks": {
+      "bun": "./src/tiktok-webhooks.ts",
+      "types": "./dist/tiktok-webhooks.d.ts",
+      "import": "./dist/tiktok-webhooks.js",
+      "default": "./dist/tiktok-webhooks.js"
+    },
+    "./webhooks": {
+      "bun": "./src/webhooks.ts",
+      "types": "./dist/webhooks.d.ts",
+      "import": "./dist/webhooks.js",
+      "default": "./dist/webhooks.js"
     }
   },
   "engines": {

@@ -42,6 +42,7 @@ describe("Graph OAuth adapters", () => {
     expect(authorization.state).toBe("state");
     expect(grant.accessToken).toBe("long-lived");
     expect(grant.providerData.longLived.access_token).toBe("long-lived");
+    expect(grant.providerData.credentialFamily).toBe("facebook-login");
     expect(requests).toHaveLength(2);
   });
 

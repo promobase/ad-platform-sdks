@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:0e4d5a2a65b9fc37e41fbb55c7a469ea6c98c81e9eaeceddb7ca174de0693aca
+// fingerprint: sha256:c9e2f4819b9c66164645f87b91e1f5d13b2613c4acf8db5ee2d80af6e49ad25e
 // DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated barrel file — do not edit
 
@@ -997,8 +997,8 @@ export type { ApiClient, ApiClientOptions } from "@openpromo/sdk-runtime";
 export { Cursor } from "@openpromo/sdk-runtime";
 export { FacebookApiError } from "../errors.ts";
 export { BatchBuilder, type BatchHandle, type ResolveBatchHandles } from "../batch.ts";
-export { createInstagramClient, createInstagramOAuth } from "../clients/index.ts";
-export type { InstagramClientOptions, InstagramOAuthConfig } from "../clients/index.ts";
+export { createFacebookGraphInstagramClient, createInstagramClient, createInstagramLoginClient, createInstagramOAuth } from "../clients/index.ts";
+export type { InstagramClientOptions, InstagramCredentialFamily, InstagramOAuthConfig, InstagramTransportOptions } from "../clients/index.ts";
 export { createFacebookPageClient, createFacebookOAuth } from "../clients/index.ts";
 export type { FacebookPageClientOptions, FacebookOAuthConfig } from "../clients/index.ts";
 export { createThreadsClient, createThreadsOAuth } from "../clients/index.ts";

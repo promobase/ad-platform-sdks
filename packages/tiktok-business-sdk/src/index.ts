@@ -14,6 +14,7 @@ export {
 // --- Client types ---
 export type {
   AccountField,
+  AccountWebhookEventType,
   // Account
   AccountInfoOptions,
   AddPropertyOptions,
@@ -22,6 +23,7 @@ export type {
   AutoMessage,
   AutoMessageType,
   BenchmarkData,
+  BusinessMessagingWebhookEventType,
   BrandHashtagInfo,
   BusinessCategory,
   CommentItem,
@@ -128,6 +130,7 @@ export type {
   VideoWebhookEvent,
   WebhookParseOptions,
   WebhookParseResult,
+  WebhookSignatureOptions,
 } from "./webhooks.ts";
 // --- Webhooks (verification + parsing + schemas) ---
 export {

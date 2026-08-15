@@ -1,50 +1,17 @@
-/**
- * Verify a provider webhook challenge request.
- * Used in GET handlers to respond to subscription verification.
- */
-export function verifyWebhookChallenge(
-  params: {
-    "hub.mode"?: string;
-    "hub.challenge"?: string;
-    "hub.verify_token"?: string;
-  },
-  expectedVerifyToken: string,
-): { valid: boolean; challenge?: string } {
-  if (
-    params["hub.mode"] === "subscribe" &&
-    params["hub.verify_token"] === expectedVerifyToken &&
-    params["hub.challenge"]
-  ) {
-    return { valid: true, challenge: params["hub.challenge"] };
-  }
-  return { valid: false };
-}
+import {
+  verifyWebhookChallenge,
+  verifyWebhookSignature,
+  webhookBodyToText,
+} from "../webhooks/verify.ts";
+import type { WebhookBody } from "../webhooks/verify.ts";
 
-/**
- * Verify the HMAC-SHA256 signature on a webhook payload.
- * The signature is in the X-Hub-Signature-256 header as "sha256={hex}".
- */
-export async function verifyWebhookSignature(
-  body: string | ArrayBuffer,
-  signature: string,
-  appSecret: string,
-): Promise<boolean> {
-  const expectedSig = signature.replace("sha256=", "");
-  const encoder = new TextEncoder();
-  const key = await crypto.subtle.importKey(
-    "raw",
-    encoder.encode(appSecret),
-    { name: "HMAC", hash: "SHA-256" },
-    false,
-    ["sign"],
-  );
-  const bodyBytes = typeof body === "string" ? encoder.encode(body) : body;
-  const signed = await crypto.subtle.sign("HMAC", key, bodyBytes);
-  const hex = Array.from(new Uint8Array(signed))
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
-  return hex === expectedSig;
-}
+// Keep the legacy client entrypoint wired to the worker-safe implementation.
+export { verifyWebhookChallenge, verifyWebhookSignature } from "../webhooks/verify.ts";
+export type {
+  WebhookBody,
+  WebhookChallengeParams,
+  WebhookChallengeResult,
+} from "../webhooks/verify.ts";
 
 // --- Platform-specific webhook parsers (Valibot-backed) ---
 
@@ -68,7 +35,7 @@ export type {
 } from "./webhooks-schemas.ts";
 
 export interface WebhookParseOptions {
-  body: string;
+  body: WebhookBody;
   signature: string;
   appSecret: string;
 }
@@ -125,7 +92,7 @@ async function verifyAndParse<T>(
 
   let json: unknown;
   try {
-    json = JSON.parse(opts.body);
+    json = JSON.parse(webhookBodyToText(opts.body));
   } catch (e) {
     const err = new WebhookParseError("INVALID_JSON", "Failed to parse webhook body as JSON", e);
     if (safe) return { success: false, error: err };

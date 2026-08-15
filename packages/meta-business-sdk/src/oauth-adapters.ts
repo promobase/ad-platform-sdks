@@ -51,6 +51,7 @@ const threadsLongLivedTokenSchema = facebookLongLivedTokenSchema;
 type GraphOAuthData<TShort, TLong> = {
   readonly shortLived: TShort;
   readonly longLived: TLong;
+  readonly credentialFamily: "facebook-login" | "instagram-login" | "threads-login";
 };
 
 function rejectPkce(provider: string, pkce: unknown): void {
@@ -125,7 +126,11 @@ export function createFacebookOAuthAdapter(config: FacebookOAuthConfig): OAuthAd
         facebookLongLivedTokenSchema,
         await legacy.exchangeForLongLived(shortLived.access_token),
       );
-      return facebookTokenSet(longLived, { shortLived, longLived });
+      return facebookTokenSet(longLived, {
+        shortLived,
+        longLived,
+        credentialFamily: "facebook-login",
+      });
     },
     async refresh(input) {
       if (!input.accessToken) {
@@ -140,6 +145,7 @@ export function createFacebookOAuthAdapter(config: FacebookOAuthConfig): OAuthAd
         providerData: {
           shortLived: { access_token: input.accessToken },
           longLived: refreshed.providerData,
+          credentialFamily: "facebook-login",
         },
       };
     },
@@ -166,7 +172,7 @@ function instagramTokenSet(
     tokenType: longLived.token_type,
     scopes: [],
     accessTokenExpiresAt: tokenExpiry(longLived.expires_in),
-    providerData: { shortLived, longLived },
+    providerData: { shortLived, longLived, credentialFamily: "instagram-login" },
   };
 }
 
@@ -266,7 +272,7 @@ export function createThreadsOAuthAdapter(config: ThreadsOAuthConfig): OAuthAdap
         tokenType: longLived.token_type,
         scopes: [],
         accessTokenExpiresAt: tokenExpiry(longLived.expires_in),
-        providerData: { shortLived, longLived },
+        providerData: { shortLived, longLived, credentialFamily: "threads-login" },
       };
     },
     async refresh(input) {
@@ -288,6 +294,7 @@ export function createThreadsOAuthAdapter(config: ThreadsOAuthConfig): OAuthAdap
         providerData: {
           shortLived: { access_token: input.accessToken, user_id: "unknown" },
           longLived,
+          credentialFamily: "threads-login",
         },
       };
     },

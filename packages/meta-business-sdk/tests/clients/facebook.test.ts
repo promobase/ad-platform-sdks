@@ -474,6 +474,33 @@ test("webhooks.subscribe calls subscribed_apps endpoint", async () => {
   expect(result.success).toBe(true);
 });
 
+test("webhooks.subscribe defaults to parser-supported Page webhook fields", async () => {
+  mockFetchSequence([{ body: { success: true } }]);
+  const api = createClient({ accessToken: "tok" });
+  const fb = createFacebookPageClient({ api, pageId: "page_123", accessToken: "tok" });
+
+  await fb.webhooks.subscribe();
+
+  const [, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [
+    string,
+    RequestInit,
+  ];
+  expect(init.body).toBeInstanceOf(URLSearchParams);
+  expect((init.body as URLSearchParams).get("subscribed_fields")).toBe(
+    [
+      "feed",
+      "messages",
+      "message_edits",
+      "message_echoes",
+      "message_reactions",
+      "message_reads",
+      "message_deliveries",
+      "messaging_postbacks",
+      "messaging_referrals",
+    ].join(","),
+  );
+});
+
 // --- OAuth ---
 
 test("Facebook OAuth generates correct authorization URL", () => {

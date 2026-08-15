@@ -22,6 +22,12 @@ Powering [**openpromo.app**](https://openpromo.app) — the AI-native social med
 
 One umbrella package for **Facebook**, **Instagram**, **Threads**, **WhatsApp**, **TikTok**, **LinkedIn**, **X**, **YouTube**, and **Google Ads**. Fully typed, generated from official specs where available, with high-level clients for publishing, messaging, ad management, and typed GAQL queries — plus AI SDK tools ready to drop into any agent.
 
+Platform-first leaf entrypoints are available for the Graph-backed surfaces:
+`@openpromo/ad-platforms/facebook`, `@openpromo/ad-platforms/instagram`,
+`@openpromo/ad-platforms/whatsapp`, `@openpromo/ad-platforms/tiktok`,
+`@openpromo/ad-platforms/tiktok/webhooks`, and `@openpromo/ad-platforms/webhooks`. The legacy
+`@openpromo/meta` package remains available for compatibility.
+
 ## Install
 
 ```bash

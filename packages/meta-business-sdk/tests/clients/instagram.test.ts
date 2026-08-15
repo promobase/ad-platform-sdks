@@ -1,6 +1,11 @@
 import { afterEach, expect, mock, test } from "bun:test";
 
-import { createInstagramClient, createInstagramOAuth } from "../../src/clients/instagram/index.ts";
+import {
+  createFacebookGraphInstagramClient,
+  createInstagramClient,
+  createInstagramLoginClient,
+  createInstagramOAuth,
+} from "../../src/clients/instagram/index.ts";
 import { createClient } from "../../src/generated/index.ts";
 
 const originalFetch = globalThis.fetch;
@@ -165,11 +170,41 @@ test("OAuth generates correct authorization URL", () => {
   });
 
   const url = oauth.getAuthorizationUrl({ state: "xyz" });
-  expect(url).toContain("https://www.instagram.com/oauth/authorize");
+  expect(url).toContain("https://api.instagram.com/oauth/authorize");
   expect(url).toContain("client_id=app_123");
   expect(url).toContain("redirect_uri=https%3A%2F%2Fexample.com%2Fcallback");
   expect(url).toContain("state=xyz");
   expect(url).toContain("instagram_business_basic");
+  expect(url).toContain("instagram_business_manage_messages");
+});
+
+test("credential-family client factories select the matching Graph host", async () => {
+  const requests: string[] = [];
+  const fetchImpl = (async (input: string | Request | URL) => {
+    requests.push(String(input));
+    return new Response(JSON.stringify({ data: [] }), {
+      headers: { "Content-Type": "application/json" },
+    });
+  }) as typeof fetch;
+
+  const instagramLogin = createInstagramLoginClient({
+    accessToken: "ig-token",
+    igAccountId: "ig_123",
+    fetch: fetchImpl,
+  });
+  const facebookGraph = createFacebookGraphInstagramClient({
+    accessToken: "fb-token",
+    igAccountId: "ig_123",
+    fetch: fetchImpl,
+  });
+
+  await instagramLogin.account.get();
+  await facebookGraph.account.get();
+
+  expect(instagramLogin.credentialFamily).toBe("instagram-login");
+  expect(facebookGraph.credentialFamily).toBe("facebook-login");
+  expect(requests[0]).toStartWith("https://graph.instagram.com/");
+  expect(requests[1]).toStartWith("https://graph.facebook.com/");
 });
 
 test("OAuth exchangeCode calls correct endpoint", async () => {

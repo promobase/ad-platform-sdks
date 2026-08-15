@@ -42,6 +42,7 @@ export function createOAuth(config: OAuthConfig) {
         "instagram_business_content_publish",
         "instagram_business_manage_comments",
         "instagram_business_manage_insights",
+        "instagram_business_manage_messages",
       ];
       const params = new URLSearchParams({
         client_id: config.appId,
@@ -50,7 +51,7 @@ export function createOAuth(config: OAuthConfig) {
         response_type: "code",
         ...(opts?.state ? { state: opts.state } : {}),
       });
-      return `https://www.instagram.com/oauth/authorize?${params.toString()}`;
+      return `${IG_OAUTH_BASE}/authorize?${params.toString()}`;
     },
 
     /**

@@ -7,6 +7,18 @@ import { createOAuth } from "./oauth.ts";
 import { createStories } from "./stories.ts";
 import type { FacebookPageClientOptions, OAuthConfig } from "./types.ts";
 
+const DEFAULT_WEBHOOK_FIELDS = [
+  "feed",
+  "messages",
+  "message_edits",
+  "message_echoes",
+  "message_reactions",
+  "message_reads",
+  "message_deliveries",
+  "messaging_postbacks",
+  "messaging_referrals",
+] as const;
+
 export type * from "./types.ts";
 
 export function createFacebookPageClient(opts: FacebookPageClientOptions) {
@@ -33,9 +45,7 @@ export function createFacebookPageClient(opts: FacebookPageClientOptions) {
     webhooks: {
       async subscribe(fields?: string[]): Promise<{ success: boolean }> {
         return api.client.post<{ success: boolean }>(`${pageId}/subscribed_apps`, {
-          subscribed_fields: (
-            fields ?? ["feed", "messages", "message_edits", "message_echoes", "message_reactions"]
-          ).join(","),
+          subscribed_fields: (fields ?? DEFAULT_WEBHOOK_FIELDS).join(","),
         });
       },
       async unsubscribe(): Promise<void> {

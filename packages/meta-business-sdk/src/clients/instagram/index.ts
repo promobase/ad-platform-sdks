@@ -1,3 +1,4 @@
+import { createGraphClient } from "../../generated/client-factory.ts";
 import { createAccount } from "./account.ts";
 import { createComments } from "./comments.ts";
 import { createContainers } from "./containers.ts";
@@ -6,7 +7,7 @@ import { createMessaging } from "./messaging.ts";
 import { createOAuth } from "./oauth.ts";
 import { resolvePolling } from "./polling.ts";
 import { createStories } from "./stories.ts";
-import type { InstagramClientOptions, OAuthConfig } from "./types.ts";
+import type { InstagramClientOptions, InstagramTransportOptions, OAuthConfig } from "./types.ts";
 
 export type * from "./types.ts";
 
@@ -20,6 +21,7 @@ export function createInstagramClient(opts: InstagramClientOptions) {
   return {
     /** Generated Graph client for provider operations without a convenience wrapper. */
     api,
+    credentialFamily: opts.credentialFamily,
     media: createMedia(api, containers, igUser, polling),
     stories: createStories(containers, polling),
     comments: createComments(api),
@@ -38,6 +40,33 @@ export function createInstagramClient(opts: InstagramClientOptions) {
       },
     },
   };
+}
+
+function createInstagramTransportClient(
+  opts: InstagramTransportOptions,
+  credentialFamily: "instagram-login" | "facebook-login",
+  baseUrl: string,
+) {
+  const { accessToken, igAccountId, polling, fetch, signal, ...graphOptions } = opts;
+  const api = createGraphClient({
+    ...graphOptions,
+    accessToken,
+    baseUrl,
+    fetch,
+    signal,
+  });
+
+  return createInstagramClient({ api, igAccountId, polling, fetch, signal, credentialFamily });
+}
+
+/** Create an Instagram client for Instagram Login credentials. */
+export function createInstagramLoginClient(opts: InstagramTransportOptions) {
+  return createInstagramTransportClient(opts, "instagram-login", "https://graph.instagram.com");
+}
+
+/** Create an Instagram client for Facebook Login/Page-linked credentials. */
+export function createFacebookGraphInstagramClient(opts: InstagramTransportOptions) {
+  return createInstagramTransportClient(opts, "facebook-login", "https://graph.facebook.com");
 }
 
 export function createInstagramOAuth(config: OAuthConfig) {

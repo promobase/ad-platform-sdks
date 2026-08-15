@@ -2,8 +2,17 @@ export type { FacebookPageClientOptions } from "./facebook/index.ts";
 export { createFacebookOAuth, createFacebookPageClient } from "./facebook/index.ts";
 export { createFacebookOAuthAdapter } from "../oauth-adapters.ts";
 export type { OAuthConfig as FacebookOAuthConfig } from "./facebook/types.ts";
-export type { InstagramClientOptions } from "./instagram/index.ts";
-export { createInstagramClient, createInstagramOAuth } from "./instagram/index.ts";
+export type {
+  InstagramClientOptions,
+  InstagramCredentialFamily,
+  InstagramTransportOptions,
+} from "./instagram/index.ts";
+export {
+  createFacebookGraphInstagramClient,
+  createInstagramClient,
+  createInstagramLoginClient,
+  createInstagramOAuth,
+} from "./instagram/index.ts";
 export { createInstagramOAuthAdapter } from "../oauth-adapters.ts";
 export type { OAuthConfig as InstagramOAuthConfig } from "./instagram/types.ts";
 export type { ThreadsClientOptions } from "./threads/index.ts";
