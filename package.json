@@ -20,6 +20,7 @@
     "release:check": "node scripts/release.mjs --check",
     "effect:check": "bun scripts/check-effect-runtime.mjs",
     "docs:check": "bun run --cwd apps/docs reference:check && bun run --cwd apps/docs lint",
+    "published:check": "bun scripts/check-published-subpaths.mjs",
     "codegen:check": "bun scripts/check-codegen-coverage.mjs && node scripts/ensure-generated-headers.mjs --check"
   },
   "devDependencies": {

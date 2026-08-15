@@ -111,7 +111,7 @@ cannot accidentally pass an Instagram Login token to a Facebook Graph client.
 ## Current state
 
 - Status: in_progress
-- Completed slices: Instagram credential-family transport split; Meta verifier consolidation; TikTok Business webhook Valibot/leaf parity; removal of misleading Meta Effect aliases
+- Completed slices: Instagram credential-family transport split; Meta verifier consolidation; TikTok Business webhook Valibot/leaf parity; removal of misleading Meta Effect aliases; published platform subpath verification
 - Current blocker: none
 - Consumer impact: no OpenPromo changes until adapter parity is verified
 
@@ -145,3 +145,14 @@ cannot accidentally pass an Instagram Login token to a Facebook Graph client.
   the next package/codegen checks will verify the public surface.
 - Remaining: create a true Instagram/Threads Effect partition only if a source-backed IR exists;
   otherwise keep the aliases absent.
+
+## Checkpoint — 2026-08-15 — published platform subpaths
+
+- Changed: added `scripts/check-published-subpaths.mjs` and the `published:check` command. The
+  checker reads package export maps, resolves concrete and wildcard `import` targets, and imports
+  the built files for Meta, the umbrella package, and TikTok Business.
+- Proof: clean package builds followed by `bun run published:check` successfully imported 109
+  published entrypoints, including the remaining Facebook Effect path and the direct FB/IG/TT
+  leaves.
+- Remaining: current Meta API regeneration, required scope metadata, TikTok transport unification,
+  and curated Facebook/Instagram/TikTok capability gaps.

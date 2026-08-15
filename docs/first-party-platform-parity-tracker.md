@@ -31,7 +31,7 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | GEN-01 | Correct Instagram generated Effect partition | verified | Mosaic codegen | Removed Facebook-shaped Instagram and Threads Effect aliases; Nimbus reference generation now states when a platform has no generated Effect contract | No public Instagram/Threads alias points to Facebook descriptors |
 | GEN-02 | Populate documented required scopes/capabilities | planned | Mosaic codegen | Generated Meta/TikTok descriptors mostly expose empty scopes | Source-backed scope metadata fixtures |
 | PUB-01 | Add TikTok umbrella platform leaf | verified | Mosaic | `@openpromo/ad-platforms/tiktok` and `/tiktok/webhooks` source/build entries exist | Umbrella build and dist subpath imports pass |
-| PUB-02 | Verify all platform-first exports against dist | planned | Mosaic release | Existing tests import source files directly | Build then import every published subpath |
+| PUB-02 | Verify all platform-first exports against dist | verified | Mosaic release | `scripts/check-published-subpaths.mjs` imports every Meta, umbrella, and TikTok Business `import` export from clean `dist` output | Clean package builds plus 109 published entrypoints import successfully |
 
 ## Facebook detail
 
