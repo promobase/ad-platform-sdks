@@ -1,50 +1,36 @@
 // @generated
-// fingerprint: sha256:2f20dc80c91a7df41c39159c97bec763442b8067629e454594ac253b2af7ad85
+// fingerprint: sha256:500efcbfb2178ad5b0d2fd85933b0ed312d4078904cb1ed1e4492cd29cb71dcb
 // DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Pangle — do not edit
+import { tiktokRequest } from "../../clients/request.ts";
 import type { PangleBlockListGetParams, PangleBlockListGetResponse, PangleBlockListUpdateParams, PangleBlockListUpdateResponse, PangleAudiencePackageGetParams, PangleAudiencePackageGetResponse } from "../types/pangle.ts";
-
-interface TikTokResponse<T> {
-  code: number;
-  message: string;
-  request_id: string;
-  data: T;
-}
 
 const TT_API_BASE = "https://business-api.tiktok.com";
 
 export function createPangle(opts: { accessToken: string; advertiserId?: string; baseUrl?: string; fetch?: typeof fetch }) {
-  const apiBase = (opts.baseUrl ?? TT_API_BASE).replace(/\/$/, "");
-  const fetchImpl = opts.fetch ?? fetch;
 
   async function get<T>(path: string, params: Record<string, unknown>): Promise<T> {
-    const searchParams = new URLSearchParams();
-    for (const [key, value] of Object.entries(params)) {
-      if (value !== undefined && value !== null) {
-        searchParams.set(key, typeof value === "object" ? JSON.stringify(value) : String(value));
-      }
-    }
-    const response = await fetchImpl(`${apiBase}${path}?${searchParams.toString()}`, {
-      headers: { "Access-Token": opts.accessToken },
+    return tiktokRequest<T>({
+      accessToken: opts.accessToken,
+      baseUrl: opts.baseUrl ?? TT_API_BASE,
+      fetch: opts.fetch,
+    }, {
+      method: "GET",
+      path,
+      query: params,
     });
-    const body = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || body.code !== 0) {
-      throw new Error(`TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`);
-    }
-    return body.data;
   }
 
   async function post<T>(path: string, body: Record<string, unknown>): Promise<T> {
-    const response = await fetchImpl(`${apiBase}${path}`, {
+    return tiktokRequest<T>({
+      accessToken: opts.accessToken,
+      baseUrl: opts.baseUrl ?? TT_API_BASE,
+      fetch: opts.fetch,
+    }, {
       method: "POST",
-      headers: { "Access-Token": opts.accessToken, "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      path,
+      body,
     });
-    const responseBody = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || responseBody.code !== 0) {
-      throw new Error(`TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`);
-    }
-    return responseBody.data;
   }
 
   return {

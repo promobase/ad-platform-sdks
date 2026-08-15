@@ -1,50 +1,36 @@
 // @generated
-// fingerprint: sha256:339db3f82b2b97d598eb76150fc7440430f5ccbdd0fa20b6d330bc1f7c56cf7f
+// fingerprint: sha256:6b199fc180499c7f6be31a7f696ba2a995e8ea7ff075416b8c1f1f815a9604ee
 // DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for GMV Max — do not edit
+import { tiktokRequest } from "../../clients/request.ts";
 import type { GmvMaxCampaignGetParams, GmvMaxCampaignGetResponse, CampaignGmvMaxInfoParams, CampaignGmvMaxInfoResponse, CampaignGmvMaxCreateParams, CampaignGmvMaxCreateResponse, CampaignGmvMaxUpdateParams, CampaignGmvMaxUpdateResponse, GmvMaxBidRecommendParams, GmvMaxBidRecommendResponse, CampaignGmvMaxSessionCreateParams, CampaignGmvMaxSessionCreateResponse, CampaignGmvMaxSessionUpdateParams, CampaignGmvMaxSessionUpdateResponse, CampaignGmvMaxSessionListParams, CampaignGmvMaxSessionListResponse, CampaignGmvMaxSessionGetParams, CampaignGmvMaxSessionGetResponse, CampaignGmvMaxSessionDeleteParams, CampaignGmvMaxSessionDeleteResponse, GmvMaxStoreListParams, GmvMaxStoreListResponse, GmvMaxStoreShopAdUsageCheckParams, GmvMaxStoreShopAdUsageCheckResponse, GmvMaxIdentityGetParams, GmvMaxIdentityGetResponse, GmvMaxOccupiedCustomShopAdsListParams, GmvMaxOccupiedCustomShopAdsListResponse, GmvMaxVideoGetParams, GmvMaxVideoGetResponse, GmvMaxCustomAnchorVideoListGetParams, GmvMaxCustomAnchorVideoListGetResponse, CampaignGmvMaxCreativeUpdateParams, CampaignGmvMaxCreativeUpdateResponse, GmvMaxCreationCustomAnchorVideoListCreateParams, GmvMaxCreationCustomAnchorVideoListCreateResponse, GmvMaxCreationCustomAnchorVideoListGetParams, GmvMaxCreationCustomAnchorVideoListGetResponse, GmvMaxCreationCustomAnchorVideoListDeleteParams, GmvMaxCreationCustomAnchorVideoListDeleteResponse, GmvMaxCreationShopVideoVideoAnchorsParams, GmvMaxCreationShopVideoVideoAnchorsResponse, GmvMaxExclusiveAuthorizationGetParams, GmvMaxExclusiveAuthorizationGetResponse, GmvMaxExclusiveAuthorizationCreateParams, GmvMaxExclusiveAuthorizationCreateResponse } from "../types/gmv-max.ts";
-
-interface TikTokResponse<T> {
-  code: number;
-  message: string;
-  request_id: string;
-  data: T;
-}
 
 const TT_API_BASE = "https://business-api.tiktok.com";
 
 export function createGmvMax(opts: { accessToken: string; advertiserId?: string; baseUrl?: string; fetch?: typeof fetch }) {
-  const apiBase = (opts.baseUrl ?? TT_API_BASE).replace(/\/$/, "");
-  const fetchImpl = opts.fetch ?? fetch;
 
   async function get<T>(path: string, params: Record<string, unknown>): Promise<T> {
-    const searchParams = new URLSearchParams();
-    for (const [key, value] of Object.entries(params)) {
-      if (value !== undefined && value !== null) {
-        searchParams.set(key, typeof value === "object" ? JSON.stringify(value) : String(value));
-      }
-    }
-    const response = await fetchImpl(`${apiBase}${path}?${searchParams.toString()}`, {
-      headers: { "Access-Token": opts.accessToken },
+    return tiktokRequest<T>({
+      accessToken: opts.accessToken,
+      baseUrl: opts.baseUrl ?? TT_API_BASE,
+      fetch: opts.fetch,
+    }, {
+      method: "GET",
+      path,
+      query: params,
     });
-    const body = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || body.code !== 0) {
-      throw new Error(`TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`);
-    }
-    return body.data;
   }
 
   async function post<T>(path: string, body: Record<string, unknown>): Promise<T> {
-    const response = await fetchImpl(`${apiBase}${path}`, {
+    return tiktokRequest<T>({
+      accessToken: opts.accessToken,
+      baseUrl: opts.baseUrl ?? TT_API_BASE,
+      fetch: opts.fetch,
+    }, {
       method: "POST",
-      headers: { "Access-Token": opts.accessToken, "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      path,
+      body,
     });
-    const responseBody = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || responseBody.code !== 0) {
-      throw new Error(`TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`);
-    }
-    return responseBody.data;
   }
 
   return {

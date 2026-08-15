@@ -1,50 +1,36 @@
 // @generated
-// fingerprint: sha256:6d7699ad45f7a3654f80b62a6d78eb127ae3fea95bafd9fd006aa7a663d690b5
+// fingerprint: sha256:7793ffb762940459e1312fb4cba23c985673be6416e5ce9887f0ff58e6ee1a5c
 // DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for BC Invoices — do not edit
+import { tiktokRequest } from "../../clients/request.ts";
 import type { BcInvoiceGetParams, BcInvoiceGetResponse, BcInvoiceUnpaidGetParams, BcInvoiceUnpaidGetResponse, BcInvoiceDownloadParams, BcInvoiceDownloadResponse, BcInvoiceTaskCreateParams, BcInvoiceTaskCreateResponse, BcInvoiceTaskGetParams, BcInvoiceTaskGetResponse, BcInvoiceTaskListParams, BcInvoiceTaskListResponse } from "../types/bc-invoices.ts";
-
-interface TikTokResponse<T> {
-  code: number;
-  message: string;
-  request_id: string;
-  data: T;
-}
 
 const TT_API_BASE = "https://business-api.tiktok.com";
 
 export function createBcInvoices(opts: { accessToken: string; advertiserId?: string; baseUrl?: string; fetch?: typeof fetch }) {
-  const apiBase = (opts.baseUrl ?? TT_API_BASE).replace(/\/$/, "");
-  const fetchImpl = opts.fetch ?? fetch;
 
   async function get<T>(path: string, params: Record<string, unknown>): Promise<T> {
-    const searchParams = new URLSearchParams();
-    for (const [key, value] of Object.entries(params)) {
-      if (value !== undefined && value !== null) {
-        searchParams.set(key, typeof value === "object" ? JSON.stringify(value) : String(value));
-      }
-    }
-    const response = await fetchImpl(`${apiBase}${path}?${searchParams.toString()}`, {
-      headers: { "Access-Token": opts.accessToken },
+    return tiktokRequest<T>({
+      accessToken: opts.accessToken,
+      baseUrl: opts.baseUrl ?? TT_API_BASE,
+      fetch: opts.fetch,
+    }, {
+      method: "GET",
+      path,
+      query: params,
     });
-    const body = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || body.code !== 0) {
-      throw new Error(`TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`);
-    }
-    return body.data;
   }
 
   async function post<T>(path: string, body: Record<string, unknown>): Promise<T> {
-    const response = await fetchImpl(`${apiBase}${path}`, {
+    return tiktokRequest<T>({
+      accessToken: opts.accessToken,
+      baseUrl: opts.baseUrl ?? TT_API_BASE,
+      fetch: opts.fetch,
+    }, {
       method: "POST",
-      headers: { "Access-Token": opts.accessToken, "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      path,
+      body,
     });
-    const responseBody = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || responseBody.code !== 0) {
-      throw new Error(`TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`);
-    }
-    return responseBody.data;
   }
 
   return {

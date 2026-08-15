@@ -6,7 +6,7 @@ import {
 import { Data, Effect, Schema } from "effect";
 
 import { TikTokApiError } from "../errors.ts";
-import type { PublishStatusResponse, TikTokClientOptions } from "./types.ts";
+import type { PublishStatusResponse } from "./types.ts";
 
 const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
 
@@ -22,6 +22,12 @@ export interface TikTokRequestOptions {
   path: string;
   body?: Record<string, unknown>;
   query?: Record<string, unknown>;
+}
+
+export interface TikTokRequestClientOptions {
+  accessToken: string;
+  baseUrl?: string;
+  fetch?: typeof fetch;
 }
 
 export type TikTokResponseDataSchema<T> = Schema.Schema<T, any, never>;
@@ -65,8 +71,12 @@ function tiktokResponseEnvelopeSchema<T>(data: TikTokResponseDataSchema<T>) {
   });
 }
 
-function buildUrl(path: string, query?: Record<string, unknown>): string {
-  let url = `${TT_API_BASE}${path}`;
+function buildUrl(
+  path: string,
+  query: Record<string, unknown> | undefined,
+  baseUrl: string,
+): string {
+  let url = `${baseUrl.replace(/\/$/u, "")}${path}`;
   if (!query) return url;
 
   const params = new URLSearchParams();
@@ -97,7 +107,7 @@ export function tiktokRequestErrorToError(error: TikTokRequestError): Error {
 }
 
 export function tiktokRequestEffect<T>(
-  opts: TikTokClientOptions,
+  opts: TikTokRequestClientOptions,
   request: TikTokRequestOptions,
   dataSchema?: TikTokResponseDataSchema<T>,
 ): Effect.Effect<T, TikTokRequestError> {
@@ -106,7 +116,7 @@ export function tiktokRequestEffect<T>(
 
   return jsonRequestEffect<unknown>({
     method: request.method,
-    url: buildUrl(request.path, request.query),
+    url: buildUrl(request.path, request.query, opts.baseUrl ?? TT_API_BASE),
     body: request.body,
     headers: {
       "Access-Token": opts.accessToken,
@@ -130,7 +140,7 @@ export function tiktokRequestEffect<T>(
 }
 
 export async function tiktokRequest<T>(
-  opts: TikTokClientOptions,
+  opts: TikTokRequestClientOptions,
   request: TikTokRequestOptions,
   dataSchema?: TikTokResponseDataSchema<T>,
 ): Promise<T> {

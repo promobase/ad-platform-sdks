@@ -211,54 +211,36 @@ export function emitCategory(category: string, specs: EndpointSpec[]): CategoryO
     ? "{ accessToken: string; advertiserId?: string; baseUrl?: string; fetch?: typeof fetch }"
     : "{ appId: string; appSecret: string; baseUrl?: string; fetch?: typeof fetch }";
 
-  const authHeader = usesAccessToken
-    ? `"Access-Token": opts.accessToken`
-    : `"Content-Type": "application/json"`;
-
   const clientContent = `// Auto-generated client for ${category} — do not edit
+import { tiktokRequest } from "../../clients/request.ts";
 import type { ${typeImports.join(", ")} } from "../types/${fileName}.ts";
-
-interface TikTokResponse<T> {
-  code: number;
-  message: string;
-  request_id: string;
-  data: T;
-}
 
 const TT_API_BASE = "https://business-api.tiktok.com";
 
 export function create${pascalCategory(category)}(opts: ${optsType}) {
-  const apiBase = (opts.baseUrl ?? TT_API_BASE).replace(/\\/$/, "");
-  const fetchImpl = opts.fetch ?? fetch;
 
   async function get<T>(path: string, params: Record<string, unknown>): Promise<T> {
-    const searchParams = new URLSearchParams();
-    for (const [key, value] of Object.entries(params)) {
-      if (value !== undefined && value !== null) {
-        searchParams.set(key, typeof value === "object" ? JSON.stringify(value) : String(value));
-      }
-    }
-    const response = await fetchImpl(\`\${apiBase}\${path}?\${searchParams.toString()}\`, {
-      headers: { ${authHeader} },
+    return tiktokRequest<T>({
+      accessToken: opts.accessToken,
+      baseUrl: opts.baseUrl ?? TT_API_BASE,
+      fetch: opts.fetch,
+    }, {
+      method: "GET",
+      path,
+      query: params,
     });
-    const body = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || body.code !== 0) {
-      throw new Error(\`TikTok API error: \${body.message} (code \${body.code}, request_id \${body.request_id})\`);
-    }
-    return body.data;
   }
 
   async function post<T>(path: string, body: Record<string, unknown>): Promise<T> {
-    const response = await fetchImpl(\`\${apiBase}\${path}\`, {
+    return tiktokRequest<T>({
+      accessToken: opts.accessToken,
+      baseUrl: opts.baseUrl ?? TT_API_BASE,
+      fetch: opts.fetch,
+    }, {
       method: "POST",
-      headers: { ${authHeader}, "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      path,
+      body,
     });
-    const responseBody = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || responseBody.code !== 0) {
-      throw new Error(\`TikTok API error: \${responseBody.message} (code \${responseBody.code}, request_id \${responseBody.request_id})\`);
-    }
-    return responseBody.data;
   }
 
   return {

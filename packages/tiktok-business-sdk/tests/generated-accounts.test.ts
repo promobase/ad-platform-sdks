@@ -1,5 +1,6 @@
 import { expect, test } from "bun:test";
 
+import { TikTokApiError } from "../src/errors.ts";
 import { createAccounts } from "../src/generated/index.ts";
 import type {
   BusinessVideoListParams,
@@ -70,4 +71,29 @@ test("generated Accounts client exposes profile metrics without advertiser id", 
   });
 
   expect(result.followers_count).toBe(20);
+});
+
+test("generated Accounts client uses the shared typed transport", async () => {
+  const fetchMock = (async (input: Parameters<typeof fetch>[0]) => {
+    expect(String(input)).toStartWith("https://example.test/open_api/v1.3/business/get/?");
+    return Response.json(
+      { code: 40100, message: "rate limited", request_id: "request-3", data: null },
+      { status: 429 },
+    );
+  }) as unknown as typeof fetch;
+
+  const accounts = createAccounts({
+    accessToken: "token",
+    baseUrl: "https://example.test",
+    fetch: fetchMock,
+  });
+
+  await expect(
+    accounts.getBusiness({ business_id: "business-1", fields: ["followers_count"] }),
+  ).rejects.toMatchObject({
+    constructor: TikTokApiError,
+    code: 40100,
+    requestId: "request-3",
+    status: 429,
+  });
 });

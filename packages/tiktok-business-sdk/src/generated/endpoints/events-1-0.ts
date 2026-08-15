@@ -1,50 +1,36 @@
 // @generated
-// fingerprint: sha256:25cc4faee381fb79c0b0dc7b952e4c40a269f3a621d7f1cc8c241c53cf61a0d4
+// fingerprint: sha256:3ba6adf566505dde55e8d57a9d576d4d1e201c61b5d6f2cdcf9f4c8011d320b3
 // DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Events 1.0 — do not edit
+import { tiktokRequest } from "../../clients/request.ts";
 import type { AppTrackParams, AppTrackResponse, AppBatchParams, AppBatchResponse, AppInfoParams, AppInfoResponse, AppCreateParams, AppCreateResponse, AppUpdateParams, AppUpdateResponse, AppListParams, AppListResponse, AppOptimizationEventParams, AppOptimizationEventResponse, AppOptimizationEventRetargetingParams, AppOptimizationEventRetargetingResponse, PixelTrackParams, PixelTrackResponse, PixelBatchParams, PixelBatchResponse, PixelListParams, PixelListResponse, PixelCreateParams, PixelCreateResponse, PixelUpdateParams, PixelUpdateResponse, PixelEventCreateParams, PixelEventCreateResponse, PixelEventUpdateParams, PixelEventUpdateResponse, PixelEventDeleteParams, PixelEventDeleteResponse, PixelInstantPageEventParams, PixelInstantPageEventResponse, PixelEventStatsParams, PixelEventStatsResponse, OfflineCreateParams, OfflineCreateResponse, OfflineUpdateParams, OfflineUpdateResponse, OfflineDeleteParams, OfflineDeleteResponse, OfflineGetParams, OfflineGetResponse, OfflineTrackParams, OfflineTrackResponse, OfflineBatchParams, OfflineBatchResponse, CrmListParams, CrmListResponse, CrmCreateParams, CrmCreateResponse, CtmMessageEventSetGetParams, CtmMessageEventSetGetResponse } from "../types/events-1-0.ts";
-
-interface TikTokResponse<T> {
-  code: number;
-  message: string;
-  request_id: string;
-  data: T;
-}
 
 const TT_API_BASE = "https://business-api.tiktok.com";
 
 export function createEvents10(opts: { accessToken: string; advertiserId?: string; baseUrl?: string; fetch?: typeof fetch }) {
-  const apiBase = (opts.baseUrl ?? TT_API_BASE).replace(/\/$/, "");
-  const fetchImpl = opts.fetch ?? fetch;
 
   async function get<T>(path: string, params: Record<string, unknown>): Promise<T> {
-    const searchParams = new URLSearchParams();
-    for (const [key, value] of Object.entries(params)) {
-      if (value !== undefined && value !== null) {
-        searchParams.set(key, typeof value === "object" ? JSON.stringify(value) : String(value));
-      }
-    }
-    const response = await fetchImpl(`${apiBase}${path}?${searchParams.toString()}`, {
-      headers: { "Access-Token": opts.accessToken },
+    return tiktokRequest<T>({
+      accessToken: opts.accessToken,
+      baseUrl: opts.baseUrl ?? TT_API_BASE,
+      fetch: opts.fetch,
+    }, {
+      method: "GET",
+      path,
+      query: params,
     });
-    const body = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || body.code !== 0) {
-      throw new Error(`TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`);
-    }
-    return body.data;
   }
 
   async function post<T>(path: string, body: Record<string, unknown>): Promise<T> {
-    const response = await fetchImpl(`${apiBase}${path}`, {
+    return tiktokRequest<T>({
+      accessToken: opts.accessToken,
+      baseUrl: opts.baseUrl ?? TT_API_BASE,
+      fetch: opts.fetch,
+    }, {
       method: "POST",
-      headers: { "Access-Token": opts.accessToken, "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      path,
+      body,
     });
-    const responseBody = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || responseBody.code !== 0) {
-      throw new Error(`TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`);
-    }
-    return responseBody.data;
   }
 
   return {
