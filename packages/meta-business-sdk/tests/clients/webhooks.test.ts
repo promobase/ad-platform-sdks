@@ -117,7 +117,7 @@ test("parseInstagramWebhook throws on invalid signature", async () => {
   ).rejects.toThrow("Invalid webhook signature");
 });
 
-test("parseInstagramWebhook throws on wrong object type (Zod validation)", async () => {
+test("parseInstagramWebhook throws on wrong object type (Valibot validation)", async () => {
   const body = JSON.stringify({ object: "page", entry: [] });
   const signature = await signBody(body, "secret");
   expect(parseInstagramWebhook({ body, signature, appSecret: "secret" })).rejects.toThrow();
@@ -203,7 +203,7 @@ test("parseInstagramWebhook parses reaction events", async () => {
   expect(reaction.emoji).toBe("\u2764\ufe0f");
 });
 
-// --- Zod validation catches malformed payloads ---
+// --- Valibot validation catches malformed payloads ---
 
 test("igWebhookPayloadSchema rejects missing required fields", () => {
   // missing 'entry'
@@ -359,7 +359,7 @@ test("safeParseInstagramWebhook returns error on invalid payload shape", async (
   expect(result.success).toBe(false);
   if (!result.success) {
     expect(result.error.code).toBe("INVALID_PAYLOAD");
-    expect(result.error.details).toBeDefined(); // Zod error details
+    expect(result.error.details).toBeDefined(); // Valibot error details
   }
 });
 

@@ -1008,3 +1008,4 @@ export type { WebhookParseResult } from "../clients/index.ts";
 export { MetaRateLimiter } from "../rate-limiter.ts";
 export type { MetaRateLimiterOptions, MetaUsage } from "../rate-limiter.ts";
 export { Meta } from "../namespace.ts";
+export { Facebook, Instagram, Threads, WhatsApp } from "../namespace.ts";

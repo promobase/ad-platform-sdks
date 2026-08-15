@@ -275,6 +275,7 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   barrelLines.push(`export { MetaRateLimiter } from "../rate-limiter.ts";`);
   barrelLines.push(`export type { MetaRateLimiterOptions, MetaUsage } from "../rate-limiter.ts";`);
   barrelLines.push(`export { Meta } from "../namespace.ts";`);
+  barrelLines.push(`export { Facebook, Instagram, Threads, WhatsApp } from "../namespace.ts";`);
   barrelLines.push("");
 
   const barrelPath = join(outputDir, "index.ts");

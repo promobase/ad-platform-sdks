@@ -96,4 +96,4 @@ export interface LongLivedToken {
   expires_in: number;
 }
 
-// Webhook event types are now defined via Zod schemas in ../webhooks-schemas.ts
+// Webhook event types are now defined via Valibot schemas in ../webhooks-schemas.ts

@@ -1,5 +1,5 @@
 import { tool, type Tool } from "ai";
-import { z } from "zod";
+import * as v from "valibot";
 
 import type { MetaClient } from "./common.ts";
 
@@ -22,8 +22,8 @@ export function createCampaignTools(opts: {
   return {
     campaign_list: tool({
       description: "List ad campaigns in the ad account.",
-      inputSchema: z.object({
-        limit: z.number().optional().describe("Maximum number of campaigns"),
+      inputSchema: v.object({
+        limit: v.optional(v.number()),
       }),
       execute: async ({ limit }) => {
         const cursor = api.adAccount(adAccountId).campaigns.list({
@@ -44,8 +44,8 @@ export function createCampaignTools(opts: {
 
     campaign_get: tool({
       description: "Get details of a specific ad campaign.",
-      inputSchema: z.object({
-        campaignId: z.string().describe("Campaign ID"),
+      inputSchema: v.object({
+        campaignId: v.string(),
       }),
       execute: async ({ campaignId }) => {
         return api.campaign(campaignId).get({
@@ -67,22 +67,12 @@ export function createCampaignTools(opts: {
 
     campaign_create: tool({
       description: "Create a new ad campaign.",
-      inputSchema: z.object({
-        name: z.string().describe("Campaign name"),
-        objective: z
-          .string()
-          .describe(
-            "Campaign objective (e.g., OUTCOME_AWARENESS, OUTCOME_ENGAGEMENT, OUTCOME_SALES, OUTCOME_TRAFFIC)",
-          ),
-        status: z
-          .enum(["ACTIVE", "PAUSED"])
-          .optional()
-          .describe("Initial status (default: PAUSED)"),
-        dailyBudget: z.number().optional().describe("Daily budget in cents"),
-        specialAdCategories: z
-          .array(z.string())
-          .optional()
-          .describe("Special ad categories (e.g., CREDIT, EMPLOYMENT, HOUSING)"),
+      inputSchema: v.object({
+        name: v.string(),
+        objective: v.string(),
+        status: v.optional(v.picklist(["ACTIVE", "PAUSED"])),
+        dailyBudget: v.optional(v.number()),
+        specialAdCategories: v.optional(v.array(v.string())),
       }),
       execute: async ({ name, objective, status, dailyBudget, specialAdCategories }) => {
         return api.adAccount(adAccountId).campaigns.create({
@@ -97,14 +87,11 @@ export function createCampaignTools(opts: {
 
     campaign_update: tool({
       description: "Update an existing ad campaign.",
-      inputSchema: z.object({
-        campaignId: z.string().describe("Campaign ID"),
-        name: z.string().optional().describe("New campaign name"),
-        status: z
-          .enum(["ACTIVE", "PAUSED", "ARCHIVED", "DELETED"])
-          .optional()
-          .describe("New status"),
-        dailyBudget: z.number().optional().describe("New daily budget in cents"),
+      inputSchema: v.object({
+        campaignId: v.string(),
+        name: v.optional(v.string()),
+        status: v.optional(v.picklist(["ACTIVE", "PAUSED", "ARCHIVED", "DELETED"])),
+        dailyBudget: v.optional(v.number()),
       }),
       execute: async ({ campaignId, name, status, dailyBudget }) => {
         return api.campaign(campaignId).update({
@@ -117,16 +104,16 @@ export function createCampaignTools(opts: {
 
     campaign_delete: tool({
       description: "Delete an ad campaign.",
-      inputSchema: z.object({
-        campaignId: z.string().describe("Campaign ID to delete"),
+      inputSchema: v.object({
+        campaignId: v.string(),
       }),
       execute: async ({ campaignId }) => api.campaign(campaignId).delete(),
     }),
 
     adset_list: tool({
       description: "List ad sets in the ad account.",
-      inputSchema: z.object({
-        limit: z.number().optional(),
+      inputSchema: v.object({
+        limit: v.optional(v.number()),
       }),
       execute: async ({ limit }) => {
         const cursor = api.adAccount(adAccountId).adsets.list({
@@ -139,8 +126,8 @@ export function createCampaignTools(opts: {
 
     ad_list: tool({
       description: "List ads in the ad account.",
-      inputSchema: z.object({
-        limit: z.number().optional(),
+      inputSchema: v.object({
+        limit: v.optional(v.number()),
       }),
       execute: async ({ limit }) => {
         const cursor = api.adAccount(adAccountId).ads.list({
@@ -153,11 +140,8 @@ export function createCampaignTools(opts: {
 
     ad_account_insights: tool({
       description: "Get performance insights for the ad account.",
-      inputSchema: z.object({
-        datePreset: z
-          .string()
-          .optional()
-          .describe("Date preset (e.g., today, yesterday, last_7d, last_30d, this_month)"),
+      inputSchema: v.object({
+        datePreset: v.optional(v.string()),
       }),
       execute: async ({ datePreset }) => {
         const cursor = api.adAccount(adAccountId).insights.list({

@@ -1,7 +1,7 @@
 import { afterEach, expect, mock, test } from "bun:test";
 
 import { tool } from "ai";
-import { z } from "zod";
+import * as v from "valibot";
 
 import { filterTools, filterToolsByName, limitTools } from "../../src/ai/filter.ts";
 import { createMetaTools } from "../../src/ai/index.ts";
@@ -32,7 +32,7 @@ test("withMiddleware calls beforeExecute and afterExecute", async () => {
   const tools = {
     test_tool: tool({
       description: "test",
-      inputSchema: z.object({ input: z.string() }),
+      inputSchema: v.object({ input: v.string() }),
       execute: async ({ input }: { input: string }) => ({ output: input.toUpperCase() }),
     }),
   };
@@ -57,7 +57,7 @@ test("withMiddleware calls onError on failure", async () => {
   const tools = {
     fail_tool: tool({
       description: "fails",
-      inputSchema: z.object({}),
+      inputSchema: v.object({}),
       execute: async (): Promise<string> => {
         throw new Error("boom");
       },
@@ -79,7 +79,7 @@ test("withMiddleware onError can return fallback value", async () => {
   const tools = {
     fail_tool: tool({
       description: "fails",
-      inputSchema: z.object({}),
+      inputSchema: v.object({}),
       execute: async (): Promise<string> => {
         throw new Error("boom");
       },
@@ -98,7 +98,7 @@ test("withMiddleware preserves tool descriptions and parameters", () => {
   const tools = {
     my_tool: tool({
       description: "My description",
-      inputSchema: z.object({ x: z.number() }),
+      inputSchema: v.object({ x: v.number() }),
       execute: async ({ x }: { x: number }) => x * 2,
     }),
   };

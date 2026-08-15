@@ -33,19 +33,19 @@ npm install @openpromo/meta
 ## Use
 
 ```ts
-import { Meta } from "@openpromo/meta";
+import { Facebook, Instagram, Threads, createClient } from "@openpromo/meta";
 
-const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
+const meta = createClient({ accessToken: process.env.META_TOKEN! });
 
 // Instagram publishing
-const ig = Meta.Instagram.createClient({ api: meta, igAccountId: "ig_123" });
+const ig = Instagram.createClient({ api: meta, igAccountId: "ig_123" });
 await ig.media.publishVideo({
   videoUrl: "https://cdn.example.com/reel.mp4",
   caption: "New drop 🔥",
 });
 
 // Facebook Page publishing
-const fb = Meta.Facebook.createClient({
+const fb = Facebook.createClient({
   api: meta,
   pageId: "page_456",
   accessToken: process.env.META_TOKEN!,
@@ -53,11 +53,39 @@ const fb = Meta.Facebook.createClient({
 await fb.feed.publishPost({ message: "Hello Facebook!" });
 
 // Threads
-const threads = Meta.Threads.createClient({
+const threads = Threads.createClient({
   accessToken: process.env.THREADS_TOKEN!,
   threadsUserId: "t_789",
 });
 await threads.posts.publishText({ text: "Hello Threads!" });
+
+// Worker-safe Meta webhooks
+import { webhooks } from "@openpromo/meta/webhooks";
+
+const webhook = await webhooks.facebook.safeParse({
+  body: rawRequestBytes,
+  signature: request.headers.get("X-Hub-Signature-256") ?? "",
+  appSecret,
+});
+
+if (webhook.success) {
+  for (const event of webhooks.facebook.events(webhook.data)) {
+    // Map the typed provider event to your application's domain handler.
+    console.log(event.kind);
+  }
+}
+
+// WhatsApp transport; the `Meta` wrapper remains available for compatibility.
+import { WhatsApp } from "@openpromo/meta";
+
+const instagram = Instagram.createClient({ api: meta, igAccountId: "ig_123" });
+const facebook = Facebook.createClient({
+  api: meta,
+  pageId: "page_456",
+  accessToken: process.env.META_TOKEN!,
+});
+const threadsClient = Threads.createClient({ accessToken: "threads_token", threadsUserId: "t_789" });
+const whatsapp = WhatsApp.createClient({ accessToken: "wa_token", phoneNumberId: "phone_123" });
 
 // Graph API with field-level narrowing
 const campaign = await meta.adAccount("act_123").campaigns.list({
@@ -71,7 +99,8 @@ const campaign = await meta.adAccount("act_123").campaigns.list({
 - **503 real enum values** — not `string`, actual narrowed unions
 - **Field-level narrowing** — `Pick<CampaignFields, "id" | "name">` on every query
 - **Publishing clients** — Instagram, Facebook, Threads (photo, video/reel, carousel, story)
-- **Full inbox** — DMs, comments, private replies with Zod-validated webhook payloads
+- **Worker-safe webhook leaf** — Valibot schemas, Web Crypto verification, and typed Facebook/Instagram/Threads/WhatsApp event extraction via `@openpromo/meta/webhooks`
+- **Native messaging transports** — typed Messenger, Instagram publishing, and WhatsApp Cloud API operations via `@openpromo/meta/transports`
 - **OAuth** — token exchange, long-lived tokens, refresh
 - **Rate limiting** — auto-parses Meta's `x-app-usage` headers, runtime-agnostic throttling
 - **Retry with exponential backoff** — automatic recovery from 5xx and network errors

@@ -2,9 +2,9 @@
  * Namespaced API for the Meta Business SDK.
  *
  * Usage:
- *   import { Meta } from "@openpromo/meta";
- *   const api = Meta.createClient({ accessToken: "..." });
- *   const ig = Meta.Instagram.createClient({ api, igAccountId: "..." });
+ *   import { Instagram, createClient } from "@openpromo/meta";
+ *   const api = createClient({ accessToken: "..." });
+ *   const ig = Instagram.createClient({ api, igAccountId: "..." });
  */
 
 import type { BatchHandle, ResolveBatchHandles } from "./batch.ts";
@@ -27,7 +27,7 @@ import type {
   ThreadsClientOptions,
   OAuthConfig as ThreadsOAuthConfig,
 } from "./clients/threads/types.ts";
-// Zod schemas
+// Valibot-backed compatibility schemas
 import {
   fbWebhookPayloadSchema,
   igWebhookPayloadSchema,
@@ -46,12 +46,61 @@ import {
   verifyWebhookSignature,
   WebhookParseError,
 } from "./clients/webhooks.ts";
+import { createWhatsAppClient } from "./clients/whatsapp.ts";
 import { FacebookApiError } from "./errors.ts";
 import type { MetaClientOptions } from "./generated/client-factory.ts";
 import { createTypedClient } from "./generated/client-factory.ts";
 import type { MetaRateLimiterOptions } from "./rate-limiter.ts";
 import { MetaRateLimiter } from "./rate-limiter.ts";
 
+const facebookWebhooks = {
+  parse: parseFacebookWebhook,
+  safeParse: safeParseFacebookWebhook,
+  schema: fbWebhookPayloadSchema,
+} as const;
+
+const instagramWebhooks = {
+  parse: parseInstagramWebhook,
+  safeParse: safeParseInstagramWebhook,
+  schema: igWebhookPayloadSchema,
+} as const;
+
+const threadsWebhooks = {
+  parse: parseThreadsWebhook,
+  safeParse: safeParseThreadsWebhook,
+  schema: threadsWebhookPayloadSchema,
+} as const;
+
+/** Direct Facebook platform surface. */
+export const Facebook = {
+  createClient: createFacebookPageClient,
+  OAuth: createFacebookOAuth,
+  Webhooks: facebookWebhooks,
+} as const;
+
+/** Direct Instagram platform surface. */
+export const Instagram = {
+  createClient: createInstagramClient,
+  OAuth: createInstagramOAuth,
+  Webhooks: instagramWebhooks,
+} as const;
+
+/** Direct Threads platform surface. */
+export const Threads = {
+  createClient: createThreadsClient,
+  OAuth: createThreadsOAuth,
+  Webhooks: threadsWebhooks,
+} as const;
+
+/** Direct WhatsApp transport surface. */
+export const WhatsApp = {
+  createClient: createWhatsAppClient,
+} as const;
+
+/**
+ * @deprecated Use the direct `Facebook`, `Instagram`, `Threads`, and
+ * `WhatsApp` exports. This wrapper remains for existing consumers.
+ */
 export const Meta = {
   /** Create a typed Meta Graph API client with 314 node accessors. */
   createClient: createTypedClient,
@@ -67,31 +116,12 @@ export const Meta = {
     create: (opts?: MetaRateLimiterOptions) => new MetaRateLimiter(opts),
   },
 
-  /** Instagram client and OAuth. */
-  Instagram: {
-    /** Create an Instagram client for publishing, comments, stories, messaging. */
-    createClient: createInstagramClient,
-    /** Create an Instagram OAuth handler for token exchange and refresh. */
-    OAuth: createInstagramOAuth,
-  },
+  Facebook,
+  Instagram,
+  Threads,
+  WhatsApp,
 
-  /** Facebook Pages client and OAuth. */
-  Facebook: {
-    /** Create a Facebook Page client for feed, comments, stories, messaging. */
-    createClient: createFacebookPageClient,
-    /** Create a Facebook OAuth handler for token exchange and Page tokens. */
-    OAuth: createFacebookOAuth,
-  },
-
-  /** Threads client and OAuth. */
-  Threads: {
-    /** Create a Threads client for posts, replies, carousels, insights. */
-    createClient: createThreadsClient,
-    /** Create a Threads OAuth handler for token exchange and refresh. */
-    OAuth: createThreadsOAuth,
-  },
-
-  /** Webhook verification, parsing, and Zod schemas. */
+  /** Webhook verification, parsing, and Valibot-backed schemas. */
   Webhooks: {
     /** Verify a Meta webhook challenge (GET handler). */
     verifyChallenge: verifyWebhookChallenge,
@@ -116,7 +146,7 @@ export const Meta = {
     /** WebhookParseError class for typed error handling. */
     ParseError: WebhookParseError,
 
-    /** Zod schemas for advanced validation or composing custom parsers. */
+    /** Compatibility schema adapters for advanced validation/composition. */
     schemas: {
       instagram: igWebhookPayloadSchema,
       facebook: fbWebhookPayloadSchema,

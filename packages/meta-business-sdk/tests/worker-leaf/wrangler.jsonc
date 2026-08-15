@@ -1,0 +1,5 @@
+{
+  "name": "mosaic-meta-webhooks-leaf-check",
+  "main": "./index.ts",
+  "compatibility_date": "2026-08-14",
+}

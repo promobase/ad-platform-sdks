@@ -38,12 +38,12 @@ want consistent cross-platform semantics. Provider SDKs remain available as the 
 Configure existing platform clients once and use the normalized direct API:
 
 ```ts
-import { Meta, TikTok } from "@openpromo/ad-platforms";
+import { Instagram, Meta, TikTok } from "@openpromo/ad-platforms";
 import { createAdPlatforms } from "@openpromo/ad-platforms/operations";
 import { YouTube } from "@openpromo/ad-platforms/youtube";
 
 const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
-const instagram = Meta.Instagram.createClient({ api: meta, igAccountId: "ig_123" });
+const instagram = Instagram.createClient({ api: meta, igAccountId: "ig_123" });
 const tiktok = TikTok.createClient({
   accessToken: process.env.TIKTOK_TOKEN!,
   businessId: "business_123",
@@ -114,7 +114,7 @@ operation layer.
 ## Use
 
 ```ts
-import { Meta, TikTok, LinkedIn, Google } from "@openpromo/ad-platforms";
+import { Instagram, Meta, TikTok, LinkedIn, Google } from "@openpromo/ad-platforms";
 import { X } from "@openpromo/ad-platforms/x";
 import { YouTube } from "@openpromo/ad-platforms/youtube";
 import { createAllTools } from "@openpromo/ad-platforms/ai";
@@ -123,7 +123,7 @@ import { anthropic } from "@ai-sdk/anthropic";
 
 // Meta (Facebook, Instagram, Threads)
 const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
-const ig = Meta.Instagram.createClient({ api: meta, igAccountId: "ig_123" });
+const ig = Instagram.createClient({ api: meta, igAccountId: "ig_123" });
 await ig.media.publishVideo({
   videoUrl: "https://cdn.example.com/reel.mp4",
   caption: "New drop 🔥",

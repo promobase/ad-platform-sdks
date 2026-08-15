@@ -1,6 +1,6 @@
 import type { Tool } from "ai";
 import { tool } from "ai";
-import { z } from "zod";
+import * as v from "valibot";
 
 import { filterTools, type ToolCategory } from "./filter.ts";
 
@@ -36,10 +36,8 @@ export function createRouter(opts: RouterOptions): ToolRouter {
   const routerTools = {
     select_tool_category: tool({
       description: `Select which tool categories to activate. Available categories: ${categories.join(", ")}. You can select multiple. After selecting, the specific tools for those categories will become available.`,
-      inputSchema: z.object({
-        categories: z
-          .array(z.enum(categories as [string, ...string[]]))
-          .describe("Categories to activate"),
+      inputSchema: v.object({
+        categories: v.array(v.picklist(categories as [string, ...string[]])),
       }),
       execute: async ({ categories: selected }: { categories: string[] }) => {
         selectedCategories = selected as ToolCategory[];
@@ -56,7 +54,7 @@ export function createRouter(opts: RouterOptions): ToolRouter {
 
     list_categories: tool({
       description: "List all available tool categories and their tool counts.",
-      inputSchema: z.object({}),
+      inputSchema: v.object({}),
       execute: async () => {
         const summary: Record<string, number> = {};
         for (const cat of categories) {

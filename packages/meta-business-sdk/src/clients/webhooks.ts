@@ -46,7 +46,7 @@ export async function verifyWebhookSignature(
   return hex === expectedSig;
 }
 
-// --- Platform-specific webhook parsers (now using Zod) ---
+// --- Platform-specific webhook parsers (Valibot-backed) ---
 
 import {
   type FBWebhookPayload,

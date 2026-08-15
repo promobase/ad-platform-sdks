@@ -94,7 +94,7 @@ test("Meta.Webhooks.verifyChallenge works", () => {
   expect(result.challenge).toBe("abc");
 });
 
-test("Meta.Webhooks.schemas are Zod schemas", () => {
+test("Meta.Webhooks.schemas preserve the Valibot-backed compatibility API", () => {
   expect(Meta.Webhooks.schemas.instagram).toBeDefined();
   expect(Meta.Webhooks.schemas.facebook).toBeDefined();
   expect(Meta.Webhooks.schemas.threads).toBeDefined();
@@ -110,10 +110,20 @@ test("Meta.Webhooks.ParseError is accessible", () => {
 });
 
 test("Meta namespace is importable from barrel", async () => {
-  const { Meta: M } = await import("../../src/generated/index.ts");
+  const {
+    Meta: M,
+    Facebook,
+    Instagram,
+    Threads,
+    WhatsApp,
+  } = await import("../../src/generated/index.ts");
   expect(M.createClient).toBeDefined();
   expect(M.Instagram.createClient).toBeDefined();
   expect(M.Facebook.createClient).toBeDefined();
   expect(M.Threads.createClient).toBeDefined();
   expect(M.Webhooks.verifyChallenge).toBeDefined();
+  expect(Facebook.createClient).toBeDefined();
+  expect(Instagram.createClient).toBeDefined();
+  expect(Threads.createClient).toBeDefined();
+  expect(WhatsApp.createClient).toBeDefined();
 });

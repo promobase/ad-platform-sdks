@@ -4,7 +4,7 @@
  * Unified SDK for all ad platforms. Single install, single namespace.
  *
  * Usage:
- *   import { Meta, TikTok } from "@openpromo/ad-platforms";
+ *   import { Instagram, Meta, TikTok } from "@openpromo/ad-platforms";
  *
  *   const meta = Meta.createClient({ accessToken: "..." });
  *   const tiktok = TikTok.createClient({ accessToken: "..." });
@@ -139,8 +139,12 @@ export {
   createThreadsClient,
   createThreadsOAuth,
   FacebookApiError,
+  Facebook,
+  Instagram,
   Meta,
   MetaRateLimiter,
+  Threads,
+  WhatsApp,
   parseFacebookWebhook,
   parseInstagramWebhook,
   parseThreadsWebhook,

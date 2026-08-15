@@ -1,6 +1,18 @@
 import { expect, test } from "bun:test";
 
-import { Google, GoogleBusinessProfile, LinkedIn, Meta, TikTok, X, YouTube } from "../src/index.ts";
+import {
+  Facebook,
+  Google,
+  GoogleBusinessProfile,
+  Instagram,
+  LinkedIn,
+  Meta,
+  Threads,
+  TikTok,
+  WhatsApp,
+  X,
+  YouTube,
+} from "../src/index.ts";
 import { createAllTools } from "../src/unified-tools.ts";
 
 test("Meta namespace is accessible", () => {
@@ -9,6 +21,13 @@ test("Meta namespace is accessible", () => {
   expect(Meta.Facebook.createClient).toBeDefined();
   expect(Meta.Threads.createClient).toBeDefined();
   expect(Meta.Webhooks.verifyChallenge).toBeDefined();
+});
+
+test("Meta platform namespaces are accessible directly", () => {
+  expect(Facebook.createClient).toBeDefined();
+  expect(Instagram.createClient).toBeDefined();
+  expect(Threads.createClient).toBeDefined();
+  expect(WhatsApp.createClient).toBeDefined();
 });
 
 test("TikTok namespace is accessible", () => {

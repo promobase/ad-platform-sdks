@@ -62,7 +62,7 @@
   "dependencies": {
     "@openpromo/sdk-runtime": "workspace:*",
     "effect": "^3.22.1",
-    "zod": "^4.4.3"
+    "valibot": "^1.4.2"
   },
   "devDependencies": {
     "@openpromo/sdk-codegen": "workspace:*",
@@ -95,6 +95,18 @@
       "types": "./dist/generated/effect/index.d.ts",
       "import": "./dist/generated/effect/index.js",
       "default": "./dist/generated/effect/index.js"
+    },
+    "./webhooks": {
+      "bun": "./src/webhooks/index.ts",
+      "types": "./dist/webhooks/index.d.ts",
+      "import": "./dist/webhooks/index.js",
+      "default": "./dist/webhooks/index.js"
+    },
+    "./transports": {
+      "bun": "./src/transports/index.ts",
+      "types": "./dist/transports/index.d.ts",
+      "import": "./dist/transports/index.js",
+      "default": "./dist/transports/index.js"
     }
   },
   "engines": {
