@@ -39,9 +39,9 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | --- | --- | --- | --- |
 | FB-01 | OAuth and Page discovery | in_progress | Core flow exists; state, scope, pagination, and token-family hardening remain |
 | FB-02 | Page text/photo/carousel/comment CRUD | verified | Curated helpers plus generated Graph escape hatch |
-| FB-03 | Regular video publishing | blocked | Current `/videos` + `file_url` path needs revalidation against Video API |
-| FB-04 | Reels scheduling | planned | Add `SCHEDULED` and `scheduled_publish_time` if current source confirms |
-| FB-05 | Messenger send surface | in_progress | Typed text, media, quick replies, and message-tag helpers now exist; templates remain a follow-up |
+| FB-03 | Regular video publishing | verified | Curated `/videos` supports either a public `file_url` or the official resumable upload handle (`fbuploader_video_file_chunk`); ambiguous and missing sources are rejected. See [Video Uploads](https://developers.facebook.com/docs/graph-api/video-uploads) |
+| FB-04 | Reels scheduling | verified | Curated Reel finish supports `videoState: SCHEDULED` and requires `scheduledPublishTime`; provider state is preserved. See [Facebook API Reel flow](https://www.postman.com/meta/facebook/documentation/r56bjfd/facebook-api?entity=request-23987686-0b79260c-96bd-49de-875b-6076213785fc) |
+| FB-05 | Messenger send surface | verified | Typed text, media, quick replies, message tags, and generic/button/list/media templates with provider cardinality checks. See [Messenger Generic Template](https://www.postman.com/meta/messenger-platform-api/request/22794852-eb07fcf4-6e44-4bcf-bbd7-e58e4451fa1e) |
 | FB-06 | Page webhook subscriptions | verified | Defaults include current messaging lifecycle, handover, standby, and feed fields; extraction emits typed lifecycle and standby events |
 | FB-07 | Worker-safe webhook verification | verified | Legacy verifier exports route to the canonical strict implementation; focused tests cover prefix rejection and byte bodies |
 
@@ -51,10 +51,10 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | --- | --- | --- | --- |
 | IG-01 | Instagram Login OAuth | verified | Official API OAuth authorize host and messaging scope defaults corrected; focused OAuth tests pass |
 | IG-02 | Facebook Login/Graph compatibility | verified | Explicit Facebook Graph and Instagram Login client factories select different Graph hosts |
-| IG-03 | Image/Reel/carousel/story publishing | in_progress | Core flow plus alt text, user tags, share-to-feed, and trial parameters are typed; provider-specific constraint coverage remains |
+| IG-03 | Image/Reel/carousel/story publishing | verified | Core flow plus alt text, user tags, share-to-feed, trial parameters, exact story media input, carousel cardinality, and the documented caption limit are typed and validated |
 | IG-04 | Resumable video upload | verified | Existing flow is structurally present; refresh version/source proof |
-| IG-05 | Messaging | in_progress | Typed text, media, published-media share, quick replies, and private replies exist; templates/reactions remain |
-| IG-06 | Comments/moderation | in_progress | Core actions exist; replies and comment toggles remain |
+| IG-05 | Messaging | verified | Typed text, media, published-media share, quick replies with provider limits, generic/button templates, private replies, and react/unreact are supported. See [Instagram Templates and Messaging](https://www.postman.com/meta/instagram/documentation/6yqw8pt/instagram-api?entity=request-23987686-23eacf45-3728-4e41-bcc7-6d164959327c) |
+| IG-06 | Comments/moderation | verified | Create/list/reply/hide/delete plus media comment enable/disable are curated and typed |
 | IG-07 | Account/media insights | verified | Curated account insights and media insights preserve generated metric result types and provider-native metric names |
 | IG-08 | Webhooks/subscriptions | verified | Current messaging, edit, reaction, comment, mention, live-comment, story-insight, and standby fields are parsed and extracted as discriminated events |
 | IG-09 | Generated Effect entrypoint | verified | No misleading Instagram Effect entrypoint is published; use native client plus generated TypeScript/Valibot contracts until a true partition exists |
@@ -65,7 +65,7 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | --- | --- | --- | --- |
 | TT-01 | Business OAuth | verified | Business adapter retains provider-granted scopes and identifies the `business-login` credential family |
 | TT-02 | Marketing/Advertiser OAuth | verified | Marketing adapter identifies the `marketing-api` family, preserves caller scopes, and explicitly returns typed unsupported-operation errors for refresh/revoke because the documented advertiser flow exposes authorization-code exchange only |
-| TT-03 | Generated Marketing API | verified | Broad generated surface; live-doc refresh and scope metadata remain |
+| TT-03 | Generated Marketing API | verified | Broad generated surface; current v1.3 Organic API endpoint matrix is fixture-checked against the official Business API catalog |
 | TT-04 | Curated Business account/content clients | verified | Account, comments, discovery, mentions, messaging, Spark Ads, properties, webhooks, photos, and videos use the shared typed transport; OAuth and Developer API retain dedicated semantics |
 | TT-05 | TikTok Business webhook management | verified | Official VIDEO/COMMENT account categories plus explicit DIRECT_MESSAGE setup are typed and tested |
 | TT-06 | TikTok Business webhook parsing | verified | Valibot schemas, official comment/message event variants, and hardened signature verification are tested |

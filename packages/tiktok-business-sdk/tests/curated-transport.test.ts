@@ -105,3 +105,60 @@ test("curated clients preserve typed TikTok API errors", async () => {
     status: 429,
   });
 });
+
+test("curated Business client covers the current organic endpoint matrix", async () => {
+  const paths: string[] = [];
+  const fetchMock = (async (input: Parameters<typeof fetch>[0]) => {
+    const url = new URL(String(input));
+    paths.push(url.pathname);
+    if (url.pathname.endsWith("/photo/publish/")) {
+      return response({ share_id: "photo-share-1" });
+    }
+    if (url.pathname.endsWith("/publish/status/")) {
+      return response({ status: "PUBLISH_COMPLETE", post_ids: ["post-1"] });
+    }
+    if (url.pathname.endsWith("/video/settings/")) {
+      return response({
+        privacy_level_options: ["PUBLIC_TO_EVERYONE"],
+        max_video_post_duration_sec: 600,
+        comment_disabled: false,
+        duet_disabled: false,
+        stitch_disabled: false,
+      });
+    }
+    return response({});
+  }) as unknown as typeof fetch;
+
+  const client = createTikTokClient({
+    accessToken: "token",
+    businessId: "business-1",
+    fetch: fetchMock,
+  });
+
+  await expect(
+    client.photos.publish({
+      photoUrls: ["https://example.com/photo.jpg"],
+      privacyLevel: "PUBLIC_TO_EVERYONE",
+    }),
+  ).resolves.toEqual({ shareId: "photo-share-1" });
+  await expect(client.videos.getPublishStatus("publish-1")).resolves.toMatchObject({
+    status: "PUBLISH_COMPLETE",
+  });
+  await expect(client.account.getVideoSettings()).resolves.toMatchObject({
+    max_video_post_duration_sec: 600,
+  });
+  await expect(client.comments.like("comment-1", "LIKE")).resolves.toBeUndefined();
+  await expect(
+    client.comments.hide({ videoId: "video-1", commentId: "comment-1", action: "HIDE" }),
+  ).resolves.toBeUndefined();
+  await expect(client.comments.delete("comment-1")).resolves.toBeUndefined();
+
+  expect(paths).toEqual([
+    "/open_api/v1.3/business/photo/publish/",
+    "/open_api/v1.3/business/publish/status/",
+    "/open_api/v1.3/business/video/settings/",
+    "/open_api/v1.3/business/comment/like/",
+    "/open_api/v1.3/business/comment/hide/",
+    "/open_api/v1.3/business/comment/delete/",
+  ]);
+});

@@ -1,7 +1,100 @@
-import type { MessengerAttachment, MessengerQuickReply, MessengerSendOptions } from "./types.ts";
+import type {
+  MessengerAttachment,
+  MessengerGenericTemplateElement,
+  MessengerMediaTemplateElement,
+  MessengerQuickReply,
+  MessengerSendOptions,
+  MessengerTemplate,
+  MessengerTemplateButton,
+} from "./types.ts";
 
 type CreateClientReturn = ReturnType<typeof import("../../generated/index.ts").createClient>;
 type PageNode = ReturnType<CreateClientReturn["page"]>;
+
+function buttonBody(button: MessengerTemplateButton): Record<string, unknown> {
+  return {
+    type: button.type,
+    title: button.title,
+    ...(button.type === "web_url"
+      ? {
+          url: button.url,
+          ...(button.webviewHeightRatio ? { webview_height_ratio: button.webviewHeightRatio } : {}),
+          ...(button.messengerExtensions !== undefined
+            ? { messenger_extensions: button.messengerExtensions }
+            : {}),
+        }
+      : { payload: button.payload }),
+  };
+}
+
+function genericElementBody(element: MessengerGenericTemplateElement): Record<string, unknown> {
+  return {
+    title: element.title,
+    ...(element.imageUrl ? { image_url: element.imageUrl } : {}),
+    ...(element.subtitle ? { subtitle: element.subtitle } : {}),
+    ...(element.defaultAction ? { default_action: buttonBody(element.defaultAction) } : {}),
+    ...(element.buttons ? { buttons: element.buttons.map(buttonBody) } : {}),
+  };
+}
+
+function mediaElementBody(element: MessengerMediaTemplateElement): Record<string, unknown> {
+  if (!element.url && !element.attachmentId) {
+    throw new Error("Messenger media templates require url or attachmentId");
+  }
+  if (element.url && element.attachmentId) {
+    throw new Error("Messenger media templates accept url or attachmentId, not both");
+  }
+  return {
+    media_type: element.mediaType,
+    ...(element.url ? { url: element.url } : { attachment_id: element.attachmentId }),
+    ...(element.buttons ? { buttons: element.buttons.map(buttonBody) } : {}),
+  };
+}
+
+function templateBody(template: MessengerTemplate): Record<string, unknown> {
+  switch (template.type) {
+    case "generic":
+      if (template.elements.length < 1 || template.elements.length > 10) {
+        throw new Error("Messenger generic templates require 1 to 10 elements");
+      }
+      return {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: template.elements.map(genericElementBody),
+        },
+      };
+    case "button":
+      if (template.buttons.length < 1 || template.buttons.length > 3) {
+        throw new Error("Messenger button templates require 1 to 3 buttons");
+      }
+      return {
+        type: "template",
+        payload: {
+          template_type: "button",
+          text: template.text,
+          buttons: template.buttons.map(buttonBody),
+        },
+      };
+    case "list":
+      if (template.elements.length < 2 || template.elements.length > 4) {
+        throw new Error("Messenger list templates require 2 to 4 elements");
+      }
+      return {
+        type: "template",
+        payload: {
+          template_type: "list",
+          top_element_style: template.topElementStyle ?? "large",
+          elements: template.elements.map(genericElementBody),
+        },
+      };
+    case "media":
+      return {
+        type: "template",
+        payload: { template_type: "media", elements: [mediaElementBody(template.element)] },
+      };
+  }
+}
 
 export function createMessaging(page: PageNode) {
   async function sendMessage(
@@ -89,6 +182,15 @@ export function createMessaging(page: PageNode) {
         { attachment: { type: attachment.type, payload: { url: attachment.url } } },
         options,
       );
+    },
+
+    /** Send a provider-supported generic, button, list, or media template. */
+    async sendTemplate(
+      recipientPsid: string,
+      template: MessengerTemplate,
+      options?: MessengerSendOptions,
+    ) {
+      return sendMessage(recipientPsid, { attachment: templateBody(template) }, options);
     },
 
     /** Reply to a specific message in a conversation. */

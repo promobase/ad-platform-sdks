@@ -100,13 +100,16 @@ cannot accidentally pass an Instagram Login token to a Facebook Graph client.
 - [Instagram Messaging API](https://developers.facebook.com/documentation/instagram-platform/instagram-api-with-instagram-login/messaging-api)
 - [Instagram webhooks](https://developers.facebook.com/documentation/instagram-platform/webhooks)
 - [Facebook Page Posts](https://developers.facebook.com/docs/pages-api/posts/)
+- [Facebook Video Uploads](https://developers.facebook.com/docs/graph-api/video-uploads)
 - [Facebook Page Messages](https://developers.facebook.com/docs/graph-api/reference/page/messages/)
+- [Messenger Send API templates](https://www.postman.com/meta/messenger-platform-api/request/22794852-eb07fcf4-6e44-4bcf-bbd7-e58e4451fa1e)
 - [Facebook Page subscribed apps](https://developers.facebook.com/docs/graph-api/reference/page/subscribed_apps/)
 - [TikTok API for Business](https://business-api.tiktok.com/portal)
 - [TikTok Business authentication](https://business-api.tiktok.com/portal/docs/authentication/v1.3)
 - [TikTok Marketing API authorization](https://business-api.tiktok.com/portal/docs/marketing-api-authorization/v1.3)
 - [TikTok Accounts Webhooks](https://business-api.tiktok.com/portal/docs/accounts-api-webhooks-reference/v1.3)
 - [TikTok Business Messaging webhooks](https://business-api.tiktok.com/portal/docs/subscribe-to-business-messaging-webhook-events-via-webhooks-api/v1.3)
+- [TikTok Business Organic API v1.3](https://business-api.tiktok.com/portal/docs/video/v1.3)
 
 ## Current state
 
@@ -114,6 +117,17 @@ cannot accidentally pass an Instagram Login token to a Facebook Graph client.
 - Completed slices: Instagram credential-family transport split; Meta verifier consolidation; Meta v26 generated refresh; Facebook/Instagram webhook parity; TikTok Business webhook Valibot/leaf parity; shared TikTok generated and curated transport; removal of misleading Meta Effect aliases; published platform subpath verification
 - Current blocker: none
 - Consumer impact: no OpenPromo changes until adapter parity is verified
+
+## Checkpoint — 2026-08-15 — provider parity follow-ups
+
+- Changed: Facebook regular video publishing now accepts the provider resumable upload handle or a
+  public URL, scheduled Reels preserve `SCHEDULED` state and require a schedule time, and Messenger
+  exposes typed generic/button/list/media templates with cardinality checks. Instagram now exposes
+  generic/button templates, message react/unreact, comment enable/disable, exact story media input,
+  quick-reply limits, and caption validation. TikTok's current Organic API endpoint matrix is
+  fixture-checked for photo publish, publish status, video settings, and comment moderation.
+- Proof: focused Meta client tests and TikTok curated transport tests pass; full repository gates
+  remain before this slice is committed and pushed.
 
 ## Checkpoint — 2026-08-15
 

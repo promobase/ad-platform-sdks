@@ -128,6 +128,30 @@ test("publishCarousel rejects < 2 or > 10 items", async () => {
   ).rejects.toThrow("max 10");
 });
 
+test("story publishing rejects ambiguous media input", async () => {
+  const api = createClient({ accessToken: "tok" });
+  const ig = createInstagramClient({ api, igAccountId: "ig_456", polling: testPolling });
+
+  await expect(
+    ig.stories.publish({
+      imageUrl: "https://example.com/photo.jpg",
+      videoUrl: "https://example.com/video.mp4",
+    }),
+  ).rejects.toThrow("not both");
+});
+
+test("Instagram publishing enforces the provider caption limit", async () => {
+  const api = createClient({ accessToken: "tok" });
+  const ig = createInstagramClient({ api, igAccountId: "ig_456", polling: testPolling });
+
+  await expect(
+    ig.media.publishPhoto({
+      imageUrl: "https://example.com/photo.jpg",
+      caption: "a".repeat(2201),
+    }),
+  ).rejects.toThrow("2200 characters");
+});
+
 test("webhooks.subscribe defaults to the current Instagram messaging fields", async () => {
   mockFetchSequence([{ body: { success: true } }]);
   const api = createClient({ accessToken: "tok" });

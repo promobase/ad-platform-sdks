@@ -11,6 +11,9 @@ export function createStories(containers: Containers, pollingConfig: PollingConf
       if (!opts.imageUrl && !opts.videoUrl) {
         throw new Error("Story requires either imageUrl or videoUrl");
       }
+      if (opts.imageUrl && opts.videoUrl) {
+        throw new Error("Story accepts imageUrl or videoUrl, not both");
+      }
 
       const isVideo = !!opts.videoUrl;
       const container = await containers.create({

@@ -100,6 +100,51 @@ test("IG messaging exposes typed quick replies and published-media attachments",
   expect((second.message as any).attachment.payload.id).toBe("media_1");
 });
 
+test("IG messaging sends templates and message reactions", async () => {
+  mockFetchSequence([
+    { body: { message_id: "mid_template", recipient_id: "user_2" } },
+    { body: { message_id: "mid_reaction", recipient_id: "user_2" } },
+    { body: { message_id: "mid_unreaction", recipient_id: "user_2" } },
+  ]);
+  const api = createClient({ accessToken: "tok" });
+  const ig = createInstagramClient({ api, igAccountId: "ig_456", polling: testPolling });
+
+  await ig.messaging.sendTemplate("user_2", {
+    type: "generic",
+    elements: [
+      { title: "OpenPromo", buttons: [{ type: "postback", title: "Open", payload: "open" }] },
+    ],
+  });
+  await ig.messaging.react("user_2", "mid_original");
+  await ig.messaging.unreact("user_2", "mid_original");
+
+  const calls = (globalThis.fetch as any).mock.calls as [string, RequestInit][];
+  const template = parseFormBody(calls[0]![1]);
+  expect((template.message as any).attachment.payload.template_type).toBe("generic");
+  const reaction = parseFormBody(calls[1]![1]);
+  expect(reaction.sender_action).toBe("react");
+  expect((reaction.payload as any).reaction).toBe("love");
+  const unreaction = parseFormBody(calls[2]![1]);
+  expect(unreaction.sender_action).toBe("unreact");
+});
+
+test("IG messaging enforces quick reply limits", async () => {
+  const api = createClient({ accessToken: "tok" });
+  const ig = createInstagramClient({ api, igAccountId: "ig_456", polling: testPolling });
+  const replies = Array.from({ length: 14 }, (_, index) => ({
+    contentType: "text" as const,
+    title: `Reply ${index}`,
+    payload: String(index),
+  }));
+
+  await expect(ig.messaging.sendText("user_1", "Choose", replies)).rejects.toThrow("at most 13");
+  await expect(
+    ig.messaging.sendText("user_1", "Choose", [
+      { contentType: "text", title: "a".repeat(21), payload: "long" },
+    ]),
+  ).rejects.toThrow("20 characters");
+});
+
 test("IG messaging.reply replies to a specific message", async () => {
   mockFetchSequence([{ body: { message_id: "mid_3", recipient_id: "user_1" } }]);
   const api = createClient({ accessToken: "tok" });
@@ -174,6 +219,18 @@ test("IG comments.delete deletes a comment", async () => {
   expect(init.method).toBe("DELETE");
 });
 
+test("IG comments.setEnabled toggles comments on media", async () => {
+  mockFetchSequence([{ body: { success: true } }]);
+  const api = createClient({ accessToken: "tok" });
+  const ig = createInstagramClient({ api, igAccountId: "ig_456", polling: testPolling });
+
+  await ig.comments.setEnabled("media_1", false);
+
+  const [url, init] = (globalThis.fetch as any).mock.calls[0] as [string, RequestInit];
+  expect(url).toContain("media_1");
+  expect(parseFormBody(init).comment_enabled).toBe(false);
+});
+
 // --- Facebook Messaging ---
 
 test("FB messaging.send sends a Messenger DM", async () => {
@@ -217,6 +274,35 @@ test("FB messaging exposes typed attachments, quick replies, and message tags", 
   expect((second.message as any).attachment.type).toBe("image");
   expect(second.messaging_type).toBe("MESSAGE_TAG");
   expect(second.tag).toBe("POST_PURCHASE_UPDATE");
+});
+
+test("FB messaging sends typed generic templates", async () => {
+  mockFetchSequence([{ body: { message_id: "mid_fb_template", recipient_id: "psid_1" } }]);
+  const fb = createFacebookPageClient({ pageId: "page_1", accessToken: "tok" });
+
+  await fb.messaging.sendTemplate("psid_1", {
+    type: "generic",
+    elements: [
+      {
+        title: "OpenPromo",
+        imageUrl: "https://example.com/product.jpg",
+        buttons: [{ type: "web_url", title: "View", url: "https://example.com" }],
+      },
+    ],
+  });
+
+  const [, init] = (globalThis.fetch as any).mock.calls[0] as [string, RequestInit];
+  const body = parseFormBody(init);
+  expect((body.message as any).attachment.payload.template_type).toBe("generic");
+  expect((body.message as any).attachment.payload.elements[0].buttons[0].type).toBe("web_url");
+});
+
+test("FB messaging rejects invalid template cardinality", async () => {
+  const fb = createFacebookPageClient({ pageId: "page_1", accessToken: "tok" });
+
+  await expect(
+    fb.messaging.sendTemplate("psid_1", { type: "button", text: "Choose", buttons: [] }),
+  ).rejects.toThrow("1 to 3 buttons");
 });
 
 test("FB messaging.reply replies to a message", async () => {

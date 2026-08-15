@@ -35,5 +35,10 @@ export function createComments(api: CreateClientReturn) {
     async delete(commentId: string): Promise<void> {
       await api.iGComment(commentId).delete();
     },
+
+    /** Enable or disable comments on an Instagram media item. */
+    async setEnabled(mediaId: string, enabled: boolean): Promise<void> {
+      await api.iGMedia(mediaId).update({ comment_enabled: enabled });
+    },
   };
 }

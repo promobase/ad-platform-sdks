@@ -59,10 +59,40 @@ export type InstagramAttachment =
   | { type: "MEDIA_SHARE"; mediaId: string };
 
 export interface InstagramQuickReply {
-  contentType: "text";
+  contentType: "text" | "user_phone_number" | "user_email";
   title: string;
   payload: string;
 }
+
+export type InstagramTemplateButton =
+  | {
+      type: "web_url";
+      title: string;
+      url: string;
+      webviewHeightRatio?: "compact" | "tall" | "full";
+    }
+  | { type: "postback"; title: string; payload: string };
+
+export interface InstagramGenericTemplateElement {
+  title: string;
+  imageUrl?: string;
+  subtitle?: string;
+  defaultAction?: Extract<InstagramTemplateButton, { type: "web_url" }>;
+  buttons?: readonly InstagramTemplateButton[];
+}
+
+export type InstagramTemplate =
+  | {
+      type: "generic";
+      elements: readonly InstagramGenericTemplateElement[];
+    }
+  | {
+      type: "button";
+      text: string;
+      buttons: readonly InstagramTemplateButton[];
+    };
+
+export type InstagramMessageReaction = "love";
 
 export interface InstagramAccountInsightsOptions {
   metrics: readonly string[];

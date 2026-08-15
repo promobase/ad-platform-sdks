@@ -42,8 +42,12 @@ export interface PublishPhotoPostOptions {
 
 export interface PublishVideoPostOptions {
   url?: string;
+  /** Provider upload handle from the resumable video upload flow. */
+  fileHandle?: string;
   title?: string;
   description?: string;
+  published?: boolean;
+  scheduledPublishTime?: number | string;
 }
 
 export interface OAuthConfig {
@@ -99,8 +103,10 @@ export interface PublishMultiPhotoOptions {
 
 export interface PublishVideoReelOptions {
   videoUrl: string;
+  title?: string;
   description?: string;
-  videoState?: "PUBLISHED" | "DRAFT";
+  videoState?: "PUBLISHED" | "DRAFT" | "SCHEDULED";
+  scheduledPublishTime?: number | string;
 }
 
 export type MessengerAttachmentType = "image" | "video" | "audio" | "file";
@@ -116,6 +122,54 @@ export interface MessengerQuickReply {
   payload: string;
   imageUrl?: string;
 }
+
+export type MessengerWebviewHeightRatio = "compact" | "tall" | "full";
+
+export type MessengerTemplateButton =
+  | {
+      type: "web_url";
+      title: string;
+      url: string;
+      webviewHeightRatio?: MessengerWebviewHeightRatio;
+      messengerExtensions?: boolean;
+    }
+  | { type: "postback"; title: string; payload: string }
+  | { type: "phone_number"; title: string; payload: string };
+
+export interface MessengerGenericTemplateElement {
+  title: string;
+  imageUrl?: string;
+  subtitle?: string;
+  defaultAction?: Extract<MessengerTemplateButton, { type: "web_url" }>;
+  buttons?: readonly MessengerTemplateButton[];
+}
+
+export interface MessengerMediaTemplateElement {
+  mediaType: "image" | "video";
+  url?: string;
+  attachmentId?: string;
+  buttons?: readonly MessengerTemplateButton[];
+}
+
+export type MessengerTemplate =
+  | {
+      type: "generic";
+      elements: readonly MessengerGenericTemplateElement[];
+    }
+  | {
+      type: "button";
+      text: string;
+      buttons: readonly MessengerTemplateButton[];
+    }
+  | {
+      type: "list";
+      elements: readonly MessengerGenericTemplateElement[];
+      topElementStyle?: "compact" | "large";
+    }
+  | {
+      type: "media";
+      element: MessengerMediaTemplateElement;
+    };
 
 export type MessengerMessagingType = "RESPONSE" | "UPDATE" | "MESSAGE_TAG";
 

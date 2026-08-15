@@ -69,6 +69,18 @@ function requirePostId(result: v.InferOutput<typeof VideoUploadFinishSchema>): s
   return postId;
 }
 
+function validateVideoReelSchedule(
+  videoState: "PUBLISHED" | "DRAFT" | "SCHEDULED" | undefined,
+  scheduledPublishTime: number | string | undefined,
+): void {
+  if (videoState === "SCHEDULED" && scheduledPublishTime === undefined) {
+    throw new Error("scheduledPublishTime is required when videoState is SCHEDULED");
+  }
+  if (videoState !== "SCHEDULED" && scheduledPublishTime !== undefined) {
+    throw new Error("scheduledPublishTime requires videoState SCHEDULED");
+  }
+}
+
 export function createFeed(
   api: CreateClientReturn,
   page: PageNode,
@@ -112,15 +124,22 @@ export function createFeed(
 
   const finishVideoReelUpload = async (opts: {
     videoId: string;
+    title?: string;
     description?: string;
-    videoState?: "PUBLISHED" | "DRAFT";
+    videoState?: "PUBLISHED" | "DRAFT" | "SCHEDULED";
+    scheduledPublishTime?: number | string;
   }): Promise<{ id: string; videoId: string }> => {
+    validateVideoReelSchedule(opts.videoState, opts.scheduledPublishTime);
     const params: Record<string, unknown> = {
       upload_phase: "finish",
       video_id: opts.videoId,
       video_state: opts.videoState ?? "PUBLISHED",
     };
+    if (opts.title) params.title = opts.title;
     if (opts.description) params.description = opts.description;
+    if (opts.scheduledPublishTime !== undefined) {
+      params.scheduled_publish_time = String(opts.scheduledPublishTime);
+    }
     const result = v.parse(
       VideoUploadFinishSchema,
       await client.post<unknown>(`${pageId}/video_reels`, params),
@@ -200,10 +219,22 @@ export function createFeed(
      * On Facebook, all feed videos and reels use the same /videos endpoint.
      */
     async publishVideo(opts: PublishVideoPostOptions): Promise<{ id: string }> {
+      if (opts.url && opts.fileHandle) {
+        throw new Error("Provide either url or fileHandle, not both");
+      }
+      if (!opts.url && !opts.fileHandle) {
+        throw new Error("Facebook video publishing requires url or fileHandle");
+      }
       const params: Record<string, unknown> = {};
-      if (opts.url) params.file_url = opts.url;
+      if (opts.fileHandle) params.fbuploader_video_file_chunk = opts.fileHandle;
+      else if (opts.url) params.file_url = opts.url;
       if (opts.title) params.title = opts.title;
       if (opts.description) params.description = opts.description;
+      if (opts.published !== undefined) params.published = opts.published;
+      if (opts.scheduledPublishTime !== undefined) {
+        params.published = false;
+        params.scheduled_publish_time = Number(opts.scheduledPublishTime);
+      }
       const result = v.parse(IdSchema, await page.videos.create(params as PageCreateVideosParams));
       return { id: result.id };
     },
@@ -240,12 +271,15 @@ export function createFeed(
     async publishVideoReel(
       opts: PublishVideoReelOptions,
     ): Promise<{ id: string; videoId: string }> {
+      validateVideoReelSchedule(opts.videoState, opts.scheduledPublishTime);
       const startResult = await startVideoReelUpload();
       await uploadVideoReel({ uploadUrl: startResult.uploadUrl, videoUrl: opts.videoUrl });
       return finishVideoReelUpload({
         videoId: startResult.videoId,
+        title: opts.title,
         description: opts.description,
         videoState: opts.videoState,
+        scheduledPublishTime: opts.scheduledPublishTime,
       });
     },
 

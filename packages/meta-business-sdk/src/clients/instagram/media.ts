@@ -18,6 +18,14 @@ type Containers = ReturnType<typeof createContainers>;
 
 type InstagramMediaPublishError = Error | import("./polling.ts").InstagramContainerWaitError;
 
+const MAX_CAPTION_LENGTH = 2_200;
+
+function validateCaption(caption: string | undefined): void {
+  if (caption && caption.length > MAX_CAPTION_LENGTH) {
+    throw new Error(`Instagram captions cannot exceed ${MAX_CAPTION_LENGTH} characters`);
+  }
+}
+
 function unknownToError(cause: unknown): Error {
   return cause instanceof Error ? cause : new Error(String(cause));
 }
@@ -37,6 +45,7 @@ export function createMedia(
     opts: PublishPhotoOptions,
   ): Effect.Effect<PublishResult, InstagramMediaPublishError> {
     return Effect.gen(function* () {
+      validateCaption(opts.caption);
       const container = yield* Effect.tryPromise({
         try: () =>
           containers.create({
@@ -69,6 +78,7 @@ export function createMedia(
     opts: PublishVideoOptions,
   ): Effect.Effect<PublishResult, InstagramMediaPublishError> {
     return Effect.gen(function* () {
+      validateCaption(opts.caption);
       const container = yield* Effect.tryPromise({
         try: () =>
           containers.create({
@@ -105,6 +115,7 @@ export function createMedia(
     opts: PublishCarouselOptions,
   ): Effect.Effect<PublishResult, InstagramMediaPublishError> {
     return Effect.gen(function* () {
+      validateCaption(opts.caption);
       if (opts.items.length > 10) {
         return yield* Effect.fail(
           new Error(`Carousel supports max 10 items, got ${opts.items.length}`),

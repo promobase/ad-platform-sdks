@@ -101,6 +101,30 @@ test("publishVideo sends POST to /page_id/videos", async () => {
   expect(result.id).toBe("video_1");
 });
 
+test("publishVideo accepts the provider resumable upload handle", async () => {
+  mockFetchSequence([{ body: { id: "video_handle_1" } }]);
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
+
+  await fb.feed.publishVideo({ fileHandle: "handle_123", published: false });
+
+  const [, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [
+    string,
+    RequestInit,
+  ];
+  const body = init.body?.toString() ?? "";
+  expect(body).toContain("fbuploader_video_file_chunk=handle_123");
+  expect(body).toContain("published=false");
+});
+
+test("publishVideo rejects ambiguous or missing video sources", async () => {
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
+
+  await expect(fb.feed.publishVideo({})).rejects.toThrow("requires url or fileHandle");
+  await expect(
+    fb.feed.publishVideo({ url: "https://example.com/video.mp4", fileHandle: "handle_123" }),
+  ).rejects.toThrow("either url or fileHandle");
+});
+
 test("list feeds returns Page posts", async () => {
   mockFetchSequence([
     {
@@ -212,6 +236,40 @@ test("publishVideoReel performs 3-phase upload", async () => {
   expect(url3).toContain("page_123/video_reels");
   expect(init3.body?.toString()).toContain("upload_phase=finish");
   expect(init3.body?.toString()).toContain("video_id=vid_123");
+});
+
+test("publishVideoReel supports scheduled publishing", async () => {
+  mockFetchSequence([
+    { body: { video_id: "vid_scheduled", upload_url: "https://upload.example/reel" } },
+    { body: { success: true } },
+    { body: { success: true, id: "scheduled_reel" } },
+  ]);
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
+
+  await fb.feed.publishVideoReel({
+    videoUrl: "https://example.com/video.mp4",
+    videoState: "SCHEDULED",
+    scheduledPublishTime: 1_730_000_000,
+  });
+
+  const calls = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls;
+  const [, finishInit] = calls[2] as [string, RequestInit];
+  expect(finishInit.body?.toString()).toContain("video_state=SCHEDULED");
+  expect(finishInit.body?.toString()).toContain("scheduled_publish_time=1730000000");
+});
+
+test("publishVideoReel requires a schedule time for scheduled state", async () => {
+  mockFetchSequence([
+    { body: { video_id: "vid_scheduled", upload_url: "https://upload.example" } },
+  ]);
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
+
+  await expect(
+    fb.feed.publishVideoReel({
+      videoUrl: "https://example.com/video.mp4",
+      videoState: "SCHEDULED",
+    }),
+  ).rejects.toThrow("scheduledPublishTime is required");
 });
 
 test("videoReels exposes durable start, upload, and finish operations", async () => {
