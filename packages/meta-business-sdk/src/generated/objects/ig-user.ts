@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:8b322058a6da4e250f6726e4fccf844f2354f2a517165a22605cdb44f4ffa1d3
+// fingerprint: sha256:20eab226e22bcda541431b662f527ed85036e8d37695322bbcb972fe6e0ae5ac
 // DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
@@ -144,7 +144,7 @@ export interface IGUserListCreatorMarketplaceCreatorsParams {
   major_audience_device_type?: Record<string, unknown>[];
   major_audience_gender?: string[];
   major_audience_states?: string[];
-  platform?: string[];
+  platform?: string;
   query?: string;
   recommendation_type?: string;
   reels_interaction_rate?: Record<string, unknown>;
@@ -195,9 +195,12 @@ export interface IGUserCreateMediaParams {
   image_url?: string;
   is_ai_generated?: boolean;
   is_carousel_item?: boolean;
+  is_comment_prompt_used?: boolean;
   is_paid_partnership?: boolean;
+  is_poll_duration_extended?: boolean;
   location_id?: string;
   media_type?: string;
+  poll_attachment?: string;
   product_tags?: Record<string, unknown>[];
   share_to_feed?: boolean;
   thumb_offset?: string;

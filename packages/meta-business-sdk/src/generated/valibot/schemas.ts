@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:0032410189682cebd7684f9007013451e12583e2aead8107fbb961d917c412fa
+// fingerprint: sha256:c2e3dce6bc9f421bfc7aa5f3a3e5b94accea7a02c2976f231594ccb77bbf77fd
 // DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 import * as v from "valibot";
@@ -234,6 +234,7 @@ export type AdAccountBusinessConstraintsFields = {
   readonly campaigns_with_error?: ReadonlyArray<string>;
   readonly is_age_restriction_enabled?: boolean;
   readonly placement_controls?: Readonly<Record<string, unknown>>;
+  readonly placement_controls_per_objective?: Readonly<Record<string, unknown>>;
   readonly status?: AdAccountBusinessConstraintsStatus;
 };
 export const AdAccountBusinessConstraintsFieldsSchema: v.GenericSchema<unknown, AdAccountBusinessConstraintsFields> = v.looseObject({
@@ -241,6 +242,7 @@ export const AdAccountBusinessConstraintsFieldsSchema: v.GenericSchema<unknown, 
   campaigns_with_error: v.optional(v.array(v.string())),
   is_age_restriction_enabled: v.optional(v.boolean()),
   placement_controls: v.optional(v.record(v.string(), v.unknown())),
+  placement_controls_per_objective: v.optional(v.record(v.string(), v.unknown())),
   status: v.optional(v.lazy(() => AdAccountBusinessConstraintsStatusSchema)),
 });
 
@@ -380,16 +382,12 @@ export type AdAccountDefaultObjectiveObjectiveForLevel = "APP_INSTALLS" | "BRAND
 export const AdAccountDefaultObjectiveObjectiveForLevelSchema: v.GenericSchema<unknown, AdAccountDefaultObjectiveObjectiveForLevel> = v.picklist(["APP_INSTALLS", "BRAND_AWARENESS", "EVENT_RESPONSES", "LEAD_GENERATION", "LINK_CLICKS", "LOCAL_AWARENESS", "MESSAGES", "OFFER_CLAIMS", "OUTCOME_APP_PROMOTION", "OUTCOME_AWARENESS", "OUTCOME_ENGAGEMENT", "OUTCOME_LEADS", "OUTCOME_SALES", "OUTCOME_TRAFFIC", "PAGE_LIKES", "POST_ENGAGEMENT", "PRODUCT_CATALOG_SALES", "REACH", "STORE_VISITS", "VIDEO_VIEWS", "WEBSITE_CONVERSIONS"]);
 
 export type AdAccountDeliveryEstimateFields = {
-  readonly daily_outcomes_curve?: ReadonlyArray<OutcomePredictionPointFields>;
-  readonly estimate_dau?: number;
   readonly estimate_mau_lower_bound?: number;
   readonly estimate_mau_upper_bound?: number;
   readonly estimate_ready?: boolean;
   readonly targeting_optimization_types?: ReadonlyArray<Readonly<Record<string, number>>>;
 };
 export const AdAccountDeliveryEstimateFieldsSchema: v.GenericSchema<unknown, AdAccountDeliveryEstimateFields> = v.looseObject({
-  daily_outcomes_curve: v.optional(v.array(v.lazy(() => OutcomePredictionPointFieldsSchema))),
-  estimate_dau: v.optional(v.pipe(v.number(), v.integer())),
   estimate_mau_lower_bound: v.optional(v.pipe(v.number(), v.integer())),
   estimate_mau_upper_bound: v.optional(v.pipe(v.number(), v.integer())),
   estimate_ready: v.optional(v.boolean()),
@@ -404,20 +402,6 @@ export type AdAccountDsaRecommendationsFields = {
 };
 export const AdAccountDsaRecommendationsFieldsSchema: v.GenericSchema<unknown, AdAccountDsaRecommendationsFields> = v.looseObject({
   recommendations: v.optional(v.array(v.string())),
-});
-
-export type AdAccountFeaturePreferencesFields = {
-
-};
-export const AdAccountFeaturePreferencesFieldsSchema: v.GenericSchema<unknown, AdAccountFeaturePreferencesFields> = v.looseObject({
-
-});
-
-export type AdAccountFeaturePreferencesPostFields = {
-  readonly id?: string;
-};
-export const AdAccountFeaturePreferencesPostFieldsSchema: v.GenericSchema<unknown, AdAccountFeaturePreferencesPostFields> = v.looseObject({
-  id: v.optional(v.string()),
 });
 
 export type AdAccountFields = {
@@ -575,6 +559,29 @@ export const AdAccountFieldsSchema: v.GenericSchema<unknown, AdAccountFields> = 
   user_tasks: v.optional(v.array(v.string())),
   user_tos_accepted: v.optional(v.record(v.string(), v.pipe(v.number(), v.integer()))),
   viewable_business: v.optional(v.lazy(() => BusinessFieldsSchema)),
+});
+
+export type AdAccountInsightsFeatureSettingsFields = {
+
+};
+export const AdAccountInsightsFeatureSettingsFieldsSchema: v.GenericSchema<unknown, AdAccountInsightsFeatureSettingsFields> = v.looseObject({
+
+});
+
+export type AdAccountInsightsFeatureSettingsListFeaturesFields = {
+  readonly data?: ReadonlyArray<unknown>;
+  readonly paging?: unknown;
+};
+export const AdAccountInsightsFeatureSettingsListFeaturesFieldsSchema: v.GenericSchema<unknown, AdAccountInsightsFeatureSettingsListFeaturesFields> = v.looseObject({
+  data: v.optional(v.array(v.unknown())),
+  paging: v.optional(v.unknown()),
+});
+
+export type AdAccountInsightsFeatureSettingsPostFields = {
+  readonly id?: string;
+};
+export const AdAccountInsightsFeatureSettingsPostFieldsSchema: v.GenericSchema<unknown, AdAccountInsightsFeatureSettingsPostFields> = v.looseObject({
+  id: v.optional(v.string()),
 });
 
 export type AdAccountIosFourteenCampaignLimitsFields = {
@@ -1820,16 +1827,12 @@ export const AdCampaignDeleteFieldsSchema: v.GenericSchema<unknown, AdCampaignDe
 });
 
 export type AdCampaignDeliveryEstimateFields = {
-  readonly daily_outcomes_curve?: ReadonlyArray<OutcomePredictionPointFields>;
-  readonly estimate_dau?: number;
   readonly estimate_mau_lower_bound?: number;
   readonly estimate_mau_upper_bound?: number;
   readonly estimate_ready?: boolean;
   readonly targeting_optimization_types?: ReadonlyArray<Readonly<Record<string, number>>>;
 };
 export const AdCampaignDeliveryEstimateFieldsSchema: v.GenericSchema<unknown, AdCampaignDeliveryEstimateFields> = v.looseObject({
-  daily_outcomes_curve: v.optional(v.array(v.lazy(() => OutcomePredictionPointFieldsSchema))),
-  estimate_dau: v.optional(v.pipe(v.number(), v.integer())),
   estimate_mau_lower_bound: v.optional(v.pipe(v.number(), v.integer())),
   estimate_mau_upper_bound: v.optional(v.pipe(v.number(), v.integer())),
   estimate_ready: v.optional(v.boolean()),
@@ -3422,6 +3425,7 @@ export const AdCreativeMarketingMessageStructuredSpecFieldsSchema: v.GenericSche
 export type AdCreativeMediaSourcingSpecFields = {
   readonly bodies?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly descriptions?: ReadonlyArray<Readonly<Record<string, unknown>>>;
+  readonly destinations?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly images?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly push_metadata_ids?: ReadonlyArray<string>;
   readonly related_media?: Readonly<Record<string, unknown>>;
@@ -3431,6 +3435,7 @@ export type AdCreativeMediaSourcingSpecFields = {
 export const AdCreativeMediaSourcingSpecFieldsSchema: v.GenericSchema<unknown, AdCreativeMediaSourcingSpecFields> = v.looseObject({
   bodies: v.optional(v.array(v.record(v.string(), v.unknown()))),
   descriptions: v.optional(v.array(v.record(v.string(), v.unknown()))),
+  destinations: v.optional(v.array(v.record(v.string(), v.unknown()))),
   images: v.optional(v.array(v.record(v.string(), v.unknown()))),
   push_metadata_ids: v.optional(v.array(v.string())),
   related_media: v.optional(v.record(v.string(), v.unknown())),
@@ -5420,6 +5425,7 @@ export type AdSetFields = {
   readonly ad_set_goal?: AdCampaignGoalFields;
   readonly adlabels?: ReadonlyArray<AdLabelFields>;
   readonly adset_schedule?: ReadonlyArray<DayPartFields>;
+  readonly anchor_event_attribution_window_days?: number;
   readonly asset_feed_id?: string;
   readonly attribution_count_type?: string;
   readonly attribution_spec?: ReadonlyArray<AttributionSpecFields>;
@@ -5509,6 +5515,7 @@ export const AdSetFieldsSchema: v.GenericSchema<unknown, AdSetFields> = v.looseO
   ad_set_goal: v.optional(v.lazy(() => AdCampaignGoalFieldsSchema)),
   adlabels: v.optional(v.array(v.lazy(() => AdLabelFieldsSchema))),
   adset_schedule: v.optional(v.array(v.lazy(() => DayPartFieldsSchema))),
+  anchor_event_attribution_window_days: v.optional(v.pipe(v.number(), v.integer())),
   asset_feed_id: v.optional(v.string()),
   attribution_count_type: v.optional(v.string()),
   attribution_spec: v.optional(v.array(v.lazy(() => AttributionSpecFieldsSchema))),
@@ -5913,6 +5920,7 @@ export type AdsInsightsFields = {
   readonly inline_link_click_ctr?: string;
   readonly inline_link_clicks?: string;
   readonly inline_post_engagement?: string;
+  readonly instagram_profile_follow?: string;
   readonly instagram_profile_visits?: string;
   readonly instagram_upcoming_event_reminders_set?: string;
   readonly instant_experience_clicks_to_open?: string;
@@ -5942,10 +5950,6 @@ export type AdsInsightsFields = {
   readonly marketing_messages_sent?: string;
   readonly marketing_messages_spend?: string;
   readonly marketing_messages_spend_currency?: string;
-  readonly marketing_messages_website_add_to_cart?: string;
-  readonly marketing_messages_website_initiate_checkout?: string;
-  readonly marketing_messages_website_purchase?: string;
-  readonly marketing_messages_website_purchase_values?: string;
   readonly messages_delivered?: string;
   readonly messages_delivered_ctr?: string;
   readonly mobile_app_purchase_roas?: ReadonlyArray<AdsActionStatsFields>;
@@ -5959,6 +5963,8 @@ export type AdsInsightsFields = {
   readonly outbound_clicks?: ReadonlyArray<AdsActionStatsFields>;
   readonly outbound_clicks_ctr?: ReadonlyArray<AdsActionStatsFields>;
   readonly place_page_name?: string;
+  readonly playable_average_game_length?: string;
+  readonly playable_game_start_rate?: string;
   readonly product_group_retailer_id?: string;
   readonly product_retailer_id?: string;
   readonly product_views?: string;
@@ -6135,6 +6141,7 @@ export const AdsInsightsFieldsSchema: v.GenericSchema<unknown, AdsInsightsFields
   inline_link_click_ctr: v.optional(v.string()),
   inline_link_clicks: v.optional(v.string()),
   inline_post_engagement: v.optional(v.string()),
+  instagram_profile_follow: v.optional(v.string()),
   instagram_profile_visits: v.optional(v.string()),
   instagram_upcoming_event_reminders_set: v.optional(v.string()),
   instant_experience_clicks_to_open: v.optional(v.string()),
@@ -6164,10 +6171,6 @@ export const AdsInsightsFieldsSchema: v.GenericSchema<unknown, AdsInsightsFields
   marketing_messages_sent: v.optional(v.string()),
   marketing_messages_spend: v.optional(v.string()),
   marketing_messages_spend_currency: v.optional(v.string()),
-  marketing_messages_website_add_to_cart: v.optional(v.string()),
-  marketing_messages_website_initiate_checkout: v.optional(v.string()),
-  marketing_messages_website_purchase: v.optional(v.string()),
-  marketing_messages_website_purchase_values: v.optional(v.string()),
   messages_delivered: v.optional(v.string()),
   messages_delivered_ctr: v.optional(v.string()),
   mobile_app_purchase_roas: v.optional(v.array(v.lazy(() => AdsActionStatsFieldsSchema))),
@@ -6181,6 +6184,8 @@ export const AdsInsightsFieldsSchema: v.GenericSchema<unknown, AdsInsightsFields
   outbound_clicks: v.optional(v.array(v.lazy(() => AdsActionStatsFieldsSchema))),
   outbound_clicks_ctr: v.optional(v.array(v.lazy(() => AdsActionStatsFieldsSchema))),
   place_page_name: v.optional(v.string()),
+  playable_average_game_length: v.optional(v.string()),
+  playable_game_start_rate: v.optional(v.string()),
   product_group_retailer_id: v.optional(v.string()),
   product_retailer_id: v.optional(v.string()),
   product_views: v.optional(v.string()),
@@ -8712,13 +8717,13 @@ export type AudioVisualReferenceMatchFields = {
   readonly match_state?: string;
   readonly matched_overlap_percentage?: number;
   readonly matched_owner_match_duration_in_sec?: number;
-  readonly matched_reference_owner?: ProfileFields;
+  readonly matched_reference_owner_v2?: Readonly<Record<string, unknown>>;
   readonly modification_history?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly num_matches_on_matched_side?: number;
   readonly num_matches_on_ref_side?: number;
   readonly ref_owner_match_duration_in_sec?: number;
   readonly reference_overlap_percentage?: number;
-  readonly reference_owner?: ProfileFields;
+  readonly reference_owner_v2?: Readonly<Record<string, unknown>>;
   readonly rejection_form_data_entries_with_translations?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly resolution_details?: string;
   readonly resolution_reason?: string;
@@ -8746,13 +8751,13 @@ export const AudioVisualReferenceMatchFieldsSchema: v.GenericSchema<unknown, Aud
   match_state: v.optional(v.string()),
   matched_overlap_percentage: v.optional(v.number()),
   matched_owner_match_duration_in_sec: v.optional(v.number()),
-  matched_reference_owner: v.optional(v.lazy(() => ProfileFieldsSchema)),
+  matched_reference_owner_v2: v.optional(v.record(v.string(), v.unknown())),
   modification_history: v.optional(v.array(v.record(v.string(), v.unknown()))),
   num_matches_on_matched_side: v.optional(v.pipe(v.number(), v.integer())),
   num_matches_on_ref_side: v.optional(v.pipe(v.number(), v.integer())),
   ref_owner_match_duration_in_sec: v.optional(v.number()),
   reference_overlap_percentage: v.optional(v.number()),
-  reference_owner: v.optional(v.lazy(() => ProfileFieldsSchema)),
+  reference_owner_v2: v.optional(v.record(v.string(), v.unknown())),
   rejection_form_data_entries_with_translations: v.optional(v.array(v.record(v.string(), v.unknown()))),
   resolution_details: v.optional(v.string()),
   resolution_reason: v.optional(v.string()),
@@ -9103,9 +9108,15 @@ export const BrandSafetyBlockListUsageFieldsSchema: v.GenericSchema<unknown, Bra
 
 export type BrandSafetyCampaignConfigFields = {
   readonly comment_moderation_filter?: string;
+  readonly fb_comment_moderation_filter?: string;
+  readonly ig_comment_moderation_filter?: string;
+  readonly threads_comment_moderation_filter?: string;
 };
 export const BrandSafetyCampaignConfigFieldsSchema: v.GenericSchema<unknown, BrandSafetyCampaignConfigFields> = v.looseObject({
   comment_moderation_filter: v.optional(v.string()),
+  fb_comment_moderation_filter: v.optional(v.string()),
+  ig_comment_moderation_filter: v.optional(v.string()),
+  threads_comment_moderation_filter: v.optional(v.string()),
 });
 
 export type BrandSafetyDownloadableFields = {
@@ -11162,8 +11173,8 @@ export type CopyrightOwnershipTransferFields = {
   readonly has_ownership_been_updated?: boolean;
   readonly id?: string;
   readonly num_assets?: number;
-  readonly receiving_rights_holder?: ProfileFields;
-  readonly sending_rights_holder?: ProfileFields;
+  readonly receiving_rights_holder_owner?: Readonly<Record<string, unknown>>;
+  readonly sending_rights_holder_owner?: Readonly<Record<string, unknown>>;
   readonly status?: string;
   readonly transfer_territories?: ReadonlyArray<string>;
   readonly transfer_time?: string;
@@ -11173,8 +11184,8 @@ export const CopyrightOwnershipTransferFieldsSchema: v.GenericSchema<unknown, Co
   has_ownership_been_updated: v.optional(v.boolean()),
   id: v.optional(v.string()),
   num_assets: v.optional(v.pipe(v.number(), v.integer())),
-  receiving_rights_holder: v.optional(v.lazy(() => ProfileFieldsSchema)),
-  sending_rights_holder: v.optional(v.lazy(() => ProfileFieldsSchema)),
+  receiving_rights_holder_owner: v.optional(v.record(v.string(), v.unknown())),
+  sending_rights_holder_owner: v.optional(v.record(v.string(), v.unknown())),
   status: v.optional(v.string()),
   transfer_territories: v.optional(v.array(v.string())),
   transfer_time: v.optional(v.pipe(v.string(), v.isoTimestamp())),
@@ -15042,10 +15053,10 @@ export type ImageReferenceMatchFields = {
   readonly id?: string;
   readonly match_state?: string;
   readonly matched_reference_copyright?: ImageCopyrightFields;
-  readonly matched_reference_owner?: ProfileFields;
+  readonly matched_reference_owner_rh_owner?: Readonly<Record<string, unknown>>;
   readonly modification_history?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly reference_copyright?: ImageCopyrightFields;
-  readonly reference_owner?: ProfileFields;
+  readonly reference_owner_rh_owner?: Readonly<Record<string, unknown>>;
   readonly rejection_form_data_entries_with_translations?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly resolution_reason?: string;
   readonly update_time?: string;
@@ -15062,10 +15073,10 @@ export const ImageReferenceMatchFieldsSchema: v.GenericSchema<unknown, ImageRefe
   id: v.optional(v.string()),
   match_state: v.optional(v.string()),
   matched_reference_copyright: v.optional(v.lazy(() => ImageCopyrightFieldsSchema)),
-  matched_reference_owner: v.optional(v.lazy(() => ProfileFieldsSchema)),
+  matched_reference_owner_rh_owner: v.optional(v.record(v.string(), v.unknown())),
   modification_history: v.optional(v.array(v.record(v.string(), v.unknown()))),
   reference_copyright: v.optional(v.lazy(() => ImageCopyrightFieldsSchema)),
-  reference_owner: v.optional(v.lazy(() => ProfileFieldsSchema)),
+  reference_owner_rh_owner: v.optional(v.record(v.string(), v.unknown())),
   rejection_form_data_entries_with_translations: v.optional(v.array(v.record(v.string(), v.unknown()))),
   resolution_reason: v.optional(v.string()),
   update_time: v.optional(v.pipe(v.string(), v.isoTimestamp())),

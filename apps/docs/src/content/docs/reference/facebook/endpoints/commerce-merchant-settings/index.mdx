@@ -1,9 +1,9 @@
 ---
 title: "Facebook Commerce Merchant Settings endpoints"
-description: "11 generated Facebook endpoint contracts for Commerce Merchant Settings."
+description: "9 generated Facebook endpoint contracts for Commerce Merchant Settings."
 generated: true
 platform: "facebook"
-sourceVersion: "v25.0"
+sourceVersion: "v26.0"
 sidebar:
   order: 216
   label: "Commerce Merchant Settings"
@@ -11,7 +11,7 @@ tableOfContents: false
 ---
 
 {/* @generated */}
-{/* fingerprint: sha256:deb0f98a32b24560773772b9cb7172a4e0785d9d76cb08d384666ee2568de844 */}
+{/* fingerprint: sha256:bdd6bbcb5af6f623a1ddf9bdb45f1a9d0cc9e4c41e92c71af286abd83b7651b3 */}
 {/* DO NOT EDIT: generated file; changes will be overwritten. */}
 
 {/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
@@ -187,43 +187,6 @@ GET CommerceMerchantSettings product_catalogs
 | 500 | — | — | Yes |
 | 503 | — | — | Yes |
 
-## facebook.commerceMerchantSettings.returns
-
-`GET` `/{id}/returns`
-
-GET CommerceMerchantSettings returns
-
-| Behavior | Value |
-| --- | --- |
-| Effect | `read` |
-| Execution | `inline` |
-| Idempotency | `safe` |
-| Capabilities | `commerceMerchantSettings.read` |
-| Required scopes | None declared |
-| Rate-limit bucket | `facebook-graph-api` |
-| Output | `unknown` |
-
-**Parameters**
-
-| Name | Location | Type | Required | Nullable | Description |
-| --- | --- | --- | --- | --- | --- |
-| `id` | `path` | `string` | Yes | No | — |
-| `end_time_created` | `query` | `string<date-time>` | No | No | — |
-| `merchant_return_id` | `query` | `string` | No | No | — |
-| `start_time_created` | `query` | `string<date-time>` | No | No | — |
-| `statuses` | `query` | `Array<unknown>` | No | No | — |
-
-**Declared errors**
-
-| Status | Code | Model | Retryable |
-| --- | --- | --- | --- |
-| 400 | — | — | No |
-| 401 | — | — | No |
-| 403 | — | — | No |
-| 429 | — | — | Yes |
-| 500 | — | — | Yes |
-| 503 | — | — | Yes |
-
 ## facebook.commerceMerchantSettings.setupStatus
 
 `GET` `/{id}/setup_status`
@@ -311,39 +274,6 @@ GET CommerceMerchantSettings shops
 | Required scopes | None declared |
 | Rate-limit bucket | `facebook-graph-api` |
 | Output | `ShopFields` |
-
-**Parameters**
-
-| Name | Location | Type | Required | Nullable | Description |
-| --- | --- | --- | --- | --- | --- |
-| `id` | `path` | `string` | Yes | No | — |
-
-**Declared errors**
-
-| Status | Code | Model | Retryable |
-| --- | --- | --- | --- |
-| 400 | — | — | No |
-| 401 | — | — | No |
-| 403 | — | — | No |
-| 429 | — | — | Yes |
-| 500 | — | — | Yes |
-| 503 | — | — | Yes |
-
-## facebook.commerceMerchantSettings.taxSettings
-
-`GET` `/{id}/tax_settings`
-
-GET CommerceMerchantSettings tax_settings
-
-| Behavior | Value |
-| --- | --- |
-| Effect | `read` |
-| Execution | `inline` |
-| Idempotency | `safe` |
-| Capabilities | `commerceMerchantSettings.read` |
-| Required scopes | None declared |
-| Rate-limit bucket | `facebook-graph-api` |
-| Output | `unknown` |
 
 **Parameters**
 

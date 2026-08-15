@@ -497,6 +497,10 @@ test("webhooks.subscribe defaults to parser-supported Page webhook fields", asyn
       "message_deliveries",
       "messaging_postbacks",
       "messaging_referrals",
+      "messaging_optins",
+      "messaging_account_linking",
+      "messaging_handovers",
+      "standby",
     ].join(","),
   );
 });
@@ -511,7 +515,7 @@ test("Facebook OAuth generates correct authorization URL", () => {
   });
 
   const url = oauth.getAuthorizationUrl({ state: "xyz" });
-  expect(url).toContain("facebook.com/v25.0/dialog/oauth");
+  expect(url).toContain("facebook.com/v26.0/dialog/oauth");
   expect(url).toContain("client_id=app_123");
   expect(url).toContain("state=xyz");
 });

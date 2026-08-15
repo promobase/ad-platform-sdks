@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:2689959027916f7c7d7e9835f47f2f0f16a81e40ab9be25c4101062e01225b76
+// fingerprint: sha256:45dc2d4ff9042d6f379ff55faf1ea9d0447c220675258feebad726573c22d1c8
 // DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
@@ -43,14 +43,6 @@ export interface CommerceMerchantSettingsListCommercePayoutsParams {
   [key: string]: unknown;
 }
 
-export interface CommerceMerchantSettingsListReturnsParams {
-  end_time_created?: string;
-  merchant_return_id?: string;
-  start_time_created?: string;
-  statuses?: string[];
-  [key: string]: unknown;
-}
-
 export interface CommerceMerchantSettingsCreateShippingProfilesParams {
   handling_time?: Record<string, unknown>;
   is_default?: boolean;
@@ -85,16 +77,12 @@ export function commerceMerchantSettingsNode(client: ApiClient, id: string) {
       new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/order_management_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     productCatalogs: <F extends (keyof ProductCatalogFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<ProductCatalogFields, F[number]>>(client, `${id}/product_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
-    returns: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: CommerceMerchantSettingsListReturnsParams }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/returns`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     setupStatus: <F extends (keyof CommerceMerchantSettingsSetupStatusFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<CommerceMerchantSettingsSetupStatusFields, F[number]>>(client, `${id}/setup_status`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createShippingProfile: (params: CommerceMerchantSettingsCreateShippingProfilesParams) =>
       client.post<Record<string, unknown>>(`${id}/shipping_profiles`, params as Record<string, unknown>),
     shops: <F extends (keyof ShopFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       new Cursor<Pick<ShopFields, F[number]>>(client, `${id}/shops`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
-    taxSettings: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/tax_settings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

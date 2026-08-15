@@ -145,7 +145,7 @@ export function createOAuth(config: OAuthConfig) {
         "website",
       ];
       const params = new URLSearchParams({ access_token: accessToken, fields: fields.join(",") });
-      const response = await fetchImpl(`${IG_GRAPH_BASE}/v25.0/${id}?${params}`, {
+      const response = await fetchImpl(`${IG_GRAPH_BASE}/v26.0/${id}?${params}`, {
         signal: config.signal,
       });
       if (!response.ok) throw new Error(`Instagram profile fetch failed: ${await response.text()}`);

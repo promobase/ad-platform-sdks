@@ -1,5 +1,5 @@
 const DEFAULT_GRAPH_BASE_URL = "https://graph.facebook.com";
-const DEFAULT_API_VERSION = "v25.0";
+const DEFAULT_API_VERSION = "v26.0";
 
 export type WhatsAppFetch = (input: string | URL, init?: RequestInit) => Promise<Response>;
 

@@ -60,7 +60,7 @@ export async function requestJson<T>(
 ): Promise<T> {
   const fetchImpl = options.fetch ?? fetch;
   const baseUrl = (options.baseUrl ?? "https://graph.facebook.com").replace(/\/$/u, "");
-  const response = await fetchImpl(`${baseUrl}/${options.apiVersion ?? "v25.0"}/${path}`, {
+  const response = await fetchImpl(`${baseUrl}/${options.apiVersion ?? "v26.0"}/${path}`, {
     ...init,
     headers: {
       Authorization: `Bearer ${options.accessToken}`,

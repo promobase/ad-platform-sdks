@@ -3,7 +3,7 @@ title: "Facebook Ad Account: Account Controls – Impacting Ad Studies endpoints
 description: "75 generated Facebook endpoint contracts for Ad Account: Account Controls – Impacting Ad Studies."
 generated: true
 platform: "facebook"
-sourceVersion: "v25.0"
+sourceVersion: "v26.0"
 sidebar:
   order: 101
   label: "Ad Account: Account Controls – Impacting Ad Studies"
@@ -11,7 +11,7 @@ tableOfContents: false
 ---
 
 {/* @generated */}
-{/* fingerprint: sha256:156e49431d8f3037e62edc25c73dbcfcb703d2dbace653e0b75c3d662e292030 */}
+{/* fingerprint: sha256:0e07b545c2610eafdcd484047e484706ef83ab2701b6ee283853352a842b1ce6 */}
 {/* DO NOT EDIT: generated file; changes will be overwritten. */}
 
 {/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
@@ -72,6 +72,7 @@ POST AdAccount account_controls
 | `id` | `path` | `string` | Yes | No | — |
 | `audience_controls` | `body` | `Record<string, unknown>` | Yes | No | — |
 | `placement_controls` | `body` | `Record<string, unknown>` | No | No | — |
+| `placement_controls_per_objective` | `body` | `Record<string, unknown>` | No | No | — |
 
 **Declared errors**
 
@@ -860,6 +861,7 @@ POST AdAccount ads
 | `creative` | `body` | `AdCreativeFields` | Yes | No | — |
 | `creative_asset_groups_spec` | `body` | `Record<string, unknown>` | No | No | — |
 | `creative_automation_spec` | `body` | `Record<string, unknown>` | No | No | — |
+| `dataset_split_specs` | `body` | `Array<Record<string, unknown>>` | No | No | — |
 | `date_format` | `body` | `string` | No | No | — |
 | `display_sequence` | `body` | `integer` | No | No | — |
 | `draft_adgroup_id` | `body` | `string` | No | No | — |
@@ -1502,6 +1504,7 @@ POST AdAccount advideos
 | `initial_heading` | `body` | `integer` | No | No | — |
 | `initial_pitch` | `body` | `integer` | No | No | — |
 | `instant_game_entry_point_data` | `body` | `string` | No | No | — |
+| `is_ai_generated` | `body` | `boolean` | No | No | — |
 | `is_boost_intended` | `body` | `boolean` | No | No | — |
 | `is_group_linking_post` | `body` | `boolean` | No | No | — |
 | `is_partnership_ad` | `body` | `boolean` | No | No | — |

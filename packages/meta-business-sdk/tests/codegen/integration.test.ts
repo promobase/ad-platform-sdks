@@ -1,6 +1,14 @@
-import { expect, test } from "bun:test";
+import { afterAll, expect, test } from "bun:test";
 
 import { runCodegen } from "../../src/codegen/index.ts";
+
+afterAll(async () => {
+  const process = Bun.spawn(["node", "../../scripts/ensure-generated-headers.mjs"], {
+    stdout: "ignore",
+    stderr: "inherit",
+  });
+  await process.exited;
+});
 
 test("runCodegen generates Campaign object file", async () => {
   await runCodegen({

@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:0cdcabbe500c661ad30eae951088d9a2518e3bdddfa69bf8ad24bf4af4cd13e0
+// fingerprint: sha256:6a79c69448969cd3a59b5d695cc04bc3d6adf69f5a6dd6966f1aaa88c10913e6
 // DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
@@ -62,7 +62,6 @@ export interface IGUserForIGOnlyAPICreateMediaParams {
   alt_text?: string;
   audio_configuration?: string;
   audio_name?: string;
-  branded_content_sponsor_ids?: number[];
   caption?: string;
   children?: string[];
   collaborators?: string[];
@@ -70,7 +69,6 @@ export interface IGUserForIGOnlyAPICreateMediaParams {
   image_url?: string;
   is_ai_generated?: boolean;
   is_carousel_item?: boolean;
-  is_paid_partnership?: boolean;
   location_id?: string;
   media_type?: string;
   product_tags?: Record<string, unknown>[];

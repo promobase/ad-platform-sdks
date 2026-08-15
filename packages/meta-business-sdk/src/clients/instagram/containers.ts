@@ -21,7 +21,7 @@ export interface ResumableUploadOptions {
   containerId: string;
   /** Access token */
   accessToken: string;
-  /** API version (e.g., "v25.0") */
+  /** API version (e.g., "v26.0") */
   apiVersion?: string;
   /** Upload from a public URL */
   fileUrl?: string;
@@ -63,7 +63,7 @@ export function createContainers(
      * Uses rupload.facebook.com (different host from the Graph API).
      */
     async uploadResumable(opts: ResumableUploadOptions): Promise<{ success: boolean }> {
-      const version = opts.apiVersion ?? "v25.0";
+      const version = opts.apiVersion ?? "v26.0";
       const url = `https://rupload.facebook.com/ig-api-upload/${version}/${opts.containerId}`;
 
       const headers: Record<string, string> = {

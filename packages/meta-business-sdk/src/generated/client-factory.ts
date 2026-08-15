@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:75cdde024e32b030bfbfe5b0f2fa65ac1789093f4e41055acab743a7f2dc62db
+// fingerprint: sha256:267a053d0fa9b4b120bf6f952427a1931f3fa74dbbb56179aa3400c71d4b508f
 // DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client factory — do not edit
 
@@ -217,6 +217,7 @@ import { storeCatalogSettingsNode } from "./objects/store-catalog-settings.ts";
 import { partnerAccountLinkingNode } from "./objects/partner-account-linking.ts";
 import { websiteCreativeAssetSourceNode } from "./objects/website-creative-asset-source.ts";
 import { placeNode } from "./objects/place.ts";
+import { adAccountInsightsFeatureSettingsNode } from "./objects/ad-account-insights-feature-settings.ts";
 import { woodhengeSupporterNode } from "./objects/woodhenge-supporter.ts";
 import { fundraiserPersonToCharityNode } from "./objects/fundraiser-person-to-charity.ts";
 import { iGBoostMediaAdNode } from "./objects/ig-boost-media-ad.ts";
@@ -292,7 +293,6 @@ import { catalogWebsiteSettingsNode } from "./objects/catalog-website-settings.t
 import { cloudGameNode } from "./objects/cloud-game.ts";
 import { systemUserNode } from "./objects/system-user.ts";
 import { videoCopyrightRuleNode } from "./objects/video-copyright-rule.ts";
-import { adAccountFeaturePreferencesNode } from "./objects/ad-account-feature-preferences.ts";
 import { customConversionNode } from "./objects/custom-conversion.ts";
 import { pageNode } from "./objects/page.ts";
 import { offlineConversionDataSetUploadNode } from "./objects/offline-conversion-data-set-upload.ts";
@@ -538,6 +538,7 @@ export function createGraphClient(opts: GraphClientOptions) {
     partnerAccountLinking: (id: string) => partnerAccountLinkingNode(client, id),
     websiteCreativeAssetSource: (id: string) => websiteCreativeAssetSourceNode(client, id),
     place: (id: string) => placeNode(client, id),
+    adAccountInsightsFeatureSettings: (id: string) => adAccountInsightsFeatureSettingsNode(client, id),
     woodhengeSupporter: (id: string) => woodhengeSupporterNode(client, id),
     fundraiserPersonToCharity: (id: string) => fundraiserPersonToCharityNode(client, id),
     iGBoostMediaAd: (id: string) => iGBoostMediaAdNode(client, id),
@@ -613,7 +614,6 @@ export function createGraphClient(opts: GraphClientOptions) {
     cloudGame: (id: string) => cloudGameNode(client, id),
     systemUser: (id: string) => systemUserNode(client, id),
     videoCopyrightRule: (id: string) => videoCopyrightRuleNode(client, id),
-    adAccountFeaturePreferences: (id: string) => adAccountFeaturePreferencesNode(client, id),
     customConversion: (id: string) => customConversionNode(client, id),
     page: (id: string) => pageNode(client, id),
     offlineConversionDataSetUpload: (id: string) => offlineConversionDataSetUploadNode(client, id),
@@ -636,7 +636,7 @@ export function createGraphClient(opts: GraphClientOptions) {
     batch: async <T extends Record<string, BatchHandle<unknown>>>(fn: (b: BatchBuilder) => T): Promise<ResolveBatchHandles<T>> => {
       const builder = new BatchBuilder();
       const handles = fn(builder);
-      return executeBatch(client, opts.apiVersion ?? "v25.0", builder, handles);
+      return executeBatch(client, opts.apiVersion ?? "v26.0", builder, handles);
     },
     client,
   };

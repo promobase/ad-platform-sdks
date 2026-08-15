@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:c9e2f4819b9c66164645f87b91e1f5d13b2613c4acf8db5ee2d80af6e49ad25e
+// fingerprint: sha256:37432ea051da6dded4af1b38eac7a76db4ce7d6aab6084f13a74908abcdc0a1b
 // DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated barrel file — do not edit
 
@@ -246,6 +246,7 @@ export type { ColumnSuggestionsFields } from "./objects/column-suggestions.ts";
 export type { ArAdsDataContainerFields } from "./objects/ar-ads-data-container.ts";
 export type { WindowsAppLinkFields } from "./objects/windows-app-link.ts";
 export type { ProductSetFields } from "./objects/product-set.ts";
+export type { AdAccountInsightsFeatureSettingsListFeaturesFields } from "./objects/ad-account-insights-feature-settings-list-features.ts";
 export type { AdAccountURLForAssetExtractionFields } from "./objects/ad-account-url-for-asset-extraction.ts";
 export type { EngagementFields } from "./objects/engagement.ts";
 export type { ContentDeliveryReportFields } from "./objects/content-delivery-report.ts";
@@ -507,6 +508,7 @@ export type { ValueBasedEligibleSourceFields } from "./objects/value-based-eligi
 export type { AdAssetFeedSpecCarouselFields } from "./objects/ad-asset-feed-spec-carousel.ts";
 export type { BusinessApplicationRequestFields } from "./objects/business-application-request.ts";
 export type { P2MInvoicePaymentsFields } from "./objects/p2-m-invoice-payments.ts";
+export type { AdAccountInsightsFeatureSettingsPostFields } from "./objects/ad-account-insights-feature-settings-post.ts";
 export type { CustomAudienceIntegrityFlagsAndAppealStatusFields } from "./objects/custom-audience-integrity-flags-and-appeal-status.ts";
 export type { OverrideDetailsFields } from "./objects/override-details.ts";
 export type { AdPlacementFields } from "./objects/ad-placement.ts";
@@ -695,6 +697,7 @@ export type { MinimumBudgetFields } from "./objects/minimum-budget.ts";
 export type { AdCreativeLiveVideoReminderFields } from "./objects/ad-creative-live-video-reminder.ts";
 export type { LeadGenThankYouPageGatedPromoFields } from "./objects/lead-gen-thank-you-page-gated-promo.ts";
 export type { PlaceFields } from "./objects/place.ts";
+export type { AdAccountInsightsFeatureSettingsFields } from "./objects/ad-account-insights-feature-settings.ts";
 export type { AdCreativeInteractiveComponentsSpecFields } from "./objects/ad-creative-interactive-components-spec.ts";
 export type { WoodhengeSupporterFields } from "./objects/woodhenge-supporter.ts";
 export type { BusinessMediaAdPlacementValidationResultFields } from "./objects/business-media-ad-placement-validation-result.ts";
@@ -781,7 +784,6 @@ export type { ProductItemImporterAddressFields } from "./objects/product-item-im
 export type { VideoCopyrightSegmentFields } from "./objects/video-copyright-segment.ts";
 export type { BusinessCreativeInsightsFields } from "./objects/business-creative-insights.ts";
 export type { DynamicPriceConfigByDateFields } from "./objects/dynamic-price-config-by-date.ts";
-export type { AdAccountFeaturePreferencesPostFields } from "./objects/ad-account-feature-preferences-post.ts";
 export type { AdgroupFacebookFeedbackFields } from "./objects/adgroup-facebook-feedback.ts";
 export type { EmailImportFields } from "./objects/email-import.ts";
 export type { AdAssetOnsiteDestinationsFields } from "./objects/ad-asset-onsite-destinations.ts";
@@ -927,7 +929,6 @@ export type { VideoCopyrightGeoGateFields } from "./objects/video-copyright-geo-
 export type { PageStartInfoFields } from "./objects/page-start-info.ts";
 export type { AdsPixelMicrodataStatsFields } from "./objects/ads-pixel-microdata-stats.ts";
 export type { AudioVisualReferenceMatchFields } from "./objects/audio-visual-reference-match.ts";
-export type { AdAccountFeaturePreferencesFields } from "./objects/ad-account-feature-preferences.ts";
 export type { DayPartFields } from "./objects/day-part.ts";
 export type { ProductItemLocalInfoLatLongShapeFields } from "./objects/product-item-local-info-lat-long-shape.ts";
 export type { AdDefaultValuesFields } from "./objects/ad-default-values.ts";

@@ -206,7 +206,7 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   factoryLines.push(`      const builder = new BatchBuilder();`);
   factoryLines.push(`      const handles = fn(builder);`);
   factoryLines.push(
-    `      return executeBatch(client, opts.apiVersion ?? "v25.0", builder, handles);`,
+    `      return executeBatch(client, opts.apiVersion ?? "v26.0", builder, handles);`,
   );
   factoryLines.push(`    },`);
   factoryLines.push("    client,");

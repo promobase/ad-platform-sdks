@@ -1,9 +1,9 @@
 ---
 title: "Facebook Commerce Order endpoints"
-description: "7 generated Facebook endpoint contracts for Commerce Order."
+description: "2 generated Facebook endpoint contracts for Commerce Order."
 generated: true
 platform: "facebook"
-sourceVersion: "v25.0"
+sourceVersion: "v26.0"
 sidebar:
   order: 217
   label: "Commerce Order"
@@ -11,43 +11,10 @@ tableOfContents: false
 ---
 
 {/* @generated */}
-{/* fingerprint: sha256:29ca80e6070b180fe48587fc8dae276c1d91144849d619690207be8b366d5765 */}
+{/* fingerprint: sha256:c411c9511cddc043b60ab0b990a4bf42e4758085f9c87e6252b9c472bc086ede */}
 {/* DO NOT EDIT: generated file; changes will be overwritten. */}
 
 {/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
-
-## facebook.commerceOrder.cancellations
-
-`GET` `/{id}/cancellations`
-
-GET CommerceOrder cancellations
-
-| Behavior | Value |
-| --- | --- |
-| Effect | `read` |
-| Execution | `inline` |
-| Idempotency | `safe` |
-| Capabilities | `commerceOrder.read` |
-| Required scopes | None declared |
-| Rate-limit bucket | `facebook-graph-api` |
-| Output | `unknown` |
-
-**Parameters**
-
-| Name | Location | Type | Required | Nullable | Description |
-| --- | --- | --- | --- | --- | --- |
-| `id` | `path` | `string` | Yes | No | — |
-
-**Declared errors**
-
-| Status | Code | Model | Retryable |
-| --- | --- | --- | --- |
-| 400 | — | — | No |
-| 401 | — | — | No |
-| 403 | — | — | No |
-| 429 | — | — | Yes |
-| 500 | — | — | Yes |
-| 503 | — | — | Yes |
 
 ## facebook.commerceOrder.get
 
@@ -82,139 +49,7 @@ GET CommerceOrder
 | 500 | — | — | Yes |
 | 503 | — | — | Yes |
 
-## facebook.commerceOrder.items
-
-`GET` `/{id}/items`
-
-GET CommerceOrder items
-
-| Behavior | Value |
-| --- | --- |
-| Effect | `read` |
-| Execution | `inline` |
-| Idempotency | `safe` |
-| Capabilities | `commerceOrder.read` |
-| Required scopes | None declared |
-| Rate-limit bucket | `facebook-graph-api` |
-| Output | `unknown` |
-
-**Parameters**
-
-| Name | Location | Type | Required | Nullable | Description |
-| --- | --- | --- | --- | --- | --- |
-| `id` | `path` | `string` | Yes | No | — |
-
-**Declared errors**
-
-| Status | Code | Model | Retryable |
-| --- | --- | --- | --- |
-| 400 | — | — | No |
-| 401 | — | — | No |
-| 403 | — | — | No |
-| 429 | — | — | Yes |
-| 500 | — | — | Yes |
-| 503 | — | — | Yes |
-
-## facebook.commerceOrder.payments
-
-`GET` `/{id}/payments`
-
-GET CommerceOrder payments
-
-| Behavior | Value |
-| --- | --- |
-| Effect | `read` |
-| Execution | `inline` |
-| Idempotency | `safe` |
-| Capabilities | `commerceOrder.read` |
-| Required scopes | None declared |
-| Rate-limit bucket | `facebook-graph-api` |
-| Output | `unknown` |
-
-**Parameters**
-
-| Name | Location | Type | Required | Nullable | Description |
-| --- | --- | --- | --- | --- | --- |
-| `id` | `path` | `string` | Yes | No | — |
-
-**Declared errors**
-
-| Status | Code | Model | Retryable |
-| --- | --- | --- | --- |
-| 400 | — | — | No |
-| 401 | — | — | No |
-| 403 | — | — | No |
-| 429 | — | — | Yes |
-| 500 | — | — | Yes |
-| 503 | — | — | Yes |
-
-## facebook.commerceOrder.refunds
-
-`GET` `/{id}/refunds`
-
-GET CommerceOrder refunds
-
-| Behavior | Value |
-| --- | --- |
-| Effect | `read` |
-| Execution | `inline` |
-| Idempotency | `safe` |
-| Capabilities | `commerceOrder.read` |
-| Required scopes | None declared |
-| Rate-limit bucket | `facebook-graph-api` |
-| Output | `unknown` |
-
-**Parameters**
-
-| Name | Location | Type | Required | Nullable | Description |
-| --- | --- | --- | --- | --- | --- |
-| `id` | `path` | `string` | Yes | No | — |
-
-**Declared errors**
-
-| Status | Code | Model | Retryable |
-| --- | --- | --- | --- |
-| 400 | — | — | No |
-| 401 | — | — | No |
-| 403 | — | — | No |
-| 429 | — | — | Yes |
-| 500 | — | — | Yes |
-| 503 | — | — | Yes |
-
 ## facebook.commerceOrder.shipments
-
-`GET` `/{id}/shipments`
-
-GET CommerceOrder shipments
-
-| Behavior | Value |
-| --- | --- |
-| Effect | `read` |
-| Execution | `inline` |
-| Idempotency | `safe` |
-| Capabilities | `commerceOrder.read` |
-| Required scopes | None declared |
-| Rate-limit bucket | `facebook-graph-api` |
-| Output | `unknown` |
-
-**Parameters**
-
-| Name | Location | Type | Required | Nullable | Description |
-| --- | --- | --- | --- | --- | --- |
-| `id` | `path` | `string` | Yes | No | — |
-
-**Declared errors**
-
-| Status | Code | Model | Retryable |
-| --- | --- | --- | --- |
-| 400 | — | — | No |
-| 401 | — | — | No |
-| 403 | — | — | No |
-| 429 | — | — | Yes |
-| 500 | — | — | Yes |
-| 503 | — | — | Yes |
-
-## facebook.commerceOrder.shipments2
 
 `POST` `/{id}/shipments`
 

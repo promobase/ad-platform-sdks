@@ -168,6 +168,14 @@ test("Facebook parity covers Inbox DM, delivery, postback, referral, and feed ch
             read: { watermark: 1700000004, seq: 8 },
             message_edit: { mid: "mid_message", text: "edited", num_edit: 1 },
           },
+          {
+            sender: { id: "user_123" },
+            recipient: { id: "page_123" },
+            timestamp: 1700000005,
+            optin: { ref: "opt-in" },
+            account_linking: { status: "linked", authorization_code: "auth-code" },
+            pass_thread_control: { new_owner_app_id: "app_2", metadata: "handover" },
+          },
         ],
         changes: [
           {
@@ -207,6 +215,10 @@ test("Facebook parity covers Inbox DM, delivery, postback, referral, and feed ch
       "provider_extension",
       "keep-me",
     );
+    const kinds = webhooks.facebook.events(result.data).map((event) => event.kind);
+    expect(kinds).toContain("optin");
+    expect(kinds).toContain("account_linking");
+    expect(kinds).toContain("pass_thread_control");
   }
 });
 
@@ -235,7 +247,7 @@ test("Instagram parity covers Inbox edits, unsends, unsupported messages, commen
             postback: { title: "Action", payload: "action" },
             referral: { ref: "ig-campaign" },
             delivery: { mids: ["ig_mid_1"], watermark: 1700000002 },
-            read: { watermark: 1700000003 },
+            read: { mid: "ig_mid_1" },
             reaction: { mid: "ig_mid_1", action: "unreact", reaction: "❤️" },
             message_edit: { mid: "ig_mid_1", text: null, num_edit: 2 },
           },
@@ -264,6 +276,17 @@ test("Instagram parity covers Inbox edits, unsends, unsupported messages, commen
               sender: { id: "user_123", username: "customer" },
             },
           },
+          { field: "mentions", value: { media_id: "media_1", comment_id: "comment_1" } },
+          { field: "live_comments", value: { id: "live_comment_1", text: "Live" } },
+          { field: "story_insights", value: { impressions: 42 } },
+        ],
+        standby: [
+          {
+            sender: { id: "user_123" },
+            recipient: { id: "ig_123" },
+            timestamp: 1700000005,
+            message: { mid: "standby_mid", text: "standby" },
+          },
         ],
       },
     ],
@@ -280,11 +303,16 @@ test("Instagram parity covers Inbox edits, unsends, unsupported messages, commen
     const event = result.data.entry[0]?.messaging?.[0];
     expect(event?.message?.is_unsupported).toBe(true);
     expect(event?.reply_to?.story?.id).toBe("story_1");
+    expect(event?.read?.mid).toBe("ig_mid_1");
     expect(result.data.entry[0]?.changes?.[2]?.value).toHaveProperty("sender");
 
     const extracted = webhooks.instagram.events(result.data);
     expect(extracted.map((item) => item.kind)).toContain("message");
     expect(extracted.map((item) => item.kind)).toContain("comment_change");
+    expect(extracted.map((item) => item.kind)).toContain("mention_change");
+    expect(extracted.map((item) => item.kind)).toContain("live_comment_change");
+    expect(extracted.map((item) => item.kind)).toContain("story_insights_change");
+    expect(extracted.map((item) => item.kind)).toContain("standby");
     for (const item of extracted) {
       switch (item.kind) {
         case "message":

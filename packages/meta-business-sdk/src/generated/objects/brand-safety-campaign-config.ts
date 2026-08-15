@@ -1,7 +1,10 @@
 // @generated
-// fingerprint: sha256:a0ca3001862d15d5b061b5fe4dbca5c375ddbc0b441604487fa694b1ddf57de7
+// fingerprint: sha256:2a0bfbbbefb3350fe32e9287367631f19851b593d315346f122040b29a0fbf50
 // DO NOT EDIT: generated file; changes will be overwritten.
 export interface BrandSafetyCampaignConfigFields {
   comment_moderation_filter: string;
+  fb_comment_moderation_filter: string;
+  ig_comment_moderation_filter: string;
+  threads_comment_moderation_filter: string;
 }
 

@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:886e60f19ac66211ee43420931eed933faa864e1fe66e1c9aa7665b11bb5e794
+// fingerprint: sha256:3e3481e81f180790df0387ee12a8b39be05c3e8c8c15499b49637d45d1aa9bbe
 // DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
@@ -157,6 +157,7 @@ export interface AdAccountFields {
 export interface AdAccountCreateAccountControlsParams {
   audience_controls: Record<string, unknown>;
   placement_controls?: Record<string, unknown>;
+  placement_controls_per_objective?: Record<string, unknown>;
   [key: string]: unknown;
 }
 
@@ -346,6 +347,7 @@ export interface AdAccountCreateAdsParams {
   creative: AdCreativeFields;
   creative_asset_groups_spec?: Record<string, unknown>;
   creative_automation_spec?: Record<string, unknown>;
+  dataset_split_specs?: Record<string, unknown>[];
   date_format?: string;
   display_sequence?: number;
   draft_adgroup_id?: string;
@@ -540,6 +542,7 @@ export interface AdAccountCreateAdvideosParams {
   initial_heading?: number;
   initial_pitch?: number;
   instant_game_entry_point_data?: string;
+  is_ai_generated?: boolean;
   is_boost_intended?: boolean;
   is_group_linking_post?: boolean;
   is_partnership_ad?: boolean;
@@ -1162,6 +1165,7 @@ export interface AdAccountListVideoAdsParams {
 
 export interface AdAccountCreateVideoAdsParams {
   description?: string;
+  is_ai_generated?: boolean;
   privacy?: string;
   title?: string;
   upload_phase: string;

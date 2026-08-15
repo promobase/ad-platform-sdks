@@ -10,8 +10,8 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 
 | Platform | OAuth | Transport/CRUD | Publishing | Webhooks | Generated contracts | Public leaf | Overall |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Facebook | in_progress | in_progress | in_progress | in_progress | verified with refresh needed | verified | in_progress |
-| Instagram | in_progress | in_progress | in_progress | in_progress | verified: no misleading Effect alias | verified | in_progress |
+| Facebook | in_progress | in_progress | in_progress | verified | verified: v26 refresh | verified | in_progress |
+| Instagram | in_progress | in_progress | in_progress | verified | verified: v26 refresh | verified | in_progress |
 | TikTok Business | in_progress | in_progress | in_progress | in_progress | verified with scope metadata gap | verified | in_progress |
 
 ## Cross-platform work items
@@ -23,9 +23,9 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | AUTH-03 | Validate secure OAuth state by default | planned | Mosaic + consumer integration | Legacy helpers allow optional state | Unsafe path removed or explicitly marked low-level |
 | TRAN-01 | Use one explicit Page access token in Facebook clients | planned | Mosaic | `api` and `accessToken` can diverge | Client construction rejects ambiguous credentials |
 | TRAN-02 | Unify TikTok generated and curated request transport | verified | Mosaic | Generated endpoints and curated JSON, multipart, app-credential, and mixed-credential property clients now use `clients/request.ts`; OAuth and Developer API remain intentionally provider-specific | Shared transport tests cover bearer JSON, multipart, app-credential management, typed errors, and cancellation |
-| TRAN-03 | Refresh Meta API version and generated inputs | planned | Mosaic | v25 pinned while current docs show v26 | Deterministic regeneration and version fixtures |
+| TRAN-03 | Refresh Meta API version and generated inputs | verified | Mosaic | Pinned Meta codegen input advanced from v25.0 to official `origin/main` v26.0; generated TypeScript, Valibot, Effect, and docs outputs were regenerated | `986` specs, `503` enums, `305` accessors; Meta typecheck, tests, and build pass |
 | WEB-01 | Consolidate Meta webhook verifiers | verified | Mosaic | Legacy Meta parser exports now route to the canonical Web Crypto verifier; byte bodies are supported | Root and leaf exports share strict implementation; focused parser tests pass |
-| WEB-02 | Expand Meta webhook schemas/subscription defaults | planned | Mosaic | Delivery/read/postback/referral and Instagram current fields incomplete | Provider fixture corpus and discriminated event tests |
+| WEB-02 | Expand Meta webhook schemas/subscription defaults | verified | Mosaic | Facebook lifecycle fields plus standby and Instagram messaging, edit, reaction, comment, mention, live-comment, story-insight, and standby fields are represented with Valibot schemas | Focused fixtures cover discriminated FB/IG events, current subscription defaults, strict parsing, and safe-result behavior |
 | WEB-03 | Add TikTok Business webhook leaf and Valibot schemas | verified | Mosaic | TikTok webhook schemas now use Valibot; `@openpromo/tiktok/webhooks` and umbrella `@openpromo/ad-platforms/tiktok/webhooks` build | Leaf and umbrella builds pass; webhook fixtures pass |
 | WEB-04 | Reconcile TikTok Business webhook event management | verified | Mosaic | Account management is limited to VIDEO/COMMENT and Business Messaging has explicit DIRECT_MESSAGE setup | Official categories and setup behavior are fixture-tested |
 | GEN-01 | Correct Instagram generated Effect partition | verified | Mosaic codegen | Removed Facebook-shaped Instagram and Threads Effect aliases; Nimbus reference generation now states when a platform has no generated Effect contract | No public Instagram/Threads alias points to Facebook descriptors |
@@ -42,7 +42,7 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | FB-03 | Regular video publishing | blocked | Current `/videos` + `file_url` path needs revalidation against Video API |
 | FB-04 | Reels scheduling | planned | Add `SCHEDULED` and `scheduled_publish_time` if current source confirms |
 | FB-05 | Messenger send surface | in_progress | Typed basics exist; message tags/content variants remain |
-| FB-06 | Page webhook subscriptions | in_progress | Defaults now include delivery/read/postback/referral fields; feed/change coverage still needs current parity |
+| FB-06 | Page webhook subscriptions | verified | Defaults include current messaging lifecycle, handover, standby, and feed fields; extraction emits typed lifecycle and standby events |
 | FB-07 | Worker-safe webhook verification | verified | Legacy verifier exports route to the canonical strict implementation; focused tests cover prefix rejection and byte bodies |
 
 ## Instagram detail
@@ -56,7 +56,7 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | IG-05 | Messaging | in_progress | Text/image/private reply exist; current media/template/reaction types missing |
 | IG-06 | Comments/moderation | in_progress | Core actions exist; replies and comment toggles remain |
 | IG-07 | Account/media insights | planned | Account insights need a curated typed client |
-| IG-08 | Webhooks/subscriptions | in_progress | Current change fields and defaults are incomplete |
+| IG-08 | Webhooks/subscriptions | verified | Current messaging, edit, reaction, comment, mention, live-comment, story-insight, and standby fields are parsed and extracted as discriminated events |
 | IG-09 | Generated Effect entrypoint | verified | No misleading Instagram Effect entrypoint is published; use native client plus generated TypeScript/Valibot contracts until a true partition exists |
 
 ## TikTok Business detail

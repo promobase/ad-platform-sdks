@@ -83,7 +83,7 @@ export function createOAuth(config: OAuthConfig) {
         response_type: "code",
         ...(opts?.state ? { state: opts.state } : {}),
       });
-      return `${FB_OAUTH_BASE}/v25.0/dialog/oauth?${params.toString()}`;
+      return `${FB_OAUTH_BASE}/v26.0/dialog/oauth?${params.toString()}`;
     },
 
     /** Exchange authorization code for a short-lived user token. */
@@ -96,7 +96,7 @@ export function createOAuth(config: OAuthConfig) {
       });
 
       const response = await fetchImpl(
-        `${FB_GRAPH_BASE}/v25.0/oauth/access_token?${params.toString()}`,
+        `${FB_GRAPH_BASE}/v26.0/oauth/access_token?${params.toString()}`,
         requestInit,
       );
 
@@ -118,7 +118,7 @@ export function createOAuth(config: OAuthConfig) {
       });
 
       const response = await fetchImpl(
-        `${FB_GRAPH_BASE}/v25.0/oauth/access_token?${params.toString()}`,
+        `${FB_GRAPH_BASE}/v26.0/oauth/access_token?${params.toString()}`,
         requestInit,
       );
 
@@ -142,7 +142,7 @@ export function createOAuth(config: OAuthConfig) {
       });
 
       const response = await fetchImpl(
-        `${FB_GRAPH_BASE}/v25.0/me/accounts?${params.toString()}`,
+        `${FB_GRAPH_BASE}/v26.0/me/accounts?${params.toString()}`,
         requestInit,
       );
 
@@ -161,7 +161,7 @@ export function createOAuth(config: OAuthConfig) {
       fields = ["id", "name", "picture.width(200).height(200)", "email"],
     ): Promise<FacebookUserProfile> {
       const params = new URLSearchParams({ access_token: accessToken, fields: fields.join(",") });
-      const response = await fetchImpl(`${FB_GRAPH_BASE}/v25.0/${id}?${params}`, requestInit);
+      const response = await fetchImpl(`${FB_GRAPH_BASE}/v26.0/${id}?${params}`, requestInit);
       if (!response.ok) throw new Error(`Facebook profile fetch failed: ${await response.text()}`);
       return v.parse(profileSchema, await response.json());
     },
@@ -169,7 +169,7 @@ export function createOAuth(config: OAuthConfig) {
     async getPermissions(accessToken: string): Promise<FacebookPermission[]> {
       const params = new URLSearchParams({ access_token: accessToken });
       const response = await fetchImpl(
-        `${FB_GRAPH_BASE}/v25.0/me/permissions?${params}`,
+        `${FB_GRAPH_BASE}/v26.0/me/permissions?${params}`,
         requestInit,
       );
       if (!response.ok) {
@@ -196,7 +196,7 @@ export function createOAuth(config: OAuthConfig) {
         fields:
           "id,name,username,access_token,picture.width(200).height(200),category,fan_count,followers_count,about",
       });
-      const response = await fetchImpl(`${FB_GRAPH_BASE}/v25.0/${pageId}?${params}`, requestInit);
+      const response = await fetchImpl(`${FB_GRAPH_BASE}/v26.0/${pageId}?${params}`, requestInit);
       if (!response.ok) throw new Error(`Facebook Page fetch failed: ${await response.text()}`);
       return v.parse(pageInfoSchema, await response.json());
     },

@@ -1,14 +1,14 @@
 {
   "_generated": {
-    "fingerprint": "sha256:006d3a480129b794b40fd668bd7d508e87dec222b6d0f25dfa8f0784cf6b5374",
+    "fingerprint": "sha256:073ecacfb30e1b365323c2616e59361340074c1bd495da7cc51d70b4e26ea402",
     "doNotEdit": true
   },
   "schemaVersion": 1,
   "platform": "facebook",
-  "version": "v25.0",
-  "endpointCount": 1451,
-  "modelCount": 1488,
-  "capabilityCount": 395,
+  "version": "v26.0",
+  "endpointCount": 1445,
+  "modelCount": 1489,
+  "capabilityCount": 396,
   "endpointPages": [
     "endpoints/ad",
     "endpoints/ad-account-account-controls-to-impacting-ad-studies",
@@ -16,7 +16,7 @@
     "endpoints/ad-account-account-controls",
     "endpoints/ad-account-agency-fee-config",
     "endpoints/ad-account-creation-request",
-    "endpoints/ad-account-feature-preferences",
+    "endpoints/ad-account-insights-feature-settings",
     "endpoints/ad-account-user-settings",
     "endpoints/ad-async-request",
     "endpoints/ad-async-request-set",
@@ -324,20 +324,20 @@
     "endpoints/work-skill"
   ],
   "modelPages": [
-    "models/ab-test-post-test-actions-fields-to-ad-asset-feed-spec-caption-fields",
-    "models/ad-asset-feed-spec-carousel-child-attachment-fields-to-ad-creative-insights-fields",
-    "models/ad-creative-instagram-branded-content-fields-to-ad-limit-setting-fields",
-    "models/ad-monetization-property-fields-to-ads-pivot-rules-fields",
-    "models/ads-pixel-automatic-matching-fields-to-attribution-spec-fields",
-    "models/audience-funnel-fields-to-campaign-smart-promotion-type",
-    "models/campaign-special-ad-categories-to-custom-audience-claim-objective",
-    "models/custom-audience-content-type-to-geo-gating-policy-fields",
-    "models/group-fields-to-lead-fields",
-    "models/lead-gen-appointment-booking-info-fields-to-offline-conversion-data-set-upload-order",
-    "models/offline-conversion-data-set-upload-sort-by-to-partner-center-export-file-fields",
-    "models/partner-integration-linked-fields-to-product-feed-quoted-fields-mode",
-    "models/product-feed-rule-fields-to-scim-company-user-phone-number-fields",
-    "models/security-settings-fields-to-user-payment-methods-info-fields",
-    "models/user-payment-mobile-pricepoints-fields-to-work-user-frontline-fields"
+    "models/ab-test-post-test-actions-fields-to-ad-asset-feed-spec-call-to-action-types",
+    "models/ad-asset-feed-spec-caption-fields-to-ad-creative-image-data-media-elements-fields",
+    "models/ad-creative-insights-fields-to-ad-limits-enforcement-data-fields",
+    "models/ad-limit-setting-fields-to-ads-payment-cycle-fields",
+    "models/ads-pivot-rules-fields-to-async-request-type",
+    "models/attribution-spec-fields-to-campaign-operator",
+    "models/campaign-smart-promotion-type-to-custom-audience-capabilities-fields",
+    "models/custom-audience-claim-objective-to-fundraiser-person-to-charity-fundraiser-type",
+    "models/geo-gating-policy-fields-to-key-value-fields",
+    "models/lead-fields-to-offline-conversion-data-set-upload-fields",
+    "models/offline-conversion-data-set-upload-order-to-partner-category-fields",
+    "models/partner-center-export-file-fields-to-product-feed-override-type",
+    "models/product-feed-quoted-fields-mode-to-scheduled-post-fields",
+    "models/scim-company-user-phone-number-fields-to-user-page-one-time-opt-in-token-settings-opt-in-source",
+    "models/user-payment-methods-info-fields-to-work-user-frontline-fields"
   ]
 }

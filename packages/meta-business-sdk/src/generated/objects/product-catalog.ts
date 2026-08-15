@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:7bd7ff093bfecbd5dad4e1cfa1e115b39d9f85c9edf499ee46ab3f89d847f8fd
+// fingerprint: sha256:44c79fb49b5a6fe65697b83820c80526d2739d4250562a91e72a130a6d1fae71
 // DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
@@ -666,7 +666,7 @@ export function productCatalogNode(client: ApiClient, id: string) {
       list: <F extends (keyof ProductCatalogHotelRoomsBatchFields)[]>(opts: { fields: F; params?: ProductCatalogListHotelRoomsBatchParams }) =>
         new Cursor<Pick<ProductCatalogHotelRoomsBatchFields, F[number]>>(client, `${id}/hotel_rooms_batch`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductCatalogCreateHotelRoomsBatchParams) =>
-        client.post<ProductCatalogFields>(`${id}/hotel_rooms_batch`, params as Record<string, unknown>),
+        client.post<ProductCatalogHotelRoomsBatchFields>(`${id}/hotel_rooms_batch`, params as Record<string, unknown>),
     },
     hotels: {
       __path: `${id}/hotels`,

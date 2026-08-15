@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:7608cd50a16c2658dd13ba78e8d746b1b96eee8d88fcde15d3300de0ab48d31e
+// fingerprint: sha256:04c63bf4a455f704516819a8f613d53d31ac8d9012eed17c1ddf866328294dd6
 // DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
@@ -642,6 +642,7 @@ export interface BusinessCreateVideosParams {
   initial_heading?: number;
   initial_pitch?: number;
   instant_game_entry_point_data?: string;
+  is_ai_generated?: boolean;
   is_boost_intended?: boolean;
   is_group_linking_post?: boolean;
   is_partnership_ad?: boolean;

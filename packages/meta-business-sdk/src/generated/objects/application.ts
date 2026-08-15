@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:d4d8203f960f2e698371f2b64a9da879db2aa79e717a6144bb6dc4ba43c4f5ef
+// fingerprint: sha256:f79b25d26f58c5017623c046298c5a3d06ffb229cef1c29981160d3a3af84939
 // DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
@@ -184,6 +184,9 @@ export interface ApplicationCreateActivitiesParams {
   installer_package?: string;
   is_circuit_breaker_active?: boolean;
   is_fb?: boolean;
+  is_redownload?: boolean;
+  last_new_install_time?: number;
+  last_session_time?: number;
   limited_data_use?: boolean;
   meta_install_referrer?: string;
   migration_bundle?: string;

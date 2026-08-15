@@ -32,6 +32,9 @@ test("endpointToMethodName", () => {
   expect(endpointToMethodName("DELETE", "campaigns")).toBe("deleteCampaigns");
   expect(endpointToMethodName("GET", "ad_studies")).toBe("adStudies");
   expect(endpointToMethodName("POST", "ad_place_page_sets")).toBe("createAdPlacePageSet");
+  expect(endpointToMethodName("GET", "insights/feature-settings/list-features")).toBe(
+    "insightsFeatureSettingsListFeatures",
+  );
 });
 
 test("emitEnumType", () => {

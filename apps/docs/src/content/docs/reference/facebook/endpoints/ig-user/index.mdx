@@ -3,7 +3,7 @@ title: "Facebook IG User endpoints"
 description: "40 generated Facebook endpoint contracts for IG User."
 generated: true
 platform: "facebook"
-sourceVersion: "v25.0"
+sourceVersion: "v26.0"
 sidebar:
   order: 274
   label: "IG User"
@@ -11,7 +11,7 @@ tableOfContents: false
 ---
 
 {/* @generated */}
-{/* fingerprint: sha256:795c5203967fc13132b84cac62338c51cfd674bc371095899269eed669384f04 */}
+{/* fingerprint: sha256:19d4f9c4c3082a1d1dfc677048566449789a0fe4c75d8c7d06006fd4ffca5a64 */}
 {/* DO NOT EDIT: generated file; changes will be overwritten. */}
 
 {/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
@@ -639,7 +639,7 @@ GET IGUser creator_marketplace_creators
 | `major_audience_device_type` | `query` | `Array<Record<string, unknown>>` | No | No | — |
 | `major_audience_gender` | `query` | `Array<unknown>` | No | No | — |
 | `major_audience_states` | `query` | `Array<string>` | No | No | — |
-| `platform` | `query` | `Array<unknown>` | No | No | — |
+| `platform` | `query` | `unknown` | No | No | — |
 | `query` | `query` | `string` | No | No | — |
 | `recommendation_type` | `query` | `unknown` | No | No | — |
 | `reels_interaction_rate` | `query` | `Record<string, unknown>` | No | No | — |
@@ -968,9 +968,12 @@ POST IGUser media
 | `image_url` | `body` | `string` | No | No | — |
 | `is_ai_generated` | `body` | `boolean` | No | No | — |
 | `is_carousel_item` | `body` | `boolean` | No | No | — |
+| `is_comment_prompt_used` | `body` | `boolean` | No | No | — |
 | `is_paid_partnership` | `body` | `boolean` | No | No | — |
+| `is_poll_duration_extended` | `body` | `boolean` | No | No | — |
 | `location_id` | `body` | `string` | No | No | — |
 | `media_type` | `body` | `string` | No | No | — |
+| `poll_attachment` | `body` | `string` | No | No | — |
 | `product_tags` | `body` | `Array<Record<string, unknown>>` | No | No | — |
 | `share_to_feed` | `body` | `boolean` | No | No | — |
 | `thumb_offset` | `body` | `string` | No | No | — |

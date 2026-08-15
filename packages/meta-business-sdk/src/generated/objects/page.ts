@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:2276bff689bbf3aa1004ec3b04814ca30d19779c673d73c3a721177754e15fd9
+// fingerprint: sha256:41e2f015b4285c41762ceb50bf7825311d25d21ca2c0869933cf91d518c59a49
 // DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
@@ -1113,6 +1113,7 @@ export interface PageListVideoReelsParams {
 export interface PageCreateVideoReelsParams {
   description?: string;
   feed_targeting?: Record<string, unknown>;
+  is_ai_generated?: boolean;
   place?: string;
   scheduled_publish_time?: string;
   targeting?: Record<string, unknown>;
@@ -1126,6 +1127,7 @@ export interface PageCreateVideoReelsParams {
 export interface PageCreateVideoStoriesParams {
   description?: string;
   feed_targeting?: Record<string, unknown>;
+  is_ai_generated?: boolean;
   place?: string;
   scheduled_publish_time?: string;
   targeting?: Record<string, unknown>;
@@ -1182,6 +1184,7 @@ export interface PageCreateVideosParams {
   initial_heading?: number;
   initial_pitch?: number;
   instant_game_entry_point_data?: string;
+  is_ai_generated?: boolean;
   is_boost_intended?: boolean;
   is_explicit_share?: boolean;
   is_group_linking_post?: boolean;

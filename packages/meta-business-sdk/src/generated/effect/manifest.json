@@ -1,22 +1,22 @@
 {
   "_generated": {
-    "fingerprint": "sha256:89ddabf04d78ae13b695bb408e67e5c46639cf8bca939e85d69f87551181a18c",
+    "fingerprint": "sha256:c5bec46546da75c36fd430eb49f6517a736111ee0806850d0fa66d241da65436",
     "doNotEdit": true
   },
   "platform": "facebook",
   "source": {
     "kind": "vendor-json",
     "location": "packages/meta-business-sdk/api_specs",
-    "revision": "670641c869f14dc411f5664878ff4a1f9e166824"
+    "revision": "c8ee473cbdfe6eab9629361568e22debd712a17d"
   },
-  "version": "v25.0",
+  "version": "v26.0",
   "counts": {
-    "models": 1488,
-    "endpoints": 1451,
-    "capabilities": 395
+    "models": 1489,
+    "endpoints": 1445,
+    "capabilities": 396
   },
   "coverage": {
-    "discoveredOperations": 1451,
+    "discoveredOperations": 1445,
     "excludedOperations": [],
     "unresolvedSchemas": [
       "AEMAttribution",
@@ -40,13 +40,6 @@
       "ButtonAutoDetectionDeviceSelection",
       "CanvasAppAsset",
       "CloudbridgeSetting",
-      "CommerceMerchantTaxSettings",
-      "CommerceOrderCancellation",
-      "CommerceOrderItem",
-      "CommerceOrderPayment",
-      "CommerceOrderRefund",
-      "CommerceOrderShipment",
-      "CommerceReturn",
       "DCPAppStoreOrder",
       "Doc",
       "ExternalAppDonation",
@@ -426,7 +419,6 @@
       "commercemerchantsettings_merchant_status",
       "commercemerchantsettingscommerce_orders_filters_enum_param",
       "commercemerchantsettingscommerce_orders_state_enum_param",
-      "commercemerchantsettingsreturns_statuses_enum_param",
       "customaudience_audience_labels",
       "customaudience_claim_objective",
       "customaudience_content_type",
@@ -829,6 +821,6 @@
       "json",
       "multipart"
     ],
-    "emittedOperations": 1451
+    "emittedOperations": 1445
   }
 }

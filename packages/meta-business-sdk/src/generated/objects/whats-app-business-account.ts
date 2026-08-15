@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:8988682f9e7823bfd0975b0a734f16752daafa874bec59838d2e82df114c66e3
+// fingerprint: sha256:5322d68181c80ed2ed1639371ba234342ea598eee58135cb1d66b2f216f91488
 // DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
@@ -164,15 +164,14 @@ export interface WhatsAppBusinessAccountListMessageTemplatesParams {
 
 export interface WhatsAppBusinessAccountCreateMessageTemplatesParams {
   allow_category_change?: boolean;
-  bid_spec?: Record<string, unknown>;
-  category: string;
+  category?: string;
   components?: Record<string, unknown>[];
   creative_sourcing_spec?: Record<string, unknown>;
   cta_url_link_tracking_opted_out?: boolean;
   degrees_of_freedom_spec?: Record<string, unknown>;
   display_format?: string;
   is_primary_device_delivery_only?: boolean;
-  language: string;
+  language?: string;
   library_template_body_inputs?: Record<string, unknown>;
   library_template_body_param_inputs?: Record<string, unknown>[];
   library_template_button_inputs?: Record<string, unknown>[];
@@ -183,6 +182,7 @@ export interface WhatsAppBusinessAccountCreateMessageTemplatesParams {
   parameter_format?: string;
   product_set_id?: string;
   send_type?: string;
+  source_template_id?: number;
   sub_category?: string;
   [key: string]: unknown;
 }

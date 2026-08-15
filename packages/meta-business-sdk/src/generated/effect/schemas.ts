@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:fdb5ee1bef35e0d25b937ed10fff9d18689fc9a7cc6383c12e291c6c638a2ae7
+// fingerprint: sha256:7ecbf93a75c3beae648e415740d20fb021916353f6fa74b74784b37a5724b9cd
 // DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 import { Schema } from "effect";
@@ -335,6 +335,7 @@ export interface AdAccountBusinessConstraintsFields {
   readonly campaigns_with_error?: ReadonlyArray<string>;
   readonly is_age_restriction_enabled?: boolean;
   readonly placement_controls?: Readonly<Record<string, unknown>>;
+  readonly placement_controls_per_objective?: Readonly<Record<string, unknown>>;
   readonly status?: AdAccountBusinessConstraintsStatus;
 }
 export interface AdAccountBusinessConstraintsFieldsEncoded {
@@ -342,6 +343,7 @@ export interface AdAccountBusinessConstraintsFieldsEncoded {
   readonly campaigns_with_error?: ReadonlyArray<string>;
   readonly is_age_restriction_enabled?: boolean;
   readonly placement_controls?: Readonly<Record<string, unknown>>;
+  readonly placement_controls_per_objective?: Readonly<Record<string, unknown>>;
   readonly status?: AdAccountBusinessConstraintsStatusEncoded;
 }
 export const AdAccountBusinessConstraintsFields: Schema.Schema<AdAccountBusinessConstraintsFields, AdAccountBusinessConstraintsFieldsEncoded, never> = Schema.Struct({
@@ -349,6 +351,7 @@ export const AdAccountBusinessConstraintsFields: Schema.Schema<AdAccountBusiness
   campaigns_with_error: Schema.optional(Schema.Array(Schema.String)),
   is_age_restriction_enabled: Schema.optional(Schema.Boolean),
   placement_controls: Schema.optional(Schema.Record({ key: Schema.String, value: Schema.Unknown })),
+  placement_controls_per_objective: Schema.optional(Schema.Record({ key: Schema.String, value: Schema.Unknown })),
   status: Schema.optional(Schema.suspend(() => AdAccountBusinessConstraintsStatus)),
 });
 
@@ -550,24 +553,18 @@ export type AdAccountDefaultObjectiveObjectiveForLevelEncoded = "APP_INSTALLS" |
 export const AdAccountDefaultObjectiveObjectiveForLevel: Schema.Schema<AdAccountDefaultObjectiveObjectiveForLevel, AdAccountDefaultObjectiveObjectiveForLevelEncoded, never> = Schema.Literal("APP_INSTALLS", "BRAND_AWARENESS", "EVENT_RESPONSES", "LEAD_GENERATION", "LINK_CLICKS", "LOCAL_AWARENESS", "MESSAGES", "OFFER_CLAIMS", "OUTCOME_APP_PROMOTION", "OUTCOME_AWARENESS", "OUTCOME_ENGAGEMENT", "OUTCOME_LEADS", "OUTCOME_SALES", "OUTCOME_TRAFFIC", "PAGE_LIKES", "POST_ENGAGEMENT", "PRODUCT_CATALOG_SALES", "REACH", "STORE_VISITS", "VIDEO_VIEWS", "WEBSITE_CONVERSIONS");
 
 export interface AdAccountDeliveryEstimateFields {
-  readonly daily_outcomes_curve?: ReadonlyArray<OutcomePredictionPointFields>;
-  readonly estimate_dau?: number;
   readonly estimate_mau_lower_bound?: number;
   readonly estimate_mau_upper_bound?: number;
   readonly estimate_ready?: boolean;
   readonly targeting_optimization_types?: ReadonlyArray<Readonly<Record<string, number>>>;
 }
 export interface AdAccountDeliveryEstimateFieldsEncoded {
-  readonly daily_outcomes_curve?: ReadonlyArray<OutcomePredictionPointFieldsEncoded>;
-  readonly estimate_dau?: number;
   readonly estimate_mau_lower_bound?: number;
   readonly estimate_mau_upper_bound?: number;
   readonly estimate_ready?: boolean;
   readonly targeting_optimization_types?: ReadonlyArray<Readonly<Record<string, number>>>;
 }
 export const AdAccountDeliveryEstimateFields: Schema.Schema<AdAccountDeliveryEstimateFields, AdAccountDeliveryEstimateFieldsEncoded, never> = Schema.Struct({
-  daily_outcomes_curve: Schema.optional(Schema.Array(Schema.suspend(() => OutcomePredictionPointFields))),
-  estimate_dau: Schema.optional(Schema.Int),
   estimate_mau_lower_bound: Schema.optional(Schema.Int),
   estimate_mau_upper_bound: Schema.optional(Schema.Int),
   estimate_ready: Schema.optional(Schema.Boolean),
@@ -586,26 +583,6 @@ export interface AdAccountDsaRecommendationsFieldsEncoded {
 }
 export const AdAccountDsaRecommendationsFields: Schema.Schema<AdAccountDsaRecommendationsFields, AdAccountDsaRecommendationsFieldsEncoded, never> = Schema.Struct({
   recommendations: Schema.optional(Schema.Array(Schema.String)),
-});
-
-export interface AdAccountFeaturePreferencesFields {
-
-}
-export interface AdAccountFeaturePreferencesFieldsEncoded {
-
-}
-export const AdAccountFeaturePreferencesFields: Schema.Schema<AdAccountFeaturePreferencesFields, AdAccountFeaturePreferencesFieldsEncoded, never> = Schema.Struct({
-
-});
-
-export interface AdAccountFeaturePreferencesPostFields {
-  readonly id?: string;
-}
-export interface AdAccountFeaturePreferencesPostFieldsEncoded {
-  readonly id?: string;
-}
-export const AdAccountFeaturePreferencesPostFields: Schema.Schema<AdAccountFeaturePreferencesPostFields, AdAccountFeaturePreferencesPostFieldsEncoded, never> = Schema.Struct({
-  id: Schema.optional(Schema.String),
 });
 
 export interface AdAccountFields {
@@ -841,6 +818,39 @@ export const AdAccountFields: Schema.Schema<AdAccountFields, AdAccountFieldsEnco
   user_tasks: Schema.optional(Schema.Array(Schema.String)),
   user_tos_accepted: Schema.optional(Schema.Record({ key: Schema.String, value: Schema.Int })),
   viewable_business: Schema.optional(Schema.suspend(() => BusinessFields)),
+});
+
+export interface AdAccountInsightsFeatureSettingsFields {
+
+}
+export interface AdAccountInsightsFeatureSettingsFieldsEncoded {
+
+}
+export const AdAccountInsightsFeatureSettingsFields: Schema.Schema<AdAccountInsightsFeatureSettingsFields, AdAccountInsightsFeatureSettingsFieldsEncoded, never> = Schema.Struct({
+
+});
+
+export interface AdAccountInsightsFeatureSettingsListFeaturesFields {
+  readonly data?: ReadonlyArray<unknown>;
+  readonly paging?: unknown;
+}
+export interface AdAccountInsightsFeatureSettingsListFeaturesFieldsEncoded {
+  readonly data?: ReadonlyArray<unknown>;
+  readonly paging?: unknown;
+}
+export const AdAccountInsightsFeatureSettingsListFeaturesFields: Schema.Schema<AdAccountInsightsFeatureSettingsListFeaturesFields, AdAccountInsightsFeatureSettingsListFeaturesFieldsEncoded, never> = Schema.Struct({
+  data: Schema.optional(Schema.Array(Schema.Unknown)),
+  paging: Schema.optional(Schema.Unknown),
+});
+
+export interface AdAccountInsightsFeatureSettingsPostFields {
+  readonly id?: string;
+}
+export interface AdAccountInsightsFeatureSettingsPostFieldsEncoded {
+  readonly id?: string;
+}
+export const AdAccountInsightsFeatureSettingsPostFields: Schema.Schema<AdAccountInsightsFeatureSettingsPostFields, AdAccountInsightsFeatureSettingsPostFieldsEncoded, never> = Schema.Struct({
+  id: Schema.optional(Schema.String),
 });
 
 export interface AdAccountIosFourteenCampaignLimitsFields {
@@ -2662,24 +2672,18 @@ export const AdCampaignDeleteFields: Schema.Schema<AdCampaignDeleteFields, AdCam
 });
 
 export interface AdCampaignDeliveryEstimateFields {
-  readonly daily_outcomes_curve?: ReadonlyArray<OutcomePredictionPointFields>;
-  readonly estimate_dau?: number;
   readonly estimate_mau_lower_bound?: number;
   readonly estimate_mau_upper_bound?: number;
   readonly estimate_ready?: boolean;
   readonly targeting_optimization_types?: ReadonlyArray<Readonly<Record<string, number>>>;
 }
 export interface AdCampaignDeliveryEstimateFieldsEncoded {
-  readonly daily_outcomes_curve?: ReadonlyArray<OutcomePredictionPointFieldsEncoded>;
-  readonly estimate_dau?: number;
   readonly estimate_mau_lower_bound?: number;
   readonly estimate_mau_upper_bound?: number;
   readonly estimate_ready?: boolean;
   readonly targeting_optimization_types?: ReadonlyArray<Readonly<Record<string, number>>>;
 }
 export const AdCampaignDeliveryEstimateFields: Schema.Schema<AdCampaignDeliveryEstimateFields, AdCampaignDeliveryEstimateFieldsEncoded, never> = Schema.Struct({
-  daily_outcomes_curve: Schema.optional(Schema.Array(Schema.suspend(() => OutcomePredictionPointFields))),
-  estimate_dau: Schema.optional(Schema.Int),
   estimate_mau_lower_bound: Schema.optional(Schema.Int),
   estimate_mau_upper_bound: Schema.optional(Schema.Int),
   estimate_ready: Schema.optional(Schema.Boolean),
@@ -5011,6 +5015,7 @@ export const AdCreativeMarketingMessageStructuredSpecFields: Schema.Schema<AdCre
 export interface AdCreativeMediaSourcingSpecFields {
   readonly bodies?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly descriptions?: ReadonlyArray<Readonly<Record<string, unknown>>>;
+  readonly destinations?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly images?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly push_metadata_ids?: ReadonlyArray<string>;
   readonly related_media?: Readonly<Record<string, unknown>>;
@@ -5020,6 +5025,7 @@ export interface AdCreativeMediaSourcingSpecFields {
 export interface AdCreativeMediaSourcingSpecFieldsEncoded {
   readonly bodies?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly descriptions?: ReadonlyArray<Readonly<Record<string, unknown>>>;
+  readonly destinations?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly images?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly push_metadata_ids?: ReadonlyArray<string>;
   readonly related_media?: Readonly<Record<string, unknown>>;
@@ -5029,6 +5035,7 @@ export interface AdCreativeMediaSourcingSpecFieldsEncoded {
 export const AdCreativeMediaSourcingSpecFields: Schema.Schema<AdCreativeMediaSourcingSpecFields, AdCreativeMediaSourcingSpecFieldsEncoded, never> = Schema.Struct({
   bodies: Schema.optional(Schema.Array(Schema.Record({ key: Schema.String, value: Schema.Unknown }))),
   descriptions: Schema.optional(Schema.Array(Schema.Record({ key: Schema.String, value: Schema.Unknown }))),
+  destinations: Schema.optional(Schema.Array(Schema.Record({ key: Schema.String, value: Schema.Unknown }))),
   images: Schema.optional(Schema.Array(Schema.Record({ key: Schema.String, value: Schema.Unknown }))),
   push_metadata_ids: Schema.optional(Schema.Array(Schema.String)),
   related_media: Schema.optional(Schema.Record({ key: Schema.String, value: Schema.Unknown })),
@@ -7939,6 +7946,7 @@ export interface AdSetFields {
   readonly ad_set_goal?: AdCampaignGoalFields;
   readonly adlabels?: ReadonlyArray<AdLabelFields>;
   readonly adset_schedule?: ReadonlyArray<DayPartFields>;
+  readonly anchor_event_attribution_window_days?: number;
   readonly asset_feed_id?: string;
   readonly attribution_count_type?: string;
   readonly attribution_spec?: ReadonlyArray<AttributionSpecFields>;
@@ -8028,6 +8036,7 @@ export interface AdSetFieldsEncoded {
   readonly ad_set_goal?: AdCampaignGoalFieldsEncoded;
   readonly adlabels?: ReadonlyArray<AdLabelFieldsEncoded>;
   readonly adset_schedule?: ReadonlyArray<DayPartFieldsEncoded>;
+  readonly anchor_event_attribution_window_days?: number;
   readonly asset_feed_id?: string;
   readonly attribution_count_type?: string;
   readonly attribution_spec?: ReadonlyArray<AttributionSpecFieldsEncoded>;
@@ -8117,6 +8126,7 @@ export const AdSetFields: Schema.Schema<AdSetFields, AdSetFieldsEncoded, never> 
   ad_set_goal: Schema.optional(Schema.suspend(() => AdCampaignGoalFields)),
   adlabels: Schema.optional(Schema.Array(Schema.suspend(() => AdLabelFields))),
   adset_schedule: Schema.optional(Schema.Array(Schema.suspend(() => DayPartFields))),
+  anchor_event_attribution_window_days: Schema.optional(Schema.Int),
   asset_feed_id: Schema.optional(Schema.String),
   attribution_count_type: Schema.optional(Schema.String),
   attribution_spec: Schema.optional(Schema.Array(Schema.suspend(() => AttributionSpecFields))),
@@ -8611,6 +8621,7 @@ export interface AdsInsightsFields {
   readonly inline_link_click_ctr?: string;
   readonly inline_link_clicks?: string;
   readonly inline_post_engagement?: string;
+  readonly instagram_profile_follow?: string;
   readonly instagram_profile_visits?: string;
   readonly instagram_upcoming_event_reminders_set?: string;
   readonly instant_experience_clicks_to_open?: string;
@@ -8640,10 +8651,6 @@ export interface AdsInsightsFields {
   readonly marketing_messages_sent?: string;
   readonly marketing_messages_spend?: string;
   readonly marketing_messages_spend_currency?: string;
-  readonly marketing_messages_website_add_to_cart?: string;
-  readonly marketing_messages_website_initiate_checkout?: string;
-  readonly marketing_messages_website_purchase?: string;
-  readonly marketing_messages_website_purchase_values?: string;
   readonly messages_delivered?: string;
   readonly messages_delivered_ctr?: string;
   readonly mobile_app_purchase_roas?: ReadonlyArray<AdsActionStatsFields>;
@@ -8657,6 +8664,8 @@ export interface AdsInsightsFields {
   readonly outbound_clicks?: ReadonlyArray<AdsActionStatsFields>;
   readonly outbound_clicks_ctr?: ReadonlyArray<AdsActionStatsFields>;
   readonly place_page_name?: string;
+  readonly playable_average_game_length?: string;
+  readonly playable_game_start_rate?: string;
   readonly product_group_retailer_id?: string;
   readonly product_retailer_id?: string;
   readonly product_views?: string;
@@ -8833,6 +8842,7 @@ export interface AdsInsightsFieldsEncoded {
   readonly inline_link_click_ctr?: string;
   readonly inline_link_clicks?: string;
   readonly inline_post_engagement?: string;
+  readonly instagram_profile_follow?: string;
   readonly instagram_profile_visits?: string;
   readonly instagram_upcoming_event_reminders_set?: string;
   readonly instant_experience_clicks_to_open?: string;
@@ -8862,10 +8872,6 @@ export interface AdsInsightsFieldsEncoded {
   readonly marketing_messages_sent?: string;
   readonly marketing_messages_spend?: string;
   readonly marketing_messages_spend_currency?: string;
-  readonly marketing_messages_website_add_to_cart?: string;
-  readonly marketing_messages_website_initiate_checkout?: string;
-  readonly marketing_messages_website_purchase?: string;
-  readonly marketing_messages_website_purchase_values?: string;
   readonly messages_delivered?: string;
   readonly messages_delivered_ctr?: string;
   readonly mobile_app_purchase_roas?: ReadonlyArray<AdsActionStatsFieldsEncoded>;
@@ -8879,6 +8885,8 @@ export interface AdsInsightsFieldsEncoded {
   readonly outbound_clicks?: ReadonlyArray<AdsActionStatsFieldsEncoded>;
   readonly outbound_clicks_ctr?: ReadonlyArray<AdsActionStatsFieldsEncoded>;
   readonly place_page_name?: string;
+  readonly playable_average_game_length?: string;
+  readonly playable_game_start_rate?: string;
   readonly product_group_retailer_id?: string;
   readonly product_retailer_id?: string;
   readonly product_views?: string;
@@ -9055,6 +9063,7 @@ export const AdsInsightsFields: Schema.Schema<AdsInsightsFields, AdsInsightsFiel
   inline_link_click_ctr: Schema.optional(Schema.String),
   inline_link_clicks: Schema.optional(Schema.String),
   inline_post_engagement: Schema.optional(Schema.String),
+  instagram_profile_follow: Schema.optional(Schema.String),
   instagram_profile_visits: Schema.optional(Schema.String),
   instagram_upcoming_event_reminders_set: Schema.optional(Schema.String),
   instant_experience_clicks_to_open: Schema.optional(Schema.String),
@@ -9084,10 +9093,6 @@ export const AdsInsightsFields: Schema.Schema<AdsInsightsFields, AdsInsightsFiel
   marketing_messages_sent: Schema.optional(Schema.String),
   marketing_messages_spend: Schema.optional(Schema.String),
   marketing_messages_spend_currency: Schema.optional(Schema.String),
-  marketing_messages_website_add_to_cart: Schema.optional(Schema.String),
-  marketing_messages_website_initiate_checkout: Schema.optional(Schema.String),
-  marketing_messages_website_purchase: Schema.optional(Schema.String),
-  marketing_messages_website_purchase_values: Schema.optional(Schema.String),
   messages_delivered: Schema.optional(Schema.String),
   messages_delivered_ctr: Schema.optional(Schema.String),
   mobile_app_purchase_roas: Schema.optional(Schema.Array(Schema.suspend(() => AdsActionStatsFields))),
@@ -9101,6 +9106,8 @@ export const AdsInsightsFields: Schema.Schema<AdsInsightsFields, AdsInsightsFiel
   outbound_clicks: Schema.optional(Schema.Array(Schema.suspend(() => AdsActionStatsFields))),
   outbound_clicks_ctr: Schema.optional(Schema.Array(Schema.suspend(() => AdsActionStatsFields))),
   place_page_name: Schema.optional(Schema.String),
+  playable_average_game_length: Schema.optional(Schema.String),
+  playable_game_start_rate: Schema.optional(Schema.String),
   product_group_retailer_id: Schema.optional(Schema.String),
   product_retailer_id: Schema.optional(Schema.String),
   product_views: Schema.optional(Schema.String),
@@ -12802,13 +12809,13 @@ export interface AudioVisualReferenceMatchFields {
   readonly match_state?: string;
   readonly matched_overlap_percentage?: number;
   readonly matched_owner_match_duration_in_sec?: number;
-  readonly matched_reference_owner?: ProfileFields;
+  readonly matched_reference_owner_v2?: Readonly<Record<string, unknown>>;
   readonly modification_history?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly num_matches_on_matched_side?: number;
   readonly num_matches_on_ref_side?: number;
   readonly ref_owner_match_duration_in_sec?: number;
   readonly reference_overlap_percentage?: number;
-  readonly reference_owner?: ProfileFields;
+  readonly reference_owner_v2?: Readonly<Record<string, unknown>>;
   readonly rejection_form_data_entries_with_translations?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly resolution_details?: string;
   readonly resolution_reason?: string;
@@ -12836,13 +12843,13 @@ export interface AudioVisualReferenceMatchFieldsEncoded {
   readonly match_state?: string;
   readonly matched_overlap_percentage?: number;
   readonly matched_owner_match_duration_in_sec?: number;
-  readonly matched_reference_owner?: ProfileFieldsEncoded;
+  readonly matched_reference_owner_v2?: Readonly<Record<string, unknown>>;
   readonly modification_history?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly num_matches_on_matched_side?: number;
   readonly num_matches_on_ref_side?: number;
   readonly ref_owner_match_duration_in_sec?: number;
   readonly reference_overlap_percentage?: number;
-  readonly reference_owner?: ProfileFieldsEncoded;
+  readonly reference_owner_v2?: Readonly<Record<string, unknown>>;
   readonly rejection_form_data_entries_with_translations?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly resolution_details?: string;
   readonly resolution_reason?: string;
@@ -12870,13 +12877,13 @@ export const AudioVisualReferenceMatchFields: Schema.Schema<AudioVisualReference
   match_state: Schema.optional(Schema.String),
   matched_overlap_percentage: Schema.optional(Schema.Number),
   matched_owner_match_duration_in_sec: Schema.optional(Schema.Number),
-  matched_reference_owner: Schema.optional(Schema.suspend(() => ProfileFields)),
+  matched_reference_owner_v2: Schema.optional(Schema.Record({ key: Schema.String, value: Schema.Unknown })),
   modification_history: Schema.optional(Schema.Array(Schema.Record({ key: Schema.String, value: Schema.Unknown }))),
   num_matches_on_matched_side: Schema.optional(Schema.Int),
   num_matches_on_ref_side: Schema.optional(Schema.Int),
   ref_owner_match_duration_in_sec: Schema.optional(Schema.Number),
   reference_overlap_percentage: Schema.optional(Schema.Number),
-  reference_owner: Schema.optional(Schema.suspend(() => ProfileFields)),
+  reference_owner_v2: Schema.optional(Schema.Record({ key: Schema.String, value: Schema.Unknown })),
   rejection_form_data_entries_with_translations: Schema.optional(Schema.Array(Schema.Record({ key: Schema.String, value: Schema.Unknown }))),
   resolution_details: Schema.optional(Schema.String),
   resolution_reason: Schema.optional(Schema.String),
@@ -13387,12 +13394,21 @@ export const BrandSafetyBlockListUsageFields: Schema.Schema<BrandSafetyBlockList
 
 export interface BrandSafetyCampaignConfigFields {
   readonly comment_moderation_filter?: string;
+  readonly fb_comment_moderation_filter?: string;
+  readonly ig_comment_moderation_filter?: string;
+  readonly threads_comment_moderation_filter?: string;
 }
 export interface BrandSafetyCampaignConfigFieldsEncoded {
   readonly comment_moderation_filter?: string;
+  readonly fb_comment_moderation_filter?: string;
+  readonly ig_comment_moderation_filter?: string;
+  readonly threads_comment_moderation_filter?: string;
 }
 export const BrandSafetyCampaignConfigFields: Schema.Schema<BrandSafetyCampaignConfigFields, BrandSafetyCampaignConfigFieldsEncoded, never> = Schema.Struct({
   comment_moderation_filter: Schema.optional(Schema.String),
+  fb_comment_moderation_filter: Schema.optional(Schema.String),
+  ig_comment_moderation_filter: Schema.optional(Schema.String),
+  threads_comment_moderation_filter: Schema.optional(Schema.String),
 });
 
 export interface BrandSafetyDownloadableFields {
@@ -16407,8 +16423,8 @@ export interface CopyrightOwnershipTransferFields {
   readonly has_ownership_been_updated?: boolean;
   readonly id?: string;
   readonly num_assets?: number;
-  readonly receiving_rights_holder?: ProfileFields;
-  readonly sending_rights_holder?: ProfileFields;
+  readonly receiving_rights_holder_owner?: Readonly<Record<string, unknown>>;
+  readonly sending_rights_holder_owner?: Readonly<Record<string, unknown>>;
   readonly status?: string;
   readonly transfer_territories?: ReadonlyArray<string>;
   readonly transfer_time?: Date;
@@ -16418,8 +16434,8 @@ export interface CopyrightOwnershipTransferFieldsEncoded {
   readonly has_ownership_been_updated?: boolean;
   readonly id?: string;
   readonly num_assets?: number;
-  readonly receiving_rights_holder?: ProfileFieldsEncoded;
-  readonly sending_rights_holder?: ProfileFieldsEncoded;
+  readonly receiving_rights_holder_owner?: Readonly<Record<string, unknown>>;
+  readonly sending_rights_holder_owner?: Readonly<Record<string, unknown>>;
   readonly status?: string;
   readonly transfer_territories?: ReadonlyArray<string>;
   readonly transfer_time?: string;
@@ -16429,8 +16445,8 @@ export const CopyrightOwnershipTransferFields: Schema.Schema<CopyrightOwnershipT
   has_ownership_been_updated: Schema.optional(Schema.Boolean),
   id: Schema.optional(Schema.String),
   num_assets: Schema.optional(Schema.Int),
-  receiving_rights_holder: Schema.optional(Schema.suspend(() => ProfileFields)),
-  sending_rights_holder: Schema.optional(Schema.suspend(() => ProfileFields)),
+  receiving_rights_holder_owner: Schema.optional(Schema.Record({ key: Schema.String, value: Schema.Unknown })),
+  sending_rights_holder_owner: Schema.optional(Schema.Record({ key: Schema.String, value: Schema.Unknown })),
   status: Schema.optional(Schema.String),
   transfer_territories: Schema.optional(Schema.Array(Schema.String)),
   transfer_time: Schema.optional(Schema.DateFromString),
@@ -22121,10 +22137,10 @@ export interface ImageReferenceMatchFields {
   readonly id?: string;
   readonly match_state?: string;
   readonly matched_reference_copyright?: ImageCopyrightFields;
-  readonly matched_reference_owner?: ProfileFields;
+  readonly matched_reference_owner_rh_owner?: Readonly<Record<string, unknown>>;
   readonly modification_history?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly reference_copyright?: ImageCopyrightFields;
-  readonly reference_owner?: ProfileFields;
+  readonly reference_owner_rh_owner?: Readonly<Record<string, unknown>>;
   readonly rejection_form_data_entries_with_translations?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly resolution_reason?: string;
   readonly update_time?: Date;
@@ -22141,10 +22157,10 @@ export interface ImageReferenceMatchFieldsEncoded {
   readonly id?: string;
   readonly match_state?: string;
   readonly matched_reference_copyright?: ImageCopyrightFieldsEncoded;
-  readonly matched_reference_owner?: ProfileFieldsEncoded;
+  readonly matched_reference_owner_rh_owner?: Readonly<Record<string, unknown>>;
   readonly modification_history?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly reference_copyright?: ImageCopyrightFieldsEncoded;
-  readonly reference_owner?: ProfileFieldsEncoded;
+  readonly reference_owner_rh_owner?: Readonly<Record<string, unknown>>;
   readonly rejection_form_data_entries_with_translations?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly resolution_reason?: string;
   readonly update_time?: string;
@@ -22161,10 +22177,10 @@ export const ImageReferenceMatchFields: Schema.Schema<ImageReferenceMatchFields,
   id: Schema.optional(Schema.String),
   match_state: Schema.optional(Schema.String),
   matched_reference_copyright: Schema.optional(Schema.suspend(() => ImageCopyrightFields)),
-  matched_reference_owner: Schema.optional(Schema.suspend(() => ProfileFields)),
+  matched_reference_owner_rh_owner: Schema.optional(Schema.Record({ key: Schema.String, value: Schema.Unknown })),
   modification_history: Schema.optional(Schema.Array(Schema.Record({ key: Schema.String, value: Schema.Unknown }))),
   reference_copyright: Schema.optional(Schema.suspend(() => ImageCopyrightFields)),
-  reference_owner: Schema.optional(Schema.suspend(() => ProfileFields)),
+  reference_owner_rh_owner: Schema.optional(Schema.Record({ key: Schema.String, value: Schema.Unknown })),
   rejection_form_data_entries_with_translations: Schema.optional(Schema.Array(Schema.Record({ key: Schema.String, value: Schema.Unknown }))),
   resolution_reason: Schema.optional(Schema.String),
   update_time: Schema.optional(Schema.DateFromString),

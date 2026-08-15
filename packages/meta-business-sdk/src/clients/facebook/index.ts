@@ -17,6 +17,10 @@ const DEFAULT_WEBHOOK_FIELDS = [
   "message_deliveries",
   "messaging_postbacks",
   "messaging_referrals",
+  "messaging_optins",
+  "messaging_account_linking",
+  "messaging_handovers",
+  "standby",
 ] as const;
 
 export type * from "./types.ts";

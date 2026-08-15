@@ -1,16 +1,15 @@
 // @generated
-// fingerprint: sha256:24ae36467a7c1f9a4d0e449478f90e4c69e7dfe7510c83324897b06eb078b799
+// fingerprint: sha256:071cdbc38b8f48e81c95eaff835692eda0539e3b3bc9c7ae7f1f0b4a19b24f69
 // DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
-import type { ProfileFields } from "./profile.ts";
 
 export interface CopyrightOwnershipTransferFields {
   assets: Record<string, unknown>[];
   has_ownership_been_updated: boolean;
   id: string;
   num_assets: number;
-  receiving_rights_holder: ProfileFields;
-  sending_rights_holder: ProfileFields;
+  receiving_rights_holder_owner: Record<string, unknown>;
+  sending_rights_holder_owner: Record<string, unknown>;
   status: string;
   transfer_territories: string[];
   transfer_time: string;

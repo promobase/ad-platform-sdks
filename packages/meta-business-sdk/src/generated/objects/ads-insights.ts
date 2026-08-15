@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:46b8e83ed953549a8ad4a972ec646b4d0324e1b180a4a354a5245ab2068beb14
+// fingerprint: sha256:5dd332ac3365ad4cc3354e5c664228e7f49ce84a1d67dd12383cf67839b96e1f
 // DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdsActionStatsFields } from "./ads-action-stats.ts";
 import type { AdsHistogramStatsFields } from "./ads-histogram-stats.ts";
@@ -126,6 +126,7 @@ export interface AdsInsightsFields {
   inline_link_click_ctr: string;
   inline_link_clicks: string;
   inline_post_engagement: string;
+  instagram_profile_follow: string;
   instagram_profile_visits: string;
   instagram_upcoming_event_reminders_set: string;
   instant_experience_clicks_to_open: string;
@@ -155,10 +156,6 @@ export interface AdsInsightsFields {
   marketing_messages_sent: string;
   marketing_messages_spend: string;
   marketing_messages_spend_currency: string;
-  marketing_messages_website_add_to_cart: string;
-  marketing_messages_website_initiate_checkout: string;
-  marketing_messages_website_purchase: string;
-  marketing_messages_website_purchase_values: string;
   messages_delivered: string;
   messages_delivered_ctr: string;
   mobile_app_purchase_roas: AdsActionStatsFields[];
@@ -172,6 +169,8 @@ export interface AdsInsightsFields {
   outbound_clicks: AdsActionStatsFields[];
   outbound_clicks_ctr: AdsActionStatsFields[];
   place_page_name: string;
+  playable_average_game_length: string;
+  playable_game_start_rate: string;
   product_group_retailer_id: string;
   product_retailer_id: string;
   product_views: string;

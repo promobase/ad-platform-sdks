@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:2f424a7072c06adafec592f74a186719bee81c6aaddb27cfd4d2d6cb25de34e9
+// fingerprint: sha256:8944efa2da08c169f26d98f9677f1a1d0e8dc010197766eb20c464fb9351a03a
 // DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
@@ -40,8 +40,13 @@ export const capabilities = [
     "requiredScopes": []
   },
   {
-    "id": "adAccountFeaturePreferences.manage",
-    "summary": "Manage Facebook Graph AdAccountFeaturePreferences",
+    "id": "adAccountInsightsFeatureSettings.manage",
+    "summary": "Manage Facebook Graph AdAccountInsightsFeatureSettings",
+    "requiredScopes": []
+  },
+  {
+    "id": "adAccountInsightsFeatureSettings.read",
+    "summary": "Read Facebook Graph AdAccountInsightsFeatureSettings",
     "requiredScopes": []
   },
   {

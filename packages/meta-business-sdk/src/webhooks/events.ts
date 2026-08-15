@@ -51,6 +51,22 @@ export type FacebookWebhookEvent =
       readonly event: WithRequired<FacebookMessagingEvent, "message_edit">;
     })
   | (EventContext & {
+      readonly kind: "optin";
+      readonly event: WithRequired<FacebookMessagingEvent, "optin">;
+    })
+  | (EventContext & {
+      readonly kind: "account_linking";
+      readonly event: WithRequired<FacebookMessagingEvent, "account_linking">;
+    })
+  | (EventContext & {
+      readonly kind: "pass_thread_control" | "take_thread_control" | "request_thread_control";
+      readonly event: FacebookMessagingEvent;
+    })
+  | (EventContext & {
+      readonly kind: "standby";
+      readonly event: FacebookMessagingEvent;
+    })
+  | (EventContext & {
       readonly kind: "comment_change";
       readonly change: FacebookChange;
     })
@@ -94,8 +110,30 @@ export type InstagramWebhookEvent =
       readonly event: WithRequired<InstagramMessagingEvent, "message_edit">;
     })
   | (EventContext & {
-      readonly kind: "comment_change" | "message_edit_change" | "message_reaction_change";
+      readonly kind: "optin";
+      readonly event: WithRequired<InstagramMessagingEvent, "optin">;
+    })
+  | (EventContext & {
+      readonly kind: "account_linking";
+      readonly event: WithRequired<InstagramMessagingEvent, "account_linking">;
+    })
+  | (EventContext & {
+      readonly kind: "pass_thread_control" | "take_thread_control" | "request_thread_control";
+      readonly event: InstagramMessagingEvent;
+    })
+  | (EventContext & {
+      readonly kind:
+        | "comment_change"
+        | "message_edit_change"
+        | "message_reaction_change"
+        | "mention_change"
+        | "live_comment_change"
+        | "story_insights_change";
       readonly change: InstagramChange;
+    })
+  | (EventContext & {
+      readonly kind: "standby";
+      readonly event: InstagramMessagingEvent;
     })
   | (EventContext & {
       readonly kind: "unknown";
@@ -194,10 +232,35 @@ export function getFacebookWebhookEvents(
         });
         emitted = true;
       }
+      if (event.optin) {
+        events.push({ ...entryContext, kind: "optin", event: { ...event, optin: event.optin } });
+        emitted = true;
+      }
+      if (event.account_linking) {
+        events.push({
+          ...entryContext,
+          kind: "account_linking",
+          event: { ...event, account_linking: event.account_linking },
+        });
+        emitted = true;
+      }
+      for (const kind of [
+        "pass_thread_control",
+        "take_thread_control",
+        "request_thread_control",
+      ] as const) {
+        if (event[kind]) {
+          events.push({ ...entryContext, kind, event });
+          emitted = true;
+        }
+      }
       if (!emitted) events.push({ ...entryContext, kind: "unknown", event });
     }
     for (const change of entry.changes ?? []) {
       events.push({ ...entryContext, kind: "comment_change", change });
+    }
+    for (const event of entry.standby ?? []) {
+      events.push({ ...entryContext, kind: "standby", event });
     }
   }
   return events;
@@ -270,6 +333,28 @@ export function getInstagramWebhookEvents(
         });
         emitted = true;
       }
+      if (event.optin) {
+        events.push({ ...entryContext, kind: "optin", event: { ...event, optin: event.optin } });
+        emitted = true;
+      }
+      if (event.account_linking) {
+        events.push({
+          ...entryContext,
+          kind: "account_linking",
+          event: { ...event, account_linking: event.account_linking },
+        });
+        emitted = true;
+      }
+      for (const kind of [
+        "pass_thread_control",
+        "take_thread_control",
+        "request_thread_control",
+      ] as const) {
+        if (event[kind]) {
+          events.push({ ...entryContext, kind, event });
+          emitted = true;
+        }
+      }
       if (!emitted) events.push({ ...entryContext, kind: "unknown", event });
     }
     for (const change of entry.changes ?? []) {
@@ -280,9 +365,18 @@ export function getInstagramWebhookEvents(
             ? "comment_change"
             : change.field === "message_edit"
               ? "message_edit_change"
-              : "message_reaction_change",
+              : change.field === "message_reactions"
+                ? "message_reaction_change"
+                : change.field === "mentions"
+                  ? "mention_change"
+                  : change.field === "live_comments"
+                    ? "live_comment_change"
+                    : "story_insights_change",
         change,
       });
+    }
+    for (const event of entry.standby ?? []) {
+      events.push({ ...entryContext, kind: "standby", event });
     }
   }
   return events;

@@ -3,7 +3,7 @@ title: "Facebook Group endpoints"
 description: "21 generated Facebook endpoint contracts for Group."
 generated: true
 platform: "facebook"
-sourceVersion: "v25.0"
+sourceVersion: "v26.0"
 sidebar:
   order: 260
   label: "Group"
@@ -11,7 +11,7 @@ tableOfContents: false
 ---
 
 {/* @generated */}
-{/* fingerprint: sha256:21e8ade6a61b5a9882978f9b1675f5708e6a3c7e7124dc07aa1c18a8d34b08c2 */}
+{/* fingerprint: sha256:523fa948294d978c50925b8757549bb7e0dd26497221adb4168b85166f4ab38f */}
 {/* DO NOT EDIT: generated file; changes will be overwritten. */}
 
 {/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
@@ -64,7 +64,7 @@ POST Group admins
 | Capabilities | `group.manage` |
 | Required scopes | None declared |
 | Rate-limit bucket | `facebook-graph-api` |
-| Output | `GroupFields` |
+| Output | `UserFields` |
 
 **Parameters**
 
@@ -641,7 +641,7 @@ POST Group members
 | Capabilities | `group.manage` |
 | Required scopes | None declared |
 | Rate-limit bucket | `facebook-graph-api` |
-| Output | `GroupFields` |
+| Output | `UserFields` |
 
 **Parameters**
 
@@ -955,6 +955,7 @@ POST Group videos
 | `initial_heading` | `body` | `integer` | No | No | — |
 | `initial_pitch` | `body` | `integer` | No | No | — |
 | `instant_game_entry_point_data` | `body` | `string` | No | No | — |
+| `is_ai_generated` | `body` | `boolean` | No | No | — |
 | `is_boost_intended` | `body` | `boolean` | No | No | — |
 | `is_explicit_share` | `body` | `boolean` | No | No | — |
 | `is_group_linking_post` | `body` | `boolean` | No | No | — |

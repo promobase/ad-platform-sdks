@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:7a0822cef93cda81dc564b3a713c4c6321732d4672ebe2c02cbb803b8c0f72d5
+// fingerprint: sha256:799ad2b3e2af47e96ce5c7ea164a74e7b5cffe88a16a95e4ce993215bd29774d
 // DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
@@ -43,6 +43,7 @@ export interface AdSetFields {
   ad_set_goal: AdCampaignGoalFields;
   adlabels: AdLabelFields[];
   adset_schedule: DayPartFields[];
+  anchor_event_attribution_window_days: number;
   asset_feed_id: string;
   attribution_count_type: string;
   attribution_spec: AttributionSpecFields[];

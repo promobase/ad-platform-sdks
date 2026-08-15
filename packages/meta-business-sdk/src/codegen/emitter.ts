@@ -34,17 +34,25 @@ function singularize(word: string): string {
  * snake_case → camelCase: "ad_studies" → "adStudies"
  */
 function snakeToCamel(s: string): string {
-  return s.replace(/_([a-z])/g, (_, c) => c.toUpperCase());
+  const parts = identifierParts(s);
+  const [first, ...rest] = parts;
+  if (!first) return "unknown";
+  return `${first.charAt(0).toLowerCase()}${first.slice(1)}${rest
+    .map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`)
+    .join("")}`;
 }
 
 /**
  * snake_case → PascalCase: "ad_studies" → "AdStudies"
  */
 function snakeToPascal(s: string): string {
-  return s
-    .split("_")
-    .map((p) => p.charAt(0).toUpperCase() + p.slice(1))
+  return identifierParts(s)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join("");
+}
+
+function identifierParts(value: string): string[] {
+  return value.split(/[^A-Za-z0-9]+/).filter(Boolean);
 }
 
 /**

@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:7e404a2f30e483b80614b1656d95d56e1fb0bc2a634fee687a4eb5e8606bf150
+// fingerprint: sha256:690087e361a3ef33f19f67895b4bcc890ed9f3f43185526ff3eb6392ce586fc3
 // DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
@@ -559,6 +559,7 @@ export interface UserCreateVideosParams {
   initial_heading?: number;
   initial_pitch?: number;
   instant_game_entry_point_data?: string;
+  is_ai_generated?: boolean;
   is_boost_intended?: boolean;
   is_explicit_share?: boolean;
   is_group_linking_post?: boolean;

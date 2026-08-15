@@ -1,9 +1,8 @@
 // @generated
-// fingerprint: sha256:9110b6e1a787641031c287908c56b522e9bb81adce9cfb3f9a558d37e5c33659
+// fingerprint: sha256:1eeaee73d4b6d834e6a55b3bb449e6a8f1e26f1ae507dfa1e6d72725dcea9d10
 // DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { ImageCopyrightFields } from "./image-copyright.ts";
-import type { ProfileFields } from "./profile.ts";
 
 export interface ImageReferenceMatchFields {
   conflict_status: string;
@@ -17,10 +16,10 @@ export interface ImageReferenceMatchFields {
   id: string;
   match_state: string;
   matched_reference_copyright: ImageCopyrightFields;
-  matched_reference_owner: ProfileFields;
+  matched_reference_owner_rh_owner: Record<string, unknown>;
   modification_history: Record<string, unknown>[];
   reference_copyright: ImageCopyrightFields;
-  reference_owner: ProfileFields;
+  reference_owner_rh_owner: Record<string, unknown>;
   rejection_form_data_entries_with_translations: Record<string, unknown>[];
   resolution_reason: string;
   update_time: string;

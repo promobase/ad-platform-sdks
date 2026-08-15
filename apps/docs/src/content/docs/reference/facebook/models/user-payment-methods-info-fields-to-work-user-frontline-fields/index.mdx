@@ -1,0 +1,1002 @@
+---
+title: "Facebook models: User Payment Methods Info Fields – Work User Frontline Fields"
+description: "89 generated Facebook model contracts, from UserPaymentMethodsInfoFields through WorkUserFrontlineFields."
+generated: true
+platform: "facebook"
+sourceVersion: "v26.0"
+sidebar:
+  order: 1014
+  label: "User Payment Methods Info Fields – Work User Frontline Fields"
+tableOfContents: false
+---
+
+{/* @generated */}
+{/* fingerprint: sha256:066ff75010ca1e03fab6bb36d4dd2cefd10f147ce271e2876df68f84b67dfd66 */}
+{/* DO NOT EDIT: generated file; changes will be overwritten. */}
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## UserPaymentMethodsInfoFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account_id` | `account_id` | `string` | No | No | — |
+| `available_card_types` | `available_card_types` | `Array<string>` | No | No | — |
+| `available_payment_methods` | `available_payment_methods` | `Array<string>` | No | No | — |
+| `available_payment_methods_details` | `available_payment_methods_details` | `Array<Record<string, unknown>>` | No | No | — |
+| `country` | `country` | `string` | No | No | — |
+| `currency` | `currency` | `string` | No | No | — |
+| `existing_payment_methods` | `existing_payment_methods` | `Array<Record<string, unknown>>` | No | No | — |
+
+## UserPaymentMobilePricepointsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `mobile_country` | `mobile_country` | `string` | No | No | — |
+| `phone_number_last4` | `phone_number_last4` | `string` | No | No | — |
+| `pricepoints` | `pricepoints` | `Array<Record<string, unknown>>` | No | No | — |
+| `user_currency` | `user_currency` | `string` | No | No | — |
+
+## UserPaymentModulesOptionsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account_id` | `account_id` | `string` | No | No | — |
+| `available_payment_options` | `available_payment_options` | `Array<Record<string, unknown>>` | No | No | — |
+| `country` | `country` | `string` | No | No | — |
+| `currency` | `currency` | `string` | No | No | — |
+
+## UserType
+
+`enum` model on the `json` wire format.
+
+**Values:** `content_update`, `generic`
+
+## ValueBasedEligibleSourceFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+| `type` | `type` | `string` | No | No | — |
+
+## ValueRulesSpecFields
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## VehicleAvailability
+
+`enum` model on the `json` wire format.
+
+**Values:** `AVAILABLE`, `NOT_AVAILABLE`, `PENDING`, `UNKNOWN`
+
+## VehicleBodyStyle
+
+`enum` model on the `json` wire format.
+
+**Values:** `CONVERTIBLE`, `COUPE`, `CROSSOVER`, `ESTATE`, `GRANDTOURER`, `HATCHBACK`, `MINIBUS`, `MINIVAN`, `MPV`, `NONE`, `OTHER`, `PICKUP`, `ROADSTER`, `SALOON`, `SEDAN`, `SMALL_CAR`, `SPORTSCAR`, `SUPERCAR`, `SUPERMINI`, `SUV`, `TRUCK`, `VAN`, `WAGON`
+
+## VehicleCondition
+
+`enum` model on the `json` wire format.
+
+**Values:** `EXCELLENT`, `FAIR`, `GOOD`, `NONE`, `OTHER`, `POOR`, `VERY_GOOD`
+
+## VehicleDrivetrain
+
+`enum` model on the `json` wire format.
+
+**Values:** `AWD`, `FOUR_WD`, `FWD`, `NONE`, `OTHER`, `RWD`, `TWO_WD`
+
+## VehicleFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `address` | `address` | `Record<string, unknown>` | No | No | — |
+| `applinks` | `applinks` | `CatalogItemAppLinksFields` | No | No | — |
+| `availability` | `availability` | `string` | No | No | — |
+| `availability_circle_radius` | `availability_circle_radius` | `number` | No | No | — |
+| `availability_circle_radius_unit` | `availability_circle_radius_unit` | `string` | No | No | — |
+| `body_style` | `body_style` | `string` | No | No | — |
+| `condition` | `condition` | `string` | No | No | — |
+| `currency` | `currency` | `string` | No | No | — |
+| `custom_label_0` | `custom_label_0` | `string` | No | No | — |
+| `custom_label_1` | `custom_label_1` | `string` | No | No | — |
+| `custom_label_2` | `custom_label_2` | `string` | No | No | — |
+| `custom_label_3` | `custom_label_3` | `string` | No | No | — |
+| `custom_label_4` | `custom_label_4` | `string` | No | No | — |
+| `custom_number_0` | `custom_number_0` | `integer` | No | No | — |
+| `custom_number_1` | `custom_number_1` | `integer` | No | No | — |
+| `custom_number_2` | `custom_number_2` | `integer` | No | No | — |
+| `custom_number_3` | `custom_number_3` | `integer` | No | No | — |
+| `custom_number_4` | `custom_number_4` | `integer` | No | No | — |
+| `date_first_on_lot` | `date_first_on_lot` | `string` | No | No | — |
+| `dealer_communication_channel` | `dealer_communication_channel` | `string` | No | No | — |
+| `dealer_email` | `dealer_email` | `string` | No | No | — |
+| `dealer_id` | `dealer_id` | `string` | No | No | — |
+| `dealer_name` | `dealer_name` | `string` | No | No | — |
+| `dealer_phone` | `dealer_phone` | `string` | No | No | — |
+| `dealer_privacy_policy_url` | `dealer_privacy_policy_url` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `drivetrain` | `drivetrain` | `string` | No | No | — |
+| `exterior_color` | `exterior_color` | `string` | No | No | — |
+| `fb_page_id` | `fb_page_id` | `PageFields` | No | No | — |
+| `features` | `features` | `Array<Record<string, unknown>>` | No | No | — |
+| `fuel_type` | `fuel_type` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `image_fetch_status` | `image_fetch_status` | `VehicleImageFetchStatus` | No | No | — |
+| `images` | `images` | `Array<string>` | No | No | — |
+| `interior_color` | `interior_color` | `string` | No | No | — |
+| `legal_disclosure_impressum_url` | `legal_disclosure_impressum_url` | `string` | No | No | — |
+| `make` | `make` | `string` | No | No | — |
+| `mileage` | `mileage` | `Record<string, unknown>` | No | No | — |
+| `model` | `model` | `string` | No | No | — |
+| `previous_currency` | `previous_currency` | `string` | No | No | — |
+| `previous_price` | `previous_price` | `string` | No | No | — |
+| `price` | `price` | `string` | No | No | — |
+| `product_priority_0` | `product_priority_0` | `number` | No | No | — |
+| `product_priority_1` | `product_priority_1` | `number` | No | No | — |
+| `product_priority_2` | `product_priority_2` | `number` | No | No | — |
+| `product_priority_3` | `product_priority_3` | `number` | No | No | — |
+| `product_priority_4` | `product_priority_4` | `number` | No | No | — |
+| `sale_currency` | `sale_currency` | `string` | No | No | — |
+| `sale_price` | `sale_price` | `string` | No | No | — |
+| `sanitized_images` | `sanitized_images` | `Array<string>` | No | No | — |
+| `state_of_vehicle` | `state_of_vehicle` | `string` | No | No | — |
+| `tags` | `tags` | `Array<string>` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+| `transmission` | `transmission` | `string` | No | No | — |
+| `trim` | `trim` | `string` | No | No | — |
+| `unit_price` | `unit_price` | `Record<string, unknown>` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+| `vehicle_id` | `vehicle_id` | `string` | No | No | — |
+| `vehicle_registration_plate` | `vehicle_registration_plate` | `string` | No | No | — |
+| `vehicle_specifications` | `vehicle_specifications` | `Array<Record<string, unknown>>` | No | No | — |
+| `vehicle_type` | `vehicle_type` | `string` | No | No | — |
+| `vin` | `vin` | `string` | No | No | — |
+| `visibility` | `visibility` | `VehicleVisibility` | No | No | — |
+| `year` | `year` | `integer` | No | No | — |
+
+## VehicleFuelType
+
+`enum` model on the `json` wire format.
+
+**Values:** `DIESEL`, `ELECTRIC`, `FLEX`, `GASOLINE`, `HYBRID`, `NONE`, `OTHER`, `PETROL`, `PLUGIN_HYBRID`
+
+## VehicleImageFetchStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `DIRECT_UPLOAD`, `FETCHED`, `FETCH_FAILED`, `NO_STATUS`, `OUTDATED`, `PARTIAL_FETCH`
+
+## VehicleOfferFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `amount_currency` | `amount_currency` | `string` | No | No | — |
+| `amount_percentage` | `amount_percentage` | `number` | No | No | — |
+| `amount_price` | `amount_price` | `string` | No | No | — |
+| `amount_qualifier` | `amount_qualifier` | `string` | No | No | — |
+| `applinks` | `applinks` | `CatalogItemAppLinksFields` | No | No | — |
+| `availability` | `availability` | `string` | No | No | — |
+| `body_style` | `body_style` | `string` | No | No | — |
+| `cashback_currency` | `cashback_currency` | `string` | No | No | — |
+| `cashback_price` | `cashback_price` | `string` | No | No | — |
+| `comscore_market_codes` | `comscore_market_codes` | `Array<string>` | No | No | — |
+| `currency` | `currency` | `string` | No | No | — |
+| `custom_label_0` | `custom_label_0` | `string` | No | No | — |
+| `custom_label_1` | `custom_label_1` | `string` | No | No | — |
+| `custom_label_2` | `custom_label_2` | `string` | No | No | — |
+| `custom_label_3` | `custom_label_3` | `string` | No | No | — |
+| `custom_label_4` | `custom_label_4` | `string` | No | No | — |
+| `custom_number_0` | `custom_number_0` | `integer` | No | No | — |
+| `custom_number_1` | `custom_number_1` | `integer` | No | No | — |
+| `custom_number_2` | `custom_number_2` | `integer` | No | No | — |
+| `custom_number_3` | `custom_number_3` | `integer` | No | No | — |
+| `custom_number_4` | `custom_number_4` | `integer` | No | No | — |
+| `dma_codes` | `dma_codes` | `Array<string>` | No | No | — |
+| `downpayment_currency` | `downpayment_currency` | `string` | No | No | — |
+| `downpayment_price` | `downpayment_price` | `string` | No | No | — |
+| `downpayment_qualifier` | `downpayment_qualifier` | `string` | No | No | — |
+| `drivetrain` | `drivetrain` | `string` | No | No | — |
+| `end_date` | `end_date` | `string` | No | No | — |
+| `end_time` | `end_time` | `integer` | No | No | — |
+| `exterior_color` | `exterior_color` | `string` | No | No | — |
+| `fuel_type` | `fuel_type` | `string` | No | No | — |
+| `generation` | `generation` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `image_fetch_status` | `image_fetch_status` | `VehicleOfferImageFetchStatus` | No | No | — |
+| `images` | `images` | `Array<string>` | No | No | — |
+| `interior_color` | `interior_color` | `string` | No | No | — |
+| `interior_upholstery` | `interior_upholstery` | `string` | No | No | — |
+| `make` | `make` | `string` | No | No | — |
+| `model` | `model` | `string` | No | No | — |
+| `offer_description` | `offer_description` | `string` | No | No | — |
+| `offer_disclaimer` | `offer_disclaimer` | `string` | No | No | — |
+| `offer_type` | `offer_type` | `string` | No | No | — |
+| `price` | `price` | `string` | No | No | — |
+| `product_priority_0` | `product_priority_0` | `number` | No | No | — |
+| `product_priority_1` | `product_priority_1` | `number` | No | No | — |
+| `product_priority_2` | `product_priority_2` | `number` | No | No | — |
+| `product_priority_3` | `product_priority_3` | `number` | No | No | — |
+| `product_priority_4` | `product_priority_4` | `number` | No | No | — |
+| `sanitized_images` | `sanitized_images` | `Array<string>` | No | No | — |
+| `start_date` | `start_date` | `string` | No | No | — |
+| `start_time` | `start_time` | `integer` | No | No | — |
+| `tags` | `tags` | `Array<string>` | No | No | — |
+| `term_length` | `term_length` | `integer` | No | No | — |
+| `term_qualifier` | `term_qualifier` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+| `transmission` | `transmission` | `string` | No | No | — |
+| `trim` | `trim` | `string` | No | No | — |
+| `unit_price` | `unit_price` | `Record<string, unknown>` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+| `vehicle_offer_id` | `vehicle_offer_id` | `string` | No | No | — |
+| `visibility` | `visibility` | `VehicleOfferVisibility` | No | No | — |
+| `year` | `year` | `integer` | No | No | — |
+
+## VehicleOfferImageFetchStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `DIRECT_UPLOAD`, `FETCHED`, `FETCH_FAILED`, `NO_STATUS`, `OUTDATED`, `PARTIAL_FETCH`
+
+## VehicleOfferVisibility
+
+`enum` model on the `json` wire format.
+
+**Values:** `PUBLISHED`, `STAGING`
+
+## VehicleStateOfVehicle
+
+`enum` model on the `json` wire format.
+
+**Values:** `CPO`, `NEW`, `USED`
+
+## VehicleTransmission
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUTOMATIC`, `MANUAL`, `NONE`, `OTHER`
+
+## VehicleVehicleType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BOAT`, `CAR_TRUCK`, `COMMERCIAL`, `MOTORCYCLE`, `OTHER`, `POWERSPORT`, `RV_CAMPER`, `TRAILER`
+
+## VehicleVisibility
+
+`enum` model on the `json` wire format.
+
+**Values:** `PUBLISHED`, `STAGING`
+
+## VideoCopyrightCheckStatusFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `matches_found` | `matches_found` | `boolean` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+
+## VideoCopyrightConditionGroupFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `action` | `action` | `string` | No | No | — |
+| `conditions` | `conditions` | `Array<Record<string, unknown>>` | No | No | — |
+| `validity_status` | `validity_status` | `string` | No | No | — |
+
+## VideoCopyrightContentCategory
+
+`enum` model on the `json` wire format.
+
+**Values:** `episode`, `movie`, `web`
+
+## VideoCopyrightFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `content_category` | `content_category` | `string` | No | No | — |
+| `content_protect_protection_disabled_reason` | `content_protect_protection_disabled_reason` | `string` | No | No | — |
+| `copyright_content_id` | `copyright_content_id` | `string` | No | No | — |
+| `creator` | `creator` | `UserFields` | No | No | — |
+| `disable_protection_by_content_protect_status` | `disable_protection_by_content_protect_status` | `boolean` | No | No | — |
+| `excluded_ownership_segments` | `excluded_ownership_segments` | `Array<VideoCopyrightSegmentFields>` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `in_conflict` | `in_conflict` | `boolean` | No | No | — |
+| `monitoring_status` | `monitoring_status` | `string` | No | No | — |
+| `monitoring_type` | `monitoring_type` | `string` | No | No | — |
+| `ownership_countries` | `ownership_countries` | `VideoCopyrightGeoGateFields` | No | No | — |
+| `reference_file` | `reference_file` | `CopyrightReferenceContainerFields` | No | No | — |
+| `reference_file_disabled` | `reference_file_disabled` | `boolean` | No | No | — |
+| `reference_file_disabled_by_ops` | `reference_file_disabled_by_ops` | `boolean` | No | No | — |
+| `reference_owner_id` | `reference_owner_id` | `string` | No | No | — |
+| `rule_ids` | `rule_ids` | `Array<VideoCopyrightRuleFields>` | No | No | — |
+| `tags` | `tags` | `Array<string>` | No | No | — |
+| `whitelisted_ids` | `whitelisted_ids` | `Array<string>` | No | No | — |
+
+## VideoCopyrightGeoGateFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `excluded_countries` | `excluded_countries` | `Array<string>` | No | No | — |
+| `included_countries` | `included_countries` | `Array<string>` | No | No | — |
+
+## VideoCopyrightMatchAction
+
+`enum` model on the `json` wire format.
+
+**Values:** `BLOCK`, `CLAIM_AD_EARNINGS`, `MANUAL_REVIEW`, `MONITOR`, `REQUEST_TAKEDOWN`
+
+## VideoCopyrightMatchActionReason
+
+`enum` model on the `json` wire format.
+
+**Values:** `ARTICLE_17_PREFLAGGING`, `ARTIST_OBJECTION`, `OBJECTIONABLE_CONTENT`, `PREMIUM_MUSIC_VIDEO`, `PRERELEASE_CONTENT`, `PRODUCT_PARAMETERS`, `RESTRICTED_CONTENT`, `UNAUTHORIZED_COMMERCIAL_USE`
+
+## VideoCopyrightMatchFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_date` | `created_date` | `string<date-time>` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `last_modified_user` | `last_modified_user` | `UserFields` | No | No | — |
+| `match_data` | `match_data` | `Array<Record<string, unknown>>` | No | No | — |
+| `match_status` | `match_status` | `string` | No | No | — |
+| `notes` | `notes` | `string` | No | No | — |
+| `permalink` | `permalink` | `string` | No | No | — |
+| `policy_eval_modify_reasons` | `policy_eval_modify_reasons` | `Array<Record<string, unknown>>` | No | No | — |
+| `ugc_content_format` | `ugc_content_format` | `string` | No | No | — |
+
+## VideoCopyrightMatchMatchContentType
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUDIO_ONLY`, `VIDEO_AND_AUDIO`, `VIDEO_ONLY`
+
+## VideoCopyrightMonitoringType
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUDIO_ONLY`, `VIDEO_AND_AUDIO`, `VIDEO_ONLY`
+
+## VideoCopyrightRuleFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `condition_groups` | `condition_groups` | `Array<VideoCopyrightConditionGroupFields>` | No | No | — |
+| `copyrights` | `copyrights` | `Array<string>` | No | No | — |
+| `created_date` | `created_date` | `string<date-time>` | No | No | — |
+| `creator` | `creator` | `UserFields` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `is_in_migration` | `is_in_migration` | `boolean` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `validity_status` | `validity_status` | `string` | No | No | — |
+
+## VideoCopyrightRuleSource
+
+`enum` model on the `json` wire format.
+
+**Values:** `MATCH_SETTINGS_DIALOG`, `RULES_SELECTOR`, `RULES_TAB`
+
+## VideoCopyrightSegmentFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `duration_in_sec` | `duration_in_sec` | `number` | No | No | — |
+| `media_type` | `media_type` | `string` | No | No | — |
+| `start_time_in_sec` | `start_time_in_sec` | `number` | No | No | — |
+
+## VideoGroupFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_time` | `created_time` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `disable_reason` | `disable_reason` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `ig_profile_ids` | `ig_profile_ids` | `Array<string>` | No | No | — |
+| `is_disabled` | `is_disabled` | `boolean` | No | No | — |
+| `is_fb_video_group` | `is_fb_video_group` | `boolean` | No | No | — |
+| `last_used_time` | `last_used_time` | `string` | No | No | — |
+| `length` | `length` | `number` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `page_id` | `page_id` | `string` | No | No | — |
+| `page_ids` | `page_ids` | `Array<string>` | No | No | — |
+| `picture` | `picture` | `string` | No | No | — |
+| `placements` | `placements` | `Array<string>` | No | No | — |
+| `video_group_types` | `video_group_types` | `Array<string>` | No | No | — |
+| `videos` | `videos` | `Array<string>` | No | No | — |
+| `views` | `views` | `integer` | No | No | — |
+
+## VideoListFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creation_time` | `creation_time` | `string<date-time>` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `last_modified` | `last_modified` | `string<date-time>` | No | No | — |
+| `owner` | `owner` | `Record<string, unknown>` | No | No | — |
+| `season_number` | `season_number` | `integer` | No | No | — |
+| `thumbnail` | `thumbnail` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+| `videos_count` | `videos_count` | `integer` | No | No | — |
+
+## VideoPollAction
+
+`enum` model on the `json` wire format.
+
+**Values:** `ATTACH_TO_VIDEO`, `CLOSE`, `DELETE_POLL`, `SHOW_RESULTS`, `SHOW_VOTING`
+
+## VideoPollFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `close_after_voting` | `close_after_voting` | `boolean` | No | No | — |
+| `default_open` | `default_open` | `boolean` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `question` | `question` | `string` | No | No | — |
+| `show_gradient` | `show_gradient` | `boolean` | No | No | — |
+| `show_results` | `show_results` | `boolean` | No | No | — |
+| `status` | `status` | `VideoPollStatus` | No | No | — |
+
+## VideoPollStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `closed`, `results_open`, `voting_open`
+
+## VideoStatsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `aggregate` | `aggregate` | `Array<Record<string, Record<string, unknown>>>` | No | No | — |
+| `error` | `error` | `string` | No | No | — |
+| `metadata` | `metadata` | `Array<Record<string, Record<string, unknown>>>` | No | No | — |
+| `time_series` | `time_series` | `Array<Record<string, Array<Record<string, unknown>>>>` | No | No | — |
+| `totals` | `totals` | `Array<Record<string, Record<string, unknown>>>` | No | No | — |
+| `x_axis_breakdown` | `x_axis_breakdown` | `Array<Array<Record<string, Record<string, unknown>>>>` | No | No | — |
+
+## VideoStatusErrorFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `integer` | No | No | — |
+| `message` | `message` | `string` | No | No | — |
+
+## VideoStatusFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `copyright_check_status` | `copyright_check_status` | `VideoCopyrightCheckStatusFields` | No | No | — |
+| `processing_phase` | `processing_phase` | `VideoStatusProcessingPhaseFields` | No | No | — |
+| `processing_progress` | `processing_progress` | `integer` | No | No | — |
+| `publishing_phase` | `publishing_phase` | `VideoStatusPublishingPhaseFields` | No | No | — |
+| `uploading_phase` | `uploading_phase` | `VideoStatusUploadingPhaseFields` | No | No | — |
+| `video_status` | `video_status` | `string` | No | No | — |
+
+## VideoStatusProcessingPhaseFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<VideoStatusErrorFields>` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+
+## VideoStatusPublishingPhaseFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `errors` | `errors` | `Array<VideoStatusErrorFields>` | No | No | — |
+| `publish_status` | `publish_status` | `string` | No | No | — |
+| `publish_time` | `publish_time` | `string<date-time>` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+
+## VideoStatusUploadingPhaseFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bytes_transferred` | `bytes_transferred` | `integer` | No | No | — |
+| `errors` | `errors` | `Array<VideoStatusErrorFields>` | No | No | — |
+| `source_file_size` | `source_file_size` | `integer` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+
+## VideoTextQuestionFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `question_target_id` | `question_target_id` | `string` | No | No | — |
+| `question_text` | `question_text` | `string` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+
+## VideoThumbnailFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `integer` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `is_preferred` | `is_preferred` | `boolean` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `scale` | `scale` | `number` | No | No | — |
+| `uri` | `uri` | `string` | No | No | — |
+| `width` | `width` | `integer` | No | No | — |
+
+## VideoUploadLimitsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `length` | `length` | `integer` | No | No | — |
+| `size` | `size` | `integer` | No | No | — |
+
+## VoipInfoFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `has_mobile_app` | `has_mobile_app` | `boolean` | No | No | — |
+| `has_permission` | `has_permission` | `boolean` | No | No | — |
+| `is_callable` | `is_callable` | `boolean` | No | No | — |
+| `is_callable_webrtc` | `is_callable_webrtc` | `boolean` | No | No | — |
+| `is_pushable` | `is_pushable` | `boolean` | No | No | — |
+| `reason_code` | `reason_code` | `integer` | No | No | — |
+| `reason_description` | `reason_description` | `string` | No | No | — |
+
+## WearableDevicePublicKeyFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `base64_encoded_public_key` | `base64_encoded_public_key` | `string` | No | No | — |
+| `creation_time_on_device` | `creation_time_on_device` | `string<date-time>` | No | No | — |
+| `device_uuid` | `device_uuid` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `key_type` | `key_type` | `string` | No | No | — |
+| `owner_id` | `owner_id` | `string` | No | No | — |
+| `product_use_case` | `product_use_case` | `string` | No | No | — |
+| `version` | `version` | `string` | No | No | — |
+
+## WebAppLinkFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `should_fallback` | `should_fallback` | `boolean` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+
+## WebPublisherFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `domain_url` | `domain_url` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `publisher_name` | `publisher_name` | `string` | No | No | — |
+
+## WebsiteCreativeAssetSourceFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `source_url` | `source_url` | `string` | No | No | — |
+
+## WebsiteCreativeAssetSuggestionsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | — |
+| `extraction_status` | `extraction_status` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `link_url` | `link_url` | `string` | No | No | — |
+
+## WebsiteCreativeInfoFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `image_urls` | `image_urls` | `Array<string>` | No | No | — |
+| `link_url` | `link_url` | `string` | No | No | — |
+
+## WhatsAppBusinessAccountBusinessVerificationStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `expired`, `failed`, `ineligible`, `not_verified`, `pending`, `pending_need_more_info`, `pending_submission`, `rejected`, `revoked`, `verified`
+
+## WhatsAppBusinessAccountCategory
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUTHENTICATION`, `MARKETING`, `UTILITY`
+
+## WhatsAppBusinessAccountDisplayFormat
+
+`enum` model on the `json` wire format.
+
+**Values:** `ORDER_DETAILS`
+
+## WhatsAppBusinessAccountFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account_review_status` | `account_review_status` | `string` | No | No | — |
+| `analytics` | `analytics` | `Record<string, unknown>` | No | No | — |
+| `auth_international_rate_eligibility` | `auth_international_rate_eligibility` | `Record<string, unknown>` | No | No | — |
+| `business_verification_status` | `business_verification_status` | `WhatsAppBusinessAccountBusinessVerificationStatus` | No | No | — |
+| `country` | `country` | `string` | No | No | — |
+| `creation_time` | `creation_time` | `integer` | No | No | — |
+| `currency` | `currency` | `string` | No | No | — |
+| `disable_marketing_messages_on_cloud_api` | `disable_marketing_messages_on_cloud_api` | `boolean` | No | No | — |
+| `health_status` | `health_status` | `WhatsAppBusinessHealthStatusForMessageSendFields` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `is_enabled_for_insights` | `is_enabled_for_insights` | `boolean` | No | No | — |
+| `is_shared_with_partners` | `is_shared_with_partners` | `boolean` | No | No | — |
+| `linked_commerce_account` | `linked_commerce_account` | `CommerceMerchantSettingsFields` | No | No | — |
+| `marketing_messages_ad_account` | `marketing_messages_ad_account` | `Record<string, unknown>` | No | No | — |
+| `marketing_messages_lite_api_status` | `marketing_messages_lite_api_status` | `string` | No | No | — |
+| `marketing_messages_onboarding_status` | `marketing_messages_onboarding_status` | `string` | No | No | — |
+| `message_template_namespace` | `message_template_namespace` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `on_behalf_of_business_info` | `on_behalf_of_business_info` | `Record<string, unknown>` | No | No | — |
+| `owner_business` | `owner_business` | `BusinessFields` | No | No | — |
+| `owner_business_info` | `owner_business_info` | `Record<string, unknown>` | No | No | — |
+| `ownership_type` | `ownership_type` | `string` | No | No | — |
+| `primary_business_location` | `primary_business_location` | `string` | No | No | — |
+| `primary_funding_id` | `primary_funding_id` | `string` | No | No | — |
+| `purchase_order_number` | `purchase_order_number` | `string` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+| `template_auto_archival_enabled` | `template_auto_archival_enabled` | `boolean` | No | No | — |
+| `timezone_id` | `timezone_id` | `string` | No | No | — |
+| `whatsapp_business_manager_messaging_limit` | `whatsapp_business_manager_messaging_limit` | `WhatsAppBusinessAccountWhatsappBusinessManagerMessagingLimit` | No | No | — |
+| `whatsapp_manager_marketing_messages_max_price_enroll_status` | `whatsapp_manager_marketing_messages_max_price_enroll_status` | `string` | No | No | — |
+
+## WhatsAppBusinessAccountParameterFormat
+
+`enum` model on the `json` wire format.
+
+**Values:** `NAMED`, `POSITIONAL`
+
+## WhatsAppBusinessAccountProviderName
+
+`enum` model on the `json` wire format.
+
+**Values:** `BILLDESK`, `PAYU`, `RAZORPAY`, `UPI_VPA`, `ZAAKPAY`
+
+## WhatsAppBusinessAccountSendType
+
+`enum` model on the `json` wire format.
+
+**Values:** `CAMPAIGN`, `DIRECT`, `TRIGGER`
+
+## WhatsAppBusinessAccountSubCategory
+
+`enum` model on the `json` wire format.
+
+**Values:** `ORDER_DETAILS`, `ORDER_STATUS`, `RICH_ORDER_STATUS`
+
+## WhatsAppBusinessAccountTasks
+
+`enum` model on the `json` wire format.
+
+**Values:** `DEVELOP`, `MANAGE`, `MANAGE_EXTENSIONS`, `MANAGE_PHONE`, `MANAGE_PHONE_ASSETS`, `MANAGE_TEMPLATES`, `MESSAGING`, `VIEW_COST`, `VIEW_PHONE_ASSETS`, `VIEW_TEMPLATES`
+
+## WhatsAppBusinessAccountType
+
+`enum` model on the `json` wire format.
+
+**Values:** `INTERACTIVE`, `TEXT`
+
+## WhatsAppBusinessAccountWhatsappBusinessManagerMessagingLimit
+
+`enum` model on the `json` wire format.
+
+**Values:** `TIER_100K`, `TIER_10K`, `TIER_250`, `TIER_2K`, `TIER_50`, `TIER_UNLIMITED`, `UNTIERED`
+
+## WhatsAppBusinessAccountWhatsappManagerMarketingMessagesMaxPriceEnrollStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `OPT_IN`, `OPT_OUT`
+
+## WhatsAppBusinessHealthStatusFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `additional_info` | `additional_info` | `Array<string>` | No | No | — |
+| `can_receive_call_sip` | `can_receive_call_sip` | `string` | No | No | — |
+| `can_send_message` | `can_send_message` | `string` | No | No | — |
+| `entity_type` | `entity_type` | `string` | No | No | — |
+| `errors` | `errors` | `Array<Record<string, unknown>>` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+
+## WhatsAppBusinessHealthStatusForMessageSendFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `can_send_message` | `can_send_message` | `string` | No | No | — |
+| `entities` | `entities` | `Array<WhatsAppBusinessHealthStatusFields>` | No | No | — |
+
+## WhatsAppBusinessPartnerClientVerificationSubmissionFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `client_business_id` | `client_business_id` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `rejection_reasons` | `rejection_reasons` | `Array<WhatsAppBusinessPartnerClientVerificationSubmissionRejectionReasons>` | No | No | — |
+| `submitted_info` | `submitted_info` | `Record<string, unknown>` | No | No | — |
+| `submitted_time` | `submitted_time` | `string<date-time>` | No | No | — |
+| `update_time` | `update_time` | `string<date-time>` | No | No | — |
+| `verification_status` | `verification_status` | `WhatsAppBusinessPartnerClientVerificationSubmissionVerificationStatus` | No | No | — |
+
+## WhatsAppBusinessPartnerClientVerificationSubmissionRejectionReasons
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADDRESS_NOT_MATCHING`, `BUSINESS_NOT_ELIGIBLE`, `LEGAL_NAME_NOT_FOUND_IN_DOCUMENTS`, `LEGAL_NAME_NOT_MATCHING`, `MALFORMED_DOCUMENTS`, `NONE`, `WEBSITE_NOT_MATCHING`
+
+## WhatsAppBusinessPartnerClientVerificationSubmissionVerificationStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `APPROVED`, `DISCARDED`, `FAILED`, `PENDING`, `REVOKED`
+
+## WhatsAppBusinessPreVerifiedPhoneNumberCodeVerificationStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `EXPIRED`, `NOT_VERIFIED`, `VERIFIED`
+
+## WhatsAppBusinessPreVerifiedPhoneNumberFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code_verification_status` | `code_verification_status` | `WhatsAppBusinessPreVerifiedPhoneNumberCodeVerificationStatus` | No | No | — |
+| `code_verification_time` | `code_verification_time` | `string<date-time>` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `owner_business` | `owner_business` | `BusinessFields` | No | No | — |
+| `phone_number` | `phone_number` | `string` | No | No | — |
+| `verification_expiry_time` | `verification_expiry_time` | `string<date-time>` | No | No | — |
+
+## WhatsAppBusinessProfileFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `name_verification` | `name_verification` | `Record<string, unknown>` | No | No | — |
+| `whatsapp_business_api_data` | `whatsapp_business_api_data` | `Record<string, unknown>` | No | No | — |
+
+## WhatsAppPaymentCapabilitiesFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_enabled` | `is_enabled` | `boolean` | No | No | — |
+| `payment_capability_details` | `payment_capability_details` | `Array<Record<string, unknown>>` | No | No | — |
+
+## WhatsappSubscribedAppsInfoFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page_whatsapp_number` | `page_whatsapp_number` | `string` | No | No | — |
+| `subscribed_apps` | `subscribed_apps` | `Array<Record<string, unknown>>` | No | No | — |
+
+## WhitehatFBDLRunFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creation_time` | `creation_time` | `string<date-time>` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `is_pinned` | `is_pinned` | `boolean` | No | No | — |
+| `note` | `note` | `string` | No | No | — |
+| `result` | `result` | `Array<Record<string, string>>` | No | No | — |
+| `run_code` | `run_code` | `string` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+| `user_type` | `user_type` | `string` | No | No | — |
+
+## WifiInformationFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `network_access_type` | `network_access_type` | `string` | No | No | — |
+
+## WindowsAppLinkFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | No | No | — |
+| `app_name` | `app_name` | `string` | No | No | — |
+| `package_family_name` | `package_family_name` | `string` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+
+## WindowsPhoneAppLinkFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | No | No | — |
+| `app_name` | `app_name` | `string` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+
+## WithAsset3DFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+
+## WITUserFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `access_token` | `access_token` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+
+## WoodhengePurchasedPAYGReceiptFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `number_of_subscriptions_purchased` | `number_of_subscriptions_purchased` | `integer` | No | No | — |
+| `purchase_time` | `purchase_time` | `string<date-time>` | No | No | — |
+| `user` | `user` | `UserFields` | No | No | — |
+
+## WoodhengeSupporterFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creation_time` | `creation_time` | `string<date-time>` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `is_gifted_subscription` | `is_gifted_subscription` | `boolean` | No | No | — |
+| `most_recent_subscription_time` | `most_recent_subscription_time` | `string<date-time>` | No | No | — |
+| `number_of_months_subscribed` | `number_of_months_subscribed` | `integer` | No | No | — |
+| `user` | `user` | `UserFields` | No | No | — |
+
+## WorkAccessCodeFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `code` | `code` | `string` | No | No | — |
+| `expiration_time` | `expiration_time` | `string<date-time>` | No | No | — |
+
+## WorkExperienceFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | — |
+| `employer` | `employer` | `PageFields` | No | No | — |
+| `end_date` | `end_date` | `string` | No | No | — |
+| `from` | `from` | `UserFields` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `location` | `location` | `PageFields` | No | No | — |
+| `position` | `position` | `PageFields` | No | No | — |
+| `projects` | `projects` | `Array<Record<string, unknown>>` | No | No | — |
+| `start_date` | `start_date` | `string` | No | No | — |
+| `with` | `with` | `Array<UserFields>` | No | No | — |
+
+## WorkSkillFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+
+## WorkUserBadgesFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category` | `category` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `icon` | `icon` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+
+## WorkUserFrontlineFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `has_access` | `has_access` | `boolean` | No | No | — |
+| `is_frontline` | `is_frontline` | `boolean` | No | No | — |

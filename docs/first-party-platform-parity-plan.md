@@ -111,7 +111,7 @@ cannot accidentally pass an Instagram Login token to a Facebook Graph client.
 ## Current state
 
 - Status: in_progress
-- Completed slices: Instagram credential-family transport split; Meta verifier consolidation; TikTok Business webhook Valibot/leaf parity; shared TikTok generated and curated transport; removal of misleading Meta Effect aliases; published platform subpath verification
+- Completed slices: Instagram credential-family transport split; Meta verifier consolidation; Meta v26 generated refresh; Facebook/Instagram webhook parity; TikTok Business webhook Valibot/leaf parity; shared TikTok generated and curated transport; removal of misleading Meta Effect aliases; published platform subpath verification
 - Current blocker: none
 - Consumer impact: no OpenPromo changes until adapter parity is verified
 
@@ -125,6 +125,19 @@ cannot accidentally pass an Instagram Login token to a Facebook Graph client.
   generated-fingerprint checks pass; built platform leaves import successfully from `dist`.
 - Remaining: current Meta API regeneration, Instagram/Facebook webhook schema parity, curated
   publishing/transport gaps, TikTok transport unification, and published-dist subpath verification.
+
+## Checkpoint — 2026-08-15 — Meta v26 generation and webhook parity
+
+- Changed: advanced the pinned Meta codegen submodule to official v26.0 inputs; regenerated the
+  TypeScript, Valibot, Effect, and Facebook reference-doc outputs; hardened generated endpoint
+  naming for provider paths containing separators; expanded Facebook and Instagram subscription
+  defaults and Valibot webhook schemas; added typed extraction for standby, handover, opt-in,
+  account-linking, mention, live-comment, and story-insight events.
+- Proof: `986` specs, `503` enums, and `305` generated accessors; Meta typecheck, `213` package
+  tests, build, focused webhook tests, and generated-header verification pass. The deterministic
+  `codegen:check` is intentionally deferred until this generated refresh is committed.
+- Remaining: curated Facebook/Instagram publishing and transport gaps, required scope metadata,
+  TikTok Business OAuth refresh/revoke semantics, and the final repository-wide release gate.
 
 ## Checkpoint — 2026-08-15 — OAuth metadata slice
 

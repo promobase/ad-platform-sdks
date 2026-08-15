@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:7710f3dc1db4698a53760dc80d9171e3fd1390169fd401e9cda12bb4c4b2b62f
+// fingerprint: sha256:aed8f30cbc8d864d86a53c8e54eff6e8ce3b169c23643c28638efc8df59bde09
 // DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
@@ -328,6 +328,7 @@ export interface GroupCreateVideosParams {
   initial_heading?: number;
   initial_pitch?: number;
   instant_game_entry_point_data?: string;
+  is_ai_generated?: boolean;
   is_boost_intended?: boolean;
   is_explicit_share?: boolean;
   is_group_linking_post?: boolean;
@@ -401,9 +402,9 @@ export function groupNode(client: ApiClient, id: string) {
       client.post<GroupFields>(`${id}`, params as Record<string, unknown>),
     admins: {
       __path: `${id}/admins`,
-      __brand: undefined as unknown as GroupFields,
+      __brand: undefined as unknown as UserFields,
       create: (params: GroupCreateAdminsParams) =>
-        client.post<GroupFields>(`${id}/admins`, params as Record<string, unknown>),
+        client.post<UserFields>(`${id}/admins`, params as Record<string, unknown>),
       delete: (params: GroupDeleteAdminsParams) =>
         client.delete(`${id}/admins`, params as Record<string, unknown> ?? {}),
     },
@@ -441,9 +442,9 @@ export function groupNode(client: ApiClient, id: string) {
     },
     members: {
       __path: `${id}/members`,
-      __brand: undefined as unknown as GroupFields,
+      __brand: undefined as unknown as UserFields,
       create: (params: GroupCreateMembersParams) =>
-        client.post<GroupFields>(`${id}/members`, params as Record<string, unknown>),
+        client.post<UserFields>(`${id}/members`, params as Record<string, unknown>),
       delete: (params: GroupDeleteMembersParams) =>
         client.delete(`${id}/members`, params as Record<string, unknown> ?? {}),
     },

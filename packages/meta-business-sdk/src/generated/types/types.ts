@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:239ecc2214b5046114470fd0f66e5d3898e40492953b0b874a186b8144523f40
+// fingerprint: sha256:da8ea755f204e336b855fbf8ddb4de0830a34dc57ccd9e43a3eee5005f46d85c
 // DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
@@ -132,6 +132,7 @@ export interface AdAccountBusinessConstraintsFields {
   readonly campaigns_with_error?: ReadonlyArray<string>;
   readonly is_age_restriction_enabled?: boolean;
   readonly placement_controls?: Readonly<Record<string, unknown>>;
+  readonly placement_controls_per_objective?: Readonly<Record<string, unknown>>;
   readonly status?: AdAccountBusinessConstraintsStatus;
 }
 
@@ -209,8 +210,6 @@ export interface AdAccountDefaultObjectiveFields {
 export type AdAccountDefaultObjectiveObjectiveForLevel = "APP_INSTALLS" | "BRAND_AWARENESS" | "EVENT_RESPONSES" | "LEAD_GENERATION" | "LINK_CLICKS" | "LOCAL_AWARENESS" | "MESSAGES" | "OFFER_CLAIMS" | "OUTCOME_APP_PROMOTION" | "OUTCOME_AWARENESS" | "OUTCOME_ENGAGEMENT" | "OUTCOME_LEADS" | "OUTCOME_SALES" | "OUTCOME_TRAFFIC" | "PAGE_LIKES" | "POST_ENGAGEMENT" | "PRODUCT_CATALOG_SALES" | "REACH" | "STORE_VISITS" | "VIDEO_VIEWS" | "WEBSITE_CONVERSIONS";
 
 export interface AdAccountDeliveryEstimateFields {
-  readonly daily_outcomes_curve?: ReadonlyArray<OutcomePredictionPointFields>;
-  readonly estimate_dau?: number;
   readonly estimate_mau_lower_bound?: number;
   readonly estimate_mau_upper_bound?: number;
   readonly estimate_ready?: boolean;
@@ -221,14 +220,6 @@ export type AdAccountDeliveryEstimateOptimizationGoal = "ADVERTISER_SILOED_VALUE
 
 export interface AdAccountDsaRecommendationsFields {
   readonly recommendations?: ReadonlyArray<string>;
-}
-
-export interface AdAccountFeaturePreferencesFields {
-
-}
-
-export interface AdAccountFeaturePreferencesPostFields {
-  readonly id?: string;
 }
 
 export interface AdAccountFields {
@@ -308,6 +299,19 @@ export interface AdAccountFields {
   readonly user_tasks?: ReadonlyArray<string>;
   readonly user_tos_accepted?: Readonly<Record<string, number>>;
   readonly viewable_business?: BusinessFields;
+}
+
+export interface AdAccountInsightsFeatureSettingsFields {
+
+}
+
+export interface AdAccountInsightsFeatureSettingsListFeaturesFields {
+  readonly data?: ReadonlyArray<unknown>;
+  readonly paging?: unknown;
+}
+
+export interface AdAccountInsightsFeatureSettingsPostFields {
+  readonly id?: string;
 }
 
 export interface AdAccountIosFourteenCampaignLimitsFields {
@@ -977,8 +981,6 @@ export interface AdCampaignDeleteFields {
 }
 
 export interface AdCampaignDeliveryEstimateFields {
-  readonly daily_outcomes_curve?: ReadonlyArray<OutcomePredictionPointFields>;
-  readonly estimate_dau?: number;
   readonly estimate_mau_lower_bound?: number;
   readonly estimate_mau_upper_bound?: number;
   readonly estimate_ready?: boolean;
@@ -1832,6 +1834,7 @@ export interface AdCreativeMarketingMessageStructuredSpecFields {
 export interface AdCreativeMediaSourcingSpecFields {
   readonly bodies?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly descriptions?: ReadonlyArray<Readonly<Record<string, unknown>>>;
+  readonly destinations?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly images?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly push_metadata_ids?: ReadonlyArray<string>;
   readonly related_media?: Readonly<Record<string, unknown>>;
@@ -2900,6 +2903,7 @@ export interface AdSetFields {
   readonly ad_set_goal?: AdCampaignGoalFields;
   readonly adlabels?: ReadonlyArray<AdLabelFields>;
   readonly adset_schedule?: ReadonlyArray<DayPartFields>;
+  readonly anchor_event_attribution_window_days?: number;
   readonly asset_feed_id?: string;
   readonly attribution_count_type?: string;
   readonly attribution_spec?: ReadonlyArray<AttributionSpecFields>;
@@ -3214,6 +3218,7 @@ export interface AdsInsightsFields {
   readonly inline_link_click_ctr?: string;
   readonly inline_link_clicks?: string;
   readonly inline_post_engagement?: string;
+  readonly instagram_profile_follow?: string;
   readonly instagram_profile_visits?: string;
   readonly instagram_upcoming_event_reminders_set?: string;
   readonly instant_experience_clicks_to_open?: string;
@@ -3243,10 +3248,6 @@ export interface AdsInsightsFields {
   readonly marketing_messages_sent?: string;
   readonly marketing_messages_spend?: string;
   readonly marketing_messages_spend_currency?: string;
-  readonly marketing_messages_website_add_to_cart?: string;
-  readonly marketing_messages_website_initiate_checkout?: string;
-  readonly marketing_messages_website_purchase?: string;
-  readonly marketing_messages_website_purchase_values?: string;
   readonly messages_delivered?: string;
   readonly messages_delivered_ctr?: string;
   readonly mobile_app_purchase_roas?: ReadonlyArray<AdsActionStatsFields>;
@@ -3260,6 +3261,8 @@ export interface AdsInsightsFields {
   readonly outbound_clicks?: ReadonlyArray<AdsActionStatsFields>;
   readonly outbound_clicks_ctr?: ReadonlyArray<AdsActionStatsFields>;
   readonly place_page_name?: string;
+  readonly playable_average_game_length?: string;
+  readonly playable_game_start_rate?: string;
   readonly product_group_retailer_id?: string;
   readonly product_retailer_id?: string;
   readonly product_views?: string;
@@ -4621,13 +4624,13 @@ export interface AudioVisualReferenceMatchFields {
   readonly match_state?: string;
   readonly matched_overlap_percentage?: number;
   readonly matched_owner_match_duration_in_sec?: number;
-  readonly matched_reference_owner?: ProfileFields;
+  readonly matched_reference_owner_v2?: Readonly<Record<string, unknown>>;
   readonly modification_history?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly num_matches_on_matched_side?: number;
   readonly num_matches_on_ref_side?: number;
   readonly ref_owner_match_duration_in_sec?: number;
   readonly reference_overlap_percentage?: number;
-  readonly reference_owner?: ProfileFields;
+  readonly reference_owner_v2?: Readonly<Record<string, unknown>>;
   readonly rejection_form_data_entries_with_translations?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly resolution_details?: string;
   readonly resolution_reason?: string;
@@ -4818,6 +4821,9 @@ export interface BrandSafetyBlockListUsageFields {
 
 export interface BrandSafetyCampaignConfigFields {
   readonly comment_moderation_filter?: string;
+  readonly fb_comment_moderation_filter?: string;
+  readonly ig_comment_moderation_filter?: string;
+  readonly threads_comment_moderation_filter?: string;
 }
 
 export interface BrandSafetyDownloadableFields {
@@ -5916,8 +5922,8 @@ export interface CopyrightOwnershipTransferFields {
   readonly has_ownership_been_updated?: boolean;
   readonly id?: string;
   readonly num_assets?: number;
-  readonly receiving_rights_holder?: ProfileFields;
-  readonly sending_rights_holder?: ProfileFields;
+  readonly receiving_rights_holder_owner?: Readonly<Record<string, unknown>>;
+  readonly sending_rights_holder_owner?: Readonly<Record<string, unknown>>;
   readonly status?: string;
   readonly transfer_territories?: ReadonlyArray<string>;
   readonly transfer_time?: string;
@@ -7962,10 +7968,10 @@ export interface ImageReferenceMatchFields {
   readonly id?: string;
   readonly match_state?: string;
   readonly matched_reference_copyright?: ImageCopyrightFields;
-  readonly matched_reference_owner?: ProfileFields;
+  readonly matched_reference_owner_rh_owner?: Readonly<Record<string, unknown>>;
   readonly modification_history?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly reference_copyright?: ImageCopyrightFields;
-  readonly reference_owner?: ProfileFields;
+  readonly reference_owner_rh_owner?: Readonly<Record<string, unknown>>;
   readonly rejection_form_data_entries_with_translations?: ReadonlyArray<Readonly<Record<string, unknown>>>;
   readonly resolution_reason?: string;
   readonly update_time?: string;

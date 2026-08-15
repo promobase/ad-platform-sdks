@@ -1,0 +1,86 @@
+---
+title: "Facebook Ad Account Insights Feature Settings endpoints"
+description: "2 generated Facebook endpoint contracts for Ad Account Insights Feature Settings."
+generated: true
+platform: "facebook"
+sourceVersion: "v26.0"
+sidebar:
+  order: 106
+  label: "Ad Account Insights Feature Settings"
+tableOfContents: false
+---
+
+{/* @generated */}
+{/* fingerprint: sha256:dfe6bd0ce1b316b6e1c55574accdba1559844ccffc4159b56f7e1aae94141fe6 */}
+{/* DO NOT EDIT: generated file; changes will be overwritten. */}
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.adAccountInsightsFeatureSettings.genListFeatures
+
+`GET` `/{id}/insights/feature-settings/list-features`
+
+GET AdAccountInsightsFeatureSettings insights/feature-settings/list-features
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adAccountInsightsFeatureSettings.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdAccountInsightsFeatureSettingsListFeaturesFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `after` | `query` | `string` | No | No | — |
+| `before` | `query` | `string` | No | No | — |
+| `limit` | `query` | `integer` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.adAccountInsightsFeatureSettings.genPost
+
+`POST` `/{id}/insights/feature-settings`
+
+POST AdAccountInsightsFeatureSettings insights/feature-settings
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adAccountInsightsFeatureSettings.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdAccountInsightsFeatureSettingsPostFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

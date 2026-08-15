@@ -3,7 +3,7 @@ title: "Facebook WhatsApp Business Account endpoints"
 description: "49 generated Facebook endpoint contracts for WhatsApp Business Account."
 generated: true
 platform: "facebook"
-sourceVersion: "v25.0"
+sourceVersion: "v26.0"
 sidebar:
   order: 402
   label: "WhatsApp Business Account"
@@ -11,7 +11,7 @@ tableOfContents: false
 ---
 
 {/* @generated */}
-{/* fingerprint: sha256:41955077b1e87a1854bb914f7e36baa7964914b954652d21563fc0900bcb5a61 */}
+{/* fingerprint: sha256:c3540531b094f380b4979c59258e735ae2a54d83fd68e6d2e02cb4d5d407c54a */}
 {/* DO NOT EDIT: generated file; changes will be overwritten. */}
 
 {/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
@@ -791,15 +791,14 @@ POST WhatsAppBusinessAccount message_templates
 | --- | --- | --- | --- | --- | --- |
 | `id` | `path` | `string` | Yes | No | — |
 | `allow_category_change` | `body` | `boolean` | No | No | — |
-| `bid_spec` | `body` | `Record<string, unknown>` | No | No | — |
-| `category` | `body` | `unknown` | Yes | No | — |
+| `category` | `body` | `unknown` | No | No | — |
 | `components` | `body` | `Array<Record<string, unknown>>` | No | No | — |
 | `creative_sourcing_spec` | `body` | `Record<string, unknown>` | No | No | — |
 | `cta_url_link_tracking_opted_out` | `body` | `boolean` | No | No | — |
 | `degrees_of_freedom_spec` | `body` | `Record<string, unknown>` | No | No | — |
 | `display_format` | `body` | `unknown` | No | No | — |
 | `is_primary_device_delivery_only` | `body` | `boolean` | No | No | — |
-| `language` | `body` | `string` | Yes | No | — |
+| `language` | `body` | `string` | No | No | — |
 | `library_template_body_inputs` | `body` | `Record<string, unknown>` | No | No | — |
 | `library_template_body_param_inputs` | `body` | `Array<Record<string, unknown>>` | No | No | — |
 | `library_template_button_inputs` | `body` | `Array<Record<string, unknown>>` | No | No | — |
@@ -810,6 +809,7 @@ POST WhatsAppBusinessAccount message_templates
 | `parameter_format` | `body` | `unknown` | No | No | — |
 | `product_set_id` | `body` | `string` | No | No | — |
 | `send_type` | `body` | `unknown` | No | No | — |
+| `source_template_id` | `body` | `integer` | No | No | — |
 | `sub_category` | `body` | `unknown` | No | No | — |
 
 **Declared errors**

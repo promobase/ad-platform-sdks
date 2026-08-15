@@ -104,6 +104,36 @@ test("publishCarousel rejects < 2 or > 10 items", async () => {
   ).rejects.toThrow("max 10");
 });
 
+test("webhooks.subscribe defaults to the current Instagram messaging fields", async () => {
+  mockFetchSequence([{ body: { success: true } }]);
+  const api = createClient({ accessToken: "tok" });
+  const ig = createInstagramClient({ api, igAccountId: "ig_456" });
+
+  await ig.webhooks.subscribe();
+
+  const [, init] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [
+    string,
+    RequestInit,
+  ];
+  expect(init.body).toBeInstanceOf(URLSearchParams);
+  expect((init.body as URLSearchParams).get("subscribed_fields")).toBe(
+    [
+      "messages",
+      "messaging_postbacks",
+      "messaging_seen",
+      "messaging_handover",
+      "messaging_referral",
+      "message_reactions",
+      "message_edit",
+      "standby",
+      "comments",
+      "live_comments",
+      "mentions",
+      "story_insights",
+    ].join(","),
+  );
+});
+
 test("story publish works", async () => {
   mockFetchSequence([
     { body: { id: "container_1" } },

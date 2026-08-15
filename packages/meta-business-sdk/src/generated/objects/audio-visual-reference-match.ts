@@ -1,8 +1,6 @@
 // @generated
-// fingerprint: sha256:2ae9437130be9fe9b282d765ac7124ece18e543a29cde8138804ad892dd7e2bd
+// fingerprint: sha256:17d03b6887886948c59a406e9036b50af0c8267615cf4ab3c51dcd6ea14b680d
 // DO NOT EDIT: generated file; changes will be overwritten.
-import type { ProfileFields } from "./profile.ts";
-
 export interface AudioVisualReferenceMatchFields {
   audio_conflicting_segments: Record<string, unknown>[];
   audio_current_conflict_resolved_segments: Record<string, unknown>[];
@@ -21,13 +19,13 @@ export interface AudioVisualReferenceMatchFields {
   match_state: string;
   matched_overlap_percentage: number;
   matched_owner_match_duration_in_sec: number;
-  matched_reference_owner: ProfileFields;
+  matched_reference_owner_v2: Record<string, unknown>;
   modification_history: Record<string, unknown>[];
   num_matches_on_matched_side: number;
   num_matches_on_ref_side: number;
   ref_owner_match_duration_in_sec: number;
   reference_overlap_percentage: number;
-  reference_owner: ProfileFields;
+  reference_owner_v2: Record<string, unknown>;
   rejection_form_data_entries_with_translations: Record<string, unknown>[];
   resolution_details: string;
   resolution_reason: string;
