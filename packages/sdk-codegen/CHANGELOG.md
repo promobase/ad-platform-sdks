@@ -1,5 +1,12 @@
 # @openpromo/sdk-codegen
 
+## 0.2.0
+
+### Minor Changes
+
+- [`ce1dd41`](https://github.com/promobase/ad-platform-sdks/commit/ce1dd418029f65e60ce61254e8c8c438fdf69127) Thanks [@rayli09](https://github.com/rayli09)! - Remove Facebook-shaped Instagram and Threads Effect aliases. Generated reference output now states
+  when a platform has no source-backed Effect partition instead of advertising an incorrect client.
+
 ## 0.1.1
 
 ### Patch Changes
