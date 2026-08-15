@@ -3,8 +3,9 @@ import {
   assertOAuthState,
   OAuthAdapterError,
   secondsFromNow,
-  type OAuthAdapter,
+  type OAuthAdapterWithResults,
   type OAuthTokenSet,
+  withOAuthResults,
 } from "@openpromo/sdk-runtime";
 import * as v from "valibot";
 
@@ -44,12 +45,12 @@ function tokenSet(raw: LinkedInTokenResponse): OAuthTokenSet<LinkedInTokenRespon
 /** Normalized OAuth adapter for LinkedIn member and organization publishing. */
 export function createLinkedInOAuthAdapter(
   config: LinkedInOAuthConfig,
-): OAuthAdapter<LinkedInTokenResponse> & {
+): OAuthAdapterWithResults<LinkedInTokenResponse> & {
   getUserInfo(input: { accessToken: string }): Promise<LinkedInUserInfo>;
   listOrganizations(input: { accessToken: string }): Promise<readonly LinkedInOrganization[]>;
 } {
   const legacy = createLinkedInOAuth(config);
-  return {
+  return withOAuthResults({
     provider: AllPlatforms.LINKEDIN,
     async authorize(input) {
       if (input.pkce !== undefined) {
@@ -76,10 +77,10 @@ export function createLinkedInOAuthAdapter(
       }
       return tokenSet(v.parse(tokenSchema, await legacy.refreshToken(input.refreshToken)));
     },
-    async getUserInfo(input) {
+    async getUserInfo(input: { accessToken: string }) {
       return legacy.getUserInfo(input.accessToken);
     },
-    async listOrganizations(input) {
+    async listOrganizations(input: { accessToken: string }) {
       const client = createLinkedInClient({
         accessToken: input.accessToken,
         fetch: config.fetch,
@@ -104,5 +105,5 @@ export function createLinkedInOAuthAdapter(
       );
       return organizations;
     },
-  };
+  });
 }

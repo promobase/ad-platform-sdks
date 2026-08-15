@@ -104,6 +104,9 @@ export type {
 export { acceptedPublish, publishedPublish, PublishPhases } from "./publish.ts";
 export type {
   OAuthAdapter,
+  OAuthAdapterErrorDetails,
+  OAuthAdapterResult,
+  OAuthAdapterWithResults,
   OAuthAuthorizeInput,
   OAuthAuthorization,
   OAuthExchangeInput,
@@ -119,6 +122,7 @@ export {
   OAuthAdapterError,
   redactOAuthTokenSet,
   secondsFromNow,
+  withOAuthResults,
 } from "./oauth.ts";
 export { AllPlatforms, AllPlatformsSchema, isAllPlatform } from "./platforms.ts";
 export type { AllPlatform } from "./platforms.ts";

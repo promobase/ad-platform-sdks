@@ -4,8 +4,9 @@ import {
   createPkcePair,
   OAuthAdapterError,
   secondsFromNow,
-  type OAuthAdapter,
+  type OAuthAdapterWithResults,
   type OAuthTokenSet,
+  withOAuthResults,
 } from "@openpromo/sdk-runtime";
 import * as v from "valibot";
 
@@ -46,11 +47,13 @@ function tokenSet(raw: XOAuthTokenResponse): OAuthTokenSet<XOAuthTokenResponse> 
 }
 
 /** Normalized PKCE adapter for X OAuth 2.0. */
-export function createXOAuthAdapter(config: XOAuthConfig): OAuthAdapter<XOAuthTokenResponse> & {
+export function createXOAuthAdapter(
+  config: XOAuthConfig,
+): OAuthAdapterWithResults<XOAuthTokenResponse> & {
   getUserInfo(input: { accessToken: string }): Promise<XUserAccount>;
 } {
   const legacy = createXOAuth(config);
-  return {
+  return withOAuthResults({
     provider: AllPlatforms.X,
     async authorize(input) {
       if (!input.pkce) {
@@ -118,5 +121,5 @@ export function createXOAuthAdapter(config: XOAuthConfig): OAuthAdapter<XOAuthTo
         profileImageUrl: user.profile_image_url,
       };
     },
-  };
+  });
 }

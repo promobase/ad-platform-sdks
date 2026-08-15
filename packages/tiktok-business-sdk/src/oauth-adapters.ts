@@ -4,8 +4,9 @@ import {
   createPkcePair,
   OAuthAdapterError,
   secondsFromNow,
-  type OAuthAdapter,
+  type OAuthAdapterWithResults,
   type OAuthTokenSet,
+  withOAuthResults,
 } from "@openpromo/sdk-runtime";
 import * as v from "valibot";
 
@@ -147,11 +148,11 @@ function developerTokenSet(
 /** Normalized adapter for TikTok Business Login. */
 export function createTikTokBusinessOAuthAdapter(
   config: BusinessOAuthConfig,
-): OAuthAdapter<TokenResponse> & {
+): OAuthAdapterWithResults<TokenResponse> & {
   getProfile(input: { accessToken: string; businessId?: string }): Promise<TikTokBusinessProfile>;
 } {
   const legacy = createBusinessOAuth(config);
-  return {
+  return withOAuthResults({
     provider: AllPlatforms.TIKTOK,
     async authorize(input) {
       if (input.pkce !== undefined) {
@@ -183,7 +184,7 @@ export function createTikTokBusinessOAuthAdapter(
     async revoke(input) {
       await legacy.revokeToken(input.token);
     },
-    async getProfile(input) {
+    async getProfile(input: { accessToken: string; businessId?: string }) {
       if (!input.businessId) {
         throw new OAuthAdapterError("TikTok Business profile lookup requires a business ID", {
           provider: AllPlatforms.TIKTOK,
@@ -195,15 +196,15 @@ export function createTikTokBusinessOAuthAdapter(
         await legacy.getUserProfile(input.accessToken, input.businessId),
       );
     },
-  };
+  });
 }
 
 /** Compatibility adapter for the TikTok Developer/Login Kit flow. */
 export function createTikTokDeveloperOAuthAdapter(
   config: TikTokDeveloperOAuthConfig,
-): OAuthAdapter<TikTokDeveloperTokenResponse> {
+): OAuthAdapterWithResults<TikTokDeveloperTokenResponse> {
   const legacy = createTikTokDeveloperOAuth(config);
-  return {
+  return withOAuthResults({
     provider: AllPlatforms.TIKTOK,
     async authorize(input) {
       if (!input.pkce) {
@@ -251,20 +252,20 @@ export function createTikTokDeveloperOAuthAdapter(
     async revoke(input) {
       await legacy.revokeToken(input.token);
     },
-  };
+  });
 }
 
 /** Compatibility adapter for the TikTok Marketing API advertiser flow. */
 export function createTikTokAdvertiserOAuthAdapter(
   config: TikTokAdvertiserOAuthConfig,
-): OAuthAdapter<TikTokAdvertiserTokenData> & {
+): OAuthAdapterWithResults<TikTokAdvertiserTokenData> & {
   listAdvertisers(input: {
     accessToken: string;
     advertiserIds: readonly string[];
   }): Promise<readonly TikTokAdvertiserInfo[]>;
 } {
   const fetchImpl = config.fetch ?? fetch;
-  return {
+  return withOAuthResults({
     provider: AllPlatforms.TIKTOK,
     async authorize(input) {
       if (input.pkce !== undefined) {
@@ -314,7 +315,7 @@ export function createTikTokAdvertiserOAuthAdapter(
         providerData: envelope.data,
       };
     },
-    async listAdvertisers(input) {
+    async listAdvertisers(input: { accessToken: string; advertiserIds: readonly string[] }) {
       const params = new URLSearchParams({
         advertiser_ids: JSON.stringify(input.advertiserIds),
         fields: JSON.stringify(["advertiser_id", "advertiser_name", "profile_image_url"]),
@@ -335,5 +336,5 @@ export function createTikTokAdvertiserOAuthAdapter(
       }
       return envelope.data.list as readonly TikTokAdvertiserInfo[];
     },
-  };
+  });
 }

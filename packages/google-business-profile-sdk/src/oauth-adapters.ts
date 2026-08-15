@@ -3,8 +3,9 @@ import {
   assertOAuthState,
   OAuthAdapterError,
   secondsFromNow,
-  type OAuthAdapter,
+  type OAuthAdapterWithResults,
   type OAuthTokenSet,
+  withOAuthResults,
 } from "@openpromo/sdk-runtime";
 import * as v from "valibot";
 
@@ -53,7 +54,7 @@ function tokenSet(raw: GoogleOAuthTokenResponse): OAuthTokenSet<GoogleOAuthToken
 /** Normalized OAuth adapter for Google Business Profile. */
 export function createGoogleBusinessProfileOAuthAdapter(
   config: GoogleBusinessProfileOAuthConfig,
-): OAuthAdapter<GoogleOAuthTokenResponse> & {
+): OAuthAdapterWithResults<GoogleOAuthTokenResponse> & {
   listAccounts(input: { accessToken: string }): Promise<readonly GoogleBusinessProfileAccount[]>;
   listLocations(input: {
     accessToken: string;
@@ -61,7 +62,7 @@ export function createGoogleBusinessProfileOAuthAdapter(
   }): Promise<readonly GoogleBusinessProfileLocation[]>;
 } {
   const legacy = createGoogleBusinessProfileOAuth(config);
-  return {
+  return withOAuthResults({
     provider: AllPlatforms.GOOGLE_BUSINESS,
     async authorize(input) {
       if (input.pkce !== undefined) {
@@ -88,7 +89,7 @@ export function createGoogleBusinessProfileOAuthAdapter(
       }
       return tokenSet(v.parse(tokenSchema, await legacy.refreshToken(input.refreshToken)));
     },
-    async listAccounts(input) {
+    async listAccounts(input: { accessToken: string }) {
       const client = new GoogleBusinessProfileClient({
         accessToken: input.accessToken,
         fetch: config.fetch,
@@ -99,7 +100,7 @@ export function createGoogleBusinessProfileOAuthAdapter(
       const body = v.parse(v.object({ accounts: v.optional(v.array(accountSchema)) }), response);
       return (body.accounts ?? []) as readonly GoogleBusinessProfileAccount[];
     },
-    async listLocations(input) {
+    async listLocations(input: { accessToken: string; accountName: string }) {
       const client = new GoogleBusinessProfileClient({
         accessToken: input.accessToken,
         fetch: config.fetch,
@@ -110,5 +111,5 @@ export function createGoogleBusinessProfileOAuthAdapter(
       const body = v.parse(v.object({ locations: v.optional(v.array(locationSchema)) }), response);
       return (body.locations ?? []) as readonly GoogleBusinessProfileLocation[];
     },
-  };
+  });
 }

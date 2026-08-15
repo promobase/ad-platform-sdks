@@ -4,8 +4,9 @@ import {
   createPkcePair,
   OAuthAdapterError,
   secondsFromNow,
-  type OAuthAdapter,
+  type OAuthAdapterWithResults,
   type OAuthTokenSet,
+  withOAuthResults,
 } from "@openpromo/sdk-runtime";
 import * as v from "valibot";
 
@@ -79,7 +80,7 @@ function facebookTokenSet(
 }
 
 /** Normalized OAuth adapter for Facebook Login and Page-token discovery. */
-export function createFacebookOAuthAdapter(config: FacebookOAuthConfig): OAuthAdapter<
+export function createFacebookOAuthAdapter(config: FacebookOAuthConfig): OAuthAdapterWithResults<
   GraphOAuthData<unknown, FacebookLongLivedToken>
 > & {
   exchangeLongLivedToken(input: {
@@ -105,7 +106,7 @@ export function createFacebookOAuthAdapter(config: FacebookOAuthConfig): OAuthAd
     } satisfies OAuthTokenSet<FacebookLongLivedToken>;
   }
 
-  return {
+  return withOAuthResults({
     provider: AllPlatforms.FACEBOOK,
     async authorize(input) {
       rejectPkce("FACEBOOK", input.pkce);
@@ -143,17 +144,17 @@ export function createFacebookOAuthAdapter(config: FacebookOAuthConfig): OAuthAd
       };
     },
     exchangeLongLivedToken,
-    async listPages(input) {
+    async listPages(input: { accessToken: string }) {
       const pages = await legacy.getPageTokens(input.accessToken);
       return v.parse(v.array(pageTokenSchema), pages) as readonly PageToken[];
     },
-    async getUserProfile(input) {
+    async getUserProfile(input: { accessToken: string; id?: string }) {
       return legacy.getUserProfile(input.accessToken, input.id);
     },
-    async getPage(input) {
+    async getPage(input: { accessToken: string; pageId: string }) {
       return legacy.getPageInformation(input.accessToken, input.pageId);
     },
-  };
+  });
 }
 
 function instagramTokenSet(
@@ -170,13 +171,13 @@ function instagramTokenSet(
 }
 
 /** Normalized OAuth adapter for Instagram Login. */
-export function createInstagramOAuthAdapter(config: InstagramOAuthConfig): OAuthAdapter<
+export function createInstagramOAuthAdapter(config: InstagramOAuthConfig): OAuthAdapterWithResults<
   GraphOAuthData<InstagramShortLivedToken, InstagramLongLivedToken>
 > & {
   getProfile(input: { accessToken: string; id?: string }): Promise<InstagramBusinessUserProfile>;
 } {
   const legacy = createInstagramOAuth(config);
-  return {
+  return withOAuthResults({
     provider: AllPlatforms.INSTAGRAM,
     async authorize(input) {
       rejectPkce("INSTAGRAM", input.pkce);
@@ -210,20 +211,20 @@ export function createInstagramOAuthAdapter(config: InstagramOAuthConfig): OAuth
       );
       return instagramTokenSet({ access_token: input.accessToken, user_id: "unknown" }, longLived);
     },
-    async getProfile(input) {
+    async getProfile(input: { accessToken: string; id?: string }) {
       return legacy.getBusinessUserProfile(input.accessToken, input.id);
     },
-  };
+  });
 }
 
 /** Normalized OAuth adapter for Threads Login. */
-export function createThreadsOAuthAdapter(config: ThreadsOAuthConfig): OAuthAdapter<
+export function createThreadsOAuthAdapter(config: ThreadsOAuthConfig): OAuthAdapterWithResults<
   GraphOAuthData<ThreadsShortLivedToken, ThreadsLongLivedToken>
 > & {
   getProfile(input: { accessToken: string; id?: string }): Promise<ThreadsUserProfile>;
 } {
   const legacy = createThreadsOAuth(config);
-  return {
+  return withOAuthResults({
     provider: AllPlatforms.THREADS,
     async authorize(input) {
       if (!input.pkce) {
@@ -290,8 +291,8 @@ export function createThreadsOAuthAdapter(config: ThreadsOAuthConfig): OAuthAdap
         },
       };
     },
-    async getProfile(input) {
+    async getProfile(input: { accessToken: string; id?: string }) {
       return legacy.getUserProfile(input.accessToken, input.id);
     },
-  };
+  });
 }

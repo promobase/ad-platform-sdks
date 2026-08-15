@@ -1,4 +1,5 @@
 import type { AllPlatform } from "./platforms.ts";
+import { Result, TaggedError, type SdkResult } from "./result.ts";
 
 export type OAuthPhase = "authorize" | "exchange" | "refresh" | "revoke" | "validate";
 
@@ -61,22 +62,98 @@ export type OAuthAdapter<TProvider = unknown> = {
   }): Promise<void>;
 };
 
-export class OAuthAdapterError extends Error {
+export type OAuthAdapterErrorDetails = {
+  readonly provider: string;
+  readonly phase: OAuthPhase;
+  readonly status?: number;
+  readonly providerCode?: string;
+  readonly providerData?: unknown;
+};
+
+const OAuthAdapterErrorBase = TaggedError("OAuthAdapterError")<{
+  readonly message: string;
+  readonly details: OAuthAdapterErrorDetails;
+  readonly cause?: unknown;
+}>();
+
+/** A typed, matchable OAuth failure shared by every platform adapter. */
+export class OAuthAdapterError extends OAuthAdapterErrorBase {
   override readonly name = "OAuthAdapterError";
 
-  constructor(
-    message: string,
-    readonly details: {
-      readonly provider: string;
-      readonly phase: OAuthPhase;
-      readonly status?: number;
-      readonly providerCode?: string;
-      readonly providerData?: unknown;
-    },
-    options?: ErrorOptions,
-  ) {
-    super(message, options);
+  constructor(message: string, details: OAuthAdapterErrorDetails, options?: ErrorOptions) {
+    super({ message, details, ...(options?.cause === undefined ? {} : { cause: options.cause }) });
   }
+}
+
+export type OAuthAdapterResult<TProvider = unknown> = {
+  readonly provider: AllPlatform;
+  authorize(input: OAuthAuthorizeInput): Promise<SdkResult<OAuthAuthorization, OAuthAdapterError>>;
+  exchangeCode(
+    input: OAuthExchangeInput,
+  ): Promise<SdkResult<OAuthTokenSet<TProvider>, OAuthAdapterError>>;
+  refresh?(
+    input: OAuthRefreshInput,
+  ): Promise<SdkResult<OAuthTokenSet<TProvider>, OAuthAdapterError>>;
+  revoke?(input: {
+    readonly token: string;
+    readonly tokenType?: "access_token" | "refresh_token";
+  }): Promise<SdkResult<void, OAuthAdapterError>>;
+};
+
+export type OAuthAdapterWithResults<TProvider = unknown> = OAuthAdapter<TProvider> & {
+  readonly result: OAuthAdapterResult<TProvider>;
+};
+
+/**
+ * Adds a non-throwing Result façade while preserving the adapter's existing API
+ * and any platform-specific discovery methods.
+ */
+export function withOAuthResults<
+  TProvider,
+  TAdapter extends OAuthAdapter<TProvider> & { readonly result?: never },
+>(adapter: TAdapter): TAdapter & { readonly result: OAuthAdapterResult<TProvider> } {
+  const result: OAuthAdapterResult<TProvider> = {
+    provider: adapter.provider,
+    authorize: (input) => captureOAuthResult(adapter, "authorize", () => adapter.authorize(input)),
+    exchangeCode: (input) =>
+      captureOAuthResult(adapter, "exchange", () => adapter.exchangeCode(input)),
+  };
+
+  if (adapter.refresh) {
+    result.refresh = (input) =>
+      captureOAuthResult(adapter, "refresh", () => adapter.refresh!(input));
+  }
+  if (adapter.revoke) {
+    result.revoke = (input) => captureOAuthResult(adapter, "revoke", () => adapter.revoke!(input));
+  }
+
+  return Object.assign(adapter, { result }) as TAdapter & {
+    readonly result: OAuthAdapterResult<TProvider>;
+  };
+}
+
+async function captureOAuthResult<T>(
+  adapter: OAuthAdapter,
+  phase: OAuthPhase,
+  operation: () => Promise<T>,
+): Promise<SdkResult<T, OAuthAdapterError>> {
+  return Result.tryPromise({
+    try: operation,
+    catch: (cause) => normalizeOAuthError(adapter.provider, phase, cause),
+  });
+}
+
+function normalizeOAuthError(
+  provider: AllPlatform,
+  phase: OAuthPhase,
+  cause: unknown,
+): OAuthAdapterError {
+  if (cause instanceof OAuthAdapterError) return cause;
+  return new OAuthAdapterError(
+    cause instanceof Error ? cause.message : `${provider} OAuth ${phase} failed`,
+    { provider, phase },
+    { cause },
+  );
 }
 
 export function assertOAuthState(

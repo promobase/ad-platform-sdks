@@ -3,8 +3,9 @@ import {
   assertOAuthState,
   OAuthAdapterError,
   secondsFromNow,
-  type OAuthAdapter,
+  type OAuthAdapterWithResults,
   type OAuthTokenSet,
+  withOAuthResults,
 } from "@openpromo/sdk-runtime";
 import * as v from "valibot";
 
@@ -65,14 +66,14 @@ function tokenSet(raw: YouTubeOAuthTokenResponse): OAuthTokenSet<YouTubeOAuthTok
 /** Normalized OAuth adapter for YouTube's Google OAuth flow. */
 export function createYouTubeOAuthAdapter(
   config: YouTubeOAuthConfig,
-): OAuthAdapter<YouTubeOAuthTokenResponse> & {
+): OAuthAdapterWithResults<YouTubeOAuthTokenResponse> & {
   listChannels(input: {
     accessToken: string;
     channelId?: string;
   }): Promise<readonly YouTubeChannelAccount[]>;
 } {
   const legacy = createYouTubeOAuth(config);
-  return {
+  return withOAuthResults({
     provider: AllPlatforms.YOUTUBE,
     async authorize(input) {
       if (input.pkce !== undefined) {
@@ -102,7 +103,7 @@ export function createYouTubeOAuthAdapter(
     async revoke(input) {
       await legacy.revokeToken(input.token);
     },
-    async listChannels(input) {
+    async listChannels(input: { accessToken: string; channelId?: string }) {
       const client = createYouTubeClient({
         accessToken: input.accessToken,
         fetch: config.fetch,
@@ -132,5 +133,5 @@ export function createYouTubeOAuthAdapter(
               : Number(item.statistics.subscriberCount),
         }));
     },
-  };
+  });
 }

@@ -167,6 +167,35 @@ const publication = result.match({
 });
 ```
 
+OAuth adapters expose both compatibility methods that throw and a typed,
+non-throwing `.result` façade. Every first-party adapter is wrapped this way,
+including its provider-specific discovery helpers:
+
+```ts
+const facebook = Facebook.oauth({ appId, appSecret, redirectUri });
+
+const grant = await facebook.result.exchangeCode({
+  code: callbackCode,
+  state: callbackState,
+  expectedState: storedState,
+});
+
+const account = grant.match({
+  ok: (tokenSet) => ({ tokenSet }),
+  err: (error) => {
+    // OAuthAdapterError is a Better Result TaggedError.
+    if (error.details.phase === "validate") return { retryable: false };
+    return { retryable: true, provider: error.details.provider };
+  },
+});
+```
+
+`withOAuthResults(adapter)` is also exported for custom adapters. It preserves
+the adapter's generic provider token type and extra methods, so OpenPromo can
+adopt the result boundary without rewriting existing adapter consumers. Use
+`Result.match` or `matchError` at route/workflow boundaries; do not unwrap in a
+durable step unless the step intentionally treats the error as terminal.
+
 `Result` is a Promise-boundary convenience, not a replacement for Workflow
 control flow. OpenPromo still places each effect in `step.do`, uses
 `step.sleep` for provider polling, and persists only the returned serializable
