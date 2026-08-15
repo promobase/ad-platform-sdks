@@ -1,5 +1,13 @@
 # @openpromo/ad-platforms-cli
 
+## 0.6.3
+
+### Patch Changes
+
+- Updated dependencies [[`6ef154a`](https://github.com/promobase/ad-platform-sdks/commit/6ef154a3241f297657bcf413aa5fb94c5dfdfcd7)]:
+  - @openpromo/meta@0.4.0
+  - @openpromo/ad-platforms@0.9.0
+
 ## 0.6.2
 
 ### Patch Changes
