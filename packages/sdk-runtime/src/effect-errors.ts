@@ -4,7 +4,10 @@ export interface PlatformErrorContext {
   readonly platform: string;
   readonly operationId: string;
   readonly requestId?: string;
+  readonly idempotencyKey?: string;
 }
+
+export type MutationOutcome = "not_started" | "committed" | "unknown";
 
 interface HttpPlatformErrorContext extends PlatformErrorContext {
   readonly status: number;
@@ -45,6 +48,20 @@ export class NetworkError extends Data.TaggedError("NetworkError")<
   }
 > {}
 
+export class MutationOutcomeUnknown extends Data.TaggedError("MutationOutcomeUnknown")<
+  PlatformErrorContext & {
+    readonly outcome: "unknown";
+    readonly reconciliationRequired: true;
+    readonly providerOperationId?: string;
+    readonly cause: unknown;
+  }
+> {}
+
+export class RuntimeFailureError extends Data.TaggedError("RuntimeFailureError")<{
+  readonly cause: unknown;
+  readonly message: string;
+}> {}
+
 export class ResponseDecodeError extends Data.TaggedError("ResponseDecodeError")<
   PlatformErrorContext & {
     readonly cause: unknown;
@@ -75,6 +92,7 @@ export type PlatformError =
   | InvalidRequestError
   | ProviderUnavailableError
   | NetworkError
+  | MutationOutcomeUnknown
   | InputValidationError
   | ResponseDecodeError
   | UnsupportedCapabilityError;
@@ -108,4 +126,8 @@ export function retryAfter(error: PlatformError): number | undefined {
   return error._tag === "RateLimitError" || error._tag === "ProviderUnavailableError"
     ? error.retryAfterMs
     : undefined;
+}
+
+export function isMutationOutcomeUnknown(error: PlatformError): error is MutationOutcomeUnknown {
+  return error._tag === "MutationOutcomeUnknown";
 }

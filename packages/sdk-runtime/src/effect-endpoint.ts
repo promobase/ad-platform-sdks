@@ -47,6 +47,7 @@ export type AnyEndpointDescriptor = EndpointDescriptor<string, EndpointSchema, E
 export interface EndpointExecutionContext {
   readonly requestId?: string;
   readonly signal?: AbortSignal;
+  readonly idempotencyKey?: string;
 }
 
 export interface EndpointRequest {
@@ -110,7 +111,7 @@ export function executeEndpoint<
         body: request.body,
         rateLimitBucket: descriptor.rateLimitBucket,
         idempotency: descriptor.idempotency,
-        idempotencyKey: request.idempotencyKey,
+        idempotencyKey: request.idempotencyKey ?? context.idempotencyKey,
         decode: (value) =>
           Schema.decodeUnknown(outputSchema)(value).pipe(
             Effect.mapError((cause) => new ResponseDecodeError({ ...errorContext, cause, value })),

@@ -123,11 +123,42 @@ export function createVideos(opts: TikTokClientOptions) {
     publishId: string,
     status: PublishStatusResponse,
   ): PlatformPublishResult<PublishStatusResponse> {
+    const postId = status.post_ids?.[0];
+    if (status.status === "FAILED") {
+      return {
+        platform: "tiktok",
+        state: "failed",
+        operationId: publishId,
+        id: publishId,
+        message: status.reason ?? "TikTok publish failed",
+        raw: status,
+      };
+    }
+    if (status.status === "PUBLISH_COMPLETE" && !postId) {
+      return {
+        platform: "tiktok",
+        state: "unknown",
+        operationId: publishId,
+        id: publishId,
+        message: "TikTok reported completion without a final post ID",
+        raw: status,
+      };
+    }
+    if (postId) {
+      return {
+        platform: "tiktok",
+        state: "published",
+        operationId: publishId,
+        id: postId,
+        postId,
+        raw: status,
+      };
+    }
     return {
       platform: "tiktok",
-      state: status.status === "FAILED" ? "failed" : "published",
+      state: "processing",
+      operationId: publishId,
       id: publishId,
-      postId: status.post_ids?.[0],
       raw: status,
     };
   }

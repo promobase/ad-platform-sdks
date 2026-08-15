@@ -132,7 +132,8 @@ test("TikTok video waitForPublish polls until complete", async () => {
     ).resolves.toEqual({
       platform: "tiktok",
       state: "published",
-      id: "publish-123",
+      id: "post-456",
+      operationId: "publish-123",
       postId: "post-456",
       raw: { status: "PUBLISH_COMPLETE", post_ids: ["post-456"] },
     });

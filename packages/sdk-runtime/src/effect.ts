@@ -1,16 +1,19 @@
-export type { PlatformError, PlatformErrorContext } from "./effect-errors.ts";
+export type { MutationOutcome, PlatformError, PlatformErrorContext } from "./effect-errors.ts";
 export {
   AuthenticationError,
   ConflictError,
   InputValidationError,
   InvalidRequestError,
   NetworkError,
+  MutationOutcomeUnknown,
   NotFoundError,
   PermissionError,
   platformHttpError,
   ProviderUnavailableError,
   RateLimitError,
   ResponseDecodeError,
+  RuntimeFailureError,
+  isMutationOutcomeUnknown,
   retryAfter,
   UnsupportedCapabilityError,
 } from "./effect-errors.ts";
@@ -39,6 +42,39 @@ export type {
   SdkRuntimeEnvironment,
 } from "./effect-runtime.ts";
 export { defaultEffectRetryPolicy, executeJsonRequest, makeSdkRuntime } from "./effect-runtime.ts";
+export type {
+  JsonPrimitive,
+  JsonValue,
+  PlatformPublishError,
+  PlatformPublishResult,
+  PublishOperationHandle,
+  PublishPhase,
+  PublishPhaseContract,
+  PublishPlatform,
+  PublishState,
+} from "./publish.ts";
+export { acceptedPublish, publishedPublish, PublishPhases } from "./publish.ts";
+export {
+  Result,
+  TaggedError,
+  isPanic,
+  isTaggedError,
+  matchError,
+  matchErrorPartial,
+} from "./result.ts";
+export type {
+  AnyTaggedError,
+  Err,
+  InferErr,
+  InferOk,
+  Ok,
+  SdkResult,
+  SerializedErr,
+  SerializedOk,
+  SerializedResult,
+  TaggedErrorClass,
+  TaggedErrorInstance,
+} from "./result.ts";
 export type {
   HttpTransportService,
   RuntimeHttpRequest,

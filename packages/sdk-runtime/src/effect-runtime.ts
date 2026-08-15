@@ -2,8 +2,10 @@ import { Duration, Effect, ManagedRuntime, Schedule } from "effect";
 
 import {
   type PlatformError,
+  MutationOutcomeUnknown,
   platformHttpError,
   ResponseDecodeError,
+  RuntimeFailureError,
   retryAfter,
 } from "./effect-errors.ts";
 import {
@@ -15,6 +17,7 @@ import {
   type RuntimeTelemetryService,
 } from "./effect-services.ts";
 import { serializeRequestBody } from "./request-body.ts";
+import { Result, type SdkResult } from "./result.ts";
 
 export type EndpointIdempotency = "safe" | "keyed" | "unsafe";
 
@@ -64,6 +67,7 @@ export function executeJsonRequest<A = unknown>(
       platform: request.platform,
       operationId: request.operationId,
       requestId: request.requestId,
+      idempotencyKey: request.idempotencyKey,
     };
     const retry =
       request.retry === false ? undefined : { ...defaultEffectRetryPolicy, ...request.retry };
@@ -82,15 +86,28 @@ export function executeJsonRequest<A = unknown>(
         });
         yield* rateLimiter.acquire({ ...context, bucket: request.rateLimitBucket });
 
-        const response = yield* transport.execute({
-          ...context,
-          url: request.url,
-          init: {
-            method: request.method,
-            headers: request.headers,
-            body: serializeRequestBody(request.body, request.headers),
-          },
-        });
+        const response = yield* transport
+          .execute({
+            ...context,
+            url: request.url,
+            init: {
+              method: request.method,
+              headers: request.headers,
+              body: serializeRequestBody(request.body, request.headers),
+            },
+          })
+          .pipe(
+            Effect.mapError((cause) =>
+              isSideEffectingRequest(request)
+                ? new MutationOutcomeUnknown({
+                    ...context,
+                    outcome: "unknown",
+                    reconciliationRequired: true,
+                    cause,
+                  })
+                : cause,
+            ),
+          );
 
         yield* rateLimiter.observe(
           { ...context, bucket: request.rateLimitBucket },
@@ -141,7 +158,7 @@ export function executeJsonRequest<A = unknown>(
         retry && canRetry(request)
           ? attempt.pipe(
               Effect.retry(
-                retrySchedule(retry).pipe(
+                retrySchedule(retry, request).pipe(
                   Schedule.tapInput((error: PlatformError) =>
                     telemetry.emit({
                       _tag: "RequestRetrying",
@@ -187,8 +204,29 @@ export function makeSdkRuntime(
       return result.right;
     },
     runPromiseExit: runtime.runPromiseExit,
+    runResult: async <A, E extends Error>(
+      effect: Effect.Effect<A, E, SdkRuntimeEnvironment>,
+      runOptions?: { readonly signal?: AbortSignal },
+    ): Promise<SdkResult<A, E | RuntimeFailureError>> => {
+      try {
+        const result = await runtime.runPromise(Effect.either(effect), runOptions);
+        return result._tag === "Left" ? Result.err(result.left) : Result.ok(result.right);
+      } catch (cause) {
+        return Result.err(
+          new RuntimeFailureError({
+            cause,
+            message: cause instanceof Error ? cause.message : String(cause),
+          }),
+        );
+      }
+    },
     dispose: runtime.dispose,
   };
+}
+
+function isSideEffectingRequest(request: EffectJsonRequest<unknown>): boolean {
+  const idempotency = request.idempotency ?? (request.method === "GET" ? "safe" : "unsafe");
+  return idempotency !== "safe";
 }
 
 function canRetry(request: EffectJsonRequest<unknown>): boolean {
@@ -198,10 +236,20 @@ function canRetry(request: EffectJsonRequest<unknown>): boolean {
   );
 }
 
-function isRetryable(error: PlatformError, retry: EffectRetryPolicy): boolean {
+function isRetryable(
+  error: PlatformError,
+  retry: EffectRetryPolicy,
+  request: EffectJsonRequest<unknown>,
+): boolean {
   switch (error._tag) {
     case "NetworkError":
       return retry.retryOnNetworkError;
+    case "MutationOutcomeUnknown":
+      return (
+        request.idempotency === "keyed" &&
+        request.idempotencyKey !== undefined &&
+        retry.retryOnNetworkError
+      );
     case "RateLimitError":
     case "ProviderUnavailableError":
       return retry.retryableStatuses.includes(error.status);
@@ -210,7 +258,7 @@ function isRetryable(error: PlatformError, retry: EffectRetryPolicy): boolean {
   }
 }
 
-function retrySchedule(retry: EffectRetryPolicy) {
+function retrySchedule(retry: EffectRetryPolicy, request: EffectJsonRequest<unknown>) {
   const delays = Schedule.exponential(Duration.millis(retry.initialBackoffMs)).pipe(
     retry.jitter ? Schedule.jittered : (schedule) => schedule,
     Schedule.modifyDelay((_output, delay) =>
@@ -225,7 +273,7 @@ function retrySchedule(retry: EffectRetryPolicy) {
       const providerDelay = Duration.millis(retryAfter(error) ?? 0);
       return Duration.min(Duration.max(delay, providerDelay), Duration.millis(retry.maxBackoffMs));
     }),
-    Schedule.whileInput((error) => isRetryable(error, retry)),
+    Schedule.whileInput((error) => isRetryable(error, retry, request)),
   );
 }
 

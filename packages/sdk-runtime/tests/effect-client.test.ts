@@ -5,6 +5,7 @@ import { Effect, Schema } from "effect";
 import { createEndpointClient, resolveEndpointRequest } from "../src/effect-client.ts";
 import { defineEndpointDescriptor } from "../src/effect-endpoint.ts";
 import { serializeRequestBody } from "../src/request-body.ts";
+import { Result } from "../src/result.ts";
 
 const descriptor = defineEndpointDescriptor({
   id: "test.posts.get",
@@ -42,6 +43,9 @@ test("endpoint client exposes matching Effect and Promise surfaces", async () =>
   await expect(
     client.promise(descriptor, { postId: "post-1", fields: ["views", "likes"] }),
   ).resolves.toEqual({ id: "post-1", views: 42 });
+  const result = await client.promiseResult(descriptor, { postId: "post-1" });
+  expect(Result.isOk(result)).toBe(true);
+  if (Result.isOk(result)) expect(result.value).toEqual({ id: "post-1", views: 42 });
   await expect(client.dispose()).resolves.toBeUndefined();
   expect(requests[0]).toBe("https://api.example.test/posts/post-1?fields=views&fields=likes");
 });

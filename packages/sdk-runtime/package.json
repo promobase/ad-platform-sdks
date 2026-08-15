@@ -38,6 +38,7 @@
     "access": "public"
   },
   "dependencies": {
+    "better-result": "^2.10.0",
     "effect": "^3.22.1",
     "valibot": "^1.4.2"
   },
@@ -71,6 +72,12 @@
       "types": "./dist/oauth.d.ts",
       "import": "./dist/oauth.js",
       "default": "./dist/oauth.js"
+    },
+    "./result": {
+      "bun": "./src/result.ts",
+      "types": "./dist/result.d.ts",
+      "import": "./dist/result.js",
+      "default": "./dist/result.js"
     }
   },
   "engines": {

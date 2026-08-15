@@ -9,9 +9,11 @@ import {
   type EndpointRequest,
 } from "./effect-endpoint.ts";
 import type { PlatformError } from "./effect-errors.ts";
+import type { RuntimeFailureError } from "./effect-errors.ts";
 import { makeSdkRuntime, type SdkRuntimeEnvironment } from "./effect-runtime.ts";
 import type { RuntimeRateLimiterService, RuntimeTelemetryService } from "./effect-services.ts";
 import { isNativeRequestBody } from "./request-body.ts";
+import type { SdkResult } from "./result.ts";
 
 type AnySchema = Schema.Schema.Any;
 export type EndpointInput<Descriptor extends AnyEndpointDescriptor> =
@@ -68,6 +70,11 @@ export interface EndpointClient<
     input: EndpointInput<Descriptor>,
     context?: EndpointExecutionContext,
   ) => Promise<EndpointOutput<Descriptor>>;
+  readonly promiseResult: <Descriptor extends Descriptors[number]>(
+    descriptor: Descriptor,
+    input: EndpointInput<Descriptor>,
+    context?: EndpointExecutionContext,
+  ) => Promise<SdkResult<EndpointOutput<Descriptor>, PlatformError | RuntimeFailureError>>;
   readonly catalog: EndpointCatalog<Descriptors>;
   readonly dispose: () => Promise<void>;
 }
@@ -159,6 +166,12 @@ export function createEndpointClient<const Descriptors extends readonly AnyEndpo
     context: EndpointExecutionContext = {},
   ): Promise<EndpointOutput<Descriptor>> =>
     runtime.runPromise(effect(descriptor, input, context), { signal: context.signal });
+  const promiseResult = <Descriptor extends Descriptors[number]>(
+    descriptor: Descriptor,
+    input: EndpointInput<Descriptor>,
+    context: EndpointExecutionContext = {},
+  ): Promise<SdkResult<EndpointOutput<Descriptor>, PlatformError | RuntimeFailureError>> =>
+    runtime.runResult(effect(descriptor, input, context), { signal: context.signal });
   const catalog = new EndpointCatalog(descriptors, (descriptor, input, context) =>
     runtime.runPromise(
       executeEndpoint(
@@ -173,7 +186,14 @@ export function createEndpointClient<const Descriptors extends readonly AnyEndpo
     ),
   );
 
-  return { descriptors, effect, promise, catalog, dispose: runtime.dispose } as const;
+  return {
+    descriptors,
+    effect,
+    promise,
+    promiseResult,
+    catalog,
+    dispose: runtime.dispose,
+  } as const;
 }
 
 export function resolveEndpointRequest(

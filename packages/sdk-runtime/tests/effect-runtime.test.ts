@@ -6,6 +6,7 @@ import { AuthenticationError, NetworkError, ResponseDecodeError } from "../src/e
 import { executeJsonRequest, makeSdkRuntime } from "../src/effect-runtime.ts";
 import type { RuntimeRateLimiterService, RuntimeTelemetryEvent } from "../src/effect-services.ts";
 import { sdkRuntimeLayer } from "../src/effect-services.ts";
+import { Result } from "../src/result.ts";
 
 const noDelayRetry = {
   maxRetries: 2,
@@ -245,5 +246,111 @@ test("network failures stay in the typed error channel", async () => {
       }),
     ),
   ).rejects.toBeInstanceOf(NetworkError);
+  await runtime.dispose();
+});
+
+test("side-effect network failures become reconciliation-required outcomes", async () => {
+  const runtime = makeSdkRuntime({
+    fetch: (async () => {
+      throw new TypeError("connection reset after provider accepted the request");
+    }) as unknown as typeof fetch,
+  });
+
+  await expect(
+    runtime.runPromise(
+      executeJsonRequest({
+        platform: "facebook",
+        operationId: "facebook.posts.publish",
+        method: "POST",
+        url: "https://example.test/posts",
+        body: { message: "hello" },
+        idempotency: "keyed",
+        idempotencyKey: "content-1:facebook:publish",
+        retry: false,
+      }),
+    ),
+  ).rejects.toMatchObject({
+    _tag: "MutationOutcomeUnknown",
+    outcome: "unknown",
+    reconciliationRequired: true,
+    idempotencyKey: "content-1:facebook:publish",
+  });
+
+  await runtime.dispose();
+});
+
+test("keyed side effects may retry an unknown network outcome with the same key", async () => {
+  let calls = 0;
+  const runtime = makeSdkRuntime({
+    fetch: (async () => {
+      calls += 1;
+      if (calls === 1) throw new TypeError("connection reset");
+      return new Response('{"id":"post-1"}', { status: 200 });
+    }) as unknown as typeof fetch,
+  });
+
+  await expect(
+    runtime.runPromise(
+      executeJsonRequest({
+        platform: "facebook",
+        operationId: "facebook.posts.publish",
+        method: "POST",
+        url: "https://example.test/posts",
+        idempotency: "keyed",
+        idempotencyKey: "content-1:facebook:publish",
+        retry: noDelayRetry,
+      }),
+    ),
+  ).resolves.toEqual({ id: "post-1" });
+  expect(calls).toBe(2);
+  await runtime.dispose();
+});
+
+test("Result Promise boundary preserves typed errors without throwing", async () => {
+  const runtime = makeSdkRuntime({
+    fetch: (async () =>
+      new Response('{"error":"expired"}', { status: 401 })) as unknown as typeof fetch,
+  });
+
+  const result = await runtime.runResult(
+    executeJsonRequest({
+      platform: "facebook",
+      operationId: "facebook.account.get",
+      method: "GET",
+      url: "https://example.test/me",
+      retry: false,
+    }),
+  );
+
+  expect(Result.isError(result)).toBe(true);
+  if (Result.isError(result)) expect(result.error).toBeInstanceOf(AuthenticationError);
+  await runtime.dispose();
+});
+
+test("idempotency keys are visible to runtime telemetry", async () => {
+  const events: RuntimeTelemetryEvent[] = [];
+  const runtime = makeSdkRuntime({
+    fetch: (async () => new Response("{}", { status: 200 })) as unknown as typeof fetch,
+    telemetry: {
+      emit: (event) => Effect.sync(() => events.push(event)),
+    },
+  });
+
+  await runtime.runPromise(
+    executeJsonRequest({
+      platform: "facebook",
+      operationId: "facebook.posts.publish",
+      method: "POST",
+      url: "https://example.test/posts",
+      idempotency: "keyed",
+      idempotencyKey: "content-1:facebook:publish",
+      retry: false,
+    }),
+  );
+
+  expect(events[0]).toMatchObject({
+    _tag: "RequestStarted",
+    idempotencyKey: "content-1:facebook:publish",
+  });
   await runtime.dispose();
 });

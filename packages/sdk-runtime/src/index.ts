@@ -24,15 +24,19 @@ export {
   InputValidationError,
   InvalidRequestError,
   NetworkError,
+  MutationOutcomeUnknown,
   NotFoundError,
   PermissionError,
   platformHttpError,
   ProviderUnavailableError,
   RateLimitError,
   ResponseDecodeError,
+  RuntimeFailureError,
+  isMutationOutcomeUnknown,
   retryAfter,
   UnsupportedCapabilityError,
 } from "./effect-errors.ts";
+export type { MutationOutcome } from "./effect-errors.ts";
 export type {
   AnyEndpointDescriptor,
   EndpointDescriptor,
@@ -87,11 +91,17 @@ export type {
 } from "./http-client.ts";
 export { HttpClient, HttpError } from "./http-client.ts";
 export type {
+  JsonPrimitive,
+  JsonValue,
   PlatformPublishError,
   PlatformPublishResult,
+  PublishOperationHandle,
+  PublishPhase,
+  PublishPhaseContract,
   PublishPlatform,
   PublishState,
 } from "./publish.ts";
+export { acceptedPublish, publishedPublish, PublishPhases } from "./publish.ts";
 export type {
   OAuthAdapter,
   OAuthAuthorizeInput,
@@ -112,4 +122,25 @@ export {
 } from "./oauth.ts";
 export { AllPlatforms, AllPlatformsSchema, isAllPlatform } from "./platforms.ts";
 export type { AllPlatform } from "./platforms.ts";
+export {
+  Result,
+  TaggedError,
+  isPanic,
+  isTaggedError,
+  matchError,
+  matchErrorPartial,
+} from "./result.ts";
+export type {
+  AnyTaggedError,
+  Err,
+  InferErr,
+  InferOk,
+  Ok,
+  SdkResult,
+  SerializedErr,
+  SerializedOk,
+  SerializedResult,
+  TaggedErrorClass,
+  TaggedErrorInstance,
+} from "./result.ts";
 export type { EdgeMethod } from "./types.ts";
