@@ -28,7 +28,7 @@ interface ReferenceManifest {
 const root = resolve(fileURLToPath(new URL(".", import.meta.url)), "../../..");
 const referenceRoot = join(root, "apps/docs/src/content/docs/reference");
 const effectManifests: Record<string, string> = {
-  meta: "packages/meta-business-sdk/src/generated/effect/manifest.json",
+  facebook: "packages/meta-business-sdk/src/generated/effect/manifest.json",
   tiktok: "packages/tiktok-business-sdk/src/generated/effect/manifest.json",
   snapchat: "packages/snapchat-sdk/src/generated/effect/manifest.json",
   reddit: "packages/reddit-sdk/src/generated/effect/manifest.json",
