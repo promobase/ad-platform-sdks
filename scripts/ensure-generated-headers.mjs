@@ -12,7 +12,7 @@ const jsonExtension = ".json";
 const headerPattern =
   /^\/\/ @generated\n\/\/ fingerprint: sha256:[0-9a-f]+\n\/\/ DO NOT EDIT: generated file; changes will be overwritten\.\n\n?/;
 const docsHeaderPattern =
-  /^\n?<!-- @generated -->\n<!-- fingerprint: sha256:[0-9a-f]+ -->\n<!-- DO NOT EDIT: generated file; changes will be overwritten\. -->\n*/;
+  /^\n?(?:<!-- @generated -->|\{\/\* @generated \*\/\})\n(?:<!-- fingerprint: sha256:[0-9a-f]+ -->|\{\/\* fingerprint: sha256:[0-9a-f]+ \*\/\})\n(?:<!-- DO NOT EDIT: generated file; changes will be overwritten\. -->|\{\/\* DO NOT EDIT: generated file; changes will be overwritten\. \*\/\})\n*/;
 const jsonHeaderPattern =
   /^\{\n  "_generated": \{\n    "fingerprint": "sha256:[0-9a-f]+",\n    "doNotEdit": true\n  \},\n/;
 
@@ -34,9 +34,9 @@ function codeHeader(fingerprint) {
 
 function docsHeader(fingerprint) {
   return [
-    "<!-- @generated -->",
-    `<!-- fingerprint: sha256:${fingerprint} -->`,
-    "<!-- DO NOT EDIT: generated file; changes will be overwritten. -->",
+    "{/* @generated */}",
+    `{/* fingerprint: sha256:${fingerprint} */}`,
+    "{/* DO NOT EDIT: generated file; changes will be overwritten. */}",
     "",
   ].join("\n");
 }
