@@ -55,6 +55,7 @@ describe("TikTok OAuth adapters", () => {
     });
 
     expect(grant.scopes).toEqual(["user.info.basic", "video.publish"]);
+    expect(grant.providerData.credentialFamily).toBe("business-login");
     expect(refreshed.accessToken).toBe("access-2");
     expect(profile.username).toBe("business");
   });
@@ -86,7 +87,11 @@ describe("TikTok OAuth adapters", () => {
     });
 
     const authorization = await adapter.authorize({ scopes: [], state: "state" });
-    const grant = await adapter.exchangeCode({ code: "code", state: "state" });
+    const grant = await adapter.exchangeCode({
+      code: "code",
+      state: "state",
+      scopes: ["advertiser.read"],
+    });
     const advertisers = await adapter.listAdvertisers({
       accessToken: grant.accessToken,
       advertiserIds: grant.providerData.advertiser_ids ?? [],
@@ -94,6 +99,8 @@ describe("TikTok OAuth adapters", () => {
 
     expect(authorization.url).toContain("portal/auth");
     expect(grant.accessToken).toBe("advertiser-access");
+    expect(grant.scopes).toEqual(["advertiser.read"]);
+    expect(grant.providerData.credentialFamily).toBe("marketing-api");
     expect(advertisers[0]?.advertiser_id).toBe("adv-1");
   });
 

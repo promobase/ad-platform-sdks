@@ -29,6 +29,8 @@ const grant = await oauth.result.exchangeCode({
   code,
   state: callbackState,
   expectedState: storedState,
+  // Carry requested scopes when the provider omits them from its token response.
+  scopes: ["pages_show_list", "pages_manage_posts"],
 });
 
 const tokenSet = grant.match({

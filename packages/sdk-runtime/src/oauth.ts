@@ -25,6 +25,8 @@ export type OAuthExchangeInput = {
   readonly state?: string;
   readonly expectedState?: string;
   readonly codeVerifier?: string;
+  /** Requested scopes carried forward from authorization when the provider omits them. */
+  readonly scopes?: readonly string[];
 };
 
 export type OAuthTokenSet<TProvider = unknown> = {
@@ -40,6 +42,8 @@ export type OAuthTokenSet<TProvider = unknown> = {
 export type OAuthRefreshInput = {
   readonly refreshToken?: string;
   readonly accessToken?: string;
+  /** Previously requested/granted scopes when the refresh response omits them. */
+  readonly scopes?: readonly string[];
 };
 
 export type OAuthPublicMetadata = {

@@ -32,6 +32,21 @@ export interface TikTokAdvertiserTokenData {
   readonly advertiser_id?: string;
 }
 
+/** Credential families share the TikTok platform identity but not semantics. */
+export type TikTokCredentialFamily = "business-login" | "marketing-api" | "developer-compat";
+
+export type TikTokBusinessOAuthData = TokenResponse & {
+  readonly credentialFamily: "business-login";
+};
+
+export type TikTokDeveloperOAuthData = TikTokDeveloperTokenResponse & {
+  readonly credentialFamily: "developer-compat";
+};
+
+export type TikTokAdvertiserOAuthData = TikTokAdvertiserTokenData & {
+  readonly credentialFamily: "marketing-api";
+};
+
 export interface TikTokAdvertiserInfo {
   readonly advertiser_id: string;
   readonly advertiser_name: string;
@@ -115,7 +130,7 @@ const advertiserInfoResponseSchema = v.object({
   ),
 });
 
-function businessTokenSet(raw: TokenResponse): OAuthTokenSet<TokenResponse> {
+function businessTokenSet(raw: TokenResponse): OAuthTokenSet<TikTokBusinessOAuthData> {
   return {
     accessToken: raw.access_token,
     refreshToken: raw.refresh_token,
@@ -123,13 +138,13 @@ function businessTokenSet(raw: TokenResponse): OAuthTokenSet<TokenResponse> {
     scopes: raw.scope.split(" ").filter(Boolean),
     accessTokenExpiresAt: secondsFromNow(raw.expires_in),
     refreshTokenExpiresAt: secondsFromNow(raw.refresh_token_expires_in),
-    providerData: raw,
+    providerData: { ...raw, credentialFamily: "business-login" },
   };
 }
 
 function developerTokenSet(
   raw: TikTokDeveloperTokenResponse,
-): OAuthTokenSet<TikTokDeveloperTokenResponse> {
+): OAuthTokenSet<TikTokDeveloperOAuthData> {
   return {
     accessToken: raw.access_token,
     refreshToken: raw.refresh_token,
@@ -141,14 +156,14 @@ function developerTokenSet(
         .filter(Boolean) ?? [],
     accessTokenExpiresAt: secondsFromNow(raw.expires_in),
     refreshTokenExpiresAt: secondsFromNow(raw.refresh_expires_in),
-    providerData: raw,
+    providerData: { ...raw, credentialFamily: "developer-compat" },
   };
 }
 
 /** Normalized adapter for TikTok Business Login. */
 export function createTikTokBusinessOAuthAdapter(
   config: BusinessOAuthConfig,
-): OAuthAdapterWithResults<TokenResponse> & {
+): OAuthAdapterWithResults<TikTokBusinessOAuthData> & {
   getProfile(input: { accessToken: string; businessId?: string }): Promise<TikTokBusinessProfile>;
 } {
   const legacy = createBusinessOAuth(config);
@@ -202,7 +217,7 @@ export function createTikTokBusinessOAuthAdapter(
 /** Compatibility adapter for the TikTok Developer/Login Kit flow. */
 export function createTikTokDeveloperOAuthAdapter(
   config: TikTokDeveloperOAuthConfig,
-): OAuthAdapterWithResults<TikTokDeveloperTokenResponse> {
+): OAuthAdapterWithResults<TikTokDeveloperOAuthData> {
   const legacy = createTikTokDeveloperOAuth(config);
   return withOAuthResults({
     provider: AllPlatforms.TIKTOK,
@@ -258,7 +273,7 @@ export function createTikTokDeveloperOAuthAdapter(
 /** Compatibility adapter for the TikTok Marketing API advertiser flow. */
 export function createTikTokAdvertiserOAuthAdapter(
   config: TikTokAdvertiserOAuthConfig,
-): OAuthAdapterWithResults<TikTokAdvertiserTokenData> & {
+): OAuthAdapterWithResults<TikTokAdvertiserOAuthData> & {
   listAdvertisers(input: {
     accessToken: string;
     advertiserIds: readonly string[];
@@ -311,8 +326,8 @@ export function createTikTokAdvertiserOAuthAdapter(
       }
       return {
         accessToken: envelope.data.access_token,
-        scopes: [],
-        providerData: envelope.data,
+        scopes: [...(input.scopes ?? [])],
+        providerData: { ...envelope.data, credentialFamily: "marketing-api" },
       };
     },
     async listAdvertisers(input: { accessToken: string; advertiserIds: readonly string[] }) {

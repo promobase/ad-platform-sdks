@@ -107,8 +107,12 @@ export {
   createTikTokDeveloperOAuthAdapter,
   type TikTokAdvertiserInfo,
   type TikTokAdvertiserOAuthConfig,
+  type TikTokAdvertiserOAuthData,
   type TikTokAdvertiserTokenData,
+  type TikTokBusinessOAuthData,
   type TikTokBusinessProfile,
+  type TikTokCredentialFamily,
+  type TikTokDeveloperOAuthData,
 } from "./oauth-adapters.ts";
 export { TikTok } from "./namespace.ts";
 export type { TikTokCursorOptions, TikTokPaginatedResponse } from "./pagination.ts";

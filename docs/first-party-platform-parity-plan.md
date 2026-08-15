@@ -123,6 +123,15 @@ cannot accidentally pass an Instagram Login token to a Facebook Graph client.
 - Proof: Meta focused tests (83) and typecheck; TikTok Business tests (26), typecheck, and build;
   umbrella package typecheck/build/tests (25); root format, lint, docs lint, release, effect, and
   generated-fingerprint checks pass; built platform leaves import successfully from `dist`.
-- Remaining: requested OAuth scope propagation, current Meta API regeneration, Instagram/Facebook
-  webhook schema parity, curated publishing/transport gaps, TikTok transport unification, and
-  published-dist subpath verification.
+- Remaining: current Meta API regeneration, Instagram/Facebook webhook schema parity, curated
+  publishing/transport gaps, TikTok transport unification, and published-dist subpath verification.
+
+## Checkpoint — 2026-08-15 — OAuth metadata slice
+
+- Changed: `sdk-runtime` OAuth exchange/refresh inputs now accept scope context; Meta adapters
+  preserve scope context and typed Graph credential families; TikTok Business, Marketing API, and
+  Developer compatibility adapters expose typed credential-family metadata.
+- Proof: runtime, Meta, and TikTok OAuth typechecks pass; Meta OAuth fixtures (4) and TikTok OAuth
+  fixtures (3) pass; clean-commit `bun run codegen:check` passes.
+- Remaining: current Meta API regeneration, richer FB/IG webhook schema parity, curated publishing
+  gaps, and TikTok transport unification.

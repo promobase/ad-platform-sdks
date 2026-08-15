@@ -70,11 +70,12 @@ function tokenExpiry(expiresIn: number): Date {
 function facebookTokenSet(
   token: FacebookLongLivedToken,
   providerData: GraphOAuthData<unknown, FacebookLongLivedToken>,
+  scopes: readonly string[] = [],
 ): OAuthTokenSet<GraphOAuthData<unknown, FacebookLongLivedToken>> {
   return {
     accessToken: token.access_token,
     tokenType: token.token_type,
-    scopes: [],
+    scopes: [...scopes],
     accessTokenExpiresAt: tokenExpiry(token.expires_in),
     providerData,
   };
@@ -126,11 +127,15 @@ export function createFacebookOAuthAdapter(config: FacebookOAuthConfig): OAuthAd
         facebookLongLivedTokenSchema,
         await legacy.exchangeForLongLived(shortLived.access_token),
       );
-      return facebookTokenSet(longLived, {
-        shortLived,
+      return facebookTokenSet(
         longLived,
-        credentialFamily: "facebook-login",
-      });
+        {
+          shortLived,
+          longLived,
+          credentialFamily: "facebook-login",
+        },
+        input.scopes,
+      );
     },
     async refresh(input) {
       if (!input.accessToken) {
@@ -142,6 +147,7 @@ export function createFacebookOAuthAdapter(config: FacebookOAuthConfig): OAuthAd
       const refreshed = await exchangeLongLivedToken({ accessToken: input.accessToken });
       return {
         ...refreshed,
+        scopes: [...(input.scopes ?? refreshed.scopes)],
         providerData: {
           shortLived: { access_token: input.accessToken },
           longLived: refreshed.providerData,
@@ -166,11 +172,12 @@ export function createFacebookOAuthAdapter(config: FacebookOAuthConfig): OAuthAd
 function instagramTokenSet(
   shortLived: InstagramShortLivedToken,
   longLived: InstagramLongLivedToken,
+  scopes: readonly string[] = [],
 ): OAuthTokenSet<GraphOAuthData<InstagramShortLivedToken, InstagramLongLivedToken>> {
   return {
     accessToken: longLived.access_token,
     tokenType: longLived.token_type,
-    scopes: [],
+    scopes: [...scopes],
     accessTokenExpiresAt: tokenExpiry(longLived.expires_in),
     providerData: { shortLived, longLived, credentialFamily: "instagram-login" },
   };
@@ -202,7 +209,7 @@ export function createInstagramOAuthAdapter(config: InstagramOAuthConfig): OAuth
         instagramLongLivedTokenSchema,
         await legacy.exchangeForLongLived(shortLived.access_token),
       );
-      return instagramTokenSet(shortLived, longLived);
+      return instagramTokenSet(shortLived, longLived, input.scopes);
     },
     async refresh(input) {
       if (!input.accessToken) {
@@ -215,7 +222,11 @@ export function createInstagramOAuthAdapter(config: InstagramOAuthConfig): OAuth
         instagramLongLivedTokenSchema,
         await legacy.refreshToken(input.accessToken),
       );
-      return instagramTokenSet({ access_token: input.accessToken, user_id: "unknown" }, longLived);
+      return instagramTokenSet(
+        { access_token: input.accessToken, user_id: "unknown" },
+        longLived,
+        input.scopes,
+      );
     },
     async getProfile(input: { accessToken: string; id?: string }) {
       return legacy.getBusinessUserProfile(input.accessToken, input.id);
@@ -270,7 +281,7 @@ export function createThreadsOAuthAdapter(config: ThreadsOAuthConfig): OAuthAdap
       return {
         accessToken: longLived.access_token,
         tokenType: longLived.token_type,
-        scopes: [],
+        scopes: [...(input.scopes ?? [])],
         accessTokenExpiresAt: tokenExpiry(longLived.expires_in),
         providerData: { shortLived, longLived, credentialFamily: "threads-login" },
       };
@@ -289,7 +300,7 @@ export function createThreadsOAuthAdapter(config: ThreadsOAuthConfig): OAuthAdap
       return {
         accessToken: longLived.access_token,
         tokenType: longLived.token_type,
-        scopes: [],
+        scopes: [...(input.scopes ?? [])],
         accessTokenExpiresAt: tokenExpiry(longLived.expires_in),
         providerData: {
           shortLived: { access_token: input.accessToken, user_id: "unknown" },

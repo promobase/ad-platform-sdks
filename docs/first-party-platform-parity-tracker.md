@@ -19,7 +19,7 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | ID | Workstream | Status | Owner | Evidence/gap | Acceptance proof |
 | --- | --- | --- | --- | --- | --- |
 | AUTH-01 | Separate Instagram Login from Facebook Graph/Page credentials | verified | Mosaic | `createLoginClient` and `createFacebookGraphClient` select distinct hosts and expose credential-family metadata | Host/token pairing tests and distinct credential-family types pass |
-| AUTH-02 | Preserve OAuth scopes and connection-family metadata | planned | Mosaic | Meta scopes normalize to empty arrays; TikTok families collapse to platform only | Result fixtures retain scopes, provider, and family |
+| AUTH-02 | Preserve OAuth scopes and connection-family metadata | verified | Mosaic | Shared OAuth exchange/refresh inputs now carry scopes; Meta and TikTok adapters retain scopes and typed credential families while preserving platform identity | Meta and TikTok OAuth fixtures retain scopes and family metadata |
 | AUTH-03 | Validate secure OAuth state by default | planned | Mosaic + consumer integration | Legacy helpers allow optional state | Unsafe path removed or explicitly marked low-level |
 | TRAN-01 | Use one explicit Page access token in Facebook clients | planned | Mosaic | `api` and `accessToken` can diverge | Client construction rejects ambiguous credentials |
 | TRAN-02 | Unify TikTok generated and curated request transport | planned | Mosaic | Duplicate request/envelope/error/retry logic | One transport seam exercised by both surfaces |
@@ -63,8 +63,8 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 
 | ID | Capability | Status | Notes |
 | --- | --- | --- | --- |
-| TT-01 | Business OAuth | in_progress | Business adapter exists; scopes and family metadata need strengthening |
-| TT-02 | Marketing/Advertiser OAuth | in_progress | Compatibility adapter exists; refresh/revoke/scopes need explicit semantics |
+| TT-01 | Business OAuth | verified | Business adapter retains provider-granted scopes and identifies the `business-login` credential family |
+| TT-02 | Marketing/Advertiser OAuth | in_progress | Marketing adapter now identifies the `marketing-api` family and preserves caller scope context; refresh/revoke semantics remain |
 | TT-03 | Generated Marketing API | verified | Broad generated surface; live-doc refresh and scope metadata remain |
 | TT-04 | Curated Business account/content clients | in_progress | Useful clients exist; transport duplication remains |
 | TT-05 | TikTok Business webhook management | verified | Official VIDEO/COMMENT account categories plus explicit DIRECT_MESSAGE setup are typed and tested |
