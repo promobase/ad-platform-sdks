@@ -13,7 +13,8 @@ export const AmazonAdsScopes = {
   TestCreateAccount: "advertising::test:create_account",
 } as const;
 
-export type AmazonAdsScope = (typeof AmazonAdsScopes)[keyof typeof AmazonAdsScopes];
+export type AmazonAdsKnownScope = (typeof AmazonAdsScopes)[keyof typeof AmazonAdsScopes];
+export type AmazonAdsScope = AmazonAdsKnownScope | OAuthCustomScope;
 
 export interface AmazonAdsOAuthTokenResponse {
   access_token: string;
@@ -95,3 +96,4 @@ export function createAmazonAdsOAuth(config: AmazonAdsOAuthConfig) {
     },
   };
 }
+import type { OAuthCustomScope } from "@openpromo/sdk-runtime";

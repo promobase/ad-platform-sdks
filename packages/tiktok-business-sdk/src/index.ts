@@ -108,12 +108,25 @@ export {
   type TikTokAdvertiserInfo,
   type TikTokAdvertiserOAuthConfig,
   type TikTokAdvertiserOAuthData,
+  type TikTokAdvertiserOAuthScope,
   type TikTokAdvertiserTokenData,
   type TikTokBusinessOAuthData,
   type TikTokBusinessProfile,
   type TikTokCredentialFamily,
   type TikTokDeveloperOAuthData,
 } from "./oauth-adapters.ts";
+export {
+  TikTokBusinessOAuthScopes,
+  TikTokDeveloperOAuthScopes,
+  TikTokBusinessOAuthScopeSchema,
+  TikTokDeveloperOAuthScopeSchema,
+} from "./oauth-scopes.ts";
+export type {
+  KnownTikTokBusinessOAuthScope,
+  KnownTikTokDeveloperOAuthScope,
+  TikTokBusinessOAuthScope,
+  TikTokDeveloperOAuthScope,
+} from "./oauth-scopes.ts";
 export { TikTok } from "./namespace.ts";
 export type { TikTokCursorOptions, TikTokPaginatedResponse } from "./pagination.ts";
 export { TikTokCursor } from "./pagination.ts";

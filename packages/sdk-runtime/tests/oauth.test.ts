@@ -5,6 +5,7 @@ import {
   OAuthAdapterError,
   assertOAuthState,
   createPkcePair,
+  customOAuthScope,
   secondsFromNow,
   withOAuthResults,
 } from "../src/oauth.ts";
@@ -32,6 +33,17 @@ describe("OAuth runtime primitives", () => {
     const pair = await createPkcePair();
     expect(pair.codeVerifier.length).toBeGreaterThan(20);
     expect(pair.codeChallenge).toMatch(/^[A-Za-z0-9_-]+$/);
+  });
+
+  test("requires an explicit helper for custom OAuth scopes", () => {
+    expect(String(customOAuthScope("provider.future_scope"))).toBe("provider.future_scope");
+    expect(() => customOAuthScope("   ")).toThrow("OAuth custom scope cannot be empty");
+    expect(() => customOAuthScope("provider future_scope")).toThrow(
+      "OAuth custom scope must be a single scope token",
+    );
+    expect(() => customOAuthScope("provider,future_scope")).toThrow(
+      "OAuth custom scope must be a single scope token",
+    );
   });
 
   test("adds a typed Result façade without changing the throwing adapter API", async () => {

@@ -37,8 +37,13 @@ npm install @openpromo/tiktok
 
 ```ts
 import { TikTok } from "@openpromo/tiktok";
+import { TikTokBusinessOAuthScopes, TikTokDeveloperOAuthScopes } from "@openpromo/tiktok";
 
 const controller = new AbortController();
+
+// Business and Developer/Login Kit scopes are intentionally separate catalogs.
+const businessScopes = [TikTokBusinessOAuthScopes.VideoPublish];
+const developerScopes = [TikTokDeveloperOAuthScopes.VideoPublish];
 const tiktok = TikTok.createClient({
   accessToken: process.env.TIKTOK_TOKEN!,
   businessId: "biz_123",

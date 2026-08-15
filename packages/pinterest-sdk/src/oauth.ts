@@ -26,7 +26,8 @@ export const PinterestScopes = {
   UserAccountsWrite: "user_accounts:write",
 } as const;
 
-export type PinterestScope = (typeof PinterestScopes)[keyof typeof PinterestScopes];
+export type PinterestKnownScope = (typeof PinterestScopes)[keyof typeof PinterestScopes];
+export type PinterestScope = PinterestKnownScope | OAuthCustomScope;
 
 export interface PinterestOAuthTokenResponse {
   access_token: string;
@@ -121,3 +122,4 @@ export function createPinterestOAuth(config: PinterestOAuthConfig) {
     },
   };
 }
+import type { OAuthCustomScope } from "@openpromo/sdk-runtime";

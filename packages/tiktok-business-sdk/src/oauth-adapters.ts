@@ -5,6 +5,7 @@ import {
   secondsFromNow,
   type OAuthRefreshInput,
   type OAuthAdapterWithResults,
+  type OAuthCustomScope,
   type OAuthTokenSet,
   withOAuthResults,
 } from "@openpromo/sdk-runtime";
@@ -17,6 +18,7 @@ import {
   type TikTokDeveloperOAuthConfig,
   type TikTokDeveloperTokenResponse,
 } from "./developer.ts";
+import type { TikTokBusinessOAuthScope, TikTokDeveloperOAuthScope } from "./oauth-scopes.ts";
 
 export interface TikTokAdvertiserOAuthConfig {
   readonly appId: string;
@@ -46,6 +48,9 @@ export type TikTokDeveloperOAuthData = TikTokDeveloperTokenResponse & {
 export type TikTokAdvertiserOAuthData = TikTokAdvertiserTokenData & {
   readonly credentialFamily: "marketing-api";
 };
+
+/** The advertiser portal flow has no published scope catalog; custom values are explicit. */
+export type TikTokAdvertiserOAuthScope = OAuthCustomScope;
 
 export interface TikTokAdvertiserInfo {
   readonly advertiser_id: string;
@@ -197,7 +202,7 @@ function developerTokenSet(
 /** Normalized adapter for TikTok Business Login. */
 export function createTikTokBusinessOAuthAdapter(
   config: BusinessOAuthConfig,
-): OAuthAdapterWithResults<TikTokBusinessOAuthData> & {
+): OAuthAdapterWithResults<TikTokBusinessOAuthData, TikTokBusinessOAuthScope> & {
   getProfile(input: { accessToken: string; businessId?: string }): Promise<TikTokBusinessProfile>;
 } {
   const legacy = createBusinessOAuth(config);
@@ -251,7 +256,7 @@ export function createTikTokBusinessOAuthAdapter(
 /** Compatibility adapter for the TikTok Developer/Login Kit flow. */
 export function createTikTokDeveloperOAuthAdapter(
   config: TikTokDeveloperOAuthConfig,
-): OAuthAdapterWithResults<TikTokDeveloperOAuthData> {
+): OAuthAdapterWithResults<TikTokDeveloperOAuthData, TikTokDeveloperOAuthScope> {
   const legacy = createTikTokDeveloperOAuth(config);
   return withOAuthResults({
     provider: AllPlatforms.TIKTOK,
@@ -307,7 +312,7 @@ export function createTikTokDeveloperOAuthAdapter(
 /** Compatibility adapter for the TikTok Marketing API advertiser flow. */
 export function createTikTokAdvertiserOAuthAdapter(
   config: TikTokAdvertiserOAuthConfig,
-): OAuthAdapterWithResults<TikTokAdvertiserOAuthData> & {
+): OAuthAdapterWithResults<TikTokAdvertiserOAuthData, TikTokAdvertiserOAuthScope> & {
   refresh(input: OAuthRefreshInput): Promise<never>;
   revoke(input: { token: string; tokenType?: "access_token" | "refresh_token" }): Promise<never>;
   listAdvertisers(input: {

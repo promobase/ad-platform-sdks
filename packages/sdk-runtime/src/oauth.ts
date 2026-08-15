@@ -8,8 +8,34 @@ export type OAuthPkce = {
   readonly method?: "S256";
 };
 
-export type OAuthAuthorizeInput = {
-  readonly scopes: readonly string[];
+declare const oauthCustomScopeBrand: unique symbol;
+
+/** A scope accepted only through an explicit custom-scope escape hatch. */
+export type OAuthCustomScope = string & { readonly [oauthCustomScopeBrand]: true };
+
+/**
+ * Keeps broad legacy scope arrays usable while checking literal scope lists against a catalog.
+ * Use `customOAuthScope` when constructing a new custom scope in typed code.
+ */
+export type OAuthScopeInput<
+  TScope extends string,
+  TRequested extends readonly string[],
+> = string extends TRequested[number]
+  ? TRequested
+  : Exclude<TRequested[number], TScope> extends never
+    ? TRequested
+    : never;
+
+export function customOAuthScope(value: string): OAuthCustomScope {
+  if (value.trim().length === 0) throw new Error("OAuth custom scope cannot be empty");
+  if (/[\s,]/.test(value)) {
+    throw new Error("OAuth custom scope must be a single scope token");
+  }
+  return value as OAuthCustomScope;
+}
+
+export type OAuthAuthorizeInput<TScope extends string = string> = {
+  readonly scopes: readonly TScope[];
   readonly state: string;
   readonly pkce?: OAuthPkce | "auto";
 };
@@ -20,13 +46,13 @@ export type OAuthAuthorization = {
   readonly codeVerifier?: string;
 };
 
-export type OAuthExchangeInput = {
+export type OAuthExchangeInput<TScope extends string = string> = {
   readonly code: string;
   readonly state?: string;
   readonly expectedState?: string;
   readonly codeVerifier?: string;
   /** Requested scopes carried forward from authorization when the provider omits them. */
-  readonly scopes?: readonly string[];
+  readonly scopes?: readonly TScope[];
 };
 
 export type OAuthTokenSet<TProvider = unknown> = {
@@ -39,11 +65,11 @@ export type OAuthTokenSet<TProvider = unknown> = {
   readonly providerData: TProvider;
 };
 
-export type OAuthRefreshInput = {
+export type OAuthRefreshInput<TScope extends string = string> = {
   readonly refreshToken?: string;
   readonly accessToken?: string;
   /** Previously requested/granted scopes when the refresh response omits them. */
-  readonly scopes?: readonly string[];
+  readonly scopes?: readonly TScope[];
 };
 
 export type OAuthPublicMetadata = {
@@ -55,11 +81,11 @@ export type OAuthPublicMetadata = {
   readonly hasRefreshToken: boolean;
 };
 
-export type OAuthAdapter<TProvider = unknown> = {
+export type OAuthAdapter<TProvider = unknown, TScope extends string = string> = {
   readonly provider: AllPlatform;
-  authorize(input: OAuthAuthorizeInput): Promise<OAuthAuthorization>;
-  exchangeCode(input: OAuthExchangeInput): Promise<OAuthTokenSet<TProvider>>;
-  refresh?(input: OAuthRefreshInput): Promise<OAuthTokenSet<TProvider>>;
+  authorize(input: OAuthAuthorizeInput<TScope>): Promise<OAuthAuthorization>;
+  exchangeCode(input: OAuthExchangeInput<TScope>): Promise<OAuthTokenSet<TProvider>>;
+  refresh?(input: OAuthRefreshInput<TScope>): Promise<OAuthTokenSet<TProvider>>;
   revoke?(input: {
     readonly token: string;
     readonly tokenType?: "access_token" | "refresh_token";
@@ -89,14 +115,16 @@ export class OAuthAdapterError extends OAuthAdapterErrorBase {
   }
 }
 
-export type OAuthAdapterResult<TProvider = unknown> = {
+export type OAuthAdapterResult<TProvider = unknown, TScope extends string = string> = {
   readonly provider: AllPlatform;
-  authorize(input: OAuthAuthorizeInput): Promise<SdkResult<OAuthAuthorization, OAuthAdapterError>>;
+  authorize(
+    input: OAuthAuthorizeInput<TScope>,
+  ): Promise<SdkResult<OAuthAuthorization, OAuthAdapterError>>;
   exchangeCode(
-    input: OAuthExchangeInput,
+    input: OAuthExchangeInput<TScope>,
   ): Promise<SdkResult<OAuthTokenSet<TProvider>, OAuthAdapterError>>;
   refresh?(
-    input: OAuthRefreshInput,
+    input: OAuthRefreshInput<TScope>,
   ): Promise<SdkResult<OAuthTokenSet<TProvider>, OAuthAdapterError>>;
   revoke?(input: {
     readonly token: string;
@@ -104,8 +132,11 @@ export type OAuthAdapterResult<TProvider = unknown> = {
   }): Promise<SdkResult<void, OAuthAdapterError>>;
 };
 
-export type OAuthAdapterWithResults<TProvider = unknown> = OAuthAdapter<TProvider> & {
-  readonly result: OAuthAdapterResult<TProvider>;
+export type OAuthAdapterWithResults<
+  TProvider = unknown,
+  TScope extends string = string,
+> = OAuthAdapter<TProvider, TScope> & {
+  readonly result: OAuthAdapterResult<TProvider, TScope>;
 };
 
 /**
@@ -114,9 +145,13 @@ export type OAuthAdapterWithResults<TProvider = unknown> = OAuthAdapter<TProvide
  */
 export function withOAuthResults<
   TProvider,
-  TAdapter extends OAuthAdapter<TProvider> & { readonly result?: never },
->(adapter: TAdapter): TAdapter & { readonly result: OAuthAdapterResult<TProvider> } {
-  const result: OAuthAdapterResult<TProvider> = {
+  TScope extends string = string,
+  TAdapter extends OAuthAdapter<TProvider, TScope> & { readonly result?: never } = OAuthAdapter<
+    TProvider,
+    TScope
+  >,
+>(adapter: TAdapter): TAdapter & { readonly result: OAuthAdapterResult<TProvider, TScope> } {
+  const result: OAuthAdapterResult<TProvider, TScope> = {
     provider: adapter.provider,
     authorize: (input) => captureOAuthResult(adapter, "authorize", () => adapter.authorize(input)),
     exchangeCode: (input) =>
@@ -132,7 +167,7 @@ export function withOAuthResults<
   }
 
   return Object.assign(adapter, { result }) as TAdapter & {
-    readonly result: OAuthAdapterResult<TProvider>;
+    readonly result: OAuthAdapterResult<TProvider, TScope>;
   };
 }
 

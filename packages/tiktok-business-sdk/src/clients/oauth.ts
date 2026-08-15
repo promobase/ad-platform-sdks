@@ -1,5 +1,7 @@
+import type { OAuthScopeInput } from "@openpromo/sdk-runtime";
 import * as v from "valibot";
 
+import { TikTokBusinessOAuthScopes, type TikTokBusinessOAuthScope } from "../oauth-scopes.ts";
 import type { OAuthConfig, TokenInfo, TokenResponse } from "./types.ts";
 
 const TT_AUTH_BASE = "https://www.tiktok.com/v2/auth/authorize";
@@ -34,25 +36,27 @@ export function createOAuth(config: OAuthConfig) {
   const fetchImpl = config.fetch ?? fetch;
   return {
     /** Generate the authorization URL to redirect users to. */
-    getAuthorizationUrl(opts?: {
-      scopes?: string[];
+    getAuthorizationUrl<
+      const TRequested extends readonly string[] = readonly TikTokBusinessOAuthScope[],
+    >(opts?: {
+      scopes?: OAuthScopeInput<TikTokBusinessOAuthScope, TRequested>;
       state?: string;
       disableAutoAuth?: boolean;
     }): string {
       const scopes = opts?.scopes ?? [
-        "user.info.basic",
-        "user.info.username",
-        "user.info.profile",
-        "user.info.stats",
-        "user.account.type",
-        "user.insights",
-        "video.list",
-        "video.insights",
-        "video.publish",
-        "video.upload",
-        "comment.list",
-        "comment.list.manage",
-        "biz.spark.auth",
+        TikTokBusinessOAuthScopes.UserInfoBasic,
+        TikTokBusinessOAuthScopes.UserInfoUsername,
+        TikTokBusinessOAuthScopes.UserInfoProfile,
+        TikTokBusinessOAuthScopes.UserInfoStats,
+        TikTokBusinessOAuthScopes.UserAccountType,
+        TikTokBusinessOAuthScopes.UserInsights,
+        TikTokBusinessOAuthScopes.VideoList,
+        TikTokBusinessOAuthScopes.VideoInsights,
+        TikTokBusinessOAuthScopes.VideoPublish,
+        TikTokBusinessOAuthScopes.VideoUpload,
+        TikTokBusinessOAuthScopes.CommentList,
+        TikTokBusinessOAuthScopes.CommentListManage,
+        TikTokBusinessOAuthScopes.BizSparkAuth,
       ];
       const params = new URLSearchParams({
         client_key: config.clientKey,

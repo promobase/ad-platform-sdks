@@ -34,6 +34,21 @@ You don't install this directly. It's a transitive dependency of the platform SD
 - **`AllPlatforms`** — canonical cross-platform identifiers with a Valibot schema
 - **OAuth runtime contracts** — normalized token sets, state/PKCE helpers, and typed adapter errors
 
+OAuth adapters can bind their requested scopes to a provider-specific union. Inline scope literals
+are checked against that catalog; broad `string[]` values remain accepted for legacy integrations.
+Use the shared helper when a provider adds a permission before this SDK publishes an updated catalog;
+scopes returned by the provider remain raw strings for forward compatibility.
+
+```ts
+import { customOAuthScope } from "@openpromo/sdk-runtime";
+import { FacebookOAuthScopes } from "@openpromo/meta";
+
+const requested = [
+  FacebookOAuthScopes.PagesShowList,
+  customOAuthScope("pages_future_permission"),
+] as const;
+```
+
 OAuth and platform contracts are also available from the small leaf exports
 `@openpromo/sdk-runtime/oauth` and `@openpromo/sdk-runtime/platforms`.
 

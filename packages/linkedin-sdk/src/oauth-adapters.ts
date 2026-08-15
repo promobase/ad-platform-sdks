@@ -11,7 +11,7 @@ import * as v from "valibot";
 
 import type { LinkedInOrganization } from "./account.ts";
 import { createLinkedInClient } from "./client.ts";
-import { createLinkedInOAuth } from "./oauth.ts";
+import { createLinkedInOAuth, type LinkedInOAuthScope } from "./oauth.ts";
 import type { LinkedInOAuthConfig, LinkedInTokenResponse, LinkedInUserInfo } from "./types.ts";
 
 const tokenSchema = v.object({
@@ -43,9 +43,10 @@ function tokenSet(raw: LinkedInTokenResponse): OAuthTokenSet<LinkedInTokenRespon
 }
 
 /** Normalized OAuth adapter for LinkedIn member and organization publishing. */
-export function createLinkedInOAuthAdapter(
-  config: LinkedInOAuthConfig,
-): OAuthAdapterWithResults<LinkedInTokenResponse> & {
+export function createLinkedInOAuthAdapter(config: LinkedInOAuthConfig): OAuthAdapterWithResults<
+  LinkedInTokenResponse,
+  LinkedInOAuthScope
+> & {
   getUserInfo(input: { accessToken: string }): Promise<LinkedInUserInfo>;
   listOrganizations(input: { accessToken: string }): Promise<readonly LinkedInOrganization[]>;
 } {

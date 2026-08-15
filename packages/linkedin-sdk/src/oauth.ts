@@ -1,3 +1,4 @@
+import type { OAuthCustomScope, OAuthScopeInput } from "@openpromo/sdk-runtime";
 import * as v from "valibot";
 
 import type { LinkedInOAuthConfig, LinkedInTokenResponse, LinkedInUserInfo } from "./types.ts";
@@ -5,14 +6,27 @@ import type { LinkedInOAuthConfig, LinkedInTokenResponse, LinkedInUserInfo } fro
 const LINKEDIN_OAUTH_BASE = "https://www.linkedin.com/oauth/v2";
 const LINKEDIN_API_BASE = "https://api.linkedin.com/v2";
 
+export const LinkedInOAuthScopes = {
+  OpenId: "openid",
+  Profile: "profile",
+  Email: "email",
+  MemberSocial: "w_member_social",
+  OrganizationSocial: "w_organization_social",
+  OrganizationAdmin: "rw_organization_admin",
+} as const;
+
+export type LinkedInKnownOAuthScope =
+  (typeof LinkedInOAuthScopes)[keyof typeof LinkedInOAuthScopes];
+export type LinkedInOAuthScope = LinkedInKnownOAuthScope | OAuthCustomScope;
+
 const DEFAULT_SCOPES = [
-  "openid",
-  "profile",
-  "email",
-  "w_member_social",
-  "w_organization_social",
-  "rw_organization_admin",
-];
+  LinkedInOAuthScopes.OpenId,
+  LinkedInOAuthScopes.Profile,
+  LinkedInOAuthScopes.Email,
+  LinkedInOAuthScopes.MemberSocial,
+  LinkedInOAuthScopes.OrganizationSocial,
+  LinkedInOAuthScopes.OrganizationAdmin,
+] as const;
 
 const tokenSchema = v.object({
   access_token: v.string(),
@@ -37,7 +51,9 @@ export function createLinkedInOAuth(config: LinkedInOAuthConfig) {
   const fetchImpl = config.fetch ?? fetch;
 
   return {
-    getAuthorizationUrl(opts?: { scopes?: string[]; state?: string }): string {
+    getAuthorizationUrl<
+      const TRequested extends readonly string[] = readonly LinkedInOAuthScope[],
+    >(opts?: { scopes?: OAuthScopeInput<LinkedInOAuthScope, TRequested>; state?: string }): string {
       const params = new URLSearchParams({
         response_type: "code",
         client_id: config.clientId,

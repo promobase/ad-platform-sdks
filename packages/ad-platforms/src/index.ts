@@ -36,6 +36,7 @@ export type {
   DailyMetric,
   GoogleBusinessProfileClientOptions,
   GoogleBusinessProfileOAuthConfig,
+  GoogleBusinessProfileOAuthScope,
   LocalPost,
   LocalPostMetrics,
 } from "@openpromo/google-business-profile";
@@ -44,18 +45,22 @@ export type {
   XDirectMessageEvent,
   XDirectMessageEventsResponse,
   XOAuthConfig,
+  XOAuthScope,
   XOAuthTokenResponse,
 } from "@openpromo/x";
 export {
   createPkcePair as createXPkcePair,
   createXDirectMessages,
   createXOAuth,
+  OauthScope,
+  XOAuthScopes,
   X,
 } from "@openpromo/x";
 
 export type {
   YouTubeClientOptions,
   YouTubeOAuthConfig,
+  YouTubeOAuthScope,
   YouTubeOAuthTokenResponse,
   YouTubeResumableUploadOptions,
   YouTubeUploadBody,
@@ -68,10 +73,12 @@ export {
   YouTubeApiError,
   YouTubeClient,
   YouTubeUploadError,
+  YouTubeOAuthScopes,
 } from "@openpromo/youtube";
 export {
   createGoogleBusinessProfileClient,
   createGoogleBusinessProfileOAuth,
+  GoogleBusinessProfileOAuthScopes,
   GoogleBusinessProfile,
   GoogleBusinessProfileApiError,
   GoogleBusinessProfileClient,
@@ -89,6 +96,7 @@ export type {
   LinkedInImageUploadSession,
   LinkedInMultiImagePostParams,
   LinkedInOAuthConfig,
+  LinkedInOAuthScope,
   LinkedInPost,
   LinkedInPostOptions,
   LinkedInPostResult,
@@ -112,6 +120,7 @@ export {
   LinkedInApiError,
   LinkedInClient,
   LinkedInUploadError,
+  LinkedInOAuthScopes,
 } from "@openpromo/linkedin";
 
 export type {
@@ -126,6 +135,10 @@ export type {
   GraphClientOptions,
   GraphRateLimiterOptions,
   GraphUsage,
+  FacebookOAuthScope,
+  InstagramFacebookLoginOAuthScope,
+  InstagramLoginOAuthScope,
+  ThreadsOAuthScope,
   ThreadsClientOptions,
   ThreadsWebhookPayload,
   WebhookParseResult,
@@ -159,6 +172,10 @@ export {
   verifyWebhookChallenge,
   verifyWebhookSignature,
   WebhookParseError,
+  FacebookOAuthScopes,
+  InstagramFacebookLoginOAuthScopes,
+  InstagramLoginOAuthScopes,
+  ThreadsOAuthScopes,
 } from "@openpromo/meta";
 export type {
   TikTokApiClientOptions,
@@ -167,6 +184,9 @@ export type {
   TikTokDeveloperPublishStatus,
   TikTokDeveloperTokenResponse,
   TikTokDeveloperVideo,
+  TikTokBusinessOAuthScope,
+  TikTokAdvertiserOAuthScope,
+  TikTokDeveloperOAuthScope,
   TikTokRateLimiterOptions,
 } from "@openpromo/tiktok";
 // --- TikTok: direct re-exports ---
@@ -181,6 +201,8 @@ export {
   TikTokApiClient,
   TikTokApiError,
   TikTokRateLimiter,
+  TikTokBusinessOAuthScopes,
+  TikTokDeveloperOAuthScopes,
 } from "@openpromo/tiktok";
 
 // --- Snapchat ---

@@ -10,7 +10,7 @@ import {
 import * as v from "valibot";
 
 import { GoogleBusinessProfileClient } from "./client.ts";
-import { createGoogleBusinessProfileOAuth } from "./oauth.ts";
+import { createGoogleBusinessProfileOAuth, type GoogleBusinessProfileOAuthScope } from "./oauth.ts";
 import { createGoogleBusinessProfileResources } from "./resources.ts";
 import type { GoogleBusinessProfileOAuthConfig, GoogleOAuthTokenResponse } from "./types.ts";
 import type { BusinessAccount, BusinessLocation } from "./types.ts";
@@ -54,7 +54,7 @@ function tokenSet(raw: GoogleOAuthTokenResponse): OAuthTokenSet<GoogleOAuthToken
 /** Normalized OAuth adapter for Google Business Profile. */
 export function createGoogleBusinessProfileOAuthAdapter(
   config: GoogleBusinessProfileOAuthConfig,
-): OAuthAdapterWithResults<GoogleOAuthTokenResponse> & {
+): OAuthAdapterWithResults<GoogleOAuthTokenResponse, GoogleBusinessProfileOAuthScope> & {
   listAccounts(input: { accessToken: string }): Promise<readonly GoogleBusinessProfileAccount[]>;
   listLocations(input: {
     accessToken: string;

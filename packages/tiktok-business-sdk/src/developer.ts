@@ -1,4 +1,7 @@
+import type { OAuthScopeInput } from "@openpromo/sdk-runtime";
 import * as v from "valibot";
+
+import { TikTokDeveloperOAuthScopes, type TikTokDeveloperOAuthScope } from "./oauth-scopes.ts";
 
 export interface TikTokDeveloperClientOptions {
   accessToken: string;
@@ -103,19 +106,25 @@ export function createTikTokDeveloperOAuth(config: TikTokDeveloperOAuthConfig) {
   }
 
   return {
-    getAuthorizationUrl(opts: { state: string; codeChallenge: string; scopes?: string[] }): string {
+    getAuthorizationUrl<
+      const TRequested extends readonly string[] = readonly TikTokDeveloperOAuthScope[],
+    >(opts: {
+      state: string;
+      codeChallenge: string;
+      scopes?: OAuthScopeInput<TikTokDeveloperOAuthScope, TRequested>;
+    }): string {
       const params = new URLSearchParams({
         client_key: config.clientKey,
         redirect_uri: config.redirectUri,
         response_type: "code",
         scope: (
           opts.scopes ?? [
-            "user.info.basic",
-            "user.info.profile",
-            "user.info.stats",
-            "video.list",
-            "video.publish",
-            "video.upload",
+            TikTokDeveloperOAuthScopes.UserInfoBasic,
+            TikTokDeveloperOAuthScopes.UserInfoProfile,
+            TikTokDeveloperOAuthScopes.UserInfoStats,
+            TikTokDeveloperOAuthScopes.VideoList,
+            TikTokDeveloperOAuthScopes.VideoPublish,
+            TikTokDeveloperOAuthScopes.VideoUpload,
           ]
         ).join(","),
         state: opts.state,

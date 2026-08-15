@@ -1,6 +1,8 @@
 import { afterEach, expect, mock, test } from "bun:test";
 
+import { createFacebookOAuth } from "../../src/clients/facebook/index.ts";
 import { createClient } from "../../src/generated/index.ts";
+import { FacebookOAuthScopes } from "../../src/oauth-scopes.ts";
 
 const originalFetch = globalThis.fetch;
 
@@ -17,6 +19,21 @@ function mockFetchJson(body: unknown) {
 
 afterEach(() => {
   globalThis.fetch = originalFetch;
+});
+
+test("OAuth scopes check literals while preserving broad legacy arrays", () => {
+  const oauth = createFacebookOAuth({
+    appId: "app",
+    appSecret: "secret",
+    redirectUri: "https://example.test/callback",
+  });
+  oauth.getAuthorizationUrl({ scopes: [FacebookOAuthScopes.PagesManagePosts] });
+
+  const legacyScopes: string[] = ["provider_scope_added_later"];
+  oauth.getAuthorizationUrl({ scopes: legacyScopes });
+
+  // @ts-expect-error Instagram Login scopes belong to a different credential family.
+  oauth.getAuthorizationUrl({ scopes: ["instagram_business_basic"] });
 });
 
 test("field selection narrows return type via Pick<>", async () => {

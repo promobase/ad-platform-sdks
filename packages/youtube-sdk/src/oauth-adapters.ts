@@ -10,8 +10,12 @@ import {
 import * as v from "valibot";
 
 import { createYouTubeClient } from "./client.ts";
-import { createYouTubeOAuth } from "./oauth.ts";
-import type { YouTubeOAuthConfig, YouTubeOAuthTokenResponse } from "./oauth.ts";
+import {
+  createYouTubeOAuth,
+  type YouTubeOAuthConfig,
+  type YouTubeOAuthScope,
+  type YouTubeOAuthTokenResponse,
+} from "./oauth.ts";
 
 export interface YouTubeChannelAccount {
   readonly id: string;
@@ -64,9 +68,10 @@ function tokenSet(raw: YouTubeOAuthTokenResponse): OAuthTokenSet<YouTubeOAuthTok
 }
 
 /** Normalized OAuth adapter for YouTube's Google OAuth flow. */
-export function createYouTubeOAuthAdapter(
-  config: YouTubeOAuthConfig,
-): OAuthAdapterWithResults<YouTubeOAuthTokenResponse> & {
+export function createYouTubeOAuthAdapter(config: YouTubeOAuthConfig): OAuthAdapterWithResults<
+  YouTubeOAuthTokenResponse,
+  YouTubeOAuthScope
+> & {
   listChannels(input: {
     accessToken: string;
     channelId?: string;

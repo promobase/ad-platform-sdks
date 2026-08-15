@@ -16,7 +16,8 @@ export const RedditScopes = {
   History: "history",
 } as const;
 
-export type RedditScope = (typeof RedditScopes)[keyof typeof RedditScopes];
+export type RedditKnownScope = (typeof RedditScopes)[keyof typeof RedditScopes];
+export type RedditScope = RedditKnownScope | OAuthCustomScope;
 
 export interface RedditOAuthTokenResponse {
   access_token: string;
@@ -98,3 +99,4 @@ export function createRedditOAuth(config: RedditOAuthConfig) {
     },
   };
 }
+import type { OAuthCustomScope } from "@openpromo/sdk-runtime";

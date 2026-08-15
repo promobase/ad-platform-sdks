@@ -286,6 +286,12 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
     `export type { GraphRateLimiterOptions, GraphUsage } from "../rate-limiter.ts";`,
   );
   barrelLines.push(`export { Facebook, Instagram, Threads, WhatsApp } from "../namespace.ts";`);
+  barrelLines.push(
+    `export { FacebookOAuthScopes, InstagramFacebookLoginOAuthScopes, InstagramLoginOAuthScopes, ThreadsOAuthScopes, FacebookOAuthScopeSchema, InstagramFacebookLoginOAuthScopeSchema, InstagramLoginOAuthScopeSchema, ThreadsOAuthScopeSchema } from "../oauth-scopes.ts";`,
+  );
+  barrelLines.push(
+    `export type { FacebookOAuthScope, KnownFacebookOAuthScope, InstagramFacebookLoginOAuthScope, KnownInstagramFacebookLoginOAuthScope, InstagramLoginOAuthScope, KnownInstagramLoginOAuthScope, ThreadsOAuthScope, KnownThreadsOAuthScope } from "../oauth-scopes.ts";`,
+  );
   barrelLines.push("");
 
   const barrelPath = join(outputDir, "index.ts");

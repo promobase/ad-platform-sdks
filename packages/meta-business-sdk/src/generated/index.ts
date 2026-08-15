@@ -1,5 +1,5 @@
 // @generated
-// fingerprint: sha256:37432ea051da6dded4af1b38eac7a76db4ce7d6aab6084f13a74908abcdc0a1b
+// fingerprint: sha256:a124488c0258d88fbe26beef84d3a62bb960bca29e9a11ca0bf024af92ff6190
 // DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated barrel file — do not edit
 
@@ -1012,3 +1012,5 @@ export type { WebhookParseResult } from "../clients/index.ts";
 export { GraphRateLimiter } from "../rate-limiter.ts";
 export type { GraphRateLimiterOptions, GraphUsage } from "../rate-limiter.ts";
 export { Facebook, Instagram, Threads, WhatsApp } from "../namespace.ts";
+export { FacebookOAuthScopes, InstagramFacebookLoginOAuthScopes, InstagramLoginOAuthScopes, ThreadsOAuthScopes, FacebookOAuthScopeSchema, InstagramFacebookLoginOAuthScopeSchema, InstagramLoginOAuthScopeSchema, ThreadsOAuthScopeSchema } from "../oauth-scopes.ts";
+export type { FacebookOAuthScope, KnownFacebookOAuthScope, InstagramFacebookLoginOAuthScope, KnownInstagramFacebookLoginOAuthScope, InstagramLoginOAuthScope, KnownInstagramLoginOAuthScope, ThreadsOAuthScope, KnownThreadsOAuthScope } from "../oauth-scopes.ts";

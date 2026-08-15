@@ -31,6 +31,11 @@ import type {
   ShortLivedToken as ThreadsShortLivedToken,
   ThreadsUserProfile,
 } from "./clients/threads/types.ts";
+import {
+  type FacebookOAuthScope,
+  type InstagramLoginOAuthScope,
+  type ThreadsOAuthScope,
+} from "./oauth-scopes.ts";
 
 const facebookShortLivedTokenSchema = v.object({ access_token: v.string() });
 const facebookLongLivedTokenSchema = v.object({
@@ -88,7 +93,7 @@ function tokenExpiry(expiresIn: number): Date {
 function facebookTokenSet(
   token: FacebookLongLivedToken,
   providerData: GraphOAuthData<unknown, FacebookLongLivedToken>,
-  scopes: readonly string[] = [],
+  scopes: readonly FacebookOAuthScope[] = [],
 ): OAuthTokenSet<GraphOAuthData<unknown, FacebookLongLivedToken>> {
   return {
     accessToken: token.access_token,
@@ -101,7 +106,8 @@ function facebookTokenSet(
 
 /** Normalized OAuth adapter for Facebook Login and Page-token discovery. */
 export function createFacebookOAuthAdapter(config: FacebookOAuthConfig): OAuthAdapterWithResults<
-  GraphOAuthData<unknown, FacebookLongLivedToken>
+  GraphOAuthData<unknown, FacebookLongLivedToken>,
+  FacebookOAuthScope
 > & {
   exchangeLongLivedToken(input: {
     accessToken: string;
@@ -190,7 +196,7 @@ export function createFacebookOAuthAdapter(config: FacebookOAuthConfig): OAuthAd
 function instagramTokenSet(
   shortLived: InstagramShortLivedToken,
   longLived: InstagramLongLivedToken,
-  scopes: readonly string[] = [],
+  scopes: readonly InstagramLoginOAuthScope[] = [],
 ): OAuthTokenSet<GraphOAuthData<InstagramShortLivedToken, InstagramLongLivedToken>> {
   return {
     accessToken: longLived.access_token,
@@ -203,7 +209,8 @@ function instagramTokenSet(
 
 /** Normalized OAuth adapter for Instagram Login. */
 export function createInstagramOAuthAdapter(config: InstagramOAuthConfig): OAuthAdapterWithResults<
-  GraphOAuthData<InstagramShortLivedToken, InstagramLongLivedToken>
+  GraphOAuthData<InstagramShortLivedToken, InstagramLongLivedToken>,
+  InstagramLoginOAuthScope
 > & {
   getProfile(input: { accessToken: string; id?: string }): Promise<InstagramBusinessUserProfile>;
 } {
@@ -254,7 +261,8 @@ export function createInstagramOAuthAdapter(config: InstagramOAuthConfig): OAuth
 
 /** Normalized OAuth adapter for Threads Login. */
 export function createThreadsOAuthAdapter(config: ThreadsOAuthConfig): OAuthAdapterWithResults<
-  GraphOAuthData<ThreadsShortLivedToken, ThreadsLongLivedToken>
+  GraphOAuthData<ThreadsShortLivedToken, ThreadsLongLivedToken>,
+  ThreadsOAuthScope
 > & {
   getProfile(input: { accessToken: string; id?: string }): Promise<ThreadsUserProfile>;
 } {

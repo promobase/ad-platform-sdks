@@ -57,6 +57,12 @@ import {
   createInstagramOAuthAdapter,
   createThreadsOAuthAdapter,
 } from "./oauth-adapters.ts";
+import {
+  FacebookOAuthScopes,
+  InstagramFacebookLoginOAuthScopes,
+  InstagramLoginOAuthScopes,
+  ThreadsOAuthScopes,
+} from "./oauth-scopes.ts";
 
 const facebookWebhooks = {
   parse: parseFacebookWebhook,
@@ -81,6 +87,8 @@ export const Facebook = {
   createClient: createFacebookPageClient,
   createGraphClient,
   OAuth: createFacebookOAuth,
+  Scopes: FacebookOAuthScopes,
+  InstagramScopes: InstagramFacebookLoginOAuthScopes,
   oauth: createFacebookOAuthAdapter,
   Webhooks: facebookWebhooks,
 } as const;
@@ -91,6 +99,7 @@ export const Instagram = {
   createLoginClient: createInstagramLoginClient,
   createFacebookGraphClient: createFacebookGraphInstagramClient,
   OAuth: createInstagramOAuth,
+  Scopes: InstagramLoginOAuthScopes,
   oauth: createInstagramOAuthAdapter,
   Webhooks: instagramWebhooks,
 } as const;
@@ -99,6 +108,7 @@ export const Instagram = {
 export const Threads = {
   createClient: createThreadsClient,
   OAuth: createThreadsOAuth,
+  Scopes: ThreadsOAuthScopes,
   oauth: createThreadsOAuthAdapter,
   Webhooks: threadsWebhooks,
 } as const;

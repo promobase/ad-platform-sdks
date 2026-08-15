@@ -1,5 +1,7 @@
+import type { OAuthScopeInput } from "@openpromo/sdk-runtime";
 import * as v from "valibot";
 
+import { ThreadsOAuthScopes, type ThreadsOAuthScope } from "../../oauth-scopes.ts";
 import type { LongLivedToken, OAuthConfig, ShortLivedToken, ThreadsUserProfile } from "./types.ts";
 
 const THREADS_OAUTH_BASE = "https://threads.net/oauth";
@@ -21,17 +23,19 @@ const userProfileSchema = v.object({
 export function createOAuth(config: OAuthConfig) {
   const fetchImpl = config.fetch ?? fetch;
   return {
-    getAuthorizationUrl(opts?: {
-      scopes?: string[];
+    getAuthorizationUrl<
+      const TRequested extends readonly string[] = readonly ThreadsOAuthScope[],
+    >(opts?: {
+      scopes?: OAuthScopeInput<ThreadsOAuthScope, TRequested>;
       state?: string;
       codeChallenge?: string;
     }): string {
       const scopes = opts?.scopes ?? [
-        "threads_basic",
-        "threads_content_publish",
-        "threads_manage_replies",
-        "threads_read_replies",
-        "threads_manage_insights",
+        ThreadsOAuthScopes.Basic,
+        ThreadsOAuthScopes.ContentPublish,
+        ThreadsOAuthScopes.ManageReplies,
+        ThreadsOAuthScopes.ReadReplies,
+        ThreadsOAuthScopes.ManageInsights,
       ];
       const params = new URLSearchParams({
         client_id: config.appId,

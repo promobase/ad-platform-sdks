@@ -1,3 +1,4 @@
+import type { OAuthCustomScope, OAuthScopeInput } from "@openpromo/sdk-runtime";
 import * as v from "valibot";
 
 export interface YouTubeOAuthConfig {
@@ -20,6 +21,12 @@ export interface YouTubeOAuthTokenResponse {
 const AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
 const TOKEN_URL = "https://oauth2.googleapis.com/token";
 const REVOKE_URL = "https://oauth2.googleapis.com/revoke";
+export const YouTubeOAuthScopes = {
+  Upload: "https://www.googleapis.com/auth/youtube.upload",
+  ReadOnly: "https://www.googleapis.com/auth/youtube.readonly",
+} as const;
+export type YouTubeKnownOAuthScope = (typeof YouTubeOAuthScopes)[keyof typeof YouTubeOAuthScopes];
+export type YouTubeOAuthScope = YouTubeKnownOAuthScope | OAuthCustomScope;
 const tokenSchema = v.object({
   access_token: v.string(),
   expires_in: v.number(),
@@ -51,9 +58,11 @@ export function createYouTubeOAuth(config: YouTubeOAuthConfig) {
   }
 
   return {
-    getAuthorizationUrl(opts?: {
+    getAuthorizationUrl<
+      const TRequested extends readonly string[] = readonly YouTubeOAuthScope[],
+    >(opts?: {
       state?: string;
-      scopes?: string[];
+      scopes?: OAuthScopeInput<YouTubeOAuthScope, TRequested>;
       loginHint?: string;
       prompt?: "none" | "consent" | "select_account";
     }): string {
@@ -64,12 +73,7 @@ export function createYouTubeOAuth(config: YouTubeOAuthConfig) {
         access_type: "offline",
         include_granted_scopes: "true",
         prompt: opts?.prompt ?? "consent",
-        scope: (
-          opts?.scopes ?? [
-            "https://www.googleapis.com/auth/youtube.upload",
-            "https://www.googleapis.com/auth/youtube.readonly",
-          ]
-        ).join(" "),
+        scope: (opts?.scopes ?? [YouTubeOAuthScopes.Upload, YouTubeOAuthScopes.ReadOnly]).join(" "),
         ...(opts?.state ? { state: opts.state } : {}),
         ...(opts?.loginHint ? { login_hint: opts.loginHint } : {}),
       });

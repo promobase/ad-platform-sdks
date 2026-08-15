@@ -8,8 +8,32 @@ import {
 } from "../src/index.ts";
 
 type ProviderToken = { readonly remoteId: string };
+type FacebookScope = "pages_show_list" | "pages_manage_posts";
 
 describe("OAuth to connection and workflow contract", () => {
+  test("keeps requested scopes isolated to the adapter's catalog", async () => {
+    const adapter = {
+      provider: AllPlatforms.FACEBOOK,
+      async authorize(input: {
+        readonly scopes: readonly FacebookScope[];
+        readonly state: string;
+      }) {
+        return { url: "https://provider.test/authorize", state: input.state };
+      },
+      async exchangeCode(_input): Promise<OAuthTokenSet<ProviderToken>> {
+        return {
+          accessToken: "access-secret",
+          scopes: ["pages_show_list"],
+          providerData: { remoteId: "page-1" },
+        };
+      },
+    } satisfies OAuthAdapter<ProviderToken, FacebookScope>;
+
+    await adapter.authorize({ scopes: ["pages_show_list"], state: "state-1" });
+    // @ts-expect-error Instagram scopes must not be accepted by a Facebook adapter.
+    await adapter.authorize({ scopes: ["instagram_business_basic"], state: "state-1" });
+  });
+
   test("keeps provider transport, account mapping, and workflow steps separate", async () => {
     const calls: string[] = [];
     const adapter = {

@@ -42,6 +42,7 @@ import {
   createTikTokBusinessOAuthAdapter,
   createTikTokDeveloperOAuthAdapter,
 } from "./oauth-adapters.ts";
+import { TikTokBusinessOAuthScopes, TikTokDeveloperOAuthScopes } from "./oauth-scopes.ts";
 import type { TikTokCursorOptions } from "./pagination.ts";
 import { TikTokCursor } from "./pagination.ts";
 import type { TikTokRateLimiterOptions } from "./rate-limiter.ts";
@@ -88,6 +89,7 @@ export const TikTok = {
   /** Create an OAuth handler for TikTok Business API auth flows. */
   OAuth: createTikTokOAuth,
   oauth: createTikTokBusinessOAuthAdapter,
+  Scopes: TikTokBusinessOAuthScopes,
 
   /** Create a webhook management client (CRUD for webhook subscriptions). */
   createWebhooks: createTikTokWebhooks,
@@ -114,6 +116,7 @@ export const TikTok = {
     createClient: createTikTokDeveloperClient,
     OAuth: createTikTokDeveloperOAuth,
     oauth: createTikTokDeveloperOAuthAdapter,
+    Scopes: TikTokDeveloperOAuthScopes,
     createPkcePair: createTikTokDeveloperPkcePair,
   },
 

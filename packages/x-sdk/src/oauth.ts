@@ -1,4 +1,20 @@
+import type { OAuthCustomScope, OAuthScopeInput } from "@openpromo/sdk-runtime";
 import * as v from "valibot";
+
+import { OauthScope } from "./generated/api/types/OauthScope.ts";
+
+export type XOAuthScope = OauthScope | OAuthCustomScope;
+
+/** X API OAuth scopes used by the normalized adapter defaults. */
+export const XOAuthScopes = {
+  TweetRead: OauthScope.TweetRead,
+  TweetWrite: OauthScope.TweetWrite,
+  UsersRead: OauthScope.UsersRead,
+  MediaWrite: OauthScope.MediaWrite,
+  DmRead: OauthScope.DmRead,
+  DmWrite: OauthScope.DmWrite,
+  OfflineAccess: OauthScope.OfflineAccess,
+} as const;
 
 export interface XOAuthConfig {
   clientId: string;
@@ -57,20 +73,24 @@ export function createXOAuth(config: XOAuthConfig) {
   }
 
   return {
-    getAuthorizationUrl(opts: { state: string; codeChallenge: string; scopes?: string[] }): string {
+    getAuthorizationUrl<const TRequested extends readonly string[] = readonly XOAuthScope[]>(opts: {
+      state: string;
+      codeChallenge: string;
+      scopes?: OAuthScopeInput<XOAuthScope, TRequested>;
+    }): string {
       const params = new URLSearchParams({
         response_type: "code",
         client_id: config.clientId,
         redirect_uri: config.redirectUri,
         scope: (
           opts.scopes ?? [
-            "tweet.read",
-            "tweet.write",
-            "users.read",
-            "media.write",
-            "dm.read",
-            "dm.write",
-            "offline.access",
+            XOAuthScopes.TweetRead,
+            XOAuthScopes.TweetWrite,
+            XOAuthScopes.UsersRead,
+            XOAuthScopes.MediaWrite,
+            XOAuthScopes.DmRead,
+            XOAuthScopes.DmWrite,
+            XOAuthScopes.OfflineAccess,
           ]
         ).join(" "),
         state: opts.state,

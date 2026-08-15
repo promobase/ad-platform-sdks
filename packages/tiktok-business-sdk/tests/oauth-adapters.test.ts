@@ -1,5 +1,7 @@
 import { describe, expect, test } from "bun:test";
 
+import { customOAuthScope } from "@openpromo/sdk-runtime";
+
 import {
   createTikTokAdvertiserOAuthAdapter,
   createTikTokBusinessOAuthAdapter,
@@ -95,7 +97,7 @@ describe("TikTok OAuth adapters", () => {
       code: "code",
       state: "state",
       expectedState: "state",
-      scopes: ["advertiser.read"],
+      scopes: [customOAuthScope("advertiser.read")],
     });
     const advertisers = await adapter.listAdvertisers({
       accessToken: grant.accessToken,

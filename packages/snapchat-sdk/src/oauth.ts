@@ -16,7 +16,8 @@ export const SnapchatScopes = {
   Profile: "snapchat-profile-api",
 } as const;
 
-export type SnapchatScope = (typeof SnapchatScopes)[keyof typeof SnapchatScopes];
+export type SnapchatKnownScope = (typeof SnapchatScopes)[keyof typeof SnapchatScopes];
+export type SnapchatScope = SnapchatKnownScope | OAuthCustomScope;
 
 export interface SnapchatOAuthTokenResponse {
   access_token: string;
@@ -96,3 +97,4 @@ export function createSnapchatOAuth(config: SnapchatOAuthConfig) {
     },
   };
 }
+import type { OAuthCustomScope } from "@openpromo/sdk-runtime";

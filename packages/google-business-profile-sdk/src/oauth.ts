@@ -1,9 +1,18 @@
+import type { OAuthCustomScope, OAuthScopeInput } from "@openpromo/sdk-runtime";
 import * as v from "valibot";
 
 import type { GoogleBusinessProfileOAuthConfig, GoogleOAuthTokenResponse } from "./types.ts";
 
 const AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
 const TOKEN_URL = "https://oauth2.googleapis.com/token";
+export const GoogleBusinessProfileOAuthScopes = {
+  BusinessManage: "https://www.googleapis.com/auth/business.manage",
+} as const;
+export type GoogleBusinessProfileKnownOAuthScope =
+  (typeof GoogleBusinessProfileOAuthScopes)[keyof typeof GoogleBusinessProfileOAuthScopes];
+export type GoogleBusinessProfileOAuthScope =
+  | GoogleBusinessProfileKnownOAuthScope
+  | OAuthCustomScope;
 const tokenSchema = v.object({
   access_token: v.string(),
   expires_in: v.number(),
@@ -35,9 +44,11 @@ export function createGoogleBusinessProfileOAuth(config: GoogleBusinessProfileOA
   }
 
   return {
-    getAuthorizationUrl(opts?: {
+    getAuthorizationUrl<
+      const TRequested extends readonly string[] = readonly GoogleBusinessProfileOAuthScope[],
+    >(opts?: {
       state?: string;
-      scopes?: string[];
+      scopes?: OAuthScopeInput<GoogleBusinessProfileOAuthScope, TRequested>;
       loginHint?: string;
       prompt?: "none" | "consent" | "select_account";
     }): string {
@@ -47,7 +58,7 @@ export function createGoogleBusinessProfileOAuth(config: GoogleBusinessProfileOA
         response_type: "code",
         access_type: "offline",
         include_granted_scopes: "true",
-        scope: (opts?.scopes ?? ["https://www.googleapis.com/auth/business.manage"]).join(" "),
+        scope: (opts?.scopes ?? [GoogleBusinessProfileOAuthScopes.BusinessManage]).join(" "),
         prompt: opts?.prompt ?? "consent",
         ...(opts?.state ? { state: opts.state } : {}),
         ...(opts?.loginHint ? { login_hint: opts.loginHint } : {}),

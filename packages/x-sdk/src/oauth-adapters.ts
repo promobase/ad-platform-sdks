@@ -10,7 +10,12 @@ import {
 } from "@openpromo/sdk-runtime";
 import * as v from "valibot";
 
-import { createXOAuth, type XOAuthConfig, type XOAuthTokenResponse } from "./oauth.js";
+import {
+  createXOAuth,
+  type XOAuthConfig,
+  type XOAuthScope,
+  type XOAuthTokenResponse,
+} from "./oauth.js";
 
 export interface XUserAccount {
   readonly id: string;
@@ -47,9 +52,10 @@ function tokenSet(raw: XOAuthTokenResponse): OAuthTokenSet<XOAuthTokenResponse> 
 }
 
 /** Normalized PKCE adapter for X OAuth 2.0. */
-export function createXOAuthAdapter(
-  config: XOAuthConfig,
-): OAuthAdapterWithResults<XOAuthTokenResponse> & {
+export function createXOAuthAdapter(config: XOAuthConfig): OAuthAdapterWithResults<
+  XOAuthTokenResponse,
+  XOAuthScope
+> & {
   getUserInfo(input: { accessToken: string }): Promise<XUserAccount>;
 } {
   const legacy = createXOAuth(config);

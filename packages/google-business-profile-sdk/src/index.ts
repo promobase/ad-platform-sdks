@@ -1,12 +1,17 @@
 import { GoogleBusinessProfileClient } from "./client.ts";
 import { createGoogleBusinessProfileOAuthAdapter } from "./oauth-adapters.ts";
-import { createGoogleBusinessProfileOAuth } from "./oauth.ts";
+import { createGoogleBusinessProfileOAuth, GoogleBusinessProfileOAuthScopes } from "./oauth.ts";
 import { createGoogleBusinessProfileResources } from "./resources.ts";
 import type { GoogleBusinessProfileClientOptions } from "./types.ts";
 
 export { GoogleBusinessProfileClient } from "./client.ts";
 export { GoogleBusinessProfileApiError } from "./errors.ts";
-export { createGoogleBusinessProfileOAuth } from "./oauth.ts";
+export {
+  createGoogleBusinessProfileOAuth,
+  GoogleBusinessProfileOAuthScopes,
+  type GoogleBusinessProfileKnownOAuthScope,
+  type GoogleBusinessProfileOAuthScope,
+} from "./oauth.ts";
 export {
   createGoogleBusinessProfileOAuthAdapter,
   type GoogleBusinessProfileAccount,
@@ -25,4 +30,5 @@ export const GoogleBusinessProfile = {
   createClient: createGoogleBusinessProfileClient,
   OAuth: createGoogleBusinessProfileOAuth,
   oauth: createGoogleBusinessProfileOAuthAdapter,
+  Scopes: GoogleBusinessProfileOAuthScopes,
 };

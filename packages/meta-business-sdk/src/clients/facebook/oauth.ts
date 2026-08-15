@@ -1,5 +1,7 @@
+import type { OAuthScopeInput } from "@openpromo/sdk-runtime";
 import * as v from "valibot";
 
+import { FacebookOAuthScopes, type FacebookOAuthScope } from "../../oauth-scopes.ts";
 import type {
   FacebookPageInfo,
   FacebookPermission,
@@ -67,14 +69,16 @@ export function createOAuth(config: OAuthConfig) {
   const requestInit: RequestInit = { signal: config.signal };
   return {
     /** Generate the authorization URL to redirect users to. */
-    getAuthorizationUrl(opts?: { scopes?: string[]; state?: string }): string {
+    getAuthorizationUrl<
+      const TRequested extends readonly string[] = readonly FacebookOAuthScope[],
+    >(opts?: { scopes?: OAuthScopeInput<FacebookOAuthScope, TRequested>; state?: string }): string {
       const scopes = opts?.scopes ?? [
-        "pages_show_list",
-        "pages_manage_posts",
-        "pages_manage_engagement",
-        "pages_read_engagement",
-        "pages_read_user_engagement",
-        "publish_video",
+        FacebookOAuthScopes.PagesShowList,
+        FacebookOAuthScopes.PagesManagePosts,
+        FacebookOAuthScopes.PagesManageEngagement,
+        FacebookOAuthScopes.PagesReadEngagement,
+        FacebookOAuthScopes.PagesReadUserEngagement,
+        FacebookOAuthScopes.PublishVideo,
       ];
       const params = new URLSearchParams({
         client_id: config.appId,

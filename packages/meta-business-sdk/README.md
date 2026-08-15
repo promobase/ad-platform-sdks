@@ -37,6 +37,17 @@ import { Facebook, Instagram, Threads, createGraphClient } from "@openpromo/meta
 
 const graph = createGraphClient({ accessToken: process.env.META_TOKEN! });
 
+// OAuth scopes are isolated by credential family and autocomplete in TypeScript.
+import { FacebookOAuthScopes } from "@openpromo/meta";
+import { customOAuthScope } from "@openpromo/sdk-runtime";
+const oauth = Facebook.OAuth({ appId, appSecret, redirectUri });
+const authorizationUrl = oauth.getAuthorizationUrl({
+  scopes: [FacebookOAuthScopes.PagesShowList, FacebookOAuthScopes.PagesManagePosts],
+  state: "csrf-state",
+});
+// Future provider scopes require an explicit opt-in:
+void customOAuthScope("pages_future_permission");
+
 // Instagram publishing
 const ig = Instagram.createClient({ api: graph, igAccountId: "ig_123" });
 await ig.media.publishVideo({

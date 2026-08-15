@@ -29,7 +29,12 @@ export {
 export { createComments, type LinkedInCommentResult } from "./comments.ts";
 export { LinkedInApiError, LinkedInUploadError } from "./errors.ts";
 export { createClient, LinkedIn } from "./namespace.ts";
-export { createLinkedInOAuth } from "./oauth.ts";
+export {
+  createLinkedInOAuth,
+  LinkedInOAuthScopes,
+  type LinkedInKnownOAuthScope,
+  type LinkedInOAuthScope,
+} from "./oauth.ts";
 export { createLinkedInOAuthAdapter } from "./oauth-adapters.ts";
 export { createPosts } from "./posts.ts";
 export {

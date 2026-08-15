@@ -1,5 +1,7 @@
+import type { OAuthScopeInput } from "@openpromo/sdk-runtime";
 import * as v from "valibot";
 
+import { InstagramLoginOAuthScopes, type InstagramLoginOAuthScope } from "../../oauth-scopes.ts";
 import type {
   InstagramBusinessUserProfile,
   LongLivedToken,
@@ -36,13 +38,18 @@ export function createOAuth(config: OAuthConfig) {
     /**
      * Generate the authorization URL to redirect users to.
      */
-    getAuthorizationUrl(opts?: { scopes?: string[]; state?: string }): string {
+    getAuthorizationUrl<
+      const TRequested extends readonly string[] = readonly InstagramLoginOAuthScope[],
+    >(opts?: {
+      scopes?: OAuthScopeInput<InstagramLoginOAuthScope, TRequested>;
+      state?: string;
+    }): string {
       const scopes = opts?.scopes ?? [
-        "instagram_business_basic",
-        "instagram_business_content_publish",
-        "instagram_business_manage_comments",
-        "instagram_business_manage_insights",
-        "instagram_business_manage_messages",
+        InstagramLoginOAuthScopes.BusinessBasic,
+        InstagramLoginOAuthScopes.BusinessContentPublish,
+        InstagramLoginOAuthScopes.BusinessManageComments,
+        InstagramLoginOAuthScopes.BusinessManageInsights,
+        InstagramLoginOAuthScopes.BusinessManageMessages,
       ];
       const params = new URLSearchParams({
         client_id: config.appId,
