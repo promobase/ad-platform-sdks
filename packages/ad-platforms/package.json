@@ -123,18 +123,6 @@
       "import": "./dist/effect/facebook.js",
       "default": "./dist/effect/facebook.js"
     },
-    "./instagram/effect": {
-      "bun": "./src/effect/instagram.ts",
-      "types": "./dist/effect/instagram.d.ts",
-      "import": "./dist/effect/instagram.js",
-      "default": "./dist/effect/instagram.js"
-    },
-    "./threads/effect": {
-      "bun": "./src/effect/threads.ts",
-      "types": "./dist/effect/threads.d.ts",
-      "import": "./dist/effect/threads.js",
-      "default": "./dist/effect/threads.js"
-    },
     "./tiktok/effect": {
       "bun": "./src/effect/tiktok.ts",
       "types": "./dist/effect/tiktok.d.ts",

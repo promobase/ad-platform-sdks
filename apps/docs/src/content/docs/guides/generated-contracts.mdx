@@ -6,11 +6,13 @@ sidebar:
   label: Generated contracts
 ---
 
-Every generated platform package emits three views of the same canonical provider IR:
+Generated platform packages expose views of the same canonical provider IR where the source
+supports them:
 
 - `types` for compile-time TypeScript models and endpoint contracts;
 - `valibot` for lightweight runtime validation at untrusted boundaries;
-- `effect` for typed Effect schemas, endpoint descriptors, and the Effect client.
+- `effect` for typed Effect schemas, endpoint descriptors, and the Effect client when a source-backed
+  Effect partition exists.
 
 The generated surfaces are provider-specific and opt-in. They do not replace the hand-authored
 publishing, OAuth, webhook, or messaging clients.
@@ -60,7 +62,7 @@ the provider has multiple generated contracts:
 
 | Package | Generated surfaces |
 | --- | --- |
-| `@openpromo/meta` | `/types`, `/valibot`, `/facebook/effect`, `/instagram/effect`, `/threads/effect` |
+| `@openpromo/meta` | `/types`, `/valibot`, `/facebook/effect` |
 | `@openpromo/tiktok` | `/types`, `/valibot`, `/effect` |
 | `@openpromo/google-ads` | `/v25/types`, `/v25/valibot`, `/v25/effect` |
 | `@openpromo/google-business-profile` | `/types`, `/valibot`, `/effect` |
@@ -74,5 +76,7 @@ the provider has multiple generated contracts:
 | `@openpromo/amazon-ads` | Per-surface `/types`, `/valibot`, `/effect` subpaths |
 
 For example, Amazon Ads uses `/sponsored-products/types` and `/api/valibot`, while Meta's Effect
-contracts are available through `/facebook/effect`, `/instagram/effect`, and `/threads/effect`.
+contracts are available through `/facebook/effect`. Instagram and Threads currently use their
+provider-native clients plus the shared generated TypeScript/Valibot contracts; they do not expose
+Facebook-shaped Effect aliases.
 The [API reference](/reference) shows the source version and coverage for each platform.

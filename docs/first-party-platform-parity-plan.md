@@ -111,7 +111,7 @@ cannot accidentally pass an Instagram Login token to a Facebook Graph client.
 ## Current state
 
 - Status: in_progress
-- Completed slices: Instagram credential-family transport split; Meta verifier consolidation; TikTok Business webhook Valibot/leaf parity
+- Completed slices: Instagram credential-family transport split; Meta verifier consolidation; TikTok Business webhook Valibot/leaf parity; removal of misleading Meta Effect aliases
 - Current blocker: none
 - Consumer impact: no OpenPromo changes until adapter parity is verified
 
@@ -135,3 +135,13 @@ cannot accidentally pass an Instagram Login token to a Facebook Graph client.
   fixtures (3) pass; clean-commit `bun run codegen:check` passes.
 - Remaining: current Meta API regeneration, richer FB/IG webhook schema parity, curated publishing
   gaps, and TikTok transport unification.
+
+## Checkpoint — 2026-08-15 — generated Effect partition
+
+- Changed: removed the misleading `@openpromo/meta/instagram/effect`,
+  `@openpromo/meta/threads/effect`, and umbrella aliases; Nimbus reference generation now emits a
+  truthful native TypeScript/Valibot note when no generated Effect partition exists.
+- Proof: generated-contract docs and package exports no longer advertise Facebook-shaped aliases;
+  the next package/codegen checks will verify the public surface.
+- Remaining: create a true Instagram/Threads Effect partition only if a source-backed IR exists;
+  otherwise keep the aliases absent.

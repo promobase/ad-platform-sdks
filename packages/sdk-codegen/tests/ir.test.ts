@@ -274,3 +274,30 @@ test("Nimbus reference generation is deterministic and covers endpoints and mode
     await readFile(join(outputDir, "youtube", "models", "video", "index.mdx"), "utf8"),
   ).toContain("published_at");
 });
+
+test("Nimbus reference generation does not advertise an unpartitioned Meta Effect client", async () => {
+  const instagramIr = {
+    ...fixture,
+    platform: "instagram",
+    source: {
+      kind: "handwritten",
+      location: "meta-business-sdk/instagram",
+      revision: "test",
+    },
+    endpoints: fixture.endpoints.map((endpoint) => ({
+      ...endpoint,
+      id: endpoint.id.replace("Videos", "InstagramMedia"),
+      operationId: endpoint.operationId.replace("youtube", "instagram"),
+      platform: "instagram",
+    })),
+  } as unknown as SdkIr;
+  const outputDir = await mkdtemp(join(tmpdir(), "openpromo-instagram-docs-"));
+
+  await writeNimbusReference({ outputDir, ir: instagramIr });
+
+  const index = await readFile(join(outputDir, "instagram", "index.mdx"), "utf8");
+  expect(index).not.toContain("createEffectClient");
+  expect(index).not.toContain("@openpromo/meta/instagram/effect");
+  expect(index).toContain("provider-native client");
+  expect(index).toContain("TypeScript/Valibot");
+});

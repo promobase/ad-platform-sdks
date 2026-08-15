@@ -11,8 +11,8 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | Platform | OAuth | Transport/CRUD | Publishing | Webhooks | Generated contracts | Public leaf | Overall |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Facebook | in_progress | in_progress | in_progress | in_progress | verified with refresh needed | verified | in_progress |
-| Instagram | in_progress | in_progress | in_progress | in_progress | blocked by misleading Effect alias | verified | in_progress |
-| TikTok Business | in_progress | in_progress | in_progress | in_progress | verified with scope metadata gap | planned | in_progress |
+| Instagram | in_progress | in_progress | in_progress | in_progress | verified: no misleading Effect alias | verified | in_progress |
+| TikTok Business | in_progress | in_progress | in_progress | in_progress | verified with scope metadata gap | verified | in_progress |
 
 ## Cross-platform work items
 
@@ -28,7 +28,7 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | WEB-02 | Expand Meta webhook schemas/subscription defaults | planned | Mosaic | Delivery/read/postback/referral and Instagram current fields incomplete | Provider fixture corpus and discriminated event tests |
 | WEB-03 | Add TikTok Business webhook leaf and Valibot schemas | verified | Mosaic | TikTok webhook schemas now use Valibot; `@openpromo/tiktok/webhooks` and umbrella `@openpromo/ad-platforms/tiktok/webhooks` build | Leaf and umbrella builds pass; webhook fixtures pass |
 | WEB-04 | Reconcile TikTok Business webhook event management | verified | Mosaic | Account management is limited to VIDEO/COMMENT and Business Messaging has explicit DIRECT_MESSAGE setup | Official categories and setup behavior are fixture-tested |
-| GEN-01 | Correct Instagram generated Effect partition | planned | Mosaic codegen | Instagram Effect path points to Facebook descriptors | Either true Instagram partition or remove misleading alias |
+| GEN-01 | Correct Instagram generated Effect partition | verified | Mosaic codegen | Removed Facebook-shaped Instagram and Threads Effect aliases; Nimbus reference generation now states when a platform has no generated Effect contract | No public Instagram/Threads alias points to Facebook descriptors |
 | GEN-02 | Populate documented required scopes/capabilities | planned | Mosaic codegen | Generated Meta/TikTok descriptors mostly expose empty scopes | Source-backed scope metadata fixtures |
 | PUB-01 | Add TikTok umbrella platform leaf | verified | Mosaic | `@openpromo/ad-platforms/tiktok` and `/tiktok/webhooks` source/build entries exist | Umbrella build and dist subpath imports pass |
 | PUB-02 | Verify all platform-first exports against dist | planned | Mosaic release | Existing tests import source files directly | Build then import every published subpath |
@@ -57,7 +57,7 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | IG-06 | Comments/moderation | in_progress | Core actions exist; replies and comment toggles remain |
 | IG-07 | Account/media insights | planned | Account insights need a curated typed client |
 | IG-08 | Webhooks/subscriptions | in_progress | Current change fields and defaults are incomplete |
-| IG-09 | Generated Effect entrypoint | blocked | Current Instagram alias is Facebook-shaped |
+| IG-09 | Generated Effect entrypoint | verified | No misleading Instagram Effect entrypoint is published; use native client plus generated TypeScript/Valibot contracts until a true partition exists |
 
 ## TikTok Business detail
 

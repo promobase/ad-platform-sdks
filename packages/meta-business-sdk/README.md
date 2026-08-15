@@ -100,8 +100,10 @@ const campaign: CampaignFields = parse(CampaignFieldsSchema, input);
 ```
 
 `@openpromo/meta/facebook/effect` provides the Effect schemas and endpoint
-descriptors for the generated Graph contract. The same generated contract is
-available through the direct `instagram/effect` and `threads/effect` aliases.
+descriptors for the generated Graph contract. Instagram and Threads do not
+currently expose generated Effect aliases because the underlying Meta IR is
+Facebook-shaped; use their provider-native clients and generated TypeScript/
+Valibot contracts instead.
 These generated contract surfaces are separate from the hand-authored
 `@openpromo/meta/webhooks` Valibot schemas, which model provider webhook
 payloads and event extraction.

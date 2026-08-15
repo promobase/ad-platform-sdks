@@ -12,7 +12,7 @@ const PLATFORM_DETAILS: Record<
   {
     readonly label: string;
     readonly packageName: string;
-    readonly effectImport: string;
+    readonly effectImport?: string;
     readonly order: number;
   }
 > = {
@@ -115,13 +115,11 @@ const PLATFORM_DETAILS: Record<
   instagram: {
     label: "Instagram",
     packageName: "@openpromo/meta",
-    effectImport: "@openpromo/meta/instagram/effect",
     order: 12,
   },
   threads: {
     label: "Threads",
     packageName: "@openpromo/meta",
-    effectImport: "@openpromo/meta/threads/effect",
     order: 13,
   },
 };
@@ -267,6 +265,18 @@ function emitPlatformIndex(
   endpointPages: readonly ReferencePage<EndpointIr>[],
   modelPages: readonly ReferencePage<ModelIr>[],
 ): string {
+  const effectExample = details.effectImport
+    ? [
+        "```ts",
+        `import { createEffectClient } from ${JSON.stringify(details.effectImport)};`,
+        "",
+        "const client = createEffectClient();",
+        "```",
+      ]
+    : [
+        `The ${details.label} surface does not currently expose a generated Effect contract. Use its provider-native client and generated TypeScript/Valibot contracts instead.`,
+      ];
+
   const lines = [
     frontmatter({
       title: `${details.label} SDK reference`,
@@ -276,17 +286,15 @@ function emitPlatformIndex(
       sidebar: { order: details.order, label: details.label },
     }),
     generatedNotice(ir),
-    `Install the platform package and import either its high-level client or its generated Effect client.`,
+    details.effectImport
+      ? `Install the platform package and import either its high-level client or its generated Effect client.`
+      : `Install the platform package and use its provider-native client with the generated TypeScript or Valibot contracts.`,
     "",
     "```bash",
     `bun add ${details.packageName}`,
     "```",
     "",
-    "```ts",
-    `import { createEffectClient } from ${JSON.stringify(details.effectImport)};`,
-    "",
-    "const client = createEffectClient();",
-    "```",
+    ...effectExample,
     "",
     "| Contract | Value |",
     "| --- | --- |",
