@@ -1,11 +1,5 @@
-import type {
-  AddPropertyOptions,
-  PropertyInfo,
-  TikTokClientOptions,
-  TikTokResponse,
-} from "./types.ts";
-
-const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
+import { tiktokAppRequest, tiktokRequest } from "./request.ts";
+import type { AddPropertyOptions, PropertyInfo, TikTokClientOptions } from "./types.ts";
 
 type PropertyTypeApi = 1 | 2;
 
@@ -22,42 +16,7 @@ function propertyTypeFromApi(value: PropertyTypeApi): "DOMAIN" | "URL_PREFIX" {
  * TikTok requires video URLs to be on verified domains before publishing.
  */
 export function createProperties(opts: TikTokClientOptions & { appId: string; appSecret: string }) {
-  const { accessToken, businessId, appId, appSecret } = opts;
-  const fetchImpl = opts.fetch ?? fetch;
-
-  async function get<T>(path: string, query: Record<string, string>): Promise<T> {
-    const params = new URLSearchParams(query);
-    const response = await fetchImpl(`${TT_API_BASE}${path}?${params.toString()}`, {
-      headers: { "Access-Token": accessToken },
-      signal: opts.signal,
-    });
-    const body = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || body.code !== 0) {
-      throw new Error(
-        `TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`,
-      );
-    }
-    return body.data;
-  }
-
-  async function post<T>(path: string, payload: Record<string, unknown>): Promise<T> {
-    const response = await fetchImpl(`${TT_API_BASE}${path}`, {
-      method: "POST",
-      signal: opts.signal,
-      headers: {
-        "Access-Token": accessToken,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-    const body = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || body.code !== 0) {
-      throw new Error(
-        `TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`,
-      );
-    }
-    return body.data;
-  }
+  const { businessId, appId, appSecret } = opts;
 
   function normalize(raw: {
     property_type: PropertyTypeApi;
@@ -79,7 +38,7 @@ export function createProperties(opts: TikTokClientOptions & { appId: string; ap
   return {
     /** List all URL properties (domains + URL prefixes) for the account. */
     async list(): Promise<PropertyInfo[]> {
-      const data = await get<{
+      const data = await tiktokRequest<{
         property_list?: Array<{
           property_type: PropertyTypeApi;
           property_url: string;
@@ -87,13 +46,17 @@ export function createProperties(opts: TikTokClientOptions & { appId: string; ap
           signature?: string;
           file_name?: string;
         }>;
-      }>("/business/property/list/", { business_id: businessId, app_id: appId, secret: appSecret });
+      }>(opts, {
+        method: "GET",
+        path: "/business/property/list/",
+        query: { business_id: businessId, app_id: appId, secret: appSecret },
+      });
       return data.property_list?.map(normalize) ?? [];
     },
 
     /** Add a URL property (domain or URL prefix) for domain verification. */
     async add(params: AddPropertyOptions): Promise<PropertyInfo> {
-      const data = await post<{
+      const data = await tiktokRequest<{
         url_property_info: {
           property_type: PropertyTypeApi;
           url: string;
@@ -101,13 +64,17 @@ export function createProperties(opts: TikTokClientOptions & { appId: string; ap
           signature: string;
           file_name: string;
         };
-      }>("/business/property/add/", {
-        business_id: businessId,
-        app_id: appId,
-        secret: appSecret,
-        url_property_meta: {
-          url: params.propertyUrl,
-          property_type: propertyTypeToApi(params.propertyType),
+      }>(opts, {
+        method: "POST",
+        path: "/business/property/add/",
+        body: {
+          business_id: businessId,
+          app_id: appId,
+          secret: appSecret,
+          url_property_meta: {
+            url: params.propertyUrl,
+            property_type: propertyTypeToApi(params.propertyType),
+          },
         },
       });
       return normalize(data.url_property_info);
@@ -115,7 +82,7 @@ export function createProperties(opts: TikTokClientOptions & { appId: string; ap
 
     /** Verify (check) a URL property's verification status. */
     async verify(params: AddPropertyOptions): Promise<PropertyInfo> {
-      const data = await post<{
+      const data = await tiktokRequest<{
         url_property_info: {
           property_type: PropertyTypeApi;
           url: string;
@@ -123,13 +90,17 @@ export function createProperties(opts: TikTokClientOptions & { appId: string; ap
           signature: string;
           file_name: string;
         };
-      }>("/business/property/verify/", {
-        business_id: businessId,
-        app_id: appId,
-        secret: appSecret,
-        url_property_meta: {
-          url: params.propertyUrl,
-          property_type: propertyTypeToApi(params.propertyType),
+      }>(opts, {
+        method: "POST",
+        path: "/business/property/verify/",
+        body: {
+          business_id: businessId,
+          app_id: appId,
+          secret: appSecret,
+          url_property_meta: {
+            url: params.propertyUrl,
+            property_type: propertyTypeToApi(params.propertyType),
+          },
         },
       });
       return normalize(data.url_property_info);
@@ -137,12 +108,16 @@ export function createProperties(opts: TikTokClientOptions & { appId: string; ap
 
     /** Delete verified ownership of a URL property. Uses app credentials, not Access-Token. */
     async delete(params: AddPropertyOptions): Promise<void> {
-      await post<Record<string, never>>("/business/property/delete/", {
-        app_id: appId,
-        secret: appSecret,
-        url_property_meta: {
-          url: params.propertyUrl,
-          property_type: propertyTypeToApi(params.propertyType),
+      await tiktokAppRequest<Record<string, never>>(opts, {
+        method: "POST",
+        path: "/business/property/delete/",
+        body: {
+          app_id: appId,
+          secret: appSecret,
+          url_property_meta: {
+            url: params.propertyUrl,
+            property_type: propertyTypeToApi(params.propertyType),
+          },
         },
       });
     },

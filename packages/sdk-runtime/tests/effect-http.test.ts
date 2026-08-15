@@ -54,3 +54,26 @@ test("jsonRequestEffect fails with typed HTTP errors", async () => {
     }
   }
 });
+
+test("jsonRequestEffect honors an already-aborted external signal", async () => {
+  const controller = new AbortController();
+  controller.abort();
+  let receivedSignal: AbortSignal | undefined;
+  const fetchImpl = (async (_input: Parameters<typeof fetch>[0], init?: RequestInit) => {
+    receivedSignal = init?.signal ?? undefined;
+    return new Response(JSON.stringify({ ok: true }), { status: 200 });
+  }) as unknown as typeof fetch;
+
+  await Effect.runPromise(
+    jsonRequestEffect<{ ok: boolean }>({
+      method: "GET",
+      url: "https://example.test/aborted",
+      fetch: fetchImpl,
+      signal: controller.signal,
+      retry,
+    }),
+  );
+
+  expect(receivedSignal).toBe(controller.signal);
+  expect(receivedSignal?.aborted).toBe(true);
+});

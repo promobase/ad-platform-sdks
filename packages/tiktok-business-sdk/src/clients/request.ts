@@ -21,6 +21,7 @@ export interface TikTokRequestOptions {
   method: string;
   path: string;
   body?: Record<string, unknown>;
+  formData?: FormData;
   query?: Record<string, unknown>;
 }
 
@@ -28,6 +29,13 @@ export interface TikTokRequestClientOptions {
   accessToken: string;
   baseUrl?: string;
   fetch?: typeof fetch;
+  signal?: AbortSignal;
+}
+
+export interface TikTokAppRequestClientOptions {
+  baseUrl?: string;
+  fetch?: typeof fetch;
+  signal?: AbortSignal;
 }
 
 export type TikTokResponseDataSchema<T> = Schema.Schema<T, any, never>;
@@ -69,6 +77,16 @@ function tiktokResponseEnvelopeSchema<T>(data: TikTokResponseDataSchema<T>) {
     request_id: Schema.String,
     data,
   });
+}
+
+function requestHeaders(
+  accessToken: string | undefined,
+  request: TikTokRequestOptions,
+): Record<string, string> {
+  return {
+    ...(accessToken ? { "Access-Token": accessToken } : {}),
+    ...(request.formData ? {} : { "Content-Type": "application/json" }),
+  };
 }
 
 function buildUrl(
@@ -117,12 +135,41 @@ export function tiktokRequestEffect<T>(
   return jsonRequestEffect<unknown>({
     method: request.method,
     url: buildUrl(request.path, request.query, opts.baseUrl ?? TT_API_BASE),
-    body: request.body,
-    headers: {
-      "Access-Token": opts.accessToken,
-      "Content-Type": "application/json",
-    },
+    body: request.formData ?? request.body,
+    headers: requestHeaders(opts.accessToken, request),
     fetch: opts.fetch,
+    signal: opts.signal,
+    retry: DEFAULT_RETRY,
+  }).pipe(
+    Effect.flatMap((responseBody) =>
+      Schema.decodeUnknown(envelopeSchema)(responseBody).pipe(
+        Effect.mapError((cause) => new TikTokSchemaError({ cause })),
+      ),
+    ),
+    Effect.flatMap((responseBody) => {
+      if (responseBody.code !== 0) {
+        return Effect.fail(TikTokApiError.fromResponse(200, responseBody));
+      }
+      return Effect.succeed(responseBody.data as T);
+    }),
+  );
+}
+
+function tiktokAppRequestEffect<T>(
+  opts: TikTokAppRequestClientOptions,
+  request: TikTokRequestOptions,
+  dataSchema?: TikTokResponseDataSchema<T>,
+): Effect.Effect<T, TikTokRequestError> {
+  const effectiveDataSchema = dataSchema ?? (Schema.Unknown as TikTokResponseDataSchema<T>);
+  const envelopeSchema = tiktokResponseEnvelopeSchema(effectiveDataSchema);
+
+  return jsonRequestEffect<unknown>({
+    method: request.method,
+    url: buildUrl(request.path, request.query, opts.baseUrl ?? TT_API_BASE),
+    body: request.formData ?? request.body,
+    headers: requestHeaders(undefined, request),
+    fetch: opts.fetch,
+    signal: opts.signal,
     retry: DEFAULT_RETRY,
   }).pipe(
     Effect.flatMap((responseBody) =>
@@ -146,6 +193,18 @@ export async function tiktokRequest<T>(
 ): Promise<T> {
   const result = await Effect.runPromise(
     Effect.either(tiktokRequestEffect<T>(opts, request, dataSchema)),
+  );
+  if (result._tag === "Left") throw tiktokRequestErrorToError(result.left);
+  return result.right;
+}
+
+export async function tiktokAppRequest<T>(
+  opts: TikTokAppRequestClientOptions,
+  request: TikTokRequestOptions,
+  dataSchema?: TikTokResponseDataSchema<T>,
+): Promise<T> {
+  const result = await Effect.runPromise(
+    Effect.either(tiktokAppRequestEffect<T>(opts, request, dataSchema)),
   );
   if (result._tag === "Left") throw tiktokRequestErrorToError(result.left);
   return result.right;

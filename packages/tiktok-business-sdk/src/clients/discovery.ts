@@ -1,3 +1,4 @@
+import { tiktokRequest } from "./request.ts";
 import type {
   DiscoveryDateRange,
   DiscoveryOptions,
@@ -5,111 +6,77 @@ import type {
   HashtagVideo,
   MusicDateRange,
   TikTokClientOptions,
-  TikTokResponse,
   TrendingHashtag,
   TrendingMusicTrack,
 } from "./types.ts";
-
-const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
-
-async function get<T>(
-  accessToken: string,
-  path: string,
-  query: Record<string, unknown>,
-  fetchImpl: typeof fetch = fetch,
-  signal?: AbortSignal,
-): Promise<T> {
-  const params = new URLSearchParams();
-  for (const [key, value] of Object.entries(query)) {
-    if (value !== undefined && value !== null) {
-      params.set(key, typeof value === "object" ? JSON.stringify(value) : String(value));
-    }
-  }
-  const response = await fetchImpl(`${TT_API_BASE}${path}?${params.toString()}`, {
-    headers: { "Access-Token": accessToken },
-    signal,
-  });
-  const body = (await response.json()) as TikTokResponse<T>;
-  if (!response.ok || body.code !== 0) {
-    throw new Error(
-      `TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`,
-    );
-  }
-  return body.data;
-}
 
 /**
  * Discovery API — advertiser-scoped endpoints for trending hashtags.
  * Uses advertiser_id (from Marketing API auth).
  */
-export function createDiscovery(opts: DiscoveryOptions) {
-  const { accessToken, advertiserId } = opts;
-  const fetchImpl = opts.fetch;
-  const signal = opts.signal;
+export function createDiscovery(clientOpts: DiscoveryOptions) {
+  const { advertiserId } = clientOpts;
 
   return {
     /** Get popular trending hashtags. */
-    async getTrendingHashtags(opts?: {
+    async getTrendingHashtags(options?: {
       countryCode?: string;
       categoryName?: string;
       dateRange?: DiscoveryDateRange;
     }): Promise<{ filterInfo: Record<string, string>; list: TrendingHashtag[] }> {
-      const data = await get<{ filter_info: Record<string, string>; list: TrendingHashtag[] }>(
-        accessToken,
-        "/discovery/trending_list/",
-        {
+      const data = await tiktokRequest<{
+        filter_info: Record<string, string>;
+        list: TrendingHashtag[];
+      }>(clientOpts, {
+        method: "GET",
+        path: "/discovery/trending_list/",
+        query: {
           advertiser_id: advertiserId,
           discovery_type: "HASHTAG",
-          country_code: opts?.countryCode,
-          category_name: opts?.categoryName,
-          date_range: opts?.dateRange,
+          country_code: options?.countryCode,
+          category_name: options?.categoryName,
+          date_range: options?.dateRange,
         },
-        fetchImpl,
-        signal,
-      );
+      });
       return { filterInfo: data.filter_info, list: data.list ?? [] };
     },
 
     /** Get details of a specific popular hashtag. */
     async getHashtagDetail(
       hashtagId: string,
-      opts: { countryCode: string; dateRange: DiscoveryDateRange },
+      options: { countryCode: string; dateRange: DiscoveryDateRange },
     ): Promise<HashtagDetail> {
-      return get<HashtagDetail>(
-        accessToken,
-        "/discovery/detail/",
-        {
+      return tiktokRequest<HashtagDetail>(clientOpts, {
+        method: "GET",
+        path: "/discovery/detail/",
+        query: {
           advertiser_id: advertiserId,
           discovery_type: "HASHTAG",
           hashtag_id: hashtagId,
-          country_code: opts.countryCode,
-          date_range: opts.dateRange,
+          country_code: options.countryCode,
+          date_range: options.dateRange,
         },
-        fetchImpl,
-        signal,
-      );
+      });
     },
 
     /** Get trending videos related to hashtags. Max 10 hashtag IDs. */
     async getHashtagVideos(
       hashtagIds: string[],
-      opts?: { countryCode?: string; dateRange?: DiscoveryDateRange },
+      options?: { countryCode?: string; dateRange?: DiscoveryDateRange },
     ): Promise<{ hashtag_id: string; hashtag_name: string; top_video_list: HashtagVideo[] }[]> {
-      const data = await get<{
+      const data = await tiktokRequest<{
         list: { hashtag_id: string; hashtag_name: string; top_video_list: HashtagVideo[] }[];
-      }>(
-        accessToken,
-        "/discovery/video_list/",
-        {
+      }>(clientOpts, {
+        method: "GET",
+        path: "/discovery/video_list/",
+        query: {
           advertiser_id: advertiserId,
           discovery_type: "HASHTAG",
           hashtag_ids: JSON.stringify(hashtagIds),
-          country_code: opts?.countryCode,
-          date_range: opts?.dateRange,
+          country_code: options?.countryCode,
+          date_range: options?.dateRange,
         },
-        fetchImpl,
-        signal,
-      );
+      });
       return data.list ?? [];
     },
   };
@@ -119,30 +86,26 @@ export function createDiscovery(opts: DiscoveryOptions) {
  * Discovery API — business-scoped endpoints for commercial music and search keywords.
  * Uses business_id (from Organic API auth).
  */
-export function createDiscoveryMusic(opts: TikTokClientOptions) {
-  const { accessToken, businessId } = opts;
-  const fetchImpl = opts.fetch;
-  const signal = opts.signal;
+export function createDiscoveryMusic(clientOpts: TikTokClientOptions) {
+  const { businessId } = clientOpts;
 
   return {
     /** Get popular tracks from the commercial music library. */
-    async getTrendingMusic(opts?: {
+    async getTrendingMusic(options?: {
       genre?: string;
       countryCode?: string;
       dateRange?: MusicDateRange;
     }): Promise<TrendingMusicTrack[]> {
-      const data = await get<{ list: TrendingMusicTrack[] }>(
-        accessToken,
-        "/discovery/cml/trending_list/",
-        {
+      const data = await tiktokRequest<{ list: TrendingMusicTrack[] }>(clientOpts, {
+        method: "GET",
+        path: "/discovery/cml/trending_list/",
+        query: {
           business_id: businessId,
-          genre: opts?.genre,
-          country_code: opts?.countryCode,
-          date_range: opts?.dateRange,
+          genre: options?.genre,
+          country_code: options?.countryCode,
+          date_range: options?.dateRange,
         },
-        fetchImpl,
-        signal,
-      );
+      });
       return data.list ?? [];
     },
 
@@ -155,44 +118,38 @@ export function createDiscoveryMusic(opts: TikTokClientOptions) {
       commercial_music_name: string;
       top_video_list: HashtagVideo[];
     }> {
-      return get<{
+      return tiktokRequest<{
         commercial_music_id: string;
         commercial_music_name: string;
         top_video_list: HashtagVideo[];
-      }>(
-        accessToken,
-        "/discovery/cml/video_list/",
-        {
+      }>(clientOpts, {
+        method: "GET",
+        path: "/discovery/cml/video_list/",
+        query: {
           business_id: businessId,
           commercial_music_id: commercialMusicId,
           country_code: countryCode,
         },
-        fetchImpl,
-        signal,
-      );
+      });
     },
 
     /** Get trending search keywords (top 20). */
     async getTrendingSearchKeywords(isPersonalized?: boolean): Promise<string[]> {
-      const data = await get<{ search_keywords: string[] }>(
-        accessToken,
-        "/discovery/trending/search/",
-        { business_id: businessId, is_personalized: isPersonalized },
-        fetchImpl,
-        signal,
-      );
+      const data = await tiktokRequest<{ search_keywords: string[] }>(clientOpts, {
+        method: "GET",
+        path: "/discovery/trending/search/",
+        query: { business_id: businessId, is_personalized: isPersonalized },
+      });
       return data.search_keywords ?? [];
     },
 
     /** Get recommended search keywords for a query (top 20). */
     async getRecommendedSearchKeywords(query: string, isPersonalized?: boolean): Promise<string[]> {
-      const data = await get<{ search_keywords: string[] }>(
-        accessToken,
-        "/discovery/trending/search/keyword/",
-        { business_id: businessId, query, is_personalized: isPersonalized },
-        fetchImpl,
-        signal,
-      );
+      const data = await tiktokRequest<{ search_keywords: string[] }>(clientOpts, {
+        method: "GET",
+        path: "/discovery/trending/search/keyword/",
+        query: { business_id: businessId, query, is_personalized: isPersonalized },
+      });
       return data.search_keywords ?? [];
     },
   };

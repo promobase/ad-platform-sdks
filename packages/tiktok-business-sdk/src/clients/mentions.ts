@@ -1,3 +1,4 @@
+import { tiktokRequest } from "./request.ts";
 import type {
   BrandHashtagInfo,
   ListBrandHashtagVideosOptions,
@@ -8,53 +9,21 @@ import type {
   MentionVideo,
   MentionVideoField,
   TikTokClientOptions,
-  TikTokResponse,
 } from "./types.ts";
-
-const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
 
 /**
  * Mentions API — brand mention monitoring for videos, comments, and hashtags.
  * Requires `biz.brand.insights` scope.
  */
 export function createMentions(opts: TikTokClientOptions) {
-  const { accessToken, businessId } = opts;
-  const fetchImpl = opts.fetch ?? fetch;
+  const { businessId } = opts;
 
   async function get<T>(path: string, query: Record<string, unknown>): Promise<T> {
-    const params = new URLSearchParams();
-    for (const [key, value] of Object.entries(query)) {
-      if (value !== undefined && value !== null) {
-        params.set(key, typeof value === "object" ? JSON.stringify(value) : String(value));
-      }
-    }
-    const response = await fetchImpl(`${TT_API_BASE}${path}?${params.toString()}`, {
-      headers: { "Access-Token": accessToken },
-      signal: opts.signal,
-    });
-    const body = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || body.code !== 0) {
-      throw new Error(
-        `TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`,
-      );
-    }
-    return body.data;
+    return tiktokRequest<T>(opts, { method: "GET", path, query });
   }
 
   async function post<T>(path: string, body: Record<string, unknown>): Promise<T> {
-    const response = await fetchImpl(`${TT_API_BASE}${path}`, {
-      method: "POST",
-      signal: opts.signal,
-      headers: { "Access-Token": accessToken, "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-    const responseBody = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || responseBody.code !== 0) {
-      throw new Error(
-        `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
-      );
-    }
-    return responseBody.data;
+    return tiktokRequest<T>(opts, { method: "POST", path, body });
   }
 
   return {

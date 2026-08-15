@@ -23,6 +23,7 @@ export interface TokenResponse {
 export interface TikTokClientOptions {
   accessToken: string;
   businessId: string;
+  baseUrl?: string;
   fetch?: typeof fetch;
   signal?: AbortSignal;
 }
@@ -304,6 +305,7 @@ export type WebhookEventType = AccountWebhookEventType | BusinessMessagingWebhoo
 export interface WebhookConfig {
   appId: string;
   appSecret: string;
+  baseUrl?: string;
   fetch?: typeof fetch;
   signal?: AbortSignal;
 }
@@ -395,6 +397,7 @@ export interface SparkAdsAuthStatus extends SparkAdsAuthResult {
 export interface DiscoveryOptions {
   accessToken: string;
   advertiserId: string;
+  baseUrl?: string;
   fetch?: typeof fetch;
   signal?: AbortSignal;
 }

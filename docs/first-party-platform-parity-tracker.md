@@ -22,7 +22,7 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | AUTH-02 | Preserve OAuth scopes and connection-family metadata | verified | Mosaic | Shared OAuth exchange/refresh inputs now carry scopes; Meta and TikTok adapters retain scopes and typed credential families while preserving platform identity | Meta and TikTok OAuth fixtures retain scopes and family metadata |
 | AUTH-03 | Validate secure OAuth state by default | planned | Mosaic + consumer integration | Legacy helpers allow optional state | Unsafe path removed or explicitly marked low-level |
 | TRAN-01 | Use one explicit Page access token in Facebook clients | planned | Mosaic | `api` and `accessToken` can diverge | Client construction rejects ambiguous credentials |
-| TRAN-02 | Unify TikTok generated and curated request transport | in_progress | Mosaic | Generated endpoints now use `clients/request.ts`; several curated clients still have local request helpers | One transport seam exercised by all targeted surfaces |
+| TRAN-02 | Unify TikTok generated and curated request transport | verified | Mosaic | Generated endpoints and curated JSON, multipart, app-credential, and mixed-credential property clients now use `clients/request.ts`; OAuth and Developer API remain intentionally provider-specific | Shared transport tests cover bearer JSON, multipart, app-credential management, typed errors, and cancellation |
 | TRAN-03 | Refresh Meta API version and generated inputs | planned | Mosaic | v25 pinned while current docs show v26 | Deterministic regeneration and version fixtures |
 | WEB-01 | Consolidate Meta webhook verifiers | verified | Mosaic | Legacy Meta parser exports now route to the canonical Web Crypto verifier; byte bodies are supported | Root and leaf exports share strict implementation; focused parser tests pass |
 | WEB-02 | Expand Meta webhook schemas/subscription defaults | planned | Mosaic | Delivery/read/postback/referral and Instagram current fields incomplete | Provider fixture corpus and discriminated event tests |
@@ -66,7 +66,7 @@ Status values: `planned`, `in_progress`, `verified`, `blocked`, `not_in_scope`.
 | TT-01 | Business OAuth | verified | Business adapter retains provider-granted scopes and identifies the `business-login` credential family |
 | TT-02 | Marketing/Advertiser OAuth | in_progress | Marketing adapter now identifies the `marketing-api` family and preserves caller scope context; refresh/revoke semantics remain |
 | TT-03 | Generated Marketing API | verified | Broad generated surface; live-doc refresh and scope metadata remain |
-| TT-04 | Curated Business account/content clients | in_progress | Useful clients exist; transport duplication remains |
+| TT-04 | Curated Business account/content clients | verified | Account, comments, discovery, mentions, messaging, Spark Ads, properties, webhooks, photos, and videos use the shared typed transport; OAuth and Developer API retain dedicated semantics |
 | TT-05 | TikTok Business webhook management | verified | Official VIDEO/COMMENT account categories plus explicit DIRECT_MESSAGE setup are typed and tested |
 | TT-06 | TikTok Business webhook parsing | verified | Valibot schemas, official comment/message event variants, and hardened signature verification are tested |
 | TT-07 | TikTok platform-first leaf | verified | `@openpromo/tiktok/webhooks`, `@openpromo/ad-platforms/tiktok`, and `/tiktok/webhooks` build |

@@ -1,6 +1,5 @@
-import type { TikTokResponse, WebhookConfig, WebhookEventType } from "./types.ts";
-
-const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
+import { tiktokAppRequest } from "./request.ts";
+import type { WebhookConfig, WebhookEventType } from "./types.ts";
 
 /**
  * Webhook management for TikTok API for Business.
@@ -9,22 +8,13 @@ const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
  */
 export function createWebhooks(config: WebhookConfig) {
   const { appId, appSecret } = config;
-  const fetchImpl = config.fetch ?? fetch;
 
   async function post<T>(path: string, body: Record<string, unknown>): Promise<T> {
-    const response = await fetchImpl(`${TT_API_BASE}${path}`, {
+    return tiktokAppRequest<T>(config, {
       method: "POST",
-      signal: config.signal,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      path,
+      body,
     });
-    const responseBody = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || responseBody.code !== 0) {
-      throw new Error(
-        `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
-      );
-    }
-    return responseBody.data;
   }
 
   return {
@@ -32,27 +22,16 @@ export function createWebhooks(config: WebhookConfig) {
     async get(
       eventType: WebhookEventType,
     ): Promise<{ appId: string; eventType: string; callbackUrl?: string; itemList?: string[] }> {
-      const params = new URLSearchParams({
-        app_id: appId,
-        secret: appSecret,
-        event_type: eventType,
-      });
-      const response = await fetchImpl(
-        `${TT_API_BASE}/business/webhook/list/?${params.toString()}`,
-        { signal: config.signal },
-      );
-      const responseBody = (await response.json()) as TikTokResponse<{
+      const d = await tiktokAppRequest<{
         app_id: string;
         event_type: string;
         callback_url?: string;
         item_list?: string[];
-      }>;
-      if (!response.ok || responseBody.code !== 0) {
-        throw new Error(
-          `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
-        );
-      }
-      const d = responseBody.data;
+      }>(config, {
+        method: "GET",
+        path: "/business/webhook/list/",
+        query: { app_id: appId, secret: appSecret, event_type: eventType },
+      });
       return {
         appId: d.app_id,
         eventType: d.event_type,

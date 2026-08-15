@@ -17,7 +17,7 @@ export type * from "./types.ts";
 export function createTikTokClient(opts: TikTokClientOptions) {
   const api = new TikTokApiClient({
     accessToken: opts.accessToken,
-    baseUrl: "https://business-api.tiktok.com/open_api/v1.3",
+    baseUrl: opts.baseUrl ?? "https://business-api.tiktok.com/open_api/v1.3",
     fetch: opts.fetch,
     signal: opts.signal,
   });

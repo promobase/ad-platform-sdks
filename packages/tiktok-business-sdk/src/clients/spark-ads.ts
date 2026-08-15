@@ -1,20 +1,17 @@
+import { tiktokRequest } from "./request.ts";
 import type {
   AuthorizationDays,
   SparkAdsAuthResult,
   SparkAdsAuthStatus,
   TikTokClientOptions,
-  TikTokResponse,
 } from "./types.ts";
-
-const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
 
 /**
  * Spark Ads authorization management.
  * Enable organic posts to be used as Spark Ads by advertisers.
  */
 export function createSparkAds(opts: TikTokClientOptions) {
-  const { accessToken, businessId } = opts;
-  const fetchImpl = opts.fetch ?? fetch;
+  const { businessId } = opts;
 
   async function request<T>(
     method: string,
@@ -22,30 +19,7 @@ export function createSparkAds(opts: TikTokClientOptions) {
     body?: Record<string, unknown>,
     query?: Record<string, unknown>,
   ): Promise<T> {
-    let url = `${TT_API_BASE}${path}`;
-    if (query) {
-      const params = new URLSearchParams();
-      for (const [key, value] of Object.entries(query)) {
-        if (value !== undefined && value !== null) {
-          params.set(key, String(value));
-        }
-      }
-      url += `?${params.toString()}`;
-    }
-    const init: RequestInit = {
-      method,
-      signal: opts.signal,
-      headers: { "Access-Token": accessToken, "Content-Type": "application/json" },
-    };
-    if (body && method === "POST") init.body = JSON.stringify(body);
-    const response = await fetchImpl(url, init);
-    const responseBody = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || responseBody.code !== 0) {
-      throw new Error(
-        `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
-      );
-    }
-    return responseBody.data;
+    return tiktokRequest<T>(opts, { method, path, body, query });
   }
 
   return {

@@ -1,3 +1,4 @@
+import { tiktokRequest } from "./request.ts";
 import type {
   AutoMessage,
   AutoMessageType,
@@ -8,53 +9,21 @@ import type {
   MessageParticipant,
   SendMessageOptions,
   TikTokClientOptions,
-  TikTokResponse,
 } from "./types.ts";
-
-const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
 
 /**
  * Business Messaging API — direct messages, conversations, and auto-messages.
  * Rate limit: 10 messages within 48h after receiving a user message.
  */
 export function createMessaging(opts: TikTokClientOptions) {
-  const { accessToken, businessId } = opts;
-  const fetchImpl = opts.fetch ?? fetch;
+  const { businessId } = opts;
 
   async function get<T>(path: string, query: Record<string, unknown>): Promise<T> {
-    const params = new URLSearchParams();
-    for (const [key, value] of Object.entries(query)) {
-      if (value !== undefined && value !== null) {
-        params.set(key, typeof value === "object" ? JSON.stringify(value) : String(value));
-      }
-    }
-    const response = await fetchImpl(`${TT_API_BASE}${path}?${params.toString()}`, {
-      headers: { "Access-Token": accessToken },
-      signal: opts.signal,
-    });
-    const body = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || body.code !== 0) {
-      throw new Error(
-        `TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`,
-      );
-    }
-    return body.data;
+    return tiktokRequest<T>(opts, { method: "GET", path, query });
   }
 
   async function post<T>(path: string, body: Record<string, unknown>): Promise<T> {
-    const response = await fetchImpl(`${TT_API_BASE}${path}`, {
-      method: "POST",
-      signal: opts.signal,
-      headers: { "Access-Token": accessToken, "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-    const responseBody = (await response.json()) as TikTokResponse<T>;
-    if (!response.ok || responseBody.code !== 0) {
-      throw new Error(
-        `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
-      );
-    }
-    return responseBody.data;
+    return tiktokRequest<T>(opts, { method: "POST", path, body });
   }
 
   return {
@@ -129,19 +98,12 @@ export function createMessaging(opts: TikTokClientOptions) {
       formData.append("file", imageFile);
       formData.append("media_type", "IMAGE");
 
-      const response = await fetchImpl(`${TT_API_BASE}/business/message/media/upload/`, {
+      const body = await tiktokRequest<{ media_id: string }>(opts, {
         method: "POST",
-        signal: opts.signal,
-        headers: { "Access-Token": accessToken },
-        body: formData,
+        path: "/business/message/media/upload/",
+        formData,
       });
-      const body = (await response.json()) as TikTokResponse<{ media_id: string }>;
-      if (!response.ok || body.code !== 0) {
-        throw new Error(
-          `TikTok API error: ${body.message} (code ${body.code}, request_id ${body.request_id})`,
-        );
-      }
-      return { mediaId: body.data.media_id };
+      return { mediaId: body.media_id };
     },
 
     /** Download media from a message. Returns a URL valid for 24 hours. */

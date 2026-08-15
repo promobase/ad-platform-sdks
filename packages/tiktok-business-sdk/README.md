@@ -21,7 +21,7 @@ Powering [**openpromo.app**](https://openpromo.app) — the AI-native social med
 ## What
 
 Fully typed TikTok Business API client generated from the official docs. The current snapshot includes
-531 Marketing API endpoints across 71 categories, plus hand-authored OAuth and organic publishing
+539 Marketing API endpoints across 72 categories, plus hand-authored OAuth and organic publishing
 clients. It supports photo/video/carousel publishing, comments, insights, webhooks, and AI SDK tool
 integration with runtime-agnostic `fetch` (Bun, Node, Deno, edge).
 
@@ -38,6 +38,7 @@ npm install @openpromo/tiktok
 ```ts
 import { TikTok } from "@openpromo/tiktok";
 
+const controller = new AbortController();
 const tiktok = TikTok.createClient({
   accessToken: process.env.TIKTOK_TOKEN!,
   businessId: "biz_123",
@@ -60,6 +61,22 @@ await tiktok.videos.publish({
 // AI SDK tools
 import { createTikTokTools } from "@openpromo/tiktok/ai";
 const tools = createTikTokTools({ accessToken: "...", businessId: "biz_123" });
+```
+
+All Business API clients share the same typed transport. Configure a test endpoint with `baseUrl`,
+inject `fetch` for Workers or tests, and cancel in-flight requests with `signal`. Multipart media
+uploads preserve `FormData` content negotiation; webhook management uses app credentials rather than
+an account bearer token.
+
+```ts
+const tiktok = TikTok.createClient({
+  accessToken: process.env.TIKTOK_TOKEN!,
+  businessId: "biz_123",
+  baseUrl: "https://business-api.tiktok.com/open_api/v1.3",
+  signal: controller.signal,
+});
+
+await tiktok.comments.uploadImage(imageBlob);
 ```
 
 ## Generated low-level API

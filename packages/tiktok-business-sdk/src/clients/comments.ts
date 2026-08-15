@@ -1,3 +1,4 @@
+import { tiktokRequest } from "./request.ts";
 import type {
   CommentItem,
   CreateCommentOptions,
@@ -6,14 +7,10 @@ import type {
   ListRepliesOptions,
   ReplyCommentOptions,
   TikTokClientOptions,
-  TikTokResponse,
 } from "./types.ts";
 
-const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
-
 export function createComments(opts: TikTokClientOptions) {
-  const { accessToken, businessId } = opts;
-  const fetchImpl = opts.fetch ?? fetch;
+  const { businessId } = opts;
 
   async function request<T>(
     method: string,
@@ -21,39 +18,7 @@ export function createComments(opts: TikTokClientOptions) {
     body?: Record<string, unknown>,
     query?: Record<string, unknown>,
   ): Promise<T> {
-    let url = `${TT_API_BASE}${path}`;
-    if (query) {
-      const params = new URLSearchParams();
-      for (const [key, value] of Object.entries(query)) {
-        if (value !== undefined && value !== null) {
-          params.set(key, typeof value === "object" ? JSON.stringify(value) : String(value));
-        }
-      }
-      url += `?${params.toString()}`;
-    }
-
-    const init: RequestInit = {
-      method,
-      signal: opts.signal,
-      headers: {
-        "Access-Token": accessToken,
-        "Content-Type": "application/json",
-      },
-    };
-    if (body && (method === "POST" || method === "PUT")) {
-      init.body = JSON.stringify(body);
-    }
-
-    const response = await fetchImpl(url, init);
-    const responseBody = (await response.json()) as TikTokResponse<T>;
-
-    if (!response.ok || responseBody.code !== 0) {
-      throw new Error(
-        `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
-      );
-    }
-
-    return responseBody.data;
+    return tiktokRequest<T>(opts, { method, path, body, query });
   }
 
   return {
@@ -168,27 +133,19 @@ export function createComments(opts: TikTokClientOptions) {
       formData.append("business_id", businessId);
       formData.append("image_file", imageFile);
 
-      const url = `${TT_API_BASE}/business/comment/image/upload/`;
-      const response = await fetchImpl(url, {
-        method: "POST",
-        signal: opts.signal,
-        headers: { "Access-Token": accessToken },
-        body: formData,
-      });
-      const responseBody = (await response.json()) as TikTokResponse<{
+      const responseBody = await tiktokRequest<{
         image_uri: string;
         width: number;
         height: number;
-      }>;
-      if (!response.ok || responseBody.code !== 0) {
-        throw new Error(
-          `TikTok API error: ${responseBody.message} (code ${responseBody.code}, request_id ${responseBody.request_id})`,
-        );
-      }
+      }>(opts, {
+        method: "POST",
+        path: "/business/comment/image/upload/",
+        formData,
+      });
       return {
-        imageUri: responseBody.data.image_uri,
-        width: responseBody.data.width,
-        height: responseBody.data.height,
+        imageUri: responseBody.image_uri,
+        width: responseBody.width,
+        height: responseBody.height,
       };
     },
   };

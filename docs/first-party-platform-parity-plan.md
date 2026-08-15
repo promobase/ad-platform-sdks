@@ -111,7 +111,7 @@ cannot accidentally pass an Instagram Login token to a Facebook Graph client.
 ## Current state
 
 - Status: in_progress
-- Completed slices: Instagram credential-family transport split; Meta verifier consolidation; TikTok Business webhook Valibot/leaf parity; shared TikTok generated transport foundation; removal of misleading Meta Effect aliases; published platform subpath verification
+- Completed slices: Instagram credential-family transport split; Meta verifier consolidation; TikTok Business webhook Valibot/leaf parity; shared TikTok generated and curated transport; removal of misleading Meta Effect aliases; published platform subpath verification
 - Current blocker: none
 - Consumer impact: no OpenPromo changes until adapter parity is verified
 
@@ -157,12 +157,15 @@ cannot accidentally pass an Instagram Login token to a Facebook Graph client.
 - Remaining: current Meta API regeneration, required scope metadata, TikTok transport unification,
   and curated Facebook/Instagram/TikTok capability gaps.
 
-## Checkpoint — 2026-08-15 — TikTok generated transport foundation
+## Checkpoint — 2026-08-15 — TikTok generated and curated transport
 
-- Changed: the TikTok codegen emitter now routes generated endpoint GET/POST calls through the
-  shared `clients/request.ts` seam. Generated endpoints retain provider-native response types and
-  URL/auth options while inheriting typed `TikTokApiError` behavior and the shared envelope parser.
+- Changed: generated TikTok endpoint clients and curated Account, Comments, Discovery, Mentions,
+  Messaging, Spark Ads, Properties, Photos, Videos, and Webhook management clients now use the shared typed
+  request seam. The transport supports bearer-token JSON, app-credential JSON, typed multipart
+  uploads, configurable base URLs, external cancellation, retries, and `TikTokApiError` mapping.
+  OAuth and Developer API flows remain intentionally specialized.
 - Proof: regenerated 539 endpoints from the pinned 549-page documentation cache; TikTok typecheck,
-  build, and 27 tests pass, including custom-base-URL and typed-rate-limit-error coverage.
-- Remaining: migrate the remaining hand-authored TikTok client modules to the same seam, then mark
-  TRAN-02/TT-04 verified after cross-surface transport tests.
+  build, 31 tests, sdk-runtime typecheck, 57 runtime tests, root typecheck, lint, format, release,
+  generated-header, and published-subpath checks passed.
+- Remaining: refresh the pinned Meta generated inputs and complete the outstanding Facebook,
+  Instagram, and TikTok capability/schema parity items in the tracker.

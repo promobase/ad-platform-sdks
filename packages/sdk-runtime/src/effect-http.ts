@@ -25,7 +25,20 @@ export interface EffectJsonRequestOptions {
   body?: unknown;
   headers?: Record<string, string>;
   fetch?: typeof fetch;
+  signal?: AbortSignal;
   retry: RetryConfig;
+}
+
+function combineSignals(effectSignal: AbortSignal, externalSignal?: AbortSignal): AbortSignal {
+  if (!externalSignal) return effectSignal;
+  if (effectSignal.aborted) return effectSignal;
+  if (externalSignal.aborted) return externalSignal;
+
+  const controller = new AbortController();
+  const abort = () => controller.abort();
+  effectSignal.addEventListener("abort", abort, { once: true });
+  externalSignal.addEventListener("abort", abort, { once: true });
+  return controller.signal;
 }
 
 function retrySchedule(retry: RetryConfig) {
@@ -58,7 +71,11 @@ export function jsonRequestEffect<T>(
 
   const request = Effect.gen(function* () {
     const response = yield* Effect.tryPromise({
-      try: (signal) => fetchImpl(opts.url, { ...init, signal }),
+      try: (signal) =>
+        fetchImpl(opts.url, {
+          ...init,
+          signal: combineSignals(signal, opts.signal),
+        }),
       catch: (cause) => new EffectNetworkError({ cause }),
     });
     const text = yield* Effect.tryPromise({
