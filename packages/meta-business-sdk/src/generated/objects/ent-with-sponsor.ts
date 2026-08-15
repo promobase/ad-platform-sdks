@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:8374039a60ace5ffdd2b6d31a357665c9fac9cc152dc239474cf1e4f1951a981
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { PostFields } from "./post.ts";
 
 export interface EntWithSponsorFields {

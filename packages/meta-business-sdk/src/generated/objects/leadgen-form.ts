@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:bf3dabdcfbb430664fcd0c7fc9d0ef05eeba059b1255068da5f42a0dfe441c53
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { LeadFields } from "./lead.ts";
 import type { LeadGenContextCardFields } from "./lead-gen-context-card.ts";
 import type { LeadGenLegalContentFields } from "./lead-gen-legal-content.ts";
@@ -55,12 +58,12 @@ export function leadgenFormNode(client: ApiClient, id: string) {
     update: (params: LeadgenFormUpdateParams) =>
       client.post<LeadgenFormFields>(`${id}`, params as Record<string, unknown>),
     leads: <F extends (keyof LeadFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<LeadFields, F[number]>>(client, `${id}/leads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<LeadFields, F[number]>>(client, `${id}/leads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     testLeads: {
       __path: `${id}/test_leads`,
       __brand: undefined as unknown as LeadFields,
       list: <F extends (keyof LeadFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<LeadFields, F[number]>>(client, `${id}/test_leads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<LeadFields, F[number]>>(client, `${id}/test_leads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: LeadgenFormCreateTestLeadsParams) =>
         client.post<LeadFields>(`${id}/test_leads`, params as Record<string, unknown>),
     },

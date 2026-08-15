@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:960adc16b6fe9a53f4cb7ab341d1f420b705a31286501a6997ae2a4cc63f7be2
+// DO NOT EDIT: generated file; changes will be overwritten.
 import { fromJson } from "../json.js";
 import { getBinaryResponse } from "./BinaryResponse.js";
 

@@ -1,0 +1,165 @@
+# OpenPromo adapter integration
+
+Mosaic is the provider transport boundary for OpenPromo. OpenPromo remains the
+owner of workspace/account persistence, encrypted credentials, refresh timing,
+workflow checkpoints, and publisher/domain behavior.
+
+## Normalized OAuth seam
+
+Provider packages keep their existing `OAuth` helpers for compatibility and add
+a lower-case `oauth` factory with the shared runtime contract:
+
+```ts
+import { Facebook } from "@openpromo/meta";
+import { X } from "@openpromo/x";
+
+const facebook = Facebook.oauth({ appId, appSecret, redirectUri });
+const authorization = await facebook.authorize({
+  scopes: ["pages_show_list", "pages_manage_posts"],
+  state,
+});
+
+// Persist authorization.state and, for PKCE providers,
+// authorization.codeVerifier in OpenPromo's state store.
+
+const grant = await facebook.exchangeCode({
+  code,
+  state: callbackState,
+  expectedState: storedState,
+});
+// grant.accessToken, grant.accessTokenExpiresAt, and grant.providerData are
+// typed and runtime-validated. OpenPromo encrypts and persists the token.
+
+const pages = await facebook.listPages({ accessToken: grant.accessToken });
+const page = await facebook.getPage({
+  accessToken: grant.accessToken,
+  pageId: pages[0]!.id,
+});
+
+const x = X.oauth({ clientId, clientSecret, redirectUri });
+const xAuthorization = await x.authorize({
+  scopes: ["tweet.read", "offline.access"],
+  state,
+  pkce: "auto",
+});
+```
+
+`pkce: "auto"` returns the generated `codeVerifier` alongside the URL for X,
+TikTok Developer, and other PKCE providers. Providers that do not support PKCE
+reject it with `OAuthAdapterError`. Callback state mismatches are rejected
+before provider results are returned.
+
+The first-party adapter set covers Facebook, Instagram, Threads, TikTok
+Business, TikTok Developer compatibility, TikTok Advertiser compatibility,
+LinkedIn, YouTube, X, and Google Business Profile. Account discovery remains a
+provider-specific extension because Pages, channels, organizations, and GBP
+locations do not have one common shape.
+
+## Connected-account ownership
+
+The eventual OpenPromo seam should remain small and domain-owned:
+
+```ts
+class EntFacebookPage extends EntConnectedAccount {
+  readonly platform = AllPlatforms.FACEBOOK;
+
+  async provider() {
+    const credentials = await this.credentials.ensureValid();
+    return Facebook.createClient({
+      pageId: this.data.externalAccountId,
+      accessToken: credentials.accessToken,
+    });
+  }
+}
+```
+
+Mosaic does not receive workspace IDs, Ent instances, persistence callbacks, or
+encryption services. OpenPromo maps a normalized grant into its connected
+account row and controls refresh locking/health transitions.
+
+When account metadata is returned to UI/read models, use the runtime redaction
+helper (or an equivalent explicit projection). It never includes access tokens,
+refresh tokens, verifier material, or opaque provider token payloads:
+
+```ts
+const publicMetadata = redactOAuthTokenSet(facebook.provider, grant);
+```
+
+Provider-specific discovery methods follow the same shape: Instagram and
+Threads expose profiles, TikTok exposes Business profiles and Advertisers,
+LinkedIn exposes member/organization data, YouTube exposes channels, X exposes
+the authenticated user, and Google Business Profile exposes accounts and
+locations.
+
+## Stepped publishing
+
+The existing OpenPromo publisher/workflow design remains unchanged. A workflow
+loads the provider-specific Ent, obtains a Mosaic client, and keeps each
+external effect in its existing durable step:
+
+```ts
+const account = await EntFacebookPage.fromId(input.connectedAccountId);
+const facebook = await account.provider();
+
+const upload = await step.do("facebook-video-start", () =>
+  facebook.feed.videoReels.start(),
+);
+await step.do("facebook-video-upload", () =>
+  facebook.feed.videoReels.upload({ uploadUrl: upload.uploadUrl, videoUrl }),
+);
+const published = await step.do("facebook-video-finish", () =>
+  facebook.feed.videoReels.finish({ videoId: upload.videoId, description }),
+);
+```
+
+This is a provider transport contract, not a required OpenPromo publisher
+interface. Facebook and Instagram expose their generated Graph client as
+`client.api` for typed provider operations that do not need a convenience
+wrapper. Instagram's `client.containers` exposes create, resumable upload,
+status, and publish as separate operations. TikTok's curated client exposes
+typed video/photo publish and status operations, while `@openpromo/tiktok/generated`
+provides the full docs-generated Business API factories for uncovered endpoints:
+
+```ts
+const instagram = await entInstagram.provider();
+const container = await step.do("instagram-create-container", () =>
+  instagram.containers.create({ image_url, caption }),
+);
+await step.do("instagram-publish-container", () =>
+  instagram.containers.publish(container.id),
+);
+
+const tiktok = await entTikTok.provider();
+const publish = await step.do("tiktok-publish-video", () =>
+  tiktok.videos.publish({ videoUrl, caption }),
+);
+const status = await step.do("tiktok-publish-status", () =>
+  tiktok.videos.getPublishStatus(publish.shareId),
+);
+```
+
+The adapter can therefore be swapped without requiring Mosaic to copy
+OpenPromo's publisher method names or content entities. Each provider call
+that has external side effects remains visible to the workflow; convenience
+methods are optional composition helpers.
+
+`forPlacementSpec()` and other OpenPromo content/account wiring stay in
+OpenPromo. Mosaic only owns Graph/API requests, response validation, provider
+errors, and typed transport results. Inbox entities and webhook-to-Inbox
+processing remain deferred.
+
+## Canonical platform identifiers
+
+Use `@openpromo/sdk-runtime/platforms` when a cross-platform selector is needed:
+
+```ts
+import { AllPlatforms, AllPlatformsSchema } from "@openpromo/sdk-runtime/platforms";
+
+const platform = AllPlatforms.FACEBOOK;
+```
+
+Values are direct platform names. There is intentionally no family-level value;
+the provider products are represented as `FACEBOOK`, `INSTAGRAM`, `THREADS`,
+and `WHATSAPP`.
+TikTok Business/Developer/Advertiser are account/auth variants of `TIKTOK`, not
+additional enum members.

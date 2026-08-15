@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9616594dad93bb737463731286af88c55f41a1e799fce50f2a3430e5b17ca38f
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for the Reddit Ads API v3 — do not edit
 
 export interface Account {

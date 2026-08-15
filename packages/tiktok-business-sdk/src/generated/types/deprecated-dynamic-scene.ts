@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:01a36e49bd938259b2e730d66e9f61fbc20fa96c336b092bb96b953eef921a89
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for (Deprecated) Dynamic Scene — do not edit
 
 export interface DynamicSceneMaterialSubmitParams {

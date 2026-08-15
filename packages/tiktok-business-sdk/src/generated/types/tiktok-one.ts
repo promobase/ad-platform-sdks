@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:1bf2d73ccb76abf7e16ef3bd6644836864a643ced99d3aa923ea46a92ad03161
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for TikTok One — do not edit
 
 export interface TtUserOauth2TokenParams {

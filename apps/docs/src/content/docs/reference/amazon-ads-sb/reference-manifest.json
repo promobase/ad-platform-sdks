@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:3b8cfd48979950c48081ffcb7ba3e86599fb934f171d9ac386e0f41457f01f9e",
+    "doNotEdit": true
+  },
   "schemaVersion": 1,
   "platform": "amazon-ads-sb",
   "version": "v5",

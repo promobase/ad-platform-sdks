@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:79fd03f5e9d5c00d71dbc8b38c4b424cff77b83c2d89e12829423b5b02962d6c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
 export interface LinkedInCallToAction {

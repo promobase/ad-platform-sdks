@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:dc3b8dc4be103caaa4c89be3027e8d5e9fcdfc47597429d07eca470bcc123469
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ConfigureCustomerLifecycleGoalsRequest, ConfigureCustomerLifecycleGoalsResponse } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e3606e3bbe55277b688efa1b2b10c308fb2473a755b4faf93508c6ba471bf76e
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Mentions — do not edit
 import type { BusinessMentionVideoListParams, BusinessMentionVideoListResponse, BusinessMentionVideoGetParams, BusinessMentionVideoGetResponse, BusinessMentionTopWordListParams, BusinessMentionTopWordListResponse, BusinessMentionTopHashtagListParams, BusinessMentionTopHashtagListResponse, BusinessMentionHashtagVideoListParams, BusinessMentionHashtagVideoListResponse, BusinessMentionHashtagVerifyListParams, BusinessMentionHashtagVerifyListResponse, BusinessMentionHashtagAddParams, BusinessMentionHashtagAddResponse, BusinessMentionHashtagManageListParams, BusinessMentionHashtagManageListResponse, BusinessMentionHashtagRemoveParams, BusinessMentionHashtagRemoveResponse, BusinessMentionCommentListParams, BusinessMentionCommentListResponse, BusinessMentionCommentGetParams, BusinessMentionCommentGetResponse, BusinessCommentReplyCreateParams, BusinessCommentReplyCreateResponse, BusinessWebhookUpdateParams, BusinessWebhookUpdateResponse, BusinessWebhookListParams, BusinessWebhookListResponse, BusinessWebhookDeleteParams, BusinessWebhookDeleteResponse } from "../types/mentions.ts";
 

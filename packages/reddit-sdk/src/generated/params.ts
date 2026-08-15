@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:27f76731d2bd21a524cbe783fd5b42b2f9302db09331098c96681751c160e90f
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated endpoint params for the Reddit Ads API v3 — do not edit
 
 import type { ConfiguredStatus, BidStrategy, GoalType, OptimizationGoal, Targeting, CallToAction, CampaignObjective, IdentifierType, AudienceUserAction, ReportLevel, ConversionEvent, Geolocation } from "./types.ts";

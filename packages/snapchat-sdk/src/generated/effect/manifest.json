@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:2965eb2d1e72f2973a8ae712c36719243ec595dbc744e0b8658d46ca678dae96",
+    "doNotEdit": true
+  },
   "platform": "snapchat",
   "source": {
     "kind": "documentation",

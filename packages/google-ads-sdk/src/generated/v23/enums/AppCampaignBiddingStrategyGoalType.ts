@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:4155c06f7bc37f4222f4ac086b407c78792bc6cbeaaa15665078abd9187cb20f
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.enums.AppCampaignBiddingStrategyGoalTypeEnum.AppCampaignBiddingStrategyGoalType. Do not edit by hand.
 export type AppCampaignBiddingStrategyGoalType =
   | "UNSPECIFIED"

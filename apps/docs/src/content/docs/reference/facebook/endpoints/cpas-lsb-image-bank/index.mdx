@@ -1,0 +1,117 @@
+---
+title: "Facebook CPAS Lsb Image Bank endpoints"
+description: "3 generated Facebook endpoint contracts for CPAS Lsb Image Bank."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 225
+  label: "CPAS Lsb Image Bank"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:d69ae4cfb6bf6a824cc9f5fce73c6dcf27bb23e9f46ef2e22fbda46eabf06e47 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.cPASLsbImageBank.backupImages
+
+`GET` `/{id}/backup_images`
+
+GET CPASLsbImageBank backup_images
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `cPASLsbImageBank.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ProductImageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.cPASLsbImageBank.get
+
+`GET` `/{id}`
+
+GET CPASLsbImageBank
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `cPASLsbImageBank.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CPASLsbImageBankFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.cPASLsbImageBank.update
+
+`POST` `/{id}`
+
+POST CPASLsbImageBank
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `cPASLsbImageBank.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CPASLsbImageBankFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `backup_image_urls` | `body` | `Array<string>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

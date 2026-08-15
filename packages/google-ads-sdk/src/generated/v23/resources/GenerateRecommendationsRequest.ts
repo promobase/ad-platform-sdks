@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:1281910bf732d1300152d2169fffd06747b12b7232fab2e2aa4e8e974fa2f54a
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdGroupInfo, AdvertisingChannelType, AssetGroupInfo, BiddingInfo, BudgetInfo, ConversionTrackingStatus, RecommendationType, SeedInfo } from "../index.ts";
 
 // Generated from google.ads.googleads.v23.services.GenerateRecommendationsRequest. Do not edit by hand.

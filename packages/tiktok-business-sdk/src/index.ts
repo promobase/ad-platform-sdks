@@ -99,6 +99,15 @@ export {
   type TikTokDeveloperTokenResponse,
   type TikTokDeveloperVideo,
 } from "./developer.ts";
+export {
+  createTikTokAdvertiserOAuthAdapter,
+  createTikTokBusinessOAuthAdapter,
+  createTikTokDeveloperOAuthAdapter,
+  type TikTokAdvertiserInfo,
+  type TikTokAdvertiserOAuthConfig,
+  type TikTokAdvertiserTokenData,
+  type TikTokBusinessProfile,
+} from "./oauth-adapters.ts";
 export { TikTok } from "./namespace.ts";
 export type { TikTokCursorOptions, TikTokPaginatedResponse } from "./pagination.ts";
 export { TikTokCursor } from "./pagination.ts";

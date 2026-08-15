@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:e33bae210bc81e3a0cf95041dc62aee5a51a14f50580acfdd771b25c40df8a2a
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdAsyncRequestFields } from "./ad-async-request.ts";
 import type { AdAsyncRequestSetNotificationResultFields } from "./ad-async-request-set-notification-result.ts";
 import type { AdAsyncRequestSetNotificationMode } from "../enums.ts";
@@ -47,7 +50,7 @@ export function adAsyncRequestSetNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     requests: <F extends (keyof AdAsyncRequestFields)[]>(opts: { fields: F; params?: AdAsyncRequestSetListRequestsParams }) =>
-      new Cursor<Pick<AdAsyncRequestFields, F[number]>>(client, `${id}/requests`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdAsyncRequestFields, F[number]>>(client, `${id}/requests`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

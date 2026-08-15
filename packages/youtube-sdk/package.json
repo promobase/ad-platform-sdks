@@ -28,7 +28,7 @@
     "README.md"
   ],
   "scripts": {
-    "codegen": "bun ../../scripts/generate-youtube-sdk.mjs",
+    "codegen": "bun ../../scripts/generate-youtube-sdk.mjs && node ../../scripts/ensure-generated-headers.mjs",
     "codegen:refresh": "bun ../../scripts/generate-youtube-sdk.mjs --refresh",
     "codegen:check": "bun run codegen && git -C ../.. diff --exit-code -- packages/youtube-sdk/src/generated",
     "build": "tsc -p tsconfig.build.json",

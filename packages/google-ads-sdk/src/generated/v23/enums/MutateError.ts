@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:59dc84f5ca605d330d62bfa723e27f23b4f41a560d414a67aace8f6b010f3f2b
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.MutateErrorEnum.MutateError. Do not edit by hand.
 export type MutateError =
   | "UNSPECIFIED"

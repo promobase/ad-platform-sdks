@@ -1,0 +1,50 @@
+---
+title: "Facebook Ad Light Campaign Group endpoints"
+description: "1 generated Facebook endpoint contract for Ad Light Campaign Group."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 125
+  label: "Ad Light Campaign Group"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:450e9ca5972537213a510a4eff87c1a23cf6713a3eb9146f633c76da76cade62 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.adLightCampaignGroup.get
+
+`GET` `/{id}`
+
+GET AdLightCampaignGroup
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adLightCampaignGroup.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdLightCampaignGroupFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:8dff4ac9f048acee3e302f8d713b22eecd077ce0b174502fc36447a2026e7ae1
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file was generated from the YouTube Analytics and Reporting discovery documents.
 // Do not edit by hand.
 

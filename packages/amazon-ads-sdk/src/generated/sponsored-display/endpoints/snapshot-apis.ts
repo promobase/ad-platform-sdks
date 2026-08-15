@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:5d8b1f0c234a3bd12911e2696c22cd8f9160a26a256a6f1619d2f2a356a22286
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Snapshot APIs — do not edit
 import type { AmazonAdsApiClient } from "../../../api-client.ts";
 import type { CreateSnapshotResponse, GetSnapshotByIdResponse, DownloadSnapshotByIdResponse } from "../types.ts";

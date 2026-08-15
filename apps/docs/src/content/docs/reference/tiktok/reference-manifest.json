@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:c0de857b5db1cf93688cd051c0a5099911aea003f5486ed3f7918901f3ce65a8",
+    "doNotEdit": true
+  },
   "schemaVersion": 1,
   "platform": "tiktok",
   "version": "business-api",

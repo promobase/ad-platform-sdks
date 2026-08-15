@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:8a2b2d3a847f6bc4dfd8bc89b10cae67681c894f0b8aedba832c860cec7493f9
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface EngagementFields {
   count: number;
   count_string: string;

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3efe41946dced9e0588bb7b3315e4dc54bb5caba03c1cfc4d823975d76670d27
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for dynamic-story-ads — do not edit
 
 export interface Creative {

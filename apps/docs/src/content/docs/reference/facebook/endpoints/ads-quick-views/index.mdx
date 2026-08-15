@@ -1,0 +1,50 @@
+---
+title: "Facebook Ads Quick Views endpoints"
+description: "1 generated Facebook endpoint contract for Ads Quick Views."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 153
+  label: "Ads Quick Views"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:b266e9011383578ce1a6b4648c4d6f3fc02d5278884791a649e5d356bc094144 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.adsQuickViews.get
+
+`GET` `/{id}`
+
+GET AdsQuickViews
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsQuickViews.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdsQuickViewsFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

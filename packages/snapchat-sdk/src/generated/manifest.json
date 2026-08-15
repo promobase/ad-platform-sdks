@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:fd65892de5a7e43cd479a418c0092cfd6d8f6251cd923b284f18bbd36191ca05",
+    "doNotEdit": true
+  },
   "source": "https://developers.snap.com/marketing-api",
   "docPages": 101,
   "endpoints": 214,

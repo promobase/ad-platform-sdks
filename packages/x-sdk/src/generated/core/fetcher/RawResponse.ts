@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ce225efd75125dd47853d82d3c758eafd807fc0bb58ae16779fa05e25a022069
+// DO NOT EDIT: generated file; changes will be overwritten.
 import { Headers } from "./Headers.js";
 
 /**

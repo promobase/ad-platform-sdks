@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2b7af96bce2a3a8a461f58b874fd771330810c176d15737c187e0197e6d50531
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface VideoTextQuestionFields {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:8a4e0e652a503e8b33c337f89271db1f085e6d885755d93ea9e42de6097ff55a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for reach-and-frequency — do not edit
 
 export interface Campaign {

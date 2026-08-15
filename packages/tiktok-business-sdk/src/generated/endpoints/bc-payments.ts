@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:45e2b92e61e2f6863a1b486de68816d5b35229b63af2a2ac57c3ea25b5742d87
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for BC Payments — do not edit
 import type { BcTransferParams, BcTransferResponse, AdvertiserBalanceGetParams, AdvertiserBalanceGetResponse, BcBalanceGetParams, BcBalanceGetResponse, BcAccountTransactionGetParams, BcAccountTransactionGetResponse, AdvertiserTransactionGetParams, AdvertiserTransactionGetResponse, BcTransactionGetParams, BcTransactionGetResponse, BcAccountBudgetChangelogGetParams, BcAccountBudgetChangelogGetResponse, BcAccountCostGetParams, BcAccountCostGetResponse } from "../types/bc-payments.ts";
 

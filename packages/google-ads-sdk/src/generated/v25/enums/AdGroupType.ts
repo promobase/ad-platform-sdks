@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9a10349249cccd0547a0b2aab6b235e8d81462d2835cc55cec36e9246af445e6
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.AdGroupTypeEnum.AdGroupType. Do not edit by hand.
 export type AdGroupType =
   | "UNSPECIFIED"

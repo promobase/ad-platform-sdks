@@ -1,0 +1,50 @@
+---
+title: "Facebook Whitehat FBDL Run endpoints"
+description: "1 generated Facebook endpoint contract for Whitehat FBDL Run."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 405
+  label: "Whitehat FBDL Run"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:770b50bbfd2e1c5196567b4c43bb930122e05e1200f415312d3dd94027fada58 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.whitehatFBDLRun.get
+
+`GET` `/{id}`
+
+GET WhitehatFBDLRun
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `whitehatFBDLRun.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `WhitehatFBDLRunFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

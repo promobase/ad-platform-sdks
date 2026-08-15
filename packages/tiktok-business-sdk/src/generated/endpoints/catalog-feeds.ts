@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ba58001c2d31a5dcbaea0275bf91a4bd7512b39c8b7dd0934fbc1cbd7626a49a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Catalog Feeds — do not edit
 import type { CatalogFeedCreateParams, CatalogFeedCreateResponse, CatalogFeedGetParams, CatalogFeedGetResponse, CatalogFeedUpdateParams, CatalogFeedUpdateResponse, CatalogFeedDeleteParams, CatalogFeedDeleteResponse, CatalogFeedLogParams, CatalogFeedLogResponse, CatalogFeedSwitchParams, CatalogFeedSwitchResponse } from "../types/catalog-feeds.ts";
 

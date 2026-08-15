@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2ca32d1711361c2a854367ca46c6e97c0fff8b23399a4b22807a27c28e4eb74b
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Catalog Products — do not edit
 import type { CatalogProductFileParams, CatalogProductFileResponse, CatalogProductUploadParams, CatalogProductUploadResponse, CatalogProductUpdateParams, CatalogProductUpdateResponse, CatalogProductDeleteParams, CatalogProductDeleteResponse, CatalogProductGetParams, CatalogProductGetResponse, CatalogProductLogParams, CatalogProductLogResponse } from "../types/catalog-products.ts";
 

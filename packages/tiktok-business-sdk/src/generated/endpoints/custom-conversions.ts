@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a247117b07ab47727ea467bf6cd69e93139776e153fe20e83b0b0c99433ce88a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Custom Conversions — do not edit
 import type { CustomConversionListParams, CustomConversionListResponse, CustomConversionGetParams, CustomConversionGetResponse, CustomConversionCreateParams, CustomConversionCreateResponse, CustomConversionUpdateParams, CustomConversionUpdateResponse, CustomConversionDeleteParams, CustomConversionDeleteResponse } from "../types/custom-conversions.ts";
 

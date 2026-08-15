@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7fc0683c47ca534adef955a562c5e448ea14a6570adf6ac77f2b31f727eae472
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { MutateKeywordPlanCampaignsRequest, MutateKeywordPlanCampaignsResponse } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

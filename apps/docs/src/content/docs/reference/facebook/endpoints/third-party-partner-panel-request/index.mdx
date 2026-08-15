@@ -1,0 +1,50 @@
+---
+title: "Facebook Third Party Partner Panel Request endpoints"
+description: "1 generated Facebook endpoint contract for Third Party Partner Panel Request."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 381
+  label: "Third Party Partner Panel Request"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:8b92d86c5824f289439c32872531cbc64aca171a38ae6448010c82d43a58ec46 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.thirdPartyPartnerPanelRequest.get
+
+`GET` `/{id}`
+
+GET ThirdPartyPartnerPanelRequest
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `thirdPartyPartnerPanelRequest.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ThirdPartyPartnerPanelRequestFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

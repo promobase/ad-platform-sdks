@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7bdc478cfae5c0a854dc329bccf60058185e169188746ca17aac7d43e471cbd7
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdAccountBusinessConstraintsStatus } from "../enums.ts";
 
 export interface AdAccountBusinessConstraintsFields {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:af09a948cb1067a85cdfffdae61acca03a7e6c9ce001dc5dfeba8c4dd84a9eea
+// DO NOT EDIT: generated file; changes will be overwritten.
 const TIMEOUT = "timeout";
 
 export function getTimeoutSignal(timeoutMs: number): { signal: AbortSignal; abortId: ReturnType<typeof setTimeout> } {

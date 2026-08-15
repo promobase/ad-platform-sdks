@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c1173ca4d6e27108a5078dfa545a9f4d8b47e892d3836cd997a9818a07b82cf7
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for app.bsky.draft — do not edit
 import type { BlueskyApiClient } from "../../api-client.ts";
 import type { AppBskyDraftDefsDraft, AppBskyDraftDefsDraftView, AppBskyDraftDefsDraftWithId, CreateDraftResponse, GetDraftsResponse } from "../types.ts";

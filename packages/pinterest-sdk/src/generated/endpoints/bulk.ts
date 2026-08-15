@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:23ec25b256e14bf7915b0f9ed189551481487d6d90c38143381c24c78593365e
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for bulk — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { BulkRequestGetResponse, BulkDownloadCreateResponse, BulkUpsertCreateResponse } from "../types.ts";

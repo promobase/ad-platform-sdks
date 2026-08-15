@@ -1,0 +1,53 @@
+---
+title: "Facebook Analytics Segment endpoints"
+description: "1 generated Facebook endpoint contract for Analytics Segment."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 166
+  label: "Analytics Segment"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:6d5183864f9d9ef42c0bc63f3e4741cf044a1bb05ed95892e7367ab39eea0c3e -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.analyticsSegment.get
+
+`GET` `/{id}`
+
+GET AnalyticsSegment
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `analyticsSegment.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AnalyticsSegmentFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `async_task_id` | `query` | `string` | No | No | — |
+| `end_date` | `query` | `integer` | No | No | — |
+| `start_date` | `query` | `integer` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

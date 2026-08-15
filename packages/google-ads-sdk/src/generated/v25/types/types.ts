@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:bfcbc3b93e1bef4b8a5bb3fbe443cf7de10de8d5d7e051262e2a043ebc0c2397
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
 export interface AccessibleBiddingStrategy {

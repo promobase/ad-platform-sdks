@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:5752e99d72fbd16161d4754b62c989ff8b74ed167cee148f11b3df36aabf9f6c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Audience — do not edit
 
 export interface DmpCustomAudienceFileUploadParams {

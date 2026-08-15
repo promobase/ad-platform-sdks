@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:dce2c1c784388813654e2ce623b923f68749461824e4f945aa0975930f026dd7
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface IGAccessTokenForIGOnlyAPIFields {

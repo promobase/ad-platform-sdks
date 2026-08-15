@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0822fe22dac21c793c1c5f235221daa93eee0550ed976a157a3b2ff97c5f1482
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.DateErrorEnum.DateError. Do not edit by hand.
 export type DateError =
   | "UNSPECIFIED"

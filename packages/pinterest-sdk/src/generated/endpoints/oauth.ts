@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:439f25b724e998f5dee84418c802be69e842a6030dc0a23a2979e1ec6e43f154
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for oauth — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { OauthConversionTokenResponse, OauthTokenResponse } from "../types.ts";

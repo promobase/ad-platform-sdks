@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:909b3968b8b8c22b185005cd7b90dad111977940306634dec809c9ddac3bec8e
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { CopyrightReferenceContainerFields } from "./copyright-reference-container.ts";
 import type { MediaCopyrightUpdateRecordFields } from "./media-copyright-update-record.ts";
 import type { UserFields } from "./user.ts";
@@ -53,7 +56,7 @@ export function videoCopyrightNode(client: ApiClient, id: string) {
     update: (params: VideoCopyrightUpdateParams) =>
       client.post<VideoCopyrightFields>(`${id}`, params as Record<string, unknown>),
     updateRecords: <F extends (keyof MediaCopyrightUpdateRecordFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<MediaCopyrightUpdateRecordFields, F[number]>>(client, `${id}/update_records`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<MediaCopyrightUpdateRecordFields, F[number]>>(client, `${id}/update_records`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

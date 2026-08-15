@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:8ae6120eb6dbbc44dfc4e976fb599d43cd1881333811de0d3602cf3bcaeddb61",
+    "doNotEdit": true
+  },
   "source": "https://github.com/bluesky-social/atproto/tree/main/lexicons",
   "commit": "b66870d5a1efbcfa0cc07498c7cfcf3f0f243e86",
   "lexicons": 253,

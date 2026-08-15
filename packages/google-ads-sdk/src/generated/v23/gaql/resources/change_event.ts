@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3dd9f1aa4773e9def1dc52f2b17c68a4c6b771f26dd947038a91ec56d934e054
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type ChangeEventSelectableField =
   | "change_event.resource_name"

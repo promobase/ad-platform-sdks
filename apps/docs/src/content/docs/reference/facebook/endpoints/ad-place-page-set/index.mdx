@@ -1,0 +1,50 @@
+---
+title: "Facebook Ad Place Page Set endpoints"
+description: "1 generated Facebook endpoint contract for Ad Place Page Set."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 127
+  label: "Ad Place Page Set"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:eaf93bbab9d91cf53d391acda8d6b91235bda40199e23ee1468c50a245f29bec -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.adPlacePageSet.get
+
+`GET` `/{id}`
+
+GET AdPlacePageSet
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adPlacePageSet.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdPlacePageSetFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:1333236c693d483f4d2c73796c2581362540a43ad845edeed38a8204afd9be0a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.enums.ResourceLimitTypeEnum.ResourceLimitType. Do not edit by hand.
 export type ResourceLimitType =
   | "UNSPECIFIED"

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:5d1dcf7dcc5bb3cc4e9215726ab337a7bfa7a77f8a981c95e3127714064a70ff
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { EndpointMetadata } from "./EndpointMetadata.js";
 import type { Supplier } from "./Supplier.js";
 

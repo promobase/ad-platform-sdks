@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:63786a684110a0dc88af85a435b048e95ace27d18b28f19e4d1e0c4be0909280
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Campaign — do not edit
 import type { CampaignGetParams, CampaignGetResponse, CampaignCreateParams, CampaignCreateResponse, CampaignUpdateParams, CampaignUpdateResponse, CampaignStatusUpdateParams, CampaignStatusUpdateResponse, CampaignQuotaInfoParams, CampaignQuotaInfoResponse, CampaignCopyTaskCreateParams, CampaignCopyTaskCreateResponse, CampaignCopyTaskCheckParams, CampaignCopyTaskCheckResponse, CampaignQuotaGetParams, CampaignQuotaGetResponse } from "../types/campaign.ts";
 

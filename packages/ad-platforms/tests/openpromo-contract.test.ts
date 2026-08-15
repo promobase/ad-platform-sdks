@@ -1,6 +1,15 @@
 import { expect, test } from "bun:test";
 
-import { GoogleBusinessProfile, LinkedIn, Meta, TikTok, X, YouTube } from "../src/index.ts";
+import {
+  Facebook,
+  GoogleBusinessProfile,
+  Instagram,
+  LinkedIn,
+  Threads,
+  TikTok,
+  X,
+  YouTube,
+} from "../src/index.ts";
 import { createAdPlatforms } from "../src/operations/index.ts";
 
 const rejectingFetch = (async () => {
@@ -8,19 +17,19 @@ const rejectingFetch = (async () => {
 }) as unknown as typeof fetch;
 
 test("exposes the complete OpenPromo first-party provider surface", () => {
-  const metaApi = Meta.createClient({ accessToken: "meta", fetch: rejectingFetch });
-  const facebook = Meta.Facebook.createClient({
-    api: metaApi,
+  const graphApi = Facebook.createGraphClient({ accessToken: "graph", fetch: rejectingFetch });
+  const facebook = Facebook.createClient({
+    api: graphApi,
     pageId: "page",
     accessToken: "page-token",
     fetch: rejectingFetch,
   });
-  const instagram = Meta.Instagram.createClient({
-    api: metaApi,
+  const instagram = Instagram.createClient({
+    api: graphApi,
     igAccountId: "instagram",
     fetch: rejectingFetch,
   });
-  const threads = Meta.Threads.createClient({
+  const threads = Threads.createClient({
     accessToken: "threads",
     threadsUserId: "threads-user",
     fetch: rejectingFetch,
@@ -57,8 +66,8 @@ test("exposes the complete OpenPromo first-party provider surface", () => {
     googleBusinessProfile.resources.performance.fetchMultiDailyMetricsTimeSeries,
   ).toBeFunction();
 
-  expect(Meta.Facebook.OAuth).toBeDefined();
-  expect(Meta.Instagram.OAuth).toBeDefined();
+  expect(Facebook.OAuth).toBeDefined();
+  expect(Instagram.OAuth).toBeDefined();
   expect(TikTok.Developer.OAuth).toBeFunction();
   expect(X.OAuth).toBeFunction();
   expect(YouTube.OAuth).toBeFunction();
@@ -66,7 +75,7 @@ test("exposes the complete OpenPromo first-party provider surface", () => {
 
   const platforms = createAdPlatforms({
     connections: {
-      facebook: { api: metaApi },
+      facebook: { api: graphApi },
       instagram,
       threads,
       tiktok,

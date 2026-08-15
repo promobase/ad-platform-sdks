@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a61613596d3278c1948e0067a2f2d6ac7f17277565bd0776fbc9db2a2edc7b99
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Consolidated Recommendations — do not edit
 import type { AmazonAdsApiClient } from "../../../api-client.ts";
 import type { GetCampaignRecommendationsResponseEndpoint, FetchCampaignRecommendationsResponse } from "../types.ts";

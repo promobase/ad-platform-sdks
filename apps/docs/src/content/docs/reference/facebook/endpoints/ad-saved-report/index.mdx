@@ -1,0 +1,50 @@
+---
+title: "Facebook Ad Saved Report endpoints"
+description: "1 generated Facebook endpoint contract for Ad Saved Report."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 136
+  label: "Ad Saved Report"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:e943d97090161c5fddd1ba264f27adc99535ad82f5cb34a7d888011166487e9a -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.adSavedReport.get
+
+`GET` `/{id}`
+
+GET AdSavedReport
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adSavedReport.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdSavedReportFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

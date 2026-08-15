@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:fcbad3e2ebc1dbea4b53ae7dad8287fcbefe65b9f3db24374b3173e7dc671daf
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.ExperimentTypeEnum.ExperimentType. Do not edit by hand.
 export type ExperimentType =
   | "UNSPECIFIED"

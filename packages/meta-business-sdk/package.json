@@ -44,8 +44,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "codegen": "bun src/codegen/index.ts",
-    "codegen:check": "bun run codegen && git -C ../.. diff --exit-code -- packages/meta-business-sdk/src/generated apps/docs/src/content/docs/reference/meta",
+    "codegen": "bun src/codegen/index.ts && node ../../scripts/ensure-generated-headers.mjs",
+    "codegen:check": "bun run codegen && git -C ../.. diff --exit-code -- packages/meta-business-sdk/src/generated apps/docs/src/content/docs/reference/facebook",
     "codegen:enums": "bun scripts/scrape-enums.ts",
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
@@ -90,7 +90,19 @@
       "import": "./dist/ai/index.js",
       "default": "./dist/ai/index.js"
     },
-    "./effect": {
+    "./facebook/effect": {
+      "bun": "./src/generated/effect/index.ts",
+      "types": "./dist/generated/effect/index.d.ts",
+      "import": "./dist/generated/effect/index.js",
+      "default": "./dist/generated/effect/index.js"
+    },
+    "./instagram/effect": {
+      "bun": "./src/generated/effect/index.ts",
+      "types": "./dist/generated/effect/index.d.ts",
+      "import": "./dist/generated/effect/index.js",
+      "default": "./dist/generated/effect/index.js"
+    },
+    "./threads/effect": {
       "bun": "./src/generated/effect/index.ts",
       "types": "./dist/generated/effect/index.d.ts",
       "import": "./dist/generated/effect/index.js",

@@ -27,7 +27,7 @@
     "README.md"
   ],
   "scripts": {
-    "codegen": "bun run codegen:rest && bun scripts/generate-effect.ts",
+    "codegen": "bun run codegen:rest && bun scripts/generate-effect.ts && node ../../scripts/ensure-generated-headers.mjs",
     "codegen:refresh": "bun scripts/refresh-postman.ts && bun run codegen:rest",
     "codegen:source-check": "bun scripts/refresh-postman.ts --check",
     "codegen:rest": "bun scripts/generate-rest.ts",

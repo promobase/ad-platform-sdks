@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b815bca8d1717e567be0831e5dc04905ffc30f5cba59fe8add8db9278e9201f6
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for TikTok Store — do not edit
 
 export interface StoreListParams {

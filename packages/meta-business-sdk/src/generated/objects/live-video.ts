@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:af9863555d488510d13ece87c026d114f78809fa6720e3f1b1f518609c179d6e
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdVideoFields } from "./ad-video.ts";
 import type { CommentFields } from "./comment.ts";
 import type { LiveVideoAdBreakConfigFields } from "./live-video-ad-break-config.ts";
@@ -118,27 +121,27 @@ export function liveVideoNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     blockedUsers: <F extends (keyof UserFields)[]>(opts: { fields: F; params?: LiveVideoListBlockedUsersParams }) =>
-      new Cursor<Pick<UserFields, F[number]>>(client, `${id}/blocked_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<UserFields, F[number]>>(client, `${id}/blocked_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     comments: <F extends (keyof CommentFields)[]>(opts: { fields: F; params?: LiveVideoListCommentsParams }) =>
-      new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     crosspostSharedPages: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<PageFields, F[number]>>(client, `${id}/crosspost_shared_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<PageFields, F[number]>>(client, `${id}/crosspost_shared_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     crosspostedBroadcasts: <F extends (keyof LiveVideoFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<LiveVideoFields, F[number]>>(client, `${id}/crossposted_broadcasts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<LiveVideoFields, F[number]>>(client, `${id}/crossposted_broadcasts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     errors: <F extends (keyof LiveVideoErrorFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<LiveVideoErrorFields, F[number]>>(client, `${id}/errors`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<LiveVideoErrorFields, F[number]>>(client, `${id}/errors`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createInputStream: (params: Record<string, unknown>) =>
       client.post<LiveVideoInputStreamFields>(`${id}/input_streams`, params as Record<string, unknown>),
     polls: {
       __path: `${id}/polls`,
       __brand: undefined as unknown as VideoPollFields,
       list: <F extends (keyof VideoPollFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<VideoPollFields, F[number]>>(client, `${id}/polls`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<VideoPollFields, F[number]>>(client, `${id}/polls`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: LiveVideoCreatePollsParams) =>
         client.post<VideoPollFields>(`${id}/polls`, params as Record<string, unknown>),
     },
     reactions: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: LiveVideoListReactionsParams }) =>
-      new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/reactions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/reactions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

@@ -1,0 +1,50 @@
+---
+title: "Facebook Ads Report Builder MMM Report Scheduler endpoints"
+description: "1 generated Facebook endpoint contract for Ads Report Builder MMM Report Scheduler."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 156
+  label: "Ads Report Builder MMM Report Scheduler"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:93615b8553ab77662d13912cfb67a8b68858c562cb1eb0a5804918e7b6ed0878 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.adsReportBuilderMMMReportScheduler.get
+
+`GET` `/{id}`
+
+GET AdsReportBuilderMMMReportScheduler
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsReportBuilderMMMReportScheduler.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdsReportBuilderMMMReportSchedulerFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

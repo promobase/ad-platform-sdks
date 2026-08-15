@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3038b2a4838794284827fed9f36a29583dfcda9fd155faac94c9c392d2c1a1a7
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Discovery — do not edit
 
 export interface DiscoveryTrendingListParams {

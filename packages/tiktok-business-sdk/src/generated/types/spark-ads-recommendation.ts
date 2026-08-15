@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c54b5f22989e0f7aa97e1c715f0e93e22668904423461291d151603903010d12
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Spark Ads Recommendation — do not edit
 
 export interface BusinessVideoRecommendParams {

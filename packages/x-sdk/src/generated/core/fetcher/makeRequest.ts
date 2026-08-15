@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:5eb3a584b6f9e81bea4aad032c01115c4a883afda26d21c9ddd8b4f7f2b31c42
+// DO NOT EDIT: generated file; changes will be overwritten.
 import { anySignal, getTimeoutSignal } from "./signals.js";
 
 /**

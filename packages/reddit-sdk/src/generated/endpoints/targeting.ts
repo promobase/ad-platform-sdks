@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6efbfbfe4b56da51f3388331aacde4675dd0d418e4051b6051e1c39f8ba7a3f1
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Targeting — do not edit
 import type { RedditApiClient } from "../../api-client.ts";
 import type { RedditEnvelope } from "../../envelope.ts";

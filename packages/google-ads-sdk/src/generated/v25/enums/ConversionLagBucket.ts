@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0b3724886582892b7f385bc6cbc11744d3512bf1a2d1342a4ddebb12ff4ad995
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.ConversionLagBucketEnum.ConversionLagBucket. Do not edit by hand.
 export type ConversionLagBucket =
   | "UNSPECIFIED"

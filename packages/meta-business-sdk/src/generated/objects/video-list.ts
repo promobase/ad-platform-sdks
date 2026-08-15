@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:12c80bc565e0b90b44c24f9fcc9ace3721431d8f153573fdfee9395e657372cd
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdVideoFields } from "./ad-video.ts";
 
 export interface VideoListFields {
@@ -22,7 +25,7 @@ export function videoListNode(client: ApiClient, id: string) {
     get: <F extends (keyof VideoListFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<VideoListFields, F[number]>>(`${id}`, opts),
     videos: <F extends (keyof AdVideoFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AdVideoFields, F[number]>>(client, `${id}/videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdVideoFields, F[number]>>(client, `${id}/videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

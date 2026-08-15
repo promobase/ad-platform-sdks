@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3c25982a25d85ed14bceb0c363d8953729cd052f5a10f44ebdc1ec05a100104f
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
 export interface AccessTokenParams {

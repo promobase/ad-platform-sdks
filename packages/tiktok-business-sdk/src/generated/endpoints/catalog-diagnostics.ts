@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a64910fd534059f682b23b9b2286986470d8402ae7d5cfba9002b28ff6b0c561
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Catalog Diagnostics — do not edit
 import type { DiagnosticCatalogParams, DiagnosticCatalogResponse, DiagnosticCatalogProductTaskCreateParams, DiagnosticCatalogProductTaskCreateResponse, DiagnosticCatalogProductTaskGetParams, DiagnosticCatalogProductTaskGetResponse, DiagnosticCatalogEventsourceIssueParams, DiagnosticCatalogEventsourceIssueResponse, DiagnosticCatalogEventsourceMetricParams, DiagnosticCatalogEventsourceMetricResponse } from "../types/catalog-diagnostics.ts";
 

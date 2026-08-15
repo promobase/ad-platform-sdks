@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6161a6af09e35bfa8b0fa4a76441fae22a15b3ddab2229b2c3709837233b1983
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for organizations — do not edit
 
 export interface Organization {

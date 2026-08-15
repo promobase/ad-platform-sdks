@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:122b5741e09607799fcff3239f28cf4a6d1b7d0561b3d56a0c93b79980a5d721
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for lead-generation-ads — do not edit
 
 export interface LeadGenerationForm {

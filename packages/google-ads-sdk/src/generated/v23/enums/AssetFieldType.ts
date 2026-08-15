@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9133c5142d5bf82c79fc2031ce6cd1ae7e0dc4496f9c900950f22919c0330e53
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.enums.AssetFieldTypeEnum.AssetFieldType. Do not edit by hand.
 export type AssetFieldType =
   | "UNSPECIFIED"

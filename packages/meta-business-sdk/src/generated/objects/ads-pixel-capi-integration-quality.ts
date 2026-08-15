@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a8ab627b19d171d5ddb63d96193e4caa60164402894d85968c829809d51b4cc2
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AdsPixelCAPIIntegrationQualityFields {
   acr: Record<string, unknown>;
   data_freshness: Record<string, unknown>;

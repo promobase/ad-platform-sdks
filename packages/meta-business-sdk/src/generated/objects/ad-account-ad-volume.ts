@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d63522fcbfe59a86917f0bb4daaca2a7532c16f0ce814bd213ebbddb8ec02915
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { BusinessFields } from "./business.ts";
 
 export interface AdAccountAdVolumeFields {

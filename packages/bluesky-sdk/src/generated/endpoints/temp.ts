@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:cab4866540be6c397ad6116ab0745ab1ccb451257f5d701bbfbbd7607f923adc
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for com.atproto.temp — do not edit
 import type { BlueskyApiClient } from "../../api-client.ts";
 import type { ComAtprotoTempCheckHandleAvailabilityResultAvailable, ComAtprotoTempCheckHandleAvailabilityResultUnavailable, ComAtprotoLabelDefsLabel, AddReservedHandleResponse, CheckHandleAvailabilityResponse, CheckSignupQueueResponse, DereferenceScopeResponse, FetchLabelsResponse } from "../types.ts";

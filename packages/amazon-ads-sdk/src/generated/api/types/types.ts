@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:92590d95542c022a9df29e6f6641d22c626c1f220ef39c4bd279f60b5584edfa
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
 export interface AdsBrandStoresApiContractBadGatewayResponseContent {

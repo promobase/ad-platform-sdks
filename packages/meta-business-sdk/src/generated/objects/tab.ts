@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b374b6137a7bfeaf3f486d04246cb25ae880b7554d9c6076c926e769a913a9a2
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApplicationFields } from "./application.ts";
 
 export interface TabFields {

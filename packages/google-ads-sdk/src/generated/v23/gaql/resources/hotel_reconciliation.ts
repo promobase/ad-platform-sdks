@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:719ee0f3cb6b8d938614f7ad9a5176c24e5fe452e64c9baece386907f427bbb3
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type HotelReconciliationSelectableField =
   | "hotel_reconciliation.resource_name"

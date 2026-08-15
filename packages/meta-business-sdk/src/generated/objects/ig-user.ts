@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:8b322058a6da4e250f6726e4fccf844f2354f2a517165a22605cdb44f4ffa1d3
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdAccountFields } from "./ad-account.ts";
 import type { BrandedContentShadowIGMediaIDFields } from "./branded-content-shadow-ig-media-id.ts";
 import type { BrandedContentShadowIGUserIDFields } from "./branded-content-shadow-ig-user-id.ts";
@@ -262,32 +265,32 @@ export function iGUserNode(client: ApiClient, id: string) {
     get: <F extends (keyof IGUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<IGUserFields, F[number]>>(`${id}`, opts),
     agencies: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     authorizedAdaccounts: {
       __path: `${id}/authorized_adaccounts`,
       __brand: undefined as unknown as AdAccountFields,
       list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: IGUserListAuthorizedAdaccountsParams }) =>
-        new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/authorized_adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/authorized_adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGUserCreateAuthorizedAdaccountsParams) =>
         client.post<IGUserFields>(`${id}/authorized_adaccounts`, params as Record<string, unknown>),
     },
     availableCatalogs: <F extends (keyof UserAvailableCatalogsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<UserAvailableCatalogsFields, F[number]>>(client, `${id}/available_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<UserAvailableCatalogsFields, F[number]>>(client, `${id}/available_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     brandedContentAdPermissions: {
       __path: `${id}/branded_content_ad_permissions`,
       __brand: undefined as unknown as IGBCAdsPermissionFields,
       list: <F extends (keyof IGBCAdsPermissionFields)[]>(opts: { fields: F; params?: IGUserListBrandedContentAdPermissionsParams }) =>
-        new Cursor<Pick<IGBCAdsPermissionFields, F[number]>>(client, `${id}/branded_content_ad_permissions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<IGBCAdsPermissionFields, F[number]>>(client, `${id}/branded_content_ad_permissions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGUserCreateBrandedContentAdPermissionsParams) =>
         client.post<IGBCAdsPermissionFields>(`${id}/branded_content_ad_permissions`, params as Record<string, unknown>),
     },
     brandedContentAdvertisableMedias: <F extends (keyof BrandedContentShadowIGMediaIDFields)[]>(opts: { fields: F; params?: IGUserListBrandedContentAdvertisableMediasParams }) =>
-      new Cursor<Pick<BrandedContentShadowIGMediaIDFields, F[number]>>(client, `${id}/branded_content_advertisable_medias`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BrandedContentShadowIGMediaIDFields, F[number]>>(client, `${id}/branded_content_advertisable_medias`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     brandedContentTagApproval: {
       __path: `${id}/branded_content_tag_approval`,
       __brand: undefined as unknown as BrandedContentShadowIGUserIDFields,
       list: <F extends (keyof BrandedContentShadowIGUserIDFields)[]>(opts: { fields: F; params?: IGUserListBrandedContentTagApprovalParams }) =>
-        new Cursor<Pick<BrandedContentShadowIGUserIDFields, F[number]>>(client, `${id}/branded_content_tag_approval`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<BrandedContentShadowIGUserIDFields, F[number]>>(client, `${id}/branded_content_tag_approval`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGUserCreateBrandedContentTagApprovalParams) =>
         client.post<BrandedContentShadowIGUserIDFields>(`${id}/branded_content_tag_approval`, params as Record<string, unknown>),
       delete: (params: IGUserDeleteBrandedContentTagApprovalParams) =>
@@ -296,48 +299,48 @@ export function iGUserNode(client: ApiClient, id: string) {
     createBusinessMessagingFeatureStatu: (params: IGUserCreateBusinessMessagingFeatureStatusParams) =>
       client.post<IGUserFields>(`${id}/business_messaging_feature_status`, params as Record<string, unknown>),
     catalogProductSearch: <F extends (keyof ShadowIGUserCatalogProductSearchFields)[]>(opts: { fields: F; params?: IGUserListCatalogProductSearchParams }) =>
-      new Cursor<Pick<ShadowIGUserCatalogProductSearchFields, F[number]>>(client, `${id}/catalog_product_search`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ShadowIGUserCatalogProductSearchFields, F[number]>>(client, `${id}/catalog_product_search`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     collaborationInvites: {
       __path: `${id}/collaboration_invites`,
       __brand: undefined as unknown as ShadowIGUserCollaborationInvitesFields,
       list: <F extends (keyof ShadowIGUserCollaborationInvitesFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ShadowIGUserCollaborationInvitesFields, F[number]>>(client, `${id}/collaboration_invites`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ShadowIGUserCollaborationInvitesFields, F[number]>>(client, `${id}/collaboration_invites`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGUserCreateCollaborationInvitesParams) =>
         client.post<ShadowIGUserCollaborationInvitesFields>(`${id}/collaboration_invites`, params as Record<string, unknown>),
     },
     collaborativeMedia: <F extends (keyof ShadowIGUserCollaborativeMediaFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<ShadowIGUserCollaborativeMediaFields, F[number]>>(client, `${id}/collaborative_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ShadowIGUserCollaborativeMediaFields, F[number]>>(client, `${id}/collaborative_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     connectedThreadsUser: <F extends (keyof ThreadsUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<ThreadsUserFields, F[number]>>(client, `${id}/connected_threads_user`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ThreadsUserFields, F[number]>>(client, `${id}/connected_threads_user`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     contentPublishingLimit: <F extends (keyof ContentPublishingLimitResponseFields)[]>(opts: { fields: F; params?: IGUserListContentPublishingLimitParams }) =>
-      new Cursor<Pick<ContentPublishingLimitResponseFields, F[number]>>(client, `${id}/content_publishing_limit`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ContentPublishingLimitResponseFields, F[number]>>(client, `${id}/content_publishing_limit`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     creatorMarketplaceCreators: <F extends (keyof IGUserExportForCAMFields)[]>(opts: { fields: F; params?: IGUserListCreatorMarketplaceCreatorsParams }) =>
-      new Cursor<Pick<IGUserExportForCAMFields, F[number]>>(client, `${id}/creator_marketplace_creators`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<IGUserExportForCAMFields, F[number]>>(client, `${id}/creator_marketplace_creators`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     dataset: {
       __path: `${id}/dataset`,
       __brand: undefined as unknown as DatasetFields,
       list: <F extends (keyof DatasetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<DatasetFields, F[number]>>(client, `${id}/dataset`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<DatasetFields, F[number]>>(client, `${id}/dataset`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGUserCreateDatasetParams) =>
         client.post<DatasetFields>(`${id}/dataset`, params as Record<string, unknown>),
     },
     insights: <F extends (keyof InstagramInsightsResultFields)[]>(opts: { fields: F; params?: IGUserListInsightsParams }) =>
-      new Cursor<Pick<InstagramInsightsResultFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<InstagramInsightsResultFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     instagramBackedThreadsUser: {
       __path: `${id}/instagram_backed_threads_user`,
       __brand: undefined as unknown as ThreadsUserFields,
       list: <F extends (keyof ThreadsUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ThreadsUserFields, F[number]>>(client, `${id}/instagram_backed_threads_user`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ThreadsUserFields, F[number]>>(client, `${id}/instagram_backed_threads_user`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: Record<string, unknown>) =>
         client.post<ThreadsUserFields>(`${id}/instagram_backed_threads_user`, params as Record<string, unknown>),
     },
     liveMedia: <F extends (keyof IGMediaFields)[]>(opts: { fields: F; params?: IGUserListLiveMediaParams }) =>
-      new Cursor<Pick<IGMediaFields, F[number]>>(client, `${id}/live_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<IGMediaFields, F[number]>>(client, `${id}/live_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     media: {
       __path: `${id}/media`,
       __brand: undefined as unknown as IGMediaFields,
       list: <F extends (keyof IGMediaFields)[]>(opts: { fields: F; params?: IGUserListMediaParams }) =>
-        new Cursor<Pick<IGMediaFields, F[number]>>(client, `${id}/media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<IGMediaFields, F[number]>>(client, `${id}/media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGUserCreateMediaParams) =>
         client.post<IGMediaFields>(`${id}/media`, params as Record<string, unknown>),
     },
@@ -348,33 +351,33 @@ export function iGUserNode(client: ApiClient, id: string) {
     createModerateConversation: (params: IGUserCreateModerateConversationsParams) =>
       client.post<Record<string, unknown>>(`${id}/moderate_conversations`, params as Record<string, unknown>),
     notificationMessageTokens: <F extends (keyof UserPageOneTimeOptInTokenSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<UserPageOneTimeOptInTokenSettingsFields, F[number]>>(client, `${id}/notification_message_tokens`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<UserPageOneTimeOptInTokenSettingsFields, F[number]>>(client, `${id}/notification_message_tokens`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     productAppeal: {
       __path: `${id}/product_appeal`,
       __brand: undefined as unknown as IGShoppingProductAppealFields,
       list: <F extends (keyof IGShoppingProductAppealFields)[]>(opts: { fields: F; params?: IGUserListProductAppealParams }) =>
-        new Cursor<Pick<IGShoppingProductAppealFields, F[number]>>(client, `${id}/product_appeal`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<IGShoppingProductAppealFields, F[number]>>(client, `${id}/product_appeal`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGUserCreateProductAppealParams) =>
         client.post<IGShoppingProductAppealFields>(`${id}/product_appeal`, params as Record<string, unknown>),
     },
     recentlySearchedHashtags: <F extends (keyof ShadowIGHashtagFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<ShadowIGHashtagFields, F[number]>>(client, `${id}/recently_searched_hashtags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ShadowIGHashtagFields, F[number]>>(client, `${id}/recently_searched_hashtags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     scheduledMedia: <F extends (keyof ShadowIGScheduledMediaFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<ShadowIGScheduledMediaFields, F[number]>>(client, `${id}/scheduled_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ShadowIGScheduledMediaFields, F[number]>>(client, `${id}/scheduled_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     stories: <F extends (keyof IGMediaFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<IGMediaFields, F[number]>>(client, `${id}/stories`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<IGMediaFields, F[number]>>(client, `${id}/stories`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     tags: <F extends (keyof IGMediaFields)[]>(opts: { fields: F; params?: IGUserListTagsParams }) =>
-      new Cursor<Pick<IGMediaFields, F[number]>>(client, `${id}/tags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<IGMediaFields, F[number]>>(client, `${id}/tags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     upcomingEvents: {
       __path: `${id}/upcoming_events`,
       __brand: undefined as unknown as IGUpcomingEventFields,
       list: <F extends (keyof IGUpcomingEventFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<IGUpcomingEventFields, F[number]>>(client, `${id}/upcoming_events`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<IGUpcomingEventFields, F[number]>>(client, `${id}/upcoming_events`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGUserCreateUpcomingEventsParams) =>
         client.post<Record<string, unknown>>(`${id}/upcoming_events`, params as Record<string, unknown>),
     },
     welcomeMessageFlows: <F extends (keyof ShadowIGUserCTXPartnerAppWelcomeMessageFlowFields)[]>(opts: { fields: F; params?: IGUserListWelcomeMessageFlowsParams }) =>
-      new Cursor<Pick<ShadowIGUserCTXPartnerAppWelcomeMessageFlowFields, F[number]>>(client, `${id}/welcome_message_flows`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ShadowIGUserCTXPartnerAppWelcomeMessageFlowFields, F[number]>>(client, `${id}/welcome_message_flows`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:fbf69f2c9a442336e3010ae29b6dcf228ce8122b92ef8f5f87bb046554e49667
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.AccessInvitationErrorEnum.AccessInvitationError. Do not edit by hand.
 export type AccessInvitationError =
   | "UNSPECIFIED"

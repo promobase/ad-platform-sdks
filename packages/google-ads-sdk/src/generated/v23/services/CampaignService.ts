@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ceba03e32e53bcbfd6f070fe60704d7ed8a1c43056629ff22c98536e13143cc2
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { EnablePMaxBrandGuidelinesRequest, EnablePMaxBrandGuidelinesResponse, MutateCampaignsRequest, MutateCampaignsResponse } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

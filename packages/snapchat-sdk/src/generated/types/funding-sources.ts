@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:fa0442465adb791e3b511e9e076e9919f07457925e3c63ced6f3ac4185a370f8
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for funding-sources — do not edit
 
 export interface Fundingsource {

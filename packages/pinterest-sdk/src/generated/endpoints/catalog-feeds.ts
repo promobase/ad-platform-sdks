@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:be4c2b32f564f2baae842c2355b5e55397e91e1ce9d353def98cc00b1021c987
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for catalog_feeds — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { FeedsListResponse, FeedsCreateResponse, FeedsGetResponse, FeedsUpdateResponse, FeedsDeleteResponse, FeedsIngestResponse, FeedProcessingResultsListResponse, ItemsIssuesListResponse } from "../types.ts";

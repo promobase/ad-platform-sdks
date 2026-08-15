@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b04de5c93177517da577392a329500bc2f50f25b0148d9f90fd926aef98e5b77
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Mentions — do not edit
 
 export interface BusinessMentionVideoListParams {

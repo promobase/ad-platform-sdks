@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:54a17b5f69fdb627ec01f90d3e2b09ecb96919603031feb3047d7ef75a7d9f00
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.VideoReservationErrorEnum.VideoReservationError. Do not edit by hand.
 export type VideoReservationError =
   | "UNSPECIFIED"

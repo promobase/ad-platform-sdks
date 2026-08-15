@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:30e683b21ba38faff0596ebf5321fd091f5ced4e67455c148cc674b4eaf3dede
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { RemoveCampaignAutomaticallyCreatedAssetRequest, RemoveCampaignAutomaticallyCreatedAssetResponse } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

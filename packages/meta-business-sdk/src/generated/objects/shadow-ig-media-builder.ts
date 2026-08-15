@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:99563709919616511d8cc6f6372c21870e94c13f98f29701c1b29589b89670d8
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { IGResumableVideoUploadStatusFields } from "./ig-resumable-video-upload-status.ts";
 import type { IGVideoCopyrightCheckStatusFields } from "./ig-video-copyright-check-status.ts";

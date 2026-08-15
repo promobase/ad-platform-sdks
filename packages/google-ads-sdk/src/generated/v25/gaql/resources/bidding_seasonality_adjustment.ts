@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ac7451e9cf7a979ed2fdd36af2a4b4f1b614c46460b45f38b1e12c71dbfb51d7
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type BiddingSeasonalityAdjustmentSelectableField =
   | "bidding_seasonality_adjustment.resource_name"

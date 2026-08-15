@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:76824ec50a94605d51cc0e3a0ab60db856798f0ef75d7b760b3bdcf8e783e1c2
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AdsActionStatsFields {
   "1d_click": string;
   "1d_click_all_conversions": string;

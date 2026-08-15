@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:cf0c23e41bfec6589b1454d21875e25de59f1bd8a25223c568e4613e2e3748eb
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AdgroupPlacementSpecificReviewFeedbackFields {
   account_admin: Record<string, string>;
   ad: Record<string, string>;

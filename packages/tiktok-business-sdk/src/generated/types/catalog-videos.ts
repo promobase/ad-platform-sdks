@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:4bef5e7ed82d22dcb19947e6c242ac31b3f17fade8f8f2677ce81ba408fc631d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Catalog Videos — do not edit
 
 export interface CatalogVideoFileParams {

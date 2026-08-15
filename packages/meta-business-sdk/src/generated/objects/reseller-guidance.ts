@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:55fe7bc83ef70b2c63bc8ffc1a2663ea01195aaf1889ecb519c1f4588e3e3946
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { BusinessFields } from "./business.ts";
 
 export interface ResellerGuidanceFields {

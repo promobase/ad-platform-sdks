@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:a9fec38a23b7fa609ffdffada734646e9d35f0e30497c8c9cae2ae082b07f485
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { UserFields } from "./user.ts";
 
 export interface PagePostExperimentFields {
@@ -31,7 +34,7 @@ export function pagePostExperimentNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     videoInsights: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/video_insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/video_insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

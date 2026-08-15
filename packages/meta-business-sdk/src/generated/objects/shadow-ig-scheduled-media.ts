@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:11500316c3cd80d90c48efdd26856383d5096f0b37aee7e98d9771272e2c355a
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ShadowIGScheduledMediaFields {

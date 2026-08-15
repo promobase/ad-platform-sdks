@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:88d078bd3f023579699d450b229016e401143cae2e2ee172c80f4e779243ec11
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface CreditCardFields {

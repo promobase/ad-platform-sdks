@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:c65b87584169d2a567bb4043ff9b2fbfd08fb1db4cb000b3c2e44296cce0d8cf
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { ApplicationFields } from "./application.ts";
 import type { CommentFields } from "./comment.ts";
 import type { EventFields } from "./event.ts";
@@ -179,19 +182,19 @@ export function postNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     attachments: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/attachments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/attachments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     comments: {
       __path: `${id}/comments`,
       __brand: undefined as unknown as CommentFields,
       list: <F extends (keyof CommentFields)[]>(opts: { fields: F; params?: PostListCommentsParams }) =>
-        new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: PostCreateCommentsParams) =>
         client.post<CommentFields>(`${id}/comments`, params as Record<string, unknown>),
     },
     dynamicPosts: <F extends (keyof RTBDynamicPostFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<RTBDynamicPostFields, F[number]>>(client, `${id}/dynamic_posts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<RTBDynamicPostFields, F[number]>>(client, `${id}/dynamic_posts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     insights: <F extends (keyof InsightsResultFields)[]>(opts: { fields: F; params?: PostListInsightsParams }) =>
-      new Cursor<Pick<InsightsResultFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<InsightsResultFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     likes: {
       __path: `${id}/likes`,
       __brand: undefined as unknown as PostFields,
@@ -201,13 +204,13 @@ export function postNode(client: ApiClient, id: string) {
         client.delete(`${id}/likes`, params as Record<string, unknown> ?? {}),
     },
     reactions: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: PostListReactionsParams }) =>
-      new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/reactions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/reactions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     sharedposts: <F extends (keyof PostFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<PostFields, F[number]>>(client, `${id}/sharedposts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<PostFields, F[number]>>(client, `${id}/sharedposts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     sponsorTags: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<PageFields, F[number]>>(client, `${id}/sponsor_tags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<PageFields, F[number]>>(client, `${id}/sponsor_tags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     to: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/to`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/to`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3f34f37032e2685430bc6753e5c3c85577e9ded3f7fee024084992044006c437
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for (Deprecated) Dynamic Scene — do not edit
 import type { DynamicSceneMaterialSubmitParams, DynamicSceneMaterialSubmitResponse, DynamicSceneTaskCreateParams, DynamicSceneTaskCreateResponse, DynamicSceneTaskGetParams, DynamicSceneTaskGetResponse, DynamicSceneGetParams, DynamicSceneGetResponse, DynamicSceneReportGetParams, DynamicSceneReportGetResponse } from "../types/deprecated-dynamic-scene.ts";
 

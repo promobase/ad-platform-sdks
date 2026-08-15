@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:670f85e0f276ca900bfa0eecb2f08a0015fdb50ca76249480942127244f8f837
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { Ad, AdGroup, AdGroupAd, AdGroupAsset, AdGroupBidModifier, AdGroupCriterion, Asset, AssetSet, AssetSetAsset, Campaign, CampaignAsset, CampaignAssetSet, CampaignBudget, CampaignCriterion, CustomerAsset } from "../index.ts";
 
 // Generated from google.ads.googleads.v25.resources.ChangeEvent.ChangedResource. Do not edit by hand.

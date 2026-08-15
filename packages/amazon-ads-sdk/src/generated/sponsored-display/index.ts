@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:10a82c7972bc6400440d49b89c3da779747a9adc5de86bdb77293f74ff59dc1f
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated barrel — do not edit
 
 export { createSnapshotApisClient } from "./endpoints/snapshot-apis.ts";

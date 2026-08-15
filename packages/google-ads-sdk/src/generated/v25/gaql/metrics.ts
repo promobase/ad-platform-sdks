@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:87a5554f2910f2267a200e9453ae52a3679617b4db924f7d22ded51990fe38cd
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type MetricField =
   | "metrics.absolute_top_impression_percentage"

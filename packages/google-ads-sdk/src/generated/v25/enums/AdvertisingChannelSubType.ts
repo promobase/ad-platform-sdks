@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:15383d038230b8c781b221bfd214549a7f416b3c969e75cfd758fa37121764a9
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.AdvertisingChannelSubTypeEnum.AdvertisingChannelSubType. Do not edit by hand.
 export type AdvertisingChannelSubType =
   | "UNSPECIFIED"

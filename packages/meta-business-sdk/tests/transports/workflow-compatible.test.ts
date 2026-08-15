@@ -1,7 +1,7 @@
 import { expect, test } from "bun:test";
 
 import { createFacebookMessengerTransport } from "../../src/transports/facebook-messenger.ts";
-import { MetaTransportError } from "../../src/transports/http.ts";
+import { PlatformTransportError } from "../../src/transports/http.ts";
 import { createInstagramTransport } from "../../src/transports/instagram.ts";
 
 const credentials = {
@@ -88,7 +88,7 @@ test("transport errors preserve retry and provider metadata", async () => {
 
   await expect(
     transport.createMediaContainer({ imageUrl: "https://example.test/image.jpg" }),
-  ).rejects.toBeInstanceOf(MetaTransportError);
+  ).rejects.toBeInstanceOf(PlatformTransportError);
   try {
     await transport.createMediaContainer({ imageUrl: "https://example.test/image.jpg" });
   } catch (error) {

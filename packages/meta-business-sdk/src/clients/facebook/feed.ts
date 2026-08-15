@@ -1,20 +1,73 @@
 import { ApiClient } from "@openpromo/sdk-runtime";
+import * as v from "valibot";
 
 import { FacebookApiError } from "../../errors.ts";
-import type { PageCreateFeedParams } from "../../generated/objects/page.ts";
+import type {
+  PageCreateFeedParams,
+  PageCreatePhotosParams,
+  PageCreateVideosParams,
+} from "../../generated/objects/page.ts";
 import type {
   PagePostFields,
   PostAttachment,
+  FacebookVideoDetails,
   PublishMultiPhotoOptions,
   PublishPhotoPostOptions,
   PublishTextPostOptions,
   PublishVideoPostOptions,
   PublishVideoReelOptions,
+  VideoUploadInput,
+  VideoUploadResult,
+  VideoUploadSession,
   VideoStatus,
 } from "./types.ts";
 
 type CreateClientReturn = ReturnType<typeof import("../../generated/index.ts").createClient>;
 type PageNode = ReturnType<CreateClientReturn["page"]>;
+
+const VideoUploadStartSchema = v.object({
+  video_id: v.string(),
+  upload_url: v.string(),
+});
+
+const VideoUploadFinishSchema = v.object({
+  success: v.optional(v.boolean()),
+  post_id: v.optional(v.string()),
+  id: v.optional(v.string()),
+});
+
+const VideoUploadResultSchema = v.object({
+  success: v.optional(v.boolean()),
+  message: v.optional(v.string()),
+});
+
+const VideoStatusSchema = v.object({
+  status: v.optional(
+    v.object({
+      uploading_phase: v.optional(v.object({ status: v.string() })),
+      processing_phase: v.optional(v.object({ status: v.string() })),
+      publishing_phase: v.optional(
+        v.object({ status: v.string(), errors: v.optional(v.array(v.unknown())) }),
+      ),
+    }),
+  ),
+});
+
+const FacebookVideoDetailsSchema = v.object({
+  id: v.string(),
+  source: v.optional(v.string()),
+  thumbnails: v.optional(v.object({ data: v.array(v.object({ uri: v.string() })) })),
+});
+
+const IdSchema = v.object({ id: v.string() });
+
+function requirePostId(result: v.InferOutput<typeof VideoUploadFinishSchema>): string {
+  const postId = result.post_id ?? result.id;
+  if (!postId || result.success === false) {
+    throw new Error("Facebook video upload response missing a successful post ID");
+  }
+  return postId;
+}
 
 export function createFeed(
   api: CreateClientReturn,
@@ -32,6 +85,64 @@ export function createFeed(
     signal,
   });
 
+  const startVideoReelUpload = async (): Promise<VideoUploadSession> => {
+    const result = await client.post<unknown>(`${pageId}/video_reels`, {
+      upload_phase: "start",
+    });
+    const parsed = v.parse(VideoUploadStartSchema, result);
+    return { videoId: parsed.video_id, uploadUrl: parsed.upload_url };
+  };
+
+  const uploadVideoReel = async (input: VideoUploadInput): Promise<VideoUploadResult> => {
+    const response = await fetchImpl(input.uploadUrl, {
+      method: "POST",
+      signal,
+      headers: {
+        Authorization: `OAuth ${accessToken}`,
+        file_url: input.videoUrl,
+      },
+    });
+    if (!response.ok) {
+      const error = await response.json().catch(() => ({ message: response.statusText }));
+      throw new Error(`Video upload failed: ${JSON.stringify(error)}`);
+    }
+    const result = v.parse(VideoUploadResultSchema, await response.json().catch(() => ({})));
+    return { success: result.success ?? true, message: result.message };
+  };
+
+  const finishVideoReelUpload = async (opts: {
+    videoId: string;
+    description?: string;
+    videoState?: "PUBLISHED" | "DRAFT";
+  }): Promise<{ id: string; videoId: string }> => {
+    const params: Record<string, unknown> = {
+      upload_phase: "finish",
+      video_id: opts.videoId,
+      video_state: opts.videoState ?? "PUBLISHED",
+    };
+    if (opts.description) params.description = opts.description;
+    const result = v.parse(
+      VideoUploadFinishSchema,
+      await client.post<unknown>(`${pageId}/video_reels`, params),
+    );
+    return { id: requirePostId(result), videoId: opts.videoId };
+  };
+
+  const getVideoStatus = async (videoId: string): Promise<VideoStatus> => {
+    const result = v.parse(
+      VideoStatusSchema,
+      await client.get<unknown>(videoId, {
+        fields: ["status"],
+      }),
+    );
+    const status = result.status ?? {};
+    return {
+      uploadingPhase: status.uploading_phase,
+      processingPhase: status.processing_phase,
+      publishingPhase: status.publishing_phase,
+    };
+  };
+
   return {
     /** Publish a text post (optionally with a link) to the Page feed. */
     async publishPost(opts: PublishTextPostOptions): Promise<{ id: string }> {
@@ -40,12 +151,35 @@ export function createFeed(
         link: opts.link,
         published: opts.published !== false,
       };
-      if (opts.scheduledPublishTime) {
-        params.published = false;
-        params.scheduled_publish_time = String(opts.scheduledPublishTime);
+      const extendedParams = params as PageCreateFeedParams & Record<string, unknown>;
+      if (opts.attachedMedia) {
+        for (const [index, media] of opts.attachedMedia.entries()) {
+          extendedParams[`attached_media[${index}]`] = JSON.stringify({
+            media_fbid: media.mediaFbid,
+          });
+        }
       }
-      const result = await page.feed.create(params);
-      return { id: (result as { id: string }).id };
+      if (opts.callToAction) {
+        (extendedParams as Record<string, unknown>).call_to_action = JSON.stringify(
+          opts.callToAction,
+        );
+      }
+      if (opts.scheduledPublishTime) {
+        extendedParams.published = false;
+        extendedParams.scheduled_publish_time = String(opts.scheduledPublishTime);
+      }
+      const result = v.parse(
+        IdSchema,
+        await page.feed.create(extendedParams as PageCreateFeedParams),
+      );
+      return { id: result.id };
+    },
+
+    /** Upload a photo without publishing it, for a later attached-media post. */
+    async uploadPhoto(url: string): Promise<{ id: string }> {
+      const params: PageCreatePhotosParams = { url, published: false };
+      const result = v.parse(IdSchema, await page.photos.create(params));
+      return { id: result.id };
     },
 
     /** Publish a photo post to the Page. */
@@ -55,10 +189,10 @@ export function createFeed(
       if (opts.published !== undefined) params.published = opts.published;
       if (opts.scheduledPublishTime) {
         params.published = false;
-        params.scheduled_publish_time = String(opts.scheduledPublishTime);
+        params.scheduled_publish_time = Number(opts.scheduledPublishTime);
       }
-      const result = await page.photos.create(params as any);
-      return result as unknown as { id: string; post_id?: string };
+      const result = v.parse(IdSchema, await page.photos.create(params as PageCreatePhotosParams));
+      return { id: result.id };
     },
 
     /**
@@ -70,8 +204,8 @@ export function createFeed(
       if (opts.url) params.file_url = opts.url;
       if (opts.title) params.title = opts.title;
       if (opts.description) params.description = opts.description;
-      const result = await page.videos.create(params as any);
-      return { id: (result as { id: string }).id };
+      const result = v.parse(IdSchema, await page.videos.create(params as PageCreateVideosParams));
+      return { id: result.id };
     },
 
     /** Publish a multi-photo post (upload each photo, then create feed with attached_media[]). */
@@ -79,8 +213,11 @@ export function createFeed(
       // 1. Upload each photo with published=false
       const photoIds: string[] = [];
       for (const photo of opts.photos) {
-        const result = await page.photos.create({ url: photo.url, published: false } as any);
-        photoIds.push((result as { id: string }).id);
+        const result = v.parse(
+          IdSchema,
+          await page.photos.create({ url: photo.url, published: false }),
+        );
+        photoIds.push(result.id);
       }
 
       // 2. Create feed post with attached_media array
@@ -95,63 +232,32 @@ export function createFeed(
       for (let i = 0; i < photoIds.length; i++) {
         params[`attached_media[${i}]`] = JSON.stringify({ media_fbid: photoIds[i] });
       }
-      const result = await page.feed.create(params as any);
-      return { id: (result as { id: string }).id };
+      const result = v.parse(IdSchema, await page.feed.create(params as PageCreateFeedParams));
+      return { id: result.id };
     },
 
     /** Publish a video reel using the 3-phase upload flow. */
     async publishVideoReel(
       opts: PublishVideoReelOptions,
     ): Promise<{ id: string; videoId: string }> {
-      // Phase 1: Start upload
-      const startResult = await client.post<{ video_id: string; upload_url: string }>(
-        `${pageId}/video_reels`,
-        { upload_phase: "start" },
-      );
-
-      // Phase 2: Upload video to the returned URL
-      const uploadResponse = await fetchImpl(startResult.upload_url, {
-        method: "POST",
-        signal,
-        headers: {
-          Authorization: `OAuth ${accessToken}`,
-          file_url: opts.videoUrl,
-        },
+      const startResult = await startVideoReelUpload();
+      await uploadVideoReel({ uploadUrl: startResult.uploadUrl, videoUrl: opts.videoUrl });
+      return finishVideoReelUpload({
+        videoId: startResult.videoId,
+        description: opts.description,
+        videoState: opts.videoState,
       });
-      if (!uploadResponse.ok) {
-        const error = await uploadResponse
-          .json()
-          .catch(() => ({ message: uploadResponse.statusText }));
-        throw new Error(`Video upload failed: ${JSON.stringify(error)}`);
-      }
-
-      // Phase 3: Finish upload
-      const finishParams: Record<string, unknown> = {
-        upload_phase: "finish",
-        video_id: startResult.video_id,
-        video_state: opts.videoState ?? "PUBLISHED",
-      };
-      if (opts.description) finishParams.description = opts.description;
-
-      const finishResult = await client.post<{ success: boolean; post_id: string; id: string }>(
-        `${pageId}/video_reels`,
-        finishParams,
-      );
-
-      return { id: finishResult.post_id ?? finishResult.id, videoId: startResult.video_id };
     },
 
     /** Get video processing status. */
-    async getVideoStatus(videoId: string): Promise<VideoStatus> {
-      const result = await client.get<{ status: any }>(videoId, {
-        fields: ["status"],
-      });
-      const status = result.status ?? {};
-      return {
-        uploadingPhase: status.uploading_phase,
-        processingPhase: status.processing_phase,
-        publishingPhase: status.publishing_phase,
-      };
+    getVideoStatus,
+
+    /** Durable 3-phase video reel operations for Cloudflare Workflow steps. */
+    videoReels: {
+      start: startVideoReelUpload,
+      upload: uploadVideoReel,
+      finish: finishVideoReelUpload,
+      getStatus: getVideoStatus,
     },
 
     /** Fetch post attachments (images + subattachments for multi-photo). */
@@ -164,9 +270,12 @@ export function createFeed(
 
     /** Fetch video details (source URL + thumbnails). */
     async fetchVideo(videoId: string) {
-      return client.get(videoId, {
-        fields: ["id", "source", "thumbnails{uri}"],
-      });
+      return v.parse(
+        FacebookVideoDetailsSchema,
+        await client.get<unknown>(videoId, {
+          fields: ["id", "source", "thumbnails{uri}"],
+        }),
+      ) satisfies FacebookVideoDetails;
     },
 
     /** Get permalink for a post. */

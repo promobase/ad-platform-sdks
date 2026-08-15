@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:97cc13536dc8f9d8ec1c62c6ed7167dbc6793e60c1f1238d36ca31a5ce4b8603
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for business_access_assets — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { AssetGroupCreateResponse, AssetGroupUpdateResponse, AssetGroupDeleteResponse, BusinessAssetsGetResponse, BusinessAssetMembersGetResponse, BusinessAssetPartnersGetResponse, BusinessMemberAssetsGetResponseEndpoint, BusinessMembersAssetAccessUpdateResponse, BusinessMembersAssetAccessDeleteResponse, BusinessPartnerAssetAccessGetResponse, UpdatePartnerAssetAccessHandlerImplResponse, DeletePartnerAssetAccessHandlerImplResponse } from "../types.ts";

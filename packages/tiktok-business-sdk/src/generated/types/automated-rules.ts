@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2979c6c2a769567530d2c25302456cde710e71fb548233e31dfdfa3a2f2c51c5
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Automated Rules — do not edit
 
 export interface OptimizerRuleCreateParams {

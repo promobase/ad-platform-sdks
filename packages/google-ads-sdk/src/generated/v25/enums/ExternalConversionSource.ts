@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a1b66274425ffb623ef2adf07d0c5dd86ffef360b6a31f1dc71ebed0cf1e2407
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.ExternalConversionSourceEnum.ExternalConversionSource. Do not edit by hand.
 export type ExternalConversionSource =
   | "UNSPECIFIED"

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0681f992d9bb60c2930f76d42a886dd9395aea268a42e2c0b3bd363f96b925fa
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface CopyrightReferenceContainerFields {
   content_type: string;
   copyright_creation_time: string;

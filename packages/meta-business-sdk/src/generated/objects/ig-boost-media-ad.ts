@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:288b5c8c3d08e20e8ea2f451d8476ed5f40cf8cedbce9a28e24304744ebb198a
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface IGBoostMediaAdFields {

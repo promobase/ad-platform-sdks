@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ae15b229b67024c6303910e3ff8792bf448ef6c4583a24f2763bf9bdbdc401c9
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface ChatPluginFields {
   alignment: string;
   desktop_bottom_spacing: string;

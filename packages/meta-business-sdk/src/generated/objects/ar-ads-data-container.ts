@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:dda69a66248dbd2113019e37c939633a605201e8d95986edbc46c934e1d57c0f
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ArAdsDataContainerFields {

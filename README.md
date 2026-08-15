@@ -24,8 +24,8 @@ and agent-ready operations.
 
 ## What is Mosaic?
 
-Mosaic is a family of runtime-agnostic TypeScript SDKs for **Meta** (Facebook, Instagram,
-Threads), **TikTok**, **Snapchat**, **Reddit**, **Pinterest**, **Amazon Ads**, **Bluesky**,
+Mosaic is a family of runtime-agnostic TypeScript SDKs for **Facebook**, **Instagram**,
+**Threads**, **WhatsApp**, **TikTok**, **Snapchat**, **Reddit**, **Pinterest**, **Amazon Ads**, **Bluesky**,
 **LinkedIn**, **X**, **YouTube**, **Google Ads**, and **Google Business Profile**.
 
 It keeps the provider-specific surface intact while giving applications a shared foundation for
@@ -39,14 +39,14 @@ bun add @openpromo/ad-platforms
 ```
 
 ```ts
-import { Meta } from "@openpromo/ad-platforms";
+import { Facebook, Instagram } from "@openpromo/ad-platforms";
 
-const meta = Meta.createClient({
+const graph = Facebook.createGraphClient({
   accessToken: process.env.META_TOKEN!,
 });
 
-const instagram = Meta.Instagram.createClient({
-  api: meta,
+const instagram = Instagram.createClient({
+  api: graph,
   igAccountId: "ig_123",
 });
 
@@ -73,7 +73,7 @@ await instagram.media.publishVideo({
 | Package | Description |
 | --- | --- |
 | [`@openpromo/ad-platforms`](./packages/ad-platforms/) | Umbrella package — all platforms, one install |
-| [`@openpromo/meta`](./packages/meta-business-sdk/) | Meta, Facebook, Instagram, and Threads |
+| [`@openpromo/meta`](./packages/meta-business-sdk/) | Facebook Graph, Instagram, Threads, and WhatsApp |
 | [`@openpromo/tiktok`](./packages/tiktok-business-sdk/) | TikTok Business and Developer APIs |
 | [`@openpromo/google-ads`](./packages/google-ads-sdk/) | Google Ads, typed GAQL, and generated services |
 | [`@openpromo/google-business-profile`](./packages/google-business-profile-sdk/) | Locations, local posts, and performance |

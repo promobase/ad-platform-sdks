@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:8988682f9e7823bfd0975b0a734f16752daafa874bec59838d2e82df114c66e3
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AssignedUserFields } from "./assigned-user.ts";
 import type { BusinessFields } from "./business.ts";
 import type { CTXPartnerAppWelcomeMessageFlowFields } from "./ctx-partner-app-welcome-message-flow.ts";
@@ -338,58 +341,58 @@ export function whatsAppBusinessAccountNode(client: ApiClient, id: string) {
     update: (params: WhatsAppBusinessAccountUpdateParams) =>
       client.post<WhatsAppBusinessAccountFields>(`${id}`, params as Record<string, unknown>),
     activities: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/activities`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/activities`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     assignedUsers: {
       __path: `${id}/assigned_users`,
       __brand: undefined as unknown as AssignedUserFields,
       list: <F extends (keyof AssignedUserFields)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListAssignedUsersParams }) =>
-        new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: WhatsAppBusinessAccountCreateAssignedUsersParams) =>
         client.post<WhatsAppBusinessAccountFields>(`${id}/assigned_users`, params as Record<string, unknown>),
       delete: (params: WhatsAppBusinessAccountDeleteAssignedUsersParams) =>
         client.delete(`${id}/assigned_users`, params as Record<string, unknown> ?? {}),
     },
     audiences: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/audiences`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/audiences`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createBusinessMessagingFeatureStatu: (params: WhatsAppBusinessAccountCreateBusinessMessagingFeatureStatusParams) =>
       client.post<WhatsAppBusinessAccountFields>(`${id}/business_messaging_feature_status`, params as Record<string, unknown>),
     callAnalytics: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListCallAnalyticsParams }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/call_analytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/call_analytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     conversationAnalytics: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListConversationAnalyticsParams }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/conversation_analytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/conversation_analytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     dataset: {
       __path: `${id}/dataset`,
       __brand: undefined as unknown as DatasetFields,
       list: <F extends (keyof DatasetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<DatasetFields, F[number]>>(client, `${id}/dataset`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<DatasetFields, F[number]>>(client, `${id}/dataset`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: WhatsAppBusinessAccountCreateDatasetParams) =>
         client.post<DatasetFields>(`${id}/dataset`, params as Record<string, unknown>),
     },
     degreesOfFreedomSpec: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/degrees_of_freedom_spec`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/degrees_of_freedom_spec`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     flows: {
       __path: `${id}/flows`,
       __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/flows`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/flows`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: WhatsAppBusinessAccountCreateFlowsParams) =>
         client.post<Record<string, unknown>>(`${id}/flows`, params as Record<string, unknown>),
     },
     createGeneratePaymentConfigurationOauthLink: (params: WhatsAppBusinessAccountCreateGeneratePaymentConfigurationOauthLinkParams) =>
       client.post<WhatsAppBusinessAccountFields>(`${id}/generate_payment_configuration_oauth_link`, params as Record<string, unknown>),
     groupAnalytics: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListGroupAnalyticsParams }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/group_analytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/group_analytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     messageCampaigns: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/message_campaigns`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/message_campaigns`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createMessageSample: (params: WhatsAppBusinessAccountCreateMessageSamplesParams) =>
       client.post<WhatsAppBusinessAccountFields>(`${id}/message_samples`, params as Record<string, unknown>),
     messageTemplatePreviews: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListMessageTemplatePreviewsParams }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/message_template_previews`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/message_template_previews`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     messageTemplates: {
       __path: `${id}/message_templates`,
       __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListMessageTemplatesParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/message_templates`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/message_templates`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: WhatsAppBusinessAccountCreateMessageTemplatesParams) =>
         client.post<WhatsAppBusinessAccountFields>(`${id}/message_templates`, params as Record<string, unknown>),
       delete: (params: WhatsAppBusinessAccountDeleteMessageTemplatesParams) =>
@@ -403,59 +406,59 @@ export function whatsAppBusinessAccountNode(client: ApiClient, id: string) {
       __path: `${id}/payment_configuration`,
       __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListPaymentConfigurationParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/payment_configuration`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/payment_configuration`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: WhatsAppBusinessAccountCreatePaymentConfigurationParams) =>
         client.post<WhatsAppBusinessAccountFields>(`${id}/payment_configuration`, params as Record<string, unknown>),
       delete: (params: WhatsAppBusinessAccountDeletePaymentConfigurationParams) =>
         client.delete(`${id}/payment_configuration`, params as Record<string, unknown> ?? {}),
     },
     paymentConfigurations: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/payment_configurations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/payment_configurations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     phoneNumbers: {
       __path: `${id}/phone_numbers`,
       __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/phone_numbers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/phone_numbers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: WhatsAppBusinessAccountCreatePhoneNumbersParams) =>
         client.post<Record<string, unknown>>(`${id}/phone_numbers`, params as Record<string, unknown>),
     },
     pricingAnalytics: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListPricingAnalyticsParams }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/pricing_analytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/pricing_analytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     productCatalogs: {
       __path: `${id}/product_catalogs`,
       __brand: undefined as unknown as ProductCatalogFields,
       list: <F extends (keyof ProductCatalogFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ProductCatalogFields, F[number]>>(client, `${id}/product_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ProductCatalogFields, F[number]>>(client, `${id}/product_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: WhatsAppBusinessAccountCreateProductCatalogsParams) =>
         client.post<ProductCatalogFields>(`${id}/product_catalogs`, params as Record<string, unknown>),
       delete: (params: WhatsAppBusinessAccountDeleteProductCatalogsParams) =>
         client.delete(`${id}/product_catalogs`, params as Record<string, unknown> ?? {}),
     },
     schedules: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/schedules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/schedules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createSetSolutionMigrationIntent: (params: WhatsAppBusinessAccountCreateSetSolutionMigrationIntentParams) =>
       client.post<Record<string, unknown>>(`${id}/set_solution_migration_intent`, params as Record<string, unknown>),
     solutions: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/solutions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/solutions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     subscribedApps: {
       __path: `${id}/subscribed_apps`,
       __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/subscribed_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/subscribed_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: WhatsAppBusinessAccountCreateSubscribedAppsParams) =>
         client.post<WhatsAppBusinessAccountFields>(`${id}/subscribed_apps`, params as Record<string, unknown>),
       delete: (params?: Record<string, unknown>) =>
         client.delete(`${id}/subscribed_apps`, params as Record<string, unknown> ?? {}),
     },
     templateAnalytics: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListTemplateAnalyticsParams }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/template_analytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/template_analytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     templateGroupAnalytics: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListTemplateGroupAnalyticsParams }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/template_group_analytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/template_group_analytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     templateGroups: {
       __path: `${id}/template_groups`,
       __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/template_groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/template_groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: WhatsAppBusinessAccountCreateTemplateGroupsParams) =>
         client.post<Record<string, unknown>>(`${id}/template_groups`, params as Record<string, unknown>),
     },
@@ -465,7 +468,7 @@ export function whatsAppBusinessAccountNode(client: ApiClient, id: string) {
       __path: `${id}/welcome_message_sequences`,
       __brand: undefined as unknown as CTXPartnerAppWelcomeMessageFlowFields,
       list: <F extends (keyof CTXPartnerAppWelcomeMessageFlowFields)[]>(opts: { fields: F; params?: WhatsAppBusinessAccountListWelcomeMessageSequencesParams }) =>
-        new Cursor<Pick<CTXPartnerAppWelcomeMessageFlowFields, F[number]>>(client, `${id}/welcome_message_sequences`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<CTXPartnerAppWelcomeMessageFlowFields, F[number]>>(client, `${id}/welcome_message_sequences`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: WhatsAppBusinessAccountCreateWelcomeMessageSequencesParams) =>
         client.post<Record<string, unknown>>(`${id}/welcome_message_sequences`, params as Record<string, unknown>),
       delete: (params: WhatsAppBusinessAccountDeleteWelcomeMessageSequencesParams) =>

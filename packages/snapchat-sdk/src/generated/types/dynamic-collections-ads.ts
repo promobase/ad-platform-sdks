@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6a4f0ee03ce0f657c5d03b7e31e47d43d212a7ba71696a2c584fb10ee9be74fc
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for dynamic-collections-ads — do not edit
 
 export interface CreativeElement {

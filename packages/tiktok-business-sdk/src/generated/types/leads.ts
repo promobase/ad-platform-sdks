@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:666b3c773961a646e1effe609f120a312ed7cd8e4e53882d33f752c840e78d97
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Leads — do not edit
 
 export interface PageLeadMockCreateParams {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7de803984e69d190ad67f4ac336b03b0b6ae4bb01ecab74aaafe2795a670e08e
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for BC Payments — do not edit
 
 export interface BcTransferParams {

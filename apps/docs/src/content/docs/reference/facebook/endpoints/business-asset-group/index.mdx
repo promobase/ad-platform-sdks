@@ -1,0 +1,897 @@
+---
+title: "Facebook Business Asset Group endpoints"
+description: "26 generated Facebook endpoint contracts for Business Asset Group."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 188
+  label: "Business Asset Group"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:46d46a0cf099cd64b9a9abf5c8fb5929f391af5444aa0b87df2046654d6bb567 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.businessAssetGroup.assignedUsers
+
+`DELETE` `/{id}/assigned_users`
+
+DELETE BusinessAssetGroup assigned_users
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `user` | `query` | `integer` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.assignedUsers2
+
+`GET` `/{id}/assigned_users`
+
+GET BusinessAssetGroup assigned_users
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `businessAssetGroup.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AssignedUserFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `business` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.assignedUsers3
+
+`POST` `/{id}/assigned_users`
+
+POST BusinessAssetGroup assigned_users
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `BusinessAssetGroupFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `adaccount_tasks` | `body` | `Array<unknown>` | No | No | — |
+| `offline_conversion_data_set_tasks` | `body` | `Array<unknown>` | No | No | — |
+| `page_tasks` | `body` | `Array<unknown>` | No | No | — |
+| `pixel_tasks` | `body` | `Array<unknown>` | No | No | — |
+| `user` | `body` | `integer` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedAdaccounts
+
+`DELETE` `/{id}/contained_adaccounts`
+
+DELETE BusinessAssetGroup contained_adaccounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `asset_id` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedAdaccounts2
+
+`GET` `/{id}/contained_adaccounts`
+
+GET BusinessAssetGroup contained_adaccounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `businessAssetGroup.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdAccountFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedAdaccounts3
+
+`POST` `/{id}/contained_adaccounts`
+
+POST BusinessAssetGroup contained_adaccounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `BusinessAssetGroupFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `asset_id` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedApplications
+
+`DELETE` `/{id}/contained_applications`
+
+DELETE BusinessAssetGroup contained_applications
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `asset_id` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedApplications2
+
+`GET` `/{id}/contained_applications`
+
+GET BusinessAssetGroup contained_applications
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `businessAssetGroup.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ApplicationFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedApplications3
+
+`POST` `/{id}/contained_applications`
+
+POST BusinessAssetGroup contained_applications
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `BusinessAssetGroupFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `asset_id` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedCustomConversions
+
+`DELETE` `/{id}/contained_custom_conversions`
+
+DELETE BusinessAssetGroup contained_custom_conversions
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `asset_id` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedCustomConversions2
+
+`GET` `/{id}/contained_custom_conversions`
+
+GET BusinessAssetGroup contained_custom_conversions
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `businessAssetGroup.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CustomConversionFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedCustomConversions3
+
+`POST` `/{id}/contained_custom_conversions`
+
+POST BusinessAssetGroup contained_custom_conversions
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `BusinessAssetGroupFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `asset_id` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedInstagramAccounts
+
+`DELETE` `/{id}/contained_instagram_accounts`
+
+DELETE BusinessAssetGroup contained_instagram_accounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `asset_id` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedInstagramAccounts2
+
+`GET` `/{id}/contained_instagram_accounts`
+
+GET BusinessAssetGroup contained_instagram_accounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `businessAssetGroup.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `IGUserFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedInstagramAccounts3
+
+`POST` `/{id}/contained_instagram_accounts`
+
+POST BusinessAssetGroup contained_instagram_accounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `BusinessAssetGroupFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `asset_id` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedPages
+
+`DELETE` `/{id}/contained_pages`
+
+DELETE BusinessAssetGroup contained_pages
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `asset_id` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedPages2
+
+`GET` `/{id}/contained_pages`
+
+GET BusinessAssetGroup contained_pages
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `businessAssetGroup.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedPages3
+
+`POST` `/{id}/contained_pages`
+
+POST BusinessAssetGroup contained_pages
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `BusinessAssetGroupFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `asset_id` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedPixels
+
+`DELETE` `/{id}/contained_pixels`
+
+DELETE BusinessAssetGroup contained_pixels
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `asset_id` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedPixels2
+
+`GET` `/{id}/contained_pixels`
+
+GET BusinessAssetGroup contained_pixels
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `businessAssetGroup.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdsPixelFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedPixels3
+
+`POST` `/{id}/contained_pixels`
+
+POST BusinessAssetGroup contained_pixels
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `BusinessAssetGroupFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `asset_id` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedProductCatalogs
+
+`DELETE` `/{id}/contained_product_catalogs`
+
+DELETE BusinessAssetGroup contained_product_catalogs
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `asset_id` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedProductCatalogs2
+
+`GET` `/{id}/contained_product_catalogs`
+
+GET BusinessAssetGroup contained_product_catalogs
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `businessAssetGroup.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ProductCatalogFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.containedProductCatalogs3
+
+`POST` `/{id}/contained_product_catalogs`
+
+POST BusinessAssetGroup contained_product_catalogs
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `BusinessAssetGroupFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `asset_id` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.get
+
+`GET` `/{id}`
+
+GET BusinessAssetGroup
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `businessAssetGroup.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `BusinessAssetGroupFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessAssetGroup.update
+
+`POST` `/{id}`
+
+POST BusinessAssetGroup
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessAssetGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `BusinessAssetGroupFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `name` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

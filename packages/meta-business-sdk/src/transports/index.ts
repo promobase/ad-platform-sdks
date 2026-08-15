@@ -1,9 +1,9 @@
 export type {
-  MetaTransportClientOptions,
-  MetaTransportErrorDetails,
-  MetaTransportProvider,
+  PlatformTransportErrorDetails,
+  PlatformTransportProvider,
+  TransportClientOptions,
 } from "./http.ts";
-export { MetaTransportError } from "./http.ts";
+export { PlatformTransportError } from "./http.ts";
 export type {
   FacebookMessengerClientOptions,
   FacebookMessengerMessage,

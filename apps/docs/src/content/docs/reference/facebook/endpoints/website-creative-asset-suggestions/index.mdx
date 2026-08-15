@@ -1,0 +1,50 @@
+---
+title: "Facebook Website Creative Asset Suggestions endpoints"
+description: "1 generated Facebook endpoint contract for Website Creative Asset Suggestions."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 400
+  label: "Website Creative Asset Suggestions"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:3155253926fdd287196e4533dcea34b312cbd78780fa0418c71e927332ca6b65 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.websiteCreativeAssetSuggestions.get
+
+`GET` `/{id}`
+
+GET WebsiteCreativeAssetSuggestions
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `websiteCreativeAssetSuggestions.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `WebsiteCreativeAssetSuggestionsFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

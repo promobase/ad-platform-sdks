@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7672a8fca4eaa86423669b18f36495cc4a4eeac4d469d1b94d8225d7d67fb3b1
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AdCreativeMarketingMessageStructuredSpecFields {
   asset_customization: Record<string, unknown>;
   autoreply: Record<string, unknown>;

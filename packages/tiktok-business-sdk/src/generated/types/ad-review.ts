@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:56bc12647a3118e49468616d647948facdb13abc9d9cff6c5c9cf2519cd6cda2
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Ad Review — do not edit
 
 export interface AdgroupReviewInfoParams {

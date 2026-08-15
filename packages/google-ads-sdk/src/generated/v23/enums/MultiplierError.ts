@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:aa4ecb32fcf52d0c99d7270c47194bc176cc5a35f4632abbf994f8a32c1f732d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.MultiplierErrorEnum.MultiplierError. Do not edit by hand.
 export type MultiplierError =
   | "UNSPECIFIED"

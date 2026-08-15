@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e2b0f2db618d56706d99405d51212b5ae14d13a02f3402cdfd15775e7ad6935d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for terms — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { TermsRelatedListResponse, TermsSuggestedListResponse } from "../types.ts";

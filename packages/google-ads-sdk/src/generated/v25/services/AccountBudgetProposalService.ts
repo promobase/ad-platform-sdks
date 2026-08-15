@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3bc92188bdba7b2c3b17d85124a2509bff086b3e8c1e87f4973750473f356343
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { MutateAccountBudgetProposalRequest, MutateAccountBudgetProposalResponse } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

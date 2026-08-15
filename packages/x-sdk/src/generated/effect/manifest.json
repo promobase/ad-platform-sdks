@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:61f2cc1832ef68178d2add32ad008ddb8519e5f77ac13297e329ecc47e5a5a36",
+    "doNotEdit": true
+  },
   "platform": "x",
   "source": {
     "kind": "openapi",

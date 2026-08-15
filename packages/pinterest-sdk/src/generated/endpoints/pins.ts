@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:967281089ae2facbca77af51d8127bd952ff61c51538697e3ed7c432fb279517
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for pins — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { PinsCreateResponse, PinsListResponse, PinsGetResponse, PinsUpdateResponse, PinsDeleteResponse, PinsAnalyticsResponse, PinsSaveResponse, MultiPinsAnalyticsResponse } from "../types.ts";

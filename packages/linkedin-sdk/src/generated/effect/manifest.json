@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:8fd8d2182679b31f0278bd18747f2a46e81a56b4c1d6e398411f95442654185d",
+    "doNotEdit": true
+  },
   "platform": "linkedin",
   "source": {
     "kind": "vendor-json",

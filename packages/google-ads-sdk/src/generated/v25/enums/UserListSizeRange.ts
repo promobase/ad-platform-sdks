@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7d4231d751fee323e0c9b22c5e4cb5fa69bfe605e15c8198efc72c7d5ecbc394
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.UserListSizeRangeEnum.UserListSizeRange. Do not edit by hand.
 export type UserListSizeRange =
   | "UNSPECIFIED"

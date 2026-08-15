@@ -1,0 +1,50 @@
+---
+title: "Facebook Ad Saved Location endpoints"
+description: "1 generated Facebook endpoint contract for Ad Saved Location."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 135
+  label: "Ad Saved Location"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:52ad7cf558f2d01a9ce3dc2ccb97c3214f909ad6fc7778a1b438c6424212865e -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.adSavedLocation.get
+
+`GET` `/{id}`
+
+GET AdSavedLocation
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adSavedLocation.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdSavedLocationFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:64b7e3ed8eff7eb8fd134bbac2890b84de63aa2ad670d3aeed1f8c22c80993bf
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for BC Payment Portfolios — do not edit
 
 export interface PaymentPortfolioGetParams {

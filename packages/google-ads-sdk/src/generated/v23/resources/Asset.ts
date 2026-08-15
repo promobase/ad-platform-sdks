@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0739478c2a06071ac810f93e45a24833faf1411472f0f2821ceea254a1177a04
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AppDeepLinkAsset, AssetFieldTypePolicySummary, AssetOrientation, AssetPolicySummary, AssetSource, AssetType, BookOnGoogleAsset, BusinessMessageAsset, CallAsset, CallToActionAsset, CalloutAsset, CustomParameter, DemandGenCarouselCardAsset, DynamicCustomAsset, DynamicEducationAsset, DynamicFlightsAsset, DynamicHotelsAndRentalsAsset, DynamicJobsAsset, DynamicLocalAsset, DynamicRealEstateAsset, DynamicTravelAsset, HotelCalloutAsset, HotelPropertyAsset, ImageAsset, LeadFormAsset, LocationAsset, MediaBundleAsset, MobileAppAsset, PageFeedAsset, PriceAsset, PromotionAsset, SitelinkAsset, StructuredSnippetAsset, TextAsset, YouTubeVideoListAsset, YoutubeVideoAsset } from "../index.ts";
 
 // Generated from google.ads.googleads.v23.resources.Asset. Do not edit by hand.

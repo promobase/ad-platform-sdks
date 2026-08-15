@@ -14,6 +14,7 @@ test("TikTok.createClient returns a client object", () => {
   });
   expect(client).toBeDefined();
   expect(typeof client).toBe("object");
+  expect(client.api).toBeDefined();
 });
 
 test("TikTokApiError is exported", () => {

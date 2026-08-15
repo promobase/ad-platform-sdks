@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9fa74d50396df45933ce01e698eacebaee44cd64f160127f69216f77ef77588e
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Negative Keywords — do not edit
 
 export interface SearchAdNegativeKeywordGetParams {

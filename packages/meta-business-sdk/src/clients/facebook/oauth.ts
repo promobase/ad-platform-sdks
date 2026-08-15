@@ -1,3 +1,5 @@
+import * as v from "valibot";
+
 import type {
   FacebookPageInfo,
   FacebookPermission,
@@ -9,6 +11,56 @@ import type {
 
 const FB_OAUTH_BASE = "https://www.facebook.com";
 const FB_GRAPH_BASE = "https://graph.facebook.com";
+
+const shortLivedTokenSchema = v.object({ access_token: v.string() });
+const longLivedTokenSchema = v.object({
+  access_token: v.string(),
+  token_type: v.string(),
+  expires_in: v.number(),
+});
+const pageTokenSchema = v.object({
+  id: v.string(),
+  name: v.string(),
+  access_token: v.string(),
+});
+const profileSchema = v.object({
+  id: v.string(),
+  name: v.string(),
+  email: v.optional(v.string()),
+  picture: v.optional(
+    v.object({
+      data: v.optional(
+        v.object({
+          url: v.optional(v.string()),
+          width: v.optional(v.number()),
+          height: v.optional(v.number()),
+        }),
+      ),
+    }),
+  ),
+});
+const permissionSchema = v.object({ permission: v.string(), status: v.string() });
+const pageInfoSchema = v.object({
+  id: v.string(),
+  name: v.string(),
+  access_token: v.optional(v.string()),
+  username: v.optional(v.string()),
+  category: v.optional(v.string()),
+  fan_count: v.optional(v.number()),
+  followers_count: v.optional(v.number()),
+  about: v.optional(v.string()),
+  picture: v.optional(
+    v.object({
+      data: v.optional(
+        v.object({
+          url: v.optional(v.string()),
+          width: v.optional(v.number()),
+          height: v.optional(v.number()),
+        }),
+      ),
+    }),
+  ),
+});
 
 export function createOAuth(config: OAuthConfig) {
   const fetchImpl = config.fetch ?? fetch;
@@ -53,7 +105,7 @@ export function createOAuth(config: OAuthConfig) {
         throw new Error(`Facebook OAuth code exchange failed: ${JSON.stringify(error)}`);
       }
 
-      return response.json() as Promise<{ access_token: string }>;
+      return v.parse(shortLivedTokenSchema, await response.json());
     },
 
     /** Exchange short-lived user token for a long-lived user token (60 days). */
@@ -75,7 +127,7 @@ export function createOAuth(config: OAuthConfig) {
         throw new Error(`Long-lived token exchange failed: ${JSON.stringify(error)}`);
       }
 
-      return response.json() as Promise<LongLivedToken>;
+      return v.parse(longLivedTokenSchema, await response.json());
     },
 
     /**
@@ -99,7 +151,7 @@ export function createOAuth(config: OAuthConfig) {
         throw new Error(`Failed to get Page tokens: ${JSON.stringify(error)}`);
       }
 
-      const body = (await response.json()) as { data: PageToken[] };
+      const body = v.parse(v.object({ data: v.array(pageTokenSchema) }), await response.json());
       return body.data;
     },
 
@@ -111,7 +163,7 @@ export function createOAuth(config: OAuthConfig) {
       const params = new URLSearchParams({ access_token: accessToken, fields: fields.join(",") });
       const response = await fetchImpl(`${FB_GRAPH_BASE}/v25.0/${id}?${params}`, requestInit);
       if (!response.ok) throw new Error(`Facebook profile fetch failed: ${await response.text()}`);
-      return response.json() as Promise<FacebookUserProfile>;
+      return v.parse(profileSchema, await response.json());
     },
 
     async getPermissions(accessToken: string): Promise<FacebookPermission[]> {
@@ -123,7 +175,7 @@ export function createOAuth(config: OAuthConfig) {
       if (!response.ok) {
         throw new Error(`Facebook permission fetch failed: ${await response.text()}`);
       }
-      const body = (await response.json()) as { data: FacebookPermission[] };
+      const body = v.parse(v.object({ data: v.array(permissionSchema) }), await response.json());
       return body.data;
     },
 
@@ -146,7 +198,7 @@ export function createOAuth(config: OAuthConfig) {
       });
       const response = await fetchImpl(`${FB_GRAPH_BASE}/v25.0/${pageId}?${params}`, requestInit);
       if (!response.ok) throw new Error(`Facebook Page fetch failed: ${await response.text()}`);
-      return response.json() as Promise<FacebookPageInfo>;
+      return v.parse(pageInfoSchema, await response.json());
     },
 
     /**

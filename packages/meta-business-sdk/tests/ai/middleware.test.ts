@@ -4,7 +4,7 @@ import { tool } from "ai";
 import * as v from "valibot";
 
 import { filterTools, filterToolsByName, limitTools } from "../../src/ai/filter.ts";
-import { createMetaTools } from "../../src/ai/index.ts";
+import { createTools } from "../../src/ai/index.ts";
 import { withMiddleware } from "../../src/ai/middleware.ts";
 import { createRouter } from "../../src/ai/router.ts";
 import { createClient } from "../../src/generated/index.ts";
@@ -111,7 +111,7 @@ test("withMiddleware preserves tool descriptions and parameters", () => {
 
 test("filterTools by platform category", () => {
   const api = createClient({ accessToken: "tok" });
-  const allTools = createMetaTools({
+  const allTools = createTools({
     api,
     igAccountId: "ig_123",
     pageId: "page_123",
@@ -131,7 +131,7 @@ test("filterTools by platform category", () => {
 
 test("filterToolsByName with wildcard", () => {
   const api = createClient({ accessToken: "tok" });
-  const allTools = createMetaTools({
+  const allTools = createTools({
     api,
     igAccountId: "ig_123",
     pageId: "page_123",
@@ -149,7 +149,7 @@ test("filterToolsByName with wildcard", () => {
 
 test("limitTools caps the number", () => {
   const api = createClient({ accessToken: "tok" });
-  const allTools = createMetaTools({
+  const allTools = createTools({
     api,
     igAccountId: "ig_123",
     pageId: "page_123",
@@ -165,7 +165,7 @@ test("limitTools caps the number", () => {
 
 test("createRouter returns routerTools and getSelectedTools", async () => {
   const api = createClient({ accessToken: "tok" });
-  const allTools = createMetaTools({
+  const allTools = createTools({
     api,
     igAccountId: "ig_123",
     pageId: "page_123",

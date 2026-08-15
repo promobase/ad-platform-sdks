@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3030497931083afedd1812062ac6205c0f1b432c0002c8bfd3d602a82998c1e8
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type LocalServicesLeadSelectableField =
   | "local_services_lead.resource_name"

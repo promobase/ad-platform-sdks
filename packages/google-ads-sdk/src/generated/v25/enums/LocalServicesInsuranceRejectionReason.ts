@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:63f4ad79c10a20f746926b05f710dfb4159ec30762074f5b9ab70f062cc27bad
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.LocalServicesInsuranceRejectionReasonEnum.LocalServicesInsuranceRejectionReason. Do not edit by hand.
 export type LocalServicesInsuranceRejectionReason =
   | "UNSPECIFIED"

@@ -1,0 +1,83 @@
+---
+title: "Facebook Lead endpoints"
+description: "2 generated Facebook endpoint contracts for Lead."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 284
+  label: "Lead"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:7eaf61f4dd6a81cc0d60ae643817a9ca7f4d5d4c38e8c51441b5177ec8edb40a -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.lead.delete
+
+`DELETE` `/{id}`
+
+DELETE Lead
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `lead.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.lead.get
+
+`GET` `/{id}`
+
+GET Lead
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `lead.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `LeadFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

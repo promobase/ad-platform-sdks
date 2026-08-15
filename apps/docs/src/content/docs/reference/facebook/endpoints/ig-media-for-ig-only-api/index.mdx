@@ -1,0 +1,220 @@
+---
+title: "Facebook IG Media For IG Only API endpoints"
+description: "6 generated Facebook endpoint contracts for IG Media For IG Only API."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 271
+  label: "IG Media For IG Only API"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:23ec1d5995aa97e0b73ddb198858addcd397ea821761655bc8b1776771db62b3 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.iGMediaForIGOnlyAPI.children
+
+`GET` `/{id}/children`
+
+GET IGMediaForIGOnlyAPI children
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `iGMediaForIGOnlyAPI.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `unknown` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.iGMediaForIGOnlyAPI.comments
+
+`GET` `/{id}/comments`
+
+GET IGMediaForIGOnlyAPI comments
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `iGMediaForIGOnlyAPI.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CommentFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.iGMediaForIGOnlyAPI.comments2
+
+`POST` `/{id}/comments`
+
+POST IGMediaForIGOnlyAPI comments
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `iGMediaForIGOnlyAPI.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `unknown` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `message` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.iGMediaForIGOnlyAPI.get
+
+`GET` `/{id}`
+
+GET IGMediaForIGOnlyAPI
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `iGMediaForIGOnlyAPI.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `unknown` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.iGMediaForIGOnlyAPI.insights
+
+`GET` `/{id}/insights`
+
+GET IGMediaForIGOnlyAPI insights
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `iGMediaForIGOnlyAPI.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `InsightsResultFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `breakdown` | `query` | `Array<unknown>` | No | No | — |
+| `metric` | `query` | `Array<unknown>` | Yes | No | — |
+| `period` | `query` | `Array<unknown>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.iGMediaForIGOnlyAPI.update
+
+`POST` `/{id}`
+
+POST IGMediaForIGOnlyAPI
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `iGMediaForIGOnlyAPI.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `unknown` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `comment_enabled` | `body` | `boolean` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:bb6b6ba7accc3e6b6365713a13535cba41af98cafc165143e2d3a0c08c550a7b
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.CustomerSkAdNetworkConversionValueSchemaErrorEnum.CustomerSkAdNetworkConversionValueSchemaError. Do not edit by hand.
 export type CustomerSkAdNetworkConversionValueSchemaError =
   | "UNSPECIFIED"

@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:4561400f730f372fb2aaf585e0788931c285d78686e557f0a096d1921bef9e79
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AssignedUserFields } from "./assigned-user.ts";
 import type { BusinessFields } from "./business.ts";
 
@@ -47,7 +50,7 @@ export function instagramBusinessAssetNode(client: ApiClient, id: string) {
       __path: `${id}/agencies`,
       __brand: undefined as unknown as BusinessFields,
       list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: InstagramBusinessAssetCreateAgenciesParams) =>
         client.post<InstagramBusinessAssetFields>(`${id}/agencies`, params as Record<string, unknown>),
       delete: (params: InstagramBusinessAssetDeleteAgenciesParams) =>
@@ -57,7 +60,7 @@ export function instagramBusinessAssetNode(client: ApiClient, id: string) {
       __path: `${id}/assigned_users`,
       __brand: undefined as unknown as AssignedUserFields,
       list: <F extends (keyof AssignedUserFields)[]>(opts: { fields: F; params?: InstagramBusinessAssetListAssignedUsersParams }) =>
-        new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: InstagramBusinessAssetCreateAssignedUsersParams) =>
         client.post<InstagramBusinessAssetFields>(`${id}/assigned_users`, params as Record<string, unknown>),
       delete: (params: InstagramBusinessAssetDeleteAssignedUsersParams) =>

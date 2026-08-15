@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ea00af7c39b50e1b3fa1fe488ef67065ba3eb24676458f2b3d16abb4bc9dfcc4
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type MediaFileSelectableField =
   | "media_file.resource_name"

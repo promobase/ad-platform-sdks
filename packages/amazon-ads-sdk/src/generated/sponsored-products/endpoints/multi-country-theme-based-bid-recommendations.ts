@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0beab445609abab9392c81a1a340c86b3c399f7824851fb18f05c9e63e96a367
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Multi Country Theme-based bid recommendations — do not edit
 import type { AmazonAdsApiClient } from "../../../api-client.ts";
 import type { GetMultiCountryThemeBasedBidRecommendationForAdGroupV1Response } from "../types.ts";

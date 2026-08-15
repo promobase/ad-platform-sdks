@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6f49b68dc9b6c97bfd1c6ea7406ce1275bf9adb9b236560175f2801c2f65252e
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Ad Diagnosis — do not edit
 
 export interface ToolDiagnosisGetParams {

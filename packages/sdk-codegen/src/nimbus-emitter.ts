@@ -16,12 +16,6 @@ const PLATFORM_DETAILS: Record<
     readonly order: number;
   }
 > = {
-  meta: {
-    label: "Meta",
-    packageName: "@openpromo/meta",
-    effectImport: "@openpromo/meta/effect",
-    order: 10,
-  },
   tiktok: {
     label: "TikTok Business",
     packageName: "@openpromo/tiktok",
@@ -115,19 +109,19 @@ const PLATFORM_DETAILS: Record<
   facebook: {
     label: "Facebook",
     packageName: "@openpromo/meta",
-    effectImport: "@openpromo/meta/effect",
-    order: 11,
+    effectImport: "@openpromo/meta/facebook/effect",
+    order: 10,
   },
   instagram: {
     label: "Instagram",
     packageName: "@openpromo/meta",
-    effectImport: "@openpromo/meta/effect",
+    effectImport: "@openpromo/meta/instagram/effect",
     order: 12,
   },
   threads: {
     label: "Threads",
     packageName: "@openpromo/meta",
-    effectImport: "@openpromo/meta/effect",
+    effectImport: "@openpromo/meta/threads/effect",
     order: 13,
   },
 };

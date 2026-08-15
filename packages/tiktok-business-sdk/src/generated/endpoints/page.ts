@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e1fb4958c50c69b9250dc53bea7d8d3ee5aa901b7723729ca65b7b778bbac821
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Page — do not edit
 import type { PageGetParams, PageGetResponse, Oauth2AccessTokenTipSdkCreateParams, Oauth2AccessTokenTipSdkCreateResponse, Oauth2AccessTokenTipSdkValidateParams, Oauth2AccessTokenTipSdkValidateResponse, Oauth2AccessTokenTipSdkRenewParams, Oauth2AccessTokenTipSdkRenewResponse } from "../types/page.ts";
 

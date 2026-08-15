@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:fd413d9a25b507557b8b4329a2600a7c0c5a97bb2a883bd3965a75557ab8aa03
+// DO NOT EDIT: generated file; changes will be overwritten.
 import { createLogger, type LogConfig, type Logger } from "../logging/logger.js";
 import { join } from "../url/join.js";
 import { EndpointSupplier } from "./EndpointSupplier.js";

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7f4a338cbf1754c4b810295224310fc2dd42e3276648a7cb14e7334fbedc0ad7
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for app.bsky.graph — do not edit
 import type { BlueskyApiClient } from "../../api-client.ts";
 import type { AppBskyGraphDefsStarterPackViewBasic, AppBskyActorDefsProfileView, AppBskyGraphDefsListView, AppBskyGraphDefsListItemView, AppBskyGraphGetListsWithMembershipListWithMembership, AppBskyGraphDefsRelationship, AppBskyGraphDefsNotFoundActor, AppBskyGraphDefsStarterPackView, AppBskyGraphGetStarterPacksWithMembershipStarterPackWithMembership, GetActorStarterPacksResponse, GetBlocksResponse, GetFollowersResponse, GetFollowsResponse, GetKnownFollowersResponse, GetListResponse, GetListBlocksResponse, GetListMutesResponse, GetListsResponse, GetListsWithMembershipResponse, GetMutesResponse, GetRelationshipsResponse, GetStarterPackResponse, GetStarterPacksResponse, GetStarterPacksWithMembershipResponse, GetSuggestedFollowsByActorResponse, SearchStarterPacksResponse, SearchStarterPacksV2Response } from "../types.ts";

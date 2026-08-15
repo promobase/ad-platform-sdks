@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:cefdd25414949f93e524ea006095c3249ead00fc132f9fbf26e7da2a11b48a12
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for com.atproto.identity — do not edit
 import type { BlueskyApiClient } from "../../api-client.ts";
 import type { ComAtprotoIdentityDefsIdentityInfo, GetRecommendedDidCredentialsResponse, RefreshIdentityResponse, ResolveDidResponse, ResolveHandleResponse, ResolveIdentityResponse, SignPlcOperationResponse } from "../types.ts";

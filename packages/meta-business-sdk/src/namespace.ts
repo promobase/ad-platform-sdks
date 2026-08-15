@@ -1,14 +1,13 @@
 /**
- * Namespaced API for the Meta Business SDK.
+ * Direct platform API surfaces for the Graph SDK.
  *
  * Usage:
- *   import { Instagram, createClient } from "@openpromo/meta";
- *   const api = createClient({ accessToken: "..." });
+ *   import { Instagram, createGraphClient } from "@openpromo/meta";
+ *   const api = createGraphClient({ accessToken: "..." });
  *   const ig = Instagram.createClient({ api, igAccountId: "..." });
  */
 
-import type { BatchHandle, ResolveBatchHandles } from "./batch.ts";
-import { BatchBuilder } from "./batch.ts";
+import type { ResolveBatchHandles } from "./batch.ts";
 // Facebook
 import { createFacebookOAuth, createFacebookPageClient } from "./clients/facebook/index.ts";
 import type {
@@ -42,16 +41,15 @@ import {
   safeParseFacebookWebhook,
   safeParseInstagramWebhook,
   safeParseThreadsWebhook,
-  verifyWebhookChallenge,
-  verifyWebhookSignature,
-  WebhookParseError,
 } from "./clients/webhooks.ts";
 import { createWhatsAppClient } from "./clients/whatsapp.ts";
-import { FacebookApiError } from "./errors.ts";
-import type { MetaClientOptions } from "./generated/client-factory.ts";
-import { createTypedClient } from "./generated/client-factory.ts";
-import type { MetaRateLimiterOptions } from "./rate-limiter.ts";
-import { MetaRateLimiter } from "./rate-limiter.ts";
+import { createGraphClient } from "./generated/client-factory.ts";
+import type { GraphClientOptions } from "./generated/client-factory.ts";
+import {
+  createFacebookOAuthAdapter,
+  createInstagramOAuthAdapter,
+  createThreadsOAuthAdapter,
+} from "./oauth-adapters.ts";
 
 const facebookWebhooks = {
   parse: parseFacebookWebhook,
@@ -74,7 +72,9 @@ const threadsWebhooks = {
 /** Direct Facebook platform surface. */
 export const Facebook = {
   createClient: createFacebookPageClient,
+  createGraphClient,
   OAuth: createFacebookOAuth,
+  oauth: createFacebookOAuthAdapter,
   Webhooks: facebookWebhooks,
 } as const;
 
@@ -82,6 +82,7 @@ export const Facebook = {
 export const Instagram = {
   createClient: createInstagramClient,
   OAuth: createInstagramOAuth,
+  oauth: createInstagramOAuthAdapter,
   Webhooks: instagramWebhooks,
 } as const;
 
@@ -89,6 +90,7 @@ export const Instagram = {
 export const Threads = {
   createClient: createThreadsClient,
   OAuth: createThreadsOAuth,
+  oauth: createThreadsOAuthAdapter,
   Webhooks: threadsWebhooks,
 } as const;
 
@@ -97,76 +99,24 @@ export const WhatsApp = {
   createClient: createWhatsAppClient,
 } as const;
 
-/**
- * @deprecated Use the direct `Facebook`, `Instagram`, `Threads`, and
- * `WhatsApp` exports. This wrapper remains for existing consumers.
- */
-export const Meta = {
-  /** Create a typed Meta Graph API client with 314 node accessors. */
-  createClient: createTypedClient,
-
-  /** Facebook API error class with code, subcode, type, fbtrace_id. */
-  FacebookApiError,
-
-  /** Batch request builder for combining multiple API calls. */
-  BatchBuilder,
-
-  /** Rate limiter that parses Meta's x-app-usage and x-business-use-case-usage headers. */
-  RateLimiter: {
-    create: (opts?: MetaRateLimiterOptions) => new MetaRateLimiter(opts),
-  },
-
-  Facebook,
-  Instagram,
-  Threads,
-  WhatsApp,
-
-  /** Webhook verification, parsing, and Valibot-backed schemas. */
-  Webhooks: {
-    /** Verify a Meta webhook challenge (GET handler). */
-    verifyChallenge: verifyWebhookChallenge,
-
-    /** Verify HMAC-SHA256 signature on a webhook payload. */
-    verifySignature: verifyWebhookSignature,
-
-    /** Parse and validate webhooks (throws on failure). */
-    parse: {
-      instagram: parseInstagramWebhook,
-      facebook: parseFacebookWebhook,
-      threads: parseThreadsWebhook,
-    },
-
-    /** Parse and validate webhooks (returns Result, never throws). */
-    safeParse: {
-      instagram: safeParseInstagramWebhook,
-      facebook: safeParseFacebookWebhook,
-      threads: safeParseThreadsWebhook,
-    },
-
-    /** WebhookParseError class for typed error handling. */
-    ParseError: WebhookParseError,
-
-    /** Compatibility schema adapters for advanced validation/composition. */
-    schemas: {
-      instagram: igWebhookPayloadSchema,
-      facebook: fbWebhookPayloadSchema,
-      threads: threadsWebhookPayloadSchema,
-    },
-  },
-} as const;
-
 // Also export types that consumers may need
 export type {
-  BatchHandle,
   FacebookOAuthConfig,
   FacebookPageClientOptions,
   InstagramClientOptions,
   InstagramOAuthConfig,
-  MetaClientOptions,
-  MetaRateLimiterOptions,
+  GraphClientOptions,
   ResolveBatchHandles,
   ThreadsClientOptions,
   ThreadsOAuthConfig,
   WebhookParseOptions,
   WebhookParseResult,
 };
+
+export { createGraphClient } from "./generated/client-factory.ts";
+
+export {
+  createFacebookOAuthAdapter,
+  createInstagramOAuthAdapter,
+  createThreadsOAuthAdapter,
+} from "./oauth-adapters.ts";

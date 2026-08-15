@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:da0d1ad488e9a6b1ebe2b1f6fc6080b88b6d8d604d9dc8ddb412531ea13f90fb
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { BusinessFields } from "./business.ts";
 import type { ProfileFields } from "./profile.ts";
 

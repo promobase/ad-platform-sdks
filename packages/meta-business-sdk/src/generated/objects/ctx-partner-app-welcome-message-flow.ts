@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:fe25bf7c93fc881d7bfc8fdd6c6c25ba9355d8f45887686a2257602f72c4fa1e
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface CTXPartnerAppWelcomeMessageFlowFields {

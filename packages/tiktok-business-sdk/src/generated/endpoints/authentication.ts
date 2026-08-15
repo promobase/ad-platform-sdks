@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:146aa74f35a01e541abf8c15e97f618381ffaca33e77804bbefeb7de78d22653
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Authentication — do not edit
 import type { Oauth2AccessTokenParams, Oauth2AccessTokenResponse, Oauth2RevokeTokenParams, Oauth2RevokeTokenResponse, TtUserOauth2TokenParams, TtUserOauth2TokenResponse, TtUserOauth2RefreshTokenParams, TtUserOauth2RefreshTokenResponse, TtUserOauth2RevokeParams, TtUserOauth2RevokeResponse } from "../types/authentication.ts";
 

@@ -1,3 +1,5 @@
+import * as v from "valibot";
+
 import type { ContentPublishingLimitResponseFields } from "../../generated/objects/content-publishing-limit-response.ts";
 import type { IGUserCreateMediaParams } from "../../generated/objects/ig-user.ts";
 import type { ShadowIGMediaBuilderFields } from "../../generated/objects/shadow-ig-media-builder.ts";
@@ -10,6 +12,9 @@ type IGUserNode = ReturnType<CreateClientReturn["iGUser"]>;
 export type ContainerStatus = ShadowIGMediaBuilderFields["status_code"];
 
 export type CreateContainerParams = IGUserCreateMediaParams;
+
+const IdSchema = v.object({ id: v.string() });
+const UploadResultSchema = v.object({ success: v.boolean() });
 
 export interface ResumableUploadOptions {
   /** The container ID returned from create() with upload_type: "resumable" */
@@ -35,8 +40,8 @@ export function createContainers(
   return {
     /** Create a media container using the generated IGUser.media.create() endpoint. */
     async create(params: CreateContainerParams): Promise<{ id: string }> {
-      const result = await igUser.media.create(params);
-      return { id: (result as { id: string }).id };
+      const result = v.parse(IdSchema, await igUser.media.create(params));
+      return { id: result.id };
     },
 
     /**
@@ -46,8 +51,11 @@ export function createContainers(
     async createResumable(
       params: Omit<CreateContainerParams, "upload_type">,
     ): Promise<{ id: string }> {
-      const result = await igUser.media.create({ ...params, upload_type: "resumable" });
-      return { id: (result as { id: string }).id };
+      const result = v.parse(
+        IdSchema,
+        await igUser.media.create({ ...params, upload_type: "resumable" }),
+      );
+      return { id: result.id };
     },
 
     /**
@@ -91,7 +99,7 @@ export function createContainers(
         throw new Error(`Resumable upload failed: ${JSON.stringify(error)}`);
       }
 
-      return response.json() as Promise<{ success: boolean }>;
+      return v.parse(UploadResultSchema, await response.json());
     },
 
     /** Check container processing status using the generated ShadowIGMediaBuilder node. */
@@ -107,10 +115,13 @@ export function createContainers(
       // creation_id is typed as number in the spec but container IDs are large integers
       // that would lose precision with Number(). Pass as-is since the HTTP layer
       // serializes to string in URL-encoded form anyway.
-      const result = await igUser.createMediaPublish({
-        creation_id: containerId as unknown as number,
-      });
-      return { id: (result as { id: string }).id };
+      const result = v.parse(
+        IdSchema,
+        await igUser.createMediaPublish({
+          creation_id: containerId as unknown as number,
+        }),
+      );
+      return { id: result.id };
     },
 
     /**

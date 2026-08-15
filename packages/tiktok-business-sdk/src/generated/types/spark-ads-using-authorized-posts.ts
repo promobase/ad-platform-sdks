@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9b573277b954a5473501ee89343fc4cff84a0b22ce296b9c6ce616b5c6e10364
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Spark Ads Using Authorized Posts — do not edit
 
 export interface TtVideoInfoParams {

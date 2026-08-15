@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:926883eeaeb63d17a2abb69e47aecb0cb8da004283b4a41b80a8e2d7e7efefc4
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { AdCampaignBudgetSchedulesPostFields } from "./ad-campaign-budget-schedules-post.ts";
 

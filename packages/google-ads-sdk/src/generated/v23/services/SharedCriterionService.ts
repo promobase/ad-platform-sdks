@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:032cb6b48cc1504abdb8060de00f7868d58ba96f5ecd144c6de1af8dec6ec0b4
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { MutateSharedCriteriaRequest, MutateSharedCriteriaResponse } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

@@ -1,0 +1,50 @@
+---
+title: "Facebook User Page One Time Opt In Token Settings endpoints"
+description: "1 generated Facebook endpoint contract for User Page One Time Opt In Token Settings."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 389
+  label: "User Page One Time Opt In Token Settings"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:25610a0d12d82be2f4ca95ee3f27aadaed76a40a63ae89354907533ec8b8917d -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.userPageOneTimeOptInTokenSettings.get
+
+`GET` `/{id}`
+
+GET UserPageOneTimeOptInTokenSettings
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `userPageOneTimeOptInTokenSettings.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `UserPageOneTimeOptInTokenSettingsFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

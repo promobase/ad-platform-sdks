@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9d4eaaeb743eb9cfbf461d53f980a5c459db7f9b528cd720485a8b78e2d390a4
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Custom Conversions — do not edit
 
 export interface CustomConversionListParams {

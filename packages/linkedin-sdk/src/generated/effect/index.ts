@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7bb95a485a3dd67740b7856eed4e72ecdfc9e39186ed54fea5d4c0468b4bc11c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 import { createEndpointClient, type AnyEndpointDescriptor, type EndpointClient, type EndpointClientConfig } from "@openpromo/sdk-runtime/effect";
 import { endpointDescriptors } from "./endpoints.ts";

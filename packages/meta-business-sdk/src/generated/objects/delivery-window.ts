@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:43963043e7973b249dd940390314591cf91ac14e4d0d369e79316d7cc850ad71
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface DeliveryWindowFields {
   ac: number;
   ad: number;

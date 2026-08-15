@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f7b803246e5a7a61c78f5d0b4aa9d10f07ee8cd281d5631a5fed1f998334e32a
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AssetFieldType, AssetLinkPrimaryStatus, AssetLinkPrimaryStatusDetails, AssetLinkPrimaryStatusReason, AssetLinkStatus, AssetSource } from "../index.ts";
 
 // Generated from google.ads.googleads.v25.resources.CustomerAsset. Do not edit by hand.

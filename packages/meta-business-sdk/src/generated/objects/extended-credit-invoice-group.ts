@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:9afd4b824312670398fdee6a752a951c2c3e96fb0c134bb3b9a46057e748071d
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdAccountFields } from "./ad-account.ts";
 import type { CRMAddressFields } from "./crm-address.ts";
 import type { ExtendedCreditEmailFields } from "./extended-credit-email.ts";
@@ -47,7 +50,7 @@ export function extendedCreditInvoiceGroupNode(client: ApiClient, id: string) {
       __path: `${id}/ad_accounts`,
       __brand: undefined as unknown as AdAccountFields,
       list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ExtendedCreditInvoiceGroupCreateAdAccountsParams) =>
         client.post<AdAccountFields>(`${id}/ad_accounts`, params as Record<string, unknown>),
       delete: (params: ExtendedCreditInvoiceGroupDeleteAdAccountsParams) =>

@@ -33,12 +33,12 @@ npm install @openpromo/meta
 ## Use
 
 ```ts
-import { Facebook, Instagram, Threads, createClient } from "@openpromo/meta";
+import { Facebook, Instagram, Threads, createGraphClient } from "@openpromo/meta";
 
-const meta = createClient({ accessToken: process.env.META_TOKEN! });
+const graph = createGraphClient({ accessToken: process.env.META_TOKEN! });
 
 // Instagram publishing
-const ig = Instagram.createClient({ api: meta, igAccountId: "ig_123" });
+const ig = Instagram.createClient({ api: graph, igAccountId: "ig_123" });
 await ig.media.publishVideo({
   videoUrl: "https://cdn.example.com/reel.mp4",
   caption: "New drop 🔥",
@@ -46,7 +46,7 @@ await ig.media.publishVideo({
 
 // Facebook Page publishing
 const fb = Facebook.createClient({
-  api: meta,
+  api: graph,
   pageId: "page_456",
   accessToken: process.env.META_TOKEN!,
 });
@@ -59,7 +59,7 @@ const threads = Threads.createClient({
 });
 await threads.posts.publishText({ text: "Hello Threads!" });
 
-// Worker-safe Meta webhooks
+// Worker-safe provider webhooks
 import { webhooks } from "@openpromo/meta/webhooks";
 
 const webhook = await webhooks.facebook.safeParse({
@@ -75,12 +75,12 @@ if (webhook.success) {
   }
 }
 
-// WhatsApp transport; the `Meta` wrapper remains available for compatibility.
+// WhatsApp transport
 import { WhatsApp } from "@openpromo/meta";
 
-const instagram = Instagram.createClient({ api: meta, igAccountId: "ig_123" });
+const instagram = Instagram.createClient({ api: graph, igAccountId: "ig_123" });
 const facebook = Facebook.createClient({
-  api: meta,
+  api: graph,
   pageId: "page_456",
   accessToken: process.env.META_TOKEN!,
 });
@@ -88,7 +88,7 @@ const threadsClient = Threads.createClient({ accessToken: "threads_token", threa
 const whatsapp = WhatsApp.createClient({ accessToken: "wa_token", phoneNumberId: "phone_123" });
 
 // Graph API with field-level narrowing
-const campaign = await meta.adAccount("act_123").campaigns.list({
+const campaign = await graph.adAccount("act_123").campaigns.list({
   fields: ["id", "name", "status"],  // narrows return type
 });
 ```
@@ -106,7 +106,9 @@ import type { CampaignFields } from "@openpromo/meta/types";
 const campaign: CampaignFields = parse(CampaignFieldsSchema, input);
 ```
 
-`@openpromo/meta/effect` provides the Effect schemas and endpoint descriptors.
+`@openpromo/meta/facebook/effect` provides the Effect schemas and endpoint
+descriptors for the generated Graph contract. The same generated contract is
+available through the direct `instagram/effect` and `threads/effect` aliases.
 These generated contract surfaces are separate from the hand-authored
 `@openpromo/meta/webhooks` Valibot schemas, which model provider webhook
 payloads and event extraction.
@@ -120,7 +122,7 @@ payloads and event extraction.
 - **Worker-safe webhook leaf** — Valibot schemas, Web Crypto verification, and typed Facebook/Instagram/Threads/WhatsApp event extraction via `@openpromo/meta/webhooks`
 - **Native messaging transports** — typed Messenger, Instagram publishing, and WhatsApp Cloud API operations via `@openpromo/meta/transports`
 - **OAuth** — token exchange, long-lived tokens, refresh
-- **Rate limiting** — auto-parses Meta's `x-app-usage` headers, runtime-agnostic throttling
+- **Rate limiting** — auto-parses Graph API `x-app-usage` headers, runtime-agnostic throttling
 - **Retry with exponential backoff** — automatic recovery from 5xx and network errors
 - **Batch API** — typed multi-request batches
 - **AI SDK tools** — 58 filterable tools with middleware and two-stage routing
@@ -128,7 +130,7 @@ payloads and event extraction.
 
 ## Umbrella package
 
-For a single install covering Meta + TikTok + Google Ads, use [`@openpromo/ad-platforms`](https://www.npmjs.com/package/@openpromo/ad-platforms).
+For a single install covering Facebook, Instagram, Threads, TikTok, and Google Ads, use [`@openpromo/ad-platforms`](https://www.npmjs.com/package/@openpromo/ad-platforms).
 
 ## License
 

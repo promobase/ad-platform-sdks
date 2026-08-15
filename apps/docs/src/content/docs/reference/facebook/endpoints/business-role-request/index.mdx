@@ -1,0 +1,118 @@
+---
+title: "Facebook Business Role Request endpoints"
+description: "3 generated Facebook endpoint contracts for Business Role Request."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 197
+  label: "Business Role Request"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:130c6d9694978030fdbb4f4934fad16692062dea6b8906db3f7d9de718bb0b88 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.businessRoleRequest.delete
+
+`DELETE` `/{id}`
+
+DELETE BusinessRoleRequest
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessRoleRequest.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessRoleRequest.get
+
+`GET` `/{id}`
+
+GET BusinessRoleRequest
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `businessRoleRequest.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `BusinessRoleRequestFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.businessRoleRequest.update
+
+`POST` `/{id}`
+
+POST BusinessRoleRequest
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `businessRoleRequest.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `BusinessRoleRequestFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `role` | `body` | `unknown` | No | No | — |
+| `tasks` | `body` | `Array<unknown>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

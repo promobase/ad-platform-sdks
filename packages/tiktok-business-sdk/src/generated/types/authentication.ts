@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a2b520c2fe6e6706b68f0e7e7602da793b295abdbcea6b691e940cfdfba983ba
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Authentication — do not edit
 
 export interface Oauth2AccessTokenParams {

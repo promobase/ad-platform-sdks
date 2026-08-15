@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:1ec70b7739b9defb61c472fa2e9e2e817b6238e004a369142ca9b19fe02290f3
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AdAccountLiveVideoAdvertiserFields {
   ig_lva_default_duration_s: number;
   is_lva_toggle_on: boolean;

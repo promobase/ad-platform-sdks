@@ -1,6 +1,6 @@
-export type MetaTransportProvider = "facebook" | "instagram" | "whatsapp";
+export type PlatformTransportProvider = "facebook" | "instagram" | "whatsapp";
 
-export type MetaTransportErrorDetails = {
+export type PlatformTransportErrorDetails = {
   readonly message?: string;
   readonly type?: string;
   readonly code?: number;
@@ -9,9 +9,9 @@ export type MetaTransportErrorDetails = {
   readonly error_data?: unknown;
 };
 
-export class MetaTransportError extends Error {
+export class PlatformTransportError extends Error {
   readonly kind = "provider_error" as const;
-  readonly provider: MetaTransportProvider;
+  readonly provider: PlatformTransportProvider;
   readonly operation: string;
   readonly httpStatus: number;
   readonly providerCode?: number;
@@ -22,14 +22,14 @@ export class MetaTransportError extends Error {
   readonly retryAfterSeconds?: number;
 
   constructor(
-    provider: MetaTransportProvider,
+    provider: PlatformTransportProvider,
     operation: string,
     httpStatus: number,
-    details: MetaTransportErrorDetails = {},
+    details: PlatformTransportErrorDetails = {},
     retryAfterSeconds?: number,
   ) {
     super(details.message ?? `${provider} ${operation} failed with status ${httpStatus}`);
-    this.name = "MetaTransportError";
+    this.name = "PlatformTransportError";
     this.provider = provider;
     this.operation = operation;
     this.httpStatus = httpStatus;
@@ -43,7 +43,7 @@ export class MetaTransportError extends Error {
   }
 }
 
-export type MetaTransportClientOptions = {
+export type TransportClientOptions = {
   readonly accessToken: string;
   readonly apiVersion?: string;
   readonly baseUrl?: string;
@@ -51,9 +51,9 @@ export type MetaTransportClientOptions = {
   readonly signal?: AbortSignal;
 };
 
-export async function requestMetaJson<T>(
-  options: MetaTransportClientOptions,
-  provider: MetaTransportProvider,
+export async function requestJson<T>(
+  options: TransportClientOptions,
+  provider: PlatformTransportProvider,
   operation: string,
   path: string,
   init: RequestInit,
@@ -73,10 +73,10 @@ export async function requestMetaJson<T>(
   const requestId = response.headers.get("x-fb-trace-id") ?? undefined;
   const retryAfter = response.headers.get("retry-after");
   const body = (await response.json().catch(() => ({}))) as {
-    readonly error?: MetaTransportErrorDetails;
+    readonly error?: PlatformTransportErrorDetails;
   };
   if (!response.ok) {
-    throw new MetaTransportError(
+    throw new PlatformTransportError(
       provider,
       operation,
       response.status,

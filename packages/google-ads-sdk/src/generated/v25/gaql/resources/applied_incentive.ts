@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7697b9af5f2bfe562bf2d8df78591066f1a073cc0e6e6c4fef6a66f944ad419e
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type AppliedIncentiveSelectableField =
   | "applied_incentive.resource_name"

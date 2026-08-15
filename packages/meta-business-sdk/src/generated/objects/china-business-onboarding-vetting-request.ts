@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2464a57ea25b29407cf0a999c55f0e7d2f159fcd4ee37a70c6945174f4d754a5
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ChinaBusinessOnboardingVettingRequestFields {

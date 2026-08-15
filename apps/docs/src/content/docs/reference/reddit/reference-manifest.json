@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:ec520ff2a1a475e95e32980cffdd94fb1794a97e47561cc7374e5272e02e7b65",
+    "doNotEdit": true
+  },
   "schemaVersion": 1,
   "platform": "reddit",
   "version": "v3",

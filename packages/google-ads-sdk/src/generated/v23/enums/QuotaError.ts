@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e874e091bd2f2466232a43861743f8ca07e5e835a4b704c0c678954cde8e50f0
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.QuotaErrorEnum.QuotaError. Do not edit by hand.
 export type QuotaError =
   | "UNSPECIFIED"

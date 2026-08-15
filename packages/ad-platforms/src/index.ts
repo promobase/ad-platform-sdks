@@ -4,15 +4,15 @@
  * Unified SDK for all ad platforms. Single install, single namespace.
  *
  * Usage:
- *   import { Instagram, Meta, TikTok } from "@openpromo/ad-platforms";
+ *   import { Facebook, Instagram, TikTok } from "@openpromo/ad-platforms";
  *
- *   const meta = Meta.createClient({ accessToken: "..." });
+ *   const facebookGraph = Facebook.createGraphClient({ accessToken: "..." });
  *   const tiktok = TikTok.createClient({ accessToken: "..." });
  *   const linkedin = LinkedIn.createClient({ accessToken: "..." });
  *
  *   // Unified AI tools across all platforms
  *   import { createAllTools } from "@openpromo/ad-platforms/ai";
- *   const tools = createAllTools({ meta: { api, igAccountId, ... }, tiktok: { ... } });
+ *   const tools = createAllTools({ instagram: { api, igAccountId: "..." }, tiktok: { ... } });
  */
 
 export type {
@@ -121,17 +121,18 @@ export type {
   FBWebhookPayload,
   IGWebhookPayload,
   InstagramClientOptions,
-  MetaClientOptions,
-  MetaRateLimiterOptions,
+  GraphClientOptions,
+  GraphRateLimiterOptions,
+  GraphUsage,
   ThreadsClientOptions,
   ThreadsWebhookPayload,
   WebhookParseResult,
 } from "@openpromo/meta";
 // --- Platform namespaces ---
-// --- Meta: direct re-exports for tree-shaking ---
+// --- Direct Facebook, Instagram, Threads, and WhatsApp exports ---
 export {
   BatchBuilder,
-  createClient as createMetaClient,
+  createGraphClient as createFacebookGraphClient,
   createFacebookOAuth,
   createFacebookPageClient,
   createInstagramClient,
@@ -141,8 +142,7 @@ export {
   FacebookApiError,
   Facebook,
   Instagram,
-  Meta,
-  MetaRateLimiter,
+  GraphRateLimiter,
   Threads,
   WhatsApp,
   parseFacebookWebhook,

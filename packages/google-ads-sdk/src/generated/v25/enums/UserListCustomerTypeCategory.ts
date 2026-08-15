@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2453031b66693648953b1408443ae48703964e313406bc1a2ce453d25126a786
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.UserListCustomerTypeCategoryEnum.UserListCustomerTypeCategory. Do not edit by hand.
 export type UserListCustomerTypeCategory =
   | "UNSPECIFIED"

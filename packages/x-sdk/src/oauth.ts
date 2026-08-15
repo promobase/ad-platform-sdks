@@ -1,3 +1,5 @@
+import * as v from "valibot";
+
 export interface XOAuthConfig {
   clientId: string;
   clientSecret?: string;
@@ -17,6 +19,13 @@ export interface XOAuthTokenResponse {
 const AUTHORIZATION_URL = "https://x.com/i/oauth2/authorize";
 const TOKEN_URL = "https://api.x.com/2/oauth2/token";
 const REVOKE_URL = "https://api.x.com/2/oauth2/revoke";
+const tokenSchema = v.object({
+  token_type: v.string(),
+  expires_in: v.number(),
+  access_token: v.string(),
+  scope: v.optional(v.string()),
+  refresh_token: v.optional(v.string()),
+});
 
 export function createXOAuth(config: XOAuthConfig) {
   const fetchImpl = config.fetch ?? fetch;
@@ -36,14 +45,15 @@ export function createXOAuth(config: XOAuthConfig) {
       body,
       signal: config.signal,
     });
-    const data = (await response.json()) as XOAuthTokenResponse & {
-      error?: string;
-      error_description?: string;
-    };
+    const data = (await response.json()) as Record<string, unknown>;
     if (!response.ok) {
-      throw new Error(data.error_description ?? data.error ?? "X OAuth token request failed");
+      throw new Error(
+        (typeof data.error_description === "string" && data.error_description) ||
+          (typeof data.error === "string" && data.error) ||
+          "X OAuth token request failed",
+      );
     }
-    return data;
+    return v.parse(tokenSchema, data);
   }
 
   return {

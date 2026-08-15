@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9fea00e512e1c3161098617ea7d98f2e4f1bf0d3c6c5f10bd8bd705241d860a4
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Images — do not edit
 import type { FileImageAdUploadParams, FileImageAdUploadResponse, FileImageAdUpdateParams, FileImageAdUpdateResponse, FileImageAdInfoParams, FileImageAdInfoResponse, FileImageAdSearchParams, FileImageAdSearchResponse } from "../types/images.ts";
 

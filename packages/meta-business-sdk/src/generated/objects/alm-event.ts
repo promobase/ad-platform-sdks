@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b68d94bbb2eb77971655bc4d487ab2cf225b99396b931aa8a49620524bc2e42c
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ALMEventFields {

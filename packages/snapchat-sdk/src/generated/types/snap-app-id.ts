@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:dd10ca329d49b1294940d510092f109d1bc6dc8f0b561f56ed67f7a9567be777
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for snap-app-id — do not edit
 
 export interface MobileApp {

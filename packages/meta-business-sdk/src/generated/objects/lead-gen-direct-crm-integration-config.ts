@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:64dcfbc206017442953684acee924f44ced37eea73a36409eb6501cf669381eb
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { LeadgenFormFields } from "./leadgen-form.ts";
 

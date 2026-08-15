@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:67bc02adab2a1161c78025abb0af1b63d8b717c03d7b33cdb0c024e80aeceba5
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdsInsightsFields } from "./ads-insights.ts";
 
 export interface AdReportRunFields {
@@ -33,7 +36,7 @@ export function adReportRunNode(client: ApiClient, id: string) {
     get: <F extends (keyof AdReportRunFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdReportRunFields, F[number]>>(`${id}`, opts),
     insights: <F extends (keyof AdsInsightsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AdsInsightsFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdsInsightsFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

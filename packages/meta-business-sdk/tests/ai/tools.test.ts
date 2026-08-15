@@ -4,7 +4,7 @@ import {
   createCampaignTools,
   createFacebookTools,
   createInstagramTools,
-  createMetaTools,
+  createTools,
   createThreadsTools,
 } from "../../src/ai/index.ts";
 import { createClient } from "../../src/generated/index.ts";
@@ -82,9 +82,9 @@ test("createCampaignTools returns campaign management tools", () => {
   expect(tools.ad_account_insights).toBeDefined();
 });
 
-test("createMetaTools combines selected tool groups", () => {
+test("createTools combines selected tool groups", () => {
   const api = createClient({ accessToken: "tok" });
-  const tools = createMetaTools({
+  const tools = createTools({
     api,
     igAccountId: "ig_123",
     pageId: "page_123",
@@ -103,9 +103,9 @@ test("createMetaTools combines selected tool groups", () => {
   expect((tools as Record<string, unknown>).threads_publish_text).toBeUndefined();
 });
 
-test("createMetaTools skips groups without required config", () => {
+test("createTools skips groups without required config", () => {
   const api = createClient({ accessToken: "tok" });
-  const tools = createMetaTools({ api });
+  const tools = createTools({ api });
 
   // No igAccountId provided, no IG tools (runtime check — types still include them since include defaults to all)
   expect((tools as Record<string, unknown>).ig_publish_photo).toBeUndefined();

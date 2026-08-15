@@ -28,7 +28,7 @@
     "README.md"
   ],
   "scripts": {
-    "codegen": "bun src/codegen/index.ts",
+    "codegen": "bun src/codegen/index.ts && node ../../scripts/ensure-generated-headers.mjs",
     "codegen:refresh": "bun scripts/refresh-spec.ts && bun run codegen",
     "codegen:check": "bun run codegen && git -C ../.. diff --exit-code -- packages/reddit-sdk/src/generated packages/reddit-sdk/vendor apps/docs/src/content/docs/reference/reddit",
     "build": "tsc -p tsconfig.build.json",

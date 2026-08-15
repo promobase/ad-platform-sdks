@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a81a8d2f389a533a674ad32f4380b000348ca83b1d256510a371536de9cd25f1
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Spark Ads Using Authorized Posts — do not edit
 import type { TtVideoInfoParams, TtVideoInfoResponse, TtVideoAuthorizeParams, TtVideoAuthorizeResponse, TtVideoListParams, TtVideoListResponse, TtVideoUnbindParams, TtVideoUnbindResponse } from "../types/spark-ads-using-authorized-posts.ts";
 

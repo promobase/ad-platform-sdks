@@ -1,0 +1,129 @@
+---
+title: "Facebook Link endpoints"
+description: "3 generated Facebook endpoint contracts for Link."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 289
+  label: "Link"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:eb2712b3787688bcea9abcb3f67c3c41b70a9def2e0ae9fcc97974903adaf700 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.link.comments
+
+`POST` `/{id}/comments`
+
+POST Link comments
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `link.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CommentFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `attachment_id` | `body` | `string` | No | No | — |
+| `attachment_share_url` | `body` | `string` | No | No | — |
+| `attachment_url` | `body` | `string` | No | No | — |
+| `comment_privacy_value` | `body` | `unknown` | No | No | — |
+| `facepile_mentioned_ids` | `body` | `Array<string>` | No | No | — |
+| `feedback_source` | `body` | `string` | No | No | — |
+| `is_offline` | `body` | `boolean` | No | No | — |
+| `message` | `body` | `string` | No | No | — |
+| `nectar_module` | `body` | `string` | No | No | — |
+| `object_id` | `body` | `string` | No | No | — |
+| `parent_comment_id` | `body` | `Record<string, unknown>` | No | No | — |
+| `text` | `body` | `string` | No | No | — |
+| `tracking` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.link.get
+
+`GET` `/{id}`
+
+GET Link
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `link.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `LinkFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.link.likes
+
+`GET` `/{id}/likes`
+
+GET Link likes
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `link.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ProfileFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

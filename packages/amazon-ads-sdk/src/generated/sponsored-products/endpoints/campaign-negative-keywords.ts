@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:4b5708c8d4853f205796b422f3e8ee8f83524d621f30667189030a220c96f1f9
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Campaign negative keywords — do not edit
 import type { AmazonAdsApiClient } from "../../../api-client.ts";
 import type { ListSponsoredProductsCampaignNegativeKeywordsResponse } from "../types.ts";

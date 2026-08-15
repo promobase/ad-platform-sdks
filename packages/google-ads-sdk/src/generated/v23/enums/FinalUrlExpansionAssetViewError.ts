@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e8db3d6115ce8d2ef1ac074a507934941df8f93220863c021ed45fa621e5c433
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.FinalUrlExpansionAssetViewErrorEnum.FinalUrlExpansionAssetViewError. Do not edit by hand.
 export type FinalUrlExpansionAssetViewError =
   | "UNSPECIFIED"

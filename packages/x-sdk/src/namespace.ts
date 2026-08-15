@@ -1,6 +1,7 @@
 import { createXDirectMessages } from "./direct-messages.js";
 import type { BaseClientOptions } from "./generated/index.js";
 import { XApiClient } from "./generated/index.js";
+import { createXOAuthAdapter } from "./oauth-adapters.ts";
 import { createXOAuth } from "./oauth.js";
 
 export const X = {
@@ -12,4 +13,5 @@ export const X = {
     });
   },
   OAuth: createXOAuth,
+  oauth: createXOAuthAdapter,
 };

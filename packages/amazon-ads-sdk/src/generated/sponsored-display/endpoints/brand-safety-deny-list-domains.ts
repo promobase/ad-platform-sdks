@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2258bca8a3a82b063c3fbc2ad56e6d69af8a276c2ed7e44f002bfc426893c27d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Brand Safety Deny List Domains — do not edit
 import type { AmazonAdsApiClient } from "../../../api-client.ts";
 import type { DeleteBrandSafetyDenyListResponse, ListDomainsResponse, CreateBrandSafetyDenyListDomainsResponse } from "../types.ts";

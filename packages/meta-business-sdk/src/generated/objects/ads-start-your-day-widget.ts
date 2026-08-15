@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2e7c699d17bba08a15d13de90f5630c14b34dc99f733763b2c296dfa3b14b36f
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface AdsStartYourDayWidgetFields {

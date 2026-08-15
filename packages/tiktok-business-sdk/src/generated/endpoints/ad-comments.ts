@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:4b2c85eafc44ac2c166be7df0411df0676e794bc1ab28e351e61cdf9e2ee4e04
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Ad Comments — do not edit
 import type { CommentListParams, CommentListResponse, CommentReferenceParams, CommentReferenceResponse, CommentStatusUpdateParams, CommentStatusUpdateResponse, CommentPostParams, CommentPostResponse, CommentDeleteParams, CommentDeleteResponse, CommentTaskCreateParams, CommentTaskCreateResponse, CommentTaskCheckParams, CommentTaskCheckResponse, CommentTaskDownloadParams, CommentTaskDownloadResponse } from "../types/ad-comments.ts";
 

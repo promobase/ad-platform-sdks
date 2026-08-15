@@ -1,0 +1,240 @@
+---
+title: "Facebook Ad Creative endpoints"
+description: "6 generated Facebook endpoint contracts for Ad Creative."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 117
+  label: "Ad Creative"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:21605b53f8d72b5ce54c30bfd45d9498119b247b8e65fb7a9c222f9e73953524 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.adCreative.adlabels
+
+`POST` `/{id}/adlabels`
+
+POST AdCreative adlabels
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adCreative.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdCreativeFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `adlabels` | `body` | `Array<Record<string, unknown>>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.adCreative.creativeInsights
+
+`GET` `/{id}/creative_insights`
+
+GET AdCreative creative_insights
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adCreative.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdCreativeInsightsFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.adCreative.delete
+
+`DELETE` `/{id}`
+
+DELETE AdCreative
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adCreative.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `account_id` | `query` | `string` | No | No | — |
+| `adlabels` | `query` | `Array<Record<string, unknown>>` | No | No | — |
+| `name` | `query` | `string` | No | No | — |
+| `status` | `query` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.adCreative.get
+
+`GET` `/{id}`
+
+GET AdCreative
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adCreative.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdCreativeFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `thumbnail_height` | `query` | `integer` | No | No | — |
+| `thumbnail_width` | `query` | `integer` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.adCreative.previews
+
+`GET` `/{id}/previews`
+
+GET AdCreative previews
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adCreative.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdPreviewFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `ad_format` | `query` | `unknown` | Yes | No | — |
+| `creative_feature` | `query` | `unknown` | No | No | — |
+| `dynamic_asset_label` | `query` | `string` | No | No | — |
+| `dynamic_creative_spec` | `query` | `Record<string, unknown>` | No | No | — |
+| `dynamic_customization` | `query` | `Record<string, unknown>` | No | No | — |
+| `end_date` | `query` | `string<date-time>` | No | No | — |
+| `height` | `query` | `integer` | No | No | — |
+| `locale` | `query` | `string` | No | No | — |
+| `place_page_id` | `query` | `integer` | No | No | — |
+| `post` | `query` | `Record<string, unknown>` | No | No | — |
+| `product_item_ids` | `query` | `Array<string>` | No | No | — |
+| `render_type` | `query` | `unknown` | No | No | — |
+| `start_date` | `query` | `string<date-time>` | No | No | — |
+| `width` | `query` | `integer` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.adCreative.update
+
+`POST` `/{id}`
+
+POST AdCreative
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adCreative.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdCreativeFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `account_id` | `body` | `string` | No | No | — |
+| `adlabels` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+| `name` | `body` | `string` | No | No | — |
+| `status` | `body` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

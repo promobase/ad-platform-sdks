@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:0cdcabbe500c661ad30eae951088d9a2518e3bdddfa69bf8ad24bf4af4cd13e0
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { CTXPartnerAppWelcomeMessageFlowFields } from "./ctx-partner-app-welcome-message-flow.ts";
 import type { ContentPublishingLimitResponseFields } from "./content-publishing-limit-response.ts";
 import type { InsightsResultFields } from "./insights-result.ts";
@@ -171,20 +174,20 @@ export function iGUserForIGOnlyAPINode(client: ApiClient, id: string) {
     get: <F extends (keyof IGUserForIGOnlyAPIFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<IGUserForIGOnlyAPIFields, F[number]>>(`${id}`, opts),
     businessMessagingFeatureStatus: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: IGUserForIGOnlyAPIListBusinessMessagingFeatureStatusParams }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/business_messaging_feature_status`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/business_messaging_feature_status`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     contentPublishingLimit: <F extends (keyof ContentPublishingLimitResponseFields)[]>(opts: { fields: F; params?: IGUserForIGOnlyAPIListContentPublishingLimitParams }) =>
-      new Cursor<Pick<ContentPublishingLimitResponseFields, F[number]>>(client, `${id}/content_publishing_limit`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ContentPublishingLimitResponseFields, F[number]>>(client, `${id}/content_publishing_limit`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     conversations: <F extends (keyof UnifiedThreadFields)[]>(opts: { fields: F; params?: IGUserForIGOnlyAPIListConversationsParams }) =>
-      new Cursor<Pick<UnifiedThreadFields, F[number]>>(client, `${id}/conversations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<UnifiedThreadFields, F[number]>>(client, `${id}/conversations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     insights: <F extends (keyof InsightsResultFields)[]>(opts: { fields: F; params?: IGUserForIGOnlyAPIListInsightsParams }) =>
-      new Cursor<Pick<InsightsResultFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<InsightsResultFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     liveMedia: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/live_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/live_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     media: {
       __path: `${id}/media`,
       __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: IGUserForIGOnlyAPIListMediaParams }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGUserForIGOnlyAPICreateMediaParams) =>
         client.post<Record<string, unknown>>(`${id}/media`, params as Record<string, unknown>),
     },
@@ -200,7 +203,7 @@ export function iGUserForIGOnlyAPINode(client: ApiClient, id: string) {
       __path: `${id}/messenger_profile`,
       __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/messenger_profile`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/messenger_profile`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGUserForIGOnlyAPICreateMessengerProfileParams) =>
         client.post<Record<string, unknown>>(`${id}/messenger_profile`, params as Record<string, unknown>),
       delete: (params: IGUserForIGOnlyAPIDeleteMessengerProfileParams) =>
@@ -211,24 +214,24 @@ export function iGUserForIGOnlyAPINode(client: ApiClient, id: string) {
     createReleasethreadcontrol: (params: IGUserForIGOnlyAPICreateReleasethreadcontrolParams) =>
       client.post<Record<string, unknown>>(`${id}/releasethreadcontrol`, params as Record<string, unknown>),
     stories: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/stories`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/stories`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     subscribedApps: {
       __path: `${id}/subscribed_apps`,
       __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/subscribed_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/subscribed_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGUserForIGOnlyAPICreateSubscribedAppsParams) =>
         client.post<Record<string, unknown>>(`${id}/subscribed_apps`, params as Record<string, unknown>),
       delete: (params?: Record<string, unknown>) =>
         client.delete(`${id}/subscribed_apps`, params as Record<string, unknown> ?? {}),
     },
     tags: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: IGUserForIGOnlyAPIListTagsParams }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/tags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/tags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     welcomeMessageFlows: {
       __path: `${id}/welcome_message_flows`,
       __brand: undefined as unknown as CTXPartnerAppWelcomeMessageFlowFields,
       list: <F extends (keyof CTXPartnerAppWelcomeMessageFlowFields)[]>(opts: { fields: F; params?: IGUserForIGOnlyAPIListWelcomeMessageFlowsParams }) =>
-        new Cursor<Pick<CTXPartnerAppWelcomeMessageFlowFields, F[number]>>(client, `${id}/welcome_message_flows`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<CTXPartnerAppWelcomeMessageFlowFields, F[number]>>(client, `${id}/welcome_message_flows`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGUserForIGOnlyAPICreateWelcomeMessageFlowsParams) =>
         client.post<Record<string, unknown>>(`${id}/welcome_message_flows`, params as Record<string, unknown>),
       delete: (params: IGUserForIGOnlyAPIDeleteWelcomeMessageFlowsParams) =>

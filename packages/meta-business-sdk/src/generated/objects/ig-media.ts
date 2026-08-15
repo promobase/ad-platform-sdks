@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:01b9a4fd839a1d81c1f959dd66c88277a439e85f868a67d7dcb32af3eb3fd8cf
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { BrandedContentShadowIGUserIDFields } from "./branded-content-shadow-ig-user-id.ts";
 import type { IGBoostMediaAdFields } from "./ig-boost-media-ad.ts";
 import type { IGCommentFields } from "./ig-comment.ts";
@@ -90,29 +93,29 @@ export function iGMediaNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     boostAdsList: <F extends (keyof IGBoostMediaAdFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<IGBoostMediaAdFields, F[number]>>(client, `${id}/boost_ads_list`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<IGBoostMediaAdFields, F[number]>>(client, `${id}/boost_ads_list`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     brandedContentPartnerPromote: {
       __path: `${id}/branded_content_partner_promote`,
       __brand: undefined as unknown as BrandedContentShadowIGUserIDFields,
       list: <F extends (keyof BrandedContentShadowIGUserIDFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<BrandedContentShadowIGUserIDFields, F[number]>>(client, `${id}/branded_content_partner_promote`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<BrandedContentShadowIGUserIDFields, F[number]>>(client, `${id}/branded_content_partner_promote`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGMediaCreateBrandedContentPartnerPromoteParams) =>
         client.post<BrandedContentShadowIGUserIDFields>(`${id}/branded_content_partner_promote`, params as Record<string, unknown>),
     },
     children: <F extends (keyof IGMediaFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<IGMediaFields, F[number]>>(client, `${id}/children`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<IGMediaFields, F[number]>>(client, `${id}/children`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     collaborators: <F extends (keyof ShadowIGMediaCollaboratorsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<ShadowIGMediaCollaboratorsFields, F[number]>>(client, `${id}/collaborators`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ShadowIGMediaCollaboratorsFields, F[number]>>(client, `${id}/collaborators`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     comments: {
       __path: `${id}/comments`,
       __brand: undefined as unknown as IGCommentFields,
       list: <F extends (keyof IGCommentFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<IGCommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<IGCommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGMediaCreateCommentsParams) =>
         client.post<IGCommentFields>(`${id}/comments`, params as Record<string, unknown>),
     },
     insights: <F extends (keyof InstagramInsightsResultFields)[]>(opts: { fields: F; params?: IGMediaListInsightsParams }) =>
-      new Cursor<Pick<InstagramInsightsResultFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<InstagramInsightsResultFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     partnershipAdCode: {
       __path: `${id}/partnership_ad_code`,
       __brand: undefined as unknown as Record<string, unknown>,
@@ -125,7 +128,7 @@ export function iGMediaNode(client: ApiClient, id: string) {
       __path: `${id}/product_tags`,
       __brand: undefined as unknown as ShadowIGMediaProductTagsFields,
       list: <F extends (keyof ShadowIGMediaProductTagsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ShadowIGMediaProductTagsFields, F[number]>>(client, `${id}/product_tags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ShadowIGMediaProductTagsFields, F[number]>>(client, `${id}/product_tags`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGMediaCreateProductTagsParams) =>
         client.post<ShadowIGMediaProductTagsFields>(`${id}/product_tags`, params as Record<string, unknown>),
     },

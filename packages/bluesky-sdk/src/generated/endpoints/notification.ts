@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6660bc90ad6fd982ea186f32821178a07317c4f14e709c02cfe37941cd11bf4c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for app.bsky.notification — do not edit
 import type { BlueskyApiClient } from "../../api-client.ts";
 import type { AppBskyNotificationDefsPreferences, AppBskyActorDefsProfileView, AppBskyNotificationListNotificationsNotification, AppBskyNotificationDefsActivitySubscription, AppBskyNotificationDefsChatPreference, AppBskyNotificationDefsFilterablePreference, AppBskyNotificationDefsPreference, GetPreferences2Response, GetUnreadCountResponse, ListActivitySubscriptionsResponse, ListNotificationsResponse, PutActivitySubscriptionResponse, PutPreferencesV2Response } from "../types.ts";

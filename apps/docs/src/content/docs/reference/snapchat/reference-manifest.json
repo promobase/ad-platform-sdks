@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:005c1bee09d8f74f12267beff377a3466f49a775b1106b94bda4ffb4fb2bf409",
+    "doNotEdit": true
+  },
   "schemaVersion": 1,
   "platform": "snapchat",
   "version": "v1",

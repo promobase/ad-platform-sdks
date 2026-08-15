@@ -1,0 +1,229 @@
+---
+title: "Facebook Fundraiser Person To Charity endpoints"
+description: "6 generated Facebook endpoint contracts for Fundraiser Person To Charity."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 258
+  label: "Fundraiser Person To Charity"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:f9ea19408eb6c52ce090a472391bd800747b079c622cd39338673ea2a84cc403 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.fundraiserPersonToCharity.donations
+
+`GET` `/{id}/donations`
+
+GET FundraiserPersonToCharity donations
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `fundraiserPersonToCharity.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `unknown` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.fundraiserPersonToCharity.endFundraiser
+
+`POST` `/{id}/end_fundraiser`
+
+POST FundraiserPersonToCharity end_fundraiser
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `fundraiserPersonToCharity.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.fundraiserPersonToCharity.externalDonations
+
+`GET` `/{id}/external_donations`
+
+GET FundraiserPersonToCharity external_donations
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `fundraiserPersonToCharity.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `unknown` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.fundraiserPersonToCharity.externalDonations2
+
+`POST` `/{id}/external_donations`
+
+POST FundraiserPersonToCharity external_donations
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `fundraiserPersonToCharity.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `unknown` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `amount_received` | `body` | `integer` | Yes | No | — |
+| `currency` | `body` | `string` | Yes | No | — |
+| `donation_id_hash` | `body` | `string` | Yes | No | — |
+| `donation_time` | `body` | `integer` | Yes | No | — |
+| `donor_id_hash` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.fundraiserPersonToCharity.get
+
+`GET` `/{id}`
+
+GET FundraiserPersonToCharity
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `fundraiserPersonToCharity.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `FundraiserPersonToCharityFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.fundraiserPersonToCharity.update
+
+`POST` `/{id}`
+
+POST FundraiserPersonToCharity
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `fundraiserPersonToCharity.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `FundraiserPersonToCharityFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `description` | `body` | `string` | No | No | — |
+| `end_time` | `body` | `string<date-time>` | No | No | — |
+| `external_event_name` | `body` | `string` | No | No | — |
+| `external_event_start_time` | `body` | `string<date-time>` | No | No | — |
+| `external_event_uri` | `body` | `string` | No | No | — |
+| `external_fundraiser_uri` | `body` | `string` | No | No | — |
+| `external_id` | `body` | `string` | No | No | — |
+| `goal_amount` | `body` | `integer` | No | No | — |
+| `name` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

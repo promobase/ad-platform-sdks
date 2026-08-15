@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2a45a64e802555caef08a4756e55794c31a8534cea5a5a8c7326044c2cfad66e
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface CatalogSubVerticalListFields {
   appliances: Record<string, unknown>;
   baby_feeding: Record<string, unknown>;

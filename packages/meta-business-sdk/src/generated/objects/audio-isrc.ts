@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a5feb17123c6d4ab5a32a6e0399faaf299b2e04d6a5250cb89bc3f0365575c69
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { AudioAssetFields } from "./audio-asset.ts";
 

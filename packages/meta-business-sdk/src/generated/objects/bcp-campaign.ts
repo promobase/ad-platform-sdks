@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:4e57070b9c8285f4343e13c601787d86640e8bc0375bb583e87049e8d4da9ef1
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface BCPCampaignFields {

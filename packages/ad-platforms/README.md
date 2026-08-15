@@ -20,7 +20,7 @@ Powering [**openpromo.app**](https://openpromo.app) — the AI-native social med
 
 ## What
 
-One umbrella package for **Meta** (Facebook, Instagram, Threads), **TikTok**, **LinkedIn**, **X**, **YouTube**, and **Google Ads**. Fully typed, generated from official specs where available, with high-level clients for publishing, messaging, ad management, and typed GAQL queries — plus AI SDK tools ready to drop into any agent.
+One umbrella package for **Facebook**, **Instagram**, **Threads**, **WhatsApp**, **TikTok**, **LinkedIn**, **X**, **YouTube**, and **Google Ads**. Fully typed, generated from official specs where available, with high-level clients for publishing, messaging, ad management, and typed GAQL queries — plus AI SDK tools ready to drop into any agent.
 
 ## Install
 
@@ -38,12 +38,12 @@ want consistent cross-platform semantics. Provider SDKs remain available as the 
 Configure existing platform clients once and use the normalized direct API:
 
 ```ts
-import { Instagram, Meta, TikTok } from "@openpromo/ad-platforms";
+import { Facebook, Instagram, TikTok } from "@openpromo/ad-platforms";
 import { createAdPlatforms } from "@openpromo/ad-platforms/operations";
 import { YouTube } from "@openpromo/ad-platforms/youtube";
 
-const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
-const instagram = Instagram.createClient({ api: meta, igAccountId: "ig_123" });
+const graph = Facebook.createGraphClient({ accessToken: process.env.META_TOKEN! });
+const instagram = Instagram.createClient({ api: graph, igAccountId: "ig_123" });
 const tiktok = TikTok.createClient({
   accessToken: process.env.TIKTOK_TOKEN!,
   businessId: "business_123",
@@ -114,16 +114,16 @@ operation layer.
 ## Use
 
 ```ts
-import { Instagram, Meta, TikTok, LinkedIn, Google } from "@openpromo/ad-platforms";
+import { Facebook, Instagram, TikTok, LinkedIn, Google } from "@openpromo/ad-platforms";
 import { X } from "@openpromo/ad-platforms/x";
 import { YouTube } from "@openpromo/ad-platforms/youtube";
 import { createAllTools } from "@openpromo/ad-platforms/ai";
 import { generateText } from "ai";
 import { anthropic } from "@ai-sdk/anthropic";
 
-// Meta (Facebook, Instagram, Threads)
-const meta = Meta.createClient({ accessToken: process.env.META_TOKEN! });
-const ig = Instagram.createClient({ api: meta, igAccountId: "ig_123" });
+// Facebook Graph, Instagram, and Threads
+const graph = Facebook.createGraphClient({ accessToken: process.env.META_TOKEN! });
+const ig = Instagram.createClient({ api: graph, igAccountId: "ig_123" });
 await ig.media.publishVideo({
   videoUrl: "https://cdn.example.com/reel.mp4",
   caption: "New drop 🔥",
@@ -176,7 +176,8 @@ const { rows } = await customer.gaql
 
 // Give an AI agent access to every platform
 const tools = createAllTools({
-  meta: { api: meta, igAccountId: "ig_123", pageId: "p_456", pageAccessToken: "..." },
+  instagram: { api: graph, igAccountId: "ig_123" },
+  facebook: { api: graph, pageId: "p_456", pageAccessToken: "..." },
   tiktok: { accessToken: "...", businessId: "biz_456" },
 });
 
@@ -190,7 +191,7 @@ await generateText({
 
 ## Features
 
-- **Meta** — 994 typed Graph API objects, field-level narrowing via `Pick<>`, IG/FB/Threads publishing, inbox, OAuth, rate limiting, batch API
+- **Facebook / Instagram / Threads** — typed Graph API objects, field-level narrowing via `Pick<>`, publishing, inbox, OAuth, rate limiting, batch API
 - **TikTok** — OAuth, content publishing, comments, webhooks
 - **LinkedIn** — OAuth, organization lookup, organic text/image/multi-image/video posts, comments, media upload helpers
 - **X** — Fern-generated X API v2 client for posts, users, and media upload from the official OpenAPI spec
@@ -204,7 +205,7 @@ await generateText({
 
 | Package | Description |
 |---------|-------------|
-| [`@openpromo/meta`](https://www.npmjs.com/package/@openpromo/meta) | Meta only (Facebook, Instagram, Threads) |
+| [`@openpromo/meta`](https://www.npmjs.com/package/@openpromo/meta) | Facebook Graph, Instagram, Threads, and WhatsApp |
 | [`@openpromo/tiktok`](https://www.npmjs.com/package/@openpromo/tiktok) | TikTok only |
 | [`@openpromo/linkedin`](https://www.npmjs.com/package/@openpromo/linkedin) | LinkedIn only |
 | [`@openpromo/x`](https://www.npmjs.com/package/@openpromo/x) | X only |

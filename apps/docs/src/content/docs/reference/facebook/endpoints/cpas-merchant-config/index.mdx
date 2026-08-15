@@ -1,0 +1,50 @@
+---
+title: "Facebook CPAS Merchant Config endpoints"
+description: "1 generated Facebook endpoint contract for CPAS Merchant Config."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 226
+  label: "CPAS Merchant Config"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:7ead9e3d477ae4c46f4021a2fea4f0a059d6533ac841ca0a6eeb99bfc4102d97 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.cPASMerchantConfig.get
+
+`GET` `/{id}`
+
+GET CPASMerchantConfig
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `cPASMerchantConfig.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CPASMerchantConfigFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

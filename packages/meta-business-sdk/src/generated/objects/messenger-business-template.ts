@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:8aaff3cf3d02fc95e7d1c196e3970e95ac3f6e61106c9b575954d546cef19211
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface MessengerBusinessTemplateFields {

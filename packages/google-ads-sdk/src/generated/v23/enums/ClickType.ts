@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c6a1e8ff3be0da945fb8f6cdf0be8ca8bfc0ef18a4f78b1743a914caabbdbd67
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.enums.ClickTypeEnum.ClickType. Do not edit by hand.
 export type ClickType =
   | "UNSPECIFIED"

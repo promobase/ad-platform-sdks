@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9965c67b4993957b3cc755d6a51e28fbc911f2536c2ea34bd13a0148dca950fb
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface EventTicketTierFields {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f600565cf1938c3e1f1f2d7d39285ba631a39c06c62cd37435469f7e0a4b87ee
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Discovery — do not edit
 import type { DiscoveryTrendingListParams, DiscoveryTrendingListResponse, DiscoveryDetailParams, DiscoveryDetailResponse, DiscoveryVideoListParams, DiscoveryVideoListResponse, DiscoveryCmlTrendingListParams, DiscoveryCmlTrendingListResponse, DiscoveryCmlVideoListParams, DiscoveryCmlVideoListResponse, DiscoveryTrendingSearchParams, DiscoveryTrendingSearchResponse, DiscoveryTrendingSearchKeywordParams, DiscoveryTrendingSearchKeywordResponse } from "../types/discovery.ts";
 

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:1843f7e605fa9cc7e4040c5f124f2f17becdd4cec89d6a7a331a31378c4da862
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for BudgetRulesRecommendation — do not edit
 import type { AmazonAdsApiClient } from "../../../api-client.ts";
 import type { SBGetBudgetRulesRecommendationResponse } from "../types.ts";

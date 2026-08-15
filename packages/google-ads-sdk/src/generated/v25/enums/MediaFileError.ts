@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:591c77d010ff1e024f818479386173a85461c7d2bb7fa0e1891e0aaf81d3b940
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.MediaFileErrorEnum.MediaFileError. Do not edit by hand.
 export type MediaFileError =
   | "UNSPECIFIED"

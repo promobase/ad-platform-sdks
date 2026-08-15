@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6165e997923a2d6829801d8a7f699369dad60712fefaf01e7bd5e2b8c60c4c4a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Ad Groups — do not edit
 import type { AdgroupGetParams, AdgroupGetResponse, AdgroupQuotaParams, AdgroupQuotaResponse, AdAudienceSizeEstimateParams, AdAudienceSizeEstimateResponse, AdgroupCreateParams, AdgroupCreateResponse, AdgroupUpdateParams, AdgroupUpdateResponse, AdgroupStatusUpdateParams, AdgroupStatusUpdateResponse, AdgroupBudgetUpdateParams, AdgroupBudgetUpdateResponse } from "../types/ad-groups.ts";
 

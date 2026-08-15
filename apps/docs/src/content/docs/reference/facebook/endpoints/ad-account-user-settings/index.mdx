@@ -1,0 +1,50 @@
+---
+title: "Facebook Ad Account User Settings endpoints"
+description: "1 generated Facebook endpoint contract for Ad Account User Settings."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 107
+  label: "Ad Account User Settings"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:ce3ad72c0c4fc55f0788214fa41f82b46aeaef31e68cc1e4178485eb8cf356ee -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.adAccountUserSettings.get
+
+`GET` `/{id}`
+
+GET AdAccountUserSettings
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adAccountUserSettings.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdAccountUserSettingsFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

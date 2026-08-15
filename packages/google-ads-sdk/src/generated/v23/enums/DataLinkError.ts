@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0cd1d253299d24f8510141e1a5b6da0a4e417bcb8884326ceb0aaaaaca14e647
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.DataLinkErrorEnum.DataLinkError. Do not edit by hand.
 export type DataLinkError =
   | "UNSPECIFIED"

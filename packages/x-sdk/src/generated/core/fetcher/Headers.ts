@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:28090386c9d08bacca84d0576297a157fb4dd320d1b40ef2cb3665615b0a9d5f
+// DO NOT EDIT: generated file; changes will be overwritten.
 let Headers: typeof globalThis.Headers;
 
 if (typeof globalThis.Headers !== "undefined") {

@@ -68,7 +68,7 @@ const PRIMITIVES: Record<string, string> = {
 };
 
 /**
- * Resolves a Meta spec type string to a TypeScript type expression.
+ * Resolves a Graph API spec type string to a TypeScript type expression.
  */
 export function resolveType(typeStr: string, ctx: TypeResolverContext): string {
   const trimmed = typeStr.trim();

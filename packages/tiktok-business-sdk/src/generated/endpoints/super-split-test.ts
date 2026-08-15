@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:014fcef4ab63fe6744aeea8a934822f6a371fab5a85da0411d3cef2bb65f898b
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Super Split Test — do not edit
 import type { SplitTestCreateParams, SplitTestCreateResponse, SplitTestUpdateParams, SplitTestUpdateResponse, SplitTestEndParams, SplitTestEndResponse, SplitTestResultGetParams, SplitTestResultGetResponse, SplitTestPromoteParams, SplitTestPromoteResponse } from "../types/super-split-test.ts";
 

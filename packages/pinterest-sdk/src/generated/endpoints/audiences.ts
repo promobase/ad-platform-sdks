@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:1acbd6cd7d54ef6e89a9da26bdaf64c29bcea160db4f959ca04b73469735794a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for audiences — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { AudiencesCreateResponse, AudiencesListResponse, AudiencesUpdateResponse, AudiencesGetResponse } from "../types.ts";

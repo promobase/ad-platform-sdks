@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2bfe6d5339afa335751bdd93907c16fa50006559ba1b41cb975915e57863f2a5
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface CalibratorExistingRuleFields {

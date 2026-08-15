@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:1ca9167725b3a8a9425779527ad2f479cfaf499454378871897a4682aef537cc
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { ExperienceFields } from "./experience.ts";
 import type { PageFields } from "./page.ts";

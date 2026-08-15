@@ -1,0 +1,88 @@
+---
+title: "Facebook IG Upcoming Event endpoints"
+description: "2 generated Facebook endpoint contracts for IG Upcoming Event."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 273
+  label: "IG Upcoming Event"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:f298c00bcc680e80c3ab1f39289cc62b71000861ba5833924b27fdf929d440df -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.iGUpcomingEvent.get
+
+`GET` `/{id}`
+
+GET IGUpcomingEvent
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `iGUpcomingEvent.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `IGUpcomingEventFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.iGUpcomingEvent.update
+
+`POST` `/{id}`
+
+POST IGUpcomingEvent
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `iGUpcomingEvent.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `IGUpcomingEventFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `end_time` | `body` | `string<date-time>` | No | No | — |
+| `notification_subtypes` | `body` | `Array<unknown>` | No | No | — |
+| `notification_target_time` | `body` | `unknown` | No | No | — |
+| `start_time` | `body` | `string<date-time>` | Yes | No | — |
+| `title` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

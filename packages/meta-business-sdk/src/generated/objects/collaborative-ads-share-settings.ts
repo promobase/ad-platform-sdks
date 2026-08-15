@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:99b4eef1f85defe99a37edaf52b9f8acc23190dcc3260f6c6b42b2d91ee310b4
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { BusinessFields } from "./business.ts";
 

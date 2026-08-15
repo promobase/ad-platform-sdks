@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:233f4193e7441cb86111923f07db5a5b78c77bca655523589ffdf067d965adba
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.CustomerLifecycleOptimizationGoalSubTypeEnum.CustomerLifecycleOptimizationGoalSubType. Do not edit by hand.
 export type CustomerLifecycleOptimizationGoalSubType =
   | "UNSPECIFIED"

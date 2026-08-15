@@ -1,0 +1,50 @@
+---
+title: "Facebook Signals IWL Extractor endpoints"
+description: "1 generated Facebook endpoint contract for Signals IWL Extractor."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 371
+  label: "Signals IWL Extractor"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:88d5b0bfbd766d29b87ef6480b60605b22c490718e71780135a74e9f4be0cb71 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.signalsIWLExtractor.get
+
+`GET` `/{id}`
+
+GET SignalsIWLExtractor
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `signalsIWLExtractor.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `SignalsIWLExtractorFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

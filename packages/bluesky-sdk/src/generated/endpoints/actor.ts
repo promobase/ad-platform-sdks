@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:96afae306b2d09971455f925e06fd36064557ee0aec6c9247445574b71349da3
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for app.bsky.actor — do not edit
 import type { BlueskyApiClient } from "../../api-client.ts";
 import type { AppBskyActorDefsPreferences, AppBskyActorDefsProfileViewDetailed, AppBskyActorDefsProfileView, AppBskyActorDefsProfileViewBasic, GetPreferencesResponse, GetProfileResponse, GetProfilesResponse, GetSuggestionsResponse, SearchActorsResponse, SearchActorsTypeaheadResponse } from "../types.ts";

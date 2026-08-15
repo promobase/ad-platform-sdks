@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:5c732e825ea1a7762f26ef3bc31c0be978e774021566bc5c2cd616edd73c1828
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type CustomerSkAdNetworkConversionValueSchemaSelectableField =
   | "customer_sk_ad_network_conversion_value_schema.resource_name"

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6f70186a79130c243bf191ec27a22b3d27eafdbdb409a8466fd9e505d5449128
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Tools — do not edit
 
 export interface ToolTargetingSearchParams {

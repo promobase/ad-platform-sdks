@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3411b2a8e6afec7d91e5f17e53ef96a51076f43dad45dfe5f946a17a85fddfa2
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.VanityPharmaTextEnum.VanityPharmaText. Do not edit by hand.
 export type VanityPharmaText =
   | "UNSPECIFIED"

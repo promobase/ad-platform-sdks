@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:06d5b58429b96e5554861f0637dc2d258bf28bfc9aff9df1a2bba7e3e5d8fc65
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for BC Invoices — do not edit
 
 export interface BcInvoiceGetParams {

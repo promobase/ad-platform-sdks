@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7addb32e7906ab6ee84257a7244f85aecac69356f005c95f8e131073f8716014
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Catalog Diagnostics — do not edit
 
 export interface DiagnosticCatalogParams {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:945da5b70f5927f881bb74ccbf6d37d9ac50784314bcadb442d25af1ca30fe95
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type ProductLinkInvitationSelectableField =
   | "product_link_invitation.resource_name"

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:dcf0cf4abef77ffa8c7839253ae88006afc4d71c151fa02cb2061cad9383a63d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.FeedItemSetErrorEnum.FeedItemSetError. Do not edit by hand.
 export type FeedItemSetError =
   | "UNSPECIFIED"

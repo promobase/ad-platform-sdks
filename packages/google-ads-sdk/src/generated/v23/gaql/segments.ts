@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b01b83451379047ea09230d66d61d2592f633dfc6574402f612a68de031a28b6
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type SegmentField =
   | "segments.activity_account_id"

@@ -1,0 +1,770 @@
+---
+title: "Facebook SDK reference"
+description: "Generated reference for 1451 Facebook endpoints and 1488 models."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 10
+  label: "Facebook"
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:99576579306a3424d43aebfb0b4102380d32c0f6276fa63ae11fc68afec29f93 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+Install the platform package and import either its high-level client or its generated Effect client.
+
+```bash
+bun add @openpromo/meta
+```
+
+```ts
+import { createEffectClient } from "@openpromo/meta/facebook/effect";
+
+const client = createEffectClient();
+```
+
+| Contract | Value |
+| --- | --- |
+| Platform | Facebook |
+| API version | `v25.0` |
+| Source | `vendor-json: packages/meta-business-sdk/api_specs` |
+| Endpoints | 1451 |
+| Models | 1488 |
+| Capabilities | 395 |
+
+## Endpoints
+
+- [Ad](/reference/facebook/endpoints/ad)
+- [Ad Account: Account Controls – Impacting Ad Studies](/reference/facebook/endpoints/ad-account-account-controls-to-impacting-ad-studies)
+- [Ad Account: Insights – Video Ads2](/reference/facebook/endpoints/ad-account-insights-to-video-ads2)
+- [Ad Account Account Controls](/reference/facebook/endpoints/ad-account-account-controls)
+- [Ad Account Agency Fee Config](/reference/facebook/endpoints/ad-account-agency-fee-config)
+- [Ad Account Creation Request](/reference/facebook/endpoints/ad-account-creation-request)
+- [Ad Account Feature Preferences](/reference/facebook/endpoints/ad-account-feature-preferences)
+- [Ad Account User Settings](/reference/facebook/endpoints/ad-account-user-settings)
+- [Ad Async Request](/reference/facebook/endpoints/ad-async-request)
+- [Ad Async Request Set](/reference/facebook/endpoints/ad-async-request-set)
+- [Ad Campaign](/reference/facebook/endpoints/ad-campaign)
+- [Ad Campaign Budget Schedules](/reference/facebook/endpoints/ad-campaign-budget-schedules)
+- [Ad Campaign Group](/reference/facebook/endpoints/ad-campaign-group)
+- [Ad Campaign Group Budget Schedules](/reference/facebook/endpoints/ad-campaign-group-budget-schedules)
+- [Ad Campaign Placement](/reference/facebook/endpoints/ad-campaign-placement)
+- [Ad Column Sizes](/reference/facebook/endpoints/ad-column-sizes)
+- [Ad Creation Package Config](/reference/facebook/endpoints/ad-creation-package-config)
+- [Ad Creative](/reference/facebook/endpoints/ad-creative)
+- [Ad Custom Derived Metrics](/reference/facebook/endpoints/ad-custom-derived-metrics)
+- [Ad Draft](/reference/facebook/endpoints/ad-draft)
+- [Ad Export Preset](/reference/facebook/endpoints/ad-export-preset)
+- [Ad Image](/reference/facebook/endpoints/ad-image)
+- [Ad Label](/reference/facebook/endpoints/ad-label)
+- [Ad Light Ad group](/reference/facebook/endpoints/ad-light-adgroup)
+- [Ad Light Campaign](/reference/facebook/endpoints/ad-light-campaign)
+- [Ad Light Campaign Group](/reference/facebook/endpoints/ad-light-campaign-group)
+- [Ad Monetization Property](/reference/facebook/endpoints/ad-monetization-property)
+- [Ad Place Page Set](/reference/facebook/endpoints/ad-place-page-set)
+- [Ad Placement](/reference/facebook/endpoints/ad-placement)
+- [Ad Proposal](/reference/facebook/endpoints/ad-proposal)
+- [Ad Report Run](/reference/facebook/endpoints/ad-report-run)
+- [Ad Rule](/reference/facebook/endpoints/ad-rule)
+- [Ad Rule Evaluation Spec](/reference/facebook/endpoints/ad-rule-evaluation-spec)
+- [Ad Rule Execution Spec](/reference/facebook/endpoints/ad-rule-execution-spec)
+- [Ad Saved Keywords](/reference/facebook/endpoints/ad-saved-keywords)
+- [Ad Saved Location](/reference/facebook/endpoints/ad-saved-location)
+- [Ad Saved Report](/reference/facebook/endpoints/ad-saved-report)
+- [Ad Set](/reference/facebook/endpoints/ad-set)
+- [Ad Study](/reference/facebook/endpoints/ad-study)
+- [Ad Study Cell](/reference/facebook/endpoints/ad-study-cell)
+- [Ad Study Objective](/reference/facebook/endpoints/ad-study-objective)
+- [Ad Topline](/reference/facebook/endpoints/ad-topline)
+- [Ad Topline Detail](/reference/facebook/endpoints/ad-topline-detail)
+- [Ad Video](/reference/facebook/endpoints/ad-video)
+- [Ad group](/reference/facebook/endpoints/adgroup)
+- [Ad group Facebook Feedback](/reference/facebook/endpoints/adgroup-facebook-feedback)
+- [Ads Conversion Goal](/reference/facebook/endpoints/ads-conversion-goal)
+- [Ads Creation Saved State](/reference/facebook/endpoints/ads-creation-saved-state)
+- [Ads Mcme Conversion](/reference/facebook/endpoints/ads-mcme-conversion)
+- [Ads Naming Template](/reference/facebook/endpoints/ads-naming-template)
+- [Ads Pivot Rules](/reference/facebook/endpoints/ads-pivot-rules)
+- [Ads Pixel](/reference/facebook/endpoints/ads-pixel)
+- [Ads Pixel Capability Override](/reference/facebook/endpoints/ads-pixel-capability-override)
+- [Ads Quick Views](/reference/facebook/endpoints/ads-quick-views)
+- [Ads Report Builder Export Core](/reference/facebook/endpoints/ads-report-builder-export-core)
+- [Ads Report Builder MMM Report](/reference/facebook/endpoints/ads-report-builder-mmm-report)
+- [Ads Report Builder MMM Report Scheduler](/reference/facebook/endpoints/ads-report-builder-mmm-report-scheduler)
+- [Ads Report Builder Saved Report](/reference/facebook/endpoints/ads-report-builder-saved-report)
+- [Ads Start Your Day Widget](/reference/facebook/endpoints/ads-start-your-day-widget)
+- [Ads User Settings](/reference/facebook/endpoints/ads-user-settings)
+- [Ads Value Adjustment Rule Collection](/reference/facebook/endpoints/ads-value-adjustment-rule-collection)
+- [Adv A Instance](/reference/facebook/endpoints/adv-a-instance)
+- [Album](/reference/facebook/endpoints/album)
+- [ALM Ad Account Info](/reference/facebook/endpoints/alm-ad-account-info)
+- [ALM End Advertiser Info](/reference/facebook/endpoints/alm-end-advertiser-info)
+- [ALM Event](/reference/facebook/endpoints/alm-event)
+- [Analytics Segment](/reference/facebook/endpoints/analytics-segment)
+- [Analytics User Config](/reference/facebook/endpoints/analytics-user-config)
+- [App Event Config](/reference/facebook/endpoints/app-event-config)
+- [App Links](/reference/facebook/endpoints/app-links)
+- [App Request](/reference/facebook/endpoints/app-request)
+- [Application](/reference/facebook/endpoints/application)
+- [Ar Ads Data Container](/reference/facebook/endpoints/ar-ads-data-container)
+- [AR Effect](/reference/facebook/endpoints/ar-effect)
+- [Audio Asset](/reference/facebook/endpoints/audio-asset)
+- [Audio Copyright](/reference/facebook/endpoints/audio-copyright)
+- [Audio Isrc](/reference/facebook/endpoints/audio-isrc)
+- [Audio Sub Label](/reference/facebook/endpoints/audio-sub-label)
+- [Automotive Model](/reference/facebook/endpoints/automotive-model)
+- [Avatar](/reference/facebook/endpoints/avatar)
+- [BCP Campaign](/reference/facebook/endpoints/bcp-campaign)
+- [Bid Schedule](/reference/facebook/endpoints/bid-schedule)
+- [Blind Pig](/reference/facebook/endpoints/blind-pig)
+- [Brand Request](/reference/facebook/endpoints/brand-request)
+- [Brand Safety Downloadable](/reference/facebook/endpoints/brand-safety-downloadable)
+- [Business: Access Token – Owned Businesses](/reference/facebook/endpoints/business-access-token-to-owned-businesses)
+- [Business: Owned Businesses2 – Videos](/reference/facebook/endpoints/business-owned-businesses2-to-videos)
+- [Business Agreement](/reference/facebook/endpoints/business-agreement)
+- [Business Asset Group](/reference/facebook/endpoints/business-asset-group)
+- [Business Asset Sharing Agreement](/reference/facebook/endpoints/business-asset-sharing-agreement)
+- [Business Creative Folder](/reference/facebook/endpoints/business-creative-folder)
+- [Business Franchise Config](/reference/facebook/endpoints/business-franchise-config)
+- [Business Image](/reference/facebook/endpoints/business-image)
+- [Business Object Transfer Ownership Agreement](/reference/facebook/endpoints/business-object-transfer-ownership-agreement)
+- [Business Owned Object On Behalf Of Request](/reference/facebook/endpoints/business-owned-object-on-behalf-of-request)
+- [Business Project](/reference/facebook/endpoints/business-project)
+- [Business Request](/reference/facebook/endpoints/business-request)
+- [Business Role Request](/reference/facebook/endpoints/business-role-request)
+- [Business Tag](/reference/facebook/endpoints/business-tag)
+- [Business User](/reference/facebook/endpoints/business-user)
+- [Business Video](/reference/facebook/endpoints/business-video)
+- [Calibrator Existing Rule](/reference/facebook/endpoints/calibrator-existing-rule)
+- [Call Ads Phone Data](/reference/facebook/endpoints/call-ads-phone-data)
+- [Campaign](/reference/facebook/endpoints/campaign)
+- [Canvas](/reference/facebook/endpoints/canvas)
+- [Canvas Dynamic Setting](/reference/facebook/endpoints/canvas-dynamic-setting)
+- [Canvas Template](/reference/facebook/endpoints/canvas-template)
+- [Catalog Content Version Config](/reference/facebook/endpoints/catalog-content-version-config)
+- [Catalog Item Override](/reference/facebook/endpoints/catalog-item-override)
+- [Catalog Smart Pixel Settings](/reference/facebook/endpoints/catalog-smart-pixel-settings)
+- [Catalog Website Onboarding Settings](/reference/facebook/endpoints/catalog-website-onboarding-settings)
+- [Catalog Website Settings](/reference/facebook/endpoints/catalog-website-settings)
+- [China Business Onboarding Vetting Request](/reference/facebook/endpoints/china-business-onboarding-vetting-request)
+- [Cloud Game](/reference/facebook/endpoints/cloud-game)
+- [Collaborative Ads Share Settings](/reference/facebook/endpoints/collaborative-ads-share-settings)
+- [Comment](/reference/facebook/endpoints/comment)
+- [Commerce Merchant Settings](/reference/facebook/endpoints/commerce-merchant-settings)
+- [Commerce Order](/reference/facebook/endpoints/commerce-order)
+- [Content Block List](/reference/facebook/endpoints/content-block-list)
+- [Copyright Media Misuse](/reference/facebook/endpoints/copyright-media-misuse)
+- [Copyright Ownership Transfer](/reference/facebook/endpoints/copyright-ownership-transfer)
+- [CPAS Ad Creation Template](/reference/facebook/endpoints/cpas-ad-creation-template)
+- [CPAS Advertiser Partnership Recommendation](/reference/facebook/endpoints/cpas-advertiser-partnership-recommendation)
+- [CPAS Business Setup Config](/reference/facebook/endpoints/cpas-business-setup-config)
+- [CPAS Collaboration Request](/reference/facebook/endpoints/cpas-collaboration-request)
+- [CPAS Lsb Image Bank](/reference/facebook/endpoints/cpas-lsb-image-bank)
+- [CPAS Merchant Config](/reference/facebook/endpoints/cpas-merchant-config)
+- [CPAS Parent Catalog Settings](/reference/facebook/endpoints/cpas-parent-catalog-settings)
+- [Creator Asset Creative](/reference/facebook/endpoints/creator-asset-creative)
+- [Credit Card](/reference/facebook/endpoints/credit-card)
+- [CRM Address](/reference/facebook/endpoints/crm-address)
+- [CTX Partner App Welcome Message Flow](/reference/facebook/endpoints/ctx-partner-app-welcome-message-flow)
+- [Custom Audience](/reference/facebook/endpoints/custom-audience)
+- [Custom Conversion](/reference/facebook/endpoints/custom-conversion)
+- [Destination](/reference/facebook/endpoints/destination)
+- [Dynamic AR Metadata](/reference/facebook/endpoints/dynamic-ar-metadata)
+- [Dynamic Item Display Bundle](/reference/facebook/endpoints/dynamic-item-display-bundle)
+- [Dynamic Item Display Bundle Folder](/reference/facebook/endpoints/dynamic-item-display-bundle-folder)
+- [Dynamic Price Config By Date](/reference/facebook/endpoints/dynamic-price-config-by-date)
+- [Dynamic Video Metadata](/reference/facebook/endpoints/dynamic-video-metadata)
+- [Education Experience](/reference/facebook/endpoints/education-experience)
+- [Event](/reference/facebook/endpoints/event)
+- [Event External Ticket Info](/reference/facebook/endpoints/event-external-ticket-info)
+- [Event Registration Setting](/reference/facebook/endpoints/event-registration-setting)
+- [Event Source Group](/reference/facebook/endpoints/event-source-group)
+- [Event Ticket Setting](/reference/facebook/endpoints/event-ticket-setting)
+- [Event Ticket Tier](/reference/facebook/endpoints/event-ticket-tier)
+- [Extended Credit](/reference/facebook/endpoints/extended-credit)
+- [Extended Credit Allocation Config](/reference/facebook/endpoints/extended-credit-allocation-config)
+- [Extended Credit Application](/reference/facebook/endpoints/extended-credit-application)
+- [Extended Credit Invoice Group](/reference/facebook/endpoints/extended-credit-invoice-group)
+- [External Merchant Settings](/reference/facebook/endpoints/external-merchant-settings)
+- [FAME Kumo](/reference/facebook/endpoints/fame-kumo)
+- [Fantasy Game](/reference/facebook/endpoints/fantasy-game)
+- [FB Image Copyright Match](/reference/facebook/endpoints/fb-image-copyright-match)
+- [Flight](/reference/facebook/endpoints/flight)
+- [Franchise Program](/reference/facebook/endpoints/franchise-program)
+- [Franchise Program Member](/reference/facebook/endpoints/franchise-program-member)
+- [Fundraiser Person To Charity](/reference/facebook/endpoints/fundraiser-person-to-charity)
+- [Geo Gating Policy](/reference/facebook/endpoints/geo-gating-policy)
+- [Group](/reference/facebook/endpoints/group)
+- [High Demand Period](/reference/facebook/endpoints/high-demand-period)
+- [Home Listing](/reference/facebook/endpoints/home-listing)
+- [Hotel](/reference/facebook/endpoints/hotel)
+- [Hotel Room](/reference/facebook/endpoints/hotel-room)
+- [Hours](/reference/facebook/endpoints/hours)
+- [IG Access Token For IG Only API](/reference/facebook/endpoints/ig-access-token-for-ig-only-api)
+- [IG Boost Media Ad](/reference/facebook/endpoints/ig-boost-media-ad)
+- [IG Comment](/reference/facebook/endpoints/ig-comment)
+- [IG Media](/reference/facebook/endpoints/ig-media)
+- [IG Media Boost Eligibility Info](/reference/facebook/endpoints/ig-media-boost-eligibility-info)
+- [IG Media For IG Only API](/reference/facebook/endpoints/ig-media-for-ig-only-api)
+- [IG Refresh Access Token For IG Only API](/reference/facebook/endpoints/ig-refresh-access-token-for-ig-only-api)
+- [IG Upcoming Event](/reference/facebook/endpoints/ig-upcoming-event)
+- [IG User](/reference/facebook/endpoints/ig-user)
+- [IG User Export For CAM](/reference/facebook/endpoints/ig-user-export-for-cam)
+- [IG User For IG Only API](/reference/facebook/endpoints/ig-user-for-ig-only-api)
+- [IGBC Ads Permission](/reference/facebook/endpoints/igbc-ads-permission)
+- [Image Copyright](/reference/facebook/endpoints/image-copyright)
+- [Image Copyright Dispute](/reference/facebook/endpoints/image-copyright-dispute)
+- [Image Reference Match](/reference/facebook/endpoints/image-reference-match)
+- [Instagram Business Asset](/reference/facebook/endpoints/instagram-business-asset)
+- [Instagram User](/reference/facebook/endpoints/instagram-user)
+- [Job Opening](/reference/facebook/endpoints/job-opening)
+- [Lead](/reference/facebook/endpoints/lead)
+- [Lead Gen Data Draft](/reference/facebook/endpoints/lead-gen-data-draft)
+- [Lead Gen Direct CRM Integration Config](/reference/facebook/endpoints/lead-gen-direct-crm-integration-config)
+- [Leadgen Form](/reference/facebook/endpoints/leadgen-form)
+- [Life Event](/reference/facebook/endpoints/life-event)
+- [Link](/reference/facebook/endpoints/link)
+- [Live Video](/reference/facebook/endpoints/live-video)
+- [Live Video Ad Campaign Config](/reference/facebook/endpoints/live-video-ad-campaign-config)
+- [Live Video Error](/reference/facebook/endpoints/live-video-error)
+- [Live Video Input Stream](/reference/facebook/endpoints/live-video-input-stream)
+- [Local Service Business](/reference/facebook/endpoints/local-service-business)
+- [Mailing Address](/reference/facebook/endpoints/mailing-address)
+- [Management Site Link](/reference/facebook/endpoints/management-site-link)
+- [Measurement Report](/reference/facebook/endpoints/measurement-report)
+- [Media Copyright Attribution](/reference/facebook/endpoints/media-copyright-attribution)
+- [Media Copyright Update Record](/reference/facebook/endpoints/media-copyright-update-record)
+- [Media Fingerprint](/reference/facebook/endpoints/media-fingerprint)
+- [Messenger Ads Partial Automated Step List](/reference/facebook/endpoints/messenger-ads-partial-automated-step-list)
+- [Messenger Business Template](/reference/facebook/endpoints/messenger-business-template)
+- [Music Video Copyright](/reference/facebook/endpoints/music-video-copyright)
+- [Music Work Copyright](/reference/facebook/endpoints/music-work-copyright)
+- [Offline Conversion Data Set](/reference/facebook/endpoints/offline-conversion-data-set)
+- [Offline Conversion Data Set Upload](/reference/facebook/endpoints/offline-conversion-data-set-upload)
+- [Offline Product Item](/reference/facebook/endpoints/offline-product-item)
+- [Offline Terms Of Service](/reference/facebook/endpoints/offline-terms-of-service)
+- [Offsite Pixel](/reference/facebook/endpoints/offsite-pixel)
+- [Offsite Signal Container Business Object](/reference/facebook/endpoints/offsite-signal-container-business-object)
+- [Omega Customer Trx](/reference/facebook/endpoints/omega-customer-trx)
+- [Open Bridge Configuration](/reference/facebook/endpoints/open-bridge-configuration)
+- [Open Graph Context](/reference/facebook/endpoints/open-graph-context)
+- [Organization](/reference/facebook/endpoints/organization)
+- [Owned Domain](/reference/facebook/endpoints/owned-domain)
+- [Page: Ab Tests – Messenger Profile2](/reference/facebook/endpoints/page-ab-tests-to-messenger-profile2)
+- [Page: Messenger Profile3 – Welcome Message Flows3](/reference/facebook/endpoints/page-messenger-profile3-to-welcome-message-flows3)
+- [Page Call To Action](/reference/facebook/endpoints/page-call-to-action)
+- [Page Insights Async Export Run](/reference/facebook/endpoints/page-insights-async-export-run)
+- [Page Leads Access Config](/reference/facebook/endpoints/page-leads-access-config)
+- [Page Post](/reference/facebook/endpoints/page-post)
+- [Page Post Experiment](/reference/facebook/endpoints/page-post-experiment)
+- [Page Upcoming Change](/reference/facebook/endpoints/page-upcoming-change)
+- [Page User Message Thread Label](/reference/facebook/endpoints/page-user-message-thread-label)
+- [Partner Account Linking](/reference/facebook/endpoints/partner-account-linking)
+- [Partner Center Export File](/reference/facebook/endpoints/partner-center-export-file)
+- [Partner Integration Linked](/reference/facebook/endpoints/partner-integration-linked)
+- [Partner Study](/reference/facebook/endpoints/partner-study)
+- [Payment Engine Payment](/reference/facebook/endpoints/payment-engine-payment)
+- [Payment Subscription](/reference/facebook/endpoints/payment-subscription)
+- [Persona](/reference/facebook/endpoints/persona)
+- [Personal Ads Persona](/reference/facebook/endpoints/personal-ads-persona)
+- [Photo](/reference/facebook/endpoints/photo)
+- [Place](/reference/facebook/endpoints/place)
+- [Place Tag](/reference/facebook/endpoints/place-tag)
+- [Place Topic](/reference/facebook/endpoints/place-topic)
+- [Playable Content](/reference/facebook/endpoints/playable-content)
+- [Post](/reference/facebook/endpoints/post)
+- [Private Lift Study Instance](/reference/facebook/endpoints/private-lift-study-instance)
+- [Product Catalog](/reference/facebook/endpoints/product-catalog)
+- [Product Catalog Check Batch Request Status](/reference/facebook/endpoints/product-catalog-check-batch-request-status)
+- [Product Catalog Data Sources](/reference/facebook/endpoints/product-catalog-data-sources)
+- [Product Catalog Localization Settings](/reference/facebook/endpoints/product-catalog-localization-settings)
+- [Product Delivery Preference](/reference/facebook/endpoints/product-delivery-preference)
+- [Product Feed](/reference/facebook/endpoints/product-feed)
+- [Product Feed Rule](/reference/facebook/endpoints/product-feed-rule)
+- [Product Feed Rules](/reference/facebook/endpoints/product-feed-rules)
+- [Product Feed Schedule](/reference/facebook/endpoints/product-feed-schedule)
+- [Product Feed Upload](/reference/facebook/endpoints/product-feed-upload)
+- [Product Feed Upload Error](/reference/facebook/endpoints/product-feed-upload-error)
+- [Product Feed Upload Error Sample](/reference/facebook/endpoints/product-feed-upload-error-sample)
+- [Product Group](/reference/facebook/endpoints/product-group)
+- [Product Image](/reference/facebook/endpoints/product-image)
+- [Product Item](/reference/facebook/endpoints/product-item)
+- [Product Item Local Info](/reference/facebook/endpoints/product-item-local-info)
+- [Product Item Offer](/reference/facebook/endpoints/product-item-offer)
+- [Product Set](/reference/facebook/endpoints/product-set)
+- [Profile](/reference/facebook/endpoints/profile)
+- [Publisher Block List](/reference/facebook/endpoints/publisher-block-list)
+- [Reach Frequency Prediction](/reference/facebook/endpoints/reach-frequency-prediction)
+- [Research Poll Study](/reference/facebook/endpoints/research-poll-study)
+- [Rights Manager Data Export](/reference/facebook/endpoints/rights-manager-data-export)
+- [Robot](/reference/facebook/endpoints/robot)
+- [RTB Dynamic Post](/reference/facebook/endpoints/rtb-dynamic-post)
+- [Saved Audience](/reference/facebook/endpoints/saved-audience)
+- [Saved Message Response](/reference/facebook/endpoints/saved-message-response)
+- [Shadow IG Hashtag](/reference/facebook/endpoints/shadow-ig-hashtag)
+- [Shadow IG Media Builder](/reference/facebook/endpoints/shadow-ig-media-builder)
+- [Shadow IG Scheduled Media](/reference/facebook/endpoints/shadow-ig-scheduled-media)
+- [Shop](/reference/facebook/endpoints/shop)
+- [Signals IWL Extractor](/reference/facebook/endpoints/signals-iwl-extractor)
+- [Site Link](/reference/facebook/endpoints/site-link)
+- [Sliced Event Source Group](/reference/facebook/endpoints/sliced-event-source-group)
+- [Status](/reference/facebook/endpoints/status)
+- [Store Catalog Settings](/reference/facebook/endpoints/store-catalog-settings)
+- [Store Location](/reference/facebook/endpoints/store-location)
+- [Stories](/reference/facebook/endpoints/stories)
+- [System User](/reference/facebook/endpoints/system-user)
+- [Third Party Measurement Report Dataset](/reference/facebook/endpoints/third-party-measurement-report-dataset)
+- [Third Party Partner Lift Request](/reference/facebook/endpoints/third-party-partner-lift-request)
+- [Third Party Partner Panel Request](/reference/facebook/endpoints/third-party-partner-panel-request)
+- [Third Party Partner Panel Scheduled](/reference/facebook/endpoints/third-party-partner-panel-scheduled)
+- [Third Party Partner Viewability Request](/reference/facebook/endpoints/third-party-partner-viewability-request)
+- [Transactable Item](/reference/facebook/endpoints/transactable-item)
+- [Unified Thread](/reference/facebook/endpoints/unified-thread)
+- [URL](/reference/facebook/endpoints/url)
+- [User](/reference/facebook/endpoints/user)
+- [User Context](/reference/facebook/endpoints/user-context)
+- [User Page One Time Opt In Token Settings](/reference/facebook/endpoints/user-page-one-time-opt-in-token-settings)
+- [Vehicle](/reference/facebook/endpoints/vehicle)
+- [Vehicle Offer](/reference/facebook/endpoints/vehicle-offer)
+- [Video Copyright](/reference/facebook/endpoints/video-copyright)
+- [Video Copyright Match](/reference/facebook/endpoints/video-copyright-match)
+- [Video Copyright Rule](/reference/facebook/endpoints/video-copyright-rule)
+- [Video List](/reference/facebook/endpoints/video-list)
+- [Video Poll](/reference/facebook/endpoints/video-poll)
+- [Video Text Question](/reference/facebook/endpoints/video-text-question)
+- [Wearable Device Public Key](/reference/facebook/endpoints/wearable-device-public-key)
+- [Website Creative Asset Source](/reference/facebook/endpoints/website-creative-asset-source)
+- [Website Creative Asset Suggestions](/reference/facebook/endpoints/website-creative-asset-suggestions)
+- [Website Creative Info](/reference/facebook/endpoints/website-creative-info)
+- [WhatsApp Business Account](/reference/facebook/endpoints/whats-app-business-account)
+- [WhatsApp Business Pre Verified Phone Number](/reference/facebook/endpoints/whats-app-business-pre-verified-phone-number)
+- [WhatsApp Business Profile](/reference/facebook/endpoints/whats-app-business-profile)
+- [Whitehat FBDL Run](/reference/facebook/endpoints/whitehat-fbdl-run)
+- [Wifi Information](/reference/facebook/endpoints/wifi-information)
+- [With Asset3 D](/reference/facebook/endpoints/with-asset3-d)
+- [Woodhenge Purchased PAYG Receipt](/reference/facebook/endpoints/woodhenge-purchased-payg-receipt)
+- [Woodhenge Supporter](/reference/facebook/endpoints/woodhenge-supporter)
+- [Work Experience](/reference/facebook/endpoints/work-experience)
+- [Work Skill](/reference/facebook/endpoints/work-skill)
+
+## Models
+
+- [AB Test Post Test Actions Fields – Ad Asset Feed Spec Caption Fields](/reference/facebook/models/ab-test-post-test-actions-fields-to-ad-asset-feed-spec-caption-fields)
+- [Ad Asset Feed Spec Carousel Child Attachment Fields – Ad Creative Insights Fields](/reference/facebook/models/ad-asset-feed-spec-carousel-child-attachment-fields-to-ad-creative-insights-fields)
+- [Ad Creative Instagram Branded Content Fields – Ad Limit Setting Fields](/reference/facebook/models/ad-creative-instagram-branded-content-fields-to-ad-limit-setting-fields)
+- [Ad Monetization Property Fields – Ads Pivot Rules Fields](/reference/facebook/models/ad-monetization-property-fields-to-ads-pivot-rules-fields)
+- [Ads Pixel Automatic Matching Fields – Attribution Spec Fields](/reference/facebook/models/ads-pixel-automatic-matching-fields-to-attribution-spec-fields)
+- [Audience Funnel Fields – Campaign Smart Promotion Type](/reference/facebook/models/audience-funnel-fields-to-campaign-smart-promotion-type)
+- [Campaign Special Ad Categories – Custom Audience Claim Objective](/reference/facebook/models/campaign-special-ad-categories-to-custom-audience-claim-objective)
+- [Custom Audience Content Type – Geo Gating Policy Fields](/reference/facebook/models/custom-audience-content-type-to-geo-gating-policy-fields)
+- [Group Fields – Lead Fields](/reference/facebook/models/group-fields-to-lead-fields)
+- [Lead Gen Appointment Booking Info Fields – Offline Conversion Data Set Upload Order](/reference/facebook/models/lead-gen-appointment-booking-info-fields-to-offline-conversion-data-set-upload-order)
+- [Offline Conversion Data Set Upload Sort By – Partner Center Export File Fields](/reference/facebook/models/offline-conversion-data-set-upload-sort-by-to-partner-center-export-file-fields)
+- [Partner Integration Linked Fields – Product Feed Quoted Fields Mode](/reference/facebook/models/partner-integration-linked-fields-to-product-feed-quoted-fields-mode)
+- [Product Feed Rule Fields – Scim Company User Phone Number Fields](/reference/facebook/models/product-feed-rule-fields-to-scim-company-user-phone-number-fields)
+- [Security Settings Fields – User Payment Methods Info Fields](/reference/facebook/models/security-settings-fields-to-user-payment-methods-info-fields)
+- [User Payment Mobile Pricepoints Fields – Work User Frontline Fields](/reference/facebook/models/user-payment-mobile-pricepoints-fields-to-work-user-frontline-fields)
+
+## Capabilities
+
+| Capability | Summary | Required scopes |
+| --- | --- | --- |
+| `ad.manage` | Manage Facebook Graph Ad | None declared |
+| `ad.read` | Read Facebook Graph Ad | None declared |
+| `adAccount.manage` | Manage Facebook Graph AdAccount | None declared |
+| `adAccount.read` | Read Facebook Graph AdAccount | None declared |
+| `adAccountAccountControls.manage` | Manage Facebook Graph AdAccountAccountControls | None declared |
+| `adAccountAgencyFeeConfig.read` | Read Facebook Graph AdAccountAgencyFeeConfig | None declared |
+| `adAccountCreationRequest.read` | Read Facebook Graph AdAccountCreationRequest | None declared |
+| `adAccountFeaturePreferences.manage` | Manage Facebook Graph AdAccountFeaturePreferences | None declared |
+| `adAccountUserSettings.read` | Read Facebook Graph AdAccountUserSettings | None declared |
+| `adAsyncRequest.manage` | Manage Facebook Graph AdAsyncRequest | None declared |
+| `adAsyncRequest.read` | Read Facebook Graph AdAsyncRequest | None declared |
+| `adAsyncRequestSet.manage` | Manage Facebook Graph AdAsyncRequestSet | None declared |
+| `adAsyncRequestSet.read` | Read Facebook Graph AdAsyncRequestSet | None declared |
+| `adCampaign.manage` | Manage Facebook Graph AdCampaign | None declared |
+| `adCampaignBudgetSchedules.manage` | Manage Facebook Graph AdCampaignBudgetSchedules | None declared |
+| `adCampaignGroup.manage` | Manage Facebook Graph AdCampaignGroup | None declared |
+| `adCampaignGroupBudgetSchedules.manage` | Manage Facebook Graph AdCampaignGroupBudgetSchedules | None declared |
+| `adCampaignPlacement.read` | Read Facebook Graph AdCampaignPlacement | None declared |
+| `adColumnSizes.read` | Read Facebook Graph AdColumnSizes | None declared |
+| `adCreationPackageConfig.read` | Read Facebook Graph AdCreationPackageConfig | None declared |
+| `adCreative.manage` | Manage Facebook Graph AdCreative | None declared |
+| `adCreative.read` | Read Facebook Graph AdCreative | None declared |
+| `adCustomDerivedMetrics.read` | Read Facebook Graph AdCustomDerivedMetrics | None declared |
+| `adDraft.read` | Read Facebook Graph AdDraft | None declared |
+| `adExportPreset.read` | Read Facebook Graph AdExportPreset | None declared |
+| `adgroup.manage` | Manage Facebook Graph Adgroup | None declared |
+| `adgroupFacebookFeedback.read` | Read Facebook Graph AdgroupFacebookFeedback | None declared |
+| `adImage.read` | Read Facebook Graph AdImage | None declared |
+| `adLabel.manage` | Manage Facebook Graph AdLabel | None declared |
+| `adLabel.read` | Read Facebook Graph AdLabel | None declared |
+| `adLightAdgroup.read` | Read Facebook Graph AdLightAdgroup | None declared |
+| `adLightCampaign.read` | Read Facebook Graph AdLightCampaign | None declared |
+| `adLightCampaignGroup.read` | Read Facebook Graph AdLightCampaignGroup | None declared |
+| `adMonetizationProperty.manage` | Manage Facebook Graph AdMonetizationProperty | None declared |
+| `adMonetizationProperty.read` | Read Facebook Graph AdMonetizationProperty | None declared |
+| `adPlacement.read` | Read Facebook Graph AdPlacement | None declared |
+| `adPlacePageSet.read` | Read Facebook Graph AdPlacePageSet | None declared |
+| `adProposal.read` | Read Facebook Graph AdProposal | None declared |
+| `adReportRun.read` | Read Facebook Graph AdReportRun | None declared |
+| `adRule.manage` | Manage Facebook Graph AdRule | None declared |
+| `adRule.read` | Read Facebook Graph AdRule | None declared |
+| `adRuleEvaluationSpec.read` | Read Facebook Graph AdRuleEvaluationSpec | None declared |
+| `adRuleExecutionSpec.read` | Read Facebook Graph AdRuleExecutionSpec | None declared |
+| `adSavedKeywords.read` | Read Facebook Graph AdSavedKeywords | None declared |
+| `adSavedLocation.read` | Read Facebook Graph AdSavedLocation | None declared |
+| `adSavedReport.read` | Read Facebook Graph AdSavedReport | None declared |
+| `adsConversionGoal.read` | Read Facebook Graph AdsConversionGoal | None declared |
+| `adsCreationSavedState.read` | Read Facebook Graph AdsCreationSavedState | None declared |
+| `adSet.manage` | Manage Facebook Graph AdSet | None declared |
+| `adSet.read` | Read Facebook Graph AdSet | None declared |
+| `adsMcmeConversion.read` | Read Facebook Graph AdsMcmeConversion | None declared |
+| `adsNamingTemplate.read` | Read Facebook Graph AdsNamingTemplate | None declared |
+| `adsPivotRules.read` | Read Facebook Graph AdsPivotRules | None declared |
+| `adsPixel.manage` | Manage Facebook Graph AdsPixel | None declared |
+| `adsPixel.read` | Read Facebook Graph AdsPixel | None declared |
+| `adsPixelCapabilityOverride.read` | Read Facebook Graph AdsPixelCapabilityOverride | None declared |
+| `adsQuickViews.read` | Read Facebook Graph AdsQuickViews | None declared |
+| `adsReportBuilderExportCore.read` | Read Facebook Graph AdsReportBuilderExportCore | None declared |
+| `adsReportBuilderMMMReport.read` | Read Facebook Graph AdsReportBuilderMMMReport | None declared |
+| `adsReportBuilderMMMReportScheduler.read` | Read Facebook Graph AdsReportBuilderMMMReportScheduler | None declared |
+| `adsReportBuilderSavedReport.read` | Read Facebook Graph AdsReportBuilderSavedReport | None declared |
+| `adsStartYourDayWidget.read` | Read Facebook Graph AdsStartYourDayWidget | None declared |
+| `adStudy.manage` | Manage Facebook Graph AdStudy | None declared |
+| `adStudy.read` | Read Facebook Graph AdStudy | None declared |
+| `adStudyCell.manage` | Manage Facebook Graph AdStudyCell | None declared |
+| `adStudyCell.read` | Read Facebook Graph AdStudyCell | None declared |
+| `adStudyObjective.manage` | Manage Facebook Graph AdStudyObjective | None declared |
+| `adStudyObjective.read` | Read Facebook Graph AdStudyObjective | None declared |
+| `adsUserSettings.read` | Read Facebook Graph AdsUserSettings | None declared |
+| `adsValueAdjustmentRuleCollection.manage` | Manage Facebook Graph AdsValueAdjustmentRuleCollection | None declared |
+| `adsValueAdjustmentRuleCollection.read` | Read Facebook Graph AdsValueAdjustmentRuleCollection | None declared |
+| `adTopline.read` | Read Facebook Graph AdTopline | None declared |
+| `adToplineDetail.read` | Read Facebook Graph AdToplineDetail | None declared |
+| `advAInstance.read` | Read Facebook Graph AdvAInstance | None declared |
+| `adVideo.manage` | Manage Facebook Graph AdVideo | None declared |
+| `adVideo.read` | Read Facebook Graph AdVideo | None declared |
+| `album.manage` | Manage Facebook Graph Album | None declared |
+| `album.read` | Read Facebook Graph Album | None declared |
+| `aLMAdAccountInfo.read` | Read Facebook Graph ALMAdAccountInfo | None declared |
+| `aLMEndAdvertiserInfo.read` | Read Facebook Graph ALMEndAdvertiserInfo | None declared |
+| `aLMEvent.read` | Read Facebook Graph ALMEvent | None declared |
+| `analyticsSegment.read` | Read Facebook Graph AnalyticsSegment | None declared |
+| `analyticsUserConfig.read` | Read Facebook Graph AnalyticsUserConfig | None declared |
+| `appEventConfig.read` | Read Facebook Graph AppEventConfig | None declared |
+| `application.manage` | Manage Facebook Graph Application | None declared |
+| `application.read` | Read Facebook Graph Application | None declared |
+| `appLinks.read` | Read Facebook Graph AppLinks | None declared |
+| `appRequest.manage` | Manage Facebook Graph AppRequest | None declared |
+| `appRequest.read` | Read Facebook Graph AppRequest | None declared |
+| `arAdsDataContainer.read` | Read Facebook Graph ArAdsDataContainer | None declared |
+| `aREffect.read` | Read Facebook Graph AREffect | None declared |
+| `audioAsset.read` | Read Facebook Graph AudioAsset | None declared |
+| `audioCopyright.read` | Read Facebook Graph AudioCopyright | None declared |
+| `audioIsrc.read` | Read Facebook Graph AudioIsrc | None declared |
+| `audioSubLabel.read` | Read Facebook Graph AudioSubLabel | None declared |
+| `automotiveModel.read` | Read Facebook Graph AutomotiveModel | None declared |
+| `avatar.read` | Read Facebook Graph Avatar | None declared |
+| `bCPCampaign.read` | Read Facebook Graph BCPCampaign | None declared |
+| `bidSchedule.read` | Read Facebook Graph BidSchedule | None declared |
+| `blindPig.read` | Read Facebook Graph BlindPig | None declared |
+| `brandRequest.read` | Read Facebook Graph BrandRequest | None declared |
+| `brandSafetyDownloadable.read` | Read Facebook Graph BrandSafetyDownloadable | None declared |
+| `business.manage` | Manage Facebook Graph Business | None declared |
+| `business.read` | Read Facebook Graph Business | None declared |
+| `businessAgreement.manage` | Manage Facebook Graph BusinessAgreement | None declared |
+| `businessAgreement.read` | Read Facebook Graph BusinessAgreement | None declared |
+| `businessAssetGroup.manage` | Manage Facebook Graph BusinessAssetGroup | None declared |
+| `businessAssetGroup.read` | Read Facebook Graph BusinessAssetGroup | None declared |
+| `businessAssetSharingAgreement.manage` | Manage Facebook Graph BusinessAssetSharingAgreement | None declared |
+| `businessAssetSharingAgreement.read` | Read Facebook Graph BusinessAssetSharingAgreement | None declared |
+| `businessCreativeFolder.read` | Read Facebook Graph BusinessCreativeFolder | None declared |
+| `businessFranchiseConfig.read` | Read Facebook Graph BusinessFranchiseConfig | None declared |
+| `businessImage.read` | Read Facebook Graph BusinessImage | None declared |
+| `businessObjectTransferOwnershipAgreement.read` | Read Facebook Graph BusinessObjectTransferOwnershipAgreement | None declared |
+| `businessOwnedObjectOnBehalfOfRequest.read` | Read Facebook Graph BusinessOwnedObjectOnBehalfOfRequest | None declared |
+| `businessProject.read` | Read Facebook Graph BusinessProject | None declared |
+| `businessRequest.read` | Read Facebook Graph BusinessRequest | None declared |
+| `businessRoleRequest.manage` | Manage Facebook Graph BusinessRoleRequest | None declared |
+| `businessRoleRequest.read` | Read Facebook Graph BusinessRoleRequest | None declared |
+| `businessTag.read` | Read Facebook Graph BusinessTag | None declared |
+| `businessUser.manage` | Manage Facebook Graph BusinessUser | None declared |
+| `businessUser.read` | Read Facebook Graph BusinessUser | None declared |
+| `businessVideo.read` | Read Facebook Graph BusinessVideo | None declared |
+| `calibratorExistingRule.read` | Read Facebook Graph CalibratorExistingRule | None declared |
+| `callAdsPhoneData.read` | Read Facebook Graph CallAdsPhoneData | None declared |
+| `campaign.manage` | Manage Facebook Graph Campaign | None declared |
+| `campaign.read` | Read Facebook Graph Campaign | None declared |
+| `canvas.manage` | Manage Facebook Graph Canvas | None declared |
+| `canvas.read` | Read Facebook Graph Canvas | None declared |
+| `canvasDynamicSetting.read` | Read Facebook Graph CanvasDynamicSetting | None declared |
+| `canvasTemplate.read` | Read Facebook Graph CanvasTemplate | None declared |
+| `catalogContentVersionConfig.read` | Read Facebook Graph CatalogContentVersionConfig | None declared |
+| `catalogItemOverride.read` | Read Facebook Graph CatalogItemOverride | None declared |
+| `catalogSmartPixelSettings.read` | Read Facebook Graph CatalogSmartPixelSettings | None declared |
+| `catalogWebsiteOnboardingSettings.read` | Read Facebook Graph CatalogWebsiteOnboardingSettings | None declared |
+| `catalogWebsiteSettings.read` | Read Facebook Graph CatalogWebsiteSettings | None declared |
+| `chinaBusinessOnboardingVettingRequest.read` | Read Facebook Graph ChinaBusinessOnboardingVettingRequest | None declared |
+| `cloudGame.read` | Read Facebook Graph CloudGame | None declared |
+| `collaborativeAdsShareSettings.read` | Read Facebook Graph CollaborativeAdsShareSettings | None declared |
+| `comment.manage` | Manage Facebook Graph Comment | None declared |
+| `comment.read` | Read Facebook Graph Comment | None declared |
+| `commerceMerchantSettings.manage` | Manage Facebook Graph CommerceMerchantSettings | None declared |
+| `commerceMerchantSettings.read` | Read Facebook Graph CommerceMerchantSettings | None declared |
+| `commerceOrder.manage` | Manage Facebook Graph CommerceOrder | None declared |
+| `commerceOrder.read` | Read Facebook Graph CommerceOrder | None declared |
+| `contentBlockList.read` | Read Facebook Graph ContentBlockList | None declared |
+| `copyrightMediaMisuse.read` | Read Facebook Graph CopyrightMediaMisuse | None declared |
+| `copyrightOwnershipTransfer.read` | Read Facebook Graph CopyrightOwnershipTransfer | None declared |
+| `cPASAdCreationTemplate.read` | Read Facebook Graph CPASAdCreationTemplate | None declared |
+| `cPASAdvertiserPartnershipRecommendation.read` | Read Facebook Graph CPASAdvertiserPartnershipRecommendation | None declared |
+| `cPASBusinessSetupConfig.read` | Read Facebook Graph CPASBusinessSetupConfig | None declared |
+| `cPASCollaborationRequest.read` | Read Facebook Graph CPASCollaborationRequest | None declared |
+| `cPASLsbImageBank.manage` | Manage Facebook Graph CPASLsbImageBank | None declared |
+| `cPASLsbImageBank.read` | Read Facebook Graph CPASLsbImageBank | None declared |
+| `cPASMerchantConfig.read` | Read Facebook Graph CPASMerchantConfig | None declared |
+| `cPASParentCatalogSettings.read` | Read Facebook Graph CPASParentCatalogSettings | None declared |
+| `creatorAssetCreative.read` | Read Facebook Graph CreatorAssetCreative | None declared |
+| `creditCard.read` | Read Facebook Graph CreditCard | None declared |
+| `cRMAddress.read` | Read Facebook Graph CRMAddress | None declared |
+| `cTXPartnerAppWelcomeMessageFlow.read` | Read Facebook Graph CTXPartnerAppWelcomeMessageFlow | None declared |
+| `customAudience.manage` | Manage Facebook Graph CustomAudience | None declared |
+| `customAudience.read` | Read Facebook Graph CustomAudience | None declared |
+| `customConversion.manage` | Manage Facebook Graph CustomConversion | None declared |
+| `customConversion.read` | Read Facebook Graph CustomConversion | None declared |
+| `destination.read` | Read Facebook Graph Destination | None declared |
+| `dynamicARMetadata.read` | Read Facebook Graph DynamicARMetadata | None declared |
+| `dynamicItemDisplayBundle.read` | Read Facebook Graph DynamicItemDisplayBundle | None declared |
+| `dynamicItemDisplayBundleFolder.read` | Read Facebook Graph DynamicItemDisplayBundleFolder | None declared |
+| `dynamicPriceConfigByDate.read` | Read Facebook Graph DynamicPriceConfigByDate | None declared |
+| `dynamicVideoMetadata.read` | Read Facebook Graph DynamicVideoMetadata | None declared |
+| `educationExperience.read` | Read Facebook Graph EducationExperience | None declared |
+| `event.manage` | Manage Facebook Graph Event | None declared |
+| `event.read` | Read Facebook Graph Event | None declared |
+| `eventExternalTicketInfo.read` | Read Facebook Graph EventExternalTicketInfo | None declared |
+| `eventRegistrationSetting.read` | Read Facebook Graph EventRegistrationSetting | None declared |
+| `eventSourceGroup.manage` | Manage Facebook Graph EventSourceGroup | None declared |
+| `eventSourceGroup.read` | Read Facebook Graph EventSourceGroup | None declared |
+| `eventTicketSetting.read` | Read Facebook Graph EventTicketSetting | None declared |
+| `eventTicketTier.read` | Read Facebook Graph EventTicketTier | None declared |
+| `extendedCredit.manage` | Manage Facebook Graph ExtendedCredit | None declared |
+| `extendedCredit.read` | Read Facebook Graph ExtendedCredit | None declared |
+| `extendedCreditAllocationConfig.manage` | Manage Facebook Graph ExtendedCreditAllocationConfig | None declared |
+| `extendedCreditAllocationConfig.read` | Read Facebook Graph ExtendedCreditAllocationConfig | None declared |
+| `extendedCreditApplication.read` | Read Facebook Graph ExtendedCreditApplication | None declared |
+| `extendedCreditInvoiceGroup.manage` | Manage Facebook Graph ExtendedCreditInvoiceGroup | None declared |
+| `extendedCreditInvoiceGroup.read` | Read Facebook Graph ExtendedCreditInvoiceGroup | None declared |
+| `externalMerchantSettings.read` | Read Facebook Graph ExternalMerchantSettings | None declared |
+| `fAMEKumo.read` | Read Facebook Graph FAMEKumo | None declared |
+| `fantasyGame.read` | Read Facebook Graph FantasyGame | None declared |
+| `fBImageCopyrightMatch.read` | Read Facebook Graph FBImageCopyrightMatch | None declared |
+| `flight.manage` | Manage Facebook Graph Flight | None declared |
+| `flight.read` | Read Facebook Graph Flight | None declared |
+| `franchiseProgram.read` | Read Facebook Graph FranchiseProgram | None declared |
+| `franchiseProgramMember.read` | Read Facebook Graph FranchiseProgramMember | None declared |
+| `fundraiserPersonToCharity.manage` | Manage Facebook Graph FundraiserPersonToCharity | None declared |
+| `fundraiserPersonToCharity.read` | Read Facebook Graph FundraiserPersonToCharity | None declared |
+| `geoGatingPolicy.read` | Read Facebook Graph GeoGatingPolicy | None declared |
+| `group.manage` | Manage Facebook Graph Group | None declared |
+| `group.read` | Read Facebook Graph Group | None declared |
+| `highDemandPeriod.manage` | Manage Facebook Graph HighDemandPeriod | None declared |
+| `highDemandPeriod.read` | Read Facebook Graph HighDemandPeriod | None declared |
+| `homeListing.manage` | Manage Facebook Graph HomeListing | None declared |
+| `homeListing.read` | Read Facebook Graph HomeListing | None declared |
+| `hotel.manage` | Manage Facebook Graph Hotel | None declared |
+| `hotel.read` | Read Facebook Graph Hotel | None declared |
+| `hotelRoom.read` | Read Facebook Graph HotelRoom | None declared |
+| `hours.read` | Read Facebook Graph Hours | None declared |
+| `iGAccessTokenForIGOnlyAPI.read` | Read Facebook Graph IGAccessTokenForIGOnlyAPI | None declared |
+| `iGBCAdsPermission.read` | Read Facebook Graph IGBCAdsPermission | None declared |
+| `iGBoostMediaAd.read` | Read Facebook Graph IGBoostMediaAd | None declared |
+| `iGComment.manage` | Manage Facebook Graph IGComment | None declared |
+| `iGComment.read` | Read Facebook Graph IGComment | None declared |
+| `iGMedia.manage` | Manage Facebook Graph IGMedia | None declared |
+| `iGMedia.read` | Read Facebook Graph IGMedia | None declared |
+| `iGMediaBoostEligibilityInfo.read` | Read Facebook Graph IGMediaBoostEligibilityInfo | None declared |
+| `iGMediaForIGOnlyAPI.manage` | Manage Facebook Graph IGMediaForIGOnlyAPI | None declared |
+| `iGMediaForIGOnlyAPI.read` | Read Facebook Graph IGMediaForIGOnlyAPI | None declared |
+| `iGRefreshAccessTokenForIGOnlyAPI.read` | Read Facebook Graph IGRefreshAccessTokenForIGOnlyAPI | None declared |
+| `iGUpcomingEvent.manage` | Manage Facebook Graph IGUpcomingEvent | None declared |
+| `iGUpcomingEvent.read` | Read Facebook Graph IGUpcomingEvent | None declared |
+| `iGUser.manage` | Manage Facebook Graph IGUser | None declared |
+| `iGUser.read` | Read Facebook Graph IGUser | None declared |
+| `iGUserExportForCAM.read` | Read Facebook Graph IGUserExportForCAM | None declared |
+| `iGUserForIGOnlyAPI.manage` | Manage Facebook Graph IGUserForIGOnlyAPI | None declared |
+| `iGUserForIGOnlyAPI.read` | Read Facebook Graph IGUserForIGOnlyAPI | None declared |
+| `imageCopyright.manage` | Manage Facebook Graph ImageCopyright | None declared |
+| `imageCopyright.read` | Read Facebook Graph ImageCopyright | None declared |
+| `imageCopyrightDispute.read` | Read Facebook Graph ImageCopyrightDispute | None declared |
+| `imageReferenceMatch.read` | Read Facebook Graph ImageReferenceMatch | None declared |
+| `instagramBusinessAsset.manage` | Manage Facebook Graph InstagramBusinessAsset | None declared |
+| `instagramBusinessAsset.read` | Read Facebook Graph InstagramBusinessAsset | None declared |
+| `instagramUser.read` | Read Facebook Graph InstagramUser | None declared |
+| `jobOpening.read` | Read Facebook Graph JobOpening | None declared |
+| `lead.manage` | Manage Facebook Graph Lead | None declared |
+| `lead.read` | Read Facebook Graph Lead | None declared |
+| `leadGenDataDraft.read` | Read Facebook Graph LeadGenDataDraft | None declared |
+| `leadGenDirectCRMIntegrationConfig.read` | Read Facebook Graph LeadGenDirectCRMIntegrationConfig | None declared |
+| `leadgenForm.manage` | Manage Facebook Graph LeadgenForm | None declared |
+| `leadgenForm.read` | Read Facebook Graph LeadgenForm | None declared |
+| `lifeEvent.read` | Read Facebook Graph LifeEvent | None declared |
+| `link.manage` | Manage Facebook Graph Link | None declared |
+| `link.read` | Read Facebook Graph Link | None declared |
+| `liveVideo.manage` | Manage Facebook Graph LiveVideo | None declared |
+| `liveVideo.read` | Read Facebook Graph LiveVideo | None declared |
+| `liveVideoAdCampaignConfig.read` | Read Facebook Graph LiveVideoAdCampaignConfig | None declared |
+| `liveVideoError.read` | Read Facebook Graph LiveVideoError | None declared |
+| `liveVideoInputStream.read` | Read Facebook Graph LiveVideoInputStream | None declared |
+| `localServiceBusiness.read` | Read Facebook Graph LocalServiceBusiness | None declared |
+| `mailingAddress.read` | Read Facebook Graph MailingAddress | None declared |
+| `managementSiteLink.read` | Read Facebook Graph ManagementSiteLink | None declared |
+| `measurementReport.read` | Read Facebook Graph MeasurementReport | None declared |
+| `mediaCopyrightAttribution.read` | Read Facebook Graph MediaCopyrightAttribution | None declared |
+| `mediaCopyrightUpdateRecord.read` | Read Facebook Graph MediaCopyrightUpdateRecord | None declared |
+| `mediaFingerprint.manage` | Manage Facebook Graph MediaFingerprint | None declared |
+| `mediaFingerprint.read` | Read Facebook Graph MediaFingerprint | None declared |
+| `messengerAdsPartialAutomatedStepList.read` | Read Facebook Graph MessengerAdsPartialAutomatedStepList | None declared |
+| `messengerBusinessTemplate.manage` | Manage Facebook Graph MessengerBusinessTemplate | None declared |
+| `messengerBusinessTemplate.read` | Read Facebook Graph MessengerBusinessTemplate | None declared |
+| `musicVideoCopyright.read` | Read Facebook Graph MusicVideoCopyright | None declared |
+| `musicWorkCopyright.read` | Read Facebook Graph MusicWorkCopyright | None declared |
+| `offlineConversionDataSet.read` | Read Facebook Graph OfflineConversionDataSet | None declared |
+| `offlineConversionDataSetUpload.read` | Read Facebook Graph OfflineConversionDataSetUpload | None declared |
+| `offlineProductItem.read` | Read Facebook Graph OfflineProductItem | None declared |
+| `offlineTermsOfService.read` | Read Facebook Graph OfflineTermsOfService | None declared |
+| `offsitePixel.read` | Read Facebook Graph OffsitePixel | None declared |
+| `offsiteSignalContainerBusinessObject.read` | Read Facebook Graph OffsiteSignalContainerBusinessObject | None declared |
+| `omegaCustomerTrx.read` | Read Facebook Graph OmegaCustomerTrx | None declared |
+| `openBridgeConfiguration.manage` | Manage Facebook Graph OpenBridgeConfiguration | None declared |
+| `openBridgeConfiguration.read` | Read Facebook Graph OpenBridgeConfiguration | None declared |
+| `openGraphContext.read` | Read Facebook Graph OpenGraphContext | None declared |
+| `organization.read` | Read Facebook Graph Organization | None declared |
+| `ownedDomain.read` | Read Facebook Graph OwnedDomain | None declared |
+| `page.manage` | Manage Facebook Graph Page | None declared |
+| `page.read` | Read Facebook Graph Page | None declared |
+| `pageCallToAction.manage` | Manage Facebook Graph PageCallToAction | None declared |
+| `pageCallToAction.read` | Read Facebook Graph PageCallToAction | None declared |
+| `pageInsightsAsyncExportRun.read` | Read Facebook Graph PageInsightsAsyncExportRun | None declared |
+| `pageLeadsAccessConfig.read` | Read Facebook Graph PageLeadsAccessConfig | None declared |
+| `pagePost.manage` | Manage Facebook Graph PagePost | None declared |
+| `pagePost.read` | Read Facebook Graph PagePost | None declared |
+| `pagePostExperiment.manage` | Manage Facebook Graph PagePostExperiment | None declared |
+| `pagePostExperiment.read` | Read Facebook Graph PagePostExperiment | None declared |
+| `pageUpcomingChange.read` | Read Facebook Graph PageUpcomingChange | None declared |
+| `pageUserMessageThreadLabel.manage` | Manage Facebook Graph PageUserMessageThreadLabel | None declared |
+| `pageUserMessageThreadLabel.read` | Read Facebook Graph PageUserMessageThreadLabel | None declared |
+| `partnerAccountLinking.read` | Read Facebook Graph PartnerAccountLinking | None declared |
+| `partnerCenterExportFile.read` | Read Facebook Graph PartnerCenterExportFile | None declared |
+| `partnerIntegrationLinked.read` | Read Facebook Graph PartnerIntegrationLinked | None declared |
+| `partnerStudy.read` | Read Facebook Graph PartnerStudy | None declared |
+| `paymentEnginePayment.manage` | Manage Facebook Graph PaymentEnginePayment | None declared |
+| `paymentEnginePayment.read` | Read Facebook Graph PaymentEnginePayment | None declared |
+| `paymentSubscription.read` | Read Facebook Graph PaymentSubscription | None declared |
+| `persona.manage` | Manage Facebook Graph Persona | None declared |
+| `persona.read` | Read Facebook Graph Persona | None declared |
+| `personalAdsPersona.read` | Read Facebook Graph PersonalAdsPersona | None declared |
+| `photo.manage` | Manage Facebook Graph Photo | None declared |
+| `photo.read` | Read Facebook Graph Photo | None declared |
+| `place.read` | Read Facebook Graph Place | None declared |
+| `placeTag.read` | Read Facebook Graph PlaceTag | None declared |
+| `placeTopic.read` | Read Facebook Graph PlaceTopic | None declared |
+| `playableContent.read` | Read Facebook Graph PlayableContent | None declared |
+| `post.manage` | Manage Facebook Graph Post | None declared |
+| `post.read` | Read Facebook Graph Post | None declared |
+| `privateLiftStudyInstance.manage` | Manage Facebook Graph PrivateLiftStudyInstance | None declared |
+| `privateLiftStudyInstance.read` | Read Facebook Graph PrivateLiftStudyInstance | None declared |
+| `productCatalog.manage` | Manage Facebook Graph ProductCatalog | None declared |
+| `productCatalog.read` | Read Facebook Graph ProductCatalog | None declared |
+| `productCatalogCheckBatchRequestStatus.read` | Read Facebook Graph ProductCatalogCheckBatchRequestStatus | None declared |
+| `productCatalogDataSources.read` | Read Facebook Graph ProductCatalogDataSources | None declared |
+| `productCatalogLocalizationSettings.read` | Read Facebook Graph ProductCatalogLocalizationSettings | None declared |
+| `productDeliveryPreference.read` | Read Facebook Graph ProductDeliveryPreference | None declared |
+| `productFeed.manage` | Manage Facebook Graph ProductFeed | None declared |
+| `productFeed.read` | Read Facebook Graph ProductFeed | None declared |
+| `productFeedRule.manage` | Manage Facebook Graph ProductFeedRule | None declared |
+| `productFeedRule.read` | Read Facebook Graph ProductFeedRule | None declared |
+| `productFeedRules.read` | Read Facebook Graph ProductFeedRules | None declared |
+| `productFeedSchedule.read` | Read Facebook Graph ProductFeedSchedule | None declared |
+| `productFeedUpload.manage` | Manage Facebook Graph ProductFeedUpload | None declared |
+| `productFeedUpload.read` | Read Facebook Graph ProductFeedUpload | None declared |
+| `productFeedUploadError.read` | Read Facebook Graph ProductFeedUploadError | None declared |
+| `productFeedUploadErrorSample.read` | Read Facebook Graph ProductFeedUploadErrorSample | None declared |
+| `productGroup.manage` | Manage Facebook Graph ProductGroup | None declared |
+| `productGroup.read` | Read Facebook Graph ProductGroup | None declared |
+| `productImage.read` | Read Facebook Graph ProductImage | None declared |
+| `productItem.manage` | Manage Facebook Graph ProductItem | None declared |
+| `productItem.read` | Read Facebook Graph ProductItem | None declared |
+| `productItemLocalInfo.read` | Read Facebook Graph ProductItemLocalInfo | None declared |
+| `productItemOffer.read` | Read Facebook Graph ProductItemOffer | None declared |
+| `productSet.manage` | Manage Facebook Graph ProductSet | None declared |
+| `productSet.read` | Read Facebook Graph ProductSet | None declared |
+| `profile.read` | Read Facebook Graph Profile | None declared |
+| `publisherBlockList.manage` | Manage Facebook Graph PublisherBlockList | None declared |
+| `publisherBlockList.read` | Read Facebook Graph PublisherBlockList | None declared |
+| `reachFrequencyPrediction.read` | Read Facebook Graph ReachFrequencyPrediction | None declared |
+| `researchPollStudy.read` | Read Facebook Graph ResearchPollStudy | None declared |
+| `rightsManagerDataExport.read` | Read Facebook Graph RightsManagerDataExport | None declared |
+| `robot.read` | Read Facebook Graph Robot | None declared |
+| `rTBDynamicPost.read` | Read Facebook Graph RTBDynamicPost | None declared |
+| `savedAudience.read` | Read Facebook Graph SavedAudience | None declared |
+| `savedMessageResponse.read` | Read Facebook Graph SavedMessageResponse | None declared |
+| `shadowIGHashtag.read` | Read Facebook Graph ShadowIGHashtag | None declared |
+| `shadowIGMediaBuilder.read` | Read Facebook Graph ShadowIGMediaBuilder | None declared |
+| `shadowIGScheduledMedia.read` | Read Facebook Graph ShadowIGScheduledMedia | None declared |
+| `shop.read` | Read Facebook Graph Shop | None declared |
+| `signalsIWLExtractor.read` | Read Facebook Graph SignalsIWLExtractor | None declared |
+| `siteLink.read` | Read Facebook Graph SiteLink | None declared |
+| `slicedEventSourceGroup.read` | Read Facebook Graph SlicedEventSourceGroup | None declared |
+| `status.manage` | Manage Facebook Graph Status | None declared |
+| `status.read` | Read Facebook Graph Status | None declared |
+| `storeCatalogSettings.manage` | Manage Facebook Graph StoreCatalogSettings | None declared |
+| `storeCatalogSettings.read` | Read Facebook Graph StoreCatalogSettings | None declared |
+| `storeLocation.read` | Read Facebook Graph StoreLocation | None declared |
+| `stories.read` | Read Facebook Graph Stories | None declared |
+| `systemUser.read` | Read Facebook Graph SystemUser | None declared |
+| `thirdPartyMeasurementReportDataset.read` | Read Facebook Graph ThirdPartyMeasurementReportDataset | None declared |
+| `thirdPartyPartnerLiftRequest.read` | Read Facebook Graph ThirdPartyPartnerLiftRequest | None declared |
+| `thirdPartyPartnerPanelRequest.read` | Read Facebook Graph ThirdPartyPartnerPanelRequest | None declared |
+| `thirdPartyPartnerPanelScheduled.read` | Read Facebook Graph ThirdPartyPartnerPanelScheduled | None declared |
+| `thirdPartyPartnerViewabilityRequest.read` | Read Facebook Graph ThirdPartyPartnerViewabilityRequest | None declared |
+| `transactableItem.read` | Read Facebook Graph TransactableItem | None declared |
+| `unifiedThread.read` | Read Facebook Graph UnifiedThread | None declared |
+| `uRL.manage` | Manage Facebook Graph URL | None declared |
+| `uRL.read` | Read Facebook Graph URL | None declared |
+| `user.manage` | Manage Facebook Graph User | None declared |
+| `user.read` | Read Facebook Graph User | None declared |
+| `userContext.read` | Read Facebook Graph UserContext | None declared |
+| `userPageOneTimeOptInTokenSettings.read` | Read Facebook Graph UserPageOneTimeOptInTokenSettings | None declared |
+| `vehicle.manage` | Manage Facebook Graph Vehicle | None declared |
+| `vehicle.read` | Read Facebook Graph Vehicle | None declared |
+| `vehicleOffer.read` | Read Facebook Graph VehicleOffer | None declared |
+| `videoCopyright.manage` | Manage Facebook Graph VideoCopyright | None declared |
+| `videoCopyright.read` | Read Facebook Graph VideoCopyright | None declared |
+| `videoCopyrightMatch.read` | Read Facebook Graph VideoCopyrightMatch | None declared |
+| `videoCopyrightRule.read` | Read Facebook Graph VideoCopyrightRule | None declared |
+| `videoList.read` | Read Facebook Graph VideoList | None declared |
+| `videoPoll.manage` | Manage Facebook Graph VideoPoll | None declared |
+| `videoPoll.read` | Read Facebook Graph VideoPoll | None declared |
+| `videoTextQuestion.read` | Read Facebook Graph VideoTextQuestion | None declared |
+| `wearableDevicePublicKey.read` | Read Facebook Graph WearableDevicePublicKey | None declared |
+| `websiteCreativeAssetSource.read` | Read Facebook Graph WebsiteCreativeAssetSource | None declared |
+| `websiteCreativeAssetSuggestions.read` | Read Facebook Graph WebsiteCreativeAssetSuggestions | None declared |
+| `websiteCreativeInfo.read` | Read Facebook Graph WebsiteCreativeInfo | None declared |
+| `whatsAppBusinessAccount.manage` | Manage Facebook Graph WhatsAppBusinessAccount | None declared |
+| `whatsAppBusinessAccount.read` | Read Facebook Graph WhatsAppBusinessAccount | None declared |
+| `whatsAppBusinessPreVerifiedPhoneNumber.manage` | Manage Facebook Graph WhatsAppBusinessPreVerifiedPhoneNumber | None declared |
+| `whatsAppBusinessPreVerifiedPhoneNumber.read` | Read Facebook Graph WhatsAppBusinessPreVerifiedPhoneNumber | None declared |
+| `whatsAppBusinessProfile.manage` | Manage Facebook Graph WhatsAppBusinessProfile | None declared |
+| `whatsAppBusinessProfile.read` | Read Facebook Graph WhatsAppBusinessProfile | None declared |
+| `whitehatFBDLRun.read` | Read Facebook Graph WhitehatFBDLRun | None declared |
+| `wifiInformation.read` | Read Facebook Graph WifiInformation | None declared |
+| `withAsset3D.read` | Read Facebook Graph WithAsset3D | None declared |
+| `woodhengePurchasedPAYGReceipt.read` | Read Facebook Graph WoodhengePurchasedPAYGReceipt | None declared |
+| `woodhengeSupporter.read` | Read Facebook Graph WoodhengeSupporter | None declared |
+| `workExperience.read` | Read Facebook Graph WorkExperience | None declared |
+| `workSkill.read` | Read Facebook Graph WorkSkill | None declared |

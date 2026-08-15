@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e045a7cf1f36ccfb1b4d20a0228799df49420be1a2f70a29a709937956c0284a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for customer-lists — do not edit
 
 export interface Segment {

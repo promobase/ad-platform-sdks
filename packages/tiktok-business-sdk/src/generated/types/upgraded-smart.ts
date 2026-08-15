@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:eadf85fbe9b7ade3595ca4586581d7a3f91498e3c14c9cef6f4c3555c6dcd692
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Upgraded Smart+ — do not edit
 
 export interface SmartPlusCampaignGetParams {

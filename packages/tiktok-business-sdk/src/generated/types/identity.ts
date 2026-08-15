@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:55952104adf20fbbd65089aa804d4649eb7a6dbcf77f91b979a5b083634767c2
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Identity — do not edit
 
 export interface IdentityCreateParams {

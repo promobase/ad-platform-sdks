@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:267eff23dbb141570060170fffd198661a3cf8562cfda6a36aac32d1732d4f6a
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ImageCopyrightDisputeFields {

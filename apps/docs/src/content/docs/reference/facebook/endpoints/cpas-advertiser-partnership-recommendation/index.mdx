@@ -1,0 +1,50 @@
+---
+title: "Facebook CPAS Advertiser Partnership Recommendation endpoints"
+description: "1 generated Facebook endpoint contract for CPAS Advertiser Partnership Recommendation."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 222
+  label: "CPAS Advertiser Partnership Recommendation"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:2b929df463677900f62c10556f8d4abe7cacdedda17a77ebc2e1bedfa6645f03 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.cPASAdvertiserPartnershipRecommendation.get
+
+`GET` `/{id}`
+
+GET CPASAdvertiserPartnershipRecommendation
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `cPASAdvertiserPartnershipRecommendation.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CPASAdvertiserPartnershipRecommendationFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

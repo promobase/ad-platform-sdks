@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:fcfb885da3d56bce30261f42ffff3d295dcc2fc97f6976e9fbe9c7b657926ed6
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface ShadowIGUserCollaborativeMediaFields {
   caption: string;
   comments_count: number;

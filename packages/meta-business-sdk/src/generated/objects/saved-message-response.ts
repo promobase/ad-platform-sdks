@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:404535fa27fef81a43746dd1ed10d3f96250d45bc568b2965c025aaa0299ddcd
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface SavedMessageResponseFields {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:197b2c672c53a81368d533bc459075b689d76fbda0778e2f2131edfc435339f3
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for measurement — do not edit
 
 export interface AsyncStatsReport {

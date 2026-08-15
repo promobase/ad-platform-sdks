@@ -1,0 +1,50 @@
+---
+title: "Facebook Dynamic Price Config By Date endpoints"
+description: "1 generated Facebook endpoint contract for Dynamic Price Config By Date."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 238
+  label: "Dynamic Price Config By Date"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:620e11c7713aae527045139150bf789c3c0a6d606beb733abbe64a6f7703f6b4 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.dynamicPriceConfigByDate.get
+
+`GET` `/{id}`
+
+GET DynamicPriceConfigByDate
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `dynamicPriceConfigByDate.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `DynamicPriceConfigByDateFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

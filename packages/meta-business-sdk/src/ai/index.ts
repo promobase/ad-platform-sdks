@@ -1,10 +1,10 @@
 import { createCampaignTools } from "./campaigns.ts";
-import type { MetaClient } from "./common.ts";
+import type { GraphClient } from "./common.ts";
 import { createFacebookTools } from "./facebook.ts";
 import { createInstagramTools } from "./instagram.ts";
 import { createThreadsTools } from "./threads.ts";
 
-export type { MetaClient } from "./common.ts";
+export type { GraphClient } from "./common.ts";
 
 // Infer return types from each tool creator
 type InstagramTools = ReturnType<typeof createInstagramTools>;
@@ -36,8 +36,8 @@ type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
   ? I
   : never;
 
-export interface CreateMetaToolsOptions<T extends ToolGroup[] = ToolGroup[]> {
-  api: MetaClient;
+export interface CreateToolsOptions<T extends ToolGroup[] = ToolGroup[]> {
+  api: GraphClient;
   igAccountId?: string;
   pageId?: string;
   pageAccessToken?: string;
@@ -47,8 +47,8 @@ export interface CreateMetaToolsOptions<T extends ToolGroup[] = ToolGroup[]> {
   include?: T;
 }
 
-export function createMetaTools<const T extends ToolGroup[] = ToolGroup[]>(
-  opts: CreateMetaToolsOptions<T>,
+export function createTools<const T extends ToolGroup[] = ToolGroup[]>(
+  opts: CreateToolsOptions<T>,
 ): UnionToIntersection<MergeTools<T>> {
   const include =
     opts.include ?? (["instagram", "facebook", "threads", "campaigns"] as ToolGroup[]);

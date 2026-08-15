@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c30fdc1af537315d53eefb87f976aed5a37670aadec5fa8a1cfa9c6e245ffc87
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AdsHistogramStatsFields {
   "1d_click": number[];
   "1d_click_all_conversions": number[];

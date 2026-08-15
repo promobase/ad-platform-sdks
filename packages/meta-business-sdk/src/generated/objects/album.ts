@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:40d596931618742e5fcc8d13f803e39e8988743d627a55b7c48aa3a78801c998
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { CommentFields } from "./comment.ts";
 import type { EventFields } from "./event.ts";
 import type { PhotoFields } from "./photo.ts";
@@ -140,7 +143,7 @@ export function albumNode(client: ApiClient, id: string) {
       __path: `${id}/comments`,
       __brand: undefined as unknown as CommentFields,
       list: <F extends (keyof CommentFields)[]>(opts: { fields: F; params?: AlbumListCommentsParams }) =>
-        new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: AlbumCreateCommentsParams) =>
         client.post<CommentFields>(`${id}/comments`, params as Record<string, unknown>),
     },
@@ -148,7 +151,7 @@ export function albumNode(client: ApiClient, id: string) {
       __path: `${id}/likes`,
       __brand: undefined as unknown as ProfileFields,
       list: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: AlbumCreateLikesParams) =>
         client.post<AlbumFields>(`${id}/likes`, params as Record<string, unknown>),
     },
@@ -156,12 +159,12 @@ export function albumNode(client: ApiClient, id: string) {
       __path: `${id}/photos`,
       __brand: undefined as unknown as PhotoFields,
       list: <F extends (keyof PhotoFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<PhotoFields, F[number]>>(client, `${id}/photos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<PhotoFields, F[number]>>(client, `${id}/photos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: AlbumCreatePhotosParams) =>
         client.post<PhotoFields>(`${id}/photos`, params as Record<string, unknown>),
     },
     picture: <F extends (keyof ProfilePictureSourceFields)[]>(opts: { fields: F; params?: AlbumListPictureParams }) =>
-      new Cursor<Pick<ProfilePictureSourceFields, F[number]>>(client, `${id}/picture`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProfilePictureSourceFields, F[number]>>(client, `${id}/picture`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

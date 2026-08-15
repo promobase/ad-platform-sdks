@@ -1,5 +1,9 @@
 {
-  "platform": "meta",
+  "_generated": {
+    "fingerprint": "sha256:89ddabf04d78ae13b695bb408e67e5c46639cf8bca939e85d69f87551181a18c",
+    "doNotEdit": true
+  },
+  "platform": "facebook",
   "source": {
     "kind": "vendor-json",
     "location": "packages/meta-business-sdk/api_specs",

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ba5782acbbc2b36eb138719dec4a4050e517ff0ae5a7f6c74e32fb1fb62d0bc4
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AudioAssetFields } from "./audio-asset.ts";
 
 export interface CopyrightAudioAssetFields {

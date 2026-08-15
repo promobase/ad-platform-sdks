@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:70b226f3f94fdc52a4a12238342db27310877c38c305c98f3b77782912f3d25d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.DisplayUploadProductTypeEnum.DisplayUploadProductType. Do not edit by hand.
 export type DisplayUploadProductType =
   | "UNSPECIFIED"

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:73bddb980f83b6b5d0a1b8390e587662266afa8f50bc927bcd8df5acacb7f1c8
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type SharedSetSelectableField =
   | "shared_set.resource_name"

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:08a884bdc73f1f10a2b6e5f490b64e7b20d7ee3e9803f34ff18d50daa801759a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for com.atproto.repo — do not edit
 import type { BlueskyApiClient } from "../../api-client.ts";
 import type { ComAtprotoRepoDefsCommitMeta, ComAtprotoRepoApplyWritesCreateResult, ComAtprotoRepoApplyWritesUpdateResult, ComAtprotoRepoApplyWritesDeleteResult, ComAtprotoRepoApplyWritesCreate, ComAtprotoRepoApplyWritesUpdate, ComAtprotoRepoApplyWritesDelete, ComAtprotoRepoListMissingBlobsRecordBlob, ComAtprotoRepoListRecordsRecord, ApplyWritesResponse, CreateRecordResponse, DeleteRecordResponse, DescribeRepoResponse, GetRecordResponse, ListMissingBlobsResponse, ListRecordsResponse, PutRecordResponse, UploadBlobResponse } from "../types.ts";

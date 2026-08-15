@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:4cc665b504a8bc2bb96901fc34f5b6d6df33d20574a16a847237a2a0cdd529f9
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface DynamicPriceConfigByDateFields {

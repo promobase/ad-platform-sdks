@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0e05672e9bb703cf3de0b129f7e55d110b111acfc219d4cb96aef5a64070e3c1
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Images — do not edit
 
 export interface FileImageAdUploadParams {

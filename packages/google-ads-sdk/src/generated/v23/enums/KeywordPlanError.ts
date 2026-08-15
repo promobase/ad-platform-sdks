@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:adfc72bf4eeea545cfd6338ef2dc0d9a1d10cf3d1286b369bf5ed6ff88664e77
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.KeywordPlanErrorEnum.KeywordPlanError. Do not edit by hand.
 export type KeywordPlanError =
   | "UNSPECIFIED"

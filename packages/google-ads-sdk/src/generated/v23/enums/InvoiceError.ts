@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:8cc192339d9a31c66ba841d2397614d49d8653de6b1b124c16a507a3a205521a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.InvoiceErrorEnum.InvoiceError. Do not edit by hand.
 export type InvoiceError =
   | "UNSPECIFIED"

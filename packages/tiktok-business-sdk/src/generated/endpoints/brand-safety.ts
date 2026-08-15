@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:40dbde534877aa263d2b46c8eab3a1d9067542148ecf1b620a55d291c655340f
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Brand Safety — do not edit
 import type { TiktokInventoryFiltersGetParams, TiktokInventoryFiltersGetResponse, TiktokInventoryFiltersUpdateParams, TiktokInventoryFiltersUpdateResponse } from "../types/brand-safety.ts";
 

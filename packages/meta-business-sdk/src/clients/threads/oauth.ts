@@ -1,12 +1,31 @@
-import type { LongLivedToken, OAuthConfig, ShortLivedToken } from "./types.ts";
+import * as v from "valibot";
+
+import type { LongLivedToken, OAuthConfig, ShortLivedToken, ThreadsUserProfile } from "./types.ts";
 
 const THREADS_OAUTH_BASE = "https://threads.net/oauth";
 const THREADS_GRAPH_BASE = "https://graph.threads.net";
 
+const shortLivedTokenSchema = v.object({ access_token: v.string(), user_id: v.string() });
+const longLivedTokenSchema = v.object({
+  access_token: v.string(),
+  token_type: v.string(),
+  expires_in: v.number(),
+});
+const userProfileSchema = v.object({
+  id: v.string(),
+  username: v.string(),
+  threads_profile_picture_url: v.optional(v.string()),
+  threads_biography: v.optional(v.string()),
+});
+
 export function createOAuth(config: OAuthConfig) {
   const fetchImpl = config.fetch ?? fetch;
   return {
-    getAuthorizationUrl(opts?: { scopes?: string[]; state?: string }): string {
+    getAuthorizationUrl(opts?: {
+      scopes?: string[];
+      state?: string;
+      codeChallenge?: string;
+    }): string {
       const scopes = opts?.scopes ?? [
         "threads_basic",
         "threads_content_publish",
@@ -20,11 +39,14 @@ export function createOAuth(config: OAuthConfig) {
         scope: scopes.join(","),
         response_type: "code",
         ...(opts?.state ? { state: opts.state } : {}),
+        ...(opts?.codeChallenge
+          ? { code_challenge: opts.codeChallenge, code_challenge_method: "S256" }
+          : {}),
       });
       return `${THREADS_OAUTH_BASE}/authorize?${params.toString()}`;
     },
 
-    async exchangeCode(code: string): Promise<ShortLivedToken> {
+    async exchangeCode(code: string, codeVerifier?: string): Promise<ShortLivedToken> {
       const body = new URLSearchParams({
         client_id: config.appId,
         client_secret: config.appSecret,
@@ -32,6 +54,7 @@ export function createOAuth(config: OAuthConfig) {
         redirect_uri: config.redirectUri,
         code,
       });
+      if (codeVerifier) body.set("code_verifier", codeVerifier);
       const response = await fetchImpl(`${THREADS_GRAPH_BASE}/oauth/access_token`, {
         method: "POST",
         body,
@@ -42,7 +65,7 @@ export function createOAuth(config: OAuthConfig) {
         const error = await response.json();
         throw new Error(`Threads OAuth code exchange failed: ${JSON.stringify(error)}`);
       }
-      return response.json() as Promise<ShortLivedToken>;
+      return v.parse(shortLivedTokenSchema, await response.json());
     },
 
     async exchangeForLongLived(shortLivedToken: string): Promise<LongLivedToken> {
@@ -58,7 +81,7 @@ export function createOAuth(config: OAuthConfig) {
         const error = await response.json();
         throw new Error(`Threads long-lived token exchange failed: ${JSON.stringify(error)}`);
       }
-      return response.json() as Promise<LongLivedToken>;
+      return v.parse(longLivedTokenSchema, await response.json());
     },
 
     async refreshToken(longLivedToken: string): Promise<LongLivedToken> {
@@ -74,7 +97,22 @@ export function createOAuth(config: OAuthConfig) {
         const error = await response.json();
         throw new Error(`Threads token refresh failed: ${JSON.stringify(error)}`);
       }
-      return response.json() as Promise<LongLivedToken>;
+      return v.parse(longLivedTokenSchema, await response.json());
+    },
+
+    async getUserProfile(accessToken: string, id = "me"): Promise<ThreadsUserProfile> {
+      const fields = ["id", "username", "threads_profile_picture_url", "threads_biography"];
+      const params = new URLSearchParams({
+        access_token: accessToken,
+        fields: fields.join(","),
+      });
+      const response = await fetchImpl(`${THREADS_GRAPH_BASE}/v1.0/${id}?${params}`, {
+        signal: config.signal,
+      });
+      if (!response.ok) {
+        throw new Error(`Threads profile fetch failed: ${await response.text()}`);
+      }
+      return v.parse(userProfileSchema, await response.json());
     },
 
     async completeOAuth(code: string): Promise<{ token: LongLivedToken; userId: string }> {

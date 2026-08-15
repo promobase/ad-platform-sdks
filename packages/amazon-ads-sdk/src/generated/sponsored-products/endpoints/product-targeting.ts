@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0e0e378d5e253a1cfc9ea37262d192b5bd9bfe405a05924c0fdd0f06061954be
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Product Targeting — do not edit
 import type { AmazonAdsApiClient } from "../../../api-client.ts";
 import type { GetNegativeBrandsResponse, SearchBrandsResponse, GetTargetableCategoriesResponse, GetCategoryRecommendationsForASINsResponse, GetRefinementsForCategoryResponse, GetTargetableASINCountsResponse } from "../types.ts";

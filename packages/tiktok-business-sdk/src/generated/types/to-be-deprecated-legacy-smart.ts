@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9e83883676cdc8c2ca087185b6f84134c1c7605ab43a6bca5d657cd1234ab40c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for (To be deprecated) Legacy Smart+ — do not edit
 
 export interface CampaignSpcQuotaGetParams {

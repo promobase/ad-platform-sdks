@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:71a602ab5e2b76b3f60a34ec25b95a5045a2bf2b076d16366e741df5bd4d4439
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { MutateAdGroupAdsRequest, MutateAdGroupAdsResponse, RemoveAutomaticallyCreatedAssetsRequest } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

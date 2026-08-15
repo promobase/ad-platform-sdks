@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b16825aecdd247edda3b22a6ef3e9bd8c605d5c19075065a3e45bfaa17f5fa01
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for (To be deprecated) Legacy Smart+ — do not edit
 import type { CampaignSpcQuotaGetParams, CampaignSpcQuotaGetResponse, CampaignSpcCreateParams, CampaignSpcCreateResponse, CampaignSpcUpdateParams, CampaignSpcUpdateResponse, CampaignSpcGetParams, CampaignSpcGetResponse, CampaignSpcMaterialStatusUpdateParams, CampaignSpcMaterialStatusUpdateResponse } from "../types/to-be-deprecated-legacy-smart.ts";
 

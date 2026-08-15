@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a515785271ee3d390d2e154d1461579fd400b45dfed2efedbc954522ff3f0ee8
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for targeting_template — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { TargetingTemplateListResponse, TargetingTemplateCreateResponse } from "../types.ts";

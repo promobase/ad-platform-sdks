@@ -46,7 +46,7 @@ access, but existing connections can migrate without changing their authorizatio
 ## Recommended adapter shape
 
 ```ts
-import { Meta, TikTok } from "@openpromo/ad-platforms";
+import { Facebook, Instagram, TikTok } from "@openpromo/ad-platforms";
 import { createAdPlatforms } from "@openpromo/ad-platforms/operations";
 
 export function createWorkspacePlatforms(credentials: {
@@ -55,12 +55,12 @@ export function createWorkspacePlatforms(credentials: {
   tiktokToken: string;
   tiktokBusinessId: string;
 }) {
-  const meta = Meta.createClient({ accessToken: credentials.metaToken });
+  const graph = Facebook.createGraphClient({ accessToken: credentials.metaToken });
 
   return createAdPlatforms({
     connections: {
-      instagram: Meta.Instagram.createClient({
-        api: meta,
+    instagram: Instagram.createClient({
+      api: graph,
         igAccountId: credentials.instagramAccountId,
       }),
       tiktok: TikTok.createClient({

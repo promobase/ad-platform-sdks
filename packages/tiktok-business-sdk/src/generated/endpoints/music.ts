@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3c38cdbed4b7db82efe6923eb87f9da494d8d3a9a4484fe16ba246f2b4582b2c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Music — do not edit
 import type { FileMusicUploadParams, FileMusicUploadResponse, FileMusicGetParams, FileMusicGetResponse } from "../types/music.ts";
 

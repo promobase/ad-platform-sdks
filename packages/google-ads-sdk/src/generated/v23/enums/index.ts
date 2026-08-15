@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:42620fc9b8585b93bd0830112cf00deba79d14d4ab2d8c28821c5221114a1ec4
+// DO NOT EDIT: generated file; changes will be overwritten.
 export type { AccessInvitationError } from "./AccessInvitationError.ts";
 export type { AccessInvitationStatus } from "./AccessInvitationStatus.ts";
 export type { AccessReason } from "./AccessReason.ts";

@@ -38,7 +38,8 @@
     "access": "public"
   },
   "dependencies": {
-    "effect": "^3.22.1"
+    "effect": "^3.22.1",
+    "valibot": "^1.4.2"
   },
   "devDependencies": {
     "@types/bun": "latest"
@@ -58,6 +59,18 @@
       "types": "./dist/effect.d.ts",
       "import": "./dist/effect.js",
       "default": "./dist/effect.js"
+    },
+    "./platforms": {
+      "bun": "./src/platforms.ts",
+      "types": "./dist/platforms.d.ts",
+      "import": "./dist/platforms.js",
+      "default": "./dist/platforms.js"
+    },
+    "./oauth": {
+      "bun": "./src/oauth.ts",
+      "types": "./dist/oauth.d.ts",
+      "import": "./dist/oauth.js",
+      "default": "./dist/oauth.js"
     }
   },
   "engines": {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2e5e4b1676528c85fe76dc962aad5606fc26a9aa18b5c44da9a23ddcce72fc7d
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface CreativeMulticellTestConfigFields {
   budget_percentage: number;
   budget_source: string;

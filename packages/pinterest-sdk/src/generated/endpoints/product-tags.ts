@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:1f1bf3aad296ab52f53bd28669c819b6deb78463d8a8fe5e0e35826133f80c81
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for product_tags — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { ProductTagsBulkAddResponse, ProductTagsListResponse } from "../types.ts";

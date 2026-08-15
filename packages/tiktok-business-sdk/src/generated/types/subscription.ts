@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:8a89c13284d012cfe781bf40400f339f731508474247ecfd2a2074168891ce4a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Subscription — do not edit
 
 export interface SubscriptionSubscribeParams {

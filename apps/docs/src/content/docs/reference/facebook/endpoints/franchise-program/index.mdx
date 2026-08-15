@@ -1,0 +1,50 @@
+---
+title: "Facebook Franchise Program endpoints"
+description: "1 generated Facebook endpoint contract for Franchise Program."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 256
+  label: "Franchise Program"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:4c08340796c2316045bdb97df4990b89fe009d0d9b89ea84ab5d59b967c7242f -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.franchiseProgram.get
+
+`GET` `/{id}`
+
+GET FranchiseProgram
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `franchiseProgram.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `FranchiseProgramFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

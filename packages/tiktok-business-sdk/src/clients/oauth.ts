@@ -1,7 +1,34 @@
-import type { OAuthConfig, TikTokResponse, TokenInfo, TokenResponse } from "./types.ts";
+import * as v from "valibot";
+
+import type { OAuthConfig, TokenInfo, TokenResponse } from "./types.ts";
 
 const TT_AUTH_BASE = "https://www.tiktok.com/v2/auth/authorize";
 const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
+
+const tokenSchema = v.object({
+  access_token: v.string(),
+  token_type: v.string(),
+  scope: v.string(),
+  expires_in: v.number(),
+  refresh_token: v.string(),
+  refresh_token_expires_in: v.number(),
+  open_id: v.string(),
+});
+const tokenInfoSchema = v.object({
+  app_id: v.string(),
+  creator_id: v.string(),
+  scope: v.string(),
+});
+const profileSchema = v.record(v.string(), v.unknown());
+
+function responseSchema<TSchema extends v.GenericSchema>(data: TSchema) {
+  return v.object({
+    code: v.number(),
+    message: v.string(),
+    request_id: v.string(),
+    data,
+  });
+}
 
 export function createOAuth(config: OAuthConfig) {
   const fetchImpl = config.fetch ?? fetch;
@@ -58,7 +85,7 @@ export function createOAuth(config: OAuthConfig) {
         throw new Error(`TikTok OAuth code exchange failed: ${JSON.stringify(error)}`);
       }
 
-      const body = (await response.json()) as TikTokResponse<TokenResponse>;
+      const body = v.parse(responseSchema(tokenSchema), await response.json());
       if (body.code !== 0) {
         throw new Error(`TikTok OAuth code exchange failed: ${body.message} (code ${body.code})`);
       }
@@ -84,7 +111,7 @@ export function createOAuth(config: OAuthConfig) {
         throw new Error(`TikTok token refresh failed: ${JSON.stringify(error)}`);
       }
 
-      const body = (await response.json()) as TikTokResponse<TokenResponse>;
+      const body = v.parse(responseSchema(tokenSchema), await response.json());
       if (body.code !== 0) {
         throw new Error(`TikTok token refresh failed: ${body.message} (code ${body.code})`);
       }
@@ -109,7 +136,7 @@ export function createOAuth(config: OAuthConfig) {
         throw new Error(`TikTok token revocation failed: ${JSON.stringify(error)}`);
       }
 
-      const body = (await response.json()) as TikTokResponse<Record<string, never>>;
+      const body = v.parse(responseSchema(v.record(v.string(), v.never())), await response.json());
       if (body.code !== 0) {
         throw new Error(`TikTok token revocation failed: ${body.message} (code ${body.code})`);
       }
@@ -135,7 +162,7 @@ export function createOAuth(config: OAuthConfig) {
         throw new Error(`TikTok token info failed: ${JSON.stringify(error)}`);
       }
 
-      const body = (await response.json()) as TikTokResponse<TokenInfo>;
+      const body = v.parse(responseSchema(tokenInfoSchema), await response.json());
       if (body.code !== 0) {
         throw new Error(`TikTok token info failed: ${body.message} (code ${body.code})`);
       }
@@ -178,7 +205,7 @@ export function createOAuth(config: OAuthConfig) {
         throw new Error(`Failed to get TikTok user profile: ${JSON.stringify(error)}`);
       }
 
-      const body = (await response.json()) as TikTokResponse<Record<string, unknown>>;
+      const body = v.parse(responseSchema(profileSchema), await response.json());
       if (body.code !== 0) {
         throw new Error(`TikTok user profile failed: ${body.message} (code ${body.code})`);
       }

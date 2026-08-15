@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:322f06042d70ef1e0afb5c9b93f3327098d743d46dc28bd1832d50f21c0464cd
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ALMAdAccountInfoFields {

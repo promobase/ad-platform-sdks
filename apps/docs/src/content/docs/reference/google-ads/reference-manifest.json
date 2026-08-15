@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:bd48357ec44694f83d7f52b044304849b0d28837b768f764ca5f675e54807542",
+    "doNotEdit": true
+  },
   "schemaVersion": 1,
   "platform": "google-ads",
   "version": "v25",

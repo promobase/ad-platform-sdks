@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b6abc1c8d31554df24b87a36e74a6bc9639e3759c90dc7a8ef54198498647a55
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { MutateBiddingSeasonalityAdjustmentsRequest, MutateBiddingSeasonalityAdjustmentsResponse } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

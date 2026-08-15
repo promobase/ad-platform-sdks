@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a4cf1c8cec2c40f40e14b8e0cdfd0432c785dd7e677b245b7a39fa2ccfcaf321
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface PersonalAdsPersonaFields {

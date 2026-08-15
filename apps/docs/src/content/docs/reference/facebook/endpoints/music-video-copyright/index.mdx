@@ -1,0 +1,50 @@
+---
+title: "Facebook Music Video Copyright endpoints"
+description: "1 generated Facebook endpoint contract for Music Video Copyright."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 303
+  label: "Music Video Copyright"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:900ed9cb754d2101076b821abcb13636a5b38fced449668240381b85e2e3f6d7 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.musicVideoCopyright.get
+
+`GET` `/{id}`
+
+GET MusicVideoCopyright
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `musicVideoCopyright.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `MusicVideoCopyrightFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

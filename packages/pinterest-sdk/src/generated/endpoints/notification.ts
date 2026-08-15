@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c31dd27ac5f9a16ca16721e0d837b72d3ee81105f6458567986cf12348e866ff
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for notification — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { NotificationPostResponse } from "../types.ts";

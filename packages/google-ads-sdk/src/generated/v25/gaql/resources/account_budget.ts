@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:5320dfc0882c7c4977c5d7c5348d58c0440aac6ca57466fd82313d3e470ce65c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type AccountBudgetSelectableField =
   | "account_budget.resource_name"

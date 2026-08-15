@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:bea408ee6a868221dcd2577bf35c5e4adab3715c9c96ad3e9425b9ec5cd1920a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type UserInterestSelectableField =
   | "user_interest.resource_name"

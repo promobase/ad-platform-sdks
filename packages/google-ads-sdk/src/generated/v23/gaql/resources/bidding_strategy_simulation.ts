@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a58d626f2fb0a8ccc9a60df82113678e27ecfefcb9815696b6e61330fcc00af9
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type BiddingStrategySimulationSelectableField =
   | "bidding_strategy_simulation.resource_name"

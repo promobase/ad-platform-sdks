@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3022ebc246f92eaa0497979ff2cad024d6acc36fbba30fb8120612971065eabe
+// DO NOT EDIT: generated file; changes will be overwritten.
 import { toJson } from "../json.js";
 import { createLogger, type LogConfig, type Logger } from "../logging/logger.js";
 import type { APIResponse } from "./APIResponse.js";

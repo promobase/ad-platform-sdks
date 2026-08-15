@@ -1,0 +1,50 @@
+---
+title: "Facebook Third Party Measurement Report Dataset endpoints"
+description: "1 generated Facebook endpoint contract for Third Party Measurement Report Dataset."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 379
+  label: "Third Party Measurement Report Dataset"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:e0e4748b7fc956b08c642ecabf9256e91ddd619e879eba237d262c6a94133c07 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.thirdPartyMeasurementReportDataset.get
+
+`GET` `/{id}`
+
+GET ThirdPartyMeasurementReportDataset
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `thirdPartyMeasurementReportDataset.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ThirdPartyMeasurementReportDatasetFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

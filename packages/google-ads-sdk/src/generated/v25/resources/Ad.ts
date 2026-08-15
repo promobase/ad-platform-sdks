@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:51bda55f8c7dea1f3bc42da94e4836ba399bdba1d1abddec8bbb973c5a5d2fa6
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdType, AppAdInfo, AppEngagementAdInfo, AppPreRegistrationAdInfo, CustomParameter, DemandGenCarouselAdInfo, DemandGenMultiAssetAdInfo, DemandGenProductAdInfo, DemandGenVideoResponsiveAdInfo, Device, DisplayUploadAdInfo, ExpandedDynamicSearchAdInfo, ExpandedTextAdInfo, FinalAppUrl, HotelAdInfo, ImageAdInfo, LegacyAppInstallAdInfo, LegacyResponsiveDisplayAdInfo, LocalAdInfo, ResponsiveDisplayAdInfo, ResponsiveSearchAdInfo, ShoppingComparisonListingAdInfo, ShoppingProductAdInfo, ShoppingSmartAdInfo, SmartCampaignAdInfo, SyntheticContentInfo, SystemManagedResourceSource, TextAdInfo, TravelAdInfo, UrlCollection, VideoAdInfo, VideoResponsiveAdInfo } from "../index.ts";
 
 // Generated from google.ads.googleads.v25.resources.Ad. Do not edit by hand.

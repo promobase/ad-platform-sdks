@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c0b2f7e728d14d67d9432f99235564da6f44e8d15df41f55e6b518a13bba5baa
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { PlacementDevicePlatforms, PlacementEffectiveDevicePlatforms } from "../enums.ts";
 
 export interface PlacementFields {

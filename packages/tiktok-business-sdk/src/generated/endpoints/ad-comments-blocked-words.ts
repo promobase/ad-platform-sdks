@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:731f2074b7bb5e19cadcd9ce50ae7e31a9b94277f47a1d39bdbb55a80af3c09a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Ad Comments - Blocked Words — do not edit
 import type { BlockedwordCreateParams, BlockedwordCreateResponse, BlockedwordUpdateParams, BlockedwordUpdateResponse, BlockedwordCheckParams, BlockedwordCheckResponse, BlockedwordListParams, BlockedwordListResponse, BlockedwordDeleteParams, BlockedwordDeleteResponse, BlockedwordTaskCreateParams, BlockedwordTaskCreateResponse, BlockedwordTaskCheckParams, BlockedwordTaskCheckResponse, BlockedwordTaskDownloadParams, BlockedwordTaskDownloadResponse } from "../types/ad-comments-blocked-words.ts";
 

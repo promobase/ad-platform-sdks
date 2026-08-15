@@ -3,10 +3,10 @@ import * as v from "valibot";
 
 import { createInstagramClient } from "../clients/instagram/index.ts";
 import type { InstagramClientOptions } from "../clients/instagram/types.ts";
-import type { MetaClient } from "./common.ts";
+import type { GraphClient } from "./common.ts";
 
 export function createInstagramTools(opts: {
-  api: MetaClient;
+  api: GraphClient;
   igAccountId: string;
   polling?: InstagramClientOptions["polling"];
 }): Record<
@@ -50,7 +50,7 @@ export function createInstagramTools(opts: {
 
     ig_publish_video: tool({
       description:
-        "Publish a video (reel) to the Instagram feed. All feed videos are reels. Polls Meta processing status automatically.",
+        "Publish a video (reel) to the Instagram feed. All feed videos are reels. Polls provider processing status automatically.",
       inputSchema: v.object({
         videoUrl: v.string(),
         caption: v.optional(v.string()),

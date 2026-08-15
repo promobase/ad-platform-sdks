@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:55a05a16da6bc0f0f464e31f97969cd5d54801aa696aa0f7e2b2fe84236e1464
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AdCampaignGroupIncrementalConversionOptimizationConfigFields {
   action_type: string;
   ad_study_end_time: string;

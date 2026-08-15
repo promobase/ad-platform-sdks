@@ -1,0 +1,50 @@
+---
+title: "Facebook Call Ads Phone Data endpoints"
+description: "1 generated Facebook endpoint contract for Call Ads Phone Data."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 202
+  label: "Call Ads Phone Data"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:62b6c6e0259f9b3e5dade3f00ed1d3d5ed18124ec8e4c95bf87e62787a0a71dd -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.callAdsPhoneData.get
+
+`GET` `/{id}`
+
+GET CallAdsPhoneData
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `callAdsPhoneData.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CallAdsPhoneDataFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

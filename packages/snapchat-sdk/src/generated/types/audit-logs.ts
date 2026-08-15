@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d75f9f5d1e9270f86ae34b3e6267fa47c9a43240f26ff97b019b430b146a8937
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for audit-logs — do not edit
 
 export interface Changelog {

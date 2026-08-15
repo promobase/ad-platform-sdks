@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6795d5b59aa6f9024620b0083a97feccbfc2d79c8d3a8efc88feb261efeb8da1
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.IncomeRangeTypeEnum.IncomeRangeType. Do not edit by hand.
 export type IncomeRangeType =
   | "UNSPECIFIED"

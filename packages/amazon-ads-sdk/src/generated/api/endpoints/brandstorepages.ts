@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ba27b6f9dc0f940d441ec02f3fe7cae19934d2fcaf01124310e0682c21fd94d2
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for BrandStorePages — do not edit
 import type { AmazonAdsApiClient } from "../../../api-client.ts";
 import type { QueryBrandStorePageResponse } from "../types.ts";

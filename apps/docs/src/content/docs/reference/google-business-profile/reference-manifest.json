@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:f68d5ccea290861a5af1d43e38a05852d9da79c6c2e7e4d67dcaa3678a149a30",
+    "doNotEdit": true
+  },
   "schemaVersion": 1,
   "platform": "google-business-profile",
   "version": "v1+legacy-v4",

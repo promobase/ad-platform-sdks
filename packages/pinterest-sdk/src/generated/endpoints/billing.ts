@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a3e39357c565e658006dad2169d57d041aa0cabab3fbfbc535dce688395854a3
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for billing — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { AdsCreditsDiscountsGetResponse, AdsCreditRedeemResponse, BillingInvoiceDownloadGetResponse, BillingInvoicesGetResponse, BillingProfilesGetResponse, SsioAccountsGetResponse, SsioInsertionOrderCreateResponse, SsioInsertionOrderEditResponse, SsioInsertionOrdersStatusGetByPinOrderIdResponse, SsioInsertionOrdersStatusGetByAdAccountResponse, SsioOrderLinesGetByAdAccountResponse } from "../types.ts";

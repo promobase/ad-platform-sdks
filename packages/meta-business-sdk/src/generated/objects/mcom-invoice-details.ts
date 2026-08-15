@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:852e104ea859ed8efb21547ede1b99d367beb03b2cf0fe1d3e89ad9f43274dc7
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface McomInvoiceDetailsFields {
   additional_amounts: Record<string, unknown>[];
   buyer_notes: string;

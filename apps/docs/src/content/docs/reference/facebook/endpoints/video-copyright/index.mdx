@@ -1,0 +1,127 @@
+---
+title: "Facebook Video Copyright endpoints"
+description: "3 generated Facebook endpoint contracts for Video Copyright."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 392
+  label: "Video Copyright"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:71a0315440ca388f16f2eddd1d3d7f35cd2340c0712a156addb8838424dd72c3 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.videoCopyright.get
+
+`GET` `/{id}`
+
+GET VideoCopyright
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `videoCopyright.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `VideoCopyrightFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.videoCopyright.update
+
+`POST` `/{id}`
+
+POST VideoCopyright
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `videoCopyright.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `VideoCopyrightFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `append_excluded_ownership_segments` | `body` | `boolean` | No | No | — |
+| `attribution_id` | `body` | `string` | No | No | — |
+| `content_category` | `body` | `unknown` | No | No | — |
+| `excluded_ownership_countries` | `body` | `Array<string>` | No | No | — |
+| `excluded_ownership_segments` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+| `is_reference_disabled` | `body` | `boolean` | No | No | — |
+| `monitoring_type` | `body` | `unknown` | No | No | — |
+| `ownership_countries` | `body` | `Array<string>` | No | No | — |
+| `rule_id` | `body` | `string` | No | No | — |
+| `whitelisted_ids` | `body` | `Array<string>` | No | No | — |
+| `whitelisted_ig_user_ids` | `body` | `Array<string>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.videoCopyright.updateRecords
+
+`GET` `/{id}/update_records`
+
+GET VideoCopyright update_records
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `videoCopyright.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `MediaCopyrightUpdateRecordFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

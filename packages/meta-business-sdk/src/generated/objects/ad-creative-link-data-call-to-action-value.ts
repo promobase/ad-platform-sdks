@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:05095ea2e75d2cd4d6322e1ded4cc193fdb237cea2c2a1ff93a3c013b745fec7
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AdCreativeLinkDataCallToActionValueFields {
   android_url: string;
   app_destination: string;

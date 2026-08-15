@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:aff9cdd970e5db313e4487aa95c569d20f976db29b4bc675059540be833e74b9
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.OfflineUserDataJobMatchRateRangeEnum.OfflineUserDataJobMatchRateRange. Do not edit by hand.
 export type OfflineUserDataJobMatchRateRange =
   | "UNSPECIFIED"

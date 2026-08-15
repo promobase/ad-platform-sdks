@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9ae0f387c1aa9c99ea0565e97ffce4a4193c32b21358e9903bfe50adbef37be2
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Catalog Event Sources — do not edit
 
 export interface CatalogEventsourceBindParams {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:919399fb67466db4900892bb93963f513c11b59248004acb1250936eeb56df4d
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { CreateYouTubeVideoUploadRequest, CreateYouTubeVideoUploadResponse, RemoveYouTubeVideoUploadRequest, RemoveYouTubeVideoUploadResponse, UpdateYouTubeVideoUploadRequest, UpdateYouTubeVideoUploadResponse } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

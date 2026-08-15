@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3746e9e889886b050db030bc7cf4226b391fd6bab2b86e51a42df7493a9ff9ef
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdActivityEventType, EventType } from "../enums.ts";
 
 export interface AdActivityFields {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6bd303eee3f04c5fa1161ede58dccd41b17e23dcb0066046d7cf01915d747df3
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { BidModifierSource, DeviceInfo, HotelAdvanceBookingWindowInfo, HotelCheckInDateRangeInfo, HotelCheckInDayInfo, HotelDateSelectionTypeInfo, HotelLengthOfStayInfo } from "../index.ts";
 
 // Generated from google.ads.googleads.v25.resources.AdGroupBidModifier. Do not edit by hand.

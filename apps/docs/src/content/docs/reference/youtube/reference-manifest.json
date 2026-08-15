@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:ef281ba65aafbc754630385d5e8b6f76c2da10f15a028cd7c1a8d2e9a1ff78de",
+    "doNotEdit": true
+  },
   "schemaVersion": 1,
   "platform": "youtube",
   "version": "data-v3+analytics-v2+reporting-v1",

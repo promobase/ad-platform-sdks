@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f3540241309d22545237990c25d214459d486fbb91c20fc30da3cd6422650399
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface AudioSubLabelFields {

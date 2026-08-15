@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:8fce31b241c001f827b12fe0026498659dea87a600e8aa6e6df6caa3849e78f2
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 import * as v from "valibot";
 

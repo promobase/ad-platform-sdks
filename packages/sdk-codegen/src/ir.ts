@@ -12,7 +12,6 @@ export const PlatformIdSchema = Schema.Literal(
   "amazon-ads-sd",
   "amazon-ads-sp",
   "bluesky",
-  "meta",
   "pinterest",
   "reddit",
   "snapchat",

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6b3367fd4e3f8a37e65a0cf14273b745b76ad4625c275fbf40704955e4a31eae
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AdContractFields {
   account_id: string;
   account_mgr_fbid: string;

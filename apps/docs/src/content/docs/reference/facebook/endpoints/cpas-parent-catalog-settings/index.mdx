@@ -1,0 +1,50 @@
+---
+title: "Facebook CPAS Parent Catalog Settings endpoints"
+description: "1 generated Facebook endpoint contract for CPAS Parent Catalog Settings."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 227
+  label: "CPAS Parent Catalog Settings"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:d721a06588a645f61ec85b352313295debd88312b387ea16784bb1df40635ad2 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.cPASParentCatalogSettings.get
+
+`GET` `/{id}`
+
+GET CPASParentCatalogSettings
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `cPASParentCatalogSettings.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CPASParentCatalogSettingsFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

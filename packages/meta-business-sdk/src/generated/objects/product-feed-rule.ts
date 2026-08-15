@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:536489a59b874c19a8e8fa986cf7f1c30a2a8bfaac96d2f599d28c986ae03489
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ProductFeedRuleFields {

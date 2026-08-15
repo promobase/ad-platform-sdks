@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b6209a311ced85ec554ec532de7043d8d44c2bf923ae3b79844ea704368940fb
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Welcome Messages — do not edit
 
 export interface CreativeAutoMessageCreateParams {

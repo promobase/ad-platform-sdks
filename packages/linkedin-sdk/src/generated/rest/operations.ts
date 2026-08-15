@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f426e84daeb1e3e99a3ee2f4352d18fc9a93d905e47ff2a7de9edf993aeeac01
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated from spec/linkedin-postman.snapshot.json. Do not edit by hand.
 import type {
   LinkedInClient,

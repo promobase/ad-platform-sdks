@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e2e03c828de7b5d1acf6e218e66dadf90d71adeffae66c74f3f3852d5944f460
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { AdsNamingTemplateLevel } from "../enums.ts";
 

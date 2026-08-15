@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:423990515fe5e6e54f4f21b2e9b772e51b5d0e4becfdc16081b1263b1b7a8f43
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Creative Tools — do not edit
 
 export interface CreativeStatusGetParams {

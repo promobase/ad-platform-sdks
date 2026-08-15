@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:71b458dbb9f12ac7e0eddcb205ee187ba621955884e2d02cc8a92c830afc4b51
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { MutateCustomerNegativeCriteriaRequest, MutateCustomerNegativeCriteriaResponse } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

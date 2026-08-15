@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f5b166f62af8de8f1c2b153da1d80ca46225187a33f77654eae72cb0520e708f
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface ConversionActionQueryFields {
   "action.type": Record<string, unknown>[];
   application: Record<string, unknown>[];

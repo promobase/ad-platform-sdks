@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3bbd41dd83afc38284d6e272d1acb0bdee855ab51b01b8f0ec8baff700961e99
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for lookalikes — do not edit
 import type { SnapchatApiClient, SnapchatEnvelope } from "../../api-client.ts";
 import { SnapchatCursor } from "../../pagination.ts";

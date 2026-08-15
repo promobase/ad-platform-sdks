@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ae3937d8b1715f9ef259813edd8d8a55890250c4200e15ada9a5c22eb6297cc4
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated endpoint params for the Amazon Ads API v3 — do not edit
 
 export interface CreateSponsoredProductsAdGroupParams {

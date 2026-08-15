@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:047c3cd3bdbb34c7a4c69594082ea07191f9bc21267a1cae7ee59b8021b3fcf6
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.RegulatoryFeeTypeEnum.RegulatoryFeeType. Do not edit by hand.
 export type RegulatoryFeeType =
   | "UNSPECIFIED"

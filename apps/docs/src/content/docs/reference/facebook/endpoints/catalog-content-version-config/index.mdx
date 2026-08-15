@@ -1,0 +1,50 @@
+---
+title: "Facebook Catalog Content Version Config endpoints"
+description: "1 generated Facebook endpoint contract for Catalog Content Version Config."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 207
+  label: "Catalog Content Version Config"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:90566cd4c5dab501a7c8d7a341b24ec6af1118531f4f88b52d852e685a839841 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.catalogContentVersionConfig.get
+
+`GET` `/{id}`
+
+GET CatalogContentVersionConfig
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogContentVersionConfig.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CatalogContentVersionConfigFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b3ac5b8cc05a059d14f827fbab918e5c7d1895a3c36d7f1700de815cec6ef0c7
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for conversion_eqs — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { ConversionEqsListResponse } from "../types.ts";

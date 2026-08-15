@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3b3c12548611b91d1582e13e5cc8bda650a9667f859f2519bd92d714fe86311c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.LabelErrorEnum.LabelError. Do not edit by hand.
 export type LabelError =
   | "UNSPECIFIED"

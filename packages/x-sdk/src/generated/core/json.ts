@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f87e228776a69b70036658b3113fb874c620530aac5a982fada1fac01ebc48da
+// DO NOT EDIT: generated file; changes will be overwritten.
 /**
  * Serialize a value to JSON
  * @param value A JavaScript value, usually an object or array, to be converted.

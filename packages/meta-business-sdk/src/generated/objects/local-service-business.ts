@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:939d9188027364cdd4815e3bf011018eec73f05e1a8a40972f9d6c2b5ed81ba0
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AppLinksFields } from "./app-links.ts";
 import type { CatalogItemAppLinksFields } from "./catalog-item-app-links.ts";
 import type { CatalogItemChannelsToIntegrityStatusFields } from "./catalog-item-channels-to-integrity-status.ts";
@@ -63,9 +66,9 @@ export function localServiceBusinessNode(client: ApiClient, id: string) {
     get: <F extends (keyof LocalServiceBusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<LocalServiceBusinessFields, F[number]>>(`${id}`, opts),
     channelsToIntegrityStatus: <F extends (keyof CatalogItemChannelsToIntegrityStatusFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<CatalogItemChannelsToIntegrityStatusFields, F[number]>>(client, `${id}/channels_to_integrity_status`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CatalogItemChannelsToIntegrityStatusFields, F[number]>>(client, `${id}/channels_to_integrity_status`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     overrideDetails: <F extends (keyof OverrideDetailsFields)[]>(opts: { fields: F; params?: LocalServiceBusinessListOverrideDetailsParams }) =>
-      new Cursor<Pick<OverrideDetailsFields, F[number]>>(client, `${id}/override_details`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<OverrideDetailsFields, F[number]>>(client, `${id}/override_details`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

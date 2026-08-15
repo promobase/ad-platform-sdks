@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:1c7b9f5a7c423d099017e9e4ef469817a7e2dc14c6017e88bd683db38a0ff7be
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface DynamicARMetadataFields {

@@ -1,0 +1,50 @@
+---
+title: "Facebook Third Party Partner Viewability Request endpoints"
+description: "1 generated Facebook endpoint contract for Third Party Partner Viewability Request."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 383
+  label: "Third Party Partner Viewability Request"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:47f5f0e9d04107db92aa02b04e800b6c828066191801674cf026f03b2894bda6 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.thirdPartyPartnerViewabilityRequest.get
+
+`GET` `/{id}`
+
+GET ThirdPartyPartnerViewabilityRequest
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `thirdPartyPartnerViewabilityRequest.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ThirdPartyPartnerViewabilityRequestFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

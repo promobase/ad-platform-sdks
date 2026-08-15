@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:5d51325c33eea70d24e51b56bcf94ac8931fa675bead9615af102b3df23e085d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.AssetErrorEnum.AssetError. Do not edit by hand.
 export type AssetError =
   | "UNSPECIFIED"

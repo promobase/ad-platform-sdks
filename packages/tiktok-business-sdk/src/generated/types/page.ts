@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e5793b1060d2078d181c2c55c89aef7923539e46d20c06459a5c86edd17b9183
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Page — do not edit
 
 export interface PageGetParams {

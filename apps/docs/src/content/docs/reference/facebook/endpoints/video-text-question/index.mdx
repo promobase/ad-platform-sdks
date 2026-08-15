@@ -1,0 +1,50 @@
+---
+title: "Facebook Video Text Question endpoints"
+description: "1 generated Facebook endpoint contract for Video Text Question."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 397
+  label: "Video Text Question"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:f38b6d5d83b327431b691c267843892b233d9209d23b238f0ec6ac8035ad049d -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.videoTextQuestion.get
+
+`GET` `/{id}`
+
+GET VideoTextQuestion
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `videoTextQuestion.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `VideoTextQuestionFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

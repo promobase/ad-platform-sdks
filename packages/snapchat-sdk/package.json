@@ -29,7 +29,7 @@
     "README.md"
   ],
   "scripts": {
-    "codegen": "bun src/codegen/index.ts",
+    "codegen": "bun src/codegen/index.ts && node ../../scripts/ensure-generated-headers.mjs",
     "codegen:refresh": "bun src/codegen/index.ts --refresh",
     "codegen:check": "bun run codegen && git -C ../.. diff --exit-code -- packages/snapchat-sdk/src/generated apps/docs/src/content/docs/reference/snapchat",
     "build": "tsc -p tsconfig.build.json",

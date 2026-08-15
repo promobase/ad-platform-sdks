@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3c42abc51e0cf0b42c52b48084a34ace5fa9a7913f37175c29f81177ea6838f6
+// DO NOT EDIT: generated file; changes will be overwritten.
 export const LogLevel = {
     Debug: "debug",
     Info: "info",

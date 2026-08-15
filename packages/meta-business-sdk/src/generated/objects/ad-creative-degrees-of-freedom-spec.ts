@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:8b00cd4ca7f299a9ee3b0f621a000db7b2eb0b9a540a456ea80a60cde6a088a2
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdCreativeFeaturesSpecFields } from "./ad-creative-features-spec.ts";
 
 export interface AdCreativeDegreesOfFreedomSpecFields {

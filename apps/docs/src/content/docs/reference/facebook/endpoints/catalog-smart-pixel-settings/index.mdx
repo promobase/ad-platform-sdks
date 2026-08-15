@@ -1,0 +1,50 @@
+---
+title: "Facebook Catalog Smart Pixel Settings endpoints"
+description: "1 generated Facebook endpoint contract for Catalog Smart Pixel Settings."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 209
+  label: "Catalog Smart Pixel Settings"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:632c8f682d6d02aa6c94f4587638f28b512d101811263bd5ba29b0df80641578 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.catalogSmartPixelSettings.get
+
+`GET` `/{id}`
+
+GET CatalogSmartPixelSettings
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogSmartPixelSettings.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CatalogSmartPixelSettingsFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

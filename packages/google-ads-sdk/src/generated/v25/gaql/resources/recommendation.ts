@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ba5ff2f1388e1fb67840ca1572078a61d9585a65650d0862f2eb7d2fbee7b67a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type RecommendationSelectableField =
   | "recommendation.resource_name"

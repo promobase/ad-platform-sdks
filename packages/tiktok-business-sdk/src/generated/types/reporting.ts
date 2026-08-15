@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2e062d5f3e6de55249f1eda67b7b7c6617234cb74db57201b013067962c6805d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Reporting — do not edit
 
 export interface ReportIntegratedGetParams {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:aa642b6dec70ad384751a1f875b035cc9a629d9e8acf3d2bd6eec4dc83e039b0
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ALMEndAdvertiserInfoFields {

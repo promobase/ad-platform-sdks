@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2f9e04a322982feb25d3268bd3bddb7b14cf6a866a557519a99d77f93ec2f526
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ProductFeedUploadGetInputMethod } from "../enums.ts";
 
 export interface ProductFeedUploadGetFields {

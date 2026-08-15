@@ -1,0 +1,50 @@
+---
+title: "Facebook Media Copyright Attribution endpoints"
+description: "1 generated Facebook endpoint contract for Media Copyright Attribution."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 298
+  label: "Media Copyright Attribution"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:1a0b23e3fe1d0b736dba3c6db1ba8f51d7df21f0af4cec092512d9121c957867 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.mediaCopyrightAttribution.get
+
+`GET` `/{id}`
+
+GET MediaCopyrightAttribution
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mediaCopyrightAttribution.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `MediaCopyrightAttributionFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:1760d593e484405d1913c7e275a3153de15d08e8bb721118e9556e186887bb16
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ManagementSiteLinkFields {

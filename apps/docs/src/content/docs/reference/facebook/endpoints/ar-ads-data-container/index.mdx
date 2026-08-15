@@ -1,0 +1,50 @@
+---
+title: "Facebook Ar Ads Data Container endpoints"
+description: "1 generated Facebook endpoint contract for Ar Ads Data Container."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 172
+  label: "Ar Ads Data Container"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:b7d5902b6f3a8f02acf7e2a715c2d915c649e5e941a0ab94820602e009824c0b -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.arAdsDataContainer.get
+
+`GET` `/{id}`
+
+GET ArAdsDataContainer
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `arAdsDataContainer.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ArAdsDataContainerFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

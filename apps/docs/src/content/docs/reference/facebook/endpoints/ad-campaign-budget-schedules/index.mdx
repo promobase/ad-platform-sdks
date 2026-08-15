@@ -1,0 +1,50 @@
+---
+title: "Facebook Ad Campaign Budget Schedules endpoints"
+description: "1 generated Facebook endpoint contract for Ad Campaign Budget Schedules."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 111
+  label: "Ad Campaign Budget Schedules"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:df3bb66f5f568a067a78d88ee608a8ea29e4ae14dfe74b6eeb29fce23ddcb0aa -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.adCampaignBudgetSchedules.genPost
+
+`POST` `/{id}/budget_schedules`
+
+POST AdCampaignBudgetSchedules budget_schedules
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adCampaignBudgetSchedules.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdCampaignBudgetSchedulesPostFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

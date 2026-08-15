@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:614a35542a2b4c8856cc7cb3fcf5a198797dce26c51d6f25c60c4b223444df50
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for catalog_product_groups — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { CatalogsProductGroupsListResponse, CatalogsProductGroupsCreateResponse, CatalogsProductGroupsGetResponse, CatalogsProductGroupsUpdateResponse, CatalogsProductGroupsDeleteResponse, CatalogsProductGroupsProductCountsGetResponse, CatalogsProductGroupPinsListResponse, CatalogsProductGroupsCreateManyResponse, ProductsByProductGroupFilterListResponse } from "../types.ts";

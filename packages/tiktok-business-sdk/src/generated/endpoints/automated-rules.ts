@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d4ec6acee99388fd335becf4bbd7fb8686be515b6eaaaa863f3d6733ded7ad24
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Automated Rules — do not edit
 import type { OptimizerRuleCreateParams, OptimizerRuleCreateResponse, OptimizerRuleGetParams, OptimizerRuleGetResponse, OptimizerRuleListParams, OptimizerRuleListResponse, OptimizerRuleResultListParams, OptimizerRuleResultListResponse, OptimizerRuleResultGetParams, OptimizerRuleResultGetResponse, OptimizerRuleUpdateParams, OptimizerRuleUpdateResponse, OptimizerRuleUpdateStatusParams, OptimizerRuleUpdateStatusResponse, OptimizerRuleBatchBindParams, OptimizerRuleBatchBindResponse } from "../types/automated-rules.ts";
 

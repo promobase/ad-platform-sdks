@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d9daaed1c1b25068a2a96de9c152fee8c7dbc237c815e2af6e32e3e37713db43
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { AndroidAppLinkFields } from "./android-app-link.ts";
 import type { IosAppLinkFields } from "./ios-app-link.ts";

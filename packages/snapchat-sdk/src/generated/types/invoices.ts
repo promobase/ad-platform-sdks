@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c1061f7e690305aac4876216761160e4b1f8936d1a7704cba59939bf764f5074
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for invoices — do not edit
 
 export interface Invoice {

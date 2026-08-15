@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:abaded40deba4286dc4d0fd5886ac3bfb40e4c431e4cf00eea877471c3824476
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdFields } from "./ad.ts";
 import type { AdAccountFields } from "./ad-account.ts";
 import type { AdsPixelFields } from "./ads-pixel.ts";
@@ -179,28 +182,28 @@ export function customAudienceNode(client: ApiClient, id: string) {
       __path: `${id}/adaccounts`,
       __brand: undefined as unknown as AdAccountFields,
       list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: CustomAudienceListAdaccountsParams }) =>
-        new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: CustomAudienceCreateAdaccountsParams) =>
         client.post<CustomAudienceFields>(`${id}/adaccounts`, params as Record<string, unknown>),
       delete: (params: CustomAudienceDeleteAdaccountsParams) =>
         client.delete(`${id}/adaccounts`, params as Record<string, unknown> ?? {}),
     },
     ads: <F extends (keyof AdFields)[]>(opts: { fields: F; params?: CustomAudienceListAdsParams }) =>
-      new Cursor<Pick<AdFields, F[number]>>(client, `${id}/ads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdFields, F[number]>>(client, `${id}/ads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     health: <F extends (keyof CustomAudienceHealthFields)[]>(opts: { fields: F; params?: CustomAudienceListHealthParams }) =>
-      new Cursor<Pick<CustomAudienceHealthFields, F[number]>>(client, `${id}/health`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CustomAudienceHealthFields, F[number]>>(client, `${id}/health`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     salts: {
       __path: `${id}/salts`,
       __brand: undefined as unknown as CustomAudienceSaltsFields,
       list: <F extends (keyof CustomAudienceSaltsFields)[]>(opts: { fields: F; params?: CustomAudienceListSaltsParams }) =>
-        new Cursor<Pick<CustomAudienceSaltsFields, F[number]>>(client, `${id}/salts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<CustomAudienceSaltsFields, F[number]>>(client, `${id}/salts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: CustomAudienceCreateSaltsParams) =>
         client.post<CustomAudienceFields>(`${id}/salts`, params as Record<string, unknown>),
     },
     sessions: <F extends (keyof CustomAudienceSessionFields)[]>(opts: { fields: F; params?: CustomAudienceListSessionsParams }) =>
-      new Cursor<Pick<CustomAudienceSessionFields, F[number]>>(client, `${id}/sessions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CustomAudienceSessionFields, F[number]>>(client, `${id}/sessions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     sharedAccountInfo: <F extends (keyof CustomAudiencesharedAccountInfoFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<CustomAudiencesharedAccountInfoFields, F[number]>>(client, `${id}/shared_account_info`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CustomAudiencesharedAccountInfoFields, F[number]>>(client, `${id}/shared_account_info`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     users: {
       __path: `${id}/users`,
       __brand: undefined as unknown as CustomAudienceFields,

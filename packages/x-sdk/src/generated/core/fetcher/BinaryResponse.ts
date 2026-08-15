@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b993c1938b9d8efaa72429d366cee68f69227fb9d3f3327bb4fa77b820441d32
+// DO NOT EDIT: generated file; changes will be overwritten.
 export type BinaryResponse = {
     /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/bodyUsed) */
     bodyUsed: Response["bodyUsed"];

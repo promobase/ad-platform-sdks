@@ -1,0 +1,50 @@
+---
+title: "Facebook Partner Center Export File endpoints"
+description: "1 generated Facebook endpoint contract for Partner Center Export File."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 326
+  label: "Partner Center Export File"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:e06a1449d9f4fc264e70d8c0de617699e9e4ab0676ce5bb65342c33ecfca382d -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.partnerCenterExportFile.get
+
+`GET` `/{id}`
+
+GET PartnerCenterExportFile
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `partnerCenterExportFile.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PartnerCenterExportFileFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

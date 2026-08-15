@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:dfd1b1e593c098984cc95153e2a82065df63d76e80e0af4808b0da5d47dbda8e
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Ad Creatives — do not edit
 import type { AmazonAdsApiClient } from "../../../api-client.ts";
 import type { CreateBrandVideoCreativeResponse, ListCreativesResponse, CreateProductCollectionCreativeResponse, CreateExtendedProductCollectionCreativeResponse, CreateStoreSpotlightCreativeResponse, CreateVideoCreativeResponse } from "../types.ts";

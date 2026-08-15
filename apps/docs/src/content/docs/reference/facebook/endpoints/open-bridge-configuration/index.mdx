@@ -1,0 +1,138 @@
+---
+title: "Facebook Open Bridge Configuration endpoints"
+description: "3 generated Facebook endpoint contracts for Open Bridge Configuration."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 312
+  label: "Open Bridge Configuration"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:106641d66e17428010e20c7948caa93c5c47d4d835368a3327f54ceb50a0fd90 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.openBridgeConfiguration.delete
+
+`DELETE` `/{id}`
+
+DELETE OpenBridgeConfiguration
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `openBridgeConfiguration.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.openBridgeConfiguration.get
+
+`GET` `/{id}`
+
+GET OpenBridgeConfiguration
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `openBridgeConfiguration.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `OpenBridgeConfigurationFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.openBridgeConfiguration.update
+
+`POST` `/{id}`
+
+POST OpenBridgeConfiguration
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `openBridgeConfiguration.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `OpenBridgeConfigurationFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `active` | `body` | `boolean` | No | No | — |
+| `associated_sgw_data_source_id` | `body` | `integer` | No | No | — |
+| `blocked_event_types` | `body` | `Array<string>` | No | No | — |
+| `blocked_websites` | `body` | `Array<string>` | No | No | — |
+| `capi_publishing_state` | `body` | `unknown` | No | No | — |
+| `cloud_provider` | `body` | `string` | No | No | — |
+| `cloud_region` | `body` | `string` | No | No | — |
+| `destination_id` | `body` | `string` | No | No | — |
+| `endpoint` | `body` | `string` | No | No | — |
+| `event_enrichment_advertiser_state` | `body` | `unknown` | No | No | — |
+| `event_enrichment_meta_state` | `body` | `unknown` | No | No | — |
+| `event_enrichment_state` | `body` | `unknown` | No | No | — |
+| `fallback_domain` | `body` | `string` | No | No | — |
+| `host_business_id` | `body` | `integer` | No | No | — |
+| `instance_id` | `body` | `string` | No | No | — |
+| `instance_version` | `body` | `string` | No | No | — |
+| `is_sgw_instance` | `body` | `boolean` | No | No | — |
+| `is_sgw_pixel_from_meta_pixel` | `body` | `boolean` | No | No | — |
+| `partner_name` | `body` | `string` | No | No | — |
+| `sgw_account_id` | `body` | `string` | No | No | — |
+| `sgw_instance_url` | `body` | `string` | No | No | — |
+| `sgw_pixel_id` | `body` | `integer` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

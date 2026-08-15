@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:518a81f0994e3b385cf4d47f4d8441f0412169d3e438a4b3b903ae167ef82e38
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for schedules — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { SchedulesListResponse, SchedulesCreateResponse, SchedulesUpdateResponse } from "../types.ts";

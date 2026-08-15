@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e4fb22343ae5c753dccb79bbc19e12b63af2f78c99cf6a05ec291bf6c87aa315
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdCreativeLinkDataCallToActionFields } from "./ad-creative-link-data-call-to-action.ts";
 import type { AdCreativePlaceDataFields } from "./ad-creative-place-data.ts";
 import type { AdsImageCropsFields } from "./ads-image-crops.ts";

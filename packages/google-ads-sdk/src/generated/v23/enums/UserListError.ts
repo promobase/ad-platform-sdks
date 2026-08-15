@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9f0f7aea183cb278716ed6f654f635e0a56fa73951e3143940626b0e551d30ba
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.UserListErrorEnum.UserListError. Do not edit by hand.
 export type UserListError =
   | "UNSPECIFIED"

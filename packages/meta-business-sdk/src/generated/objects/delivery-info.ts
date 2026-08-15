@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:137864870fd5fc8c495f9a8c6d2782c3a96e785d72ac99be86396166d1948d30
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface DeliveryInfoFields {
   active_accelerated_campaign_count: number;
   active_day_parted_campaign_count: number;

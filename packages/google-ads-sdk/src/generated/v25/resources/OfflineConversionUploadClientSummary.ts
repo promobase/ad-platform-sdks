@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f282f23aad4f4783fff6fe9e1dcee01a57abea22daf563e09e48a6be3e6311ac
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { OfflineConversionAlert, OfflineConversionDiagnosticStatus, OfflineConversionSummary, OfflineEventUploadClient } from "../index.ts";
 
 // Generated from google.ads.googleads.v25.resources.OfflineConversionUploadClientSummary. Do not edit by hand.

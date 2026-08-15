@@ -1,0 +1,50 @@
+---
+title: "Facebook Audio Sub Label endpoints"
+description: "1 generated Facebook endpoint contract for Audio Sub Label."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 177
+  label: "Audio Sub Label"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:07e6419be5192fbf7e86f5a9789675844af36da19b583e855a98dad9d004c741 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.audioSubLabel.get
+
+`GET` `/{id}`
+
+GET AudioSubLabel
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `audioSubLabel.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AudioSubLabelFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

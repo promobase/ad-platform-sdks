@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:fb196ae50f1cc54c99b9ce12fbf0f97f501760167835cba84dc1b91b7a7f9167
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Creative Reports — do not edit
 
 export interface ReportAdBenchmarkGetParams {

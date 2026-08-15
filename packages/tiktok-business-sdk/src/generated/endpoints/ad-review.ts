@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:29f0d3471b8c36929532bca0f59bc575e3cbc9eb218aecc92427f4967463bf23
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Ad Review — do not edit
 import type { AdgroupReviewInfoParams, AdgroupReviewInfoResponse, AdReviewInfoParams, AdReviewInfoResponse, AdgroupAppealParams, AdgroupAppealResponse } from "../types/ad-review.ts";
 

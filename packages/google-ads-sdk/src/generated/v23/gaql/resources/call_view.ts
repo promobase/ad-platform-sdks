@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f8501c5312c6cbebfb455ff07dce94f47975618d513ee4e034a98369ef130542
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type CallViewSelectableField =
   | "call_view.resource_name"

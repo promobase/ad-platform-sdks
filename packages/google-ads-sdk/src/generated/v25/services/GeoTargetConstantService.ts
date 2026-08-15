@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:00817bcb93a4c25749fdf790bf41f72d2638898a945dca488a638477155adc67
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { SuggestGeoTargetConstantsRequest, SuggestGeoTargetConstantsResponse } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6a7630d8f416d625a798f393850f4e338a24b7bcada029ea69a2d4a6164a4bda
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdCampaignDeliveryStatsUnsupportedReasonsFields } from "./ad-campaign-delivery-stats-unsupported-reasons.ts";
 import type { AdCampaignLearningStageInfoFields } from "./ad-campaign-learning-stage-info.ts";
 

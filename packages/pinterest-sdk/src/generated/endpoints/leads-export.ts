@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:faf2cb7cd3777936d7bb288a54eeadf50c650f67167923a0f8304114248fb571
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for leads_export — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { LeadsExportCreateResponse, LeadsExportGetResponse } from "../types.ts";

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a7755e2de9dcd1bae6571a864d76ba92b2854e410ef84757cdc7b78bf7efcbe2
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for dynamic-product-ads — do not edit
 
 export interface Catalog {

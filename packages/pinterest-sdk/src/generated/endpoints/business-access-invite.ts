@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:dac58a87c3f7bda2acb8b43e8e2977dd873b0725e983b11edd4f54770d724ed8
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for business_access_invite — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { GetInvitesResponse, CreateMembershipOrPartnershipInvitesResponse, CancelInvitesOrRequestsResponse, CreateAssetInvitesResponse, AssetAccessRequestsCreateResponse, RespondBusinessAccessInvitesResponse } from "../types.ts";

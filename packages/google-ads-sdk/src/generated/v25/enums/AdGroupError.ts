@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6d9d6c2b1c4eb922d752c86818f5186a1f10d327bf56a8067aee7cde340caffa
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.AdGroupErrorEnum.AdGroupError. Do not edit by hand.
 export type AdGroupError =
   | "UNSPECIFIED"

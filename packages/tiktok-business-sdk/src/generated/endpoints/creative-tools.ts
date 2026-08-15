@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:630672f322ab484b4f3bf463991c090d3fa3010b64af948bd1b4ca0f94d9ab3d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Creative Tools — do not edit
 import type { CreativeStatusGetParams, CreativeStatusGetResponse, CreativeImageEditParams, CreativeImageEditResponse, CreativeAdsPreviewCreateParams, CreativeAdsPreviewCreateResponse, CreativeVideoSoundtrackCreateParams, CreativeVideoSoundtrackCreateResponse, CreativeQuickOptimizationCreateParams, CreativeQuickOptimizationCreateResponse, CreativeSmartVideoCreateParams, CreativeSmartVideoCreateResponse, CreativeAssetShareParams, CreativeAssetShareResponse, CreativeAssetDeleteParams, CreativeAssetDeleteResponse, CreativeSmartTextGenerateParams, CreativeSmartTextGenerateResponse, CreativeCtaRecommendParams, CreativeCtaRecommendResponse, VideoFixTaskCreateParams, VideoFixTaskCreateResponse, VideoFixTaskGetParams, VideoFixTaskGetResponse, CreativeFatigueGetParams, CreativeFatigueGetResponse } from "../types/creative-tools.ts";
 

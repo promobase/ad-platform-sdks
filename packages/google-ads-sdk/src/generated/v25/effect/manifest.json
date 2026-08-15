@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:5fe962f77ab155616e2d199093a5c8ca8fd3f4bc49d96161f42e69112d03ff9b",
+    "doNotEdit": true
+  },
   "platform": "google-ads",
   "source": {
     "kind": "protobuf",

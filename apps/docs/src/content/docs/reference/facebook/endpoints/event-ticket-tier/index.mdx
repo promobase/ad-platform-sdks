@@ -1,0 +1,50 @@
+---
+title: "Facebook Event Ticket Tier endpoints"
+description: "1 generated Facebook endpoint contract for Event Ticket Tier."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 246
+  label: "Event Ticket Tier"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:18bddf0b1912e8e8f00e8a6534be98edbbbd71c38b4768378e34b6bb56bcca94 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.eventTicketTier.get
+
+`GET` `/{id}`
+
+GET EventTicketTier
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `eventTicketTier.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `EventTicketTierFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

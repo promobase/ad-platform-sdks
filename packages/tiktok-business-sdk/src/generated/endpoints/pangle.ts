@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2f20dc80c91a7df41c39159c97bec763442b8067629e454594ac253b2af7ad85
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Pangle — do not edit
 import type { PangleBlockListGetParams, PangleBlockListGetResponse, PangleBlockListUpdateParams, PangleBlockListUpdateResponse, PangleAudiencePackageGetParams, PangleAudiencePackageGetResponse } from "../types/pangle.ts";
 

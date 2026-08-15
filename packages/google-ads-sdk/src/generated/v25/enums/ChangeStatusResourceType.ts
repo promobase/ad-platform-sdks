@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:05300f60a7e1be41c82e79c8e892b5d939cf682eb7cc77be534bb52a70a230be
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.ChangeStatusResourceTypeEnum.ChangeStatusResourceType. Do not edit by hand.
 export type ChangeStatusResourceType =
   | "UNSPECIFIED"

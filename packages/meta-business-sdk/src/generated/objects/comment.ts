@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:eb4f2f98c0da6cf02325a7f05200273beb9709024c9c3b6bfa17d32e50540b02
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { ApplicationFields } from "./application.ts";
 import type { EntityAtTextRangeFields } from "./entity-at-text-range.ts";
 import type { ProfileFields } from "./profile.ts";
@@ -101,7 +104,7 @@ export function commentNode(client: ApiClient, id: string) {
       __path: `${id}/comments`,
       __brand: undefined as unknown as CommentFields,
       list: <F extends (keyof CommentFields)[]>(opts: { fields: F; params?: CommentListCommentsParams }) =>
-        new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: CommentCreateCommentsParams) =>
         client.post<CommentFields>(`${id}/comments`, params as Record<string, unknown>),
     },
@@ -109,14 +112,14 @@ export function commentNode(client: ApiClient, id: string) {
       __path: `${id}/likes`,
       __brand: undefined as unknown as ProfileFields,
       list: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: CommentCreateLikesParams) =>
         client.post<CommentFields>(`${id}/likes`, params as Record<string, unknown>),
       delete: (params: CommentDeleteLikesParams) =>
         client.delete(`${id}/likes`, params as Record<string, unknown> ?? {}),
     },
     reactions: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: CommentListReactionsParams }) =>
-      new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/reactions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/reactions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

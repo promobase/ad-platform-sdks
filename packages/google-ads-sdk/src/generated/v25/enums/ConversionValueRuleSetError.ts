@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e2367305ea706c5b00ebbe30a89e6434a8626d51b871de98e4cce09a0a9945de
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.ConversionValueRuleSetErrorEnum.ConversionValueRuleSetError. Do not edit by hand.
 export type ConversionValueRuleSetError =
   | "UNSPECIFIED"

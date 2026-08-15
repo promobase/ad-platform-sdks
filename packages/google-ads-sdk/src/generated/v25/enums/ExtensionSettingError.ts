@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a60a2df95a4b922c9a2aeb609199108e0e15fa5c9d34a3c9e3e8f57f4994ef54
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.ExtensionSettingErrorEnum.ExtensionSettingError. Do not edit by hand.
 export type ExtensionSettingError =
   | "UNSPECIFIED"

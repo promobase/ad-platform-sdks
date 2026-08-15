@@ -1,6 +1,6 @@
-import { requestMetaJson, type MetaTransportClientOptions } from "./http.ts";
+import { requestJson, type TransportClientOptions } from "./http.ts";
 
-export type InstagramTransportOptions = MetaTransportClientOptions & {
+export type InstagramTransportOptions = TransportClientOptions & {
   readonly instagramAccountId: string;
 };
 
@@ -27,7 +27,7 @@ export function createInstagramTransport(opts: InstagramTransportOptions) {
     async createMediaContainer(
       input: InstagramMediaContainerInput,
     ): Promise<InstagramMediaContainerResult> {
-      const result = await requestMetaJson<{ readonly id: string }>(
+      const result = await requestJson<{ readonly id: string }>(
         opts,
         "instagram",
         "instagram.create_media_container",
@@ -51,7 +51,7 @@ export function createInstagramTransport(opts: InstagramTransportOptions) {
     async getMediaContainerStatus(input: {
       readonly containerId: string;
     }): Promise<InstagramMediaStatusResult> {
-      const result = await requestMetaJson<{
+      const result = await requestJson<{
         readonly id: string;
         readonly status_code: InstagramContainerStatus;
       }>(
@@ -69,7 +69,7 @@ export function createInstagramTransport(opts: InstagramTransportOptions) {
     async publishMediaContainer(input: {
       readonly containerId: string;
     }): Promise<InstagramPublishedMediaResult> {
-      const result = await requestMetaJson<{ readonly id: string }>(
+      const result = await requestJson<{ readonly id: string }>(
         opts,
         "instagram",
         "instagram.publish_media_container",
@@ -80,7 +80,7 @@ export function createInstagramTransport(opts: InstagramTransportOptions) {
     },
 
     async fetchPermalink(input: { readonly mediaId: string }): Promise<InstagramPermalinkResult> {
-      const result = await requestMetaJson<{ readonly id: string; readonly permalink: string }>(
+      const result = await requestJson<{ readonly id: string; readonly permalink: string }>(
         opts,
         "instagram",
         "instagram.fetch_permalink",

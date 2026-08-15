@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6469e54cf23e8f38b54d3f29b9ff55dfaa97bc8d9abb789c9b98346d2dc623e7
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface BidScheduleFields {

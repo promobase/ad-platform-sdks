@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:b111ae632dd68696b24b2b6f80c4432c61e39b3e1e09b86159fa883b34e42824
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdVideoFields } from "./ad-video.ts";
 import type { CanvasCollectionThumbnailFields } from "./canvas-collection-thumbnail.ts";
 import type { CanvasDynamicSettingFields } from "./canvas-dynamic-setting.ts";
@@ -69,9 +72,9 @@ export function canvasNode(client: ApiClient, id: string) {
     update: (params: CanvasUpdateParams) =>
       client.post<CanvasFields>(`${id}`, params as Record<string, unknown>),
     preview: <F extends (keyof CanvasPreviewFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<CanvasPreviewFields, F[number]>>(client, `${id}/preview`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CanvasPreviewFields, F[number]>>(client, `${id}/preview`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     previews: <F extends (keyof TextWithEntitiesFields)[]>(opts: { fields: F; params?: CanvasListPreviewsParams }) =>
-      new Cursor<Pick<TextWithEntitiesFields, F[number]>>(client, `${id}/previews`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<TextWithEntitiesFields, F[number]>>(client, `${id}/previews`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

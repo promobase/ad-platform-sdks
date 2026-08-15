@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d71d115d65367e16babe7eb4a14537d53bb18bbd2136616261abd446e3a510d9
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AdAccountTargetingUnifiedFields {
   audience_size_lower_bound: number;
   audience_size_upper_bound: number;

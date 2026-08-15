@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:cbd49ba174ff28c2e24fafb58254c3bf87905569c779cbc5ed25b91a1a566980
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.LeadFormCallToActionTypeEnum.LeadFormCallToActionType. Do not edit by hand.
 export type LeadFormCallToActionType =
   | "UNSPECIFIED"

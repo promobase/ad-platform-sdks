@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:5225d44fa74a4ef717ce0ca2fdb2006c2ecbdf73397b9380019976f57f162a7e
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Smart Creative — do not edit
 import type { AdAcoGetParams, AdAcoGetResponse, AdAcoCreateParams, AdAcoCreateResponse, AdAcoUpdateParams, AdAcoUpdateResponse, AdAcoMaterialStatusUpdateParams, AdAcoMaterialStatusUpdateResponse } from "../types/smart-creative.ts";
 

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ac10e02cd908c095b7a4e9dd9013a3263d7ecb142ede74d5a2beb5a1f0bc228a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.OfflineUserDataJobErrorEnum.OfflineUserDataJobError. Do not edit by hand.
 export type OfflineUserDataJobError =
   | "UNSPECIFIED"

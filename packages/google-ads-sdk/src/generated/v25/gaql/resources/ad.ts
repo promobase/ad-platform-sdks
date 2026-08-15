@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:020c41ce8c6b95493060f86a1bf37c0c714aee72f345492254fe97e3ebb83c5c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type AdSelectableField =
   | "ad.resource_name"

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:09b3587b5ced5db961427f02a4ae74b2c45ed3e583cac015d8f909d77c4899cb
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.SearchTermInsightErrorEnum.SearchTermInsightError. Do not edit by hand.
 export type SearchTermInsightError =
   | "UNSPECIFIED"

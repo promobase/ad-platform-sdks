@@ -1,3 +1,5 @@
+import * as v from "valibot";
+
 export interface TikTokDeveloperClientOptions {
   accessToken: string;
   baseUrl?: string;
@@ -22,6 +24,16 @@ export interface TikTokDeveloperTokenResponse {
   scope?: string;
   token_type?: string;
 }
+
+const developerTokenSchema = v.object({
+  access_token: v.string(),
+  expires_in: v.number(),
+  open_id: v.string(),
+  refresh_expires_in: v.optional(v.number()),
+  refresh_token: v.string(),
+  scope: v.optional(v.string()),
+  token_type: v.optional(v.string()),
+});
 
 export type TikTokDeveloperPrivacyLevel =
   | "PUBLIC_TO_EVERYONE"
@@ -74,20 +86,20 @@ export function createTikTokDeveloperOAuth(config: TikTokDeveloperOAuthConfig) {
       body,
       signal: config.signal,
     });
-    const data = (await response.json()) as TikTokDeveloperTokenResponse & {
-      error?: string;
-      error_description?: string;
-      log_id?: string;
-    };
+    const data = (await response.json()) as Record<string, unknown>;
     if (!response.ok || data.error) {
       throw new TikTokDeveloperApiError(
-        data.error_description ?? data.error ?? "TikTok OAuth token request failed",
-        data.error,
-        data.log_id,
+        typeof data.error_description === "string"
+          ? data.error_description
+          : typeof data.error === "string"
+            ? data.error
+            : "TikTok OAuth token request failed",
+        typeof data.error === "string" ? data.error : undefined,
+        typeof data.log_id === "string" ? data.log_id : undefined,
         response.status,
       );
     }
-    return data;
+    return v.parse(developerTokenSchema, data);
   }
 
   return {

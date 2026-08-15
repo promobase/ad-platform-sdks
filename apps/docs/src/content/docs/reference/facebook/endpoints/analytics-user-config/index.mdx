@@ -1,0 +1,50 @@
+---
+title: "Facebook Analytics User Config endpoints"
+description: "1 generated Facebook endpoint contract for Analytics User Config."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 167
+  label: "Analytics User Config"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:a0e5de6195db7fdbbd80df1b6da7082513cb5cac034bd87d93f04dd330836ea4 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.analyticsUserConfig.get
+
+`GET` `/{id}`
+
+GET AnalyticsUserConfig
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `analyticsUserConfig.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AnalyticsUserConfigFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

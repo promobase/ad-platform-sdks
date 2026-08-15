@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ce01e42c09b5721f511e96a6725c679cb1a06e8634e5fa4c6907cd6827b52fc3
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface WifiInformationFields {

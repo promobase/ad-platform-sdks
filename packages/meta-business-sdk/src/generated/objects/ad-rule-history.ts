@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:4cbfbb1bc314449d1d650934c59b55861c3fd479032d41fd757c10cb54a615c7
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdRuleEvaluationSpecFields } from "./ad-rule-evaluation-spec.ts";
 import type { AdRuleExecutionSpecFields } from "./ad-rule-execution-spec.ts";
 import type { AdRuleHistoryResultFields } from "./ad-rule-history-result.ts";

@@ -1,9 +1,8 @@
 {
   "name": "@openpromo/ad-platforms",
   "version": "0.9.0",
-  "description": "Unified type-safe TypeScript SDK for Meta (Facebook, Instagram, Threads), TikTok, LinkedIn, X, YouTube, and future ad platforms — single install, single namespace",
+  "description": "Unified type-safe TypeScript SDK for Facebook, Instagram, Threads, WhatsApp, TikTok, LinkedIn, X, YouTube, and future ad platforms — single install, single namespace",
   "keywords": [
-    "meta",
     "facebook",
     "instagram",
     "threads",
@@ -118,11 +117,23 @@
       "import": "./dist/effect/index.js",
       "default": "./dist/effect/index.js"
     },
-    "./meta/effect": {
-      "bun": "./src/effect/meta.ts",
-      "types": "./dist/effect/meta.d.ts",
-      "import": "./dist/effect/meta.js",
-      "default": "./dist/effect/meta.js"
+    "./facebook/effect": {
+      "bun": "./src/effect/facebook.ts",
+      "types": "./dist/effect/facebook.d.ts",
+      "import": "./dist/effect/facebook.js",
+      "default": "./dist/effect/facebook.js"
+    },
+    "./instagram/effect": {
+      "bun": "./src/effect/instagram.ts",
+      "types": "./dist/effect/instagram.d.ts",
+      "import": "./dist/effect/instagram.js",
+      "default": "./dist/effect/instagram.js"
+    },
+    "./threads/effect": {
+      "bun": "./src/effect/threads.ts",
+      "types": "./dist/effect/threads.d.ts",
+      "import": "./dist/effect/threads.js",
+      "default": "./dist/effect/threads.js"
     },
     "./tiktok/effect": {
       "bun": "./src/effect/tiktok.ts",

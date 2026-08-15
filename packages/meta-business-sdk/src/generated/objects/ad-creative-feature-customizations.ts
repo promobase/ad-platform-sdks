@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:64b5df4c4383abcc5184dba225428dc25e29ddd76793ad20ae4d98a1eff39159
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AdCreativeFeatureCustomizationsFields {
   aspect_ratio_config: Record<string, unknown>;
   background_color: string;

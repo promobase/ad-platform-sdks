@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:46f88ca2c67771ab65be6427331214d6de496ac922164a2bb3c4a017a4beff55
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.enums.ChangeEventResourceTypeEnum.ChangeEventResourceType. Do not edit by hand.
 export type ChangeEventResourceType =
   | "UNSPECIFIED"

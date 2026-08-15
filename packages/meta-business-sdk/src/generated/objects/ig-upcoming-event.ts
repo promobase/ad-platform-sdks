@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:4f14d84bf8a05b9e187528971caf1920c67b4e6c70ef61f11274c8e25b2b8508
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface IGUpcomingEventFields {

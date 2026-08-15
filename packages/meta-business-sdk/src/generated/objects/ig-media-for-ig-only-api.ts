@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:f2fad82ef77b8743a0cbb8b656640f61c6b5656f8012db42ba38a70cb7c1a6db
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { CommentFields } from "./comment.ts";
 import type { InsightsResultFields } from "./insights-result.ts";
 import type { UserFields } from "./user.ts";
@@ -52,17 +55,17 @@ export function iGMediaForIGOnlyAPINode(client: ApiClient, id: string) {
     update: (params: IGMediaForIGOnlyAPIUpdateParams) =>
       client.post<IGMediaForIGOnlyAPIFields>(`${id}`, params as Record<string, unknown>),
     children: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/children`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/children`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     comments: {
       __path: `${id}/comments`,
       __brand: undefined as unknown as CommentFields,
       list: <F extends (keyof CommentFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<CommentFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGMediaForIGOnlyAPICreateCommentsParams) =>
         client.post<Record<string, unknown>>(`${id}/comments`, params as Record<string, unknown>),
     },
     insights: <F extends (keyof InsightsResultFields)[]>(opts: { fields: F; params?: IGMediaForIGOnlyAPIListInsightsParams }) =>
-      new Cursor<Pick<InsightsResultFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<InsightsResultFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

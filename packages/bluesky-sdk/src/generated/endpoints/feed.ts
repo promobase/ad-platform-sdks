@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:33dd245cfeac6fee05527902fa72d6fd2153ae30c9dc522d805dc66e16dd14e2
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for app.bsky.feed — do not edit
 import type { BlueskyApiClient } from "../../api-client.ts";
 import type { AppBskyFeedDescribeFeedGeneratorFeed, AppBskyFeedDescribeFeedGeneratorLinks, AppBskyFeedDefsGeneratorView, AppBskyFeedDefsFeedViewPost, AppBskyFeedDefsSkeletonFeedPost, AppBskyFeedGetLikesLike, AppBskyFeedDefsPostView, AppBskyFeedDefsThreadViewPost, AppBskyFeedDefsNotFoundPost, AppBskyFeedDefsBlockedPost, AppBskyFeedDefsThreadgateView, AppBskyActorDefsProfileView, AppBskyFeedDefsInteraction, DescribeFeedGeneratorResponse, GetActorFeedsResponse, GetActorLikesResponse, GetAuthorFeedResponse, GetFeedResponse, GetFeedGeneratorResponse, GetFeedGeneratorsResponse, GetFeedSkeletonResponse, GetLikesResponse, GetListFeedResponse, GetPostsResponse, GetPostThreadResponse, GetQuotesResponse, GetRepostedByResponse, GetSuggestedFeedsResponse, GetTimelineResponse, SearchPostsResponse, SearchPostsV2Response, SendInteractionsResponse } from "../types.ts";

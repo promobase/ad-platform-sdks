@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d92ef4482c0808ca99b6d4124c531baa845067000a87fd267771b911aba12e05
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for app.bsky.bookmark — do not edit
 import type { BlueskyApiClient } from "../../api-client.ts";
 import type { AppBskyBookmarkDefsBookmarkView, GetBookmarksResponse } from "../types.ts";

@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:048abc731d47633e8fb7d88c65358f974e281d4d49fe4c91f8ef83ca968552b6",
+    "doNotEdit": true
+  },
   "platform": "amazon-ads-api",
   "source": {
     "kind": "openapi",

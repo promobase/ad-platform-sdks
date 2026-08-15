@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2b84d3e82631d4142a72dcbd55c73b4f38272e1c691973de29d50295f9bbf25e
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface CatalogWebsiteSettingsFields {

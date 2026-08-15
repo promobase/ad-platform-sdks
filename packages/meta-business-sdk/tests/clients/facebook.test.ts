@@ -41,6 +41,24 @@ test("publishPost sends POST to /page_id/feed", async () => {
   expect(init.method).toBe("POST");
 });
 
+test("createFacebookPageClient can construct its generated client internally", async () => {
+  mockFetchSequence([{ body: { id: "123_456" } }]);
+
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
+  expect(fb.api).toBeDefined();
+  const result = await fb.feed.publishPost({ message: "No generated client required" });
+
+  expect(result.id).toBe("123_456");
+});
+
+test("publishPost rejects a malformed provider result", async () => {
+  mockFetchSequence([{ body: {} }]);
+
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
+
+  await expect(fb.feed.publishPost({ message: "Malformed response" })).rejects.toThrow();
+});
+
 test("publishPost with scheduled time sets published=false", async () => {
   mockFetchSequence([{ body: { id: "123_456" } }]);
 
@@ -194,6 +212,32 @@ test("publishVideoReel performs 3-phase upload", async () => {
   expect(url3).toContain("page_123/video_reels");
   expect(init3.body?.toString()).toContain("upload_phase=finish");
   expect(init3.body?.toString()).toContain("video_id=vid_123");
+});
+
+test("videoReels exposes durable start, upload, and finish operations", async () => {
+  mockFetchSequence([
+    { body: { video_id: "video_1", upload_url: "https://upload.example/video" } },
+    { body: { success: true } },
+    { body: { success: true, post_id: "123_456" } },
+  ]);
+
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
+  const session = await fb.feed.videoReels.start();
+  const upload = await fb.feed.videoReels.upload({
+    uploadUrl: session.uploadUrl,
+    videoUrl: "https://cdn.example/video.mp4",
+  });
+  const finished = await fb.feed.videoReels.finish({
+    videoId: session.videoId,
+    description: "Workflow-safe upload",
+  });
+
+  expect(session).toEqual({
+    videoId: "video_1",
+    uploadUrl: "https://upload.example/video",
+  });
+  expect(upload.success).toBe(true);
+  expect(finished).toEqual({ id: "123_456", videoId: "video_1" });
 });
 
 test("publishVideoReel throws on upload failure", async () => {
@@ -354,6 +398,26 @@ test("stories.publishVideo performs 3-phase upload", async () => {
   const [url3, init3] = calls[2] as [string, RequestInit];
   expect(url3).toContain("page_123/video_stories");
   expect(init3.body?.toString()).toContain("upload_phase=finish");
+});
+
+test("stories.video exposes durable start, upload, and finish operations", async () => {
+  mockFetchSequence([
+    { body: { video_id: "story_video_1", upload_url: "https://upload.example/story" } },
+    { body: { success: true } },
+    { body: { success: true, post_id: "story_post_1", id: "story_video_1" } },
+  ]);
+
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
+  const session = await fb.stories.video.start();
+  const upload = await fb.stories.video.upload({
+    uploadUrl: session.uploadUrl,
+    videoUrl: "https://cdn.example/story.mp4",
+  });
+  const finished = await fb.stories.video.finish({ videoId: session.videoId });
+
+  expect(session.videoId).toBe("story_video_1");
+  expect(upload.success).toBe(true);
+  expect(finished.postId).toBe("story_post_1");
 });
 
 test("stories.publishVideo throws on upload failure", async () => {

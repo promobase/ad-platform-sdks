@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d70f90762d5592ea9af54cd7af910d82e71760e40fdfae34e4218763bb561515
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AssetSetOperation, ResponseContentType } from "../index.ts";
 
 // Generated from google.ads.googleads.v23.services.MutateAssetSetsRequest. Do not edit by hand.

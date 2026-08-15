@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:fc3b296f408bb47727b89e0d8a07efbe81dbca19f70bed3c3dc7fcfa93c0c942
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ProductCatalogLocalizationSettingsFields {

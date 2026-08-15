@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:28f4fb984b26994e931043a2ef32641ff89b26e00d9cf6e91fbd2a7b147eebd3
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for customer_list_uploads — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { CustomerListUploadsCreateResponse, CustomerListUploadsGetResponse, CustomerListUploadsRunResponse } from "../types.ts";

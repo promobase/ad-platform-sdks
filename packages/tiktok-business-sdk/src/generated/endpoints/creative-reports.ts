@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f36859cd7d888b9726589cf71b2c66b3f0bef088d64879e097efbed4b9ca086b
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Creative Reports — do not edit
 import type { ReportAdBenchmarkGetParams, ReportAdBenchmarkGetResponse, ReportVideoPerformanceGetParams, ReportVideoPerformanceGetResponse } from "../types/creative-reports.ts";
 

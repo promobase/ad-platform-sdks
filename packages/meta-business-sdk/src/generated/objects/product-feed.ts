@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:a4d7272f6911eb56b459f27d8307109c08bbb6a831dac41c1b97dcb6c2e6204b
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AutomotiveModelFields } from "./automotive-model.ts";
 import type { DestinationFields } from "./destination.ts";
 import type { FlightFields } from "./flight.ts";
@@ -138,22 +141,22 @@ export function productFeedNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     automotiveModels: <F extends (keyof AutomotiveModelFields)[]>(opts: { fields: F; params?: ProductFeedListAutomotiveModelsParams }) =>
-      new Cursor<Pick<AutomotiveModelFields, F[number]>>(client, `${id}/automotive_models`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AutomotiveModelFields, F[number]>>(client, `${id}/automotive_models`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     destinations: <F extends (keyof DestinationFields)[]>(opts: { fields: F; params?: ProductFeedListDestinationsParams }) =>
-      new Cursor<Pick<DestinationFields, F[number]>>(client, `${id}/destinations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<DestinationFields, F[number]>>(client, `${id}/destinations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     flights: <F extends (keyof FlightFields)[]>(opts: { fields: F; params?: ProductFeedListFlightsParams }) =>
-      new Cursor<Pick<FlightFields, F[number]>>(client, `${id}/flights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<FlightFields, F[number]>>(client, `${id}/flights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     homeListings: <F extends (keyof HomeListingFields)[]>(opts: { fields: F; params?: ProductFeedListHomeListingsParams }) =>
-      new Cursor<Pick<HomeListingFields, F[number]>>(client, `${id}/home_listings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<HomeListingFields, F[number]>>(client, `${id}/home_listings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     hotels: <F extends (keyof HotelFields)[]>(opts: { fields: F; params?: ProductFeedListHotelsParams }) =>
-      new Cursor<Pick<HotelFields, F[number]>>(client, `${id}/hotels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<HotelFields, F[number]>>(client, `${id}/hotels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     products: <F extends (keyof ProductItemFields)[]>(opts: { fields: F; params?: ProductFeedListProductsParams }) =>
-      new Cursor<Pick<ProductItemFields, F[number]>>(client, `${id}/products`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProductItemFields, F[number]>>(client, `${id}/products`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     rules: {
       __path: `${id}/rules`,
       __brand: undefined as unknown as ProductFeedRuleFields,
       list: <F extends (keyof ProductFeedRuleFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ProductFeedRuleFields, F[number]>>(client, `${id}/rules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ProductFeedRuleFields, F[number]>>(client, `${id}/rules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductFeedCreateRulesParams) =>
         client.post<ProductFeedRuleFields>(`${id}/rules`, params as Record<string, unknown>),
     },
@@ -163,7 +166,7 @@ export function productFeedNode(client: ApiClient, id: string) {
       __path: `${id}/upload_schedules`,
       __brand: undefined as unknown as ProductFeedScheduleFields,
       list: <F extends (keyof ProductFeedScheduleFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ProductFeedScheduleFields, F[number]>>(client, `${id}/upload_schedules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ProductFeedScheduleFields, F[number]>>(client, `${id}/upload_schedules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductFeedCreateUploadSchedulesParams) =>
         client.post<ProductFeedFields>(`${id}/upload_schedules`, params as Record<string, unknown>),
     },
@@ -171,14 +174,14 @@ export function productFeedNode(client: ApiClient, id: string) {
       __path: `${id}/uploads`,
       __brand: undefined as unknown as ProductFeedUploadFields,
       list: <F extends (keyof ProductFeedUploadFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ProductFeedUploadFields, F[number]>>(client, `${id}/uploads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ProductFeedUploadFields, F[number]>>(client, `${id}/uploads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductFeedCreateUploadsParams) =>
         client.post<ProductFeedUploadFields>(`${id}/uploads`, params as Record<string, unknown>),
     },
     vehicleOffers: <F extends (keyof VehicleOfferFields)[]>(opts: { fields: F; params?: ProductFeedListVehicleOffersParams }) =>
-      new Cursor<Pick<VehicleOfferFields, F[number]>>(client, `${id}/vehicle_offers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<VehicleOfferFields, F[number]>>(client, `${id}/vehicle_offers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     vehicles: <F extends (keyof VehicleFields)[]>(opts: { fields: F; params?: ProductFeedListVehiclesParams }) =>
-      new Cursor<Pick<VehicleFields, F[number]>>(client, `${id}/vehicles`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<VehicleFields, F[number]>>(client, `${id}/vehicles`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

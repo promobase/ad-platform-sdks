@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f5d19865e5a68e5a5ae6d6eee7cddfbab2839898eada51591955876ae89b1b6b
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type BatchJobSelectableField =
   | "batch_job.resource_name"

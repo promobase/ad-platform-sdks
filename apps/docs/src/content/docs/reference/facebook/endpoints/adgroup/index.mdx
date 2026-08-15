@@ -1,0 +1,50 @@
+---
+title: "Facebook Ad group endpoints"
+description: "1 generated Facebook endpoint contract for Ad group."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 144
+  label: "Ad group"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:d6b9c6f7b27a5ceca7278523bc7f6a121153a9e6ab1aec588efd04b744d25d98 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.adgroup.genDelete
+
+`DELETE` `/{id}`
+
+DELETE Adgroup
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adgroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdgroupDeleteFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

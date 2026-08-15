@@ -4,7 +4,7 @@ import type { EnumMap } from "./enum-extractor.ts";
 import type { Spec } from "./parser.ts";
 import { enumTypeToTsName, parseGenericType } from "./type-resolver.ts";
 
-export function metaCanonicalIr(
+export function facebookGraphCanonicalIr(
   specs: ReadonlyMap<string, Spec>,
   enums: EnumMap,
   source: { version: string; revision?: string },
@@ -24,7 +24,7 @@ export function metaCanonicalIr(
         .filter((field) => !field.not_visible)
         .map((field) => ({
           name: field.name,
-          type: metaType(field.type, objectNames, enumNames, unresolvedSchemas),
+          type: graphType(field.type, objectNames, enumNames, unresolvedSchemas),
           required: false,
           nullable: false,
         })),
@@ -46,18 +46,18 @@ export function metaCanonicalIr(
       if (!capabilityMap.has(capabilityId)) {
         capabilityMap.set(capabilityId, {
           id: capabilityId,
-          summary: `${effect === "read" ? "Read" : "Manage"} Meta ${specName}`,
+          summary: `${effect === "read" ? "Read" : "Manage"} Facebook Graph ${specName}`,
           requiredScopes: [],
         });
       }
-      const baseId = `Meta${pascal(specName)}${pascal(action)}`;
+      const baseId = `Facebook${pascal(specName)}${pascal(action)}`;
       const count = (endpointNames.get(baseId) ?? 0) + 1;
       endpointNames.set(baseId, count);
       const id = count === 1 ? baseId : `${baseId}${count}`;
       endpoints.push({
         id,
-        operationId: `meta.${lowerCamel(specName)}.${lowerCamel(action)}${count === 1 ? "" : count}`,
-        platform: "meta",
+        operationId: `facebook.${lowerCamel(specName)}.${lowerCamel(action)}${count === 1 ? "" : count}`,
+        platform: "facebook",
         method: api.method,
         path: api.endpoint ? `/{id}/${api.endpoint}` : "/{id}",
         parameters: [
@@ -71,12 +71,12 @@ export function metaCanonicalIr(
           ...api.params.map((parameter) => ({
             name: parameter.name,
             location: api.method === "POST" ? ("body" as const) : ("query" as const),
-            type: metaType(parameter.type, objectNames, enumNames, unresolvedSchemas),
+            type: graphType(parameter.type, objectNames, enumNames, unresolvedSchemas),
             required: parameter.required,
             nullable: false,
           })),
         ],
-        output: metaType(api.return, objectNames, enumNames, unresolvedSchemas),
+        output: graphType(api.return, objectNames, enumNames, unresolvedSchemas),
         errors: [
           { status: 400, retryable: false },
           { status: 401, retryable: false },
@@ -90,7 +90,7 @@ export function metaCanonicalIr(
         idempotency: api.method === "GET" ? "safe" : "unsafe",
         requiredScopes: [],
         capabilities: [capabilityId],
-        rateLimitBucket: "meta-graph-api",
+        rateLimitBucket: "facebook-graph-api",
         authSchemes: ["AccessToken"],
         protocols: api.params.some((parameter) => parameter.type === "file")
           ? ["json", "multipart"]
@@ -101,7 +101,7 @@ export function metaCanonicalIr(
   }
 
   return {
-    platform: "meta",
+    platform: "facebook",
     source: {
       kind: "vendor-json",
       location: "packages/meta-business-sdk/api_specs",
@@ -120,7 +120,7 @@ export function metaCanonicalIr(
   };
 }
 
-function metaType(
+function graphType(
   raw: string,
   objectNames: ReadonlySet<string>,
   enumNames: ReadonlySet<string>,
@@ -154,13 +154,13 @@ function metaType(
   if (generic?.outer === "list") {
     return {
       kind: "array",
-      items: metaType(generic.inner[0]!, objectNames, enumNames, unresolvedSchemas),
+      items: graphType(generic.inner[0]!, objectNames, enumNames, unresolvedSchemas),
     };
   }
   if (generic?.outer === "map") {
     return {
       kind: "record",
-      values: metaType(generic.inner[1] ?? "unknown", objectNames, enumNames, unresolvedSchemas),
+      values: graphType(generic.inner[1] ?? "unknown", objectNames, enumNames, unresolvedSchemas),
     };
   }
   const enumName = enumTypeToTsName(type);

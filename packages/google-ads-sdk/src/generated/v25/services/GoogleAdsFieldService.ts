@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d96336cd0ebbf6b0d47007caafdbfae2a32cac3c6943c59f3d4c6c2dd9b7bc10
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { GetGoogleAdsFieldRequest, GoogleAdsField, SearchGoogleAdsFieldsRequest, SearchGoogleAdsFieldsResponse } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

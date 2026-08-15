@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2b1c565f8297c7c87d9881b2742aba498c1a2f58491c3d67d464c03b6c70d0d2
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated endpoint params for AT Protocol lexicons — do not edit
 
 import type { AppBskyActorDefsPreferences, AppBskyDraftDefsDraft, AppBskyDraftDefsDraftWithId, AppBskyFeedDefsInteraction, AppBskyNotificationDefsActivitySubscription, AppBskyNotificationDefsChatPreference, AppBskyNotificationDefsFilterablePreference, AppBskyNotificationDefsPreference, ComAtprotoAdminDefsRepoRef, ComAtprotoRepoStrongRef, ComAtprotoAdminDefsRepoBlobRef, ComAtprotoAdminDefsStatusAttr, ComAtprotoModerationDefsReasonType, ComAtprotoModerationCreateReportModTool, ComAtprotoRepoApplyWritesCreate, ComAtprotoRepoApplyWritesUpdate, ComAtprotoRepoApplyWritesDelete } from "./types.ts";

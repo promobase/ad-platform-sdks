@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f533eafeebee28963908bb9e82544ed22b1ccc7c0e169b49abdd2458b84e9139
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for app.bsky.embed — do not edit
 import type { BlueskyApiClient } from "../../api-client.ts";
 import type { AppBskyEmbedExternalView, ComAtprotoRepoStrongRef, GetEmbedExternalViewResponse } from "../types.ts";

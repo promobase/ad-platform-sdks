@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:738d558d656307e7ef6716e9f7ba3f82478c40d60138bcd952ac84fff230dcee
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { CanvasFields } from "./canvas.ts";
 import type { PhotoFields } from "./photo.ts";

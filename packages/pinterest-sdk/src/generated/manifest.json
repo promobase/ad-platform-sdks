@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:c9f9aa92620793582216bae223174f5e45c5255af9b7d27730f83728209c8429",
+    "doNotEdit": true
+  },
   "source": "https://github.com/pinterest/api-description",
   "specSha256": "1f14913381fe507d55e9e162c717b4b79f11077dcaf2329bb68d4f46940964a7",
   "endpoints": 266,

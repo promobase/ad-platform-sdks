@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2ae9437130be9fe9b282d765ac7124ece18e543a29cde8138804ad892dd7e2bd
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ProfileFields } from "./profile.ts";
 
 export interface AudioVisualReferenceMatchFields {

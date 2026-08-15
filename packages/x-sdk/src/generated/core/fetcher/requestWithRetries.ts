@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:09602ea73164f4399ce86aeb7e6809226dfd4362e2e6a6799572c3391db4775c
+// DO NOT EDIT: generated file; changes will be overwritten.
 const INITIAL_RETRY_DELAY = 1000; // in milliseconds
 const MAX_RETRY_DELAY = 60000; // in milliseconds
 const DEFAULT_MAX_RETRIES = 2;

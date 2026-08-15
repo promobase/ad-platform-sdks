@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:bd6418a852bfccd7eca216c431e8be6716c8455b00763638fb6a5f935def60ce
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for profile-engagement — do not edit
 
 export interface Segment {

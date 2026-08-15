@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a6e51b2fa45337b0a989e765df6fc1d6c77fa45469c0e1cbcee18fae2ebec3a0
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 import { defineEndpointDescriptor } from "@openpromo/sdk-runtime/effect";
 import { Schema } from "effect";

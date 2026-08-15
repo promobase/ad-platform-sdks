@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2f3f7630f44f12389398361e7d1d8bacf78ec1b1ba060cadc1962ddc5241513b
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface McomInvoiceStatusFields {
   bank_account_number: string;
   bank_code: string;

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:83b0a50dd1c51bd33985e1d2983824fecf87f13f1c5be2a698a00852506009ad
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface LeadGenFormPreviewDetailsFields {
   book_on_website_text: string;
   call_business_text: string;

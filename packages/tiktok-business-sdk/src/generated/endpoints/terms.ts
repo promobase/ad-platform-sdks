@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ee59a0fb6832b41799d8a57efe8666d714b8284c98e34f26745f707e278164ae
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Terms — do not edit
 import type { TermGetParams, TermGetResponse, TermConfirmParams, TermConfirmResponse, TermCheckParams, TermCheckResponse } from "../types/terms.ts";
 

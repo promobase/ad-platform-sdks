@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:12a105810c747a4b05f67a5ee2a4fc3459b330985356035e1804424d59b62586",
+    "doNotEdit": true
+  },
   "platform": "reddit",
   "source": {
     "kind": "openapi",

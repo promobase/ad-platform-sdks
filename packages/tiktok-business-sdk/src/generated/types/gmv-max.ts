@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:4c5b079b25948e67c521d745813db171561390439c1eed7a2648d64c74940612
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for GMV Max — do not edit
 
 export interface GmvMaxCampaignGetParams {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2da344805c01bbc21e10e6bd1b744a7f568bbd4e97f6c77688cbcc3710b1238e
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface IGBCAdsPermissionFields {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:712ca50d4d97a3da00e67a69bdda7a0b205774dd96553601ac7f4052fba3a332
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated barrel — do not edit
 
 export { createAdGroupsClient } from "./endpoints/ad-groups.ts";

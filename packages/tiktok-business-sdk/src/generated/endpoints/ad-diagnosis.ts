@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c140b11d28e2606949044c8d1b753ccacf90464aed26b49b3b913f3458979cbb
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Ad Diagnosis — do not edit
 import type { ToolDiagnosisGetParams, ToolDiagnosisGetResponse } from "../types/ad-diagnosis.ts";
 

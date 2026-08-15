@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7b8f0bcf270b3a2556138362f94e5d679e300a7fccea0f6aa4f4d6def2e89679
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { CurrencyConstantSelectableField } from "./resources/currency_constant.ts";
 import type { KeywordPlanCampaignSelectableField } from "./resources/keyword_plan_campaign.ts";
 import type { AdGroupAssetSelectableField } from "./resources/ad_group_asset.ts";

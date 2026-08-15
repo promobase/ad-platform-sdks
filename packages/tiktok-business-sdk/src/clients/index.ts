@@ -1,3 +1,4 @@
+import { TikTokApiClient } from "../api-client.ts";
 import { createAccount } from "./account.ts";
 import { createComments } from "./comments.ts";
 import { createDiscovery, createDiscoveryMusic } from "./discovery.ts";
@@ -14,7 +15,16 @@ import { createWebhooks } from "./webhooks.ts";
 export type * from "./types.ts";
 
 export function createTikTokClient(opts: TikTokClientOptions) {
+  const api = new TikTokApiClient({
+    accessToken: opts.accessToken,
+    baseUrl: "https://business-api.tiktok.com/open_api/v1.3",
+    fetch: opts.fetch,
+    signal: opts.signal,
+  });
+
   return {
+    /** Typed low-level REST escape hatch for endpoints without a convenience wrapper. */
+    api,
     videos: createVideos(opts),
     photos: createPhotos(opts),
     comments: createComments(opts),

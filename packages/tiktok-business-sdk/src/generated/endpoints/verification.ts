@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0db3dcb2307b79eb625cbbfd108b25255dabd906957f780811834daff31a4136
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Verification — do not edit
 import type { AccountVerificationFiletypeParams, AccountVerificationFiletypeResponse, AccountVerificationUploadParams, AccountVerificationUploadResponse, AccountVerificationSubmitParams, AccountVerificationSubmitResponse, AccountVerificationStatusParams, AccountVerificationStatusResponse } from "../types/verification.ts";
 

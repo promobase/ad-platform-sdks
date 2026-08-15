@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:8297af4c03ce6a800bf2f1a21e0f594355761b3043dd7130f32a0b229699c4bd
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Ad Accounts — do not edit
 import type { Oauth2AdvertiserGetParams, Oauth2AdvertiserGetResponse, AdvertiserInfoParams, AdvertiserInfoResponse } from "../types/ad-accounts.ts";
 

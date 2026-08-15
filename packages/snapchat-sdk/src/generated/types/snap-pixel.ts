@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:1f18ef68e6332c016f4c5fd7034478d9350d8a6365fbdcb21a23a0af28b59840
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for snap-pixel — do not edit
 
 export interface Pixel {

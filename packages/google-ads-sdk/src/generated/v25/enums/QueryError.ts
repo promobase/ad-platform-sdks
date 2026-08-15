@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ebb0cfbeb3d3c9527783a7fc9f17609446e124215497d3148f8ea0b4318c36de
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.QueryErrorEnum.QueryError. Do not edit by hand.
 export type QueryError =
   | "UNSPECIFIED"

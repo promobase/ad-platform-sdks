@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:65953a1570411def7090af3dd29a29934bfac34af517682d5f7411fe9e16b70a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for BC Payment Portfolios — do not edit
 import type { PaymentPortfolioGetParams, PaymentPortfolioGetResponse, PaymentPortfolioCreateParams, PaymentPortfolioCreateResponse, PaymentPortfolioAdvertiserUpdateParams, PaymentPortfolioAdvertiserUpdateResponse, PaymentPortfolioCreditLineUpdateParams, PaymentPortfolioCreditLineUpdateResponse, PaymentPortfolioAdvertiserGetParams, PaymentPortfolioAdvertiserGetResponse, PaymentPortfolioUserGetParams, PaymentPortfolioUserGetResponse } from "../types/bc-payment-portfolios.ts";
 

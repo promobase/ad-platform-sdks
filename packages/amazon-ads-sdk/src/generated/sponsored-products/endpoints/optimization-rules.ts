@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c301384f0f1120d3b499d0eb1a4df7f44ed1ec16423b21402a751bd18f094abd
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Optimization Rules — do not edit
 import type { AmazonAdsApiClient } from "../../../api-client.ts";
 import type { SearchOptimizationRulesResponse } from "../types.ts";

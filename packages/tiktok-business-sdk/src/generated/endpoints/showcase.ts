@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:4ab8a5c683ea9b42531c34f0c1aca4d4b2d48c38db7234c8627badeb254b99b5
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Showcase — do not edit
 import type { ShowcaseIdentityGetParams, ShowcaseIdentityGetResponse, ShowcaseRegionGetParams, ShowcaseRegionGetResponse, ShowcaseProductGetParams, ShowcaseProductGetResponse } from "../types/showcase.ts";
 

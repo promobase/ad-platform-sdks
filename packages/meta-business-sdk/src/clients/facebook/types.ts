@@ -13,16 +13,23 @@ export type { PagePostFields } from "../../generated/objects/page-post.ts";
 export type { PhotoFields } from "../../generated/objects/photo.ts";
 
 export interface FacebookPageClientOptions {
-  api: ReturnType<typeof import("../../generated/index.ts").createClient>;
+  /** Optional preconfigured generated client; created automatically when omitted. */
+  api?: ReturnType<typeof import("../../generated/index.ts").createClient>;
   pageId: string;
   accessToken: string; // needed for video upload flows (reels, stories)
   fetch?: typeof fetch;
   signal?: AbortSignal;
+  apiVersion?: string;
 }
 
 export interface PublishTextPostOptions {
   message: string;
   link?: string;
+  attachedMedia?: ReadonlyArray<{ mediaFbid: string }>;
+  callToAction?: {
+    type: string;
+    value: { link: string };
+  };
   published?: boolean;
   scheduledPublishTime?: number | string;
 }
@@ -72,7 +79,10 @@ export interface FacebookPermission {
   status: string;
 }
 
-export interface FacebookPageInfo extends PageToken {
+export interface FacebookPageInfo {
+  id: string;
+  name: string;
+  access_token?: string;
   username?: string;
   category?: string;
   fan_count?: number;
@@ -106,6 +116,22 @@ export interface PublishVideoStoryOptions {
 export interface VideoUploadSession {
   videoId: string;
   uploadUrl: string;
+}
+
+export interface VideoUploadInput {
+  uploadUrl: string;
+  videoUrl: string;
+}
+
+export interface VideoUploadResult {
+  success: boolean;
+  message?: string;
+}
+
+export interface FacebookVideoDetails {
+  id: string;
+  source?: string;
+  thumbnails?: { data: { uri: string }[] };
 }
 
 export interface VideoStatus {

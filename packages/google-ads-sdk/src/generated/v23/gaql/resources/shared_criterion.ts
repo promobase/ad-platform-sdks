@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0f386440e68d6b992790b7fdb2cb4923532f14825afd4c77d21be15defcf3bc8
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type SharedCriterionSelectableField =
   | "shared_criterion.resource_name"

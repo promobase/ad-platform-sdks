@@ -1,0 +1,50 @@
+---
+title: "Facebook ALM Event endpoints"
+description: "1 generated Facebook endpoint contract for ALM Event."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 165
+  label: "ALM Event"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:9f400df610eec14c29ec1bb114d30af938a8771790dc9ff5dc365cbd0ebc782e -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.aLMEvent.get
+
+`GET` `/{id}`
+
+GET ALMEvent
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `aLMEvent.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ALMEventFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

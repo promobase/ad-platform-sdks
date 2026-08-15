@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ed74294015c621d0c0fabbf5b6f3fcfb878171cdd89fe9778a451889b2f6e2d5
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { CallAssetParameters, CallExtensionParameters, CalloutAssetParameters, CalloutExtensionParameters, CampaignBudgetParameters, ForecastingSetTargetCpaParameters, ForecastingSetTargetRoasParameters, KeywordParameters, LeadFormAssetParameters, LowerTargetRoasParameters, MoveUnusedBudgetParameters, RaiseTargetCpaBidTooLowParameters, RaiseTargetCpaParameters, ResponsiveSearchAdAssetParameters, ResponsiveSearchAdImproveAdStrengthParameters, ResponsiveSearchAdParameters, SitelinkAssetParameters, SitelinkExtensionParameters, TargetCpaOptInParameters, TargetRoasOptInParameters, TextAdParameters, UseBroadMatchKeywordParameters } from "../index.ts";
 
 // Generated from google.ads.googleads.v25.services.ApplyRecommendationOperation. Do not edit by hand.

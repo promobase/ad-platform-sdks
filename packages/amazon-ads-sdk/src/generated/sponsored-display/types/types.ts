@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a9c49576855d6a46f22e7ba31c1623f602644db0810bdf88e8b7dcf0cf4a8aee
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
 export interface AssociatedBudgetRuleResponse {

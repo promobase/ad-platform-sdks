@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:099a3cbb49ebecfd9990d56b18970887464017b29bde92801c737f11d8024ffa
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Product ads — do not edit
 import type { AmazonAdsApiClient } from "../../../api-client.ts";
 import type { ListSponsoredProductsProductAdsResponse } from "../types.ts";

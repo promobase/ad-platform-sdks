@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2348b8238e32da367297bb062df0327bac1dbd97ac3e882888f9131489eef228
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Files — do not edit
 
 export interface FileTemporarilyUploadParams {

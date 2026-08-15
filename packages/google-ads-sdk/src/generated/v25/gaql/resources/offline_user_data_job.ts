@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:1425ae89015b72e63a7435592313dabf6ef3026d1a5c13bba46d55e1f32a947d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type OfflineUserDataJobSelectableField =
   | "offline_user_data_job.resource_name"

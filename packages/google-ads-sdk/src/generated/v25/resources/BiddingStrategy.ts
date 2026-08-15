@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a080720164c3542de33d39d415f3fcb7b91b31d8f09bad47db2cae466e2ff653
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { BiddingStrategyStatus, BiddingStrategyType, EnhancedCpc, MaximizeConversionValue, MaximizeConversions, TargetCpa, TargetImpressionShare, TargetRoas, TargetSpend } from "../index.ts";
 
 // Generated from google.ads.googleads.v25.resources.BiddingStrategy. Do not edit by hand.

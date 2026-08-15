@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d18c7abd1785bb4e73d04f2ffbe97718c80bfe390141d93ad2e5ad3aa09602dc
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AdsPixelRealTimeEventLogResultFields {
   data_json: string;
   dedup_data: string;

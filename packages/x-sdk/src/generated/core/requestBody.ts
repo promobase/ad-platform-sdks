@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:009956c00aa5a6836a0c29774524788aa86c8bdd030a3fc301cbc8b3cd49450a
+// DO NOT EDIT: generated file; changes will be overwritten.
 /**
  * Spreads caller-supplied `additionalBodyParameters` (from `requestOptions.additionalBodyParameters`)
  * on top of the request body. Caller-supplied properties win over the endpoint body. When no

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ae591ced5e82953bc8d61c0400477149ae64995c257f8243ee43472c49751e1b
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Bid Suggestions — do not edit
 import type { RedditApiClient } from "../../api-client.ts";
 import type { RedditEnvelope } from "../../envelope.ts";

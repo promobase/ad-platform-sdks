@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:edcd2c9a33c93a087f845539f907b873edefc0c1c16b39be0a2265230555f634
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Catalog Video Templates — do not edit
 import type { CatalogVideoPackageGetParams, CatalogVideoPackageGetResponse, CatalogVideoPackageCreateParams, CatalogVideoPackageCreateResponse, CatalogVideoPackageUpdateParams, CatalogVideoPackageUpdateResponse, CatalogVideoPackageDeleteParams, CatalogVideoPackageDeleteResponse, CatalogTemplateUploadParams, CatalogTemplateUploadResponse, CatalogTemplatePreviewCreateParams, CatalogTemplatePreviewCreateResponse } from "../types/catalog-video-templates.ts";
 

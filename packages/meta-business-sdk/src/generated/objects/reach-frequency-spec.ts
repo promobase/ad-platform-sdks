@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f8ffdd5d69d48e8423c9a2009481ad9ecc76b23bd8d3d77ebe5a82ad264dda58
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface ReachFrequencySpecFields {
   countries: string[];
   default_creation_data: Record<string, unknown>;

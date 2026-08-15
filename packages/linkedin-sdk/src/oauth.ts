@@ -1,3 +1,5 @@
+import * as v from "valibot";
+
 import type { LinkedInOAuthConfig, LinkedInTokenResponse, LinkedInUserInfo } from "./types.ts";
 
 const LINKEDIN_OAUTH_BASE = "https://www.linkedin.com/oauth/v2";
@@ -11,6 +13,25 @@ const DEFAULT_SCOPES = [
   "w_organization_social",
   "rw_organization_admin",
 ];
+
+const tokenSchema = v.object({
+  access_token: v.string(),
+  expires_in: v.number(),
+  refresh_token: v.optional(v.string()),
+  refresh_token_expires_in: v.optional(v.number()),
+  scope: v.optional(v.string()),
+  token_type: v.string(),
+});
+const userInfoSchema = v.object({
+  sub: v.string(),
+  name: v.string(),
+  given_name: v.optional(v.string()),
+  family_name: v.optional(v.string()),
+  picture: v.optional(v.string()),
+  email: v.optional(v.string()),
+  email_verified: v.optional(v.boolean()),
+  locale: v.optional(v.object({ country: v.string(), language: v.string() })),
+});
 
 export function createLinkedInOAuth(config: LinkedInOAuthConfig) {
   const fetchImpl = config.fetch ?? fetch;
@@ -59,7 +80,7 @@ export function createLinkedInOAuth(config: LinkedInOAuthConfig) {
         const error = await response.text();
         throw new Error(`LinkedIn userinfo failed: ${error}`);
       }
-      return response.json() as Promise<LinkedInUserInfo>;
+      return v.parse(userInfoSchema, await response.json());
     },
 
     async completeOAuth(code: string): Promise<{
@@ -94,5 +115,5 @@ async function tokenRequest(
     throw new Error(`${message}: ${error}`);
   }
 
-  return response.json() as Promise<LinkedInTokenResponse>;
+  return v.parse(tokenSchema, await response.json());
 }

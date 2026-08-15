@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:731a6939d3d7b9599a567b5bc861a7ed1736e4e006ae7f19fc0265b199124565
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdAccountFields } from "./ad-account.ts";
 import type { BusinessFields } from "./business.ts";
 import type { ExternalEventSourceFields } from "./external-event-source.ts";
@@ -36,7 +39,7 @@ export function eventSourceGroupNode(client: ApiClient, id: string) {
       __path: `${id}/shared_accounts`,
       __brand: undefined as unknown as AdAccountFields,
       list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/shared_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/shared_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: EventSourceGroupCreateSharedAccountsParams) =>
         client.post<EventSourceGroupFields>(`${id}/shared_accounts`, params as Record<string, unknown>),
     },

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0a9436a39410a2a0fd8c70464ee997455946d176024274dedf9e1ff471fdae2f
+// DO NOT EDIT: generated file; changes will be overwritten.
 interface DenoGlobal {
     version: {
         deno: string;

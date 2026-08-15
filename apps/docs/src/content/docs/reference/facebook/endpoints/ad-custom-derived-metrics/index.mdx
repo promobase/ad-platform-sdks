@@ -1,0 +1,50 @@
+---
+title: "Facebook Ad Custom Derived Metrics endpoints"
+description: "1 generated Facebook endpoint contract for Ad Custom Derived Metrics."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 118
+  label: "Ad Custom Derived Metrics"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:02a27267671dad2254d6ec4adc0184456a93412c4efb9cc0677a345ab5784e7d -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.adCustomDerivedMetrics.get
+
+`GET` `/{id}`
+
+GET AdCustomDerivedMetrics
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adCustomDerivedMetrics.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdCustomDerivedMetricsFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

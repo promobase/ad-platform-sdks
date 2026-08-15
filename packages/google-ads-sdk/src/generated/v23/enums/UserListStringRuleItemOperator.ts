@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:cff574c8fc03075847d18b13e2a8035b583370c0934da6b20b42fc79e23b8a9c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.enums.UserListStringRuleItemOperatorEnum.UserListStringRuleItemOperator. Do not edit by hand.
 export type UserListStringRuleItemOperator =
   | "UNSPECIFIED"

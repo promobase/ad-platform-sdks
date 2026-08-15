@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:4b8dd0e4a5ad0713cad18a78535a6aac9d358e6b9e584f78530dcd8dffd9c71f",
+    "doNotEdit": true
+  },
   "source": "https://github.com/nanobanana123/reddit-ads-api",
   "specSha256": "db14c4b0d950c7a10bc432de4bce7c00f6f3c103146af950e749f4cc4ad76e05",
   "endpoints": 40,

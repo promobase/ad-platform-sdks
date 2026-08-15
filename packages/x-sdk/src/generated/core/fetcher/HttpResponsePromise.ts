@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:da295a4980248b49daea8e1ef5a95fdc5dd2d387168d8ae8fd3ab6b8c26f3c39
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { WithRawResponse } from "./RawResponse.js";
 
 /**

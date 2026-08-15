@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b3cc111d6fea3401af71d0f31ab5876de1c50d7edbe631b3c543732b95f91348
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdCampaignPlacementGetEffectiveAudienceNetworkPositions, AdCampaignPlacementGetEffectiveDevicePlatforms, AdCampaignPlacementGetEffectiveFacebookPositions, AdCampaignPlacementGetEffectiveInstagramPositions, AdCampaignPlacementGetEffectiveMessengerPositions, AdCampaignPlacementGetEffectiveOculusPositions, AdCampaignPlacementGetEffectivePublisherPlatforms } from "../enums.ts";
 
 export interface AdCampaignPlacementGetFields {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:4e6633bc879d1aac7444a35fe74d9b0dcb6aa6c2959155b21dbe6520455e1785
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Campaign — do not edit
 
 export interface CampaignGetParams {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:814a93d22569a922b1658077aa3577696f1c7c3c3d9e3cef119bb1905961f783
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.enums.DistanceBucketEnum.DistanceBucket. Do not edit by hand.
 export type DistanceBucket =
   | "UNSPECIFIED"

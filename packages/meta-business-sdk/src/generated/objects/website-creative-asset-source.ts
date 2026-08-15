@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:dc193fa51e343d690f0b9cd5e2757cf25309bc79afddf78ab12f1d3087732257
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface WebsiteCreativeAssetSourceFields {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:170da89bb1351e8fefcf5d4e2a4b531e24cd613d85bb61a2241cefad2923d079
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Creative Portfolios — do not edit
 
 export interface CreativePortfolioCreateParams {

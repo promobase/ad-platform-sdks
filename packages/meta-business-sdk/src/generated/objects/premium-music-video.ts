@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7d9d20ecd237c76fa86e45a1cd3323c302b70c7b22509cec7fb075e4e6f11c6e
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface PremiumMusicVideoFields {
   creation_time: string;
   cross_post_videos: Record<string, unknown>[];

@@ -1,7 +1,17 @@
+import * as v from "valibot";
+
 import type { GoogleBusinessProfileOAuthConfig, GoogleOAuthTokenResponse } from "./types.ts";
 
 const AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
 const TOKEN_URL = "https://oauth2.googleapis.com/token";
+const tokenSchema = v.object({
+  access_token: v.string(),
+  expires_in: v.number(),
+  refresh_token: v.optional(v.string()),
+  scope: v.optional(v.string()),
+  token_type: v.string(),
+  id_token: v.optional(v.string()),
+});
 
 export function createGoogleBusinessProfileOAuth(config: GoogleBusinessProfileOAuthConfig) {
   const fetchImpl = config.fetch ?? fetch;
@@ -13,14 +23,15 @@ export function createGoogleBusinessProfileOAuth(config: GoogleBusinessProfileOA
       body,
       signal: config.signal,
     });
-    const data = (await response.json()) as GoogleOAuthTokenResponse & {
-      error?: string;
-      error_description?: string;
-    };
+    const data = (await response.json()) as Record<string, unknown>;
     if (!response.ok) {
-      throw new Error(data.error_description ?? data.error ?? "Google OAuth token request failed");
+      throw new Error(
+        (typeof data.error_description === "string" && data.error_description) ||
+          (typeof data.error === "string" && data.error) ||
+          "Google OAuth token request failed",
+      );
     }
-    return data;
+    return v.parse(tokenSchema, data);
   }
 
   return {

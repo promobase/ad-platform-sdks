@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:e2558d5c7a33660fbbdbe2d69cd4c04feac37760bb4e1cff2bcb514963aca83b",
+    "doNotEdit": true
+  },
   "platform": "youtube",
   "source": {
     "kind": "discovery",

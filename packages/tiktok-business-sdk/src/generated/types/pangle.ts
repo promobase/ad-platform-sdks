@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a898897f85831752be0d2ce27417bcdf85d8ee314380711236319a612971ed54
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Pangle — do not edit
 
 export interface PangleBlockListGetParams {

@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:7a0822cef93cda81dc564b3a713c4c6321732d4672ebe2c02cbb803b8c0f72d5
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdFields } from "./ad.ts";
 import type { AdActivityFields } from "./ad-activity.ts";
 import type { AdAsyncRequestFields } from "./ad-async-request.ts";
@@ -357,11 +360,11 @@ export function adSetNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     activities: <F extends (keyof AdActivityFields)[]>(opts: { fields: F; params?: AdSetListActivitiesParams }) =>
-      new Cursor<Pick<AdActivityFields, F[number]>>(client, `${id}/activities`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdActivityFields, F[number]>>(client, `${id}/activities`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     adStudies: <F extends (keyof AdStudyFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AdStudyFields, F[number]>>(client, `${id}/ad_studies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdStudyFields, F[number]>>(client, `${id}/ad_studies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     adcreatives: <F extends (keyof AdCreativeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AdCreativeFields, F[number]>>(client, `${id}/adcreatives`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdCreativeFields, F[number]>>(client, `${id}/adcreatives`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     adlabels: {
       __path: `${id}/adlabels`,
       __brand: undefined as unknown as AdSetFields,
@@ -371,16 +374,16 @@ export function adSetNode(client: ApiClient, id: string) {
         client.delete(`${id}/adlabels`, params as Record<string, unknown> ?? {}),
     },
     adrulesGoverned: <F extends (keyof AdRuleFields)[]>(opts: { fields: F; params?: AdSetListAdrulesGovernedParams }) =>
-      new Cursor<Pick<AdRuleFields, F[number]>>(client, `${id}/adrules_governed`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdRuleFields, F[number]>>(client, `${id}/adrules_governed`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     ads: <F extends (keyof AdFields)[]>(opts: { fields: F; params?: AdSetListAdsParams }) =>
-      new Cursor<Pick<AdFields, F[number]>>(client, `${id}/ads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdFields, F[number]>>(client, `${id}/ads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     asyncadrequests: <F extends (keyof AdAsyncRequestFields)[]>(opts: { fields: F; params?: AdSetListAsyncadrequestsParams }) =>
-      new Cursor<Pick<AdAsyncRequestFields, F[number]>>(client, `${id}/asyncadrequests`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdAsyncRequestFields, F[number]>>(client, `${id}/asyncadrequests`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     budgetSchedules: {
       __path: `${id}/budget_schedules`,
       __brand: undefined as unknown as HighDemandPeriodFields,
       list: <F extends (keyof HighDemandPeriodFields)[]>(opts: { fields: F; params?: AdSetListBudgetSchedulesParams }) =>
-        new Cursor<Pick<HighDemandPeriodFields, F[number]>>(client, `${id}/budget_schedules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<HighDemandPeriodFields, F[number]>>(client, `${id}/budget_schedules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: AdSetCreateBudgetSchedulesParams) =>
         client.post<HighDemandPeriodFields>(`${id}/budget_schedules`, params as Record<string, unknown>),
     },
@@ -388,24 +391,24 @@ export function adSetNode(client: ApiClient, id: string) {
       __path: `${id}/copies`,
       __brand: undefined as unknown as AdSetFields,
       list: <F extends (keyof AdSetFields)[]>(opts: { fields: F; params?: AdSetListCopiesParams }) =>
-        new Cursor<Pick<AdSetFields, F[number]>>(client, `${id}/copies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AdSetFields, F[number]>>(client, `${id}/copies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: AdSetCreateCopiesParams) =>
         client.post<AdSetFields>(`${id}/copies`, params as Record<string, unknown>),
     },
     deliveryEstimate: <F extends (keyof AdCampaignDeliveryEstimateFields)[]>(opts: { fields: F; params?: AdSetListDeliveryEstimateParams }) =>
-      new Cursor<Pick<AdCampaignDeliveryEstimateFields, F[number]>>(client, `${id}/delivery_estimate`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdCampaignDeliveryEstimateFields, F[number]>>(client, `${id}/delivery_estimate`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     insights: {
       __path: `${id}/insights`,
       __brand: undefined as unknown as AdsInsightsFields,
       list: <F extends (keyof AdsInsightsFields)[]>(opts: { fields: F; params?: AdSetListInsightsParams }) =>
-        new Cursor<Pick<AdsInsightsFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AdsInsightsFields, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: AdSetCreateInsightsParams) =>
         client.post<AdReportRunFields>(`${id}/insights`, params as Record<string, unknown>),
     },
     messageDeliveryEstimate: <F extends (keyof MessageDeliveryEstimateFields)[]>(opts: { fields: F; params?: AdSetListMessageDeliveryEstimateParams }) =>
-      new Cursor<Pick<MessageDeliveryEstimateFields, F[number]>>(client, `${id}/message_delivery_estimate`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<MessageDeliveryEstimateFields, F[number]>>(client, `${id}/message_delivery_estimate`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     targetingsentencelines: <F extends (keyof TargetingSentenceLineFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<TargetingSentenceLineFields, F[number]>>(client, `${id}/targetingsentencelines`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<TargetingSentenceLineFields, F[number]>>(client, `${id}/targetingsentencelines`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

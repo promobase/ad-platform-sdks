@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2ef0ee14f0e7fc7b106865baa0efe3ce0ebc09da595eee43175c078fbacd25fc
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.RequestErrorEnum.RequestError. Do not edit by hand.
 export type RequestError =
   | "UNSPECIFIED"

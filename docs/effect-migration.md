@@ -36,7 +36,7 @@ await youtube.dispose();
 ```
 
 The umbrella package exposes lazy platform subpaths such as
-`@openpromo/ad-platforms/youtube/effect`, `@openpromo/ad-platforms/meta/effect`, and
+`@openpromo/ad-platforms/youtube/effect`, `@openpromo/ad-platforms/facebook/effect`, and
 `@openpromo/ad-platforms/google-ads/v25/effect`. `@openpromo/ad-platforms/effect` exports only the
 shared runtime so importing it does not eagerly load every provider schema.
 

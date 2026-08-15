@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:fcf98e98c48989ddc7a710fa10a349a52e33be540b620132cdb0231b0ebc008c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Media Mix Modeling — do not edit
 
 export interface MmmApiCreateParams {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:735727cbbad1c15a7bbe6584396bb027b4321cf82b031f9562ca7be14fd3b0af
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Events 2.0 — do not edit
 import type { EventTrackParams, EventTrackResponse } from "../types/events-2-0.ts";
 

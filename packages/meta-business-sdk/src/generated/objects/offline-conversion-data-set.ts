@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:a2c1f3fe7670e65f8c6ea52eaff47c4c949b1f02183112dee606a5493a91dcba
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdAccountFields } from "./ad-account.ts";
 import type { BusinessFields } from "./business.ts";
 import type { CustomAudienceFields } from "./custom-audience.ts";
@@ -97,23 +100,23 @@ export function offlineConversionDataSetNode(client: ApiClient, id: string) {
     get: <F extends (keyof OfflineConversionDataSetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<OfflineConversionDataSetFields, F[number]>>(`${id}`, opts),
     adaccounts: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: OfflineConversionDataSetListAdaccountsParams }) =>
-      new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     agencies: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     audiences: <F extends (keyof CustomAudienceFields)[]>(opts: { fields: F; params?: OfflineConversionDataSetListAudiencesParams }) =>
-      new Cursor<Pick<CustomAudienceFields, F[number]>>(client, `${id}/audiences`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CustomAudienceFields, F[number]>>(client, `${id}/audiences`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     customconversions: <F extends (keyof CustomConversionFields)[]>(opts: { fields: F; params?: OfflineConversionDataSetListCustomconversionsParams }) =>
-      new Cursor<Pick<CustomConversionFields, F[number]>>(client, `${id}/customconversions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CustomConversionFields, F[number]>>(client, `${id}/customconversions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     serverEventsPermittedBusiness: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/server_events_permitted_business`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/server_events_permitted_business`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     sharedAccounts: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: OfflineConversionDataSetListSharedAccountsParams }) =>
-      new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/shared_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/shared_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     sharedAgencies: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: OfflineConversionDataSetListSharedAgenciesParams }) =>
-      new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/shared_agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/shared_agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     stats: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: OfflineConversionDataSetListStatsParams }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/stats`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/stats`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     uploads: <F extends (keyof OfflineConversionDataSetUploadFields)[]>(opts: { fields: F; params?: OfflineConversionDataSetListUploadsParams }) =>
-      new Cursor<Pick<OfflineConversionDataSetUploadFields, F[number]>>(client, `${id}/uploads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<OfflineConversionDataSetUploadFields, F[number]>>(client, `${id}/uploads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

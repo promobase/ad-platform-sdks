@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3b9f424e41061e750da719a9da050273b1b2425fd734450b08c244df274918e4
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface FAMEKumoFields {

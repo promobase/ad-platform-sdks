@@ -1,6 +1,6 @@
 import type { PaginationStrategy } from "@openpromo/sdk-runtime";
 
-export function metaPagination<T>(): PaginationStrategy<T> {
+export function graphPagination<T>(): PaginationStrategy<T> {
   return {
     getData(response: unknown): T[] {
       return (response as { data: T[] }).data ?? [];

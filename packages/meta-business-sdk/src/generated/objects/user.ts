@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:7e404a2f30e483b80614b1656d95d56e1fb0bc2a634fee687a4eb5e8606bf150
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdAccountFields } from "./ad-account.ts";
 import type { AdStudyFields } from "./ad-study.ts";
 import type { AdVideoFields } from "./ad-video.ts";
@@ -633,7 +636,7 @@ export function userNode(client: ApiClient, id: string) {
       __path: `${id}/accounts`,
       __brand: undefined as unknown as PageFields,
       list: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: UserListAccountsParams }) =>
-        new Cursor<Pick<PageFields, F[number]>>(client, `${id}/accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<PageFields, F[number]>>(client, `${id}/accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: UserCreateAccountsParams) =>
         client.post<Record<string, unknown>>(`${id}/accounts`, params as Record<string, unknown>),
     },
@@ -641,83 +644,83 @@ export function userNode(client: ApiClient, id: string) {
       __path: `${id}/ad_studies`,
       __brand: undefined as unknown as AdStudyFields,
       list: <F extends (keyof AdStudyFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<AdStudyFields, F[number]>>(client, `${id}/ad_studies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AdStudyFields, F[number]>>(client, `${id}/ad_studies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: UserCreateAdStudiesParams) =>
         client.post<AdStudyFields>(`${id}/ad_studies`, params as Record<string, unknown>),
     },
     adaccounts: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     albums: <F extends (keyof AlbumFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AlbumFields, F[number]>>(client, `${id}/albums`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AlbumFields, F[number]>>(client, `${id}/albums`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createApplication: (params: UserCreateApplicationsParams) =>
       client.post<UserFields>(`${id}/applications`, params as Record<string, unknown>),
     apprequestformerrecipients: <F extends (keyof AppRequestFormerRecipientFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AppRequestFormerRecipientFields, F[number]>>(client, `${id}/apprequestformerrecipients`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AppRequestFormerRecipientFields, F[number]>>(client, `${id}/apprequestformerrecipients`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     apprequests: <F extends (keyof AppRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AppRequestFields, F[number]>>(client, `${id}/apprequests`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AppRequestFields, F[number]>>(client, `${id}/apprequests`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     assignedAdAccounts: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/assigned_ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/assigned_ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     assignedApplications: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/assigned_applications`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/assigned_applications`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     assignedBusinessAssetGroups: <F extends (keyof BusinessAssetGroupFields)[]>(opts: { fields: F; params?: UserListAssignedBusinessAssetGroupsParams }) =>
-      new Cursor<Pick<BusinessAssetGroupFields, F[number]>>(client, `${id}/assigned_business_asset_groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessAssetGroupFields, F[number]>>(client, `${id}/assigned_business_asset_groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     assignedPages: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: UserListAssignedPagesParams }) =>
-      new Cursor<Pick<PageFields, F[number]>>(client, `${id}/assigned_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<PageFields, F[number]>>(client, `${id}/assigned_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     assignedProductCatalogs: <F extends (keyof ProductCatalogFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<ProductCatalogFields, F[number]>>(client, `${id}/assigned_product_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProductCatalogFields, F[number]>>(client, `${id}/assigned_product_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     assignedWhatsappBusinessAccounts: <F extends (keyof WhatsAppBusinessAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<WhatsAppBusinessAccountFields, F[number]>>(client, `${id}/assigned_whatsapp_business_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<WhatsAppBusinessAccountFields, F[number]>>(client, `${id}/assigned_whatsapp_business_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     businessUsers: <F extends (keyof BusinessUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<BusinessUserFields, F[number]>>(client, `${id}/business_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessUserFields, F[number]>>(client, `${id}/business_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     businesses: {
       __path: `${id}/businesses`,
       __brand: undefined as unknown as BusinessFields,
       list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/businesses`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/businesses`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: UserCreateBusinessesParams) =>
         client.post<BusinessFields>(`${id}/businesses`, params as Record<string, unknown>),
       delete: (params: UserDeleteBusinessesParams) =>
         client.delete(`${id}/businesses`, params as Record<string, unknown> ?? {}),
     },
     conversations: <F extends (keyof UnifiedThreadFields)[]>(opts: { fields: F; params?: UserListConversationsParams }) =>
-      new Cursor<Pick<UnifiedThreadFields, F[number]>>(client, `${id}/conversations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<UnifiedThreadFields, F[number]>>(client, `${id}/conversations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     customLabels: <F extends (keyof PageUserMessageThreadLabelFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<PageUserMessageThreadLabelFields, F[number]>>(client, `${id}/custom_labels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<PageUserMessageThreadLabelFields, F[number]>>(client, `${id}/custom_labels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     events: <F extends (keyof EventFields)[]>(opts: { fields: F; params?: UserListEventsParams }) =>
-      new Cursor<Pick<EventFields, F[number]>>(client, `${id}/events`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<EventFields, F[number]>>(client, `${id}/events`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     feed: {
       __path: `${id}/feed`,
       __brand: undefined as unknown as PostFields,
       list: <F extends (keyof PostFields)[]>(opts: { fields: F; params?: UserListFeedParams }) =>
-        new Cursor<Pick<PostFields, F[number]>>(client, `${id}/feed`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<PostFields, F[number]>>(client, `${id}/feed`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: UserCreateFeedParams) =>
         client.post<PostFields>(`${id}/feed`, params as Record<string, unknown>),
     },
     friends: <F extends (keyof UserFields)[]>(opts: { fields: F; params?: UserListFriendsParams }) =>
-      new Cursor<Pick<UserFields, F[number]>>(client, `${id}/friends`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<UserFields, F[number]>>(client, `${id}/friends`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     fundraisers: {
       __path: `${id}/fundraisers`,
       __brand: undefined as unknown as FundraiserPersonToCharityFields,
       list: <F extends (keyof FundraiserPersonToCharityFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<FundraiserPersonToCharityFields, F[number]>>(client, `${id}/fundraisers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<FundraiserPersonToCharityFields, F[number]>>(client, `${id}/fundraisers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: UserCreateFundraisersParams) =>
         client.post<FundraiserPersonToCharityFields>(`${id}/fundraisers`, params as Record<string, unknown>),
     },
     groups: <F extends (keyof GroupFields)[]>(opts: { fields: F; params?: UserListGroupsParams }) =>
-      new Cursor<Pick<GroupFields, F[number]>>(client, `${id}/groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<GroupFields, F[number]>>(client, `${id}/groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     idsForApps: <F extends (keyof UserIDForAppFields)[]>(opts: { fields: F; params?: UserListIdsForAppsParams }) =>
-      new Cursor<Pick<UserIDForAppFields, F[number]>>(client, `${id}/ids_for_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<UserIDForAppFields, F[number]>>(client, `${id}/ids_for_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     idsForBusiness: <F extends (keyof UserIDForAppFields)[]>(opts: { fields: F; params?: UserListIdsForBusinessParams }) =>
-      new Cursor<Pick<UserIDForAppFields, F[number]>>(client, `${id}/ids_for_business`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<UserIDForAppFields, F[number]>>(client, `${id}/ids_for_business`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     idsForPages: <F extends (keyof UserIDForPageFields)[]>(opts: { fields: F; params?: UserListIdsForPagesParams }) =>
-      new Cursor<Pick<UserIDForPageFields, F[number]>>(client, `${id}/ids_for_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<UserIDForPageFields, F[number]>>(client, `${id}/ids_for_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     likes: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: UserListLikesParams }) =>
-      new Cursor<Pick<PageFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<PageFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     liveVideos: {
       __path: `${id}/live_videos`,
       __brand: undefined as unknown as LiveVideoFields,
       list: <F extends (keyof LiveVideoFields)[]>(opts: { fields: F; params?: UserListLiveVideosParams }) =>
-        new Cursor<Pick<LiveVideoFields, F[number]>>(client, `${id}/live_videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<LiveVideoFields, F[number]>>(client, `${id}/live_videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: UserCreateLiveVideosParams) =>
         client.post<LiveVideoFields>(`${id}/live_videos`, params as Record<string, unknown>),
     },
@@ -726,42 +729,42 @@ export function userNode(client: ApiClient, id: string) {
     createMessengerKidsAccountsUnreadBadge: (params: UserCreateMessengerKidsAccountsUnreadBadgeParams) =>
       client.post<UserFields>(`${id}/messenger_kids_accounts_unread_badge`, params as Record<string, unknown>),
     music: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: UserListMusicParams }) =>
-      new Cursor<Pick<PageFields, F[number]>>(client, `${id}/music`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<PageFields, F[number]>>(client, `${id}/music`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createNotification: (params: UserCreateNotificationsParams) =>
       client.post<UserFields>(`${id}/notifications`, params as Record<string, unknown>),
     paymentTransactions: <F extends (keyof PaymentEnginePaymentFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<PaymentEnginePaymentFields, F[number]>>(client, `${id}/payment_transactions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<PaymentEnginePaymentFields, F[number]>>(client, `${id}/payment_transactions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     permissions: {
       __path: `${id}/permissions`,
       __brand: undefined as unknown as PermissionFields,
       list: <F extends (keyof PermissionFields)[]>(opts: { fields: F; params?: UserListPermissionsParams }) =>
-        new Cursor<Pick<PermissionFields, F[number]>>(client, `${id}/permissions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<PermissionFields, F[number]>>(client, `${id}/permissions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       delete: (params: UserDeletePermissionsParams) =>
         client.delete(`${id}/permissions`, params as Record<string, unknown> ?? {}),
     },
     personalAdAccounts: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/personal_ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/personal_ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     photos: {
       __path: `${id}/photos`,
       __brand: undefined as unknown as PhotoFields,
       list: <F extends (keyof PhotoFields)[]>(opts: { fields: F; params?: UserListPhotosParams }) =>
-        new Cursor<Pick<PhotoFields, F[number]>>(client, `${id}/photos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<PhotoFields, F[number]>>(client, `${id}/photos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: UserCreatePhotosParams) =>
         client.post<PhotoFields>(`${id}/photos`, params as Record<string, unknown>),
     },
     picture: <F extends (keyof ProfilePictureSourceFields)[]>(opts: { fields: F; params?: UserListPictureParams }) =>
-      new Cursor<Pick<ProfilePictureSourceFields, F[number]>>(client, `${id}/picture`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProfilePictureSourceFields, F[number]>>(client, `${id}/picture`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     posts: <F extends (keyof PostFields)[]>(opts: { fields: F; params?: UserListPostsParams }) =>
-      new Cursor<Pick<PostFields, F[number]>>(client, `${id}/posts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<PostFields, F[number]>>(client, `${id}/posts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     richMediaDocuments: <F extends (keyof CanvasFields)[]>(opts: { fields: F; params?: UserListRichMediaDocumentsParams }) =>
-      new Cursor<Pick<CanvasFields, F[number]>>(client, `${id}/rich_media_documents`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CanvasFields, F[number]>>(client, `${id}/rich_media_documents`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createStagingResource: (params: UserCreateStagingResourcesParams) =>
       client.post<UserFields>(`${id}/staging_resources`, params as Record<string, unknown>),
     videos: {
       __path: `${id}/videos`,
       __brand: undefined as unknown as AdVideoFields,
       list: <F extends (keyof AdVideoFields)[]>(opts: { fields: F; params?: UserListVideosParams }) =>
-        new Cursor<Pick<AdVideoFields, F[number]>>(client, `${id}/videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AdVideoFields, F[number]>>(client, `${id}/videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: UserCreateVideosParams) =>
         client.post<AdVideoFields>(`${id}/videos`, params as Record<string, unknown>),
     },

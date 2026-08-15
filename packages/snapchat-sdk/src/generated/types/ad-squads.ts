@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:362c5f706cf52f77e16b2f3ebe4258c408407d8ea1222b0f13dba80e3d3d1b84
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for ad-squads — do not edit
 
 export interface EcidStatu {}

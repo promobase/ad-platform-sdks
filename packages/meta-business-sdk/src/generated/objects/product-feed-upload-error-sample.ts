@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3300c738d8165c2709944e36354a01df4e88104b52a9717ca58e0a8b542caac3
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ProductFeedUploadErrorSampleFields {

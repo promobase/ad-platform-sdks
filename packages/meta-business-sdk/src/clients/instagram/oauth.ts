@@ -1,3 +1,5 @@
+import * as v from "valibot";
+
 import type {
   InstagramBusinessUserProfile,
   LongLivedToken,
@@ -7,6 +9,26 @@ import type {
 
 const IG_OAUTH_BASE = "https://api.instagram.com/oauth";
 const IG_GRAPH_BASE = "https://graph.instagram.com";
+
+const shortLivedTokenSchema = v.object({ access_token: v.string(), user_id: v.string() });
+const longLivedTokenSchema = v.object({
+  access_token: v.string(),
+  token_type: v.string(),
+  expires_in: v.number(),
+});
+const profileSchema = v.object({
+  id: v.string(),
+  user_id: v.optional(v.string()),
+  username: v.string(),
+  name: v.optional(v.string()),
+  account_type: v.optional(v.picklist(["BUSINESS", "MEDIA_CREATOR", "PERSONAL"])),
+  media_count: v.optional(v.number()),
+  followers_count: v.optional(v.number()),
+  follows_count: v.optional(v.number()),
+  biography: v.optional(v.string()),
+  profile_picture_url: v.optional(v.string()),
+  website: v.optional(v.string()),
+});
 
 export function createOAuth(config: OAuthConfig) {
   const fetchImpl = config.fetch ?? fetch;
@@ -55,7 +77,7 @@ export function createOAuth(config: OAuthConfig) {
         throw new Error(`OAuth code exchange failed: ${JSON.stringify(error)}`);
       }
 
-      return response.json() as Promise<ShortLivedToken>;
+      return v.parse(shortLivedTokenSchema, await response.json());
     },
 
     /**
@@ -77,7 +99,7 @@ export function createOAuth(config: OAuthConfig) {
         throw new Error(`Long-lived token exchange failed: ${JSON.stringify(error)}`);
       }
 
-      return response.json() as Promise<LongLivedToken>;
+      return v.parse(longLivedTokenSchema, await response.json());
     },
 
     /**
@@ -101,7 +123,7 @@ export function createOAuth(config: OAuthConfig) {
         throw new Error(`Token refresh failed: ${JSON.stringify(error)}`);
       }
 
-      return response.json() as Promise<LongLivedToken>;
+      return v.parse(longLivedTokenSchema, await response.json());
     },
 
     async getBusinessUserProfile(
@@ -126,7 +148,7 @@ export function createOAuth(config: OAuthConfig) {
         signal: config.signal,
       });
       if (!response.ok) throw new Error(`Instagram profile fetch failed: ${await response.text()}`);
-      return response.json() as Promise<InstagramBusinessUserProfile>;
+      return v.parse(profileSchema, await response.json());
     },
 
     /**

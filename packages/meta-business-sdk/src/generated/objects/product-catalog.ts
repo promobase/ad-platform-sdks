@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:7bd7ff093bfecbd5dad4e1cfa1e115b39d9f85c9edf499ee46ab3f89d847f8fd
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AssignedUserFields } from "./assigned-user.ts";
 import type { AutomotiveModelFields } from "./automotive-model.ts";
 import type { BusinessFields } from "./business.ts";
@@ -583,7 +586,7 @@ export function productCatalogNode(client: ApiClient, id: string) {
       __path: `${id}/agencies`,
       __brand: undefined as unknown as BusinessFields,
       list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductCatalogCreateAgenciesParams) =>
         client.post<ProductCatalogFields>(`${id}/agencies`, params as Record<string, unknown>),
       delete: (params: ProductCatalogDeleteAgenciesParams) =>
@@ -593,14 +596,14 @@ export function productCatalogNode(client: ApiClient, id: string) {
       __path: `${id}/assigned_users`,
       __brand: undefined as unknown as AssignedUserFields,
       list: <F extends (keyof AssignedUserFields)[]>(opts: { fields: F; params?: ProductCatalogListAssignedUsersParams }) =>
-        new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductCatalogCreateAssignedUsersParams) =>
         client.post<ProductCatalogFields>(`${id}/assigned_users`, params as Record<string, unknown>),
       delete: (params: ProductCatalogDeleteAssignedUsersParams) =>
         client.delete(`${id}/assigned_users`, params as Record<string, unknown> ?? {}),
     },
     automotiveModels: <F extends (keyof AutomotiveModelFields)[]>(opts: { fields: F; params?: ProductCatalogListAutomotiveModelsParams }) =>
-      new Cursor<Pick<AutomotiveModelFields, F[number]>>(client, `${id}/automotive_models`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AutomotiveModelFields, F[number]>>(client, `${id}/automotive_models`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createBatch: (params: ProductCatalogCreateBatchParams) =>
       client.post<ProductCatalogFields>(`${id}/batch`, params as Record<string, unknown>),
     createCatalogStore: (params: ProductCatalogCreateCatalogStoreParams) =>
@@ -609,51 +612,51 @@ export function productCatalogNode(client: ApiClient, id: string) {
       __path: `${id}/categories`,
       __brand: undefined as unknown as ProductCatalogCategoryFields,
       list: <F extends (keyof ProductCatalogCategoryFields)[]>(opts: { fields: F; params?: ProductCatalogListCategoriesParams }) =>
-        new Cursor<Pick<ProductCatalogCategoryFields, F[number]>>(client, `${id}/categories`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ProductCatalogCategoryFields, F[number]>>(client, `${id}/categories`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductCatalogCreateCategoriesParams) =>
         client.post<ProductCatalogCategoryFields>(`${id}/categories`, params as Record<string, unknown>),
     },
     checkBatchRequestStatus: <F extends (keyof CheckBatchRequestStatusFields)[]>(opts: { fields: F; params?: ProductCatalogListCheckBatchRequestStatusParams }) =>
-      new Cursor<Pick<CheckBatchRequestStatusFields, F[number]>>(client, `${id}/check_batch_request_status`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CheckBatchRequestStatusFields, F[number]>>(client, `${id}/check_batch_request_status`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     checkMarketplacePartnerDealsStatus: <F extends (keyof ProductCatalogCheckMarketplacePartnerDealsStatusFields)[]>(opts: { fields: F; params?: ProductCatalogListCheckMarketplacePartnerDealsStatusParams }) =>
-      new Cursor<Pick<ProductCatalogCheckMarketplacePartnerDealsStatusFields, F[number]>>(client, `${id}/check_marketplace_partner_deals_status`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProductCatalogCheckMarketplacePartnerDealsStatusFields, F[number]>>(client, `${id}/check_marketplace_partner_deals_status`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     checkMarketplacePartnerSellersStatus: <F extends (keyof ProductCatalogCheckMarketplacePartnerSellersStatusFields)[]>(opts: { fields: F; params?: ProductCatalogListCheckMarketplacePartnerSellersStatusParams }) =>
-      new Cursor<Pick<ProductCatalogCheckMarketplacePartnerSellersStatusFields, F[number]>>(client, `${id}/check_marketplace_partner_sellers_status`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProductCatalogCheckMarketplacePartnerSellersStatusFields, F[number]>>(client, `${id}/check_marketplace_partner_sellers_status`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     collaborativeAdsLsbImageBank: <F extends (keyof CPASLsbImageBankFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<CPASLsbImageBankFields, F[number]>>(client, `${id}/collaborative_ads_lsb_image_bank`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CPASLsbImageBankFields, F[number]>>(client, `${id}/collaborative_ads_lsb_image_bank`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     collaborativeAdsShareSettings: <F extends (keyof CollaborativeAdsShareSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<CollaborativeAdsShareSettingsFields, F[number]>>(client, `${id}/collaborative_ads_share_settings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CollaborativeAdsShareSettingsFields, F[number]>>(client, `${id}/collaborative_ads_share_settings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createCpasLsbImageBank: (params: ProductCatalogCreateCpasLsbImageBankParams) =>
       client.post<CPASLsbImageBankFields>(`${id}/cpas_lsb_image_bank`, params as Record<string, unknown>),
     creatorAssetCreatives: <F extends (keyof CreatorAssetCreativeFields)[]>(opts: { fields: F; params?: ProductCatalogListCreatorAssetCreativesParams }) =>
-      new Cursor<Pick<CreatorAssetCreativeFields, F[number]>>(client, `${id}/creator_asset_creatives`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CreatorAssetCreativeFields, F[number]>>(client, `${id}/creator_asset_creatives`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     dataSources: <F extends (keyof ProductCatalogDataSourceFields)[]>(opts: { fields: F; params?: ProductCatalogListDataSourcesParams }) =>
-      new Cursor<Pick<ProductCatalogDataSourceFields, F[number]>>(client, `${id}/data_sources`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProductCatalogDataSourceFields, F[number]>>(client, `${id}/data_sources`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     destinations: <F extends (keyof DestinationFields)[]>(opts: { fields: F; params?: ProductCatalogListDestinationsParams }) =>
-      new Cursor<Pick<DestinationFields, F[number]>>(client, `${id}/destinations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<DestinationFields, F[number]>>(client, `${id}/destinations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     diagnostics: <F extends (keyof ProductCatalogDiagnosticGroupFields)[]>(opts: { fields: F; params?: ProductCatalogListDiagnosticsParams }) =>
-      new Cursor<Pick<ProductCatalogDiagnosticGroupFields, F[number]>>(client, `${id}/diagnostics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProductCatalogDiagnosticGroupFields, F[number]>>(client, `${id}/diagnostics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     eventStats: <F extends (keyof ProductEventStatFields)[]>(opts: { fields: F; params?: ProductCatalogListEventStatsParams }) =>
-      new Cursor<Pick<ProductEventStatFields, F[number]>>(client, `${id}/event_stats`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProductEventStatFields, F[number]>>(client, `${id}/event_stats`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     externalEventSources: {
       __path: `${id}/external_event_sources`,
       __brand: undefined as unknown as ExternalEventSourceFields,
       list: <F extends (keyof ExternalEventSourceFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ExternalEventSourceFields, F[number]>>(client, `${id}/external_event_sources`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ExternalEventSourceFields, F[number]>>(client, `${id}/external_event_sources`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductCatalogCreateExternalEventSourcesParams) =>
         client.post<ProductCatalogFields>(`${id}/external_event_sources`, params as Record<string, unknown>),
       delete: (params: ProductCatalogDeleteExternalEventSourcesParams) =>
         client.delete(`${id}/external_event_sources`, params as Record<string, unknown> ?? {}),
     },
     flights: <F extends (keyof FlightFields)[]>(opts: { fields: F; params?: ProductCatalogListFlightsParams }) =>
-      new Cursor<Pick<FlightFields, F[number]>>(client, `${id}/flights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<FlightFields, F[number]>>(client, `${id}/flights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createGeolocatedItemsBatch: (params: ProductCatalogCreateGeolocatedItemsBatchParams) =>
       client.post<Record<string, unknown>>(`${id}/geolocated_items_batch`, params as Record<string, unknown>),
     homeListings: {
       __path: `${id}/home_listings`,
       __brand: undefined as unknown as HomeListingFields,
       list: <F extends (keyof HomeListingFields)[]>(opts: { fields: F; params?: ProductCatalogListHomeListingsParams }) =>
-        new Cursor<Pick<HomeListingFields, F[number]>>(client, `${id}/home_listings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<HomeListingFields, F[number]>>(client, `${id}/home_listings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductCatalogCreateHomeListingsParams) =>
         client.post<HomeListingFields>(`${id}/home_listings`, params as Record<string, unknown>),
     },
@@ -661,7 +664,7 @@ export function productCatalogNode(client: ApiClient, id: string) {
       __path: `${id}/hotel_rooms_batch`,
       __brand: undefined as unknown as ProductCatalogHotelRoomsBatchFields,
       list: <F extends (keyof ProductCatalogHotelRoomsBatchFields)[]>(opts: { fields: F; params?: ProductCatalogListHotelRoomsBatchParams }) =>
-        new Cursor<Pick<ProductCatalogHotelRoomsBatchFields, F[number]>>(client, `${id}/hotel_rooms_batch`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ProductCatalogHotelRoomsBatchFields, F[number]>>(client, `${id}/hotel_rooms_batch`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductCatalogCreateHotelRoomsBatchParams) =>
         client.post<ProductCatalogFields>(`${id}/hotel_rooms_batch`, params as Record<string, unknown>),
     },
@@ -669,7 +672,7 @@ export function productCatalogNode(client: ApiClient, id: string) {
       __path: `${id}/hotels`,
       __brand: undefined as unknown as HotelFields,
       list: <F extends (keyof HotelFields)[]>(opts: { fields: F; params?: ProductCatalogListHotelsParams }) =>
-        new Cursor<Pick<HotelFields, F[number]>>(client, `${id}/hotels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<HotelFields, F[number]>>(client, `${id}/hotels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductCatalogCreateHotelsParams) =>
         client.post<HotelFields>(`${id}/hotels`, params as Record<string, unknown>),
     },
@@ -689,7 +692,7 @@ export function productCatalogNode(client: ApiClient, id: string) {
       __path: `${id}/pricing_variables_batch`,
       __brand: undefined as unknown as ProductCatalogPricingVariablesBatchFields,
       list: <F extends (keyof ProductCatalogPricingVariablesBatchFields)[]>(opts: { fields: F; params?: ProductCatalogListPricingVariablesBatchParams }) =>
-        new Cursor<Pick<ProductCatalogPricingVariablesBatchFields, F[number]>>(client, `${id}/pricing_variables_batch`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ProductCatalogPricingVariablesBatchFields, F[number]>>(client, `${id}/pricing_variables_batch`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductCatalogCreatePricingVariablesBatchParams) =>
         client.post<ProductCatalogFields>(`${id}/pricing_variables_batch`, params as Record<string, unknown>),
     },
@@ -697,7 +700,7 @@ export function productCatalogNode(client: ApiClient, id: string) {
       __path: `${id}/product_feeds`,
       __brand: undefined as unknown as ProductFeedFields,
       list: <F extends (keyof ProductFeedFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ProductFeedFields, F[number]>>(client, `${id}/product_feeds`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ProductFeedFields, F[number]>>(client, `${id}/product_feeds`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductCatalogCreateProductFeedsParams) =>
         client.post<ProductFeedFields>(`${id}/product_feeds`, params as Record<string, unknown>),
     },
@@ -705,7 +708,7 @@ export function productCatalogNode(client: ApiClient, id: string) {
       __path: `${id}/product_groups`,
       __brand: undefined as unknown as ProductGroupFields,
       list: <F extends (keyof ProductGroupFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ProductGroupFields, F[number]>>(client, `${id}/product_groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ProductGroupFields, F[number]>>(client, `${id}/product_groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductCatalogCreateProductGroupsParams) =>
         client.post<ProductGroupFields>(`${id}/product_groups`, params as Record<string, unknown>),
     },
@@ -713,34 +716,34 @@ export function productCatalogNode(client: ApiClient, id: string) {
       __path: `${id}/product_sets`,
       __brand: undefined as unknown as ProductSetFields,
       list: <F extends (keyof ProductSetFields)[]>(opts: { fields: F; params?: ProductCatalogListProductSetsParams }) =>
-        new Cursor<Pick<ProductSetFields, F[number]>>(client, `${id}/product_sets`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ProductSetFields, F[number]>>(client, `${id}/product_sets`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductCatalogCreateProductSetsParams) =>
         client.post<ProductSetFields>(`${id}/product_sets`, params as Record<string, unknown>),
     },
     productSetsBatch: <F extends (keyof ProductCatalogProductSetsBatchFields)[]>(opts: { fields: F; params?: ProductCatalogListProductSetsBatchParams }) =>
-      new Cursor<Pick<ProductCatalogProductSetsBatchFields, F[number]>>(client, `${id}/product_sets_batch`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProductCatalogProductSetsBatchFields, F[number]>>(client, `${id}/product_sets_batch`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     products: {
       __path: `${id}/products`,
       __brand: undefined as unknown as ProductItemFields,
       list: <F extends (keyof ProductItemFields)[]>(opts: { fields: F; params?: ProductCatalogListProductsParams }) =>
-        new Cursor<Pick<ProductItemFields, F[number]>>(client, `${id}/products`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ProductItemFields, F[number]>>(client, `${id}/products`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductCatalogCreateProductsParams) =>
         client.post<ProductItemFields>(`${id}/products`, params as Record<string, unknown>),
     },
     createUpdateGeneratedImageConfig: (params: ProductCatalogCreateUpdateGeneratedImageConfigParams) =>
       client.post<ProductCatalogFields>(`${id}/update_generated_image_config`, params as Record<string, unknown>),
     vehicleOffers: <F extends (keyof VehicleOfferFields)[]>(opts: { fields: F; params?: ProductCatalogListVehicleOffersParams }) =>
-      new Cursor<Pick<VehicleOfferFields, F[number]>>(client, `${id}/vehicle_offers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<VehicleOfferFields, F[number]>>(client, `${id}/vehicle_offers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     vehicles: {
       __path: `${id}/vehicles`,
       __brand: undefined as unknown as VehicleFields,
       list: <F extends (keyof VehicleFields)[]>(opts: { fields: F; params?: ProductCatalogListVehiclesParams }) =>
-        new Cursor<Pick<VehicleFields, F[number]>>(client, `${id}/vehicles`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<VehicleFields, F[number]>>(client, `${id}/vehicles`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductCatalogCreateVehiclesParams) =>
         client.post<VehicleFields>(`${id}/vehicles`, params as Record<string, unknown>),
     },
     versionConfigs: <F extends (keyof CatalogContentVersionConfigFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<CatalogContentVersionConfigFields, F[number]>>(client, `${id}/version_configs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CatalogContentVersionConfigFields, F[number]>>(client, `${id}/version_configs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createVersionItemsBatch: (params: ProductCatalogCreateVersionItemsBatchParams) =>
       client.post<ProductCatalogFields>(`${id}/version_items_batch`, params as Record<string, unknown>),
   };

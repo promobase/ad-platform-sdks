@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7c12f1999e3222bcab3550d1d234d270d51fd60916066148b20671ab1873010a
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface InsightsValueFields {
   campaign_id: string;
   earning_source: string;

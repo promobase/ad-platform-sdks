@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0cb1568a9c0232f976e6c6cbcea6cad14e15a6392ca061bfe8d949ad111584f7
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for billing-centers — do not edit
 
 export interface Billingcenter {

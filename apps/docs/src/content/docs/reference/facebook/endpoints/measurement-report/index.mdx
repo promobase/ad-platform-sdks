@@ -1,0 +1,50 @@
+---
+title: "Facebook Measurement Report endpoints"
+description: "1 generated Facebook endpoint contract for Measurement Report."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 297
+  label: "Measurement Report"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:589c78920d73a03b331bc8e1e7cc17ec076cd3198cf3ae6573b5d6465417d2a1 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.measurementReport.get
+
+`GET` `/{id}`
+
+GET MeasurementReport
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `measurementReport.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `MeasurementReportFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

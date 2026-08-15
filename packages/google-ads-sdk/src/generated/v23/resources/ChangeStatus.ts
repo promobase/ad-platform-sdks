@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f68765f1ed882f111513c654c61bbcd96c5ba4fbffbf5a98832442a4c2c5c65a
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ChangeStatusOperation, ChangeStatusResourceType } from "../index.ts";
 
 // Generated from google.ads.googleads.v23.resources.ChangeStatus. Do not edit by hand.

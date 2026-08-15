@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a0e62e5d504cdc5399371e1abccbe91e3d1234a89543e5fd5eef13322b24e2fa
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface UserPageOneTimeOptInTokenSettingsFields {

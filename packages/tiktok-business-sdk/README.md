@@ -43,8 +43,16 @@ const tiktok = TikTok.createClient({
   businessId: "biz_123",
 });
 
+// The client also exposes a typed low-level REST escape hatch. Curated clients
+// remain preferable when available; use the generated factories for the full
+// docs-generated Business API surface.
+import type { BusinessGetResponse } from "@openpromo/tiktok/generated/types/accounts";
+const account = await tiktok.api.get<BusinessGetResponse>("/business/get/", {
+  business_id: "biz_123",
+});
+
 // Publish a video
-await tiktok.content.publishVideo({
+await tiktok.videos.publish({
   videoUrl: "https://cdn.example.com/clip.mp4",
   caption: "New drop 🔥",
 });
@@ -77,7 +85,7 @@ const { videos } = await accounts.listVideo(params);
 - **Current automation and verification APIs** — includes Automated Rules and account Verification
 - **OAuth** — token exchange, refresh
 - **Content publishing** — video, photo, carousel, status polling
-- **Webhooks** — Zod-validated payloads
+- **Webhooks** — runtime-validated payloads with typed event extraction
 - **AI SDK tools** — drop into any agent
 - **Runtime agnostic** — native `fetch`, no axios
 

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:5896af2d3a3fbbf7b5bf598891f2a96ed13fe590d0338c78eac8309c429fd983
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { ProfileFields } from "./profile.ts";
 import type { VideoCopyrightGeoGateFields } from "./video-copyright-geo-gate.ts";

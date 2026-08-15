@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:59781ab8178384817d537a84b9ba54c72012af08371e08842b9bc5bc202e3f85
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { LeadGenDraftQuestionFields } from "./lead-gen-draft-question.ts";
 import type { PageFields } from "./page.ts";

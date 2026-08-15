@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3578beb3e07dbffb1f7c4ee34560e22edc383ca883d8338f814dc2f8fa75b6b7
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for com.atproto.label — do not edit
 import type { BlueskyApiClient } from "../../api-client.ts";
 import type { ComAtprotoLabelDefsLabel, QueryLabelsResponse } from "../types.ts";

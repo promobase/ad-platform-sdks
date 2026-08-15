@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:13bcf50e901ee1990bd2c8aad2a6cb202cff1a4505a97084473d334f6b8fbec7
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for event-details — do not edit
 
 export interface EventDetail {

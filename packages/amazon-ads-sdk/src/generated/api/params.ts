@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2fa5cad1eb9b4a1e3eab59b701b1f1affb214b730ac787195e7ba517121625f6
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated endpoint params for the Amazon Ads API v3 — do not edit
 
 export interface ListBrandStoreEditionParams {

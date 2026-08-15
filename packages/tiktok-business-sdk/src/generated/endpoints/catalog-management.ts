@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3a6584f360ed506a5404d5c8b773c4431506c5a84fae5568dddc433af981a718
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Catalog Management — do not edit
 import type { CatalogCreateParams, CatalogCreateResponse, CatalogUpdateParams, CatalogUpdateResponse, CatalogDeleteParams, CatalogDeleteResponse, CatalogGetParams, CatalogGetResponse, CatalogLexiconGetParams, CatalogLexiconGetResponse, CatalogCapitalizeParams, CatalogCapitalizeResponse, CatalogAvailableCountryGetParams, CatalogAvailableCountryGetResponse, CatalogLocationCurrencyGetParams, CatalogLocationCurrencyGetResponse, CatalogOverviewParams, CatalogOverviewResponse } from "../types/catalog-management.ts";
 

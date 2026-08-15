@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a9a97b3e098bc435c3e6dbb9faae64c657a58973fc2d0dc1cbd2ad80ea08c0a6
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { HomeListingFields } from "./home-listing.ts";
 import type { LeadGenPostSubmissionCheckResultFields } from "./lead-gen-post-submission-check-result.ts";

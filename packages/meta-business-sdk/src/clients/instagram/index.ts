@@ -18,6 +18,8 @@ export function createInstagramClient(opts: InstagramClientOptions) {
   const containers = createContainers(api, igUser, opts.fetch, opts.signal);
 
   return {
+    /** Generated Graph client for provider operations without a convenience wrapper. */
+    api,
     media: createMedia(api, containers, igUser, polling),
     stories: createStories(containers, polling),
     comments: createComments(api),

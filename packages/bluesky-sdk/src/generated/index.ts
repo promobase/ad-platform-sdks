@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e553efe41f93b13e28b864ec7f6fa1a68055821fa993914520b540738401f919
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated barrel — do not edit
 
 export { createActorClient } from "./endpoints/actor.ts";

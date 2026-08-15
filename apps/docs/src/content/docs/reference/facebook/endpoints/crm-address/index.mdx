@@ -1,0 +1,50 @@
+---
+title: "Facebook CRM Address endpoints"
+description: "1 generated Facebook endpoint contract for CRM Address."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 230
+  label: "CRM Address"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:f07c105c8b0632e26d877f1cd489f0e659c73608a1b6cb0af91af2c640fa6aba -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.cRMAddress.get
+
+`GET` `/{id}`
+
+GET CRMAddress
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `cRMAddress.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CRMAddressFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

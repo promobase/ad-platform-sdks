@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:5605e7803cc36f6108d55dc1384a1bf969836906f5d9ef8413d43d93e5a99555
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Events 1.0 — do not edit
 
 export interface AppTrackParams {

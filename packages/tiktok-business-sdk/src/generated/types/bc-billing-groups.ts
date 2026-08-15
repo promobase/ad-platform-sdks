@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f311cba3c593d04cdc932bc15689fbf69c36d2c720eeb5ffdf86de65e341aff1
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for BC Billing Groups — do not edit
 
 export interface BcBillingGroupCreateParams {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:cb558b0ecce49b5c419d53a1a68380195345b01af08c046e6d43404260dcfabc
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdPlacePageSetFields } from "./ad-place-page-set.ts";
 import type { ProductSetFields } from "./product-set.ts";
 import type { AdPromotedObjectCustomEventType, AdPromotedObjectFullFunnelObjective, AdPromotedObjectLeadAdsCustomEventType, EventType } from "../enums.ts";

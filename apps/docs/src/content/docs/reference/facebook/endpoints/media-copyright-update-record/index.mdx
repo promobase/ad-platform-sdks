@@ -1,0 +1,50 @@
+---
+title: "Facebook Media Copyright Update Record endpoints"
+description: "1 generated Facebook endpoint contract for Media Copyright Update Record."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 299
+  label: "Media Copyright Update Record"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:d50e3a742b7673a9ea7f90a771da67a63d5896b4924a45c6f0b5c50d931316b7 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.mediaCopyrightUpdateRecord.get
+
+`GET` `/{id}`
+
+GET MediaCopyrightUpdateRecord
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `mediaCopyrightUpdateRecord.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `MediaCopyrightUpdateRecordFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

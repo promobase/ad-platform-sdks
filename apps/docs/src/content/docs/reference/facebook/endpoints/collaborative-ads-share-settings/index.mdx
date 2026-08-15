@@ -1,0 +1,50 @@
+---
+title: "Facebook Collaborative Ads Share Settings endpoints"
+description: "1 generated Facebook endpoint contract for Collaborative Ads Share Settings."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 214
+  label: "Collaborative Ads Share Settings"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:4473fcf45691873012e7ca2175027932858a5ec17f092779c81f31428eb0a56e -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.collaborativeAdsShareSettings.get
+
+`GET` `/{id}`
+
+GET CollaborativeAdsShareSettings
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `collaborativeAdsShareSettings.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CollaborativeAdsShareSettingsFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

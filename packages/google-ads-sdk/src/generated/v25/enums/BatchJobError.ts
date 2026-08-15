@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f1962fd8770d0f624134592f7baef5f814636843683a23a2c9a82b29b5486868
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.BatchJobErrorEnum.BatchJobError. Do not edit by hand.
 export type BatchJobError =
   | "UNSPECIFIED"

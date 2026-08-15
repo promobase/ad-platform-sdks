@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9a11bede1ee6185c6cfa656b6b319435b162b669f206db74ef09a8138ef9abb4
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type BiddingDataExclusionSelectableField =
   | "bidding_data_exclusion.resource_name"

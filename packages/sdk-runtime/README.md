@@ -31,6 +31,11 @@ You don't install this directly. It's a transitive dependency of the platform SD
 - **`Cursor`** — generic async-iterable pagination adapter
 - **`RateLimiter` / `DelayFn`** — runtime-agnostic throttling interfaces
 - **`ApiError`** — base error type
+- **`AllPlatforms`** — canonical cross-platform identifiers with a Valibot schema
+- **OAuth runtime contracts** — normalized token sets, state/PKCE helpers, and typed adapter errors
+
+OAuth and platform contracts are also available from the small leaf exports
+`@openpromo/sdk-runtime/oauth` and `@openpromo/sdk-runtime/platforms`.
 
 ## Used by
 

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2435113cf348d7eb4badaac939d2aaea77bf371ee4f0ca8fe18413d622c7a44d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.CampaignBudgetErrorEnum.CampaignBudgetError. Do not edit by hand.
 export type CampaignBudgetError =
   | "UNSPECIFIED"

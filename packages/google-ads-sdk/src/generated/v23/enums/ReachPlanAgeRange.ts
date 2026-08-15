@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:be2efe745ebb96d45f8e2bed34cce11a3b38b5db21d96eb6037b36f32e6569a2
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.enums.ReachPlanAgeRangeEnum.ReachPlanAgeRange. Do not edit by hand.
 export type ReachPlanAgeRange =
   | "UNSPECIFIED"

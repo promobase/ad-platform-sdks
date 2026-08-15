@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6f8caf4aaef4265a69ea322ee69fddd53889d3db9c7527125cf4fe6f4cd4d0a9
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Catalog Feeds — do not edit
 
 export interface CatalogFeedCreateParams {

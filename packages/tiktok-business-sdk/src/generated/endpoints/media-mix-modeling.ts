@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e2575c210aaa88ab704de51413a80884f4c5826bd22a5e50ec66e24182267d0d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Media Mix Modeling — do not edit
 import type { MmmApiCreateParams, MmmApiCreateResponse, MmmApiCheckParams, MmmApiCheckResponse, MmmApiDownloadParams, MmmApiDownloadResponse, MmmApiHistoryParams, MmmApiHistoryResponse } from "../types/media-mix-modeling.ts";
 

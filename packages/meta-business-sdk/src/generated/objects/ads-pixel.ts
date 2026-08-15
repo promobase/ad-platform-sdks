@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:41a94bb5fb061208d0fe699114f836fe25d93c681876dac5a23c202d5a96ab6a
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdAccountFields } from "./ad-account.ts";
 import type { AdsPixelStatsResultFields } from "./ads-pixel-stats-result.ts";
 import type { AssignedUserFields } from "./assigned-user.ts";
@@ -157,12 +160,12 @@ export function adsPixelNode(client: ApiClient, id: string) {
     update: (params: AdsPixelUpdateParams) =>
       client.post<AdsPixelFields>(`${id}`, params as Record<string, unknown>),
     adaccounts: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: AdsPixelListAdaccountsParams }) =>
-      new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     agencies: {
       __path: `${id}/agencies`,
       __brand: undefined as unknown as BusinessFields,
       list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: AdsPixelCreateAgenciesParams) =>
         client.post<AdsPixelFields>(`${id}/agencies`, params as Record<string, unknown>),
       delete: (params: AdsPixelDeleteAgenciesParams) =>
@@ -174,34 +177,34 @@ export function adsPixelNode(client: ApiClient, id: string) {
       __path: `${id}/assigned_users`,
       __brand: undefined as unknown as AssignedUserFields,
       list: <F extends (keyof AssignedUserFields)[]>(opts: { fields: F; params?: AdsPixelListAssignedUsersParams }) =>
-        new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AssignedUserFields, F[number]>>(client, `${id}/assigned_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: AdsPixelCreateAssignedUsersParams) =>
         client.post<AdsPixelFields>(`${id}/assigned_users`, params as Record<string, unknown>),
     },
     daChecks: <F extends (keyof DACheckFields)[]>(opts: { fields: F; params?: AdsPixelListDaChecksParams }) =>
-      new Cursor<Pick<DACheckFields, F[number]>>(client, `${id}/da_checks`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<DACheckFields, F[number]>>(client, `${id}/da_checks`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createEvent: (params: AdsPixelCreateEventsParams) =>
       client.post<Record<string, unknown>>(`${id}/events`, params as Record<string, unknown>),
     offlineEventUploads: <F extends (keyof OfflineConversionDataSetUploadFields)[]>(opts: { fields: F; params?: AdsPixelListOfflineEventUploadsParams }) =>
-      new Cursor<Pick<OfflineConversionDataSetUploadFields, F[number]>>(client, `${id}/offline_event_uploads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<OfflineConversionDataSetUploadFields, F[number]>>(client, `${id}/offline_event_uploads`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     openbridgeConfigurations: <F extends (keyof OpenBridgeConfigurationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<OpenBridgeConfigurationFields, F[number]>>(client, `${id}/openbridge_configurations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<OpenBridgeConfigurationFields, F[number]>>(client, `${id}/openbridge_configurations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createShadowtraffichelper: (params: Record<string, unknown>) =>
       client.post<Record<string, unknown>>(`${id}/shadowtraffichelper`, params as Record<string, unknown>),
     sharedAccounts: {
       __path: `${id}/shared_accounts`,
       __brand: undefined as unknown as AdAccountFields,
       list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: AdsPixelListSharedAccountsParams }) =>
-        new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/shared_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/shared_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: AdsPixelCreateSharedAccountsParams) =>
         client.post<AdsPixelFields>(`${id}/shared_accounts`, params as Record<string, unknown>),
       delete: (params: AdsPixelDeleteSharedAccountsParams) =>
         client.delete(`${id}/shared_accounts`, params as Record<string, unknown> ?? {}),
     },
     sharedAgencies: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/shared_agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/shared_agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     stats: <F extends (keyof AdsPixelStatsResultFields)[]>(opts: { fields: F; params?: AdsPixelListStatsParams }) =>
-      new Cursor<Pick<AdsPixelStatsResultFields, F[number]>>(client, `${id}/stats`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdsPixelStatsResultFields, F[number]>>(client, `${id}/stats`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

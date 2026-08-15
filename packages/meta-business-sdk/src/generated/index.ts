@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0e4d5a2a65b9fc37e41fbb55c7a469ea6c98c81e9eaeceddb7ca174de0693aca
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated barrel file — do not edit
 
 export type { WhatsAppBusinessHealthStatusFields } from "./objects/whats-app-business-health-status.ts";
@@ -988,8 +991,8 @@ export type { ProductCatalogPricingVariablesBatchFields } from "./objects/produc
 
 export type * from "./enums.ts";
 
-export { createTypedClient as createClient } from "./client-factory.ts";
-export type { MetaClientOptions } from "./client-factory.ts";
+export { createGraphClient, createGraphClient as createClient } from "./client-factory.ts";
+export type { GraphClientOptions } from "./client-factory.ts";
 export type { ApiClient, ApiClientOptions } from "@openpromo/sdk-runtime";
 export { Cursor } from "@openpromo/sdk-runtime";
 export { FacebookApiError } from "../errors.ts";
@@ -1005,7 +1008,6 @@ export type { IGWebhookPayload, IGWebhookMessagingEvent, IGWebhookChange, FBWebh
 export { igWebhookPayloadSchema, igWebhookMessagingEventSchema, igWebhookChangeSchema, igWebhookCommentChangeSchema, igWebhookMessageEditChangeSchema, igWebhookMessageReactionChangeSchema, igWebhookMessageSchema, igWebhookAttachmentSchema, igWebhookReadSchema, igWebhookReactionSchema, fbWebhookPayloadSchema, fbWebhookMessagingEventSchema, fbWebhookMessageSchema, fbWebhookCommentChangeSchema, threadsWebhookPayloadSchema } from "../clients/index.ts";
 export { safeParseInstagramWebhook, safeParseFacebookWebhook, safeParseThreadsWebhook, WebhookParseError } from "../clients/index.ts";
 export type { WebhookParseResult } from "../clients/index.ts";
-export { MetaRateLimiter } from "../rate-limiter.ts";
-export type { MetaRateLimiterOptions, MetaUsage } from "../rate-limiter.ts";
-export { Meta } from "../namespace.ts";
+export { GraphRateLimiter } from "../rate-limiter.ts";
+export type { GraphRateLimiterOptions, GraphUsage } from "../rate-limiter.ts";
 export { Facebook, Instagram, Threads, WhatsApp } from "../namespace.ts";

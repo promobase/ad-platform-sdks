@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b7b3b910156026ee16aeaa7485a1f56eedb115722c71541aa8ba3ce39e3d7d54
+// DO NOT EDIT: generated file; changes will be overwritten.
 export * from "./AppendMediaUploadResponse.js";
 export * from "./AppendMediaUploadResponseData.js";
 export * from "./CreatePostsEditOptions.js";

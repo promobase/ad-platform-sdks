@@ -3,6 +3,7 @@ import { createAnalytics } from "./analytics.ts";
 import { createAssets } from "./assets.ts";
 import { createLinkedInClient, type LinkedInClientOptions } from "./client.ts";
 import { createComments } from "./comments.ts";
+import { createLinkedInOAuthAdapter } from "./oauth-adapters.ts";
 import { createLinkedInOAuth } from "./oauth.ts";
 import { createPosts } from "./posts.ts";
 import type { LinkedInOAuthConfig } from "./types.ts";
@@ -24,4 +25,5 @@ export const LinkedIn = {
   OAuth: {
     create: (config: LinkedInOAuthConfig) => createLinkedInOAuth(config),
   },
+  oauth: createLinkedInOAuthAdapter,
 };

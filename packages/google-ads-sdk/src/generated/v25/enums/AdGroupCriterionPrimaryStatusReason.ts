@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:622683974686f531e731a4feb472d228cc53300624267aab29db3c628255faba
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.AdGroupCriterionPrimaryStatusReasonEnum.AdGroupCriterionPrimaryStatusReason. Do not edit by hand.
 export type AdGroupCriterionPrimaryStatusReason =
   | "UNSPECIFIED"

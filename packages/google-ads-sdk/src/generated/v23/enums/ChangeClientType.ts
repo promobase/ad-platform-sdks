@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a4990d188f0c8c27fadb54f4a4409c9152beeb71d1386e2f0a35786d0513ca8d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.enums.ChangeClientTypeEnum.ChangeClientType. Do not edit by hand.
 export type ChangeClientType =
   | "UNSPECIFIED"

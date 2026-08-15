@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:60008e8688a527730af93a38408c4d92c2347a372a6538ea621f8c6f5951bf61
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.GoalErrorEnum.GoalError. Do not edit by hand.
 export type GoalError =
   | "UNSPECIFIED"

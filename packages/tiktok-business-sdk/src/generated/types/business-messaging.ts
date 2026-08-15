@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:acc2185c938b6a64fa57c10a1ff80713fefa5f70e332edfe3e01892726ae8356
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Business Messaging — do not edit
 
 export interface BusinessMessageSendParams {

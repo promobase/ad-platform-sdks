@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:e4efd4b026d1a692d1a0fdc519d31b7656c1950932ffeb5b245b8daa2b374406
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { CommentFields } from "./comment.ts";
 import type { PrivacyFields } from "./privacy.ts";
 import type { ProfileFields } from "./profile.ts";
@@ -46,7 +49,7 @@ export function linkNode(client: ApiClient, id: string) {
     createComment: (params: LinkCreateCommentsParams) =>
       client.post<CommentFields>(`${id}/comments`, params as Record<string, unknown>),
     likes: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/likes`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

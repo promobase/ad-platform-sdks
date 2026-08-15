@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a462ac1bc14217594e514b9ee4b7c9b8c934c97248fd7684e5adf1c2eea9ab1e
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type ConversionValueRuleSelectableField =
   | "conversion_value_rule.resource_name"

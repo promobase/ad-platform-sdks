@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:5ab1d7fefb7f2d24b616b29cc25914eef236bbde794515318e368047445aab08
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 
 export interface OfflineConversionDataSetUploadFields {
   api_calls: number;
@@ -26,9 +29,9 @@ export function offlineConversionDataSetUploadNode(client: ApiClient, id: string
     get: <F extends (keyof OfflineConversionDataSetUploadFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<OfflineConversionDataSetUploadFields, F[number]>>(`${id}`, opts),
     progress: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/progress`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/progress`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     pullSessions: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/pull_sessions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/pull_sessions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

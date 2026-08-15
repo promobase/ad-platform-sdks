@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:8b5cd03b23835d56e8c4dc4b541871cc679137f7fed0f22bca96d453ce7f02c6
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AccountBudgetSummary, AccountSummary, DateRange, InvoiceType } from "../index.ts";
 
 // Generated from google.ads.googleads.v23.resources.Invoice. Do not edit by hand.

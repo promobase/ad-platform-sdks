@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0bc608920929422131f6f9ce38c39457e8f9c75c4a3e111e40ce8e49e492c41f
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AddBatchJobOperationsRequest, AddBatchJobOperationsResponse, ListBatchJobResultsRequest, ListBatchJobResultsResponse, MutateBatchJobRequest, MutateBatchJobResponse, RunBatchJobRequest } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

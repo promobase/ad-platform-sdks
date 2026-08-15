@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:83ea66b399f4d9380d18667de749ef770561795a4c25683e2d5ae8bd28865b39
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { FBPageAndInstagramAccountFields } from "./fb-page-and-instagram-account.ts";
 import type { IGMediaFields } from "./ig-media.ts";
 

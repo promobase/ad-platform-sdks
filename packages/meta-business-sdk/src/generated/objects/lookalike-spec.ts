@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:51283daeeced135d416fef2a38837ad853685333bfb9d3f40d47e08372febbc8
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface LookalikeSpecFields {
   country: string;
   is_created_by_recommended_dfca: boolean;

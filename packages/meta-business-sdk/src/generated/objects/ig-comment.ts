@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:160e54481848cdc4870d24c33b8fa7fdd37a8e4ded3192fa1b44be4aade27cfb
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { IGCommentFromUserFields } from "./ig-comment-from-user.ts";
 import type { IGMediaFields } from "./ig-media.ts";
 import type { IGUserFields } from "./ig-user.ts";
@@ -45,7 +48,7 @@ export function iGCommentNode(client: ApiClient, id: string) {
       __path: `${id}/replies`,
       __brand: undefined as unknown as IGCommentFields,
       list: <F extends (keyof IGCommentFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<IGCommentFields, F[number]>>(client, `${id}/replies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<IGCommentFields, F[number]>>(client, `${id}/replies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: IGCommentCreateRepliesParams) =>
         client.post<IGCommentFields>(`${id}/replies`, params as Record<string, unknown>),
     },

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f2f0e04be9878b6769ee82c3f4c764eebc1171989a76c7fe116a8afe1b056289
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Negative Keywords — do not edit
 import type { SearchAdNegativeKeywordGetParams, SearchAdNegativeKeywordGetResponse, SearchAdNegativeKeywordAddParams, SearchAdNegativeKeywordAddResponse, SearchAdNegativeKeywordUpdateParams, SearchAdNegativeKeywordUpdateResponse, SearchAdNegativeKeywordDeleteParams, SearchAdNegativeKeywordDeleteResponse, SearchAdNegativeKeywordDownloadParams, SearchAdNegativeKeywordDownloadResponse } from "../types/negative-keywords.ts";
 

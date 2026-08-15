@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:120cdca9afe282a5c9e90dd496ce3e4d30d26245cd805d42f3e089760f32a20c
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdAccountFields } from "./ad-account.ts";
 import type { BusinessFields } from "./business.ts";
 import type { UserFields } from "./user.ts";
@@ -50,7 +53,7 @@ export function adAccountCreationRequestNode(client: ApiClient, id: string) {
     get: <F extends (keyof AdAccountCreationRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<AdAccountCreationRequestFields, F[number]>>(`${id}`, opts),
     adaccounts: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/adaccounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

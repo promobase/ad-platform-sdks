@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f98765cde885d5c8c0e5832e0dd49e965c8444bb5b7bfde15e6e2ce34d766f8b
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for BC Partners — do not edit
 import type { BcPartnerGetParams, BcPartnerGetResponse, BcPartnerAddParams, BcPartnerAddResponse, BcPartnerDeleteParams, BcPartnerDeleteResponse, BcPartnerAssetDeleteParams, BcPartnerAssetDeleteResponse, BcPartnerAssetGetParams, BcPartnerAssetGetResponse } from "../types/bc-partners.ts";
 

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:59beb82d3e5c12c862d7edd1c3a96a3b7fe86cbe77c196fe2dddacfc39faba2f
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Ads — do not edit
 import type { AdGetParams, AdGetResponse, AdCreateParams, AdCreateResponse, AdUpdateParams, AdUpdateResponse, AdStatusUpdateParams, AdStatusUpdateResponse } from "../types/ads.ts";
 

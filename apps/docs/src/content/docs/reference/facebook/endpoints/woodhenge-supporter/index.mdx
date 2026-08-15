@@ -1,0 +1,50 @@
+---
+title: "Facebook Woodhenge Supporter endpoints"
+description: "1 generated Facebook endpoint contract for Woodhenge Supporter."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 409
+  label: "Woodhenge Supporter"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:757d1fc54c6777bfac091710b76b8b5980a863e68f80ee177db7d0c654dc77ed -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.woodhengeSupporter.get
+
+`GET` `/{id}`
+
+GET WoodhengeSupporter
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `woodhengeSupporter.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `WoodhengeSupporterFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

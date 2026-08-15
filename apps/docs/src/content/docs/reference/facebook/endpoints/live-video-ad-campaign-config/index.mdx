@@ -1,0 +1,50 @@
+---
+title: "Facebook Live Video Ad Campaign Config endpoints"
+description: "1 generated Facebook endpoint contract for Live Video Ad Campaign Config."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 291
+  label: "Live Video Ad Campaign Config"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:2c99bd0c0b53d8f1c90bd5065a3711aeaf28dcc0a790f49144aab7b4b987344e -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.liveVideoAdCampaignConfig.get
+
+`GET` `/{id}`
+
+GET LiveVideoAdCampaignConfig
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `liveVideoAdCampaignConfig.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `LiveVideoAdCampaignConfigFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

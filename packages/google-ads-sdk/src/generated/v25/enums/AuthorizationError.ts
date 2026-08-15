@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:510a537bc044bb4986df34faeb022143d37c63774708b0624106a4e9d0738490
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.AuthorizationErrorEnum.AuthorizationError. Do not edit by hand.
 export type AuthorizationError =
   | "UNSPECIFIED"

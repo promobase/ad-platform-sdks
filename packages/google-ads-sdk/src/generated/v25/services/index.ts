@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a231bc85755474def283f92aa537d5904ec08d6e6e78c2d34926267e8e29bbe0
+// DO NOT EDIT: generated file; changes will be overwritten.
 export { accountBudgetProposalService } from "./AccountBudgetProposalService.ts";
 export { accountLinkService } from "./AccountLinkService.ts";
 export { adGroupAdLabelService } from "./AdGroupAdLabelService.ts";

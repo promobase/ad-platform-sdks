@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:23932595a0fd414a2bbfe0e965d1e6f651b6ce9b8629b1bd6b34be65911c9d00
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Creative Portfolios — do not edit
 import type { CreativePortfolioCreateParams, CreativePortfolioCreateResponse, CreativePortfolioGetParams, CreativePortfolioGetResponse, CreativePortfolioListParams, CreativePortfolioListResponse, CreativePortfolioDeleteParams, CreativePortfolioDeleteResponse } from "../types/creative-portfolios.ts";
 

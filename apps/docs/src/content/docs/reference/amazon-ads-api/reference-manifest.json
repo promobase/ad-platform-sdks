@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:8f78f0fa21df0643ef919d78ca08121c16cbe086ca3d5b58c44baa84853b1014",
+    "doNotEdit": true
+  },
   "schemaVersion": 1,
   "platform": "amazon-ads-api",
   "version": "v5",

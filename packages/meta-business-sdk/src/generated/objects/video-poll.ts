@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:8115443ecc307e82c97c4b0426c76a70d37e444f2bc0a885ab36f68cacf4099c
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { VideoPollStatus } from "../enums.ts";
 
 export interface VideoPollFields {
@@ -31,7 +34,7 @@ export function videoPollNode(client: ApiClient, id: string) {
     update: (params: VideoPollUpdateParams) =>
       client.post<VideoPollFields>(`${id}`, params as Record<string, unknown>),
     pollOptions: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/poll_options`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/poll_options`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

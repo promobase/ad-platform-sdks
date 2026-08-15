@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:7710f3dc1db4698a53760dc80d9171e3fd1390169fd401e9cda12bb4c4b2b62f
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdVideoFields } from "./ad-video.ts";
 import type { AlbumFields } from "./album.ts";
 import type { CoverPhotoFields } from "./cover-photo.ts";
@@ -405,26 +408,26 @@ export function groupNode(client: ApiClient, id: string) {
         client.delete(`${id}/admins`, params as Record<string, unknown> ?? {}),
     },
     albums: <F extends (keyof AlbumFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AlbumFields, F[number]>>(client, `${id}/albums`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AlbumFields, F[number]>>(client, `${id}/albums`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     docs: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/docs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/docs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     events: <F extends (keyof EventFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<EventFields, F[number]>>(client, `${id}/events`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<EventFields, F[number]>>(client, `${id}/events`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     feed: {
       __path: `${id}/feed`,
       __brand: undefined as unknown as PostFields,
       list: <F extends (keyof PostFields)[]>(opts: { fields: F; params?: GroupListFeedParams }) =>
-        new Cursor<Pick<PostFields, F[number]>>(client, `${id}/feed`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<PostFields, F[number]>>(client, `${id}/feed`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: GroupCreateFeedParams) =>
         client.post<PostFields>(`${id}/feed`, params as Record<string, unknown>),
     },
     files: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/files`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/files`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     groups: {
       __path: `${id}/groups`,
       __brand: undefined as unknown as GroupFields,
       list: <F extends (keyof GroupFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<GroupFields, F[number]>>(client, `${id}/groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<GroupFields, F[number]>>(client, `${id}/groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: GroupCreateGroupsParams) =>
         client.post<GroupFields>(`${id}/groups`, params as Record<string, unknown>),
     },
@@ -432,7 +435,7 @@ export function groupNode(client: ApiClient, id: string) {
       __path: `${id}/live_videos`,
       __brand: undefined as unknown as LiveVideoFields,
       list: <F extends (keyof LiveVideoFields)[]>(opts: { fields: F; params?: GroupListLiveVideosParams }) =>
-        new Cursor<Pick<LiveVideoFields, F[number]>>(client, `${id}/live_videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<LiveVideoFields, F[number]>>(client, `${id}/live_videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: GroupCreateLiveVideosParams) =>
         client.post<LiveVideoFields>(`${id}/live_videos`, params as Record<string, unknown>),
     },
@@ -445,16 +448,16 @@ export function groupNode(client: ApiClient, id: string) {
         client.delete(`${id}/members`, params as Record<string, unknown> ?? {}),
     },
     optedInMembers: <F extends (keyof UserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<UserFields, F[number]>>(client, `${id}/opted_in_members`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<UserFields, F[number]>>(client, `${id}/opted_in_members`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createPhoto: (params: GroupCreatePhotosParams) =>
       client.post<PhotoFields>(`${id}/photos`, params as Record<string, unknown>),
     picture: <F extends (keyof ProfilePictureSourceFields)[]>(opts: { fields: F; params?: GroupListPictureParams }) =>
-      new Cursor<Pick<ProfilePictureSourceFields, F[number]>>(client, `${id}/picture`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProfilePictureSourceFields, F[number]>>(client, `${id}/picture`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     videos: {
       __path: `${id}/videos`,
       __brand: undefined as unknown as AdVideoFields,
       list: <F extends (keyof AdVideoFields)[]>(opts: { fields: F; params?: GroupListVideosParams }) =>
-        new Cursor<Pick<AdVideoFields, F[number]>>(client, `${id}/videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AdVideoFields, F[number]>>(client, `${id}/videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: GroupCreateVideosParams) =>
         client.post<AdVideoFields>(`${id}/videos`, params as Record<string, unknown>),
     },

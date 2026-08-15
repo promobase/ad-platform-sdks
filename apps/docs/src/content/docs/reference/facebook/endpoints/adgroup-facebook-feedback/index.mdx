@@ -1,0 +1,51 @@
+---
+title: "Facebook Ad group Facebook Feedback endpoints"
+description: "1 generated Facebook endpoint contract for Ad group Facebook Feedback."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 145
+  label: "Ad group Facebook Feedback"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:7e16c5a2d56869e990f77fe3357c1dc13aed8eed8be2031cead3eb1cd5f836f2 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.adgroupFacebookFeedback.comments
+
+`GET` `/{id}/comments`
+
+GET AdgroupFacebookFeedback comments
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adgroupFacebookFeedback.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CommentFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `order` | `query` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

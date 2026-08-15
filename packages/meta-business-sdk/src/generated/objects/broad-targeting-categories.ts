@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:81cabf43fdf4370034140ac548e4683a0b35a553dc3df4f5fc3edf4d723a9914
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface BroadTargetingCategoriesFields {
   category_description: string;
   id: string;

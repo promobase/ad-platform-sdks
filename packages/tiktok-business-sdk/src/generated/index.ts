@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7f132ecbce37caf6eea193592d0cad80ae77ac11a050679e30d6b40443d41d7d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated barrel — do not edit
 // Re-export endpoint factory functions (types can be imported from individual files)
 

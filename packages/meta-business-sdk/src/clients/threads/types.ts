@@ -96,4 +96,11 @@ export interface LongLivedToken {
   expires_in: number;
 }
 
+export interface ThreadsUserProfile {
+  id: string;
+  username: string;
+  threads_profile_picture_url?: string;
+  threads_biography?: string;
+}
+
 // Webhook event types are now defined via Valibot schemas in ../webhooks-schemas.ts

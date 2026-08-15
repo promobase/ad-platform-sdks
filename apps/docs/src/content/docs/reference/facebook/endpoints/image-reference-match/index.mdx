@@ -1,0 +1,50 @@
+---
+title: "Facebook Image Reference Match endpoints"
+description: "1 generated Facebook endpoint contract for Image Reference Match."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 280
+  label: "Image Reference Match"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:8559280e646e6be53fdc992d21ce513b5ab3fa2a786af8a9aeca2b88e28291a9 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.imageReferenceMatch.get
+
+`GET` `/{id}`
+
+GET ImageReferenceMatch
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `imageReferenceMatch.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ImageReferenceMatchFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

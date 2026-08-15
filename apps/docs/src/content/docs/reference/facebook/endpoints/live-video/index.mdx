@@ -1,0 +1,457 @@
+---
+title: "Facebook Live Video endpoints"
+description: "12 generated Facebook endpoint contracts for Live Video."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 290
+  label: "Live Video"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:7760236c720b3e8993a0cf4997cc452ca66006e67d169ee6ab304e2068d1258f -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.liveVideo.blockedUsers
+
+`GET` `/{id}/blocked_users`
+
+GET LiveVideo blocked_users
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `liveVideo.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `UserFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `uid` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.liveVideo.comments
+
+`GET` `/{id}/comments`
+
+GET LiveVideo comments
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `liveVideo.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CommentFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `filter` | `query` | `unknown` | No | No | — |
+| `live_filter` | `query` | `unknown` | No | No | — |
+| `order` | `query` | `unknown` | No | No | — |
+| `since` | `query` | `string<date-time>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.liveVideo.crosspostedBroadcasts
+
+`GET` `/{id}/crossposted_broadcasts`
+
+GET LiveVideo crossposted_broadcasts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `liveVideo.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `LiveVideoFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.liveVideo.crosspostSharedPages
+
+`GET` `/{id}/crosspost_shared_pages`
+
+GET LiveVideo crosspost_shared_pages
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `liveVideo.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.liveVideo.delete
+
+`DELETE` `/{id}`
+
+DELETE LiveVideo
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `liveVideo.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.liveVideo.errors
+
+`GET` `/{id}/errors`
+
+GET LiveVideo errors
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `liveVideo.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `LiveVideoErrorFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.liveVideo.get
+
+`GET` `/{id}`
+
+GET LiveVideo
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `liveVideo.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `LiveVideoFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `target_token` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.liveVideo.inputStreams
+
+`POST` `/{id}/input_streams`
+
+POST LiveVideo input_streams
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `liveVideo.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `LiveVideoInputStreamFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.liveVideo.polls
+
+`GET` `/{id}/polls`
+
+GET LiveVideo polls
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `liveVideo.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `VideoPollFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.liveVideo.polls2
+
+`POST` `/{id}/polls`
+
+POST LiveVideo polls
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `liveVideo.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `VideoPollFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `close_after_voting` | `body` | `boolean` | No | No | — |
+| `correct_option` | `body` | `integer` | No | No | — |
+| `default_open` | `body` | `boolean` | No | No | — |
+| `options` | `body` | `Array<string>` | Yes | No | — |
+| `question` | `body` | `string` | Yes | No | — |
+| `show_gradient` | `body` | `boolean` | No | No | — |
+| `show_results` | `body` | `boolean` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.liveVideo.reactions
+
+`GET` `/{id}/reactions`
+
+GET LiveVideo reactions
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `liveVideo.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ProfileFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `type` | `query` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.liveVideo.update
+
+`POST` `/{id}`
+
+POST LiveVideo
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `liveVideo.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `LiveVideoFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `allow_bm_crossposting` | `body` | `boolean` | No | No | — |
+| `content_tags` | `body` | `Array<string>` | No | No | — |
+| `cross_share_to_group_ids` | `body` | `Array<string>` | No | No | — |
+| `crossposting_actions` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+| `custom_labels` | `body` | `Array<string>` | No | No | — |
+| `description` | `body` | `string` | No | No | — |
+| `direct_share_status` | `body` | `integer` | No | No | — |
+| `embeddable` | `body` | `boolean` | No | No | — |
+| `end_live_video` | `body` | `boolean` | No | No | — |
+| `event_params` | `body` | `Record<string, unknown>` | No | No | — |
+| `is_audio_only` | `body` | `boolean` | No | No | — |
+| `is_manual_mode` | `body` | `boolean` | No | No | — |
+| `live_comment_moderation_setting` | `body` | `Array<unknown>` | No | No | — |
+| `master_ingest_stream_id` | `body` | `string` | No | No | — |
+| `og_icon_id` | `body` | `string` | No | No | — |
+| `og_phrase` | `body` | `string` | No | No | — |
+| `persistent_stream_key_status` | `body` | `unknown` | No | No | — |
+| `place` | `body` | `Record<string, unknown>` | No | No | — |
+| `planned_start_time` | `body` | `string<date-time>` | No | No | — |
+| `privacy` | `body` | `string` | No | No | — |
+| `published` | `body` | `boolean` | No | No | — |
+| `schedule_custom_profile_image` | `body` | `unknown` | No | No | — |
+| `schedule_feed_background_image` | `body` | `unknown` | No | No | — |
+| `sponsor_id` | `body` | `string` | No | No | — |
+| `sponsor_relationship` | `body` | `integer` | No | No | — |
+| `status` | `body` | `unknown` | No | No | — |
+| `stream_type` | `body` | `unknown` | No | No | — |
+| `tags` | `body` | `Array<integer>` | No | No | — |
+| `targeting` | `body` | `Record<string, unknown>` | No | No | — |
+| `title` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

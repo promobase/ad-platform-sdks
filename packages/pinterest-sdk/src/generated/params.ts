@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:86525ef4ad0b07d7b2d4cb0d378c8804916591839219bdda1151690bae1661a1
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated endpoint params for the Pinterest REST API v5 — do not edit
 
 export interface ListAdAccountsParams {

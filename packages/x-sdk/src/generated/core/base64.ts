@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:cf395ab9fc0407dd09f3f16e38885c648bedeaac4cb6853dc9eb4e30066e0474
+// DO NOT EDIT: generated file; changes will be overwritten.
 function base64ToBytes(base64: string): Uint8Array {
     const binString = atob(base64);
     return Uint8Array.from(binString, (m) => m.codePointAt(0)!);

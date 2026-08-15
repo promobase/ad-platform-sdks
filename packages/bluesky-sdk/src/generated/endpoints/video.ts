@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a83a8cc2e400b26244affc12502c14a23422c4983bf60e563afb54f2836602f7
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for app.bsky.video — do not edit
 import type { BlueskyApiClient } from "../../api-client.ts";
 import type { AppBskyVideoDefsJobStatus, GetJobStatusResponse, GetUploadLimitsResponse, UploadVideoResponse } from "../types.ts";

@@ -1,0 +1,50 @@
+---
+title: "Facebook Page Leads Access Config endpoints"
+description: "1 generated Facebook endpoint contract for Page Leads Access Config."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 320
+  label: "Page Leads Access Config"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:703c8636cdf2d80545ccc87475dc7722d8cc2106392981232e3f3cdbe9bbc987 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.pageLeadsAccessConfig.get
+
+`GET` `/{id}`
+
+GET PageLeadsAccessConfig
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pageLeadsAccessConfig.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageLeadsAccessConfigFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

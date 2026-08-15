@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:21196b7eec2add351ff4e0720ae336548b78dcfc6f8a126c308030c91c300161
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { HomeListingGetAcType, HomeListingGetAreaUnit, HomeListingGetAvailability, HomeListingGetCapabilities, HomeListingGetCapabilitiesRenderingCatalogManager, HomeListingGetFurnishType, HomeListingGetHeatingType, HomeListingGetImageFetchStatus, HomeListingGetLaundryType, HomeListingGetListingType, HomeListingGetParkingType, HomeListingGetPartnerVerification, HomeListingGetPropertyType, HomeListingGetVisibility } from "../enums.ts";
 
 export interface HomeListingGetFields {

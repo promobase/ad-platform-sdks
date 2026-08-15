@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3548be348d875ecbbc6e5c2a8779fa99abfb8589e873bdc3a014779540070ba0
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type LocalServicesLeadConversationSelectableField =
   | "local_services_lead_conversation.resource_name"

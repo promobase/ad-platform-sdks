@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ac687e9e85e269a7db199c5c620d77b00df6fffdd4e4294fb5eee8b471652cdb
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Video — do not edit
 
 export interface FileVideoAdUploadParams {

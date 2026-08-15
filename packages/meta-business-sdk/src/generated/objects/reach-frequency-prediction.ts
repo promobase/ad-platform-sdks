@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:18ff3bf036e6e60a59e7283ab7abbc40068ba636fc13de85d9eb24f864fec695
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { DayPartFields } from "./day-part.ts";
 import type { MetaMomentMakerConfigFields } from "./meta-moment-maker-config.ts";

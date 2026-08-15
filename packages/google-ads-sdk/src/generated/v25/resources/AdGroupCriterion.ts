@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:cd3ce5f749bc49cddb8211b029467666056bb5bbd7b591860a9932897ce48575
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdGroupCriterionApprovalStatus, AdGroupCriterionPrimaryStatus, AdGroupCriterionPrimaryStatusReason, AdGroupCriterionStatus, AgeRangeInfo, AppPaymentModelInfo, AudienceInfo, BiddingSource, BrandListInfo, CombinedAudienceInfo, CriterionSystemServingStatus, CriterionType, CustomAffinityInfo, CustomAudienceInfo, CustomIntentInfo, CustomParameter, ExtendedDemographicInfo, GenderInfo, IncomeRangeInfo, KeywordInfo, LanguageInfo, LifeEventInfo, ListingGroupInfo, LocationInfo, MobileAppCategoryInfo, MobileApplicationInfo, ParentalStatusInfo, PlacementInfo, PositionEstimates, QualityInfo, RetailFilterBundle, TopicInfo, UserInterestInfo, UserListInfo, VerticalAdsItemGroupRuleListInfo, VideoLineupInfo, WebpageInfo, YouTubeChannelInfo, YouTubeVideoInfo } from "../index.ts";
 
 // Generated from google.ads.googleads.v25.resources.AdGroupCriterion. Do not edit by hand.

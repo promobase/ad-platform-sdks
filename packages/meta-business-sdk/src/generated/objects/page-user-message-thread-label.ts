@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:38ab0f760a5843da1ba33005530af46737c0431d53c1eac34da4343fc2d588aa
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface PageUserMessageThreadLabelFields {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:817c6397b64ef43d2c6900cf5171b2d29e675bfb22d5535586d81d0f767767f0
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
 export type AcceptHeader = "application/vnd.sbAdCreativeResource.v4+json" | "application/vnd.sbCreativeImageRecommendationResource.v4+json" | "application/vnd.sbCreativeRecommendationResource.v4+json" | string;

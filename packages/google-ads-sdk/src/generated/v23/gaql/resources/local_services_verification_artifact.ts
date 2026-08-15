@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:10e979f696f07919a4a9792b6af11133431273d98cfbb1eca5cf6be1e3e2cf16
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type LocalServicesVerificationArtifactSelectableField =
   | "local_services_verification_artifact.resource_name"

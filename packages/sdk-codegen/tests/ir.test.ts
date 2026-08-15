@@ -3,13 +3,14 @@ import { mkdtemp, readFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
-import { Effect } from "effect";
+import { Effect, Schema } from "effect";
 
 import { writeContractArtifacts, writeEffectArtifacts } from "../src/artifacts.ts";
 import {
   decodeSdkIr,
   emitEffectSchemaModule,
   emitEndpointDescriptors,
+  PlatformIdSchema,
   typescriptTarget,
   type SdkIr,
   validateSdkIr,
@@ -91,6 +92,12 @@ const fixture = {
     },
   ],
 } as const;
+
+test("platform identifiers are direct and reject the old family grouping", () => {
+  expect(Effect.runSync(Schema.decodeUnknown(PlatformIdSchema)("facebook"))).toBe("facebook");
+  expect(Effect.runSync(Schema.decodeUnknown(PlatformIdSchema)("instagram"))).toBe("instagram");
+  expect(() => Effect.runSync(Schema.decodeUnknown(PlatformIdSchema)("meta"))).toThrow();
+});
 
 test("canonical IR decodes with Effect Schema", async () => {
   const ir = await Effect.runPromise(decodeSdkIr(fixture));

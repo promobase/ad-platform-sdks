@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:144293cc7409cd8d35f24d5e625fb2d00cb283a962740d9fce3a04905854f083
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdImageAsset, AdTextAsset, AdVideoAsset, DisplayAdFormatSetting, ResponsiveDisplayAdControlSpec } from "../index.ts";
 
 // Generated from google.ads.googleads.v23.common.ResponsiveDisplayAdInfo. Do not edit by hand.

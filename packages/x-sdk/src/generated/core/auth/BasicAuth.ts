@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7495f10039cb99171e9b2fc30da4438872f9717c76f714dee648a9e81e3a1cf4
+// DO NOT EDIT: generated file; changes will be overwritten.
 import { base64Decode, base64Encode } from "../base64.js";
 
 export interface BasicAuth {

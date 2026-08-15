@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:caee39847e721b3b217c2c522d5966c1fbd2d213da7ec806998eaa57b3024002
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AIGeneratedProductImageFields } from "./ai-generated-product-image.ts";
 import type { AppLinksFields } from "./app-links.ts";
 import type { CatalogItemAppLinksFields } from "./catalog-item-app-links.ts";
@@ -219,13 +222,13 @@ export function productItemNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     channelsToIntegrityStatus: <F extends (keyof CatalogItemChannelsToIntegrityStatusFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<CatalogItemChannelsToIntegrityStatusFields, F[number]>>(client, `${id}/channels_to_integrity_status`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CatalogItemChannelsToIntegrityStatusFields, F[number]>>(client, `${id}/channels_to_integrity_status`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     overrideDetails: <F extends (keyof OverrideDetailsFields)[]>(opts: { fields: F; params?: ProductItemListOverrideDetailsParams }) =>
-      new Cursor<Pick<OverrideDetailsFields, F[number]>>(client, `${id}/override_details`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<OverrideDetailsFields, F[number]>>(client, `${id}/override_details`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     productSets: <F extends (keyof ProductSetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<ProductSetFields, F[number]>>(client, `${id}/product_sets`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProductSetFields, F[number]>>(client, `${id}/product_sets`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     videosMetadata: <F extends (keyof DynamicVideoMetadataFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<DynamicVideoMetadataFields, F[number]>>(client, `${id}/videos_metadata`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<DynamicVideoMetadataFields, F[number]>>(client, `${id}/videos_metadata`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

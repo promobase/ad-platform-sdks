@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3f5432095eadca925a20117ad837bbb2ad2b5adc21d4d080166f4a77b5ac6972
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdCreativeVideoDataCustomOverlaySpecBackgroundOpacity, AdCreativeVideoDataCustomOverlaySpecOption, AdCreativeVideoDataCustomOverlaySpecPosition, AdCreativeVideoDataCustomOverlaySpecTemplate } from "../enums.ts";
 
 export interface AdCreativeVideoDataCustomOverlaySpecFields {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c59baac53089ba5a457a525a1afa3e209450e9260a252a2ca45129a6479f177e
+// DO NOT EDIT: generated file; changes will be overwritten.
 export function join(base: string, ...segments: string[]): string {
     if (!base) {
         return "";

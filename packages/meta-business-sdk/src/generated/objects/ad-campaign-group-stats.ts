@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:148b6ddcb887825682d2bb54ec8cb5a065d845f95451ba88ee5156710e766c3d
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AdCampaignGroupStatsFields {
   actions: Record<string, number>;
   campaign_group_id: string;

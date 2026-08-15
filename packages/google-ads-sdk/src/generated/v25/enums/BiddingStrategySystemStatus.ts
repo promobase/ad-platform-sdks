@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7c932e9d0bc9e191de7acb1f52c793a7fc06715aaaa249a4309c3a7bb14be582
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.BiddingStrategySystemStatusEnum.BiddingStrategySystemStatus. Do not edit by hand.
 export type BiddingStrategySystemStatus =
   | "UNSPECIFIED"

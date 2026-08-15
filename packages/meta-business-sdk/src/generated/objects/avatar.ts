@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:596ea8fb81b0afedc4ba49c7ee59b52bdd20be5193a7ceacfee9571ba1094126
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface AvatarFields {

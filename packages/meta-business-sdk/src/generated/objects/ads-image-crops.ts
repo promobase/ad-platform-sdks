@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:1dbfcbb8309ab74d9d8900d5688debb88e687f1d533c0baf3946d165de215279
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AdsImageCropsFields {
   "100x100": unknown[][];
   "100x72": unknown[][];

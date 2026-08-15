@@ -1,0 +1,50 @@
+---
+title: "Facebook Reach Frequency Prediction endpoints"
+description: "1 generated Facebook endpoint contract for Reach Frequency Prediction."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 360
+  label: "Reach Frequency Prediction"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:cf9eaa6c90150d0a2ea4b283223c4e18cbc7194c5e83a61f5f8f693d7e6d1e52 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.reachFrequencyPrediction.get
+
+`GET` `/{id}`
+
+GET ReachFrequencyPrediction
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `reachFrequencyPrediction.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ReachFrequencyPredictionFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

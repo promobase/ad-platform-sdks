@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:835b603794340b83fd9bf2a38fcf947dfd3eaef28f14959d8a106f009f28f203
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type AssetGroupSignalSelectableField =
   | "asset_group_signal.resource_name"

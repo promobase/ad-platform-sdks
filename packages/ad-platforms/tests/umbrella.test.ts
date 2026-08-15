@@ -6,7 +6,6 @@ import {
   GoogleBusinessProfile,
   Instagram,
   LinkedIn,
-  Meta,
   Threads,
   TikTok,
   WhatsApp,
@@ -15,15 +14,8 @@ import {
 } from "../src/index.ts";
 import { createAllTools } from "../src/unified-tools.ts";
 
-test("Meta namespace is accessible", () => {
-  expect(Meta.createClient).toBeDefined();
-  expect(Meta.Instagram.createClient).toBeDefined();
-  expect(Meta.Facebook.createClient).toBeDefined();
-  expect(Meta.Threads.createClient).toBeDefined();
-  expect(Meta.Webhooks.verifyChallenge).toBeDefined();
-});
-
-test("Meta platform namespaces are accessible directly", () => {
+test("direct Graph platform namespaces are accessible", () => {
+  expect(Facebook.createGraphClient).toBeDefined();
   expect(Facebook.createClient).toBeDefined();
   expect(Instagram.createClient).toBeDefined();
   expect(Threads.createClient).toBeDefined();
@@ -51,26 +43,29 @@ test("YouTube namespace is accessible", () => {
   expect(client.resources.videos.batchGetStats).toBeDefined();
 });
 
-test("createAllTools combines Meta and TikTok tools", () => {
-  const api = Meta.createClient({ accessToken: "tok" });
+test("createAllTools combines direct platforms and TikTok tools", () => {
+  const api = Facebook.createGraphClient({ accessToken: "tok" });
   const tools = createAllTools({
-    meta: {
+    facebook: {
       api,
-      igAccountId: "ig_123",
       pageId: "page_123",
       pageAccessToken: "tok",
     },
+    instagram: {
+      api,
+      igAccountId: "ig_123",
+    },
   });
 
-  // Meta tools present
+  // Direct platform tools present
   expect((tools as Record<string, unknown>).ig_publish_photo).toBeDefined();
   expect((tools as Record<string, unknown>).fb_publish_post).toBeDefined();
 });
 
-test("createAllTools works with only Meta", () => {
-  const api = Meta.createClient({ accessToken: "tok" });
+test("createAllTools works with only Instagram", () => {
+  const api = Facebook.createGraphClient({ accessToken: "tok" });
   const tools = createAllTools({
-    meta: { api, igAccountId: "ig_123", include: ["instagram"] },
+    instagram: { api, igAccountId: "ig_123" },
   });
   expect((tools as Record<string, unknown>).ig_publish_photo).toBeDefined();
 });

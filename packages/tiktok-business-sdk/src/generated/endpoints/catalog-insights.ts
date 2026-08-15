@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:049587e6cdb37855a58890d6134b97b906c21517efb596aa58ce0ac8d6e42c80
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Catalog Insights — do not edit
 import type { CatalogInsightFilterGetParams, CatalogInsightFilterGetResponse, CatalogInsightProductGetParams, CatalogInsightProductGetResponse, CatalogInsightCategoryGetParams, CatalogInsightCategoryGetResponse } from "../types/catalog-insights.ts";
 

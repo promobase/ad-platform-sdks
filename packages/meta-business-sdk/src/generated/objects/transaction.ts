@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:83c67d7a2445c1214735a5b2418cac6af0c91a3239931fbb76990daab30481f1
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { TransactionProductType } from "../enums.ts";
 
 export interface TransactionFields {

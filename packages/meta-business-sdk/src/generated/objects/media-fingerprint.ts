@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c3fbd47234175a02ac7f35c2c4977e726258184f4397c8b2d6634878752efc36
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface MediaFingerprintFields {

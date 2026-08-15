@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:82c1d7cbe0e8ab140fe9a6264835e7b05e0f6d80cc4ca1bf19a65b30f0e8a1f9
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for the Amazon Ads API v3 — do not edit
 
 export interface AssociatedBudgetRuleResponse {

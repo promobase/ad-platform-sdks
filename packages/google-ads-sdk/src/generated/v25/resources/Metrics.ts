@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d966fbb955b7f3aa589e00071ab55536e56f6d2f836ca06a015be7d26bf5f136
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { InteractionEventType, QualityScoreBucket, SearchVolumeRange } from "../index.ts";
 
 // Generated from google.ads.googleads.v25.common.Metrics. Do not edit by hand.

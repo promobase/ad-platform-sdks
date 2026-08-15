@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b95f4c41f3e093c35dae0056a7041c7b61731810a79e8b747ffaa96ad9c77998
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdjustmentSummary, RegulatoryCostSummary } from "../index.ts";
 
 // Generated from google.ads.googleads.v23.resources.Invoice.AccountSummary. Do not edit by hand.

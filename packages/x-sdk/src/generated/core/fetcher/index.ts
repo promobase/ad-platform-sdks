@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:47bfb394a5cb2edd511df23b9ac189590aaf35185e28b80a384b04c91beaf85a
+// DO NOT EDIT: generated file; changes will be overwritten.
 export type { APIResponse } from "./APIResponse.js";
 export type { BinaryResponse } from "./BinaryResponse.js";
 export type { EndpointMetadata } from "./EndpointMetadata.js";

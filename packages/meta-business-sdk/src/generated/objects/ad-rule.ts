@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:63e97b018272dbb92772547698e99b46682957cd9324eb6ff90ee4b0af79f2f0
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdRuleEvaluationSpecFields } from "./ad-rule-evaluation-spec.ts";
 import type { AdRuleExecutionSpecFields } from "./ad-rule-execution-spec.ts";
 import type { AdRuleHistoryFields } from "./ad-rule-history.ts";
@@ -50,7 +53,7 @@ export function adRuleNode(client: ApiClient, id: string) {
     createExecute: (params: Record<string, unknown>) =>
       client.post<Record<string, unknown>>(`${id}/execute`, params as Record<string, unknown>),
     history: <F extends (keyof AdRuleHistoryFields)[]>(opts: { fields: F; params?: AdRuleListHistoryParams }) =>
-      new Cursor<Pick<AdRuleHistoryFields, F[number]>>(client, `${id}/history`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdRuleHistoryFields, F[number]>>(client, `${id}/history`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createPreview: (params: Record<string, unknown>) =>
       client.post<AdRuleFields>(`${id}/preview`, params as Record<string, unknown>),
   };

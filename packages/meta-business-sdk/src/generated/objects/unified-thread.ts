@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:1a09d21409975592f75b7060ccb32a07b93229475ffd4acc1512935115c59a82
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { GroupFields } from "./group.ts";
 
 export interface UnifiedThreadFields {
@@ -35,7 +38,7 @@ export function unifiedThreadNode(client: ApiClient, id: string) {
     get: <F extends (keyof UnifiedThreadFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<UnifiedThreadFields, F[number]>>(`${id}`, opts),
     messages: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: UnifiedThreadListMessagesParams }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/messages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/messages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

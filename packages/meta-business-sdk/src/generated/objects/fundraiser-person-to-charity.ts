@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:9ea5bfaa5b8ff1756751469120692b5ba1a7ce23371046bcffe61826ed4e9332
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 
 export interface FundraiserPersonToCharityFields {
   amount_raised: number;
@@ -58,14 +61,14 @@ export function fundraiserPersonToCharityNode(client: ApiClient, id: string) {
     update: (params: FundraiserPersonToCharityUpdateParams) =>
       client.post<FundraiserPersonToCharityFields>(`${id}`, params as Record<string, unknown>),
     donations: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/donations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/donations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createEndFundraiser: (params: Record<string, unknown>) =>
       client.post<Record<string, unknown>>(`${id}/end_fundraiser`, params as Record<string, unknown>),
     externalDonations: {
       __path: `${id}/external_donations`,
       __brand: undefined as unknown as Record<string, unknown>,
       list: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/external_donations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/external_donations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: FundraiserPersonToCharityCreateExternalDonationsParams) =>
         client.post<Record<string, unknown>>(`${id}/external_donations`, params as Record<string, unknown>),
     },

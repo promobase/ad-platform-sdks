@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0ca2a3678adc465f121f3d70bfc2988a59d23150a6f6357b248c5c9e6196fc74
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for labels — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { LabelsListResponse, LabelsCreateResponse, LabelsUpdateResponse, LabelsApplyResponse, LabelsRemoveResponse } from "../types.ts";

@@ -1,0 +1,50 @@
+---
+title: "Facebook IGBC Ads Permission endpoints"
+description: "1 generated Facebook endpoint contract for IGBC Ads Permission."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 277
+  label: "IGBC Ads Permission"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:0d57b50cebbfa5406be49a99564d54218c1db88b6dc1968514fcd7203a07fc5d -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.iGBCAdsPermission.get
+
+`GET` `/{id}`
+
+GET IGBCAdsPermission
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `iGBCAdsPermission.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `IGBCAdsPermissionFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

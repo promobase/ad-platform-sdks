@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:6d79b15e97c50866b5123c3bece2e96cbf08fcf6df261ea392ffda786537ec2c
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 
 export interface IGUserExportForCAMFields {
   age_bucket: string;
@@ -39,13 +42,13 @@ export function iGUserExportForCAMNode(client: ApiClient, id: string) {
     __path: id,
     __brand: undefined as unknown as IGUserExportForCAMFields,
     brandedContentMedia: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/branded_content_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/branded_content_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     insights: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: IGUserExportForCAMListInsightsParams }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     pastPartnershipAdsMedia: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/past_partnership_ads_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/past_partnership_ads_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     recentMedia: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/recent_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/recent_media`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

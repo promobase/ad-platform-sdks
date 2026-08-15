@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9116ba704a33c2154464b9350474a43f62065aa421a3c07f362ff2ed54d9a1f9
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Video — do not edit
 import type { FileVideoAdUploadParams, FileVideoAdUploadResponse, FileVideoAdUpdateParams, FileVideoAdUpdateResponse, FileVideoAdInfoParams, FileVideoAdInfoResponse, FileVideoAdSearchParams, FileVideoAdSearchResponse, FileVideoSuggestcoverParams, FileVideoSuggestcoverResponse } from "../types/video.ts";
 

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e42adc2ebbc391e21bb8e301a70ead58c0170a33fe83b2ba5668cb5adeb1df42
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.BrandGuidelinesMigrationErrorEnum.BrandGuidelinesMigrationError. Do not edit by hand.
 export type BrandGuidelinesMigrationError =
   | "UNSPECIFIED"

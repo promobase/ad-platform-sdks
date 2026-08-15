@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:20cbb7937d6db8e698388b8ca9f58d417ce3521df93d198b475e48053816d4fd
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.FunctionParsingErrorEnum.FunctionParsingError. Do not edit by hand.
 export type FunctionParsingError =
   | "UNSPECIFIED"

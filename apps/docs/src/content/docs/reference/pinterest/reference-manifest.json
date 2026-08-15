@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:eac296a373d2d573f2c29d914d79b277e7627a6b32882e9aa8df4002265fed58",
+    "doNotEdit": true
+  },
   "schemaVersion": 1,
   "platform": "pinterest",
   "version": "v5",

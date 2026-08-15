@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0bff581713170868212c8627c8c928a760a4720c4f71204c21de725484ad6d85
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for BC Members — do not edit
 import type { BcMemberGetParams, BcMemberGetResponse, BcMemberInviteParams, BcMemberInviteResponse, BcMemberUpdateParams, BcMemberUpdateResponse, BcMemberDeleteParams, BcMemberDeleteResponse } from "../types/bc-members.ts";
 

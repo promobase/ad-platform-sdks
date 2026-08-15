@@ -1,0 +1,50 @@
+---
+title: "Facebook Event External Ticket Info endpoints"
+description: "1 generated Facebook endpoint contract for Event External Ticket Info."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 242
+  label: "Event External Ticket Info"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:64c370dc6b2b859dd86c34d41044d39560d182f9bcd072a56be7239c4b69c742 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.eventExternalTicketInfo.get
+
+`GET` `/{id}`
+
+GET EventExternalTicketInfo
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `eventExternalTicketInfo.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `EventExternalTicketInfoFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

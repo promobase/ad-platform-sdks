@@ -1,0 +1,50 @@
+---
+title: "Facebook Dynamic Video Metadata endpoints"
+description: "1 generated Facebook endpoint contract for Dynamic Video Metadata."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 239
+  label: "Dynamic Video Metadata"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:a41f0d53dd1a76614afeb9afa04aeb8f05205b06df44581bad8955a8b60e42ce -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.dynamicVideoMetadata.get
+
+`GET` `/{id}`
+
+GET DynamicVideoMetadata
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `dynamicVideoMetadata.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `DynamicVideoMetadataFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

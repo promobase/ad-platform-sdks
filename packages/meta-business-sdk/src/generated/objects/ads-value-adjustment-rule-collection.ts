@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:c9789cd25c9bbed2358fda2582244c0122148de807ee6974fd4f40aee45936c2
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 
 export interface AdsValueAdjustmentRuleCollectionFields {
   id: string;
@@ -35,7 +38,7 @@ export function adsValueAdjustmentRuleCollectionNode(client: ApiClient, id: stri
     createDeleteRuleSet: (params: AdsValueAdjustmentRuleCollectionCreateDeleteRuleSetParams) =>
       client.post<AdsValueAdjustmentRuleCollectionFields>(`${id}/delete_rule_set`, params as Record<string, unknown>),
     rules: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/rules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/rules`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

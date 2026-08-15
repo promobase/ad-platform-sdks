@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2ffdc27eaa874fe7d90cca11c37dc6baaf3383b8a4274214745be9520c849427
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated barrel — do not edit
 
 export { createAdAccountsClient } from "./endpoints/ad-accounts.ts";

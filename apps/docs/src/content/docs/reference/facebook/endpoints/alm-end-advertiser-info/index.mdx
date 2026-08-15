@@ -1,0 +1,50 @@
+---
+title: "Facebook ALM End Advertiser Info endpoints"
+description: "1 generated Facebook endpoint contract for ALM End Advertiser Info."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 164
+  label: "ALM End Advertiser Info"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:43bcb53cbf42e48fdf60805dbb011224f50b51a06fb0e9c0191a10dcb35ed9d7 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.aLMEndAdvertiserInfo.get
+
+`GET` `/{id}`
+
+GET ALMEndAdvertiserInfo
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `aLMEndAdvertiserInfo.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ALMEndAdvertiserInfoFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

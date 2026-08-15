@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:da808d12f76ee0cc542e0cc645e9956086388f394325d31762ba984bc62b1e6d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.AgeRangeTypeEnum.AgeRangeType. Do not edit by hand.
 export type AgeRangeType =
   | "UNSPECIFIED"

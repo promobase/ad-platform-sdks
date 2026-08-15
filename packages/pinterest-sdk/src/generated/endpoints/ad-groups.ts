@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:27b044343906b17f0e6d7b908ab5db8f6094bd9c21eafddf6d1392d89abb05b5
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for ad_groups — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { AdGroupsListResponse, AdGroupsCreateResponse, AdGroupsUpdateResponse, AdGroupsGetResponse, AdGroupsDynamicTitlesProcessCsvResponse, AdGroupsDynamicTitlesDownloadCsvResponse, AdGroupsDynamicTitlesGetStatusResponse, AdGroupsDynamicTitlesGetUploadUrlResponse, AdGroupsAnalyticsResponse, AdGroupsAudienceSizingResponse, AdGroupsTargetingAnalyticsGetResponse, AdGroupsBidFloorGetResponse, GetAdGroupsByPromotionIdsListResponse } from "../types.ts";

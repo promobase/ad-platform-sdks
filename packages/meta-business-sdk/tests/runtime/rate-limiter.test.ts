@@ -1,16 +1,16 @@
 import { expect, test } from "bun:test";
 
-import { MetaRateLimiter } from "../../src/rate-limiter.ts";
+import { GraphRateLimiter } from "../../src/rate-limiter.ts";
 
 test("check returns shouldWait=false when under high water mark", () => {
-  const limiter = new MetaRateLimiter({ highWaterMark: 0.9 });
+  const limiter = new GraphRateLimiter({ highWaterMark: 0.9 });
   const check = limiter.check();
   expect(check.shouldWait).toBe(false);
   expect(check.waitMs).toBe(0);
 });
 
 test("afterResponse parses x-app-usage header", () => {
-  const limiter = new MetaRateLimiter();
+  const limiter = new GraphRateLimiter();
   const headers = new Headers({
     "x-app-usage": JSON.stringify({ call_count: 50, total_cputime: 30, total_time: 40 }),
   });
@@ -19,7 +19,7 @@ test("afterResponse parses x-app-usage header", () => {
 });
 
 test("check returns shouldWait=true when over high water mark", () => {
-  const limiter = new MetaRateLimiter({ highWaterMark: 0.9, fallbackWaitMs: 5000 });
+  const limiter = new GraphRateLimiter({ highWaterMark: 0.9, fallbackWaitMs: 5000 });
   limiter.afterResponse(
     200,
     new Headers({
@@ -32,7 +32,7 @@ test("check returns shouldWait=true when over high water mark", () => {
 });
 
 test("429 response triggers hard pause", () => {
-  const limiter = new MetaRateLimiter();
+  const limiter = new GraphRateLimiter();
   limiter.afterResponse(429, new Headers({ "retry-after": "30" }));
   expect(limiter.isPaused).toBe(true);
   const check = limiter.check();
@@ -42,7 +42,7 @@ test("429 response triggers hard pause", () => {
 });
 
 test("429 without retry-after uses long fallback", () => {
-  const limiter = new MetaRateLimiter({ fallbackWaitMs: 60000 });
+  const limiter = new GraphRateLimiter({ fallbackWaitMs: 60000 });
   limiter.afterResponse(429, new Headers());
   expect(limiter.isPaused).toBe(true);
   const check = limiter.check();
@@ -52,7 +52,7 @@ test("429 without retry-after uses long fallback", () => {
 });
 
 test("x-business-use-case-usage with estimated_time_to_regain_access sets pause", () => {
-  const limiter = new MetaRateLimiter();
+  const limiter = new GraphRateLimiter();
   const bizHeader = JSON.stringify({
     "123456": [
       {
@@ -74,7 +74,7 @@ test("x-business-use-case-usage with estimated_time_to_regain_access sets pause"
 test("onThrottle callback fires when over high water mark", () => {
   let throttled = false;
   let throttleInfo: { waitMs: number; usage: { callCount: number } } | null = null;
-  const limiter = new MetaRateLimiter({
+  const limiter = new GraphRateLimiter({
     highWaterMark: 0.5,
     onThrottle: (info) => {
       throttled = true;
@@ -93,7 +93,7 @@ test("onThrottle callback fires when over high water mark", () => {
 });
 
 test("reset clears all state", () => {
-  const limiter = new MetaRateLimiter();
+  const limiter = new GraphRateLimiter();
   limiter.afterResponse(429, new Headers({ "retry-after": "30" }));
   expect(limiter.isPaused).toBe(true);
   limiter.reset();

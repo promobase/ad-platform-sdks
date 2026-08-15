@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9aeb28d2ef48dede03e1c928bb4efb6e98565cf33700c413578c75119b7180bf
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.ManagerLinkErrorEnum.ManagerLinkError. Do not edit by hand.
 export type ManagerLinkError =
   | "UNSPECIFIED"

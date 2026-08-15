@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:3c1f8f742c0fbfa4f129c99ea516da73b86a18b7ed91367f0842d79cc0b8bfec
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { ProductCatalogFields } from "./product-catalog.ts";
 import type { ProductItemFields } from "./product-item.ts";
 import type { ProductVariantFields } from "./product-variant.ts";
@@ -109,7 +112,7 @@ export function productGroupNode(client: ApiClient, id: string) {
       __path: `${id}/products`,
       __brand: undefined as unknown as ProductItemFields,
       list: <F extends (keyof ProductItemFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ProductItemFields, F[number]>>(client, `${id}/products`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ProductItemFields, F[number]>>(client, `${id}/products`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ProductGroupCreateProductsParams) =>
         client.post<ProductItemFields>(`${id}/products`, params as Record<string, unknown>),
     },

@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:5789dd6d5467f3e190afc2d0233f224f8ccb9748dc24c65af6aab1e8d094ad1b",
+    "doNotEdit": true
+  },
   "schemaVersion": 1,
   "platform": "bluesky",
   "version": "lexicons",

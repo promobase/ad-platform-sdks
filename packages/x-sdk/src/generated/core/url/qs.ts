@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:72f678f235a44a9df46b325a0c069093e599294177972fa49a658b804f42b641
+// DO NOT EDIT: generated file; changes will be overwritten.
 type ArrayFormat = "indices" | "repeat" | "comma";
 
 interface QueryStringOptions {

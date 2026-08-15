@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:377e84a5686842a808f02453e8c064b399ca895f6c373fc5bfceaaf1e289fb50
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for product_group_promotions — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { ProductGroupPromotionsCreateResponse, ProductGroupPromotionsUpdateResponse, ProductGroupPromotionsListResponse, ProductGroupPromotionsGetResponse, ProductGroupsAnalyticsResponse } from "../types.ts";

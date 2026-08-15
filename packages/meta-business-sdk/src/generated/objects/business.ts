@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:7608cd50a16c2658dd13ba78e8d746b1b96eee8d88fcde15d3300de0ab48d31e
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { ALMAdAccountInfoFields } from "./alm-ad-account-info.ts";
 import type { AdAccountFields } from "./ad-account.ts";
 import type { AdCustomDerivedMetricsFields } from "./ad-custom-derived-metrics.ts";
@@ -700,18 +703,18 @@ export function businessNode(client: ApiClient, id: string) {
     createAccessToken: (params: BusinessCreateAccessTokenParams) =>
       client.post<BusinessFields>(`${id}/access_token`, params as Record<string, unknown>),
     adAccountInfos: <F extends (keyof ALMAdAccountInfoFields)[]>(opts: { fields: F; params?: BusinessListAdAccountInfosParams }) =>
-      new Cursor<Pick<ALMAdAccountInfoFields, F[number]>>(client, `${id}/ad_account_infos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ALMAdAccountInfoFields, F[number]>>(client, `${id}/ad_account_infos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     deleteAdAccounts: (params: BusinessDeleteAdAccountsParams) =>
       client.delete(`${id}/ad_accounts`, params as Record<string, unknown> ?? {}),
     adCustomDerivedMetrics: <F extends (keyof AdCustomDerivedMetricsFields)[]>(opts: { fields: F; params?: BusinessListAdCustomDerivedMetricsParams }) =>
-      new Cursor<Pick<AdCustomDerivedMetricsFields, F[number]>>(client, `${id}/ad_custom_derived_metrics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdCustomDerivedMetricsFields, F[number]>>(client, `${id}/ad_custom_derived_metrics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createAdReviewRequest: (params: BusinessCreateAdReviewRequestsParams) =>
       client.post<Record<string, unknown>>(`${id}/ad_review_requests`, params as Record<string, unknown>),
     adStudies: {
       __path: `${id}/ad_studies`,
       __brand: undefined as unknown as AdStudyFields,
       list: <F extends (keyof AdStudyFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<AdStudyFields, F[number]>>(client, `${id}/ad_studies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AdStudyFields, F[number]>>(client, `${id}/ad_studies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: BusinessCreateAdStudiesParams) =>
         client.post<AdStudyFields>(`${id}/ad_studies`, params as Record<string, unknown>),
     },
@@ -725,29 +728,29 @@ export function businessNode(client: ApiClient, id: string) {
       __path: `${id}/adnetworkanalytics`,
       __brand: undefined as unknown as AdNetworkAnalyticsSyncQueryResultFields,
       list: <F extends (keyof AdNetworkAnalyticsSyncQueryResultFields)[]>(opts: { fields: F; params?: BusinessListAdnetworkanalyticsParams }) =>
-        new Cursor<Pick<AdNetworkAnalyticsSyncQueryResultFields, F[number]>>(client, `${id}/adnetworkanalytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AdNetworkAnalyticsSyncQueryResultFields, F[number]>>(client, `${id}/adnetworkanalytics`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: BusinessCreateAdnetworkanalyticsParams) =>
         client.post<BusinessFields>(`${id}/adnetworkanalytics`, params as Record<string, unknown>),
     },
     adnetworkanalyticsResults: <F extends (keyof AdNetworkAnalyticsAsyncQueryResultFields)[]>(opts: { fields: F; params?: BusinessListAdnetworkanalyticsResultsParams }) =>
-      new Cursor<Pick<AdNetworkAnalyticsAsyncQueryResultFields, F[number]>>(client, `${id}/adnetworkanalytics_results`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdNetworkAnalyticsAsyncQueryResultFields, F[number]>>(client, `${id}/adnetworkanalytics_results`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     adsDataset: {
       __path: `${id}/ads_dataset`,
       __brand: undefined as unknown as AdsDatasetFields,
       list: <F extends (keyof AdsDatasetFields)[]>(opts: { fields: F; params?: BusinessListAdsDatasetParams }) =>
-        new Cursor<Pick<AdsDatasetFields, F[number]>>(client, `${id}/ads_dataset`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AdsDatasetFields, F[number]>>(client, `${id}/ads_dataset`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: BusinessCreateAdsDatasetParams) =>
         client.post<BusinessFields>(`${id}/ads_dataset`, params as Record<string, unknown>),
     },
     adsReportingMmmReports: <F extends (keyof AdsReportBuilderMMMReportFields)[]>(opts: { fields: F; params?: BusinessListAdsReportingMmmReportsParams }) =>
-      new Cursor<Pick<AdsReportBuilderMMMReportFields, F[number]>>(client, `${id}/ads_reporting_mmm_reports`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdsReportBuilderMMMReportFields, F[number]>>(client, `${id}/ads_reporting_mmm_reports`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     adsReportingMmmSchedulers: <F extends (keyof AdsReportBuilderMMMReportSchedulerFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AdsReportBuilderMMMReportSchedulerFields, F[number]>>(client, `${id}/ads_reporting_mmm_schedulers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdsReportBuilderMMMReportSchedulerFields, F[number]>>(client, `${id}/ads_reporting_mmm_schedulers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     adspixels: {
       __path: `${id}/adspixels`,
       __brand: undefined as unknown as AdsPixelFields,
       list: <F extends (keyof AdsPixelFields)[]>(opts: { fields: F; params?: BusinessListAdspixelsParams }) =>
-        new Cursor<Pick<AdsPixelFields, F[number]>>(client, `${id}/adspixels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AdsPixelFields, F[number]>>(client, `${id}/adspixels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: BusinessCreateAdspixelsParams) =>
         client.post<AdsPixelFields>(`${id}/adspixels`, params as Record<string, unknown>),
     },
@@ -755,116 +758,116 @@ export function businessNode(client: ApiClient, id: string) {
       __path: `${id}/agencies`,
       __brand: undefined as unknown as BusinessFields,
       list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/agencies`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       delete: (params: BusinessDeleteAgenciesParams) =>
         client.delete(`${id}/agencies`, params as Record<string, unknown> ?? {}),
     },
     anPlacements: <F extends (keyof AdPlacementFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AdPlacementFields, F[number]>>(client, `${id}/an_placements`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdPlacementFields, F[number]>>(client, `${id}/an_placements`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createBlockListDraft: (params: BusinessCreateBlockListDraftsParams) =>
       client.post<BusinessFields>(`${id}/block_list_drafts`, params as Record<string, unknown>),
     createBmReviewRequest: (params: BusinessCreateBmReviewRequestsParams) =>
       client.post<Record<string, unknown>>(`${id}/bm_review_requests`, params as Record<string, unknown>),
     businessAssetGroups: <F extends (keyof BusinessAssetGroupFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<BusinessAssetGroupFields, F[number]>>(client, `${id}/business_asset_groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessAssetGroupFields, F[number]>>(client, `${id}/business_asset_groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     businessInvoices: <F extends (keyof OmegaCustomerTrxFields)[]>(opts: { fields: F; params?: BusinessListBusinessInvoicesParams }) =>
-      new Cursor<Pick<OmegaCustomerTrxFields, F[number]>>(client, `${id}/business_invoices`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<OmegaCustomerTrxFields, F[number]>>(client, `${id}/business_invoices`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     businessUsers: {
       __path: `${id}/business_users`,
       __brand: undefined as unknown as BusinessUserFields,
       list: <F extends (keyof BusinessUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<BusinessUserFields, F[number]>>(client, `${id}/business_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<BusinessUserFields, F[number]>>(client, `${id}/business_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: BusinessCreateBusinessUsersParams) =>
         client.post<BusinessUserFields>(`${id}/business_users`, params as Record<string, unknown>),
     },
     businessprojects: <F extends (keyof BusinessProjectFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<BusinessProjectFields, F[number]>>(client, `${id}/businessprojects`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessProjectFields, F[number]>>(client, `${id}/businessprojects`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createClaimCustomConversion: (params: BusinessCreateClaimCustomConversionsParams) =>
       client.post<CustomConversionFields>(`${id}/claim_custom_conversions`, params as Record<string, unknown>),
     clientAdAccounts: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: BusinessListClientAdAccountsParams }) =>
-      new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/client_ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/client_ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     clientApps: {
       __path: `${id}/client_apps`,
       __brand: undefined as unknown as ApplicationFields,
       list: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/client_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/client_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: BusinessCreateClientAppsParams) =>
         client.post<BusinessFields>(`${id}/client_apps`, params as Record<string, unknown>),
     },
     clientInstagramAssets: <F extends (keyof InstagramBusinessAssetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<InstagramBusinessAssetFields, F[number]>>(client, `${id}/client_instagram_assets`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<InstagramBusinessAssetFields, F[number]>>(client, `${id}/client_instagram_assets`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     clientOffsiteSignalContainerBusinessObjects: <F extends (keyof OffsiteSignalContainerBusinessObjectFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<OffsiteSignalContainerBusinessObjectFields, F[number]>>(client, `${id}/client_offsite_signal_container_business_objects`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<OffsiteSignalContainerBusinessObjectFields, F[number]>>(client, `${id}/client_offsite_signal_container_business_objects`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     clientPages: {
       __path: `${id}/client_pages`,
       __brand: undefined as unknown as PageFields,
       list: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<PageFields, F[number]>>(client, `${id}/client_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<PageFields, F[number]>>(client, `${id}/client_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: BusinessCreateClientPagesParams) =>
         client.post<BusinessFields>(`${id}/client_pages`, params as Record<string, unknown>),
     },
     clientPixels: <F extends (keyof AdsPixelFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AdsPixelFields, F[number]>>(client, `${id}/client_pixels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdsPixelFields, F[number]>>(client, `${id}/client_pixels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     clientProductCatalogs: <F extends (keyof ProductCatalogFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<ProductCatalogFields, F[number]>>(client, `${id}/client_product_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProductCatalogFields, F[number]>>(client, `${id}/client_product_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     clientWhatsappBusinessAccounts: <F extends (keyof WhatsAppBusinessAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<WhatsAppBusinessAccountFields, F[number]>>(client, `${id}/client_whatsapp_business_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<WhatsAppBusinessAccountFields, F[number]>>(client, `${id}/client_whatsapp_business_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     clients: {
       __path: `${id}/clients`,
       __brand: undefined as unknown as BusinessFields,
       list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/clients`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/clients`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       delete: (params: BusinessDeleteClientsParams) =>
         client.delete(`${id}/clients`, params as Record<string, unknown> ?? {}),
     },
     collaborativeAdsCollaborationRequests: <F extends (keyof CPASCollaborationRequestFields)[]>(opts: { fields: F; params?: BusinessListCollaborativeAdsCollaborationRequestsParams }) =>
-      new Cursor<Pick<CPASCollaborationRequestFields, F[number]>>(client, `${id}/collaborative_ads_collaboration_requests`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CPASCollaborationRequestFields, F[number]>>(client, `${id}/collaborative_ads_collaboration_requests`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     collaborativeAdsSuggestedPartners: <F extends (keyof CPASAdvertiserPartnershipRecommendationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<CPASAdvertiserPartnershipRecommendationFields, F[number]>>(client, `${id}/collaborative_ads_suggested_partners`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CPASAdvertiserPartnershipRecommendationFields, F[number]>>(client, `${id}/collaborative_ads_suggested_partners`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     commerceMerchantSettings: <F extends (keyof CommerceMerchantSettingsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<CommerceMerchantSettingsFields, F[number]>>(client, `${id}/commerce_merchant_settings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CommerceMerchantSettingsFields, F[number]>>(client, `${id}/commerce_merchant_settings`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     cpasBusinessSetupConfig: {
       __path: `${id}/cpas_business_setup_config`,
       __brand: undefined as unknown as CPASBusinessSetupConfigFields,
       list: <F extends (keyof CPASBusinessSetupConfigFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<CPASBusinessSetupConfigFields, F[number]>>(client, `${id}/cpas_business_setup_config`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<CPASBusinessSetupConfigFields, F[number]>>(client, `${id}/cpas_business_setup_config`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: BusinessCreateCpasBusinessSetupConfigParams) =>
         client.post<CPASBusinessSetupConfigFields>(`${id}/cpas_business_setup_config`, params as Record<string, unknown>),
     },
     cpasMerchantConfig: <F extends (keyof CPASMerchantConfigFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<CPASMerchantConfigFields, F[number]>>(client, `${id}/cpas_merchant_config`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CPASMerchantConfigFields, F[number]>>(client, `${id}/cpas_merchant_config`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createCreativeFolder: (params: BusinessCreateCreativeFoldersParams) =>
       client.post<BusinessCreativeFolderFields>(`${id}/creative_folders`, params as Record<string, unknown>),
     creditcards: <F extends (keyof CreditCardFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<CreditCardFields, F[number]>>(client, `${id}/creditcards`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CreditCardFields, F[number]>>(client, `${id}/creditcards`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createCustomconversion: (params: BusinessCreateCustomconversionsParams) =>
       client.post<CustomConversionFields>(`${id}/customconversions`, params as Record<string, unknown>),
     eventSourceGroups: {
       __path: `${id}/event_source_groups`,
       __brand: undefined as unknown as EventSourceGroupFields,
       list: <F extends (keyof EventSourceGroupFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<EventSourceGroupFields, F[number]>>(client, `${id}/event_source_groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<EventSourceGroupFields, F[number]>>(client, `${id}/event_source_groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: BusinessCreateEventSourceGroupsParams) =>
         client.post<EventSourceGroupFields>(`${id}/event_source_groups`, params as Record<string, unknown>),
     },
     extendedcreditapplications: <F extends (keyof ExtendedCreditApplicationFields)[]>(opts: { fields: F; params?: BusinessListExtendedcreditapplicationsParams }) =>
-      new Cursor<Pick<ExtendedCreditApplicationFields, F[number]>>(client, `${id}/extendedcreditapplications`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ExtendedCreditApplicationFields, F[number]>>(client, `${id}/extendedcreditapplications`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     extendedcredits: <F extends (keyof ExtendedCreditFields)[]>(opts: { fields: F; params?: BusinessListExtendedcreditsParams }) =>
-      new Cursor<Pick<ExtendedCreditFields, F[number]>>(client, `${id}/extendedcredits`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ExtendedCreditFields, F[number]>>(client, `${id}/extendedcredits`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createImage: (params: BusinessCreateImagesParams) =>
       client.post<BusinessImageFields>(`${id}/images`, params as Record<string, unknown>),
     initiatedAudienceSharingRequests: <F extends (keyof BusinessAssetSharingAgreementFields)[]>(opts: { fields: F; params?: BusinessListInitiatedAudienceSharingRequestsParams }) =>
-      new Cursor<Pick<BusinessAssetSharingAgreementFields, F[number]>>(client, `${id}/initiated_audience_sharing_requests`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessAssetSharingAgreementFields, F[number]>>(client, `${id}/initiated_audience_sharing_requests`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     instagramAccounts: {
       __path: `${id}/instagram_accounts`,
       __brand: undefined as unknown as IGUserFields,
       list: <F extends (keyof IGUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<IGUserFields, F[number]>>(client, `${id}/instagram_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<IGUserFields, F[number]>>(client, `${id}/instagram_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       delete: (params: BusinessDeleteInstagramAccountsParams) =>
         client.delete(`${id}/instagram_accounts`, params as Record<string, unknown> ?? {}),
     },
     instagramBusinessAccounts: <F extends (keyof IGUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<IGUserFields, F[number]>>(client, `${id}/instagram_business_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<IGUserFields, F[number]>>(client, `${id}/instagram_business_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     managedBusinesses: {
       __path: `${id}/managed_businesses`,
       __brand: undefined as unknown as BusinessFields,
@@ -874,7 +877,7 @@ export function businessNode(client: ApiClient, id: string) {
         client.delete(`${id}/managed_businesses`, params as Record<string, unknown> ?? {}),
     },
     managedPartnerAdsFundingSourceDetails: <F extends (keyof FundingSourceDetailsCouponFields)[]>(opts: { fields: F; params?: BusinessListManagedPartnerAdsFundingSourceDetailsParams }) =>
-      new Cursor<Pick<FundingSourceDetailsCouponFields, F[number]>>(client, `${id}/managed_partner_ads_funding_source_details`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<FundingSourceDetailsCouponFields, F[number]>>(client, `${id}/managed_partner_ads_funding_source_details`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createManagedPartnerBusinessSetup: (params: BusinessCreateManagedPartnerBusinessSetupParams) =>
       client.post<BusinessFields>(`${id}/managed_partner_business_setup`, params as Record<string, unknown>),
     managedPartnerBusinesses: {
@@ -891,7 +894,7 @@ export function businessNode(client: ApiClient, id: string) {
       __path: `${id}/openbridge_configurations`,
       __brand: undefined as unknown as OpenBridgeConfigurationFields,
       list: <F extends (keyof OpenBridgeConfigurationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<OpenBridgeConfigurationFields, F[number]>>(client, `${id}/openbridge_configurations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<OpenBridgeConfigurationFields, F[number]>>(client, `${id}/openbridge_configurations`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: BusinessCreateOpenbridgeConfigurationsParams) =>
         client.post<OpenBridgeConfigurationFields>(`${id}/openbridge_configurations`, params as Record<string, unknown>),
     },
@@ -899,7 +902,7 @@ export function businessNode(client: ApiClient, id: string) {
       __path: `${id}/owned_ad_accounts`,
       __brand: undefined as unknown as AdAccountFields,
       list: <F extends (keyof AdAccountFields)[]>(opts: { fields: F; params?: BusinessListOwnedAdAccountsParams }) =>
-        new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/owned_ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<AdAccountFields, F[number]>>(client, `${id}/owned_ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: BusinessCreateOwnedAdAccountsParams) =>
         client.post<BusinessFields>(`${id}/owned_ad_accounts`, params as Record<string, unknown>),
     },
@@ -907,7 +910,7 @@ export function businessNode(client: ApiClient, id: string) {
       __path: `${id}/owned_apps`,
       __brand: undefined as unknown as ApplicationFields,
       list: <F extends (keyof ApplicationFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/owned_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ApplicationFields, F[number]>>(client, `${id}/owned_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: BusinessCreateOwnedAppsParams) =>
         client.post<BusinessFields>(`${id}/owned_apps`, params as Record<string, unknown>),
     },
@@ -915,72 +918,72 @@ export function businessNode(client: ApiClient, id: string) {
       __path: `${id}/owned_businesses`,
       __brand: undefined as unknown as BusinessFields,
       list: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: BusinessListOwnedBusinessesParams }) =>
-        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/owned_businesses`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/owned_businesses`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: BusinessCreateOwnedBusinessesParams) =>
         client.post<BusinessFields>(`${id}/owned_businesses`, params as Record<string, unknown>),
       delete: (params: BusinessDeleteOwnedBusinessesParams) =>
         client.delete(`${id}/owned_businesses`, params as Record<string, unknown> ?? {}),
     },
     ownedInstagramAccounts: <F extends (keyof IGUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<IGUserFields, F[number]>>(client, `${id}/owned_instagram_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<IGUserFields, F[number]>>(client, `${id}/owned_instagram_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     ownedInstagramAssets: <F extends (keyof InstagramBusinessAssetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<InstagramBusinessAssetFields, F[number]>>(client, `${id}/owned_instagram_assets`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<InstagramBusinessAssetFields, F[number]>>(client, `${id}/owned_instagram_assets`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     ownedOffsiteSignalContainerBusinessObjects: <F extends (keyof OffsiteSignalContainerBusinessObjectFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<OffsiteSignalContainerBusinessObjectFields, F[number]>>(client, `${id}/owned_offsite_signal_container_business_objects`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<OffsiteSignalContainerBusinessObjectFields, F[number]>>(client, `${id}/owned_offsite_signal_container_business_objects`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     ownedPages: {
       __path: `${id}/owned_pages`,
       __brand: undefined as unknown as PageFields,
       list: <F extends (keyof PageFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<PageFields, F[number]>>(client, `${id}/owned_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<PageFields, F[number]>>(client, `${id}/owned_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: BusinessCreateOwnedPagesParams) =>
         client.post<BusinessFields>(`${id}/owned_pages`, params as Record<string, unknown>),
     },
     ownedPixels: <F extends (keyof AdsPixelFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AdsPixelFields, F[number]>>(client, `${id}/owned_pixels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdsPixelFields, F[number]>>(client, `${id}/owned_pixels`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     ownedProductCatalogs: {
       __path: `${id}/owned_product_catalogs`,
       __brand: undefined as unknown as ProductCatalogFields,
       list: <F extends (keyof ProductCatalogFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ProductCatalogFields, F[number]>>(client, `${id}/owned_product_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ProductCatalogFields, F[number]>>(client, `${id}/owned_product_catalogs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: BusinessCreateOwnedProductCatalogsParams) =>
         client.post<ProductCatalogFields>(`${id}/owned_product_catalogs`, params as Record<string, unknown>),
     },
     ownedWhatsappBusinessAccounts: <F extends (keyof WhatsAppBusinessAccountFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<WhatsAppBusinessAccountFields, F[number]>>(client, `${id}/owned_whatsapp_business_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<WhatsAppBusinessAccountFields, F[number]>>(client, `${id}/owned_whatsapp_business_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     deletePages: (params: BusinessDeletePagesParams) =>
       client.delete(`${id}/pages`, params as Record<string, unknown> ?? {}),
     partnerAccountLinking: <F extends (keyof PartnerAccountLinkingFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<PartnerAccountLinkingFields, F[number]>>(client, `${id}/partner_account_linking`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<PartnerAccountLinkingFields, F[number]>>(client, `${id}/partner_account_linking`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createPartnerPremiumOption: (params: BusinessCreatePartnerPremiumOptionsParams) =>
       client.post<Record<string, unknown>>(`${id}/partner_premium_options`, params as Record<string, unknown>),
     passbackAttributionMetadataConfigs: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/passback_attribution_metadata_configs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/passback_attribution_metadata_configs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     pendingClientAdAccounts: <F extends (keyof BusinessAdAccountRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<BusinessAdAccountRequestFields, F[number]>>(client, `${id}/pending_client_ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessAdAccountRequestFields, F[number]>>(client, `${id}/pending_client_ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     pendingClientApps: <F extends (keyof BusinessApplicationRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<BusinessApplicationRequestFields, F[number]>>(client, `${id}/pending_client_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessApplicationRequestFields, F[number]>>(client, `${id}/pending_client_apps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     pendingClientPages: <F extends (keyof BusinessPageRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<BusinessPageRequestFields, F[number]>>(client, `${id}/pending_client_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessPageRequestFields, F[number]>>(client, `${id}/pending_client_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     pendingOwnedAdAccounts: <F extends (keyof BusinessAdAccountRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<BusinessAdAccountRequestFields, F[number]>>(client, `${id}/pending_owned_ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessAdAccountRequestFields, F[number]>>(client, `${id}/pending_owned_ad_accounts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     pendingOwnedPages: <F extends (keyof BusinessPageRequestFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<BusinessPageRequestFields, F[number]>>(client, `${id}/pending_owned_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessPageRequestFields, F[number]>>(client, `${id}/pending_owned_pages`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     pendingSharedOffsiteSignalContainerBusinessObjects: <F extends (keyof OffsiteSignalContainerBusinessObjectFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<OffsiteSignalContainerBusinessObjectFields, F[number]>>(client, `${id}/pending_shared_offsite_signal_container_business_objects`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<OffsiteSignalContainerBusinessObjectFields, F[number]>>(client, `${id}/pending_shared_offsite_signal_container_business_objects`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     pendingUsers: <F extends (keyof BusinessRoleRequestFields)[]>(opts: { fields: F; params?: BusinessListPendingUsersParams }) =>
-      new Cursor<Pick<BusinessRoleRequestFields, F[number]>>(client, `${id}/pending_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessRoleRequestFields, F[number]>>(client, `${id}/pending_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     picture: <F extends (keyof ProfilePictureSourceFields)[]>(opts: { fields: F; params?: BusinessListPictureParams }) =>
-      new Cursor<Pick<ProfilePictureSourceFields, F[number]>>(client, `${id}/picture`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProfilePictureSourceFields, F[number]>>(client, `${id}/picture`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createPixelTo: (params: Record<string, unknown>) =>
       client.post<Record<string, unknown>>(`${id}/pixel_tos`, params as Record<string, unknown>),
     preverifiedNumbers: <F extends (keyof WhatsAppBusinessPreVerifiedPhoneNumberFields)[]>(opts: { fields: F; params?: BusinessListPreverifiedNumbersParams }) =>
-      new Cursor<Pick<WhatsAppBusinessPreVerifiedPhoneNumberFields, F[number]>>(client, `${id}/preverified_numbers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<WhatsAppBusinessPreVerifiedPhoneNumberFields, F[number]>>(client, `${id}/preverified_numbers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     receivedAudienceSharingRequests: <F extends (keyof BusinessAssetSharingAgreementFields)[]>(opts: { fields: F; params?: BusinessListReceivedAudienceSharingRequestsParams }) =>
-      new Cursor<Pick<BusinessAssetSharingAgreementFields, F[number]>>(client, `${id}/received_audience_sharing_requests`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessAssetSharingAgreementFields, F[number]>>(client, `${id}/received_audience_sharing_requests`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     resellerGuidances: <F extends (keyof ResellerGuidanceFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<ResellerGuidanceFields, F[number]>>(client, `${id}/reseller_guidances`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ResellerGuidanceFields, F[number]>>(client, `${id}/reseller_guidances`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     selfCertifiedWhatsappBusinessSubmissions: <F extends (keyof WhatsAppBusinessPartnerClientVerificationSubmissionFields)[]>(opts: { fields: F; params?: BusinessListSelfCertifiedWhatsappBusinessSubmissionsParams }) =>
-      new Cursor<Pick<WhatsAppBusinessPartnerClientVerificationSubmissionFields, F[number]>>(client, `${id}/self_certified_whatsapp_business_submissions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<WhatsAppBusinessPartnerClientVerificationSubmissionFields, F[number]>>(client, `${id}/self_certified_whatsapp_business_submissions`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createSelfCertifyWhatsappBusiness: (params: BusinessCreateSelfCertifyWhatsappBusinessParams) =>
       client.post<BusinessFields>(`${id}/self_certify_whatsapp_business`, params as Record<string, unknown>),
     sharePreverifiedNumbers: {
@@ -997,12 +1000,12 @@ export function businessNode(client: ApiClient, id: string) {
       __path: `${id}/system_users`,
       __brand: undefined as unknown as SystemUserFields,
       list: <F extends (keyof SystemUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<SystemUserFields, F[number]>>(client, `${id}/system_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<SystemUserFields, F[number]>>(client, `${id}/system_users`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: BusinessCreateSystemUsersParams) =>
         client.post<SystemUserFields>(`${id}/system_users`, params as Record<string, unknown>),
     },
     thirdPartyMeasurementReportDataset: <F extends (keyof ThirdPartyMeasurementReportDatasetFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<ThirdPartyMeasurementReportDatasetFields, F[number]>>(client, `${id}/third_party_measurement_report_dataset`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ThirdPartyMeasurementReportDatasetFields, F[number]>>(client, `${id}/third_party_measurement_report_dataset`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createVideo: (params: BusinessCreateVideosParams) =>
       client.post<AdVideoFields>(`${id}/videos`, params as Record<string, unknown>),
   };

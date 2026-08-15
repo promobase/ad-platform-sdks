@@ -37,6 +37,11 @@ import {
   createTikTokDeveloperPkcePair,
 } from "./developer.ts";
 import { TikTokApiError } from "./errors.ts";
+import {
+  createTikTokAdvertiserOAuthAdapter,
+  createTikTokBusinessOAuthAdapter,
+  createTikTokDeveloperOAuthAdapter,
+} from "./oauth-adapters.ts";
 import type { TikTokCursorOptions } from "./pagination.ts";
 import { TikTokCursor } from "./pagination.ts";
 import type { TikTokRateLimiterOptions } from "./rate-limiter.ts";
@@ -82,6 +87,7 @@ export const TikTok = {
 
   /** Create an OAuth handler for TikTok Business API auth flows. */
   OAuth: createTikTokOAuth,
+  oauth: createTikTokBusinessOAuthAdapter,
 
   /** Create a webhook management client (CRUD for webhook subscriptions). */
   createWebhooks: createTikTokWebhooks,
@@ -107,7 +113,13 @@ export const TikTok = {
   Developer: {
     createClient: createTikTokDeveloperClient,
     OAuth: createTikTokDeveloperOAuth,
+    oauth: createTikTokDeveloperOAuthAdapter,
     createPkcePair: createTikTokDeveloperPkcePair,
+  },
+
+  /** Compatibility Marketing API advertiser OAuth flow. */
+  Advertiser: {
+    oauth: createTikTokAdvertiserOAuthAdapter,
   },
 
   /**

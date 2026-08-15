@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c3d6338fbb9b6047c3d716ee2b2eec9427f677f168061feba4e313e4c6fd7cbc
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type CustomerNegativeCriterionSelectableField =
   | "customer_negative_criterion.resource_name"

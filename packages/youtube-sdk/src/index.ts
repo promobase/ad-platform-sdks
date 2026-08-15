@@ -5,6 +5,7 @@ export {
   type YouTubeOAuthConfig,
   type YouTubeOAuthTokenResponse,
 } from "./oauth.ts";
+export { createYouTubeOAuthAdapter, type YouTubeChannelAccount } from "./oauth-adapters.ts";
 export * from "./generated/index.ts";
 export { YouTube } from "./namespace.ts";
 export type {

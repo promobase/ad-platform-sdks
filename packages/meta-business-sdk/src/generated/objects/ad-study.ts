@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:e3162fca18f49648f4d593e07347f4930d46b4f9d18ab833dbf0c31fe41536c6
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdStudyCellFields } from "./ad-study-cell.ts";
 import type { AdStudyObjectiveFields } from "./ad-study-objective.ts";
 import type { BusinessFields } from "./business.ts";
@@ -71,19 +74,19 @@ export function adStudyNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     cells: <F extends (keyof AdStudyCellFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AdStudyCellFields, F[number]>>(client, `${id}/cells`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdStudyCellFields, F[number]>>(client, `${id}/cells`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createCheckpoint: (params: AdStudyCreateCheckpointParams) =>
       client.post<AdStudyFields>(`${id}/checkpoint`, params as Record<string, unknown>),
     instances: {
       __path: `${id}/instances`,
       __brand: undefined as unknown as PrivateLiftStudyInstanceFields,
       list: <F extends (keyof PrivateLiftStudyInstanceFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<PrivateLiftStudyInstanceFields, F[number]>>(client, `${id}/instances`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<PrivateLiftStudyInstanceFields, F[number]>>(client, `${id}/instances`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: AdStudyCreateInstancesParams) =>
         client.post<PrivateLiftStudyInstanceFields>(`${id}/instances`, params as Record<string, unknown>),
     },
     objectives: <F extends (keyof AdStudyObjectiveFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AdStudyObjectiveFields, F[number]>>(client, `${id}/objectives`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdStudyObjectiveFields, F[number]>>(client, `${id}/objectives`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

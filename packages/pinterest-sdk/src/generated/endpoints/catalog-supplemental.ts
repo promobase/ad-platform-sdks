@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:054ce9733fa36f6f5bfdd1c8fd387e881a29da2f94937f8cc23fb107a4e26049
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for catalog_supplemental — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { CatalogsLocalInventoryItemsBatchOperateResponse, CatalogsLocalInventoryItemsPostResponse, CatalogsLocalStoresListResponse, CatalogsLocalStoresCreateResponse, CatalogsLocalStoresUpdateResponse, CatalogsLocalStoresDeleteResponse, CatalogsSupplementalItemsBatchGetResponse } from "../types.ts";

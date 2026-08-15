@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:f8aac6136e956a00e0a06dbd66ef36562e98044a1b009d353b3ac6db9cb68935",
+    "doNotEdit": true
+  },
   "platform": "tiktok",
   "source": {
     "kind": "documentation",

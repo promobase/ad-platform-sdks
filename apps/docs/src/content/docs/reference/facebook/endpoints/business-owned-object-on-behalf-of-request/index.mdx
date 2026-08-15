@@ -1,0 +1,50 @@
+---
+title: "Facebook Business Owned Object On Behalf Of Request endpoints"
+description: "1 generated Facebook endpoint contract for Business Owned Object On Behalf Of Request."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 194
+  label: "Business Owned Object On Behalf Of Request"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:7de9641f3ed59eaa80ccd154f5a55ecd3b271e335c612736e584b46ba9b29952 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.businessOwnedObjectOnBehalfOfRequest.get
+
+`GET` `/{id}`
+
+GET BusinessOwnedObjectOnBehalfOfRequest
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `businessOwnedObjectOnBehalfOfRequest.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `BusinessOwnedObjectOnBehalfOfRequestFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

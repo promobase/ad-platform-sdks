@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:82fc222c6810cb80f2e91ff179471f7a85d96566dd36d3ce82937fbe0dc3f47b
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { GenerateConversionRatesRequest, GenerateConversionRatesResponse, GenerateReachForecastRequest, GenerateReachForecastResponse, ListPlannableLocationsRequest, ListPlannableLocationsResponse, ListPlannableProductsRequest, ListPlannableProductsResponse, ListPlannableUserInterestsRequest, ListPlannableUserInterestsResponse, ListPlannableUserListsRequest, ListPlannableUserListsResponse } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

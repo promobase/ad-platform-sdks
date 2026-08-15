@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6c16687bf5bf0efd3d255f7e94c95bcc081c0bb3181e80cf84bdd2fd38defb5d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type UserListSelectableField =
   | "user_list.resource_name"

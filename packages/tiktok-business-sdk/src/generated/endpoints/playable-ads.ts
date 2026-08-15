@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e6b8f19544771ffded056767047b26477be870ce61c71412d76bc2c20d946140
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Playable Ads — do not edit
 import type { PlayableUploadParams, PlayableUploadResponse, PlayableValidateParams, PlayableValidateResponse, PlayableSaveParams, PlayableSaveResponse, PlayableGetParams, PlayableGetResponse, PlayableDeleteParams, PlayableDeleteResponse } from "../types/playable-ads.ts";
 

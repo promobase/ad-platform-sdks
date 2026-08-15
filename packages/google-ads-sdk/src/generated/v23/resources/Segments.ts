@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:17f6fd549baf602503cdabbb220f02203840c41b512f19c7e990d836c91e3c4c
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdDestinationType, AdFormatType, AdNetworkType, AdSubNetworkType, AgeRangeType, AssetInteractionTarget, BudgetCampaignAssociationStatus, ClickType, ConversionActionCategory, ConversionAttributionEventType, ConversionLagBucket, ConversionOrAdjustmentLagBucket, ConversionValueRulePrimaryDimension, ConvertingUserPriorEngagementTypeAndLtvBucket, DayOfWeek, Device, ExternalConversionSource, GenderType, HotelDateSelectionType, HotelPriceBucket, HotelRateType, Keyword, LandingPageSource, MatchType, MonthOfYear, ProductChannelEnum_ProductChannel, ProductChannelExclusivity, ProductConditionEnum_ProductCondition, RecommendationType, SearchEngineResultsPageType, SearchTermMatchSource, SearchTermMatchType, SearchTermTargetingStatus, SkAdNetworkAdEventType, SkAdNetworkAttributionCredit, SkAdNetworkCoarseConversionValue, SkAdNetworkSourceApp, SkAdNetworkSourceType, SkAdNetworkUserType, Slot, VerticalAdsItemVerticalType } from "../index.ts";
 
 // Generated from google.ads.googleads.v23.common.Segments. Do not edit by hand.

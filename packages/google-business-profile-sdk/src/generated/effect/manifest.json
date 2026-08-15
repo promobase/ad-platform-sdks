@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:6f3f368fc4e7f9ac485d92df6b6972ab6395ce92da7a46d42d08fd2362d9f09f",
+    "doNotEdit": true
+  },
   "platform": "google-business-profile",
   "source": {
     "kind": "discovery",

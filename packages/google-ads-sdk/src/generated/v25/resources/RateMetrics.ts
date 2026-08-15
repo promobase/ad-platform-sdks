@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:635946174ff52c5ec5c20386e0ca705d04c8282781bd4e8b36422625c201da86
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.services.RateMetrics. Do not edit by hand.
 export interface RateMetrics {
   averageCpm?: number;

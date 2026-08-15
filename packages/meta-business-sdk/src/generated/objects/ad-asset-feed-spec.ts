@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:fd51c794a8db23aabd643a2b3ae8e417f660fe9accd02165dce5463ff44fbb85
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdAssetFeedAdditionalDataFields } from "./ad-asset-feed-additional-data.ts";
 import type { AdAssetFeedSpecAssetCustomizationRuleFields } from "./ad-asset-feed-spec-asset-customization-rule.ts";
 import type { AdAssetFeedSpecBodyFields } from "./ad-asset-feed-spec-body.ts";

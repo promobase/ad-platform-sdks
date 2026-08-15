@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:efcbfa59693ee90183d51831cb399bd262ced685b4d9eeae375e1397ca47ffb0
+// DO NOT EDIT: generated file; changes will be overwritten.
 export * from "./field-map.ts";
 export * from "./resource-map.ts";
 export * from "./metrics.ts";

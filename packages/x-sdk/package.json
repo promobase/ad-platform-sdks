@@ -28,7 +28,7 @@
     "README.md"
   ],
   "scripts": {
-    "codegen": "cd ../.. && bunx fern-api@5.89.3 generate --local --group x-local --no-prompt --force && bun scripts/patch-fern-x-sdk.mjs && bun scripts/generate-x-effect.mjs",
+    "codegen": "cd ../.. && bunx fern-api@5.89.3 generate --local --group x-local --no-prompt --force && bun scripts/patch-fern-x-sdk.mjs && bun scripts/generate-x-effect.mjs && node scripts/ensure-generated-headers.mjs",
     "codegen:check": "cd ../.. && bunx fern-api@5.89.3 check && bun scripts/generate-x-effect.mjs && git diff --exit-code -- packages/x-sdk/src/generated/effect apps/docs/src/content/docs/reference/x",
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",

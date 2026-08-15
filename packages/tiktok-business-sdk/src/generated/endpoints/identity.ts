@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:16d1561f94620604ff0a77467c045071f445126db5a125391d1c887e60ccbec0
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Identity — do not edit
 import type { IdentityCreateParams, IdentityCreateResponse, IdentityDeleteParams, IdentityDeleteResponse, IdentityGetParams, IdentityGetResponse, IdentityInfoParams, IdentityInfoResponse, IdentityVideoGetParams, IdentityVideoGetResponse, IdentityLiveGetParams, IdentityLiveGetResponse, IdentityMusicAuthorizationParams, IdentityMusicAuthorizationResponse, IdentityVideoInfoParams, IdentityVideoInfoResponse } from "../types/identity.ts";
 

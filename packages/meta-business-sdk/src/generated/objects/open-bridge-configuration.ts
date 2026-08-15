@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3c92f67808735232045165dc1b3e12070c59878c1589683d9a02afc3b0100dab
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface OpenBridgeConfigurationFields {

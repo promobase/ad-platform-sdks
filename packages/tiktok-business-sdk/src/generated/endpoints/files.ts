@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:387aed0a87e1c1ed271db0fde085c14ea41dc340dcb1dcb8d4c91f1500923335
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Files — do not edit
 import type { FileTemporarilyUploadParams, FileTemporarilyUploadResponse, FileStartUploadParams, FileStartUploadResponse, FileTransferUploadParams, FileTransferUploadResponse, FileFinishUploadParams, FileFinishUploadResponse, FileNameCheckParams, FileNameCheckResponse } from "../types/files.ts";
 

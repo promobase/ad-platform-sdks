@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:cb54cd6dcefec195bbd78b1f0f5d7670ae352d1cdf2b6de4874db44ff09e1871
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for audience-size — do not edit
 
 export interface AudienceSizeV2 {}

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0b5fb6f3433554a3f8479fd93a6420d00a7cfa1d69ccd9474075abe6805a7f6e
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
 export interface Account {

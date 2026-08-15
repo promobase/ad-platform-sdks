@@ -1,1979 +1,1982 @@
+// @generated
+// fingerprint: sha256:2f424a7072c06adafec592f74a186719bee81c6aaddb27cfd4d2d6cb25de34e9
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
 export const capabilities = [
   {
     "id": "ad.manage",
-    "summary": "Manage Meta Ad",
+    "summary": "Manage Facebook Graph Ad",
     "requiredScopes": []
   },
   {
     "id": "ad.read",
-    "summary": "Read Meta Ad",
+    "summary": "Read Facebook Graph Ad",
     "requiredScopes": []
   },
   {
     "id": "adAccount.manage",
-    "summary": "Manage Meta AdAccount",
+    "summary": "Manage Facebook Graph AdAccount",
     "requiredScopes": []
   },
   {
     "id": "adAccount.read",
-    "summary": "Read Meta AdAccount",
+    "summary": "Read Facebook Graph AdAccount",
     "requiredScopes": []
   },
   {
     "id": "adAccountAccountControls.manage",
-    "summary": "Manage Meta AdAccountAccountControls",
+    "summary": "Manage Facebook Graph AdAccountAccountControls",
     "requiredScopes": []
   },
   {
     "id": "adAccountAgencyFeeConfig.read",
-    "summary": "Read Meta AdAccountAgencyFeeConfig",
+    "summary": "Read Facebook Graph AdAccountAgencyFeeConfig",
     "requiredScopes": []
   },
   {
     "id": "adAccountCreationRequest.read",
-    "summary": "Read Meta AdAccountCreationRequest",
+    "summary": "Read Facebook Graph AdAccountCreationRequest",
     "requiredScopes": []
   },
   {
     "id": "adAccountFeaturePreferences.manage",
-    "summary": "Manage Meta AdAccountFeaturePreferences",
+    "summary": "Manage Facebook Graph AdAccountFeaturePreferences",
     "requiredScopes": []
   },
   {
     "id": "adAccountUserSettings.read",
-    "summary": "Read Meta AdAccountUserSettings",
+    "summary": "Read Facebook Graph AdAccountUserSettings",
     "requiredScopes": []
   },
   {
     "id": "adAsyncRequest.manage",
-    "summary": "Manage Meta AdAsyncRequest",
+    "summary": "Manage Facebook Graph AdAsyncRequest",
     "requiredScopes": []
   },
   {
     "id": "adAsyncRequest.read",
-    "summary": "Read Meta AdAsyncRequest",
+    "summary": "Read Facebook Graph AdAsyncRequest",
     "requiredScopes": []
   },
   {
     "id": "adAsyncRequestSet.manage",
-    "summary": "Manage Meta AdAsyncRequestSet",
+    "summary": "Manage Facebook Graph AdAsyncRequestSet",
     "requiredScopes": []
   },
   {
     "id": "adAsyncRequestSet.read",
-    "summary": "Read Meta AdAsyncRequestSet",
+    "summary": "Read Facebook Graph AdAsyncRequestSet",
     "requiredScopes": []
   },
   {
     "id": "adCampaign.manage",
-    "summary": "Manage Meta AdCampaign",
+    "summary": "Manage Facebook Graph AdCampaign",
     "requiredScopes": []
   },
   {
     "id": "adCampaignBudgetSchedules.manage",
-    "summary": "Manage Meta AdCampaignBudgetSchedules",
+    "summary": "Manage Facebook Graph AdCampaignBudgetSchedules",
     "requiredScopes": []
   },
   {
     "id": "adCampaignGroup.manage",
-    "summary": "Manage Meta AdCampaignGroup",
+    "summary": "Manage Facebook Graph AdCampaignGroup",
     "requiredScopes": []
   },
   {
     "id": "adCampaignGroupBudgetSchedules.manage",
-    "summary": "Manage Meta AdCampaignGroupBudgetSchedules",
+    "summary": "Manage Facebook Graph AdCampaignGroupBudgetSchedules",
     "requiredScopes": []
   },
   {
     "id": "adCampaignPlacement.read",
-    "summary": "Read Meta AdCampaignPlacement",
+    "summary": "Read Facebook Graph AdCampaignPlacement",
     "requiredScopes": []
   },
   {
     "id": "adColumnSizes.read",
-    "summary": "Read Meta AdColumnSizes",
+    "summary": "Read Facebook Graph AdColumnSizes",
     "requiredScopes": []
   },
   {
     "id": "adCreationPackageConfig.read",
-    "summary": "Read Meta AdCreationPackageConfig",
+    "summary": "Read Facebook Graph AdCreationPackageConfig",
     "requiredScopes": []
   },
   {
     "id": "adCreative.manage",
-    "summary": "Manage Meta AdCreative",
+    "summary": "Manage Facebook Graph AdCreative",
     "requiredScopes": []
   },
   {
     "id": "adCreative.read",
-    "summary": "Read Meta AdCreative",
+    "summary": "Read Facebook Graph AdCreative",
     "requiredScopes": []
   },
   {
     "id": "adCustomDerivedMetrics.read",
-    "summary": "Read Meta AdCustomDerivedMetrics",
+    "summary": "Read Facebook Graph AdCustomDerivedMetrics",
     "requiredScopes": []
   },
   {
     "id": "adDraft.read",
-    "summary": "Read Meta AdDraft",
+    "summary": "Read Facebook Graph AdDraft",
     "requiredScopes": []
   },
   {
     "id": "adExportPreset.read",
-    "summary": "Read Meta AdExportPreset",
+    "summary": "Read Facebook Graph AdExportPreset",
     "requiredScopes": []
   },
   {
     "id": "adgroup.manage",
-    "summary": "Manage Meta Adgroup",
+    "summary": "Manage Facebook Graph Adgroup",
     "requiredScopes": []
   },
   {
     "id": "adgroupFacebookFeedback.read",
-    "summary": "Read Meta AdgroupFacebookFeedback",
+    "summary": "Read Facebook Graph AdgroupFacebookFeedback",
     "requiredScopes": []
   },
   {
     "id": "adImage.read",
-    "summary": "Read Meta AdImage",
+    "summary": "Read Facebook Graph AdImage",
     "requiredScopes": []
   },
   {
     "id": "adLabel.manage",
-    "summary": "Manage Meta AdLabel",
+    "summary": "Manage Facebook Graph AdLabel",
     "requiredScopes": []
   },
   {
     "id": "adLabel.read",
-    "summary": "Read Meta AdLabel",
+    "summary": "Read Facebook Graph AdLabel",
     "requiredScopes": []
   },
   {
     "id": "adLightAdgroup.read",
-    "summary": "Read Meta AdLightAdgroup",
+    "summary": "Read Facebook Graph AdLightAdgroup",
     "requiredScopes": []
   },
   {
     "id": "adLightCampaign.read",
-    "summary": "Read Meta AdLightCampaign",
+    "summary": "Read Facebook Graph AdLightCampaign",
     "requiredScopes": []
   },
   {
     "id": "adLightCampaignGroup.read",
-    "summary": "Read Meta AdLightCampaignGroup",
+    "summary": "Read Facebook Graph AdLightCampaignGroup",
     "requiredScopes": []
   },
   {
     "id": "adMonetizationProperty.manage",
-    "summary": "Manage Meta AdMonetizationProperty",
+    "summary": "Manage Facebook Graph AdMonetizationProperty",
     "requiredScopes": []
   },
   {
     "id": "adMonetizationProperty.read",
-    "summary": "Read Meta AdMonetizationProperty",
+    "summary": "Read Facebook Graph AdMonetizationProperty",
     "requiredScopes": []
   },
   {
     "id": "adPlacement.read",
-    "summary": "Read Meta AdPlacement",
+    "summary": "Read Facebook Graph AdPlacement",
     "requiredScopes": []
   },
   {
     "id": "adPlacePageSet.read",
-    "summary": "Read Meta AdPlacePageSet",
+    "summary": "Read Facebook Graph AdPlacePageSet",
     "requiredScopes": []
   },
   {
     "id": "adProposal.read",
-    "summary": "Read Meta AdProposal",
+    "summary": "Read Facebook Graph AdProposal",
     "requiredScopes": []
   },
   {
     "id": "adReportRun.read",
-    "summary": "Read Meta AdReportRun",
+    "summary": "Read Facebook Graph AdReportRun",
     "requiredScopes": []
   },
   {
     "id": "adRule.manage",
-    "summary": "Manage Meta AdRule",
+    "summary": "Manage Facebook Graph AdRule",
     "requiredScopes": []
   },
   {
     "id": "adRule.read",
-    "summary": "Read Meta AdRule",
+    "summary": "Read Facebook Graph AdRule",
     "requiredScopes": []
   },
   {
     "id": "adRuleEvaluationSpec.read",
-    "summary": "Read Meta AdRuleEvaluationSpec",
+    "summary": "Read Facebook Graph AdRuleEvaluationSpec",
     "requiredScopes": []
   },
   {
     "id": "adRuleExecutionSpec.read",
-    "summary": "Read Meta AdRuleExecutionSpec",
+    "summary": "Read Facebook Graph AdRuleExecutionSpec",
     "requiredScopes": []
   },
   {
     "id": "adSavedKeywords.read",
-    "summary": "Read Meta AdSavedKeywords",
+    "summary": "Read Facebook Graph AdSavedKeywords",
     "requiredScopes": []
   },
   {
     "id": "adSavedLocation.read",
-    "summary": "Read Meta AdSavedLocation",
+    "summary": "Read Facebook Graph AdSavedLocation",
     "requiredScopes": []
   },
   {
     "id": "adSavedReport.read",
-    "summary": "Read Meta AdSavedReport",
+    "summary": "Read Facebook Graph AdSavedReport",
     "requiredScopes": []
   },
   {
     "id": "adsConversionGoal.read",
-    "summary": "Read Meta AdsConversionGoal",
+    "summary": "Read Facebook Graph AdsConversionGoal",
     "requiredScopes": []
   },
   {
     "id": "adsCreationSavedState.read",
-    "summary": "Read Meta AdsCreationSavedState",
+    "summary": "Read Facebook Graph AdsCreationSavedState",
     "requiredScopes": []
   },
   {
     "id": "adSet.manage",
-    "summary": "Manage Meta AdSet",
+    "summary": "Manage Facebook Graph AdSet",
     "requiredScopes": []
   },
   {
     "id": "adSet.read",
-    "summary": "Read Meta AdSet",
+    "summary": "Read Facebook Graph AdSet",
     "requiredScopes": []
   },
   {
     "id": "adsMcmeConversion.read",
-    "summary": "Read Meta AdsMcmeConversion",
+    "summary": "Read Facebook Graph AdsMcmeConversion",
     "requiredScopes": []
   },
   {
     "id": "adsNamingTemplate.read",
-    "summary": "Read Meta AdsNamingTemplate",
+    "summary": "Read Facebook Graph AdsNamingTemplate",
     "requiredScopes": []
   },
   {
     "id": "adsPivotRules.read",
-    "summary": "Read Meta AdsPivotRules",
+    "summary": "Read Facebook Graph AdsPivotRules",
     "requiredScopes": []
   },
   {
     "id": "adsPixel.manage",
-    "summary": "Manage Meta AdsPixel",
+    "summary": "Manage Facebook Graph AdsPixel",
     "requiredScopes": []
   },
   {
     "id": "adsPixel.read",
-    "summary": "Read Meta AdsPixel",
+    "summary": "Read Facebook Graph AdsPixel",
     "requiredScopes": []
   },
   {
     "id": "adsPixelCapabilityOverride.read",
-    "summary": "Read Meta AdsPixelCapabilityOverride",
+    "summary": "Read Facebook Graph AdsPixelCapabilityOverride",
     "requiredScopes": []
   },
   {
     "id": "adsQuickViews.read",
-    "summary": "Read Meta AdsQuickViews",
+    "summary": "Read Facebook Graph AdsQuickViews",
     "requiredScopes": []
   },
   {
     "id": "adsReportBuilderExportCore.read",
-    "summary": "Read Meta AdsReportBuilderExportCore",
+    "summary": "Read Facebook Graph AdsReportBuilderExportCore",
     "requiredScopes": []
   },
   {
     "id": "adsReportBuilderMMMReport.read",
-    "summary": "Read Meta AdsReportBuilderMMMReport",
+    "summary": "Read Facebook Graph AdsReportBuilderMMMReport",
     "requiredScopes": []
   },
   {
     "id": "adsReportBuilderMMMReportScheduler.read",
-    "summary": "Read Meta AdsReportBuilderMMMReportScheduler",
+    "summary": "Read Facebook Graph AdsReportBuilderMMMReportScheduler",
     "requiredScopes": []
   },
   {
     "id": "adsReportBuilderSavedReport.read",
-    "summary": "Read Meta AdsReportBuilderSavedReport",
+    "summary": "Read Facebook Graph AdsReportBuilderSavedReport",
     "requiredScopes": []
   },
   {
     "id": "adsStartYourDayWidget.read",
-    "summary": "Read Meta AdsStartYourDayWidget",
+    "summary": "Read Facebook Graph AdsStartYourDayWidget",
     "requiredScopes": []
   },
   {
     "id": "adStudy.manage",
-    "summary": "Manage Meta AdStudy",
+    "summary": "Manage Facebook Graph AdStudy",
     "requiredScopes": []
   },
   {
     "id": "adStudy.read",
-    "summary": "Read Meta AdStudy",
+    "summary": "Read Facebook Graph AdStudy",
     "requiredScopes": []
   },
   {
     "id": "adStudyCell.manage",
-    "summary": "Manage Meta AdStudyCell",
+    "summary": "Manage Facebook Graph AdStudyCell",
     "requiredScopes": []
   },
   {
     "id": "adStudyCell.read",
-    "summary": "Read Meta AdStudyCell",
+    "summary": "Read Facebook Graph AdStudyCell",
     "requiredScopes": []
   },
   {
     "id": "adStudyObjective.manage",
-    "summary": "Manage Meta AdStudyObjective",
+    "summary": "Manage Facebook Graph AdStudyObjective",
     "requiredScopes": []
   },
   {
     "id": "adStudyObjective.read",
-    "summary": "Read Meta AdStudyObjective",
+    "summary": "Read Facebook Graph AdStudyObjective",
     "requiredScopes": []
   },
   {
     "id": "adsUserSettings.read",
-    "summary": "Read Meta AdsUserSettings",
+    "summary": "Read Facebook Graph AdsUserSettings",
     "requiredScopes": []
   },
   {
     "id": "adsValueAdjustmentRuleCollection.manage",
-    "summary": "Manage Meta AdsValueAdjustmentRuleCollection",
+    "summary": "Manage Facebook Graph AdsValueAdjustmentRuleCollection",
     "requiredScopes": []
   },
   {
     "id": "adsValueAdjustmentRuleCollection.read",
-    "summary": "Read Meta AdsValueAdjustmentRuleCollection",
+    "summary": "Read Facebook Graph AdsValueAdjustmentRuleCollection",
     "requiredScopes": []
   },
   {
     "id": "adTopline.read",
-    "summary": "Read Meta AdTopline",
+    "summary": "Read Facebook Graph AdTopline",
     "requiredScopes": []
   },
   {
     "id": "adToplineDetail.read",
-    "summary": "Read Meta AdToplineDetail",
+    "summary": "Read Facebook Graph AdToplineDetail",
     "requiredScopes": []
   },
   {
     "id": "advAInstance.read",
-    "summary": "Read Meta AdvAInstance",
+    "summary": "Read Facebook Graph AdvAInstance",
     "requiredScopes": []
   },
   {
     "id": "adVideo.manage",
-    "summary": "Manage Meta AdVideo",
+    "summary": "Manage Facebook Graph AdVideo",
     "requiredScopes": []
   },
   {
     "id": "adVideo.read",
-    "summary": "Read Meta AdVideo",
+    "summary": "Read Facebook Graph AdVideo",
     "requiredScopes": []
   },
   {
     "id": "album.manage",
-    "summary": "Manage Meta Album",
+    "summary": "Manage Facebook Graph Album",
     "requiredScopes": []
   },
   {
     "id": "album.read",
-    "summary": "Read Meta Album",
+    "summary": "Read Facebook Graph Album",
     "requiredScopes": []
   },
   {
     "id": "aLMAdAccountInfo.read",
-    "summary": "Read Meta ALMAdAccountInfo",
+    "summary": "Read Facebook Graph ALMAdAccountInfo",
     "requiredScopes": []
   },
   {
     "id": "aLMEndAdvertiserInfo.read",
-    "summary": "Read Meta ALMEndAdvertiserInfo",
+    "summary": "Read Facebook Graph ALMEndAdvertiserInfo",
     "requiredScopes": []
   },
   {
     "id": "aLMEvent.read",
-    "summary": "Read Meta ALMEvent",
+    "summary": "Read Facebook Graph ALMEvent",
     "requiredScopes": []
   },
   {
     "id": "analyticsSegment.read",
-    "summary": "Read Meta AnalyticsSegment",
+    "summary": "Read Facebook Graph AnalyticsSegment",
     "requiredScopes": []
   },
   {
     "id": "analyticsUserConfig.read",
-    "summary": "Read Meta AnalyticsUserConfig",
+    "summary": "Read Facebook Graph AnalyticsUserConfig",
     "requiredScopes": []
   },
   {
     "id": "appEventConfig.read",
-    "summary": "Read Meta AppEventConfig",
+    "summary": "Read Facebook Graph AppEventConfig",
     "requiredScopes": []
   },
   {
     "id": "application.manage",
-    "summary": "Manage Meta Application",
+    "summary": "Manage Facebook Graph Application",
     "requiredScopes": []
   },
   {
     "id": "application.read",
-    "summary": "Read Meta Application",
+    "summary": "Read Facebook Graph Application",
     "requiredScopes": []
   },
   {
     "id": "appLinks.read",
-    "summary": "Read Meta AppLinks",
+    "summary": "Read Facebook Graph AppLinks",
     "requiredScopes": []
   },
   {
     "id": "appRequest.manage",
-    "summary": "Manage Meta AppRequest",
+    "summary": "Manage Facebook Graph AppRequest",
     "requiredScopes": []
   },
   {
     "id": "appRequest.read",
-    "summary": "Read Meta AppRequest",
+    "summary": "Read Facebook Graph AppRequest",
     "requiredScopes": []
   },
   {
     "id": "arAdsDataContainer.read",
-    "summary": "Read Meta ArAdsDataContainer",
+    "summary": "Read Facebook Graph ArAdsDataContainer",
     "requiredScopes": []
   },
   {
     "id": "aREffect.read",
-    "summary": "Read Meta AREffect",
+    "summary": "Read Facebook Graph AREffect",
     "requiredScopes": []
   },
   {
     "id": "audioAsset.read",
-    "summary": "Read Meta AudioAsset",
+    "summary": "Read Facebook Graph AudioAsset",
     "requiredScopes": []
   },
   {
     "id": "audioCopyright.read",
-    "summary": "Read Meta AudioCopyright",
+    "summary": "Read Facebook Graph AudioCopyright",
     "requiredScopes": []
   },
   {
     "id": "audioIsrc.read",
-    "summary": "Read Meta AudioIsrc",
+    "summary": "Read Facebook Graph AudioIsrc",
     "requiredScopes": []
   },
   {
     "id": "audioSubLabel.read",
-    "summary": "Read Meta AudioSubLabel",
+    "summary": "Read Facebook Graph AudioSubLabel",
     "requiredScopes": []
   },
   {
     "id": "automotiveModel.read",
-    "summary": "Read Meta AutomotiveModel",
+    "summary": "Read Facebook Graph AutomotiveModel",
     "requiredScopes": []
   },
   {
     "id": "avatar.read",
-    "summary": "Read Meta Avatar",
+    "summary": "Read Facebook Graph Avatar",
     "requiredScopes": []
   },
   {
     "id": "bCPCampaign.read",
-    "summary": "Read Meta BCPCampaign",
+    "summary": "Read Facebook Graph BCPCampaign",
     "requiredScopes": []
   },
   {
     "id": "bidSchedule.read",
-    "summary": "Read Meta BidSchedule",
+    "summary": "Read Facebook Graph BidSchedule",
     "requiredScopes": []
   },
   {
     "id": "blindPig.read",
-    "summary": "Read Meta BlindPig",
+    "summary": "Read Facebook Graph BlindPig",
     "requiredScopes": []
   },
   {
     "id": "brandRequest.read",
-    "summary": "Read Meta BrandRequest",
+    "summary": "Read Facebook Graph BrandRequest",
     "requiredScopes": []
   },
   {
     "id": "brandSafetyDownloadable.read",
-    "summary": "Read Meta BrandSafetyDownloadable",
+    "summary": "Read Facebook Graph BrandSafetyDownloadable",
     "requiredScopes": []
   },
   {
     "id": "business.manage",
-    "summary": "Manage Meta Business",
+    "summary": "Manage Facebook Graph Business",
     "requiredScopes": []
   },
   {
     "id": "business.read",
-    "summary": "Read Meta Business",
+    "summary": "Read Facebook Graph Business",
     "requiredScopes": []
   },
   {
     "id": "businessAgreement.manage",
-    "summary": "Manage Meta BusinessAgreement",
+    "summary": "Manage Facebook Graph BusinessAgreement",
     "requiredScopes": []
   },
   {
     "id": "businessAgreement.read",
-    "summary": "Read Meta BusinessAgreement",
+    "summary": "Read Facebook Graph BusinessAgreement",
     "requiredScopes": []
   },
   {
     "id": "businessAssetGroup.manage",
-    "summary": "Manage Meta BusinessAssetGroup",
+    "summary": "Manage Facebook Graph BusinessAssetGroup",
     "requiredScopes": []
   },
   {
     "id": "businessAssetGroup.read",
-    "summary": "Read Meta BusinessAssetGroup",
+    "summary": "Read Facebook Graph BusinessAssetGroup",
     "requiredScopes": []
   },
   {
     "id": "businessAssetSharingAgreement.manage",
-    "summary": "Manage Meta BusinessAssetSharingAgreement",
+    "summary": "Manage Facebook Graph BusinessAssetSharingAgreement",
     "requiredScopes": []
   },
   {
     "id": "businessAssetSharingAgreement.read",
-    "summary": "Read Meta BusinessAssetSharingAgreement",
+    "summary": "Read Facebook Graph BusinessAssetSharingAgreement",
     "requiredScopes": []
   },
   {
     "id": "businessCreativeFolder.read",
-    "summary": "Read Meta BusinessCreativeFolder",
+    "summary": "Read Facebook Graph BusinessCreativeFolder",
     "requiredScopes": []
   },
   {
     "id": "businessFranchiseConfig.read",
-    "summary": "Read Meta BusinessFranchiseConfig",
+    "summary": "Read Facebook Graph BusinessFranchiseConfig",
     "requiredScopes": []
   },
   {
     "id": "businessImage.read",
-    "summary": "Read Meta BusinessImage",
+    "summary": "Read Facebook Graph BusinessImage",
     "requiredScopes": []
   },
   {
     "id": "businessObjectTransferOwnershipAgreement.read",
-    "summary": "Read Meta BusinessObjectTransferOwnershipAgreement",
+    "summary": "Read Facebook Graph BusinessObjectTransferOwnershipAgreement",
     "requiredScopes": []
   },
   {
     "id": "businessOwnedObjectOnBehalfOfRequest.read",
-    "summary": "Read Meta BusinessOwnedObjectOnBehalfOfRequest",
+    "summary": "Read Facebook Graph BusinessOwnedObjectOnBehalfOfRequest",
     "requiredScopes": []
   },
   {
     "id": "businessProject.read",
-    "summary": "Read Meta BusinessProject",
+    "summary": "Read Facebook Graph BusinessProject",
     "requiredScopes": []
   },
   {
     "id": "businessRequest.read",
-    "summary": "Read Meta BusinessRequest",
+    "summary": "Read Facebook Graph BusinessRequest",
     "requiredScopes": []
   },
   {
     "id": "businessRoleRequest.manage",
-    "summary": "Manage Meta BusinessRoleRequest",
+    "summary": "Manage Facebook Graph BusinessRoleRequest",
     "requiredScopes": []
   },
   {
     "id": "businessRoleRequest.read",
-    "summary": "Read Meta BusinessRoleRequest",
+    "summary": "Read Facebook Graph BusinessRoleRequest",
     "requiredScopes": []
   },
   {
     "id": "businessTag.read",
-    "summary": "Read Meta BusinessTag",
+    "summary": "Read Facebook Graph BusinessTag",
     "requiredScopes": []
   },
   {
     "id": "businessUser.manage",
-    "summary": "Manage Meta BusinessUser",
+    "summary": "Manage Facebook Graph BusinessUser",
     "requiredScopes": []
   },
   {
     "id": "businessUser.read",
-    "summary": "Read Meta BusinessUser",
+    "summary": "Read Facebook Graph BusinessUser",
     "requiredScopes": []
   },
   {
     "id": "businessVideo.read",
-    "summary": "Read Meta BusinessVideo",
+    "summary": "Read Facebook Graph BusinessVideo",
     "requiredScopes": []
   },
   {
     "id": "calibratorExistingRule.read",
-    "summary": "Read Meta CalibratorExistingRule",
+    "summary": "Read Facebook Graph CalibratorExistingRule",
     "requiredScopes": []
   },
   {
     "id": "callAdsPhoneData.read",
-    "summary": "Read Meta CallAdsPhoneData",
+    "summary": "Read Facebook Graph CallAdsPhoneData",
     "requiredScopes": []
   },
   {
     "id": "campaign.manage",
-    "summary": "Manage Meta Campaign",
+    "summary": "Manage Facebook Graph Campaign",
     "requiredScopes": []
   },
   {
     "id": "campaign.read",
-    "summary": "Read Meta Campaign",
+    "summary": "Read Facebook Graph Campaign",
     "requiredScopes": []
   },
   {
     "id": "canvas.manage",
-    "summary": "Manage Meta Canvas",
+    "summary": "Manage Facebook Graph Canvas",
     "requiredScopes": []
   },
   {
     "id": "canvas.read",
-    "summary": "Read Meta Canvas",
+    "summary": "Read Facebook Graph Canvas",
     "requiredScopes": []
   },
   {
     "id": "canvasDynamicSetting.read",
-    "summary": "Read Meta CanvasDynamicSetting",
+    "summary": "Read Facebook Graph CanvasDynamicSetting",
     "requiredScopes": []
   },
   {
     "id": "canvasTemplate.read",
-    "summary": "Read Meta CanvasTemplate",
+    "summary": "Read Facebook Graph CanvasTemplate",
     "requiredScopes": []
   },
   {
     "id": "catalogContentVersionConfig.read",
-    "summary": "Read Meta CatalogContentVersionConfig",
+    "summary": "Read Facebook Graph CatalogContentVersionConfig",
     "requiredScopes": []
   },
   {
     "id": "catalogItemOverride.read",
-    "summary": "Read Meta CatalogItemOverride",
+    "summary": "Read Facebook Graph CatalogItemOverride",
     "requiredScopes": []
   },
   {
     "id": "catalogSmartPixelSettings.read",
-    "summary": "Read Meta CatalogSmartPixelSettings",
+    "summary": "Read Facebook Graph CatalogSmartPixelSettings",
     "requiredScopes": []
   },
   {
     "id": "catalogWebsiteOnboardingSettings.read",
-    "summary": "Read Meta CatalogWebsiteOnboardingSettings",
+    "summary": "Read Facebook Graph CatalogWebsiteOnboardingSettings",
     "requiredScopes": []
   },
   {
     "id": "catalogWebsiteSettings.read",
-    "summary": "Read Meta CatalogWebsiteSettings",
+    "summary": "Read Facebook Graph CatalogWebsiteSettings",
     "requiredScopes": []
   },
   {
     "id": "chinaBusinessOnboardingVettingRequest.read",
-    "summary": "Read Meta ChinaBusinessOnboardingVettingRequest",
+    "summary": "Read Facebook Graph ChinaBusinessOnboardingVettingRequest",
     "requiredScopes": []
   },
   {
     "id": "cloudGame.read",
-    "summary": "Read Meta CloudGame",
+    "summary": "Read Facebook Graph CloudGame",
     "requiredScopes": []
   },
   {
     "id": "collaborativeAdsShareSettings.read",
-    "summary": "Read Meta CollaborativeAdsShareSettings",
+    "summary": "Read Facebook Graph CollaborativeAdsShareSettings",
     "requiredScopes": []
   },
   {
     "id": "comment.manage",
-    "summary": "Manage Meta Comment",
+    "summary": "Manage Facebook Graph Comment",
     "requiredScopes": []
   },
   {
     "id": "comment.read",
-    "summary": "Read Meta Comment",
+    "summary": "Read Facebook Graph Comment",
     "requiredScopes": []
   },
   {
     "id": "commerceMerchantSettings.manage",
-    "summary": "Manage Meta CommerceMerchantSettings",
+    "summary": "Manage Facebook Graph CommerceMerchantSettings",
     "requiredScopes": []
   },
   {
     "id": "commerceMerchantSettings.read",
-    "summary": "Read Meta CommerceMerchantSettings",
+    "summary": "Read Facebook Graph CommerceMerchantSettings",
     "requiredScopes": []
   },
   {
     "id": "commerceOrder.manage",
-    "summary": "Manage Meta CommerceOrder",
+    "summary": "Manage Facebook Graph CommerceOrder",
     "requiredScopes": []
   },
   {
     "id": "commerceOrder.read",
-    "summary": "Read Meta CommerceOrder",
+    "summary": "Read Facebook Graph CommerceOrder",
     "requiredScopes": []
   },
   {
     "id": "contentBlockList.read",
-    "summary": "Read Meta ContentBlockList",
+    "summary": "Read Facebook Graph ContentBlockList",
     "requiredScopes": []
   },
   {
     "id": "copyrightMediaMisuse.read",
-    "summary": "Read Meta CopyrightMediaMisuse",
+    "summary": "Read Facebook Graph CopyrightMediaMisuse",
     "requiredScopes": []
   },
   {
     "id": "copyrightOwnershipTransfer.read",
-    "summary": "Read Meta CopyrightOwnershipTransfer",
+    "summary": "Read Facebook Graph CopyrightOwnershipTransfer",
     "requiredScopes": []
   },
   {
     "id": "cPASAdCreationTemplate.read",
-    "summary": "Read Meta CPASAdCreationTemplate",
+    "summary": "Read Facebook Graph CPASAdCreationTemplate",
     "requiredScopes": []
   },
   {
     "id": "cPASAdvertiserPartnershipRecommendation.read",
-    "summary": "Read Meta CPASAdvertiserPartnershipRecommendation",
+    "summary": "Read Facebook Graph CPASAdvertiserPartnershipRecommendation",
     "requiredScopes": []
   },
   {
     "id": "cPASBusinessSetupConfig.read",
-    "summary": "Read Meta CPASBusinessSetupConfig",
+    "summary": "Read Facebook Graph CPASBusinessSetupConfig",
     "requiredScopes": []
   },
   {
     "id": "cPASCollaborationRequest.read",
-    "summary": "Read Meta CPASCollaborationRequest",
+    "summary": "Read Facebook Graph CPASCollaborationRequest",
     "requiredScopes": []
   },
   {
     "id": "cPASLsbImageBank.manage",
-    "summary": "Manage Meta CPASLsbImageBank",
+    "summary": "Manage Facebook Graph CPASLsbImageBank",
     "requiredScopes": []
   },
   {
     "id": "cPASLsbImageBank.read",
-    "summary": "Read Meta CPASLsbImageBank",
+    "summary": "Read Facebook Graph CPASLsbImageBank",
     "requiredScopes": []
   },
   {
     "id": "cPASMerchantConfig.read",
-    "summary": "Read Meta CPASMerchantConfig",
+    "summary": "Read Facebook Graph CPASMerchantConfig",
     "requiredScopes": []
   },
   {
     "id": "cPASParentCatalogSettings.read",
-    "summary": "Read Meta CPASParentCatalogSettings",
+    "summary": "Read Facebook Graph CPASParentCatalogSettings",
     "requiredScopes": []
   },
   {
     "id": "creatorAssetCreative.read",
-    "summary": "Read Meta CreatorAssetCreative",
+    "summary": "Read Facebook Graph CreatorAssetCreative",
     "requiredScopes": []
   },
   {
     "id": "creditCard.read",
-    "summary": "Read Meta CreditCard",
+    "summary": "Read Facebook Graph CreditCard",
     "requiredScopes": []
   },
   {
     "id": "cRMAddress.read",
-    "summary": "Read Meta CRMAddress",
+    "summary": "Read Facebook Graph CRMAddress",
     "requiredScopes": []
   },
   {
     "id": "cTXPartnerAppWelcomeMessageFlow.read",
-    "summary": "Read Meta CTXPartnerAppWelcomeMessageFlow",
+    "summary": "Read Facebook Graph CTXPartnerAppWelcomeMessageFlow",
     "requiredScopes": []
   },
   {
     "id": "customAudience.manage",
-    "summary": "Manage Meta CustomAudience",
+    "summary": "Manage Facebook Graph CustomAudience",
     "requiredScopes": []
   },
   {
     "id": "customAudience.read",
-    "summary": "Read Meta CustomAudience",
+    "summary": "Read Facebook Graph CustomAudience",
     "requiredScopes": []
   },
   {
     "id": "customConversion.manage",
-    "summary": "Manage Meta CustomConversion",
+    "summary": "Manage Facebook Graph CustomConversion",
     "requiredScopes": []
   },
   {
     "id": "customConversion.read",
-    "summary": "Read Meta CustomConversion",
+    "summary": "Read Facebook Graph CustomConversion",
     "requiredScopes": []
   },
   {
     "id": "destination.read",
-    "summary": "Read Meta Destination",
+    "summary": "Read Facebook Graph Destination",
     "requiredScopes": []
   },
   {
     "id": "dynamicARMetadata.read",
-    "summary": "Read Meta DynamicARMetadata",
+    "summary": "Read Facebook Graph DynamicARMetadata",
     "requiredScopes": []
   },
   {
     "id": "dynamicItemDisplayBundle.read",
-    "summary": "Read Meta DynamicItemDisplayBundle",
+    "summary": "Read Facebook Graph DynamicItemDisplayBundle",
     "requiredScopes": []
   },
   {
     "id": "dynamicItemDisplayBundleFolder.read",
-    "summary": "Read Meta DynamicItemDisplayBundleFolder",
+    "summary": "Read Facebook Graph DynamicItemDisplayBundleFolder",
     "requiredScopes": []
   },
   {
     "id": "dynamicPriceConfigByDate.read",
-    "summary": "Read Meta DynamicPriceConfigByDate",
+    "summary": "Read Facebook Graph DynamicPriceConfigByDate",
     "requiredScopes": []
   },
   {
     "id": "dynamicVideoMetadata.read",
-    "summary": "Read Meta DynamicVideoMetadata",
+    "summary": "Read Facebook Graph DynamicVideoMetadata",
     "requiredScopes": []
   },
   {
     "id": "educationExperience.read",
-    "summary": "Read Meta EducationExperience",
+    "summary": "Read Facebook Graph EducationExperience",
     "requiredScopes": []
   },
   {
     "id": "event.manage",
-    "summary": "Manage Meta Event",
+    "summary": "Manage Facebook Graph Event",
     "requiredScopes": []
   },
   {
     "id": "event.read",
-    "summary": "Read Meta Event",
+    "summary": "Read Facebook Graph Event",
     "requiredScopes": []
   },
   {
     "id": "eventExternalTicketInfo.read",
-    "summary": "Read Meta EventExternalTicketInfo",
+    "summary": "Read Facebook Graph EventExternalTicketInfo",
     "requiredScopes": []
   },
   {
     "id": "eventRegistrationSetting.read",
-    "summary": "Read Meta EventRegistrationSetting",
+    "summary": "Read Facebook Graph EventRegistrationSetting",
     "requiredScopes": []
   },
   {
     "id": "eventSourceGroup.manage",
-    "summary": "Manage Meta EventSourceGroup",
+    "summary": "Manage Facebook Graph EventSourceGroup",
     "requiredScopes": []
   },
   {
     "id": "eventSourceGroup.read",
-    "summary": "Read Meta EventSourceGroup",
+    "summary": "Read Facebook Graph EventSourceGroup",
     "requiredScopes": []
   },
   {
     "id": "eventTicketSetting.read",
-    "summary": "Read Meta EventTicketSetting",
+    "summary": "Read Facebook Graph EventTicketSetting",
     "requiredScopes": []
   },
   {
     "id": "eventTicketTier.read",
-    "summary": "Read Meta EventTicketTier",
+    "summary": "Read Facebook Graph EventTicketTier",
     "requiredScopes": []
   },
   {
     "id": "extendedCredit.manage",
-    "summary": "Manage Meta ExtendedCredit",
+    "summary": "Manage Facebook Graph ExtendedCredit",
     "requiredScopes": []
   },
   {
     "id": "extendedCredit.read",
-    "summary": "Read Meta ExtendedCredit",
+    "summary": "Read Facebook Graph ExtendedCredit",
     "requiredScopes": []
   },
   {
     "id": "extendedCreditAllocationConfig.manage",
-    "summary": "Manage Meta ExtendedCreditAllocationConfig",
+    "summary": "Manage Facebook Graph ExtendedCreditAllocationConfig",
     "requiredScopes": []
   },
   {
     "id": "extendedCreditAllocationConfig.read",
-    "summary": "Read Meta ExtendedCreditAllocationConfig",
+    "summary": "Read Facebook Graph ExtendedCreditAllocationConfig",
     "requiredScopes": []
   },
   {
     "id": "extendedCreditApplication.read",
-    "summary": "Read Meta ExtendedCreditApplication",
+    "summary": "Read Facebook Graph ExtendedCreditApplication",
     "requiredScopes": []
   },
   {
     "id": "extendedCreditInvoiceGroup.manage",
-    "summary": "Manage Meta ExtendedCreditInvoiceGroup",
+    "summary": "Manage Facebook Graph ExtendedCreditInvoiceGroup",
     "requiredScopes": []
   },
   {
     "id": "extendedCreditInvoiceGroup.read",
-    "summary": "Read Meta ExtendedCreditInvoiceGroup",
+    "summary": "Read Facebook Graph ExtendedCreditInvoiceGroup",
     "requiredScopes": []
   },
   {
     "id": "externalMerchantSettings.read",
-    "summary": "Read Meta ExternalMerchantSettings",
+    "summary": "Read Facebook Graph ExternalMerchantSettings",
     "requiredScopes": []
   },
   {
     "id": "fAMEKumo.read",
-    "summary": "Read Meta FAMEKumo",
+    "summary": "Read Facebook Graph FAMEKumo",
     "requiredScopes": []
   },
   {
     "id": "fantasyGame.read",
-    "summary": "Read Meta FantasyGame",
+    "summary": "Read Facebook Graph FantasyGame",
     "requiredScopes": []
   },
   {
     "id": "fBImageCopyrightMatch.read",
-    "summary": "Read Meta FBImageCopyrightMatch",
+    "summary": "Read Facebook Graph FBImageCopyrightMatch",
     "requiredScopes": []
   },
   {
     "id": "flight.manage",
-    "summary": "Manage Meta Flight",
+    "summary": "Manage Facebook Graph Flight",
     "requiredScopes": []
   },
   {
     "id": "flight.read",
-    "summary": "Read Meta Flight",
+    "summary": "Read Facebook Graph Flight",
     "requiredScopes": []
   },
   {
     "id": "franchiseProgram.read",
-    "summary": "Read Meta FranchiseProgram",
+    "summary": "Read Facebook Graph FranchiseProgram",
     "requiredScopes": []
   },
   {
     "id": "franchiseProgramMember.read",
-    "summary": "Read Meta FranchiseProgramMember",
+    "summary": "Read Facebook Graph FranchiseProgramMember",
     "requiredScopes": []
   },
   {
     "id": "fundraiserPersonToCharity.manage",
-    "summary": "Manage Meta FundraiserPersonToCharity",
+    "summary": "Manage Facebook Graph FundraiserPersonToCharity",
     "requiredScopes": []
   },
   {
     "id": "fundraiserPersonToCharity.read",
-    "summary": "Read Meta FundraiserPersonToCharity",
+    "summary": "Read Facebook Graph FundraiserPersonToCharity",
     "requiredScopes": []
   },
   {
     "id": "geoGatingPolicy.read",
-    "summary": "Read Meta GeoGatingPolicy",
+    "summary": "Read Facebook Graph GeoGatingPolicy",
     "requiredScopes": []
   },
   {
     "id": "group.manage",
-    "summary": "Manage Meta Group",
+    "summary": "Manage Facebook Graph Group",
     "requiredScopes": []
   },
   {
     "id": "group.read",
-    "summary": "Read Meta Group",
+    "summary": "Read Facebook Graph Group",
     "requiredScopes": []
   },
   {
     "id": "highDemandPeriod.manage",
-    "summary": "Manage Meta HighDemandPeriod",
+    "summary": "Manage Facebook Graph HighDemandPeriod",
     "requiredScopes": []
   },
   {
     "id": "highDemandPeriod.read",
-    "summary": "Read Meta HighDemandPeriod",
+    "summary": "Read Facebook Graph HighDemandPeriod",
     "requiredScopes": []
   },
   {
     "id": "homeListing.manage",
-    "summary": "Manage Meta HomeListing",
+    "summary": "Manage Facebook Graph HomeListing",
     "requiredScopes": []
   },
   {
     "id": "homeListing.read",
-    "summary": "Read Meta HomeListing",
+    "summary": "Read Facebook Graph HomeListing",
     "requiredScopes": []
   },
   {
     "id": "hotel.manage",
-    "summary": "Manage Meta Hotel",
+    "summary": "Manage Facebook Graph Hotel",
     "requiredScopes": []
   },
   {
     "id": "hotel.read",
-    "summary": "Read Meta Hotel",
+    "summary": "Read Facebook Graph Hotel",
     "requiredScopes": []
   },
   {
     "id": "hotelRoom.read",
-    "summary": "Read Meta HotelRoom",
+    "summary": "Read Facebook Graph HotelRoom",
     "requiredScopes": []
   },
   {
     "id": "hours.read",
-    "summary": "Read Meta Hours",
+    "summary": "Read Facebook Graph Hours",
     "requiredScopes": []
   },
   {
     "id": "iGAccessTokenForIGOnlyAPI.read",
-    "summary": "Read Meta IGAccessTokenForIGOnlyAPI",
+    "summary": "Read Facebook Graph IGAccessTokenForIGOnlyAPI",
     "requiredScopes": []
   },
   {
     "id": "iGBCAdsPermission.read",
-    "summary": "Read Meta IGBCAdsPermission",
+    "summary": "Read Facebook Graph IGBCAdsPermission",
     "requiredScopes": []
   },
   {
     "id": "iGBoostMediaAd.read",
-    "summary": "Read Meta IGBoostMediaAd",
+    "summary": "Read Facebook Graph IGBoostMediaAd",
     "requiredScopes": []
   },
   {
     "id": "iGComment.manage",
-    "summary": "Manage Meta IGComment",
+    "summary": "Manage Facebook Graph IGComment",
     "requiredScopes": []
   },
   {
     "id": "iGComment.read",
-    "summary": "Read Meta IGComment",
+    "summary": "Read Facebook Graph IGComment",
     "requiredScopes": []
   },
   {
     "id": "iGMedia.manage",
-    "summary": "Manage Meta IGMedia",
+    "summary": "Manage Facebook Graph IGMedia",
     "requiredScopes": []
   },
   {
     "id": "iGMedia.read",
-    "summary": "Read Meta IGMedia",
+    "summary": "Read Facebook Graph IGMedia",
     "requiredScopes": []
   },
   {
     "id": "iGMediaBoostEligibilityInfo.read",
-    "summary": "Read Meta IGMediaBoostEligibilityInfo",
+    "summary": "Read Facebook Graph IGMediaBoostEligibilityInfo",
     "requiredScopes": []
   },
   {
     "id": "iGMediaForIGOnlyAPI.manage",
-    "summary": "Manage Meta IGMediaForIGOnlyAPI",
+    "summary": "Manage Facebook Graph IGMediaForIGOnlyAPI",
     "requiredScopes": []
   },
   {
     "id": "iGMediaForIGOnlyAPI.read",
-    "summary": "Read Meta IGMediaForIGOnlyAPI",
+    "summary": "Read Facebook Graph IGMediaForIGOnlyAPI",
     "requiredScopes": []
   },
   {
     "id": "iGRefreshAccessTokenForIGOnlyAPI.read",
-    "summary": "Read Meta IGRefreshAccessTokenForIGOnlyAPI",
+    "summary": "Read Facebook Graph IGRefreshAccessTokenForIGOnlyAPI",
     "requiredScopes": []
   },
   {
     "id": "iGUpcomingEvent.manage",
-    "summary": "Manage Meta IGUpcomingEvent",
+    "summary": "Manage Facebook Graph IGUpcomingEvent",
     "requiredScopes": []
   },
   {
     "id": "iGUpcomingEvent.read",
-    "summary": "Read Meta IGUpcomingEvent",
+    "summary": "Read Facebook Graph IGUpcomingEvent",
     "requiredScopes": []
   },
   {
     "id": "iGUser.manage",
-    "summary": "Manage Meta IGUser",
+    "summary": "Manage Facebook Graph IGUser",
     "requiredScopes": []
   },
   {
     "id": "iGUser.read",
-    "summary": "Read Meta IGUser",
+    "summary": "Read Facebook Graph IGUser",
     "requiredScopes": []
   },
   {
     "id": "iGUserExportForCAM.read",
-    "summary": "Read Meta IGUserExportForCAM",
+    "summary": "Read Facebook Graph IGUserExportForCAM",
     "requiredScopes": []
   },
   {
     "id": "iGUserForIGOnlyAPI.manage",
-    "summary": "Manage Meta IGUserForIGOnlyAPI",
+    "summary": "Manage Facebook Graph IGUserForIGOnlyAPI",
     "requiredScopes": []
   },
   {
     "id": "iGUserForIGOnlyAPI.read",
-    "summary": "Read Meta IGUserForIGOnlyAPI",
+    "summary": "Read Facebook Graph IGUserForIGOnlyAPI",
     "requiredScopes": []
   },
   {
     "id": "imageCopyright.manage",
-    "summary": "Manage Meta ImageCopyright",
+    "summary": "Manage Facebook Graph ImageCopyright",
     "requiredScopes": []
   },
   {
     "id": "imageCopyright.read",
-    "summary": "Read Meta ImageCopyright",
+    "summary": "Read Facebook Graph ImageCopyright",
     "requiredScopes": []
   },
   {
     "id": "imageCopyrightDispute.read",
-    "summary": "Read Meta ImageCopyrightDispute",
+    "summary": "Read Facebook Graph ImageCopyrightDispute",
     "requiredScopes": []
   },
   {
     "id": "imageReferenceMatch.read",
-    "summary": "Read Meta ImageReferenceMatch",
+    "summary": "Read Facebook Graph ImageReferenceMatch",
     "requiredScopes": []
   },
   {
     "id": "instagramBusinessAsset.manage",
-    "summary": "Manage Meta InstagramBusinessAsset",
+    "summary": "Manage Facebook Graph InstagramBusinessAsset",
     "requiredScopes": []
   },
   {
     "id": "instagramBusinessAsset.read",
-    "summary": "Read Meta InstagramBusinessAsset",
+    "summary": "Read Facebook Graph InstagramBusinessAsset",
     "requiredScopes": []
   },
   {
     "id": "instagramUser.read",
-    "summary": "Read Meta InstagramUser",
+    "summary": "Read Facebook Graph InstagramUser",
     "requiredScopes": []
   },
   {
     "id": "jobOpening.read",
-    "summary": "Read Meta JobOpening",
+    "summary": "Read Facebook Graph JobOpening",
     "requiredScopes": []
   },
   {
     "id": "lead.manage",
-    "summary": "Manage Meta Lead",
+    "summary": "Manage Facebook Graph Lead",
     "requiredScopes": []
   },
   {
     "id": "lead.read",
-    "summary": "Read Meta Lead",
+    "summary": "Read Facebook Graph Lead",
     "requiredScopes": []
   },
   {
     "id": "leadGenDataDraft.read",
-    "summary": "Read Meta LeadGenDataDraft",
+    "summary": "Read Facebook Graph LeadGenDataDraft",
     "requiredScopes": []
   },
   {
     "id": "leadGenDirectCRMIntegrationConfig.read",
-    "summary": "Read Meta LeadGenDirectCRMIntegrationConfig",
+    "summary": "Read Facebook Graph LeadGenDirectCRMIntegrationConfig",
     "requiredScopes": []
   },
   {
     "id": "leadgenForm.manage",
-    "summary": "Manage Meta LeadgenForm",
+    "summary": "Manage Facebook Graph LeadgenForm",
     "requiredScopes": []
   },
   {
     "id": "leadgenForm.read",
-    "summary": "Read Meta LeadgenForm",
+    "summary": "Read Facebook Graph LeadgenForm",
     "requiredScopes": []
   },
   {
     "id": "lifeEvent.read",
-    "summary": "Read Meta LifeEvent",
+    "summary": "Read Facebook Graph LifeEvent",
     "requiredScopes": []
   },
   {
     "id": "link.manage",
-    "summary": "Manage Meta Link",
+    "summary": "Manage Facebook Graph Link",
     "requiredScopes": []
   },
   {
     "id": "link.read",
-    "summary": "Read Meta Link",
+    "summary": "Read Facebook Graph Link",
     "requiredScopes": []
   },
   {
     "id": "liveVideo.manage",
-    "summary": "Manage Meta LiveVideo",
+    "summary": "Manage Facebook Graph LiveVideo",
     "requiredScopes": []
   },
   {
     "id": "liveVideo.read",
-    "summary": "Read Meta LiveVideo",
+    "summary": "Read Facebook Graph LiveVideo",
     "requiredScopes": []
   },
   {
     "id": "liveVideoAdCampaignConfig.read",
-    "summary": "Read Meta LiveVideoAdCampaignConfig",
+    "summary": "Read Facebook Graph LiveVideoAdCampaignConfig",
     "requiredScopes": []
   },
   {
     "id": "liveVideoError.read",
-    "summary": "Read Meta LiveVideoError",
+    "summary": "Read Facebook Graph LiveVideoError",
     "requiredScopes": []
   },
   {
     "id": "liveVideoInputStream.read",
-    "summary": "Read Meta LiveVideoInputStream",
+    "summary": "Read Facebook Graph LiveVideoInputStream",
     "requiredScopes": []
   },
   {
     "id": "localServiceBusiness.read",
-    "summary": "Read Meta LocalServiceBusiness",
+    "summary": "Read Facebook Graph LocalServiceBusiness",
     "requiredScopes": []
   },
   {
     "id": "mailingAddress.read",
-    "summary": "Read Meta MailingAddress",
+    "summary": "Read Facebook Graph MailingAddress",
     "requiredScopes": []
   },
   {
     "id": "managementSiteLink.read",
-    "summary": "Read Meta ManagementSiteLink",
+    "summary": "Read Facebook Graph ManagementSiteLink",
     "requiredScopes": []
   },
   {
     "id": "measurementReport.read",
-    "summary": "Read Meta MeasurementReport",
+    "summary": "Read Facebook Graph MeasurementReport",
     "requiredScopes": []
   },
   {
     "id": "mediaCopyrightAttribution.read",
-    "summary": "Read Meta MediaCopyrightAttribution",
+    "summary": "Read Facebook Graph MediaCopyrightAttribution",
     "requiredScopes": []
   },
   {
     "id": "mediaCopyrightUpdateRecord.read",
-    "summary": "Read Meta MediaCopyrightUpdateRecord",
+    "summary": "Read Facebook Graph MediaCopyrightUpdateRecord",
     "requiredScopes": []
   },
   {
     "id": "mediaFingerprint.manage",
-    "summary": "Manage Meta MediaFingerprint",
+    "summary": "Manage Facebook Graph MediaFingerprint",
     "requiredScopes": []
   },
   {
     "id": "mediaFingerprint.read",
-    "summary": "Read Meta MediaFingerprint",
+    "summary": "Read Facebook Graph MediaFingerprint",
     "requiredScopes": []
   },
   {
     "id": "messengerAdsPartialAutomatedStepList.read",
-    "summary": "Read Meta MessengerAdsPartialAutomatedStepList",
+    "summary": "Read Facebook Graph MessengerAdsPartialAutomatedStepList",
     "requiredScopes": []
   },
   {
     "id": "messengerBusinessTemplate.manage",
-    "summary": "Manage Meta MessengerBusinessTemplate",
+    "summary": "Manage Facebook Graph MessengerBusinessTemplate",
     "requiredScopes": []
   },
   {
     "id": "messengerBusinessTemplate.read",
-    "summary": "Read Meta MessengerBusinessTemplate",
+    "summary": "Read Facebook Graph MessengerBusinessTemplate",
     "requiredScopes": []
   },
   {
     "id": "musicVideoCopyright.read",
-    "summary": "Read Meta MusicVideoCopyright",
+    "summary": "Read Facebook Graph MusicVideoCopyright",
     "requiredScopes": []
   },
   {
     "id": "musicWorkCopyright.read",
-    "summary": "Read Meta MusicWorkCopyright",
+    "summary": "Read Facebook Graph MusicWorkCopyright",
     "requiredScopes": []
   },
   {
     "id": "offlineConversionDataSet.read",
-    "summary": "Read Meta OfflineConversionDataSet",
+    "summary": "Read Facebook Graph OfflineConversionDataSet",
     "requiredScopes": []
   },
   {
     "id": "offlineConversionDataSetUpload.read",
-    "summary": "Read Meta OfflineConversionDataSetUpload",
+    "summary": "Read Facebook Graph OfflineConversionDataSetUpload",
     "requiredScopes": []
   },
   {
     "id": "offlineProductItem.read",
-    "summary": "Read Meta OfflineProductItem",
+    "summary": "Read Facebook Graph OfflineProductItem",
     "requiredScopes": []
   },
   {
     "id": "offlineTermsOfService.read",
-    "summary": "Read Meta OfflineTermsOfService",
+    "summary": "Read Facebook Graph OfflineTermsOfService",
     "requiredScopes": []
   },
   {
     "id": "offsitePixel.read",
-    "summary": "Read Meta OffsitePixel",
+    "summary": "Read Facebook Graph OffsitePixel",
     "requiredScopes": []
   },
   {
     "id": "offsiteSignalContainerBusinessObject.read",
-    "summary": "Read Meta OffsiteSignalContainerBusinessObject",
+    "summary": "Read Facebook Graph OffsiteSignalContainerBusinessObject",
     "requiredScopes": []
   },
   {
     "id": "omegaCustomerTrx.read",
-    "summary": "Read Meta OmegaCustomerTrx",
+    "summary": "Read Facebook Graph OmegaCustomerTrx",
     "requiredScopes": []
   },
   {
     "id": "openBridgeConfiguration.manage",
-    "summary": "Manage Meta OpenBridgeConfiguration",
+    "summary": "Manage Facebook Graph OpenBridgeConfiguration",
     "requiredScopes": []
   },
   {
     "id": "openBridgeConfiguration.read",
-    "summary": "Read Meta OpenBridgeConfiguration",
+    "summary": "Read Facebook Graph OpenBridgeConfiguration",
     "requiredScopes": []
   },
   {
     "id": "openGraphContext.read",
-    "summary": "Read Meta OpenGraphContext",
+    "summary": "Read Facebook Graph OpenGraphContext",
     "requiredScopes": []
   },
   {
     "id": "organization.read",
-    "summary": "Read Meta Organization",
+    "summary": "Read Facebook Graph Organization",
     "requiredScopes": []
   },
   {
     "id": "ownedDomain.read",
-    "summary": "Read Meta OwnedDomain",
+    "summary": "Read Facebook Graph OwnedDomain",
     "requiredScopes": []
   },
   {
     "id": "page.manage",
-    "summary": "Manage Meta Page",
+    "summary": "Manage Facebook Graph Page",
     "requiredScopes": []
   },
   {
     "id": "page.read",
-    "summary": "Read Meta Page",
+    "summary": "Read Facebook Graph Page",
     "requiredScopes": []
   },
   {
     "id": "pageCallToAction.manage",
-    "summary": "Manage Meta PageCallToAction",
+    "summary": "Manage Facebook Graph PageCallToAction",
     "requiredScopes": []
   },
   {
     "id": "pageCallToAction.read",
-    "summary": "Read Meta PageCallToAction",
+    "summary": "Read Facebook Graph PageCallToAction",
     "requiredScopes": []
   },
   {
     "id": "pageInsightsAsyncExportRun.read",
-    "summary": "Read Meta PageInsightsAsyncExportRun",
+    "summary": "Read Facebook Graph PageInsightsAsyncExportRun",
     "requiredScopes": []
   },
   {
     "id": "pageLeadsAccessConfig.read",
-    "summary": "Read Meta PageLeadsAccessConfig",
+    "summary": "Read Facebook Graph PageLeadsAccessConfig",
     "requiredScopes": []
   },
   {
     "id": "pagePost.manage",
-    "summary": "Manage Meta PagePost",
+    "summary": "Manage Facebook Graph PagePost",
     "requiredScopes": []
   },
   {
     "id": "pagePost.read",
-    "summary": "Read Meta PagePost",
+    "summary": "Read Facebook Graph PagePost",
     "requiredScopes": []
   },
   {
     "id": "pagePostExperiment.manage",
-    "summary": "Manage Meta PagePostExperiment",
+    "summary": "Manage Facebook Graph PagePostExperiment",
     "requiredScopes": []
   },
   {
     "id": "pagePostExperiment.read",
-    "summary": "Read Meta PagePostExperiment",
+    "summary": "Read Facebook Graph PagePostExperiment",
     "requiredScopes": []
   },
   {
     "id": "pageUpcomingChange.read",
-    "summary": "Read Meta PageUpcomingChange",
+    "summary": "Read Facebook Graph PageUpcomingChange",
     "requiredScopes": []
   },
   {
     "id": "pageUserMessageThreadLabel.manage",
-    "summary": "Manage Meta PageUserMessageThreadLabel",
+    "summary": "Manage Facebook Graph PageUserMessageThreadLabel",
     "requiredScopes": []
   },
   {
     "id": "pageUserMessageThreadLabel.read",
-    "summary": "Read Meta PageUserMessageThreadLabel",
+    "summary": "Read Facebook Graph PageUserMessageThreadLabel",
     "requiredScopes": []
   },
   {
     "id": "partnerAccountLinking.read",
-    "summary": "Read Meta PartnerAccountLinking",
+    "summary": "Read Facebook Graph PartnerAccountLinking",
     "requiredScopes": []
   },
   {
     "id": "partnerCenterExportFile.read",
-    "summary": "Read Meta PartnerCenterExportFile",
+    "summary": "Read Facebook Graph PartnerCenterExportFile",
     "requiredScopes": []
   },
   {
     "id": "partnerIntegrationLinked.read",
-    "summary": "Read Meta PartnerIntegrationLinked",
+    "summary": "Read Facebook Graph PartnerIntegrationLinked",
     "requiredScopes": []
   },
   {
     "id": "partnerStudy.read",
-    "summary": "Read Meta PartnerStudy",
+    "summary": "Read Facebook Graph PartnerStudy",
     "requiredScopes": []
   },
   {
     "id": "paymentEnginePayment.manage",
-    "summary": "Manage Meta PaymentEnginePayment",
+    "summary": "Manage Facebook Graph PaymentEnginePayment",
     "requiredScopes": []
   },
   {
     "id": "paymentEnginePayment.read",
-    "summary": "Read Meta PaymentEnginePayment",
+    "summary": "Read Facebook Graph PaymentEnginePayment",
     "requiredScopes": []
   },
   {
     "id": "paymentSubscription.read",
-    "summary": "Read Meta PaymentSubscription",
+    "summary": "Read Facebook Graph PaymentSubscription",
     "requiredScopes": []
   },
   {
     "id": "persona.manage",
-    "summary": "Manage Meta Persona",
+    "summary": "Manage Facebook Graph Persona",
     "requiredScopes": []
   },
   {
     "id": "persona.read",
-    "summary": "Read Meta Persona",
+    "summary": "Read Facebook Graph Persona",
     "requiredScopes": []
   },
   {
     "id": "personalAdsPersona.read",
-    "summary": "Read Meta PersonalAdsPersona",
+    "summary": "Read Facebook Graph PersonalAdsPersona",
     "requiredScopes": []
   },
   {
     "id": "photo.manage",
-    "summary": "Manage Meta Photo",
+    "summary": "Manage Facebook Graph Photo",
     "requiredScopes": []
   },
   {
     "id": "photo.read",
-    "summary": "Read Meta Photo",
+    "summary": "Read Facebook Graph Photo",
     "requiredScopes": []
   },
   {
     "id": "place.read",
-    "summary": "Read Meta Place",
+    "summary": "Read Facebook Graph Place",
     "requiredScopes": []
   },
   {
     "id": "placeTag.read",
-    "summary": "Read Meta PlaceTag",
+    "summary": "Read Facebook Graph PlaceTag",
     "requiredScopes": []
   },
   {
     "id": "placeTopic.read",
-    "summary": "Read Meta PlaceTopic",
+    "summary": "Read Facebook Graph PlaceTopic",
     "requiredScopes": []
   },
   {
     "id": "playableContent.read",
-    "summary": "Read Meta PlayableContent",
+    "summary": "Read Facebook Graph PlayableContent",
     "requiredScopes": []
   },
   {
     "id": "post.manage",
-    "summary": "Manage Meta Post",
+    "summary": "Manage Facebook Graph Post",
     "requiredScopes": []
   },
   {
     "id": "post.read",
-    "summary": "Read Meta Post",
+    "summary": "Read Facebook Graph Post",
     "requiredScopes": []
   },
   {
     "id": "privateLiftStudyInstance.manage",
-    "summary": "Manage Meta PrivateLiftStudyInstance",
+    "summary": "Manage Facebook Graph PrivateLiftStudyInstance",
     "requiredScopes": []
   },
   {
     "id": "privateLiftStudyInstance.read",
-    "summary": "Read Meta PrivateLiftStudyInstance",
+    "summary": "Read Facebook Graph PrivateLiftStudyInstance",
     "requiredScopes": []
   },
   {
     "id": "productCatalog.manage",
-    "summary": "Manage Meta ProductCatalog",
+    "summary": "Manage Facebook Graph ProductCatalog",
     "requiredScopes": []
   },
   {
     "id": "productCatalog.read",
-    "summary": "Read Meta ProductCatalog",
+    "summary": "Read Facebook Graph ProductCatalog",
     "requiredScopes": []
   },
   {
     "id": "productCatalogCheckBatchRequestStatus.read",
-    "summary": "Read Meta ProductCatalogCheckBatchRequestStatus",
+    "summary": "Read Facebook Graph ProductCatalogCheckBatchRequestStatus",
     "requiredScopes": []
   },
   {
     "id": "productCatalogDataSources.read",
-    "summary": "Read Meta ProductCatalogDataSources",
+    "summary": "Read Facebook Graph ProductCatalogDataSources",
     "requiredScopes": []
   },
   {
     "id": "productCatalogLocalizationSettings.read",
-    "summary": "Read Meta ProductCatalogLocalizationSettings",
+    "summary": "Read Facebook Graph ProductCatalogLocalizationSettings",
     "requiredScopes": []
   },
   {
     "id": "productDeliveryPreference.read",
-    "summary": "Read Meta ProductDeliveryPreference",
+    "summary": "Read Facebook Graph ProductDeliveryPreference",
     "requiredScopes": []
   },
   {
     "id": "productFeed.manage",
-    "summary": "Manage Meta ProductFeed",
+    "summary": "Manage Facebook Graph ProductFeed",
     "requiredScopes": []
   },
   {
     "id": "productFeed.read",
-    "summary": "Read Meta ProductFeed",
+    "summary": "Read Facebook Graph ProductFeed",
     "requiredScopes": []
   },
   {
     "id": "productFeedRule.manage",
-    "summary": "Manage Meta ProductFeedRule",
+    "summary": "Manage Facebook Graph ProductFeedRule",
     "requiredScopes": []
   },
   {
     "id": "productFeedRule.read",
-    "summary": "Read Meta ProductFeedRule",
+    "summary": "Read Facebook Graph ProductFeedRule",
     "requiredScopes": []
   },
   {
     "id": "productFeedRules.read",
-    "summary": "Read Meta ProductFeedRules",
+    "summary": "Read Facebook Graph ProductFeedRules",
     "requiredScopes": []
   },
   {
     "id": "productFeedSchedule.read",
-    "summary": "Read Meta ProductFeedSchedule",
+    "summary": "Read Facebook Graph ProductFeedSchedule",
     "requiredScopes": []
   },
   {
     "id": "productFeedUpload.manage",
-    "summary": "Manage Meta ProductFeedUpload",
+    "summary": "Manage Facebook Graph ProductFeedUpload",
     "requiredScopes": []
   },
   {
     "id": "productFeedUpload.read",
-    "summary": "Read Meta ProductFeedUpload",
+    "summary": "Read Facebook Graph ProductFeedUpload",
     "requiredScopes": []
   },
   {
     "id": "productFeedUploadError.read",
-    "summary": "Read Meta ProductFeedUploadError",
+    "summary": "Read Facebook Graph ProductFeedUploadError",
     "requiredScopes": []
   },
   {
     "id": "productFeedUploadErrorSample.read",
-    "summary": "Read Meta ProductFeedUploadErrorSample",
+    "summary": "Read Facebook Graph ProductFeedUploadErrorSample",
     "requiredScopes": []
   },
   {
     "id": "productGroup.manage",
-    "summary": "Manage Meta ProductGroup",
+    "summary": "Manage Facebook Graph ProductGroup",
     "requiredScopes": []
   },
   {
     "id": "productGroup.read",
-    "summary": "Read Meta ProductGroup",
+    "summary": "Read Facebook Graph ProductGroup",
     "requiredScopes": []
   },
   {
     "id": "productImage.read",
-    "summary": "Read Meta ProductImage",
+    "summary": "Read Facebook Graph ProductImage",
     "requiredScopes": []
   },
   {
     "id": "productItem.manage",
-    "summary": "Manage Meta ProductItem",
+    "summary": "Manage Facebook Graph ProductItem",
     "requiredScopes": []
   },
   {
     "id": "productItem.read",
-    "summary": "Read Meta ProductItem",
+    "summary": "Read Facebook Graph ProductItem",
     "requiredScopes": []
   },
   {
     "id": "productItemLocalInfo.read",
-    "summary": "Read Meta ProductItemLocalInfo",
+    "summary": "Read Facebook Graph ProductItemLocalInfo",
     "requiredScopes": []
   },
   {
     "id": "productItemOffer.read",
-    "summary": "Read Meta ProductItemOffer",
+    "summary": "Read Facebook Graph ProductItemOffer",
     "requiredScopes": []
   },
   {
     "id": "productSet.manage",
-    "summary": "Manage Meta ProductSet",
+    "summary": "Manage Facebook Graph ProductSet",
     "requiredScopes": []
   },
   {
     "id": "productSet.read",
-    "summary": "Read Meta ProductSet",
+    "summary": "Read Facebook Graph ProductSet",
     "requiredScopes": []
   },
   {
     "id": "profile.read",
-    "summary": "Read Meta Profile",
+    "summary": "Read Facebook Graph Profile",
     "requiredScopes": []
   },
   {
     "id": "publisherBlockList.manage",
-    "summary": "Manage Meta PublisherBlockList",
+    "summary": "Manage Facebook Graph PublisherBlockList",
     "requiredScopes": []
   },
   {
     "id": "publisherBlockList.read",
-    "summary": "Read Meta PublisherBlockList",
+    "summary": "Read Facebook Graph PublisherBlockList",
     "requiredScopes": []
   },
   {
     "id": "reachFrequencyPrediction.read",
-    "summary": "Read Meta ReachFrequencyPrediction",
+    "summary": "Read Facebook Graph ReachFrequencyPrediction",
     "requiredScopes": []
   },
   {
     "id": "researchPollStudy.read",
-    "summary": "Read Meta ResearchPollStudy",
+    "summary": "Read Facebook Graph ResearchPollStudy",
     "requiredScopes": []
   },
   {
     "id": "rightsManagerDataExport.read",
-    "summary": "Read Meta RightsManagerDataExport",
+    "summary": "Read Facebook Graph RightsManagerDataExport",
     "requiredScopes": []
   },
   {
     "id": "robot.read",
-    "summary": "Read Meta Robot",
+    "summary": "Read Facebook Graph Robot",
     "requiredScopes": []
   },
   {
     "id": "rTBDynamicPost.read",
-    "summary": "Read Meta RTBDynamicPost",
+    "summary": "Read Facebook Graph RTBDynamicPost",
     "requiredScopes": []
   },
   {
     "id": "savedAudience.read",
-    "summary": "Read Meta SavedAudience",
+    "summary": "Read Facebook Graph SavedAudience",
     "requiredScopes": []
   },
   {
     "id": "savedMessageResponse.read",
-    "summary": "Read Meta SavedMessageResponse",
+    "summary": "Read Facebook Graph SavedMessageResponse",
     "requiredScopes": []
   },
   {
     "id": "shadowIGHashtag.read",
-    "summary": "Read Meta ShadowIGHashtag",
+    "summary": "Read Facebook Graph ShadowIGHashtag",
     "requiredScopes": []
   },
   {
     "id": "shadowIGMediaBuilder.read",
-    "summary": "Read Meta ShadowIGMediaBuilder",
+    "summary": "Read Facebook Graph ShadowIGMediaBuilder",
     "requiredScopes": []
   },
   {
     "id": "shadowIGScheduledMedia.read",
-    "summary": "Read Meta ShadowIGScheduledMedia",
+    "summary": "Read Facebook Graph ShadowIGScheduledMedia",
     "requiredScopes": []
   },
   {
     "id": "shop.read",
-    "summary": "Read Meta Shop",
+    "summary": "Read Facebook Graph Shop",
     "requiredScopes": []
   },
   {
     "id": "signalsIWLExtractor.read",
-    "summary": "Read Meta SignalsIWLExtractor",
+    "summary": "Read Facebook Graph SignalsIWLExtractor",
     "requiredScopes": []
   },
   {
     "id": "siteLink.read",
-    "summary": "Read Meta SiteLink",
+    "summary": "Read Facebook Graph SiteLink",
     "requiredScopes": []
   },
   {
     "id": "slicedEventSourceGroup.read",
-    "summary": "Read Meta SlicedEventSourceGroup",
+    "summary": "Read Facebook Graph SlicedEventSourceGroup",
     "requiredScopes": []
   },
   {
     "id": "status.manage",
-    "summary": "Manage Meta Status",
+    "summary": "Manage Facebook Graph Status",
     "requiredScopes": []
   },
   {
     "id": "status.read",
-    "summary": "Read Meta Status",
+    "summary": "Read Facebook Graph Status",
     "requiredScopes": []
   },
   {
     "id": "storeCatalogSettings.manage",
-    "summary": "Manage Meta StoreCatalogSettings",
+    "summary": "Manage Facebook Graph StoreCatalogSettings",
     "requiredScopes": []
   },
   {
     "id": "storeCatalogSettings.read",
-    "summary": "Read Meta StoreCatalogSettings",
+    "summary": "Read Facebook Graph StoreCatalogSettings",
     "requiredScopes": []
   },
   {
     "id": "storeLocation.read",
-    "summary": "Read Meta StoreLocation",
+    "summary": "Read Facebook Graph StoreLocation",
     "requiredScopes": []
   },
   {
     "id": "stories.read",
-    "summary": "Read Meta Stories",
+    "summary": "Read Facebook Graph Stories",
     "requiredScopes": []
   },
   {
     "id": "systemUser.read",
-    "summary": "Read Meta SystemUser",
+    "summary": "Read Facebook Graph SystemUser",
     "requiredScopes": []
   },
   {
     "id": "thirdPartyMeasurementReportDataset.read",
-    "summary": "Read Meta ThirdPartyMeasurementReportDataset",
+    "summary": "Read Facebook Graph ThirdPartyMeasurementReportDataset",
     "requiredScopes": []
   },
   {
     "id": "thirdPartyPartnerLiftRequest.read",
-    "summary": "Read Meta ThirdPartyPartnerLiftRequest",
+    "summary": "Read Facebook Graph ThirdPartyPartnerLiftRequest",
     "requiredScopes": []
   },
   {
     "id": "thirdPartyPartnerPanelRequest.read",
-    "summary": "Read Meta ThirdPartyPartnerPanelRequest",
+    "summary": "Read Facebook Graph ThirdPartyPartnerPanelRequest",
     "requiredScopes": []
   },
   {
     "id": "thirdPartyPartnerPanelScheduled.read",
-    "summary": "Read Meta ThirdPartyPartnerPanelScheduled",
+    "summary": "Read Facebook Graph ThirdPartyPartnerPanelScheduled",
     "requiredScopes": []
   },
   {
     "id": "thirdPartyPartnerViewabilityRequest.read",
-    "summary": "Read Meta ThirdPartyPartnerViewabilityRequest",
+    "summary": "Read Facebook Graph ThirdPartyPartnerViewabilityRequest",
     "requiredScopes": []
   },
   {
     "id": "transactableItem.read",
-    "summary": "Read Meta TransactableItem",
+    "summary": "Read Facebook Graph TransactableItem",
     "requiredScopes": []
   },
   {
     "id": "unifiedThread.read",
-    "summary": "Read Meta UnifiedThread",
+    "summary": "Read Facebook Graph UnifiedThread",
     "requiredScopes": []
   },
   {
     "id": "uRL.manage",
-    "summary": "Manage Meta URL",
+    "summary": "Manage Facebook Graph URL",
     "requiredScopes": []
   },
   {
     "id": "uRL.read",
-    "summary": "Read Meta URL",
+    "summary": "Read Facebook Graph URL",
     "requiredScopes": []
   },
   {
     "id": "user.manage",
-    "summary": "Manage Meta User",
+    "summary": "Manage Facebook Graph User",
     "requiredScopes": []
   },
   {
     "id": "user.read",
-    "summary": "Read Meta User",
+    "summary": "Read Facebook Graph User",
     "requiredScopes": []
   },
   {
     "id": "userContext.read",
-    "summary": "Read Meta UserContext",
+    "summary": "Read Facebook Graph UserContext",
     "requiredScopes": []
   },
   {
     "id": "userPageOneTimeOptInTokenSettings.read",
-    "summary": "Read Meta UserPageOneTimeOptInTokenSettings",
+    "summary": "Read Facebook Graph UserPageOneTimeOptInTokenSettings",
     "requiredScopes": []
   },
   {
     "id": "vehicle.manage",
-    "summary": "Manage Meta Vehicle",
+    "summary": "Manage Facebook Graph Vehicle",
     "requiredScopes": []
   },
   {
     "id": "vehicle.read",
-    "summary": "Read Meta Vehicle",
+    "summary": "Read Facebook Graph Vehicle",
     "requiredScopes": []
   },
   {
     "id": "vehicleOffer.read",
-    "summary": "Read Meta VehicleOffer",
+    "summary": "Read Facebook Graph VehicleOffer",
     "requiredScopes": []
   },
   {
     "id": "videoCopyright.manage",
-    "summary": "Manage Meta VideoCopyright",
+    "summary": "Manage Facebook Graph VideoCopyright",
     "requiredScopes": []
   },
   {
     "id": "videoCopyright.read",
-    "summary": "Read Meta VideoCopyright",
+    "summary": "Read Facebook Graph VideoCopyright",
     "requiredScopes": []
   },
   {
     "id": "videoCopyrightMatch.read",
-    "summary": "Read Meta VideoCopyrightMatch",
+    "summary": "Read Facebook Graph VideoCopyrightMatch",
     "requiredScopes": []
   },
   {
     "id": "videoCopyrightRule.read",
-    "summary": "Read Meta VideoCopyrightRule",
+    "summary": "Read Facebook Graph VideoCopyrightRule",
     "requiredScopes": []
   },
   {
     "id": "videoList.read",
-    "summary": "Read Meta VideoList",
+    "summary": "Read Facebook Graph VideoList",
     "requiredScopes": []
   },
   {
     "id": "videoPoll.manage",
-    "summary": "Manage Meta VideoPoll",
+    "summary": "Manage Facebook Graph VideoPoll",
     "requiredScopes": []
   },
   {
     "id": "videoPoll.read",
-    "summary": "Read Meta VideoPoll",
+    "summary": "Read Facebook Graph VideoPoll",
     "requiredScopes": []
   },
   {
     "id": "videoTextQuestion.read",
-    "summary": "Read Meta VideoTextQuestion",
+    "summary": "Read Facebook Graph VideoTextQuestion",
     "requiredScopes": []
   },
   {
     "id": "wearableDevicePublicKey.read",
-    "summary": "Read Meta WearableDevicePublicKey",
+    "summary": "Read Facebook Graph WearableDevicePublicKey",
     "requiredScopes": []
   },
   {
     "id": "websiteCreativeAssetSource.read",
-    "summary": "Read Meta WebsiteCreativeAssetSource",
+    "summary": "Read Facebook Graph WebsiteCreativeAssetSource",
     "requiredScopes": []
   },
   {
     "id": "websiteCreativeAssetSuggestions.read",
-    "summary": "Read Meta WebsiteCreativeAssetSuggestions",
+    "summary": "Read Facebook Graph WebsiteCreativeAssetSuggestions",
     "requiredScopes": []
   },
   {
     "id": "websiteCreativeInfo.read",
-    "summary": "Read Meta WebsiteCreativeInfo",
+    "summary": "Read Facebook Graph WebsiteCreativeInfo",
     "requiredScopes": []
   },
   {
     "id": "whatsAppBusinessAccount.manage",
-    "summary": "Manage Meta WhatsAppBusinessAccount",
+    "summary": "Manage Facebook Graph WhatsAppBusinessAccount",
     "requiredScopes": []
   },
   {
     "id": "whatsAppBusinessAccount.read",
-    "summary": "Read Meta WhatsAppBusinessAccount",
+    "summary": "Read Facebook Graph WhatsAppBusinessAccount",
     "requiredScopes": []
   },
   {
     "id": "whatsAppBusinessPreVerifiedPhoneNumber.manage",
-    "summary": "Manage Meta WhatsAppBusinessPreVerifiedPhoneNumber",
+    "summary": "Manage Facebook Graph WhatsAppBusinessPreVerifiedPhoneNumber",
     "requiredScopes": []
   },
   {
     "id": "whatsAppBusinessPreVerifiedPhoneNumber.read",
-    "summary": "Read Meta WhatsAppBusinessPreVerifiedPhoneNumber",
+    "summary": "Read Facebook Graph WhatsAppBusinessPreVerifiedPhoneNumber",
     "requiredScopes": []
   },
   {
     "id": "whatsAppBusinessProfile.manage",
-    "summary": "Manage Meta WhatsAppBusinessProfile",
+    "summary": "Manage Facebook Graph WhatsAppBusinessProfile",
     "requiredScopes": []
   },
   {
     "id": "whatsAppBusinessProfile.read",
-    "summary": "Read Meta WhatsAppBusinessProfile",
+    "summary": "Read Facebook Graph WhatsAppBusinessProfile",
     "requiredScopes": []
   },
   {
     "id": "whitehatFBDLRun.read",
-    "summary": "Read Meta WhitehatFBDLRun",
+    "summary": "Read Facebook Graph WhitehatFBDLRun",
     "requiredScopes": []
   },
   {
     "id": "wifiInformation.read",
-    "summary": "Read Meta WifiInformation",
+    "summary": "Read Facebook Graph WifiInformation",
     "requiredScopes": []
   },
   {
     "id": "withAsset3D.read",
-    "summary": "Read Meta WithAsset3D",
+    "summary": "Read Facebook Graph WithAsset3D",
     "requiredScopes": []
   },
   {
     "id": "woodhengePurchasedPAYGReceipt.read",
-    "summary": "Read Meta WoodhengePurchasedPAYGReceipt",
+    "summary": "Read Facebook Graph WoodhengePurchasedPAYGReceipt",
     "requiredScopes": []
   },
   {
     "id": "woodhengeSupporter.read",
-    "summary": "Read Meta WoodhengeSupporter",
+    "summary": "Read Facebook Graph WoodhengeSupporter",
     "requiredScopes": []
   },
   {
     "id": "workExperience.read",
-    "summary": "Read Meta WorkExperience",
+    "summary": "Read Facebook Graph WorkExperience",
     "requiredScopes": []
   },
   {
     "id": "workSkill.read",
-    "summary": "Read Meta WorkSkill",
+    "summary": "Read Facebook Graph WorkSkill",
     "requiredScopes": []
   }
 ] as const;

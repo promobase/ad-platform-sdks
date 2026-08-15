@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7c85bbf65870db27f9e3b93bb056cecbe9c43dbb6b603f1cc13d3bb6faa4ff37
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Catalog Management — do not edit
 
 export interface CatalogCreateParams {

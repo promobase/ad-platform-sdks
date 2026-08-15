@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9ea8280564bfd2c45febe09d1455ca9be2d46375a9da8d7e3e3dae74717a58f8
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ProductAvailability, ProductChannel, ProductChannelExclusivity, ProductCondition, ProductIssue, ProductStatus } from "../index.ts";
 
 // Generated from google.ads.googleads.v25.resources.ShoppingProduct. Do not edit by hand.

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:145756386cd665b4e6498cbe2df8da4dc788b11f41737c275df44a485768fe74
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { MutateGoalsRequest, MutateGoalsResponse } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

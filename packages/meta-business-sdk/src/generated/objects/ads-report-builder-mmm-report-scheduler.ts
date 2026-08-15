@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:03688b273825c12815dc04cdc844572bef8a1d30b0539567dbdb00973f2695e9
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface AdsReportBuilderMMMReportSchedulerFields {

@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:dd0328a483104ca75733f4c392ddfcbcfcdcd99ca6c784c8210a59c6ec977d56
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { ChildEventFields } from "./child-event.ts";
 import type { CoverPhotoFields } from "./cover-photo.ts";
 import type { EventRegistrationSettingFields } from "./event-registration-setting.ts";
@@ -84,29 +87,29 @@ export function eventNode(client: ApiClient, id: string) {
     get: <F extends (keyof EventFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<EventFields, F[number]>>(`${id}`, opts),
     comments: <F extends (keyof NullNodeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/comments`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     feed: <F extends (keyof NullNodeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/feed`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/feed`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     liveVideos: {
       __path: `${id}/live_videos`,
       __brand: undefined as unknown as NullNodeFields,
       list: <F extends (keyof NullNodeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/live_videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/live_videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: EventCreateLiveVideosParams) =>
         client.post<LiveVideoFields>(`${id}/live_videos`, params as Record<string, unknown>),
     },
     photos: <F extends (keyof NullNodeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/photos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/photos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     picture: <F extends (keyof NullNodeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/picture`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/picture`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     posts: <F extends (keyof NullNodeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/posts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/posts`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     roles: <F extends (keyof ProfileFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/roles`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProfileFields, F[number]>>(client, `${id}/roles`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     ticketTiers: <F extends (keyof EventTicketTierFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<EventTicketTierFields, F[number]>>(client, `${id}/ticket_tiers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<EventTicketTierFields, F[number]>>(client, `${id}/ticket_tiers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     videos: <F extends (keyof NullNodeFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<NullNodeFields, F[number]>>(client, `${id}/videos`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

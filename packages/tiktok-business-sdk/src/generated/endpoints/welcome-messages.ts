@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d0e440683cea741131785e8d7216b1316bcac6cbccedf3343ed693992dc4eb31
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Welcome Messages — do not edit
 import type { CreativeAutoMessageCreateParams, CreativeAutoMessageCreateResponse, CreativeAutoMessageGetParams, CreativeAutoMessageGetResponse } from "../types/welcome-messages.ts";
 

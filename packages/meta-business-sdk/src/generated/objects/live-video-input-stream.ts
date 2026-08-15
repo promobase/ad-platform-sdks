@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:4e4a182386cb7071d2b144dcae9de7b5fa7c2d8dcf5da43f793e3a9261897de4
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface LiveVideoInputStreamFields {

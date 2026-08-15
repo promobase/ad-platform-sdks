@@ -1,0 +1,50 @@
+---
+title: "Facebook Ad Rule Evaluation Spec endpoints"
+description: "1 generated Facebook endpoint contract for Ad Rule Evaluation Spec."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 132
+  label: "Ad Rule Evaluation Spec"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:d64b563cea3529223c2ee42617c077da6f1c10f6c65237c0ab2be4bc5c63ed90 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.adRuleEvaluationSpec.get
+
+`GET` `/{id}`
+
+GET AdRuleEvaluationSpec
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adRuleEvaluationSpec.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdRuleEvaluationSpecFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

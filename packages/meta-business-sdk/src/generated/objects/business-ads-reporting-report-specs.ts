@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:1d47a4c25f67cf55cc29d70984f58f92353a6208d989adae290f92f8f9783821
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { BusinessFields } from "./business.ts";
 import type { BusinessAssetGroupFields } from "./business-asset-group.ts";
 import type { GroupFields } from "./group.ts";

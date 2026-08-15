@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e8585c3cecfcd515224c51ba625ab8c57faefa40cc5e4dbb6f731177a8eac215
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Change Log — do not edit
 import type { ChangelogTaskCreateParams, ChangelogTaskCreateResponse, ChangelogTaskCheckParams, ChangelogTaskCheckResponse, ChangelogTaskDownloadParams, ChangelogTaskDownloadResponse } from "../types/change-log.ts";
 

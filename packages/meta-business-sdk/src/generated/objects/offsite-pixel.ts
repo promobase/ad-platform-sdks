@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:8be44b1d0579925f1c9a2bad170a8a2564cc0397b2b4a709868456e67ad0752c
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface OffsitePixelFields {

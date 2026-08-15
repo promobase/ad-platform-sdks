@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:d8159cf5b6d28b77eb5db7009b2a96fe3dc70098a678e4bbc706ad799586a8e3",
+    "doNotEdit": true
+  },
   "platform": "pinterest",
   "source": {
     "kind": "openapi",

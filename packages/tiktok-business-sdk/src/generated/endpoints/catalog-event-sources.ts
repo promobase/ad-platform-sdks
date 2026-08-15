@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:41f571f9438c70135fb7080f1e29afe90c5cc56a879809a662b2c5c45c075fe5
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Catalog Event Sources — do not edit
 import type { CatalogEventsourceBindParams, CatalogEventsourceBindResponse, CatalogEventsourceUnbindParams, CatalogEventsourceUnbindResponse, CatalogEventsourceBindGetParams, CatalogEventsourceBindGetResponse } from "../types/catalog-event-sources.ts";
 

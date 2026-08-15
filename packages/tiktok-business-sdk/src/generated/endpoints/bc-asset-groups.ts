@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:90b4bd033f4ddcb7a5fe2d0cf1ce9b8e7d5c346430317fe9a800602e3cdccb5a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for BC Asset Groups — do not edit
 import type { BcAssetGroupCreateParams, BcAssetGroupCreateResponse, BcAssetGroupUpdateParams, BcAssetGroupUpdateResponse, BcAssetGroupListParams, BcAssetGroupListResponse, BcAssetGroupGetParams, BcAssetGroupGetResponse, BcAssetGroupDeleteParams, BcAssetGroupDeleteResponse } from "../types/bc-asset-groups.ts";
 

@@ -1,0 +1,50 @@
+---
+title: "Facebook Page Insights Async Export Run endpoints"
+description: "1 generated Facebook endpoint contract for Page Insights Async Export Run."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 319
+  label: "Page Insights Async Export Run"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:4d20fe6c20276e61c7c53a796854a331f5a03c18ba600c6b06486a65c7310a1b -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.pageInsightsAsyncExportRun.get
+
+`GET` `/{id}`
+
+GET PageInsightsAsyncExportRun
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `pageInsightsAsyncExportRun.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageInsightsAsyncExportRunFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:f33a1f1bfb99e2164813efe690cddd69733eef34f1a8471e889e3b4e2a8978e1
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdsPixelFields } from "./ads-pixel.ts";
 import type { BusinessFields } from "./business.ts";
 import type { CustomConversionStatsResultFields } from "./custom-conversion-stats-result.ts";
@@ -55,7 +58,7 @@ export function customConversionNode(client: ApiClient, id: string) {
     delete: () =>
       client.delete(`${id}`, {}),
     stats: <F extends (keyof CustomConversionStatsResultFields)[]>(opts: { fields: F; params?: CustomConversionListStatsParams }) =>
-      new Cursor<Pick<CustomConversionStatsResultFields, F[number]>>(client, `${id}/stats`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<CustomConversionStatsResultFields, F[number]>>(client, `${id}/stats`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

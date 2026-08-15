@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:01d93c6aef679643b9f751292908ed80a719f48d3a32da9d3e441409bdf1425e
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface WhitehatFBDLRunFields {

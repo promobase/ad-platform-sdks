@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6dbe8a04e3bfbf03deac9e4a7809e7a17e853460f0995b1efc4f81dd3aa96778
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface WhatsAppBusinessProfileFields {

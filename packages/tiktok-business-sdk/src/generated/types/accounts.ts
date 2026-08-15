@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a26e526ca75b4dc15b8a1e792d776f71e81ba09851c2933461f7ccf4afc13d93
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Accounts — do not edit
 
 export interface TtUserTokenInfoGetParams {

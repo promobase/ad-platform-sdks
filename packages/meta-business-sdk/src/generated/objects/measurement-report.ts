@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ba46a002ecfe5e5960ddaae44225c6543ab52faaeb92948141609692b46809a3
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface MeasurementReportFields {

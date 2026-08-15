@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ec2d8b0a799ffff7c989f97502acabd274b2361815983bdb9bb5f21ad8e71446
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type KeywordPlanAdGroupKeywordSelectableField =
   | "keyword_plan_ad_group_keyword.resource_name"

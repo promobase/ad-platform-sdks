@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6f56e5d4e51a543d5accadc7415b078f02a7c16f890363421dd9466ca5271e8b
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Ad Comments - Blocked Words — do not edit
 
 export interface BlockedwordCreateParams {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6846c841aac5531c62244233ce93f8d53156bdfb196f47c0deaebe200b34b43d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.MediaBundleErrorEnum.MediaBundleError. Do not edit by hand.
 export type MediaBundleError =
   | "UNSPECIFIED"

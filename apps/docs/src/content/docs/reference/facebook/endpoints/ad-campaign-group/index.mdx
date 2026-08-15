@@ -1,0 +1,50 @@
+---
+title: "Facebook Ad Campaign Group endpoints"
+description: "1 generated Facebook endpoint contract for Ad Campaign Group."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 112
+  label: "Ad Campaign Group"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:402dc87dda84fa70f9bd16fde5ca49561097eac763aa65075c0cf24134da9e6b -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.adCampaignGroup.genDelete
+
+`DELETE` `/{id}`
+
+DELETE AdCampaignGroup
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `adCampaignGroup.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdCampaignGroupDeleteFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

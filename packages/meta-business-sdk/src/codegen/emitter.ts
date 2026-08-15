@@ -239,7 +239,7 @@ export function emitObjectFile(ctx: EmitContext): string {
   }
   if (hasGetEdges) {
     out.push(`import { Cursor } from "@openpromo/sdk-runtime";`);
-    out.push(`import { metaPagination } from "../../pagination.ts";`);
+    out.push(`import { graphPagination } from "../../pagination.ts";`);
   }
 
   for (const ref of [...referencedObjects].sort()) {
@@ -355,7 +355,7 @@ export function emitObjectFile(ctx: EmitContext): string {
             : `opts: { fields: F; params?: Record<string, unknown> }`;
           out.push(`    ${camelName}: <F extends (keyof ${rt})[]>(${optsParam}) =>`);
           out.push(
-            `      new Cursor<Pick<${rt}, F[number]>>(client, \`\${id}/${ep}\`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),`,
+            `      new Cursor<Pick<${rt}, F[number]>>(client, \`\${id}/${ep}\`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),`,
           );
         } else if (api.method === "POST") {
           const methodName = endpointToMethodName("POST", ep);
@@ -393,7 +393,7 @@ export function emitObjectFile(ctx: EmitContext): string {
             : `opts: { fields: F; params?: Record<string, unknown> }`;
           out.push(`      list: <F extends (keyof ${rt})[]>(${optsParam}) =>`);
           out.push(
-            `        new Cursor<Pick<${rt}, F[number]>>(client, \`\${id}/${ep}\`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),`,
+            `        new Cursor<Pick<${rt}, F[number]>>(client, \`\${id}/${ep}\`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),`,
           );
         }
 

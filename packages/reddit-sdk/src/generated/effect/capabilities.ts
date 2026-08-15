@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:cd3e6f28aa829990e88101b60e8380779c10a2a0b961281509ff137f61efcb99
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
 export const capabilities = [

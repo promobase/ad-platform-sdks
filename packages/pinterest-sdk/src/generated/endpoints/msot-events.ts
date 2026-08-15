@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e61214d91b29ca3b4c966dbff5c29a59929fd804b243bd65574d686522e174b4
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for msot_events — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { MsotEventsCreateResponse } from "../types.ts";

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b2b40479565a9ec28c64bdffa8b0d3f1c7b6e586554022927e85e171dbd4c722
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type InvoiceSelectableField =
   | "invoice.resource_name"

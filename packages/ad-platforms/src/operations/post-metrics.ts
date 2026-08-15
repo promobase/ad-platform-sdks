@@ -2,7 +2,7 @@ import { createGoogleBusinessProfileClient } from "@openpromo/google-business-pr
 import type { LinkedInMemberPostMetric } from "@openpromo/linkedin";
 import { LinkedIn } from "@openpromo/linkedin";
 import {
-  createClient as createMetaClient,
+  createClient as createFacebookGraphClient,
   createFacebookPageClient,
   createInstagramClient,
   createThreadsClient,
@@ -182,7 +182,7 @@ const xInputSchema = Schema.Struct({
 export interface PostMetricsConnections {
   instagram?: ReturnType<typeof createInstagramClient>;
   facebook?: {
-    api: ReturnType<typeof createMetaClient>;
+    api: ReturnType<typeof createFacebookGraphClient>;
   };
   threads?: ReturnType<typeof createThreadsClient>;
   tiktok?: ReturnType<typeof createTikTokClient>;

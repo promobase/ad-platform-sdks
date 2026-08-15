@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b85387cabb72a066b857e7f5192f200593a926680dfeff8259b13354c1ca6d2a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Ad Comments — do not edit
 
 export interface CommentListParams {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2554fa6ce95ba68830f3f847add6b1782f90e1747ec06cd594fa11cd40e45a23
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdGroupAdRotationMode, AdGroupPrimaryStatus, AdGroupPrimaryStatusReason, AdGroupStatus, AdGroupType, AiMaxAdGroupSetting, AssetFieldType, AssetSetType, AudienceSetting, BiddingSource, CustomParameter, DemandGenAdGroupSettings, TargetingDimension, TargetingSetting, VerticalAdsFormatSetting, VideoAdGroupSettings } from "../index.ts";
 
 // Generated from google.ads.googleads.v25.resources.AdGroup. Do not edit by hand.

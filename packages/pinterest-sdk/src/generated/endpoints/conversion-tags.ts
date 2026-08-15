@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0136ce08bbecbeacac130a1ac3a7443990f322190917b033d2bb9eff95ab6bf5
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for conversion_tags — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { ConversionTagsCreateResponse, ConversionTagsListResponse, ConversionTagsGetResponse, OcpmEligibleConversionTagsGetResponse, PageVisitConversionTagsGetResponse } from "../types.ts";

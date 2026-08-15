@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:55c29caaaed30ff0cdf31c6ace019df21433402ed11fe7b2ef97aa173fa1b8ec
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface CPASAdvertiserPartnershipRecommendationFields {

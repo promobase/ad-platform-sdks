@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ba390ae22b379c90475bc03cb076a09e5486e60698e81b2cb20b560c150bb449
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApplyIncentiveRequest, ApplyIncentiveResponse, FetchIncentiveRequest, FetchIncentiveResponse } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

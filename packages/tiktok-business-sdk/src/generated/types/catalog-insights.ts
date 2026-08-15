@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:64c40529e46cc1a729aa7888ce1f5340766bb7d1e6e93519495c8e6769cabda4
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Catalog Insights — do not edit
 
 export interface CatalogInsightFilterGetParams {

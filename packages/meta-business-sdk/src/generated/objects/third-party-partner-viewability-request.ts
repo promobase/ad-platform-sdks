@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:76bf934962601752986a8e5e21e08673bf8fc38db807b2aa5b51f54a0752f955
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { ThirdPartyPartnerViewabilityRequestMetric, ThirdPartyPartnerViewabilityRequestPlatform, ThirdPartyPartnerViewabilityRequestStatus } from "../enums.ts";
 

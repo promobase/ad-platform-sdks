@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:94792a902364590635bd81f9f533c49f10ecdff1ec788f6847862e0ad49598d5
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdCreativeBrandedContentAdsPartnersFields } from "./ad-creative-branded-content-ads-partners.ts";
 
 export interface AdCreativeBrandedContentAdsFields {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3947f5dd3a544fdc1b9913fa46ff3c9375501b22910dd4fa094dfe73d42b82ad
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.common.DynamicHotelsAndRentalsAsset. Do not edit by hand.
 export interface DynamicHotelsAndRentalsAsset {
   propertyId?: string;

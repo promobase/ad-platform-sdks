@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:bf20d713699e69951d86b63b371587ba7e55a549e2affd2d91bbb1bf876b13a0
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { CurrencyAmountFields } from "./currency-amount.ts";
 
 export interface OmegaCustomerTrxFields {
@@ -32,7 +35,7 @@ export function omegaCustomerTrxNode(client: ApiClient, id: string) {
     get: <F extends (keyof OmegaCustomerTrxFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<OmegaCustomerTrxFields, F[number]>>(`${id}`, opts),
     campaigns: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/campaigns`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/campaigns`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

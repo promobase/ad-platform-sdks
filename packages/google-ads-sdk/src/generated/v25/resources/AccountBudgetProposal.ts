@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ca20d5196194cd9ac20c8c220793b84e2838aed6ee09969fa0ebe7ecd3d9bb94
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AccountBudgetProposalStatus, AccountBudgetProposalType, SpendingLimitType, TimeType } from "../index.ts";
 
 // Generated from google.ads.googleads.v25.resources.AccountBudgetProposal. Do not edit by hand.

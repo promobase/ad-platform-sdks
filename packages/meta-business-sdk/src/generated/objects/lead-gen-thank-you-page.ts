@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:57e424a86f9d4091baaea33e56c97262c10b2bd36ce0383400ca94abfe58c986
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { LeadGenThankYouPageGatedFileFields } from "./lead-gen-thank-you-page-gated-file.ts";
 
 export interface LeadGenThankYouPageFields {

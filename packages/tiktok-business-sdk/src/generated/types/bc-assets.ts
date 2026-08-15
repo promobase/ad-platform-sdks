@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:39829fc980af8af6e284929b0f9bd0cc4c7362907f10fe646d77b0501f7cb744
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for BC Assets — do not edit
 
 export interface BcAdvertiserCreateParams {

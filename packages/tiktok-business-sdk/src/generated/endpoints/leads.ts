@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:340d462236bead830d1330cdfc3c526bc339f77e5551b5e0481aad6770023aaf
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Leads — do not edit
 import type { PageLeadMockCreateParams, PageLeadMockCreateResponse, PageLeadMockGetParams, PageLeadMockGetResponse, PageLeadMockDeleteParams, PageLeadMockDeleteResponse, PageLeadTaskParams, PageLeadTaskResponse, PageLeadTaskDownloadParams, PageLeadTaskDownloadResponse, PageLibraryGetParams, PageLibraryGetResponse, PageLibraryTransferParams, PageLibraryTransferResponse, PageFieldGetParams, PageFieldGetResponse, LeadFieldGetParams, LeadFieldGetResponse, LeadGetParams, LeadGetResponse } from "../types/leads.ts";
 

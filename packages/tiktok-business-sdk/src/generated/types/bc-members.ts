@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ba5dfbed083deb0b45c73c21f80a128eeb1fa32b9eb43f77d4aa6486fddc298b
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for BC Members — do not edit
 
 export interface BcMemberGetParams {

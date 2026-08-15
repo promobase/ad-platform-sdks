@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6736f58b5e3d655541a709f710f38886ab6bbfca59fb122aa5060c5a4c8a3632
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdCreativeCollectionThumbnailInfoFields } from "./ad-creative-collection-thumbnail-info.ts";
 import type { AdCreativeLinkDataCallToActionFields } from "./ad-creative-link-data-call-to-action.ts";
 import type { AdCreativePostClickConfigurationFields } from "./ad-creative-post-click-configuration.ts";

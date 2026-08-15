@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:4bfa9ffe7c9f5a2dc9594fecef4b30f0cc5925fbdb4e02eeb3ff3b7e71772cac
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for the Amazon Ads API v3 — do not edit
 
 export type AcceptHeader = "application/vnd.sbAdCreativeResource.v4+json" | "application/vnd.sbCreativeImageRecommendationResource.v4+json" | "application/vnd.sbCreativeRecommendationResource.v4+json";

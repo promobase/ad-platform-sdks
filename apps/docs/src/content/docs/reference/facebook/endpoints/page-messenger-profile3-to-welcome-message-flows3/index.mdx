@@ -1,0 +1,2254 @@
+---
+title: "Facebook Page: Messenger Profile3 – Welcome Message Flows3 endpoints"
+description: "57 generated Facebook endpoint contracts for Page: Messenger Profile3 – Welcome Message Flows3."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 317
+  label: "Page: Messenger Profile3 – Welcome Message Flows3"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:a25ee6fc673ae1b89fb8c7ba036fb83037ddc004203b493bd1a73dbd17c523ce -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.page.messengerProfile3
+
+`POST` `/{id}/messenger_profile`
+
+POST Page messenger_profile
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `account_linking_url` | `body` | `string` | No | No | — |
+| `commands` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+| `description` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+| `get_started` | `body` | `Record<string, unknown>` | No | No | — |
+| `ice_breakers` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+| `persistent_menu` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+| `platform` | `body` | `unknown` | No | No | — |
+| `whitelisted_domains` | `body` | `Array<string>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.moderateConversations
+
+`POST` `/{id}/moderate_conversations`
+
+POST Page moderate_conversations
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `actions` | `body` | `Array<unknown>` | Yes | No | — |
+| `user_ids` | `body` | `Array<Record<string, unknown>>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.nlpConfigs
+
+`POST` `/{id}/nlp_configs`
+
+POST Page nlp_configs
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `api_version` | `body` | `Record<string, unknown>` | No | No | — |
+| `custom_token` | `body` | `string` | No | No | — |
+| `model` | `body` | `unknown` | No | No | — |
+| `n_best` | `body` | `integer` | No | No | — |
+| `nlp_enabled` | `body` | `boolean` | No | No | — |
+| `other_language_support` | `body` | `Record<string, unknown>` | No | No | — |
+| `verbose` | `body` | `boolean` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.notificationMessagesDevSupport
+
+`POST` `/{id}/notification_messages_dev_support`
+
+POST Page notification_messages_dev_support
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `developer_action` | `body` | `unknown` | Yes | No | — |
+| `recipient` | `body` | `Record<string, unknown>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.notificationMessageTokens
+
+`GET` `/{id}/notification_message_tokens`
+
+GET Page notification_message_tokens
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `UserPageOneTimeOptInTokenSettingsFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `custom_audience_ids` | `query` | `Array<string>` | No | No | — |
+| `do_not_return_duplicates` | `query` | `boolean` | No | No | — |
+| `has_received_marketing_message` | `query` | `boolean` | No | No | — |
+| `opt_in_source` | `query` | `Array<unknown>` | No | No | — |
+| `since` | `query` | `string<date-time>` | No | No | — |
+| `subscriber_tag_ids` | `query` | `Array<string>` | No | No | — |
+| `until` | `query` | `string<date-time>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.pageBackedInstagramAccounts
+
+`GET` `/{id}/page_backed_instagram_accounts`
+
+GET Page page_backed_instagram_accounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `IGUserFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.pageBackedInstagramAccounts2
+
+`POST` `/{id}/page_backed_instagram_accounts`
+
+POST Page page_backed_instagram_accounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `IGUserFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.pageBackedThreadsAccounts
+
+`POST` `/{id}/page_backed_threads_accounts`
+
+POST Page page_backed_threads_accounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.pageWhatsappNumberVerification
+
+`POST` `/{id}/page_whatsapp_number_verification`
+
+POST Page page_whatsapp_number_verification
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `verification_code` | `body` | `string` | No | No | — |
+| `whatsapp_number` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.passThreadControl
+
+`POST` `/{id}/pass_thread_control`
+
+POST Page pass_thread_control
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `metadata` | `body` | `string` | No | No | — |
+| `recipient` | `body` | `Record<string, unknown>` | Yes | No | — |
+| `target_app_id` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.personas
+
+`GET` `/{id}/personas`
+
+GET Page personas
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PersonaFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.personas2
+
+`POST` `/{id}/personas`
+
+POST Page personas
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PersonaFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `name` | `body` | `string` | Yes | No | — |
+| `profile_picture_url` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.photos
+
+`GET` `/{id}/photos`
+
+GET Page photos
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PhotoFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `biz_tag_id` | `query` | `integer` | No | No | — |
+| `business_id` | `query` | `string` | No | No | — |
+| `type` | `query` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.photos2
+
+`POST` `/{id}/photos`
+
+POST Page photos
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PhotoFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `aid` | `body` | `string` | No | No | — |
+| `allow_spherical_photo` | `body` | `boolean` | No | No | — |
+| `alt_text_custom` | `body` | `string` | No | No | — |
+| `android_key_hash` | `body` | `string` | No | No | — |
+| `application_id` | `body` | `string` | No | No | — |
+| `attempt` | `body` | `integer` | No | No | — |
+| `audience_exp` | `body` | `boolean` | No | No | — |
+| `backdated_time` | `body` | `string<date-time>` | No | No | — |
+| `backdated_time_granularity` | `body` | `unknown` | No | No | — |
+| `caption` | `body` | `string` | No | No | — |
+| `composer_session_id` | `body` | `string` | No | No | — |
+| `direct_share_status` | `body` | `integer` | No | No | — |
+| `feed_targeting` | `body` | `Record<string, unknown>` | No | No | — |
+| `filter_type` | `body` | `integer` | No | No | — |
+| `full_res_is_coming_later` | `body` | `boolean` | No | No | — |
+| `initial_view_heading_override_degrees` | `body` | `integer` | No | No | — |
+| `initial_view_pitch_override_degrees` | `body` | `integer` | No | No | — |
+| `initial_view_vertical_fov_override_degrees` | `body` | `integer` | No | No | — |
+| `ios_bundle_id` | `body` | `string` | No | No | — |
+| `is_explicit_location` | `body` | `boolean` | No | No | — |
+| `is_explicit_place` | `body` | `boolean` | No | No | — |
+| `location_source_id` | `body` | `string` | No | No | — |
+| `manual_privacy` | `body` | `boolean` | No | No | — |
+| `message` | `body` | `string` | No | No | — |
+| `name` | `body` | `string` | No | No | — |
+| `nectar_module` | `body` | `string` | No | No | — |
+| `no_story` | `body` | `boolean` | No | No | — |
+| `offline_id` | `body` | `integer` | No | No | — |
+| `og_action_type_id` | `body` | `string` | No | No | — |
+| `og_icon_id` | `body` | `string` | No | No | — |
+| `og_object_id` | `body` | `string` | No | No | — |
+| `og_phrase` | `body` | `string` | No | No | — |
+| `og_set_profile_badge` | `body` | `boolean` | No | No | — |
+| `og_suggestion_mechanism` | `body` | `string` | No | No | — |
+| `parent_media_id` | `body` | `integer` | No | No | — |
+| `place` | `body` | `Record<string, unknown>` | No | No | — |
+| `privacy` | `body` | `string` | No | No | — |
+| `profile_id` | `body` | `integer` | No | No | — |
+| `provenance_info` | `body` | `Record<string, unknown>` | No | No | — |
+| `provenance_metadata` | `body` | `Record<string, unknown>` | No | No | — |
+| `proxied_app_id` | `body` | `string` | No | No | — |
+| `published` | `body` | `boolean` | No | No | — |
+| `qn` | `body` | `string` | No | No | — |
+| `scheduled_publish_time` | `body` | `integer` | No | No | — |
+| `spherical_metadata` | `body` | `Record<string, unknown>` | No | No | — |
+| `sponsor_id` | `body` | `string` | No | No | — |
+| `sponsor_relationship` | `body` | `integer` | No | No | — |
+| `tags` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+| `target_id` | `body` | `integer` | No | No | — |
+| `targeting` | `body` | `Record<string, unknown>` | No | No | — |
+| `temporary` | `body` | `boolean` | No | No | — |
+| `time_since_original_post` | `body` | `integer` | No | No | — |
+| `uid` | `body` | `integer` | No | No | — |
+| `unpublished_content_type` | `body` | `unknown` | No | No | — |
+| `url` | `body` | `string` | No | No | — |
+| `user_selected_tags` | `body` | `boolean` | No | No | — |
+| `vault_image_id` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.photoStories
+
+`POST` `/{id}/photo_stories`
+
+POST Page photo_stories
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `photo_id` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.picture
+
+`GET` `/{id}/picture`
+
+GET Page picture
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ProfilePictureSourceFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `height` | `query` | `integer` | No | No | — |
+| `redirect` | `query` | `boolean` | No | No | — |
+| `type` | `query` | `unknown` | No | No | — |
+| `width` | `query` | `integer` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.picture2
+
+`POST` `/{id}/picture`
+
+POST Page picture
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ProfilePictureSourceFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `android_key_hash` | `body` | `string` | No | No | — |
+| `burn_media_effect` | `body` | `boolean` | No | No | — |
+| `caption` | `body` | `string` | No | No | — |
+| `composer_session_id` | `body` | `string` | No | No | — |
+| `frame_entrypoint` | `body` | `string` | No | No | — |
+| `has_umg` | `body` | `boolean` | No | No | — |
+| `height` | `body` | `integer` | No | No | — |
+| `ios_bundle_id` | `body` | `string` | No | No | — |
+| `media_effect_ids` | `body` | `Array<integer>` | No | No | — |
+| `media_effect_source_object_id` | `body` | `integer` | No | No | — |
+| `msqrd_mask_id` | `body` | `string` | No | No | — |
+| `photo` | `body` | `string` | No | No | — |
+| `picture` | `body` | `string` | No | No | — |
+| `profile_pic_method` | `body` | `string` | No | No | — |
+| `profile_pic_source` | `body` | `string` | No | No | — |
+| `proxied_app_id` | `body` | `integer` | No | No | — |
+| `qn` | `body` | `string` | No | No | — |
+| `reuse` | `body` | `boolean` | No | No | — |
+| `scaled_crop_rect` | `body` | `Record<string, unknown>` | No | No | — |
+| `set_profile_photo_shield` | `body` | `string` | No | No | — |
+| `sticker_id` | `body` | `integer` | No | No | — |
+| `sticker_source_object_id` | `body` | `integer` | No | No | — |
+| `suppress_stories` | `body` | `boolean` | No | No | — |
+| `width` | `body` | `integer` | No | No | — |
+| `x` | `body` | `integer` | No | No | — |
+| `y` | `body` | `integer` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.posts
+
+`GET` `/{id}/posts`
+
+GET Page posts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PagePostFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `include_hidden` | `query` | `boolean` | No | No | — |
+| `limit` | `query` | `integer` | No | No | — |
+| `q` | `query` | `string` | No | No | — |
+| `show_expired` | `query` | `boolean` | No | No | — |
+| `with` | `query` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.productCatalogs
+
+`GET` `/{id}/product_catalogs`
+
+GET Page product_catalogs
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ProductCatalogFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.publishedPosts
+
+`GET` `/{id}/published_posts`
+
+GET Page published_posts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PagePostFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `include_hidden` | `query` | `boolean` | No | No | — |
+| `limit` | `query` | `integer` | No | No | — |
+| `show_expired` | `query` | `boolean` | No | No | — |
+| `with` | `query` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.ratings
+
+`GET` `/{id}/ratings`
+
+GET Page ratings
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `RecommendationFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.releaseThreadControl
+
+`POST` `/{id}/release_thread_control`
+
+POST Page release_thread_control
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `recipient` | `body` | `Record<string, unknown>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.requestThreadControl
+
+`POST` `/{id}/request_thread_control`
+
+POST Page request_thread_control
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `metadata` | `body` | `string` | No | No | — |
+| `recipient` | `body` | `Record<string, unknown>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.roles
+
+`GET` `/{id}/roles`
+
+GET Page roles
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `UserFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `include_deactivated` | `query` | `boolean` | No | No | — |
+| `uid` | `query` | `integer` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.rtbDynamicPosts
+
+`GET` `/{id}/rtb_dynamic_posts`
+
+GET Page rtb_dynamic_posts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `RTBDynamicPostFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.scheduledLiveVideo
+
+`POST` `/{id}/scheduled_live_video`
+
+POST Page scheduled_live_video
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `unknown` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `end_time` | `body` | `integer` | No | No | — |
+| `start_time` | `body` | `integer` | Yes | No | — |
+| `state` | `body` | `unknown` | Yes | No | — |
+| `video` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.scheduledPosts
+
+`GET` `/{id}/scheduled_posts`
+
+GET Page scheduled_posts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PagePostFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.settings
+
+`GET` `/{id}/settings`
+
+GET Page settings
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageSettingsFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.settings2
+
+`POST` `/{id}/settings`
+
+POST Page settings
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `option` | `body` | `Record<string, unknown>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.shopSetupStatus
+
+`GET` `/{id}/shop_setup_status`
+
+GET Page shop_setup_status
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CommerceMerchantSettingsSetupStatusFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.spaceParticipants
+
+`GET` `/{id}/space_participants`
+
+GET Page space_participants
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.spaceParticipants2
+
+`POST` `/{id}/space_participants`
+
+POST Page space_participants
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `recipient` | `body` | `Record<string, unknown>` | Yes | No | — |
+| `space_name` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.storeLocations
+
+`GET` `/{id}/store_locations`
+
+GET Page store_locations
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `StoreLocationFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.stories
+
+`GET` `/{id}/stories`
+
+GET Page stories
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `StoriesFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `since` | `query` | `string<date-time>` | No | No | — |
+| `status` | `query` | `Array<unknown>` | No | No | — |
+| `until` | `query` | `string<date-time>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.subscribedApps
+
+`DELETE` `/{id}/subscribed_apps`
+
+DELETE Page subscribed_apps
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.subscribedApps2
+
+`GET` `/{id}/subscribed_apps`
+
+GET Page subscribed_apps
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ApplicationFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.subscribedApps3
+
+`POST` `/{id}/subscribed_apps`
+
+POST Page subscribed_apps
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `subscribed_fields` | `body` | `Array<unknown>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.tabs
+
+`GET` `/{id}/tabs`
+
+GET Page tabs
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `TabFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `tab` | `query` | `Array<string>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.tagged
+
+`GET` `/{id}/tagged`
+
+GET Page tagged
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PagePostFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.takeThreadControl
+
+`POST` `/{id}/take_thread_control`
+
+POST Page take_thread_control
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `metadata` | `body` | `string` | No | No | — |
+| `recipient` | `body` | `Record<string, unknown>` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.threadOwner
+
+`GET` `/{id}/thread_owner`
+
+GET Page thread_owner
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageThreadOwnerFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `recipient` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.threads
+
+`GET` `/{id}/threads`
+
+GET Page threads
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `UnifiedThreadFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `folder` | `query` | `string` | No | No | — |
+| `platform` | `query` | `unknown` | No | No | — |
+| `tags` | `query` | `Array<string>` | No | No | — |
+| `user_id` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.unlinkAccounts
+
+`POST` `/{id}/unlink_accounts`
+
+POST Page unlink_accounts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `psid` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.update
+
+`POST` `/{id}`
+
+POST Page
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PageFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `about` | `body` | `string` | No | No | — |
+| `accept_crossposting_handshake` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+| `allow_spherical_photo` | `body` | `boolean` | No | No | — |
+| `attire` | `body` | `PageAttire` | No | No | — |
+| `begin_crossposting_handshake` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+| `bio` | `body` | `string` | No | No | — |
+| `caption` | `body` | `string` | No | No | — |
+| `category_list` | `body` | `Array<string>` | No | No | — |
+| `company_overview` | `body` | `string` | No | No | — |
+| `contact_address` | `body` | `Record<string, unknown>` | No | No | — |
+| `cover` | `body` | `string` | No | No | — |
+| `culinary_team` | `body` | `string` | No | No | — |
+| `delivery_and_pickup_option_info` | `body` | `Array<string>` | No | No | — |
+| `description` | `body` | `string` | No | No | — |
+| `differently_open_offerings` | `body` | `Record<string, unknown>` | No | No | — |
+| `directed_by` | `body` | `string` | No | No | — |
+| `displayed_message_response_time` | `body` | `string` | No | No | — |
+| `emails` | `body` | `Array<string>` | No | No | — |
+| `focus_x` | `body` | `number` | No | No | — |
+| `focus_y` | `body` | `number` | No | No | — |
+| `food_styles` | `body` | `Array<PageFoodStyles>` | No | No | — |
+| `gen_ai_provenance_type` | `body` | `PageGenAiProvenanceType` | No | No | — |
+| `general_info` | `body` | `string` | No | No | — |
+| `general_manager` | `body` | `string` | No | No | — |
+| `genre` | `body` | `string` | No | No | — |
+| `hours` | `body` | `Record<string, unknown>` | No | No | — |
+| `ignore_coordinate_warnings` | `body` | `boolean` | No | No | — |
+| `impressum` | `body` | `string` | No | No | — |
+| `is_always_open` | `body` | `boolean` | No | No | — |
+| `is_permanently_closed` | `body` | `boolean` | No | No | — |
+| `is_published` | `body` | `boolean` | No | No | — |
+| `is_webhooks_subscribed` | `body` | `boolean` | No | No | — |
+| `location` | `body` | `Record<string, unknown>` | No | No | — |
+| `menu` | `body` | `string` | No | No | — |
+| `mission` | `body` | `string` | No | No | — |
+| `no_feed_story` | `body` | `boolean` | No | No | — |
+| `no_notification` | `body` | `boolean` | No | No | — |
+| `offset_x` | `body` | `integer` | No | No | — |
+| `offset_y` | `body` | `integer` | No | No | — |
+| `parking` | `body` | `Record<string, unknown>` | No | No | — |
+| `payment_options` | `body` | `Record<string, unknown>` | No | No | — |
+| `phone` | `body` | `string` | No | No | — |
+| `pickup_options` | `body` | `Array<PagePickupOptions>` | No | No | — |
+| `plot_outline` | `body` | `string` | No | No | — |
+| `price_range` | `body` | `string` | No | No | — |
+| `priority_hours` | `body` | `Record<string, unknown>` | No | No | — |
+| `public_transit` | `body` | `string` | No | No | — |
+| `restaurant_services` | `body` | `Record<string, unknown>` | No | No | — |
+| `restaurant_specialties` | `body` | `Record<string, unknown>` | No | No | — |
+| `scrape` | `body` | `boolean` | No | No | — |
+| `service_details` | `body` | `string` | No | No | — |
+| `spherical_metadata` | `body` | `Record<string, unknown>` | No | No | — |
+| `start_info` | `body` | `Record<string, unknown>` | No | No | — |
+| `store_location_descriptor` | `body` | `string` | No | No | — |
+| `temporary_status` | `body` | `PageTemporaryStatus` | No | No | — |
+| `website` | `body` | `string` | No | No | — |
+| `zoom_scale_x` | `body` | `number` | No | No | — |
+| `zoom_scale_y` | `body` | `number` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.videoCopyrightRules
+
+`GET` `/{id}/video_copyright_rules`
+
+GET Page video_copyright_rules
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `VideoCopyrightRuleFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `selected_rule_id` | `query` | `string` | No | No | — |
+| `source` | `query` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.videoCopyrightRules2
+
+`POST` `/{id}/video_copyright_rules`
+
+POST Page video_copyright_rules
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `VideoCopyrightRuleFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `condition_groups` | `body` | `Array<Record<string, unknown>>` | Yes | No | — |
+| `name` | `body` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.videoCopyrights
+
+`POST` `/{id}/video_copyrights`
+
+POST Page video_copyrights
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `VideoCopyrightFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `attribution_id` | `body` | `string` | No | No | — |
+| `content_category` | `body` | `unknown` | No | No | — |
+| `copyright_content_id` | `body` | `string` | Yes | No | — |
+| `excluded_ownership_countries` | `body` | `Array<string>` | No | No | — |
+| `excluded_ownership_segments` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+| `is_reference_disabled` | `body` | `boolean` | No | No | — |
+| `is_reference_video` | `body` | `boolean` | No | No | — |
+| `monitoring_type` | `body` | `unknown` | No | No | — |
+| `ownership_countries` | `body` | `Array<string>` | No | No | — |
+| `rule_id` | `body` | `string` | No | No | — |
+| `tags` | `body` | `Array<string>` | No | No | — |
+| `whitelisted_ids` | `body` | `Array<string>` | No | No | — |
+| `whitelisted_ig_user_ids` | `body` | `Array<string>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.videoLists
+
+`GET` `/{id}/video_lists`
+
+GET Page video_lists
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `VideoListFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.videoReels
+
+`GET` `/{id}/video_reels`
+
+GET Page video_reels
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdVideoFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `since` | `query` | `string<date-time>` | No | No | — |
+| `until` | `query` | `string<date-time>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.videoReels2
+
+`POST` `/{id}/video_reels`
+
+POST Page video_reels
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdVideoFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `description` | `body` | `string` | No | No | — |
+| `feed_targeting` | `body` | `Record<string, unknown>` | No | No | — |
+| `place` | `body` | `string` | No | No | — |
+| `scheduled_publish_time` | `body` | `string<date-time>` | No | No | — |
+| `targeting` | `body` | `Record<string, unknown>` | No | No | — |
+| `title` | `body` | `string` | No | No | — |
+| `upload_phase` | `body` | `unknown` | Yes | No | — |
+| `video_id` | `body` | `string` | No | No | — |
+| `video_state` | `body` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.videos
+
+`GET` `/{id}/videos`
+
+GET Page videos
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdVideoFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `type` | `query` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.videos2
+
+`POST` `/{id}/videos`
+
+POST Page videos
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdVideoFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `ad_breaks` | `body` | `Array<unknown>` | No | No | — |
+| `application_id` | `body` | `string` | No | No | — |
+| `asked_fun_fact_prompt_id` | `body` | `integer` | No | No | — |
+| `audio_story_wave_animation_handle` | `body` | `string` | No | No | — |
+| `backdated_post` | `body` | `Array<unknown>` | No | No | — |
+| `call_to_action` | `body` | `Record<string, unknown>` | No | No | — |
+| `composer_entry_picker` | `body` | `string` | No | No | — |
+| `composer_entry_point` | `body` | `string` | No | No | — |
+| `composer_entry_time` | `body` | `integer` | No | No | — |
+| `composer_session_events_log` | `body` | `string` | No | No | — |
+| `composer_session_id` | `body` | `string` | No | No | — |
+| `composer_source_surface` | `body` | `string` | No | No | — |
+| `composer_type` | `body` | `string` | No | No | — |
+| `container_type` | `body` | `unknown` | No | No | — |
+| `content_category` | `body` | `unknown` | No | No | — |
+| `content_tags` | `body` | `Array<string>` | No | No | — |
+| `creative_tools` | `body` | `string` | No | No | — |
+| `crossposted_video_id` | `body` | `string` | No | No | — |
+| `custom_labels` | `body` | `Array<string>` | No | No | — |
+| `description` | `body` | `string` | No | No | — |
+| `direct_share_status` | `body` | `integer` | No | No | — |
+| `edit_description_spec` | `body` | `Record<string, unknown>` | No | No | — |
+| `embeddable` | `body` | `boolean` | No | No | — |
+| `end_offset` | `body` | `integer` | No | No | — |
+| `expiration` | `body` | `Record<string, unknown>` | No | No | — |
+| `fbuploader_video_file_chunk` | `body` | `string` | No | No | — |
+| `feed_targeting` | `body` | `Record<string, unknown>` | No | No | — |
+| `file_size` | `body` | `integer` | No | No | — |
+| `file_url` | `body` | `string` | No | No | — |
+| `fisheye_video_cropped` | `body` | `boolean` | No | No | — |
+| `formatting` | `body` | `unknown` | No | No | — |
+| `fov` | `body` | `integer` | No | No | — |
+| `front_z_rotation` | `body` | `number` | No | No | — |
+| `fun_fact_prompt_id` | `body` | `string` | No | No | — |
+| `fun_fact_toastee_id` | `body` | `integer` | No | No | — |
+| `guide` | `body` | `Array<Array<integer>>` | No | No | — |
+| `guide_enabled` | `body` | `boolean` | No | No | — |
+| `initial_heading` | `body` | `integer` | No | No | — |
+| `initial_pitch` | `body` | `integer` | No | No | — |
+| `instant_game_entry_point_data` | `body` | `string` | No | No | — |
+| `is_boost_intended` | `body` | `boolean` | No | No | — |
+| `is_explicit_share` | `body` | `boolean` | No | No | — |
+| `is_group_linking_post` | `body` | `boolean` | No | No | — |
+| `is_partnership_ad` | `body` | `boolean` | No | No | — |
+| `is_voice_clip` | `body` | `boolean` | No | No | — |
+| `location_source_id` | `body` | `string` | No | No | — |
+| `manual_privacy` | `body` | `boolean` | No | No | — |
+| `multilingual_data` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+| `no_story` | `body` | `boolean` | No | No | — |
+| `og_action_type_id` | `body` | `string` | No | No | — |
+| `og_icon_id` | `body` | `string` | No | No | — |
+| `og_object_id` | `body` | `string` | No | No | — |
+| `og_phrase` | `body` | `string` | No | No | — |
+| `og_suggestion_mechanism` | `body` | `string` | No | No | — |
+| `original_fov` | `body` | `integer` | No | No | — |
+| `original_projection_type` | `body` | `unknown` | No | No | — |
+| `partnership_ad_ad_code` | `body` | `string` | No | No | — |
+| `publish_event_id` | `body` | `integer` | No | No | — |
+| `published` | `body` | `boolean` | No | No | — |
+| `reference_only` | `body` | `boolean` | No | No | — |
+| `referenced_sticker_id` | `body` | `string` | No | No | — |
+| `replace_video_id` | `body` | `string` | No | No | — |
+| `scheduled_publish_time` | `body` | `integer` | No | No | — |
+| `secret` | `body` | `boolean` | No | No | — |
+| `selected_audio_spec` | `body` | `Record<string, unknown>` | No | No | — |
+| `slideshow_spec` | `body` | `Record<string, unknown>` | No | No | — |
+| `social_actions` | `body` | `boolean` | No | No | — |
+| `source` | `body` | `string` | No | No | — |
+| `source_instagram_media_id` | `body` | `string` | No | No | — |
+| `specified_dialect` | `body` | `string` | No | No | — |
+| `spherical` | `body` | `boolean` | No | No | — |
+| `sponsor_id` | `body` | `string` | No | No | — |
+| `sponsor_relationship` | `body` | `integer` | No | No | — |
+| `start_offset` | `body` | `integer` | No | No | — |
+| `swap_mode` | `body` | `unknown` | No | No | — |
+| `targeting` | `body` | `Record<string, unknown>` | No | No | — |
+| `text_format_metadata` | `body` | `string` | No | No | — |
+| `thumb` | `body` | `unknown` | No | No | — |
+| `time_since_original_post` | `body` | `integer` | No | No | — |
+| `title` | `body` | `string` | No | No | — |
+| `transcode_setting_properties` | `body` | `string` | No | No | — |
+| `universal_video_id` | `body` | `string` | No | No | — |
+| `unpublished_content_type` | `body` | `unknown` | No | No | — |
+| `upload_phase` | `body` | `unknown` | No | No | — |
+| `upload_session_id` | `body` | `string` | No | No | — |
+| `upload_setting_properties` | `body` | `string` | No | No | — |
+| `video_asset_id` | `body` | `string` | No | No | — |
+| `video_file_chunk` | `body` | `string` | No | No | — |
+| `video_id_original` | `body` | `string` | No | No | — |
+| `video_start_time_ms` | `body` | `integer` | No | No | — |
+| `waterfall_id` | `body` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.videoStories
+
+`POST` `/{id}/video_stories`
+
+POST Page video_stories
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `description` | `body` | `string` | No | No | — |
+| `feed_targeting` | `body` | `Record<string, unknown>` | No | No | — |
+| `place` | `body` | `string` | No | No | — |
+| `scheduled_publish_time` | `body` | `string<date-time>` | No | No | — |
+| `targeting` | `body` | `Record<string, unknown>` | No | No | — |
+| `title` | `body` | `string` | No | No | — |
+| `upload_phase` | `body` | `unknown` | Yes | No | — |
+| `video_id` | `body` | `string` | No | No | — |
+| `video_state` | `body` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.visitorPosts
+
+`GET` `/{id}/visitor_posts`
+
+GET Page visitor_posts
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `PagePostFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `include_hidden` | `query` | `boolean` | No | No | — |
+| `limit` | `query` | `integer` | No | No | — |
+| `show_expired` | `query` | `boolean` | No | No | — |
+| `with` | `query` | `unknown` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.welcomeMessageFlows
+
+`DELETE` `/{id}/welcome_message_flows`
+
+DELETE Page welcome_message_flows
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `delete` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `flow_id` | `query` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.welcomeMessageFlows2
+
+`GET` `/{id}/welcome_message_flows`
+
+GET Page welcome_message_flows
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `page.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CTXPartnerAppWelcomeMessageFlowFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `app_id` | `query` | `string` | No | No | — |
+| `flow_id` | `query` | `string` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |
+
+## facebook.page.welcomeMessageFlows3
+
+`POST` `/{id}/welcome_message_flows`
+
+POST Page welcome_message_flows
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `write` |
+| Execution | `durable` |
+| Idempotency | `unsafe` |
+| Capabilities | `page.manage` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `Record<string, unknown>` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+| `eligible_platforms` | `body` | `Array<unknown>` | No | No | — |
+| `flow_id` | `body` | `string` | No | No | — |
+| `name` | `body` | `string` | No | No | — |
+| `welcome_message_flow` | `body` | `Array<Record<string, unknown>>` | No | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

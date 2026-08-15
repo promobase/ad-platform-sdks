@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:0257463278c57e61f1dad01d6556ff071129bc5c484ff3bbca2e9d23fd36dd64
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface WithAsset3DFields {

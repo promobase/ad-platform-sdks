@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ce87e935eca0fc786e964e8e44512645496f6b4577068687d6a21456dbb321a3
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for advanced_auction — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { AdvancedAuctionItemsGetPostResponse, AdvancedAuctionItemsSubmitPostResponse } from "../types.ts";

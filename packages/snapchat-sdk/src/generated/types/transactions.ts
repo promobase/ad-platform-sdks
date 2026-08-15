@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:66f9d4a6ae38700f0dd58105cf687609b98adf75972b22b2315c65a4a9ae2653
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for transactions — do not edit
 
 export interface Transaction {

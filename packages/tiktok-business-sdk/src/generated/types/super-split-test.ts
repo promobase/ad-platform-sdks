@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:fadff4fc9ffeefb469c9bd0f8dc2ceb58234f14eb2c653d339f049d25d887ba3
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Super Split Test — do not edit
 
 export interface SplitTestCreateParams {

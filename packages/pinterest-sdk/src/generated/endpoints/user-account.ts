@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:51931d60fec020f91052b178fae64857d8e51cfed2021c7d661a1870850b3845
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for user_account — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { UserAccountGetResponse, UserAccountAnalyticsResponse, UserAccountAnalyticsTopPinsResponse, UserAccountAnalyticsTopVideoPinsResponse, LinkedBusinessAccountsGetResponse, FollowersListResponse, UserFollowingGetResponse, FollowUserUpdateResponse, BoardsUserFollowsListResponse, UserWebsitesGetResponse, VerifyWebsiteUpdateResponse, UnverifyWebsiteDeleteResponse, WebsiteVerificationGetResponse, UserAccountFollowedInterestsResponse } from "../types.ts";

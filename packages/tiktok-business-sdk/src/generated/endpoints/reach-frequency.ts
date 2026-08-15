@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:93617553236cf4665be0a3ca60958f88d769f10e0dc0d7ab4918d40d3db68f1b
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Reach & Frequency — do not edit
 import type { RfInventoryEstimateParams, RfInventoryEstimateResponse, AdgroupRfCreateParams, AdgroupRfCreateResponse, AdgroupRfUpdateParams, AdgroupRfUpdateResponse, RfOrderCancelParams, RfOrderCancelResponse, AdgroupRfEstimatedInfoParams, AdgroupRfEstimatedInfoResponse, RfContractQueryParams, RfContractQueryResponse, RfDeliveryTimezoneParams, RfDeliveryTimezoneResponse } from "../types/reach-frequency.ts";
 

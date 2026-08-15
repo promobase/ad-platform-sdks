@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ebfb3cbe7d668872af91c24853eaf959613a8aefee98ee2f15bd7e331a483399
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
 export interface ActivateAccountParams {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c70139ca5ec914870831ed12130e6535a4294097155239506598ebbe94846a06
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdsActionStatsFields } from "./ads-action-stats.ts";
 
 export interface BusinessCreativeInsightsFields {

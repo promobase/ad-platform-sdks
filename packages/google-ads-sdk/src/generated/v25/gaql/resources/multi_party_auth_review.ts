@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a9e6f916717e296c05e6ea68bb91fd86cdb8d1f582ff9489386aaf940ac7a055
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type MultiPartyAuthReviewSelectableField =
   | "multi_party_auth_review.resource_name"

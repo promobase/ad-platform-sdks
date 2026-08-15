@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:852b10c2327c3c4e0ee05815c156c177dae34c2885423c6f86fa83715e6ce549",
+    "doNotEdit": true
+  },
   "source": "https://business-api.tiktok.com/gateway/api/doc/client",
   "docPages": 549,
   "endpoints": 539,

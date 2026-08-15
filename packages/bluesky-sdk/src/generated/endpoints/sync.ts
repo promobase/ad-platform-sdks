@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:41d7271814a88ca3e53096c5d9edca46010aa9c9ea3238828879e609f4edd23c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for com.atproto.sync — do not edit
 import type { BlueskyApiClient } from "../../api-client.ts";
 import type { ComAtprotoSyncDefsHostStatus, ComAtprotoSyncListHostsHost, ComAtprotoSyncListReposRepo, ComAtprotoSyncListReposByCollectionRepo, GetHeadResponse, GetHostStatusResponse, GetLatestCommitResponse, GetRepoStatusResponse, ListBlobsResponse, ListHostsResponse, ListReposResponse, ListReposByCollectionResponse } from "../types.ts";

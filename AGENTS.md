@@ -76,6 +76,10 @@ Do not hand-edit generated trees when the generator or its input owns the change
 submodule pins incidentally. Review generated diffs for unrelated churn and run the owning package's
 typecheck and tests after regeneration.
 
+Every generated source and reference artifact carries a deterministic SHA-256 body checksum and an
+explicit `DO NOT EDIT` marker. Use the owning `codegen` command, which refreshes these headers; use
+`node scripts/ensure-generated-headers.mjs --check` to verify them without rewriting files.
+
 ## Changes and Releases
 
 - Preserve unrelated working-tree changes. Do not reset, stash, overwrite, or reformat unrelated

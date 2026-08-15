@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9e79d7a06ae06d8a4bb388af8382876c2fa21ec7c5e721d14040b291120efd66
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { HighDemandPeriodTimeSuggestionWeeklySegmentFields } from "./high-demand-period-time-suggestion-weekly-segment.ts";
 

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b25b24307637ffe4283700e9e652aab9081c63a50cdd787ead04373f60e7c69f
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface SignalsIWLExtractorFields {

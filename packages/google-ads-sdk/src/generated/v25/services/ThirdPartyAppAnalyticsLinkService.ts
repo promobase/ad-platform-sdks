@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ca4ffa59c6122086aa7c260c456951237fc7b895c4ad9beb67a7557f87d04288
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { RegenerateShareableLinkIdRequest, RegenerateShareableLinkIdResponse } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

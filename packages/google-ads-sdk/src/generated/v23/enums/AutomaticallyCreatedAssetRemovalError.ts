@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:cbe6ef452e89deb1bd2896616c4732ec4828778093e18270fdab3c4413cae63e
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.AutomaticallyCreatedAssetRemovalErrorEnum.AutomaticallyCreatedAssetRemovalError. Do not edit by hand.
 export type AutomaticallyCreatedAssetRemovalError =
   | "UNSPECIFIED"

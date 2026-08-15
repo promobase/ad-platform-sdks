@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:528ca643b22e348f7cd2a8d1f782a788747e3e3f6bc26558cbde48ca2501aa10
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.AssetOfflineEvaluationErrorReasonsEnum.AssetOfflineEvaluationErrorReasons. Do not edit by hand.
 export type AssetOfflineEvaluationErrorReasons =
   | "UNSPECIFIED"

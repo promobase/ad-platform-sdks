@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:537593f8c38207fe6dcc2e2f7e881d6712afb3b8288c69085ddd06d230c4c209
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdAccountFields } from "./ad-account.ts";
 import type { BusinessFields } from "./business.ts";
 import type { OfflineConversionDataSetPermissionsFields } from "./offline-conversion-data-set-permissions.ts";

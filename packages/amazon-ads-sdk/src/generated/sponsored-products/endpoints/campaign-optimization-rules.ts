@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:59d95ae83a40df9a462af078a16427c34023e7788415c0375f18be6c0134ce03
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Campaign Optimization Rules — do not edit
 import type { AmazonAdsApiClient } from "../../../api-client.ts";
 import type { CreateOptimizationRuleResponse, UpdateOptimizationRuleResponse, DeleteCampaignOptimizationRuleResponse, GetCampaignOptimizationRuleResponse, GetOptimizationRuleEligibilityResponse, GetRuleNotificationResponse } from "../types.ts";

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a78a34c7779e83aa663c1d8dee822f107619f4cf540adbb85b46a716b5cd5c6f
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { AdAsyncRequestSetFields } from "./ad-async-request-set.ts";
 

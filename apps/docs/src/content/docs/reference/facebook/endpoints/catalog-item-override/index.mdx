@@ -1,0 +1,50 @@
+---
+title: "Facebook Catalog Item Override endpoints"
+description: "1 generated Facebook endpoint contract for Catalog Item Override."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 208
+  label: "Catalog Item Override"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:ba632b2a9d29d7013d749cfb0da4e545875e77c57322d7a4ba81e98430bfe67a -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.catalogItemOverride.get
+
+`GET` `/{id}`
+
+GET CatalogItemOverride
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `catalogItemOverride.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `CatalogItemOverrideFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3585e3ff47959d57c2962effee6747b11862984261443a6b4d6a3c618a95a765
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for AT Protocol lexicons — do not edit
 
 export interface AppBskyActorDefsAdultContentPref {

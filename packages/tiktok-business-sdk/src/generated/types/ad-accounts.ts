@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f9ecc6992cbd43b208c151edef22268abef128c96c58f7c216686da91a93a6b2
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Ad Accounts — do not edit
 
 export interface Oauth2AdvertiserGetParams {

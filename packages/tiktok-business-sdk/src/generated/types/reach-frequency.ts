@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f65a49e31a8cf4786917ac0bff8affcf83b1097eadbcdf9f9268cb3f32b8d584
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Reach & Frequency — do not edit
 
 export interface RfInventoryEstimateParams {

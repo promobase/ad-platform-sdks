@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e167e1b371b716765a5937f8797cc3be20f29fad29b6fb4ad1c4ccc10d83e087
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for V3 Campaign Migration — do not edit
 import type { AmazonAdsApiClient } from "../../../api-client.ts";
 import type { StartMigrationJobResponse, MigrationJobResultsResponse, MigrationJobStatusResponse, MigrationResultsResponse } from "../types.ts";

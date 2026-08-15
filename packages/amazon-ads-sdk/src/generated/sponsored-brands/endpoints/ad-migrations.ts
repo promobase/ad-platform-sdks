@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:59912f9b2456b7a709fb02b8c1a33c679b24231890eb286fc703f6fc03cb12fa
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Ad Migrations — do not edit
 import type { AmazonAdsApiClient } from "../../../api-client.ts";
 import type { ListMigrationsResponse } from "../types.ts";

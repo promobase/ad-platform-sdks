@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6797c869bb201d942d07441a0bccc9f0c3de69970eb1248d5d05ef7d26d0df7a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type CampaignCriterionSelectableField =
   | "campaign_criterion.resource_name"

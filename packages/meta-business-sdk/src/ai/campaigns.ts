@@ -1,10 +1,10 @@
 import { tool, type Tool } from "ai";
 import * as v from "valibot";
 
-import type { MetaClient } from "./common.ts";
+import type { GraphClient } from "./common.ts";
 
 export function createCampaignTools(opts: {
-  api: MetaClient;
+  api: GraphClient;
   adAccountId: string;
 }): Record<
   | "campaign_list"

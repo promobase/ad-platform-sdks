@@ -1,6 +1,13 @@
 import { afterEach, expect, mock, test } from "bun:test";
 
-import { Meta } from "../../src/namespace.ts";
+import { verifyWebhookChallenge, WebhookParseError } from "../../src/clients/webhooks.ts";
+import {
+  Facebook as GeneratedFacebook,
+  Instagram as GeneratedInstagram,
+  Threads as GeneratedThreads,
+  WhatsApp as GeneratedWhatsApp,
+} from "../../src/generated/index.ts";
+import { Facebook, Instagram, Threads, WhatsApp, createGraphClient } from "../../src/namespace.ts";
 
 const originalFetch = globalThis.fetch;
 
@@ -19,17 +26,17 @@ afterEach(() => {
   globalThis.fetch = originalFetch;
 });
 
-test("Meta.createClient returns typed client", () => {
+test("createGraphClient returns the generated Graph client", () => {
   mockFetchJson({});
-  const api = Meta.createClient({ accessToken: "tok" });
+  const api = createGraphClient({ accessToken: "tok" });
   expect(typeof api.adAccount).toBe("function");
   expect(typeof api.campaign).toBe("function");
   expect(typeof api.batch).toBe("function");
 });
 
-test("Meta.Instagram.createClient returns IG client", () => {
-  const api = Meta.createClient({ accessToken: "tok" });
-  const ig = Meta.Instagram.createClient({ api, igAccountId: "ig_123" });
+test("Instagram.createClient returns the Instagram client", () => {
+  const api = createGraphClient({ accessToken: "tok" });
+  const ig = Instagram.createClient({ api, igAccountId: "ig_123" });
   expect(ig.media).toBeDefined();
   expect(ig.stories).toBeDefined();
   expect(ig.comments).toBeDefined();
@@ -37,9 +44,9 @@ test("Meta.Instagram.createClient returns IG client", () => {
   expect(ig.webhooks).toBeDefined();
 });
 
-test("Meta.Facebook.createClient returns FB client", () => {
-  const api = Meta.createClient({ accessToken: "tok" });
-  const fb = Meta.Facebook.createClient({ api, pageId: "page_123", accessToken: "tok" });
+test("Facebook.createClient returns the Facebook Page client", () => {
+  const api = createGraphClient({ accessToken: "tok" });
+  const fb = Facebook.createClient({ api, pageId: "page_123", accessToken: "tok" });
   expect(fb.feed).toBeDefined();
   expect(fb.stories).toBeDefined();
   expect(fb.comments).toBeDefined();
@@ -47,83 +54,61 @@ test("Meta.Facebook.createClient returns FB client", () => {
   expect(fb.webhooks).toBeDefined();
 });
 
-test("Meta.Threads.createClient returns Threads client", () => {
-  const threads = Meta.Threads.createClient({ accessToken: "tok", threadsUserId: "t_123" });
+test("Threads.createClient returns the Threads client", () => {
+  const threads = Threads.createClient({ accessToken: "tok", threadsUserId: "t_123" });
   expect(threads.posts).toBeDefined();
   expect(threads.replies).toBeDefined();
   expect(threads.account).toBeDefined();
 });
 
-test("Meta.Instagram.OAuth creates OAuth handler", () => {
-  const oauth = Meta.Instagram.OAuth({
-    appId: "app",
-    appSecret: "secret",
-    redirectUri: "https://x.com/cb",
-  });
-  const url = oauth.getAuthorizationUrl();
-  expect(url).toContain("instagram.com/oauth/authorize");
-  expect(url).toContain("app");
+test("direct platform OAuth surfaces create handlers", () => {
+  expect(
+    Instagram.OAuth({
+      appId: "app",
+      appSecret: "secret",
+      redirectUri: "https://x.com/cb",
+    }).getAuthorizationUrl(),
+  ).toContain("instagram.com/oauth/authorize");
+  expect(
+    Facebook.OAuth({
+      appId: "app",
+      appSecret: "secret",
+      redirectUri: "https://x.com/cb",
+    }).getAuthorizationUrl(),
+  ).toContain("facebook.com");
+  expect(
+    Threads.OAuth({
+      appId: "app",
+      appSecret: "secret",
+      redirectUri: "https://x.com/cb",
+    }).getAuthorizationUrl(),
+  ).toContain("threads.net/oauth/authorize");
 });
 
-test("Meta.Facebook.OAuth creates OAuth handler", () => {
-  const oauth = Meta.Facebook.OAuth({
-    appId: "app",
-    appSecret: "secret",
-    redirectUri: "https://x.com/cb",
-  });
-  const url = oauth.getAuthorizationUrl();
-  expect(url).toContain("facebook.com");
-});
-
-test("Meta.Threads.OAuth creates OAuth handler", () => {
-  const oauth = Meta.Threads.OAuth({
-    appId: "app",
-    appSecret: "secret",
-    redirectUri: "https://x.com/cb",
-  });
-  const url = oauth.getAuthorizationUrl();
-  expect(url).toContain("threads.net/oauth/authorize");
-});
-
-test("Meta.Webhooks.verifyChallenge works", () => {
-  const result = Meta.Webhooks.verifyChallenge(
+test("direct platform webhook surfaces expose schemas", () => {
+  const result = verifyWebhookChallenge(
     { "hub.mode": "subscribe", "hub.challenge": "abc", "hub.verify_token": "tok" },
     "tok",
   );
   expect(result.valid).toBe(true);
   expect(result.challenge).toBe("abc");
+  expect(Facebook.Webhooks.schema).toBeDefined();
+  expect(Instagram.Webhooks.schema).toBeDefined();
+  expect(Threads.Webhooks.schema).toBeDefined();
+  expect(typeof Instagram.Webhooks.schema.parse).toBe("function");
+  expect(typeof Instagram.Webhooks.schema.safeParse).toBe("function");
 });
 
-test("Meta.Webhooks.schemas preserve the Valibot-backed compatibility API", () => {
-  expect(Meta.Webhooks.schemas.instagram).toBeDefined();
-  expect(Meta.Webhooks.schemas.facebook).toBeDefined();
-  expect(Meta.Webhooks.schemas.threads).toBeDefined();
-  // They should have parse/safeParse methods
-  expect(typeof Meta.Webhooks.schemas.instagram.parse).toBe("function");
-  expect(typeof Meta.Webhooks.schemas.instagram.safeParse).toBe("function");
-});
-
-test("Meta.Webhooks.ParseError is accessible", () => {
-  const err = new Meta.Webhooks.ParseError("INVALID_SIGNATURE", "bad sig");
+test("WebhookParseError remains available from the webhook module", () => {
+  const err = new WebhookParseError("INVALID_SIGNATURE", "bad sig");
   expect(err).toBeInstanceOf(Error);
   expect(err.code).toBe("INVALID_SIGNATURE");
 });
 
-test("Meta namespace is importable from barrel", async () => {
-  const {
-    Meta: M,
-    Facebook,
-    Instagram,
-    Threads,
-    WhatsApp,
-  } = await import("../../src/generated/index.ts");
-  expect(M.createClient).toBeDefined();
-  expect(M.Instagram.createClient).toBeDefined();
-  expect(M.Facebook.createClient).toBeDefined();
-  expect(M.Threads.createClient).toBeDefined();
-  expect(M.Webhooks.verifyChallenge).toBeDefined();
-  expect(Facebook.createClient).toBeDefined();
-  expect(Instagram.createClient).toBeDefined();
-  expect(Threads.createClient).toBeDefined();
-  expect(WhatsApp.createClient).toBeDefined();
+test("generated barrel exposes direct platforms without a family wrapper", () => {
+  expect(GeneratedFacebook.createClient).toBeDefined();
+  expect(GeneratedFacebook.createGraphClient).toBeDefined();
+  expect(GeneratedInstagram.createClient).toBeDefined();
+  expect(GeneratedThreads.createClient).toBeDefined();
+  expect(GeneratedWhatsApp.createClient).toBeDefined();
 });

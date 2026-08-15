@@ -92,4 +92,24 @@ export type {
   PublishPlatform,
   PublishState,
 } from "./publish.ts";
+export type {
+  OAuthAdapter,
+  OAuthAuthorizeInput,
+  OAuthAuthorization,
+  OAuthExchangeInput,
+  OAuthPhase,
+  OAuthPkce,
+  OAuthPublicMetadata,
+  OAuthRefreshInput,
+  OAuthTokenSet,
+} from "./oauth.ts";
+export {
+  assertOAuthState,
+  createPkcePair,
+  OAuthAdapterError,
+  redactOAuthTokenSet,
+  secondsFromNow,
+} from "./oauth.ts";
+export { AllPlatforms, AllPlatformsSchema, isAllPlatform } from "./platforms.ts";
+export type { AllPlatform } from "./platforms.ts";
 export type { EdgeMethod } from "./types.ts";

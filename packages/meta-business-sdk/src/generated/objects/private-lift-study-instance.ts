@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ff736ccdc59059eebad14bc1076b4bea63eee249d642a83e2fafa7f3aa87ec4d
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface PrivateLiftStudyInstanceFields {

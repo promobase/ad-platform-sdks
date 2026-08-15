@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7c75a3b5202cccef0b5e57639394e98143947399d0f2d70df6d4104bb2560e2c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type ChangeStatusSelectableField =
   | "change_status.resource_name"

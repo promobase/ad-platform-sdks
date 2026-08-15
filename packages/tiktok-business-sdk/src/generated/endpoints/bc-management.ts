@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:26900442d3a3b728a36d89ba0fe1f5baf68524dcf34cb6a1b86bd3373037837a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for BC Management — do not edit
 import type { BcGetParams, BcGetResponse, ChangelogGetParams, ChangelogGetResponse } from "../types/bc-management.ts";
 

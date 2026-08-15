@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:79639cb2b0703aa83ef6687d310b8c9aba7b70e5996951976a995cccc177e948",
+    "doNotEdit": true
+  },
   "source": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonAdsAPI_prod_3p.json",
   "specSha256": "9dd61a7e5aa339ad8bd9c6f479489cb3583807ee326653f9bfde95764206863d",
   "endpoints": 8,

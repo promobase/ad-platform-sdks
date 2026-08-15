@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:8f49839087422541e3c57c9a9c9a30fc5076aae2554dedb9f81b2e8e6a8c14a0
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AccessInvitationStatus } from "../enums/AccessInvitationStatus.ts";
 import type { AccessReason } from "../enums/AccessReason.ts";
 import type { AccessRole } from "../enums/AccessRole.ts";

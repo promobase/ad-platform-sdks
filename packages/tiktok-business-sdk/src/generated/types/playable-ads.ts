@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:063cec72d11049e9c37ed814f18c452cd95fd44d9c49db758dbc6da6dcd98d78
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Playable Ads — do not edit
 
 export interface PlayableUploadParams {

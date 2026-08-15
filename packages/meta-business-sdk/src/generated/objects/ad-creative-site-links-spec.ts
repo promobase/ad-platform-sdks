@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c91c8aa481bb1f7d2dd9c934d7b89a2bb7267aeaf1b484044d9dd8d790f5815c
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AdCreativeSiteLinksSpecFields {
   is_defaulting_eligible: boolean;
   is_site_link_sticky: boolean;

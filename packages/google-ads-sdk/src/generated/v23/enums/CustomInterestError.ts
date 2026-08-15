@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:390c395c5a5b0e62ae1e047010207c325e3b92c6e579911fc85f68710a28fc7a
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.CustomInterestErrorEnum.CustomInterestError. Do not edit by hand.
 export type CustomInterestError =
   | "UNSPECIFIED"

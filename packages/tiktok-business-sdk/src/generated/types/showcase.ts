@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:cddcd50f27b8c99d18808ae48f3b920799f12008dc79f0a4132e1fa1b8f73e6e
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Showcase — do not edit
 
 export interface ShowcaseIdentityGetParams {

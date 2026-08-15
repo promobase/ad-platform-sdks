@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ac6c97d7d28744bf072c0a84f4109984db080ef5ba0f0bf828237071538dc015
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import type { ProductItemLocalInfoLatLongShapeFields } from "./product-item-local-info-lat-long-shape.ts";
 

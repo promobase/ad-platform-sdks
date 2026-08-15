@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d9e07ed540347a78a5badbeeb7dd6e482bf52b7e514d06139eb106e05a9640b1
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
 export interface AccessDeniedException {

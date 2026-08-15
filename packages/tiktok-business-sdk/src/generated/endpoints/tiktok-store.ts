@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d69bb365b8fb79741031d2322327e2dda3fd0ce0a95e91a02f1d170e97ee6c99
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for TikTok Store — do not edit
 import type { StoreListParams, StoreListResponse, StoreProductGetParams, StoreProductGetResponse } from "../types/tiktok-store.ts";
 

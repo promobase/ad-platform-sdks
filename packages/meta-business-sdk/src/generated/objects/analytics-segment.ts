@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ce56c9bd4eab0a60626f92080e840030780090a8eacbe913667f843c09110c35
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface AnalyticsSegmentFields {

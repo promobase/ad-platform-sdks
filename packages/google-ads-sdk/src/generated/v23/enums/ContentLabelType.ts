@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:92c884a386cf08fed761b9129c8d285f1da0baa2ece24002d4383effa6f485f8
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.enums.ContentLabelTypeEnum.ContentLabelType. Do not edit by hand.
 export type ContentLabelType =
   | "UNSPECIFIED"

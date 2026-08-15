@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:f363b424f5b544dc2eeb866f12003501e73d987646177b65cd60d7582c44cdbe
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { BusinessFields } from "./business.ts";
 import type { CRMAddressFields } from "./crm-address.ts";
 import type { CurrencyAmountFields } from "./currency-amount.ts";
@@ -76,7 +79,7 @@ export function extendedCreditNode(client: ApiClient, id: string) {
       __path: `${id}/extended_credit_invoice_groups`,
       __brand: undefined as unknown as ExtendedCreditInvoiceGroupFields,
       list: <F extends (keyof ExtendedCreditInvoiceGroupFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-        new Cursor<Pick<ExtendedCreditInvoiceGroupFields, F[number]>>(client, `${id}/extended_credit_invoice_groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ExtendedCreditInvoiceGroupFields, F[number]>>(client, `${id}/extended_credit_invoice_groups`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ExtendedCreditCreateExtendedCreditInvoiceGroupsParams) =>
         client.post<ExtendedCreditInvoiceGroupFields>(`${id}/extended_credit_invoice_groups`, params as Record<string, unknown>),
     },
@@ -84,7 +87,7 @@ export function extendedCreditNode(client: ApiClient, id: string) {
       __path: `${id}/owning_credit_allocation_configs`,
       __brand: undefined as unknown as ExtendedCreditAllocationConfigFields,
       list: <F extends (keyof ExtendedCreditAllocationConfigFields)[]>(opts: { fields: F; params?: ExtendedCreditListOwningCreditAllocationConfigsParams }) =>
-        new Cursor<Pick<ExtendedCreditAllocationConfigFields, F[number]>>(client, `${id}/owning_credit_allocation_configs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+        new Cursor<Pick<ExtendedCreditAllocationConfigFields, F[number]>>(client, `${id}/owning_credit_allocation_configs`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
       create: (params: ExtendedCreditCreateOwningCreditAllocationConfigsParams) =>
         client.post<ExtendedCreditAllocationConfigFields>(`${id}/owning_credit_allocation_configs`, params as Record<string, unknown>),
     },

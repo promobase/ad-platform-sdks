@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:47b708cee0f5693b33e82849e200f304b8032dacfb54091756e503fca65f87b4
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ProductAvailability, ProductChannelEnum_ProductChannel, ProductChannelExclusivity, ProductConditionEnum_ProductCondition, ProductIssue, ProductStatus } from "../index.ts";
 
 // Generated from google.ads.googleads.v23.resources.ShoppingProduct. Do not edit by hand.

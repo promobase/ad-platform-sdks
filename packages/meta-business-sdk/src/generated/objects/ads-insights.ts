@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:46b8e83ed953549a8ad4a972ec646b4d0324e1b180a4a354a5245ab2068beb14
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdsActionStatsFields } from "./ads-action-stats.ts";
 import type { AdsHistogramStatsFields } from "./ads-histogram-stats.ts";
 

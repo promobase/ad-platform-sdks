@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:50e7926fad8960ec65f0c2d679de208029cc3a845cbf2d77a50771e233ef67ff
+// DO NOT EDIT: generated file; changes will be overwritten.
 import { fromJson } from "../json.js";
 import { getResponseBody } from "./getResponseBody.js";
 

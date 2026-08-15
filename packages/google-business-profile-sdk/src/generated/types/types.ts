@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e1b02e2bf74c2ed673160de7751eb9dec60a3ee2309dab251a854831bd8e2241
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
 /** Request message for AccessControl.AcceptInvitation. */

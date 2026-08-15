@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:239ecc2214b5046114470fd0f66e5d3898e40492953b0b874a186b8144523f40
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
 export interface ABTestPostTestActionsFields {

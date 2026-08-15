@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:06b69f535b531469b72263a27bfb3d52a58a7642077c9975b2e06e2a7b4eb008
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { IDNameFields } from "./id-name.ts";
 
 export interface FlexibleTargetingFields {

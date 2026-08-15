@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:00e38a795b6eb09afc31b35a012dd2c01e50cca62f5a9824b68f32c625bfac1d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for media — do not edit
 
 import type { FileInput } from "../../api-client.ts";

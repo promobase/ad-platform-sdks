@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:9c192585cc6bdb5c3b93b298e9cd0291827449cacc4b7c38936c2fc292bbeca9
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { BusinessFields } from "./business.ts";
 import type { IGUpcomingEventFields } from "./ig-upcoming-event.ts";
 import type { ShopFields } from "./shop.ts";
@@ -27,7 +30,7 @@ export function instagramUserNode(client: ApiClient, id: string) {
     get: <F extends (keyof InstagramUserFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<InstagramUserFields, F[number]>>(`${id}`, opts),
     upcomingEvents: <F extends (keyof IGUpcomingEventFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<IGUpcomingEventFields, F[number]>>(client, `${id}/upcoming_events`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<IGUpcomingEventFields, F[number]>>(client, `${id}/upcoming_events`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

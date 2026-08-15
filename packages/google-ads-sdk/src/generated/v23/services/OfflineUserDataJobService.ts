@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:28a0418d33846c9fd18be6c07f8f93ecd2097691dc78fc030f75cf7414501e96
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AddOfflineUserDataJobOperationsRequest, AddOfflineUserDataJobOperationsResponse, CreateOfflineUserDataJobRequest, CreateOfflineUserDataJobResponse, RunOfflineUserDataJobRequest } from "../index.ts";
 import type { HttpClient } from "@openpromo/sdk-runtime";
 

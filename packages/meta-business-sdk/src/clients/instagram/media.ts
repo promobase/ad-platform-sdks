@@ -194,7 +194,7 @@ export function createMedia(
 
     /**
      * Publish a video to the feed. All feed videos are reels on Instagram.
-     * Polls Meta video processing status automatically.
+     * Polls provider video processing status automatically.
      */
     async publishVideo(opts: PublishVideoOptions): Promise<PublishResult> {
       return runPublish(publishVideoEffect(opts));

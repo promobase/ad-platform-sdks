@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:9d78a73d36f14c9df926b9a85d2298d2ed085e9617c24506d27d1beaf2a68b3c
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AdAssetFeedSpecFields } from "./ad-asset-feed-spec.ts";
 import type { AdCreativeAdDisclaimerFields } from "./ad-creative-ad-disclaimer.ts";
 import type { AdCreativeBrandedContentAdsFields } from "./ad-creative-branded-content-ads.ts";
@@ -157,9 +160,9 @@ export function adCreativeNode(client: ApiClient, id: string) {
     createAdlabel: (params: AdCreativeCreateAdlabelsParams) =>
       client.post<AdCreativeFields>(`${id}/adlabels`, params as Record<string, unknown>),
     creativeInsights: <F extends (keyof AdCreativeInsightsFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<AdCreativeInsightsFields, F[number]>>(client, `${id}/creative_insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdCreativeInsightsFields, F[number]>>(client, `${id}/creative_insights`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     previews: <F extends (keyof AdPreviewFields)[]>(opts: { fields: F; params?: AdCreativeListPreviewsParams }) =>
-      new Cursor<Pick<AdPreviewFields, F[number]>>(client, `${id}/previews`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<AdPreviewFields, F[number]>>(client, `${id}/previews`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

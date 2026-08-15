@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:50a80eb6f81e08d32cfebe2ae0559052fe28151d6c3c69013917438c434af528
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.ReachPlanSurfaceEnum.ReachPlanSurface. Do not edit by hand.
 export type ReachPlanSurface =
   | "UNSPECIFIED"

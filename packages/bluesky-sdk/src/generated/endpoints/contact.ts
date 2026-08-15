@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:835db26ce4a1debeee56f993b772d2b4234f331114d6a42598ce2dc1e7355a1b
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for app.bsky.contact — do not edit
 import type { BlueskyApiClient } from "../../api-client.ts";
 import type { AppBskyActorDefsProfileView, AppBskyContactDefsSyncStatus, AppBskyContactDefsMatchAndContactIndex, DismissMatchResponse, GetMatchesResponse, GetSyncStatusResponse, ImportContactsResponse, RemoveDataResponse, SendNotificationResponse, StartPhoneVerificationResponse, VerifyPhoneResponse } from "../types.ts";

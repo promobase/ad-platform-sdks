@@ -2,10 +2,10 @@ import { tool, type Tool } from "ai";
 import * as v from "valibot";
 
 import { createFacebookPageClient } from "../clients/facebook/index.ts";
-import type { MetaClient } from "./common.ts";
+import type { GraphClient } from "./common.ts";
 
 export function createFacebookTools(opts: {
-  api: MetaClient;
+  api: GraphClient;
   pageId: string;
   accessToken: string;
 }): Record<

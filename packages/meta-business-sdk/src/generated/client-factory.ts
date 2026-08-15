@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:75cdde024e32b030bfbfe5b0f2fa65ac1789093f4e41055acab743a7f2dc62db
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client factory — do not edit
 
 import { ApiClient } from "@openpromo/sdk-runtime";
@@ -310,7 +313,7 @@ import { workSkillNode } from "./objects/work-skill.ts";
 import { aREffectNode } from "./objects/ar-effect.ts";
 import { productCatalogDataSourcesNode } from "./objects/product-catalog-data-sources.ts";
 
-export interface MetaClientOptions extends Omit<BaseOptions, 'baseUrl' | 'onError'> {
+export interface GraphClientOptions extends Omit<BaseOptions, 'baseUrl' | 'onError'> {
   baseUrl?: string;
   apiVersion?: string;
   rateLimiter?: import('@openpromo/sdk-runtime').RateLimiter;
@@ -318,7 +321,7 @@ export interface MetaClientOptions extends Omit<BaseOptions, 'baseUrl' | 'onErro
   retry?: Partial<import('@openpromo/sdk-runtime').RetryConfig>;
 }
 
-export function createTypedClient(opts: MetaClientOptions) {
+export function createGraphClient(opts: GraphClientOptions) {
   const client = new ApiClient({
     ...opts,
     baseUrl: opts.baseUrl ?? "https://graph.facebook.com",

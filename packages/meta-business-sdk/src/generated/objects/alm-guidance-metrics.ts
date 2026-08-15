@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:623b9c68733191fd8664c1aae713ee904e2ff7c380da8dc93ba1a9528daff487
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface ALMGuidanceMetricsFields {
   ad_account_id: string;
   adopted_objects: Record<string, unknown>[];

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:00cd6c04699ecafe57743c6b34068288243083e9163b2d344be4c39a99c609dd
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { CatalogBasedTargetingFields } from "./catalog-based-targeting.ts";
 import type { ConnectionsTargetingFields } from "./connections-targeting.ts";
 import type { CustomAudienceFields } from "./custom-audience.ts";

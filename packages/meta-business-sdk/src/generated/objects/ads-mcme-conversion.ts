@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:75da239c2d4cdb5ceefc00f0230a16a32112f036cb32a75ab06737e91962e4b5
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface AdsMcmeConversionFields {

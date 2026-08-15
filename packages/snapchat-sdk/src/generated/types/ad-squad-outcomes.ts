@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ec3d19259b7510146b35d449ccf1f4a7b0f028b237249edb5edfbcc1eabf1fcf
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for ad-squad-outcomes — do not edit
 
 export interface AdSquadOutcomeEstimateV2 {

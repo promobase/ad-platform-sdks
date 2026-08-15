@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a60aeef0993a98081facb01674849dbd5719022c3d7c64533a4165430c7dfb94
+// DO NOT EDIT: generated file; changes will be overwritten.
 export type { AccessInvitationErrorEnum } from "./AccessInvitationErrorEnum.ts";
 export type { AccessInvitationStatusEnum } from "./AccessInvitationStatusEnum.ts";
 export type { AccessReasonEnum } from "./AccessReasonEnum.ts";

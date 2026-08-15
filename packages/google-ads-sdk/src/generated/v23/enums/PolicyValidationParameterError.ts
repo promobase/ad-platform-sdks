@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:bb53d277408a5d9f5a381d9cea4b78cd0e894a52688c9142b8a97f3a3c72b33c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.PolicyValidationParameterErrorEnum.PolicyValidationParameterError. Do not edit by hand.
 export type PolicyValidationParameterError =
   | "UNSPECIFIED"

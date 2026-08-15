@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:36bd7545295d06895303427086afba3b6b36284c01f28ae7c6de52431fa2797c
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface ExternalMerchantSettingsFields {

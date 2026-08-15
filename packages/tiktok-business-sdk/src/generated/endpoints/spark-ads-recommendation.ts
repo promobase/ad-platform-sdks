@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2e915c01cfecc8fbef10c9e7ff4ff17fdb8591ce52f531251919b2a2fc6e2792
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Spark Ads Recommendation — do not edit
 import type { BusinessVideoRecommendParams, BusinessVideoRecommendResponse, SparkAdRecommendParams, SparkAdRecommendResponse } from "../types/spark-ads-recommendation.ts";
 

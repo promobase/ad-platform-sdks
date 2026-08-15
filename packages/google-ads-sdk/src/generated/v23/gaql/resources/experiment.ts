@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:49edffe69db49b58fe8630bab206bc794c365edfc8ca3f8b4bed1d03f33a6ec2
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type ExperimentSelectableField =
   | "experiment.resource_name"

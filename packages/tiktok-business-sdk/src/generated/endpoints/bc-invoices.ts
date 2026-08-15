@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:6d7699ad45f7a3654f80b62a6d78eb127ae3fea95bafd9fd006aa7a663d690b5
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for BC Invoices — do not edit
 import type { BcInvoiceGetParams, BcInvoiceGetResponse, BcInvoiceUnpaidGetParams, BcInvoiceUnpaidGetResponse, BcInvoiceDownloadParams, BcInvoiceDownloadResponse, BcInvoiceTaskCreateParams, BcInvoiceTaskCreateResponse, BcInvoiceTaskGetParams, BcInvoiceTaskGetResponse, BcInvoiceTaskListParams, BcInvoiceTaskListResponse } from "../types/bc-invoices.ts";
 

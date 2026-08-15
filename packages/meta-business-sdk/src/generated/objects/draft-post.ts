@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:580c14690bec8693289895a01c00e1800c8b94aca187dae791a81b863df1ad84
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { PlaceFields } from "./place.ts";
 import type { TargetingFields } from "./targeting.ts";
 import type { UserFields } from "./user.ts";

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:f9590a474962a93feda0ce77566f136927386424fb584d58cdd328346955d86c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Reporting — do not edit
 import type { ReportIntegratedGetParams, ReportIntegratedGetResponse, ReportTaskCreateParams, ReportTaskCreateResponse, ReportTaskCheckParams, ReportTaskCheckResponse, ReportTaskDownloadParams, ReportTaskDownloadResponse, ReportTaskCancelParams, ReportTaskCancelResponse } from "../types/reporting.ts";
 

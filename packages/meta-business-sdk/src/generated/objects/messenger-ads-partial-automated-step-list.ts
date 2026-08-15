@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:f7d7c09101c47b1daa95c68209ea5537665972b668a3fe0a667fdacbcd623c17
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { LeadgenFormFields } from "./leadgen-form.ts";
 import type { PageFields } from "./page.ts";
 
@@ -21,7 +24,7 @@ export function messengerAdsPartialAutomatedStepListNode(client: ApiClient, id: 
     get: <F extends (keyof MessengerAdsPartialAutomatedStepListFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
       client.get<Pick<MessengerAdsPartialAutomatedStepListFields, F[number]>>(`${id}`, opts),
     steps: <F extends (keyof Record<string, unknown>)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/steps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<Record<string, unknown>, F[number]>>(client, `${id}/steps`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

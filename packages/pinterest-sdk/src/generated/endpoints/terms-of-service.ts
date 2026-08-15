@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:5cb02704964fe58568b8f34ed7cb394c679c69bc7219c783a432ac5a4e6fc3a9
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for terms_of_service — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { TermsOfServiceGetResponse } from "../types.ts";

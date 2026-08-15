@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7d74c363f7356a7d6761279fa57b94b7b323998c836a3d72cd3688ccb8eb7950
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for conversion_deletion_requests — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { ConversionDeletionRequestListResponse, ConversionDeletionRequestCreateResponse, ConversionDeletionRequestGetResponse, ConversionDeletionRequestDeleteResponse } from "../types.ts";

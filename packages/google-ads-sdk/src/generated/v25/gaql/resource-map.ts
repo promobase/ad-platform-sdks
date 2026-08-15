@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:4f566316023f0957fca865036311a493d65b3d4e17a47d2d6a40661b66a6d45a
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AccessibleBiddingStrategySelectableField } from "./resources/accessible_bidding_strategy.ts";
 import type { AccountBudgetSelectableField } from "./resources/account_budget.ts";
 import type { AccountBudgetProposalSelectableField } from "./resources/account_budget_proposal.ts";

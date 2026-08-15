@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ddf1e59aa3aa08e6b2bb9570454af2bcd0321ff57c0b21dcd7eae576e99dd4e0
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for app.bsky.ageassurance — do not edit
 import type { BlueskyApiClient } from "../../api-client.ts";
 import type { AppBskyAgeassuranceDefsState, AppBskyAgeassuranceDefsConfig, AppBskyAgeassuranceDefsStateMetadata, BeginResponse, GetConfigResponse, GetStateResponse } from "../types.ts";

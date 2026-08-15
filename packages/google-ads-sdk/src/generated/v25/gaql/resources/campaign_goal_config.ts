@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3baefa3d0f4328c4bb8181d950af25c294367546fccf14b907b67e5851885735
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type CampaignGoalConfigSelectableField =
   | "campaign_goal_config.resource_name"

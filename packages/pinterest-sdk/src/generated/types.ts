@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:34ede924f6f03181aa4a41c50303cf6c2d37b809c00b3637132d06868b536728
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for the Pinterest REST API v5 — do not edit
 
 export interface Account {

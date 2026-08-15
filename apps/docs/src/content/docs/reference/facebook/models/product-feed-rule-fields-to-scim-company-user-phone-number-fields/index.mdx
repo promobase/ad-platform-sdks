@@ -1,0 +1,1251 @@
+---
+title: "Facebook models: Product Feed Rule Fields – Scim Company User Phone Number Fields"
+description: "100 generated Facebook model contracts, from ProductFeedRuleFields through ScimCompanyUserPhoneNumberFields."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 1012
+  label: "Product Feed Rule Fields – Scim Company User Phone Number Fields"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:0e931015e2ff73a205a7cf4c917c6bd17bd7d4baa85727d619d39a503fa9a3aa -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## ProductFeedRuleFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute` | `attribute` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `params` | `params` | `Array<Record<string, string>>` | No | No | — |
+| `rule_type` | `rule_type` | `string` | No | No | — |
+
+## ProductFeedRuleGetFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute` | `attribute` | `string` | No | No | — |
+| `id` | `id` | `integer` | No | No | — |
+| `params` | `params` | `Array<unknown>` | No | No | — |
+| `rule_type` | `rule_type` | `ProductFeedRuleGetRuleType` | No | No | — |
+
+## ProductFeedRuleGetRuleType
+
+`enum` model on the `json` wire format.
+
+**Values:** `FALLBACK_RULE`, `LETTER_CASE_RULE`, `MAPPING_RULE`, `REGEX_REPLACE_RULE`, `VALUE_MAPPING_RULE`
+
+## ProductFeedRulePreviewSampleFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `properties_after` | `properties_after` | `Array<Record<string, string>>` | No | No | — |
+| `properties_before` | `properties_before` | `Array<Record<string, string>>` | No | No | — |
+
+## ProductFeedRuleRuleType
+
+`enum` model on the `json` wire format.
+
+**Values:** `fallback_rule`, `letter_case_rule`, `mapping_rule`, `regex_replace_rule`, `value_mapping_rule`
+
+## ProductFeedRulesFields
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## ProductFeedRulesGetFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data` | `data` | `Array<unknown>` | No | No | — |
+| `paging` | `paging` | `unknown` | No | No | — |
+| `summary` | `summary` | `unknown` | No | No | — |
+
+## ProductFeedRuleSuggestionFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `attribute` | `attribute` | `string` | No | No | — |
+| `params` | `params` | `Array<Record<string, string>>` | No | No | — |
+| `type` | `type` | `string` | No | No | — |
+
+## ProductFeedScheduleFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `day_of_month` | `day_of_month` | `integer` | No | No | — |
+| `day_of_week` | `day_of_week` | `string` | No | No | — |
+| `hour` | `hour` | `integer` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `interval` | `interval` | `ProductFeedScheduleInterval` | No | No | — |
+| `interval_count` | `interval_count` | `integer` | No | No | — |
+| `minute` | `minute` | `integer` | No | No | — |
+| `timezone` | `timezone` | `string` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+| `username` | `username` | `string` | No | No | — |
+
+## ProductFeedScheduleInterval
+
+`enum` model on the `json` wire format.
+
+**Values:** `DAILY`, `HOURLY`, `MONTHLY`, `WEEKLY`
+
+## ProductFeedUploadErrorAffectedSurfaces
+
+`enum` model on the `json` wire format.
+
+**Values:** `Dynamic Ads`, `Marketplace`, `US Marketplace`
+
+## ProductFeedUploadErrorErrorPriority
+
+`enum` model on the `json` wire format.
+
+**Values:** `HIGH`, `LOW`, `MEDIUM`
+
+## ProductFeedUploadErrorFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `affected_surfaces` | `affected_surfaces` | `Array<ProductFeedUploadErrorAffectedSurfaces>` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `error_type` | `error_type` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `severity` | `severity` | `ProductFeedUploadErrorSeverity` | No | No | — |
+| `summary` | `summary` | `string` | No | No | — |
+| `total_count` | `total_count` | `integer` | No | No | — |
+
+## ProductFeedUploadErrorReportFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `file_handle` | `file_handle` | `string` | No | No | — |
+| `report_status` | `report_status` | `string` | No | No | — |
+
+## ProductFeedUploadErrorSampleFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `retailer_id` | `retailer_id` | `string` | No | No | — |
+| `row_number` | `row_number` | `integer` | No | No | — |
+
+## ProductFeedUploadErrorSeverity
+
+`enum` model on the `json` wire format.
+
+**Values:** `fatal`, `warning`
+
+## ProductFeedUploadFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `end_time` | `end_time` | `string<date-time>` | No | No | — |
+| `error_count` | `error_count` | `integer` | No | No | — |
+| `error_report` | `error_report` | `ProductFeedUploadErrorReportFields` | No | No | — |
+| `filename` | `filename` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `input_method` | `input_method` | `ProductFeedUploadInputMethod` | No | No | — |
+| `num_deleted_items` | `num_deleted_items` | `integer` | No | No | — |
+| `num_detected_items` | `num_detected_items` | `integer` | No | No | — |
+| `num_invalid_items` | `num_invalid_items` | `integer` | No | No | — |
+| `num_persisted_items` | `num_persisted_items` | `integer` | No | No | — |
+| `start_time` | `start_time` | `string<date-time>` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+| `warning_count` | `warning_count` | `integer` | No | No | — |
+
+## ProductFeedUploadGetFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `end_time` | `end_time` | `unknown` | No | No | — |
+| `error_count` | `error_count` | `integer` | No | No | — |
+| `error_report` | `error_report` | `unknown` | No | No | — |
+| `errors` | `errors` | `unknown` | No | No | — |
+| `filename` | `filename` | `string` | No | No | — |
+| `id` | `id` | `integer` | No | No | — |
+| `input_method` | `input_method` | `ProductFeedUploadGetInputMethod` | No | No | — |
+| `num_deleted_items` | `num_deleted_items` | `integer` | No | No | — |
+| `num_detected_items` | `num_detected_items` | `integer` | No | No | — |
+| `num_invalid_items` | `num_invalid_items` | `integer` | No | No | — |
+| `num_persisted_items` | `num_persisted_items` | `integer` | No | No | — |
+| `progresses` | `progresses` | `unknown` | No | No | — |
+| `start_time` | `start_time` | `unknown` | No | No | — |
+| `upload_complete` | `upload_complete` | `boolean` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+| `warning_count` | `warning_count` | `integer` | No | No | — |
+
+## ProductFeedUploadGetInputMethod
+
+`enum` model on the `json` wire format.
+
+**Values:** `GOOGLE_SHEETS_FETCH`, `MANUAL_UPLOAD`, `REUPLOAD_EXISTING`, `REUPLOAD_LAST_FILE`, `SERVER_FETCH`, `USER_INITIATED_SERVER_FETCH`
+
+## ProductFeedUploadInputMethod
+
+`enum` model on the `json` wire format.
+
+**Values:** `Google Sheets Fetch`, `Manual Upload`, `Reupload Last File`, `Server Fetch`, `User initiated server fetch`
+
+## ProductFeedUploadProgressFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `pos` | `pos` | `integer` | No | No | — |
+| `size` | `size` | `integer` | No | No | — |
+| `step` | `step` | `string` | No | No | — |
+| `unit` | `unit` | `string` | No | No | — |
+| `updated_time` | `updated_time` | `string<date-time>` | No | No | — |
+
+## ProductFeedUseCase
+
+`enum` model on the `json` wire format.
+
+**Values:** `CREATOR_ASSET`
+
+## ProductGroupFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `product_catalog` | `product_catalog` | `ProductCatalogFields` | No | No | — |
+| `retailer_id` | `retailer_id` | `string` | No | No | — |
+| `variants` | `variants` | `Array<ProductVariantFields>` | No | No | — |
+
+## ProductGroupGetFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `integer` | No | No | — |
+| `mini_shops_product_sets_count` | `mini_shops_product_sets_count` | `integer` | No | No | — |
+| `product_catalog` | `product_catalog` | `unknown` | No | No | — |
+| `products` | `products` | `unknown` | No | No | — |
+| `representative_item_id` | `representative_item_id` | `string` | No | No | — |
+| `retailer_id` | `retailer_id` | `string` | No | No | — |
+| `variants` | `variants` | `Array<unknown>` | No | No | — |
+
+## ProductImageFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `height` | `height` | `integer` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `image_url` | `image_url` | `string` | No | No | — |
+| `width` | `width` | `integer` | No | No | — |
+
+## ProductItemAgeGroup
+
+`enum` model on the `json` wire format.
+
+**Values:** `adult`, `all ages`, `infant`, `kids`, `newborn`, `teen`, `toddler`
+
+## ProductItemAvailability
+
+`enum` model on the `json` wire format.
+
+**Values:** `available for order`, `discontinued`, `in stock`, `mark_as_expired`, `mark_as_sold`, `out of stock`, `pending`, `preorder`
+
+## ProductItemCapabilityToReviewStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `APPROVED`, `NO_REVIEW`, `OUTDATED`, `PENDING`, `REJECTED`
+
+## ProductItemCommerceInsightsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `message_sends` | `message_sends` | `integer` | No | No | — |
+| `organic_impressions` | `organic_impressions` | `integer` | No | No | — |
+| `paid_impressions` | `paid_impressions` | `integer` | No | No | — |
+
+## ProductItemCommerceTaxCategory
+
+`enum` model on the `json` wire format.
+
+**Values:** `FB_ANIMAL`, `FB_ANIMAL_SUPP`, `FB_APRL`, `FB_APRL_ACCESSORIES`, `FB_APRL_ATHL_UNIF`, `FB_APRL_CASES`, `FB_APRL_CLOTHING`, `FB_APRL_COSTUME`, `FB_APRL_CSTM`, `FB_APRL_FORMAL`, `FB_APRL_HANDBAG`, `FB_APRL_JEWELRY`, `FB_APRL_SHOE`, `FB_APRL_SHOE_ACC`, `FB_APRL_SWIM`, `FB_APRL_SWIM_CHIL`, `FB_APRL_SWIM_CVR`, `FB_ARTS`, `FB_ARTS_HOBBY`, `FB_ARTS_PARTY`, `FB_ARTS_PARTY_GIFT_CARD`, `FB_ARTS_TICKET`, `FB_BABY`, `FB_BABY_BATH`, `FB_BABY_BLANKET`, `FB_BABY_DIAPER`, `FB_BABY_GIFT_SET`, `FB_BABY_HEALTH`, `FB_BABY_NURSING`, `FB_BABY_POTTY_TRN`, `FB_BABY_SAFE`, `FB_BABY_TOYS`, `FB_BABY_TRANSPORT`, `FB_BABY_TRANSPORT_ACC`, `FB_BAGS`, `FB_BAGS_BKPK`, `FB_BAGS_BOXES`, `FB_BAGS_BRFCS`, `FB_BAGS_CSMT_BAG`, `FB_BAGS_DFFL`, `FB_BAGS_DIPR`, `FB_BAGS_FNNY`, `FB_BAGS_GRMT`, `FB_BAGS_LUGG`, `FB_BAGS_LUG_ACC`, `FB_BAGS_MSGR`, `FB_BAGS_TOTE`, `FB_BAGS_TRN_CAS`, `FB_BLDG`, `FB_BLDG_ACC`, `FB_BLDG_CNSMB`, `FB_BLDG_FENCE`, `FB_BLDG_FUEL_TNK`, `FB_BLDG_HT_VNT`, `FB_BLDG_LOCK`, `FB_BLDG_MATRL`, `FB_BLDG_PLMB`, `FB_BLDG_PUMP`, `FB_BLDG_PWRS`, `FB_BLDG_STR_TANK`, `FB_BLDG_S_ENG`, `FB_BLDG_TL_ACC`, `FB_BLDG_TOOL`, `FB_BUSIND`, `FB_BUSIND_ADVERTISING`, `FB_BUSIND_AGRICULTURE`, `FB_BUSIND_AUTOMATION`, `FB_BUSIND_HEAVY_MACH`, `FB_BUSIND_LAB`, `FB_BUSIND_MEDICAL`, `FB_BUSIND_RETAIL`, `FB_BUSIND_SANITARY_CT`, `FB_BUSIND_SIGN`, `FB_BUSIND_STORAGE`, `FB_BUSIND_STORAGE_ACC`, `FB_BUSIND_WORK_GEAR`, `FB_CAMERA_ACC`, `FB_CAMERA_CAMERA`, `FB_CAMERA_OPTIC`, `FB_CAMERA_OPTICS`, `FB_CAMERA_PHOTO`, `FB_ELEC`, `FB_ELEC_ACC`, `FB_ELEC_ARCDADE`, `FB_ELEC_AUDIO`, `FB_ELEC_CIRCUIT`, `FB_ELEC_COMM`, `FB_ELEC_COMPUTER`, `FB_ELEC_GPS_ACC`, `FB_ELEC_GPS_NAV`, `FB_ELEC_GPS_TRK`, `FB_ELEC_MARINE`, `FB_ELEC_NETWORK`, `FB_ELEC_PART`, `FB_ELEC_PRINT`, `FB_ELEC_RADAR`, `FB_ELEC_SFTWR`, `FB_ELEC_SPEED_RDR`, `FB_ELEC_TELEVISION`, `FB_ELEC_TOLL`, `FB_ELEC_VIDEO`, `FB_ELEC_VID_GM_ACC`, `FB_ELEC_VID_GM_CNSL`, `FB_FOOD`, `FB_FURN`, `FB_FURN_BABY`, `FB_FURN_BENCH`, `FB_FURN_CART`, `FB_FURN_CHAIR`, `FB_FURN_CHAIR_ACC`, `FB_FURN_DIVIDE`, `FB_FURN_DIVIDE_ACC`, `FB_FURN_ENT_CTR`, `FB_FURN_FUTN`, `FB_FURN_FUTN_PAD`, `FB_FURN_OFFICE`, `FB_FURN_OFFICE_ACC`, `FB_FURN_OTTO`, `FB_FURN_OUTDOOR`, `FB_FURN_OUTDOOR_ACC`, `FB_FURN_SETS`, `FB_FURN_SHELVE_ACC`, `FB_FURN_SHLF`, `FB_FURN_SOFA`, `FB_FURN_SOFA_ACC`, `FB_FURN_STORAGE`, `FB_FURN_TABL`, `FB_FURN_TABL_ACC`, `FB_GENERIC_TAXABLE`, `FB_HLTH`, `FB_HLTH_HLTH`, `FB_HLTH_JWL_CR`, `FB_HLTH_LILP_BLM`, `FB_HLTH_LTN_SPF`, `FB_HLTH_PRSL_CR`, `FB_HLTH_SKN_CR`, `FB_HMGN`, `FB_HMGN_BATH`, `FB_HMGN_DCOR`, `FB_HMGN_EMGY`, `FB_HMGN_FPLC`, `FB_HMGN_FPLC_ACC`, `FB_HMGN_GS_SFT`, `FB_HMGN_HS_ACC`, `FB_HMGN_HS_APP`, `FB_HMGN_HS_SPL`, `FB_HMGN_KTCN`, `FB_HMGN_LAWN`, `FB_HMGN_LGHT`, `FB_HMGN_LINN`, `FB_HMGN_LT_ACC`, `FB_HMGN_OTDR`, `FB_HMGN_POOL`, `FB_HMGN_SCTY`, `FB_HMGN_SMK_ACC`, `FB_HMGN_UMBR`, `FB_HMGN_UMBR_ACC`, `FB_MDIA`, `FB_MDIA_BOOK`, `FB_MDIA_DVDS`, `FB_MDIA_MAG`, `FB_MDIA_MANL`, `FB_MDIA_MUSC`, `FB_MDIA_PRJ_PLN`, `FB_MDIA_SHT_MUS`, `FB_OFFC`, `FB_OFFC_BKAC`, `FB_OFFC_CRTS`, `FB_OFFC_DSKP`, `FB_OFFC_EQIP`, `FB_OFFC_FLNG`, `FB_OFFC_GNRL`, `FB_OFFC_INSTM`, `FB_OFFC_LP_DSK`, `FB_OFFC_MATS`, `FB_OFFC_NM_PLT`, `FB_OFFC_PPR_HNDL`, `FB_OFFC_PRSNT_SPL`, `FB_OFFC_SEALR`, `FB_OFFC_SHIP_SPL`, `FB_RLGN`, `FB_RLGN_CMNY`, `FB_RLGN_ITEM`, `FB_RLGN_WEDD`, `FB_SFTWR`, `FB_SFWR_CMPTR`, `FB_SFWR_DGTL_GD`, `FB_SFWR_GAME`, `FB_SHIPPING`, `FB_SPOR`, `FB_SPORT_ATHL`, `FB_SPORT_ATHL_CLTH`, `FB_SPORT_ATHL_SHOE`, `FB_SPORT_ATHL_SPRT`, `FB_SPORT_EXRCS`, `FB_SPORT_INDR_GM`, `FB_SPORT_OTDR_GM`, `FB_TOYS`, `FB_TOYS_EQIP`, `FB_TOYS_GAME`, `FB_TOYS_PZZL`, `FB_TOYS_TMRS`, `FB_TOYS_TOYS`, `FB_VEHI`, `FB_VEHI_PART`
+
+## ProductItemCondition
+
+`enum` model on the `json` wire format.
+
+**Values:** `cpo`, `new`, `open_box_new`, `refurbished`, `used`, `used_fair`, `used_good`, `used_like_new`
+
+## ProductItemErrorFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `description` | `description` | `string` | No | No | — |
+| `error_priority` | `error_priority` | `string` | No | No | — |
+| `error_type` | `error_type` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+
+## ProductItemErrorPriority
+
+`enum` model on the `json` wire format.
+
+**Values:** `HIGH`, `LOW`, `MEDIUM`
+
+## ProductItemErrorType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADDRESS_BLOCKLISTED_IN_MARKET`, `AGGREGATED_LOCALIZATION_ISSUES`, `APP_HAS_NO_AEM_SETUP`, `AR_DELETED_DUE_TO_UPDATE`, `AR_POLICY_VIOLATED`, `AVAILABLE`, `BAD_QUALITY_IMAGE`, `BIG_CATALOG_WITH_ALL_ITEMS_IN_STOCK`, `BIZ_MSG_AI_AGENT_DISABLED_BY_USER`, `BIZ_MSG_GEN_AI_POLICY_VIOLATED`, `CANNOT_EDIT_SUBSCRIPTION_PRODUCTS`, `CATALOG_NOT_CONNECTED_TO_EVENT_SOURCE`, `CHECKOUT_DISABLED_BY_USER`, `COMMERCE_ACCOUNT_LEGAL_ADDRESS_INVALID`, `COMMERCE_ACCOUNT_NOT_LEGALLY_COMPLIANT`, `CRAWLED_AVAILABILITY_MISMATCH`, `DA_DISABLED_BY_USER`, `DA_POLICY_VIOLATION`, `DELETED_ITEM`, `DIGITAL_GOODS_NOT_AVAILABLE_FOR_CHECKOUT`, `DUPLICATE_IMAGES`, `DUPLICATE_TITLE_AND_DESCRIPTION`, `EMPTY_AVAILABILITY`, `EMPTY_BRAND`, `EMPTY_CONDITION`, `EMPTY_DESCRIPTION`, `EMPTY_IMAGE_URL`, `EMPTY_PRICE`, `EMPTY_PRODUCT_URL`, `EMPTY_SELLER_DESCRIPTION`, `EMPTY_TITLE`, `EXTERNAL_MERCHANT_ID_MISMATCH`, `GENERIC_INVALID_FIELD`, `GROUPS_DISABLED_BY_USER`, `HIDDEN_UNTIL_PRODUCT_LAUNCH`, `ILLEGAL_PRODUCT_CATEGORY`, `IMAGE_FETCH_FAILED`, `IMAGE_FETCH_FAILED_BAD_GATEWAY`, `IMAGE_FETCH_FAILED_FILE_SIZE_EXCEEDED`, `IMAGE_FETCH_FAILED_FORBIDDEN`, `IMAGE_FETCH_FAILED_LINK_BROKEN`, `IMAGE_FETCH_FAILED_TIMED_OUT`, `IMAGE_RESOLUTION_LOW`, `INACTIVE_MAGENTO_PRODUCT`, `INACTIVE_SALESFORCE_COMMERCE_CLOUD_PRODUCT`, `INACTIVE_SHOPIFY_PRODUCT`, `INACTIVE_WOOCOMMERCE_PRODUCT`, `INVALID_COMMERCE_TAX_CATEGORY`, `INVALID_COMSCORE_MARKET_CODES`, `INVALID_CONSOLIDATED_LOCALITY_INFORMATION`, `INVALID_CONTENT_ID`, `INVALID_DEALER_COMMUNICATION_PARAMETERS`, `INVALID_DMA_CODES`, `INVALID_FB_PAGE_ID`, `INVALID_IMAGES`, `INVALID_MONETIZER_RETURN_POLICY`, `INVALID_OFFER_DISCLAIMER_URL`, `INVALID_OFFER_END_DATE`, `INVALID_PRE_ORDER_PARAMS`, `INVALID_RANGE_FOR_AREA_SIZE`, `INVALID_RANGE_FOR_BUILT_UP_AREA_SIZE`, `INVALID_RANGE_FOR_NUM_OF_BATHS`, `INVALID_RANGE_FOR_NUM_OF_BEDS`, `INVALID_RANGE_FOR_NUM_OF_ROOMS`, `INVALID_RANGE_FOR_PARKING_SPACES`, `INVALID_SALE_PRICE`, `INVALID_SHELTER_PAGE_ID`, `INVALID_SHIPPING_PROFILE_PARAMS`, `INVALID_SUBSCRIPTION_DISABLE_PARAMS`, `INVALID_SUBSCRIPTION_ENABLE_PARAMS`, `INVALID_SUBSCRIPTION_PARAMS`, `INVALID_TAX_EXTENSION_STATE`, `INVALID_VEHICLE_STATE`, `INVALID_VIRTUAL_TOUR_URL_DOMAIN`, `INVENTORY_ZERO_AVAILABILITY_IN_STOCK`, `IN_ANOTHER_PRODUCT_LAUNCH`, `ITEM_GROUP_NOT_SPECIFIED`, `ITEM_NOT_SHIPPABLE_FOR_SCA_SHOP`, `ITEM_OVERRIDE_EMPTY_AVAILABILITY`, `ITEM_OVERRIDE_EMPTY_PRICE`, `ITEM_OVERRIDE_NOT_VISIBLE`, `ITEM_PRICE_NOT_POSITIVE`, `ITEM_STALE_OUT_OF_STOCK`, `ITEM_WITHOUT_VIDEO`, `MARKETPLACE_DISABLED_BY_USER`, `MARKETPLACE_NOT_SHIPPED_ITEM`, `MARKETPLACE_PARTNER_AUCTION_NO_BID_CLOSE_TIME`, `MARKETPLACE_PARTNER_CURRENCY_NOT_VALID`, `MARKETPLACE_PARTNER_DISTRIBUTION_DISABLED`, `MARKETPLACE_PARTNER_LISTING_COUNTRY_NOT_MATCH_CATALOG`, `MARKETPLACE_PARTNER_LISTING_LIMIT_EXCEEDED`, `MARKETPLACE_PARTNER_MISSING_LATLONG`, `MARKETPLACE_PARTNER_MISSING_SHIPPING_COST`, `MARKETPLACE_PARTNER_NOT_LOCAL_ITEM`, `MARKETPLACE_PARTNER_NOT_SHIPPED_ITEM`, `MARKETPLACE_PARTNER_POLICY_VIOLATION`, `MARKETPLACE_PARTNER_RULE_LISTING_LIMIT_EXCEEDED`, `MARKETPLACE_PARTNER_SELLER_BANNED`, `MARKETPLACE_PARTNER_SELLER_NOT_VALID`, `MARKETPLACE_SHIPPED_ITEM_EXPIRED`, `MARKETPLACE_SHIPPED_ITEM_NOT_AVAILABLE`, `MARKETPLACE_SHIPPED_SELLER_FEATURE_BANNED`, `MARKETPLACE_SHIPPED_SELLER_NOT_FULLY_ONBOARDED`, `MINI_SHOPS_DISABLED_BY_USER`, `MISSING_CHECKOUT`, `MISSING_CHECKOUT_CURRENCY`, `MISSING_COLOR`, `MISSING_COUNTRY_OVERRIDE_IN_SHIPPING_PROFILE`, `MISSING_EVENT`, `MISSING_INDIA_COMPLIANCE_FIELDS`, `MISSING_SHIPPING_PROFILE`, `MISSING_SIZE`, `MISSING_TAX_CATEGORY`, `NEGATIVE_COMMUNITY_FEEDBACK`, `NEGATIVE_PRICE`, `NOT_ENOUGH_IMAGES`, `NOT_ENOUGH_UNIQUE_PRODUCTS`, `NO_CONTENT_ID`, `OVERLAY_DISCLAIMER_EXCEEDED_MAX_LENGTH`, `PART_OF_PRODUCT_LAUNCH`, `PASSING_MULTIPLE_CONTENT_IDS`, `PRODUCT_DOMINANT_CURRENCY_MISMATCH`, `PRODUCT_EXPIRED`, `PRODUCT_ITEM_HIDDEN_FROM_ALL_SHOPS`, `PRODUCT_ITEM_INVALID_PARTNER_TOKENS`, `PRODUCT_ITEM_NOT_INCLUDED_IN_ANY_SHOP`, `PRODUCT_ITEM_NOT_VISIBLE`, `PRODUCT_NOT_APPROVED`, `PRODUCT_NOT_DOMINANT_CURRENCY`, `PRODUCT_OUT_OF_STOCK`, `PRODUCT_URL_EQUALS_DOMAIN`, `PROPERTY_PRICE_CURRENCY_NOT_SUPPORTED`, `PROPERTY_PRICE_TOO_HIGH`, `PROPERTY_PRICE_TOO_LOW`, `PROPERTY_UNIT_PRICE_CURRENCY_MISMATCH_ITEM_PRICE_CURRENCY`, `PROPERTY_VALUE_CONTAINS_HTML_TAGS`, `PROPERTY_VALUE_DESCRIPTION_CONTAINS_OFF_PLATFORM_LINK`, `PROPERTY_VALUE_FORMAT`, `PROPERTY_VALUE_MISSING`, `PROPERTY_VALUE_MISSING_WARNING`, `PROPERTY_VALUE_NON_POSITIVE`, `PROPERTY_VALUE_STRING_EXCEEDS_LENGTH`, `PROPERTY_VALUE_STRING_TOO_SHORT`, `PROPERTY_VALUE_UPPERCASE`, `PROPERTY_VALUE_UPPERCASE_WARNING`, `PURCHASE_RATE_BELOW_ADDTOCART`, `PURCHASE_RATE_BELOW_VIEWCONTENT`, `QUALITY_DUPLICATED_DESCRIPTION`, `QUALITY_ITEM_LINK_BROKEN`, `QUALITY_ITEM_LINK_REDIRECTING`, `RETAILER_ID_NOT_PROVIDED`, `RETAILER_ID_USED_BY_GROUP`, `SHOPIFY_INVALID_RETAILER_ID`, `SHOPIFY_ITEM_MISSING_DELIVERY_PROFILE_ZERO_INVENTORY`, `SHOPIFY_ITEM_MISSING_SHIPPING_PROFILE`, `SHOPS_POLICY_VIOLATION`, `SUBSCRIPTION_INFO_NOT_ENABLED_FOR_FEED`, `TAX_CATEGORY_NOT_SUPPORTED_IN_UK`, `TOP_PRODUCT_WITHOUT_VIDEOS`, `UNIQUE_PRODUCT_IDENTIFIER_MISSING`, `UNMATCHED_EVENTS`, `UNSUPPORTED_PRODUCT_CATEGORY`, `VARIANT_ATTRIBUTE_ISSUE`, `VIDEO_FETCH_FAILED`, `VIDEO_FETCH_FAILED_BAD_GATEWAY`, `VIDEO_FETCH_FAILED_FILE_SIZE_EXCEEDED`, `VIDEO_FETCH_FAILED_FORBIDDEN`, `VIDEO_FETCH_FAILED_LINK_BROKEN`, `VIDEO_FETCH_FAILED_RATE_LIMITED`, `VIDEO_FETCH_FAILED_SERVER_ERROR`, `VIDEO_FETCH_FAILED_TIMED_OUT`, `VIDEO_ISSUE_GENERIC`, `VIDEO_NOT_DOWNLOADABLE`, `WHATSAPP_DISABLED_BY_USER`, `WHATSAPP_MARKETING_MESSAGE_DISABLED_BY_USER`, `WHATSAPP_MARKETING_MESSAGE_POLICY_VIOLATION`, `WHATSAPP_POLICY_VIOLATION`
+
+## ProductItemFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `additional_image_cdn_urls` | `additional_image_cdn_urls` | `Array<Array<Record<string, string>>>` | No | No | — |
+| `additional_image_urls` | `additional_image_urls` | `Array<string>` | No | No | — |
+| `additional_variant_attributes` | `additional_variant_attributes` | `Array<Record<string, string>>` | No | No | — |
+| `affiliate_seller_rating` | `affiliate_seller_rating` | `number` | No | No | — |
+| `affiliate_seller_rating_count` | `affiliate_seller_rating_count` | `integer` | No | No | — |
+| `age_group` | `age_group` | `ProductItemAgeGroup` | No | No | — |
+| `applinks` | `applinks` | `CatalogItemAppLinksFields` | No | No | — |
+| `availability` | `availability` | `ProductItemAvailability` | No | No | — |
+| `base_commission_rate` | `base_commission_rate` | `integer` | No | No | — |
+| `brand` | `brand` | `string` | No | No | — |
+| `bundle_items` | `bundle_items` | `Array<string>` | No | No | — |
+| `bundle_retailer_ids` | `bundle_retailer_ids` | `Array<string>` | No | No | — |
+| `capabilities_disabled_by_user` | `capabilities_disabled_by_user` | `Array<string>` | No | No | — |
+| `capability_to_review_status` | `capability_to_review_status` | `Array<Record<string, ProductItemCapabilityToReviewStatus>>` | No | No | — |
+| `category` | `category` | `string` | No | No | — |
+| `category_ranking` | `category_ranking` | `integer` | No | No | — |
+| `category_specific_fields` | `category_specific_fields` | `CatalogSubVerticalListFields` | No | No | — |
+| `color` | `color` | `string` | No | No | — |
+| `commerce_insights` | `commerce_insights` | `ProductItemCommerceInsightsFields` | No | No | — |
+| `condition` | `condition` | `ProductItemCondition` | No | No | — |
+| `currency` | `currency` | `string` | No | No | — |
+| `custom_data` | `custom_data` | `Array<Record<string, string>>` | No | No | — |
+| `custom_label_0` | `custom_label_0` | `string` | No | No | — |
+| `custom_label_1` | `custom_label_1` | `string` | No | No | — |
+| `custom_label_2` | `custom_label_2` | `string` | No | No | — |
+| `custom_label_3` | `custom_label_3` | `string` | No | No | — |
+| `custom_label_4` | `custom_label_4` | `string` | No | No | — |
+| `custom_number_0` | `custom_number_0` | `string` | No | No | — |
+| `custom_number_1` | `custom_number_1` | `string` | No | No | — |
+| `custom_number_2` | `custom_number_2` | `string` | No | No | — |
+| `custom_number_3` | `custom_number_3` | `string` | No | No | — |
+| `custom_number_4` | `custom_number_4` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `errors` | `errors` | `Array<ProductItemErrorFields>` | No | No | — |
+| `expiration_date` | `expiration_date` | `string` | No | No | — |
+| `fb_product_category` | `fb_product_category` | `string` | No | No | — |
+| `gender` | `gender` | `ProductItemGender` | No | No | — |
+| `generated_background_images` | `generated_background_images` | `Array<AIGeneratedProductImageFields>` | No | No | — |
+| `generated_background_images_ad_usage` | `generated_background_images_ad_usage` | `boolean` | No | No | — |
+| `gtin` | `gtin` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `image_cdn_urls` | `image_cdn_urls` | `Array<Record<string, string>>` | No | No | — |
+| `image_fetch_status` | `image_fetch_status` | `ProductItemImageFetchStatus` | No | No | — |
+| `image_url` | `image_url` | `string` | No | No | — |
+| `images` | `images` | `Array<string>` | No | No | — |
+| `importer_address` | `importer_address` | `ProductItemImporterAddressFields` | No | No | — |
+| `importer_name` | `importer_name` | `string` | No | No | — |
+| `invalidation_errors` | `invalidation_errors` | `Array<ProductItemInvalidationErrorFields>` | No | No | — |
+| `inventory` | `inventory` | `integer` | No | No | — |
+| `is_bundle_hero` | `is_bundle_hero` | `boolean` | No | No | — |
+| `live_special_price` | `live_special_price` | `string` | No | No | — |
+| `manufacturer_info` | `manufacturer_info` | `string` | No | No | — |
+| `manufacturer_part_number` | `manufacturer_part_number` | `string` | No | No | — |
+| `marked_for_product_launch` | `marked_for_product_launch` | `string` | No | No | — |
+| `material` | `material` | `string` | No | No | — |
+| `mobile_link` | `mobile_link` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `offer_disclaimer` | `offer_disclaimer` | `string` | No | No | — |
+| `offer_disclaimer_url` | `offer_disclaimer_url` | `string` | No | No | — |
+| `ordering_index` | `ordering_index` | `integer` | No | No | — |
+| `origin_country` | `origin_country` | `string` | No | No | — |
+| `overall_ranking` | `overall_ranking` | `integer` | No | No | — |
+| `parent_product_id` | `parent_product_id` | `string` | No | No | — |
+| `pattern` | `pattern` | `string` | No | No | — |
+| `post_conversion_signal_based_enforcement_appeal_eligibility` | `post_conversion_signal_based_enforcement_appeal_eligibility` | `boolean` | No | No | — |
+| `price` | `price` | `string` | No | No | — |
+| `product_catalog` | `product_catalog` | `ProductCatalogFields` | No | No | — |
+| `product_feed` | `product_feed` | `ProductFeedFields` | No | No | — |
+| `product_group` | `product_group` | `ProductGroupFields` | No | No | — |
+| `product_local_info` | `product_local_info` | `ProductItemLocalInfoFields` | No | No | — |
+| `product_relationship` | `product_relationship` | `string` | No | No | — |
+| `product_type` | `product_type` | `string` | No | No | — |
+| `quantity_to_sell_on_facebook` | `quantity_to_sell_on_facebook` | `integer` | No | No | — |
+| `retailer_id` | `retailer_id` | `string` | No | No | — |
+| `retailer_product_group_id` | `retailer_product_group_id` | `string` | No | No | — |
+| `review_rejection_reasons` | `review_rejection_reasons` | `Array<string>` | No | No | — |
+| `review_status` | `review_status` | `ProductItemReviewStatus` | No | No | — |
+| `rich_text_description` | `rich_text_description` | `string` | No | No | — |
+| `sale_price` | `sale_price` | `string` | No | No | — |
+| `sale_price_end_date` | `sale_price_end_date` | `string` | No | No | — |
+| `sale_price_start_date` | `sale_price_start_date` | `string` | No | No | — |
+| `shipping_weight_unit` | `shipping_weight_unit` | `ProductItemShippingWeightUnit` | No | No | — |
+| `shipping_weight_value` | `shipping_weight_value` | `number` | No | No | — |
+| `short_description` | `short_description` | `string` | No | No | — |
+| `size` | `size` | `string` | No | No | — |
+| `start_date` | `start_date` | `string` | No | No | — |
+| `status` | `status` | `ProductItemStatus` | No | No | — |
+| `tags` | `tags` | `Array<string>` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+| `vendor_id` | `vendor_id` | `string` | No | No | — |
+| `video_fetch_status` | `video_fetch_status` | `ProductItemVideoFetchStatus` | No | No | — |
+| `videos` | `videos` | `Array<ProductItemVideoDataFields>` | No | No | — |
+| `visibility` | `visibility` | `ProductItemVisibility` | No | No | — |
+| `wa_compliance_category` | `wa_compliance_category` | `string` | No | No | — |
+
+## ProductItemGender
+
+`enum` model on the `json` wire format.
+
+**Values:** `female`, `male`, `unisex`
+
+## ProductItemImageFetchStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `DIRECT_UPLOAD`, `FETCHED`, `FETCH_FAILED`, `NO_STATUS`, `OUTDATED`, `PARTIAL_FETCH`
+
+## ProductItemImporterAddressFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `city` | `city` | `string` | No | No | — |
+| `country` | `country` | `string` | No | No | — |
+| `postal_code` | `postal_code` | `string` | No | No | — |
+| `region` | `region` | `string` | No | No | — |
+| `street1` | `street1` | `string` | No | No | — |
+| `street2` | `street2` | `string` | No | No | — |
+
+## ProductItemInsightsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_click_count` | `ad_click_count` | `integer` | No | No | — |
+| `ad_impression_count` | `ad_impression_count` | `integer` | No | No | — |
+| `add_to_cart_count` | `add_to_cart_count` | `integer` | No | No | — |
+| `purchase_count` | `purchase_count` | `integer` | No | No | — |
+| `view_content_count` | `view_content_count` | `integer` | No | No | — |
+
+## ProductItemInvalidationErrorFields
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## ProductItemLandingPageDataAvailability
+
+`enum` model on the `json` wire format.
+
+**Values:** `available for order`, `discontinued`, `in stock`, `mark_as_expired`, `mark_as_sold`, `out of stock`, `pending`, `preorder`
+
+## ProductItemLandingPageDataFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `availability` | `availability` | `ProductItemLandingPageDataAvailability` | No | No | — |
+
+## ProductItemLocalInfoFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `availability_circle_origin` | `availability_circle_origin` | `ProductItemLocalInfoLatLongShapeFields` | No | No | — |
+| `availability_circle_radius` | `availability_circle_radius` | `number` | No | No | — |
+| `availability_circle_radius_unit` | `availability_circle_radius_unit` | `string` | No | No | — |
+| `availability_polygon_coordinates` | `availability_polygon_coordinates` | `Array<ProductItemLocalInfoLatLongShapeFields>` | No | No | — |
+| `availability_postal_codes` | `availability_postal_codes` | `Array<string>` | No | No | — |
+| `availability_source` | `availability_source` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `inferred_circle_origin` | `inferred_circle_origin` | `ProductItemLocalInfoLatLongShapeFields` | No | No | — |
+| `inferred_circle_radius` | `inferred_circle_radius` | `number` | No | No | — |
+
+## ProductItemLocalInfoLatLongShapeFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `latitude` | `latitude` | `number` | No | No | — |
+| `longitude` | `longitude` | `number` | No | No | — |
+
+## ProductItemMarkedForProductLaunch
+
+`enum` model on the `json` wire format.
+
+**Values:** `default`, `marked`, `not_marked`
+
+## ProductItemOfferFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `availability_area` | `availability_area` | `Array<Record<string, unknown>>` | No | No | — |
+| `availability_radius` | `availability_radius` | `number` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+
+## ProductItemOriginCountry
+
+`enum` model on the `json` wire format.
+
+**Values:** `AC`, `AD`, `AE`, `AF`, `AG`, `AI`, `AL`, `AM`, `AN`, `AO`, `AQ`, `AR`, `AS`, `AT`, `AU`, `AW`, `AX`, `AZ`, `BA`, `BB`, `BD`, `BE`, `BF`, `BG`, `BH`, `BI`, `BJ`, `BL`, `BM`, `BN`, `BO`, `BQ`, `BR`, `BS`, `BT`, `BV`, `BW`, `BY`, `BZ`, `CA`, `CC`, `CD`, `CF`, `CG`, `CH`, `CI`, `CK`, `CL`, `CM`, `CN`, `CO`, `CR`, `CU`, `CV`, `CW`, `CX`, `CY`, `CZ`, `DE`, `DJ`, `DK`, `DM`, `DO`, `DZ`, `EC`, `EE`, `EG`, `EH`, `ER`, `ES`, `ET`, `FI`, `FJ`, `FK`, `FM`, `FO`, `FR`, `GA`, `GB`, `GD`, `GE`, `GF`, `GG`, `GH`, `GI`, `GL`, `GM`, `GN`, `GP`, `GQ`, `GR`, `GS`, `GT`, `GU`, `GW`, `GY`, `HK`, `HM`, `HN`, `HR`, `HT`, `HU`, `ID`, `IE`, `IL`, `IM`, `IN`, `IO`, `IQ`, `IR`, `IS`, `IT`, `JE`, `JM`, `JO`, `JP`, `KE`, `KG`, `KH`, `KI`, `KM`, `KN`, `KP`, `KR`, `KW`, `KY`, `KZ`, `LA`, `LB`, `LC`, `LI`, `LK`, `LR`, `LS`, `LT`, `LU`, `LV`, `LY`, `MA`, `MC`, `MD`, `ME`, `MF`, `MG`, `MH`, `MK`, `ML`, `MM`, `MN`, `MO`, `MP`, `MQ`, `MR`, `MS`, `MT`, `MU`, `MV`, `MW`, `MX`, `MY`, `MZ`, `NA`, `NC`, `NE`, `NF`, `NG`, `NI`, `NL`, `NO`, `NP`, `NR`, `NU`, `NZ`, `OM`, `PA`, `PE`, `PF`, `PG`, `PH`, `PK`, `PL`, `PM`, `PN`, `PR`, `PS`, `PT`, `PW`, `PY`, `QA`, `RE`, `RO`, `RS`, `RU`, `RW`, `SA`, `SB`, `SC`, `SD`, `SE`, `SG`, `SH`, `SI`, `SJ`, `SK`, `SL`, `SM`, `SN`, `SO`, `SR`, `SS`, `ST`, `SV`, `SX`, `SY`, `SZ`, `TC`, `TD`, `TF`, `TG`, `TH`, `TJ`, `TK`, `TL`, `TM`, `TN`, `TO`, `TR`, `TT`, `TV`, `TW`, `TZ`, `UA`, `UG`, `UM`, `US`, `UY`, `UZ`, `VA`, `VC`, `VE`, `VG`, `VI`, `VN`, `VU`, `WF`, `WS`, `XK`, `YE`, `YT`, `ZA`, `ZM`, `ZW`
+
+## ProductItemReviewStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `approved`, `outdated`, `pending`, `rejected`
+
+## ProductItemShippingFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `shipping_country` | `shipping_country` | `string` | No | No | — |
+| `shipping_price_currency` | `shipping_price_currency` | `string` | No | No | — |
+| `shipping_price_value` | `shipping_price_value` | `number` | No | No | — |
+| `shipping_region` | `shipping_region` | `string` | No | No | — |
+| `shipping_service` | `shipping_service` | `string` | No | No | — |
+
+## ProductItemShippingWeightUnit
+
+`enum` model on the `json` wire format.
+
+**Values:** `g`, `kg`, `lb`, `oz`
+
+## ProductItemStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `PUBLISHED`, `STAGING`
+
+## ProductItemSubscriptionInfoFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_subscribable` | `is_subscribable` | `boolean` | No | No | — |
+| `subscription_billing_period` | `subscription_billing_period` | `integer` | No | No | — |
+| `subscription_billing_type` | `subscription_billing_type` | `string` | No | No | — |
+
+## ProductItemUnitPriceFields
+
+`object` model on the `json` wire format.
+
+No fields are declared.
+
+## ProductItemVideoDataFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `tags` | `tags` | `Array<string>` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+
+## ProductItemVideoFetchStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `DIRECT_UPLOAD`, `FETCHED`, `FETCH_FAILED`, `NO_STATUS`, `OUTDATED`, `PARTIAL_FETCH`
+
+## ProductItemVisibility
+
+`enum` model on the `json` wire format.
+
+**Values:** `published`, `staging`
+
+## ProductItemWaComplianceCategory
+
+`enum` model on the `json` wire format.
+
+**Values:** `COUNTRY_ORIGIN_EXEMPT`, `DEFAULT`
+
+## ProductSetFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_creation_url` | `auto_creation_url` | `string` | No | No | — |
+| `filter` | `filter` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `latest_metadata` | `latest_metadata` | `ProductSetMetadataFields` | No | No | — |
+| `live_metadata` | `live_metadata` | `ProductSetMetadataFields` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `ordering_info` | `ordering_info` | `Array<integer>` | No | No | — |
+| `product_catalog` | `product_catalog` | `ProductCatalogFields` | No | No | — |
+| `product_count` | `product_count` | `integer` | No | No | — |
+| `retailer_id` | `retailer_id` | `string` | No | No | — |
+
+## ProductSetMetadataFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cover_image_url` | `cover_image_url` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `external_url` | `external_url` | `string` | No | No | — |
+| `integrity_review_status` | `integrity_review_status` | `string` | No | No | — |
+
+## ProductSetTaxonCategoryFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `category_id` | `category_id` | `integer` | No | No | — |
+| `category_name` | `category_name` | `string` | No | No | — |
+| `image_url` | `image_url` | `string` | No | No | — |
+
+## ProductVariantFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `label` | `label` | `string` | No | No | — |
+| `options` | `options` | `Array<string>` | No | No | — |
+| `product_field` | `product_field` | `string` | No | No | — |
+
+## ProductVisualVariantFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `items` | `items` | `Array<ProductItemFields>` | No | No | — |
+| `unique_key` | `unique_key` | `string` | No | No | — |
+
+## ProfileFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `can_post` | `can_post` | `boolean` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `pic` | `pic` | `string` | No | No | — |
+| `pic_crop` | `pic_crop` | `ProfilePictureSourceFields` | No | No | — |
+| `pic_large` | `pic_large` | `string` | No | No | — |
+| `pic_small` | `pic_small` | `string` | No | No | — |
+| `pic_square` | `pic_square` | `string` | No | No | — |
+| `profile_type` | `profile_type` | `ProfileProfileType` | No | No | — |
+| `username` | `username` | `string` | No | No | — |
+
+## ProfilePictureSourceFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bottom` | `bottom` | `integer` | No | No | — |
+| `cache_key` | `cache_key` | `string` | No | No | — |
+| `height` | `height` | `integer` | No | No | — |
+| `is_silhouette` | `is_silhouette` | `boolean` | No | No | — |
+| `left` | `left` | `integer` | No | No | — |
+| `right` | `right` | `integer` | No | No | — |
+| `top` | `top` | `integer` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+| `width` | `width` | `integer` | No | No | — |
+
+## ProfilePictureSourceType
+
+`enum` model on the `json` wire format.
+
+**Values:** `album`, `small`, `thumbnail`
+
+## ProfileProfileType
+
+`enum` model on the `json` wire format.
+
+**Values:** `application`, `event`, `group`, `page`, `user`
+
+## ProfileType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ANGRY`, `CARE`, `FIRE`, `HAHA`, `HUNDRED`, `LIKE`, `LOVE`, `NONE`, `PRIDE`, `SAD`, `THANKFUL`, `WOW`
+
+## PublisherBlockListFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_publishers` | `app_publishers` | `Array<AppPublisherFields>` | No | No | — |
+| `business_owner_id` | `business_owner_id` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `is_auto_blocking_on` | `is_auto_blocking_on` | `boolean` | No | No | — |
+| `is_eligible_at_campaign_level` | `is_eligible_at_campaign_level` | `boolean` | No | No | — |
+| `last_update_time` | `last_update_time` | `string<date-time>` | No | No | — |
+| `last_update_user` | `last_update_user` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `owner_ad_account_id` | `owner_ad_account_id` | `string` | No | No | — |
+| `web_publishers` | `web_publishers` | `Array<WebPublisherFields>` | No | No | — |
+
+## PublisherDeliveryReportFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `content_types` | `content_types` | `Array<string>` | No | No | — |
+| `estimated_impressions` | `estimated_impressions` | `integer` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+
+## RawCustomAudienceFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+
+## ReachFrequencyActivityFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account_id` | `account_id` | `string` | No | No | — |
+| `campaign_active` | `campaign_active` | `boolean` | No | No | — |
+| `campaign_started` | `campaign_started` | `boolean` | No | No | — |
+| `creative_uploaded` | `creative_uploaded` | `boolean` | No | No | — |
+| `io_approved` | `io_approved` | `boolean` | No | No | — |
+| `sf_link` | `sf_link` | `string` | No | No | — |
+
+## ReachFrequencyAdFormatFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `details` | `details` | `Record<string, unknown>` | No | No | — |
+| `type` | `type` | `string` | No | No | — |
+
+## ReachFrequencyCurveLowerConfidenceRangeFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `impression_lower` | `impression_lower` | `Array<integer>` | No | No | — |
+| `num_points` | `num_points` | `integer` | No | No | — |
+| `reach` | `reach` | `Array<integer>` | No | No | — |
+| `reach_lower` | `reach_lower` | `Array<integer>` | No | No | — |
+| `uniq_video_views_2s_lower` | `uniq_video_views_2s_lower` | `Array<integer>` | No | No | — |
+| `video_views_2s_lower` | `video_views_2s_lower` | `Array<integer>` | No | No | — |
+
+## ReachFrequencyCurveUpperConfidenceRangeFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `impression_upper` | `impression_upper` | `Array<integer>` | No | No | — |
+| `num_points` | `num_points` | `integer` | No | No | — |
+| `reach` | `reach` | `Array<integer>` | No | No | — |
+| `reach_upper` | `reach_upper` | `Array<integer>` | No | No | — |
+| `uniq_video_views_2s_upper` | `uniq_video_views_2s_upper` | `Array<integer>` | No | No | — |
+| `video_views_2s_upper` | `video_views_2s_upper` | `Array<integer>` | No | No | — |
+
+## ReachFrequencyDayPartFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `days` | `days` | `Array<integer>` | No | No | — |
+| `end_minute` | `end_minute` | `integer` | No | No | — |
+| `start_minute` | `start_minute` | `integer` | No | No | — |
+
+## ReachFrequencyEstimatesCurveFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `Array<integer>` | No | No | — |
+| `conversion` | `conversion` | `Array<integer>` | No | No | — |
+| `impression` | `impression` | `Array<integer>` | No | No | — |
+| `interpolated_reach` | `interpolated_reach` | `number` | No | No | — |
+| `num_points` | `num_points` | `integer` | No | No | — |
+| `raw_impression` | `raw_impression` | `Array<integer>` | No | No | — |
+| `raw_reach` | `raw_reach` | `Array<integer>` | No | No | — |
+| `reach` | `reach` | `Array<integer>` | No | No | — |
+
+## ReachFrequencyEstimatesPlacementBreakdownFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `android` | `android` | `Array<number>` | No | No | — |
+| `audience_network` | `audience_network` | `Array<number>` | No | No | — |
+| `desktop` | `desktop` | `Array<number>` | No | No | — |
+| `facebook_search` | `facebook_search` | `Array<number>` | No | No | — |
+| `fb_reels` | `fb_reels` | `Array<number>` | No | No | — |
+| `fb_reels_overlay` | `fb_reels_overlay` | `Array<number>` | No | No | — |
+| `ig_android` | `ig_android` | `Array<number>` | No | No | — |
+| `ig_ios` | `ig_ios` | `Array<number>` | No | No | — |
+| `ig_other` | `ig_other` | `Array<number>` | No | No | — |
+| `ig_reels` | `ig_reels` | `Array<number>` | No | No | — |
+| `ig_story` | `ig_story` | `Array<number>` | No | No | — |
+| `instant_articles` | `instant_articles` | `Array<number>` | No | No | — |
+| `instream_videos` | `instream_videos` | `Array<number>` | No | No | — |
+| `ios` | `ios` | `Array<number>` | No | No | — |
+| `msite` | `msite` | `Array<number>` | No | No | — |
+| `suggested_videos` | `suggested_videos` | `Array<number>` | No | No | — |
+
+## ReachFrequencyPredictionAction
+
+`enum` model on the `json` wire format.
+
+**Values:** `cancel`, `quote`, `reserve`
+
+## ReachFrequencyPredictionBuyingType
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUCTION`, `DEPRECATED_REACH_BLOCK`, `FIXED_CPM`, `MIXED`, `REACHBLOCK`, `RESEARCH_POLL`, `RESERVED`
+
+## ReachFrequencyPredictionFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account_id` | `account_id` | `integer` | No | No | — |
+| `activity_status` | `activity_status` | `ReachFrequencyActivityFields` | No | No | — |
+| `ad_formats` | `ad_formats` | `Array<ReachFrequencyAdFormatFields>` | No | No | — |
+| `auction_entry_option_index` | `auction_entry_option_index` | `integer` | No | No | — |
+| `audience_size_lower_bound` | `audience_size_lower_bound` | `integer` | No | No | — |
+| `audience_size_upper_bound` | `audience_size_upper_bound` | `integer` | No | No | — |
+| `business_id` | `business_id` | `integer` | No | No | — |
+| `buying_type` | `buying_type` | `string` | No | No | — |
+| `campaign_group_id` | `campaign_group_id` | `integer` | No | No | — |
+| `campaign_id` | `campaign_id` | `string` | No | No | — |
+| `campaign_time_start` | `campaign_time_start` | `string<date-time>` | No | No | — |
+| `campaign_time_stop` | `campaign_time_stop` | `string<date-time>` | No | No | — |
+| `currency` | `currency` | `string` | No | No | — |
+| `curve_budget_reach` | `curve_budget_reach` | `ReachFrequencyEstimatesCurveFields` | No | No | — |
+| `curve_reach` | `curve_reach` | `Array<integer>` | No | No | — |
+| `daily_grp_curve` | `daily_grp_curve` | `Array<number>` | No | No | — |
+| `daily_impression_curve` | `daily_impression_curve` | `Array<number>` | No | No | — |
+| `daily_impression_curve_map` | `daily_impression_curve_map` | `Array<Record<string, Array<number>>>` | No | No | — |
+| `day_parting_schedule` | `day_parting_schedule` | `Array<ReachFrequencyDayPartFields>` | No | No | — |
+| `destination_id` | `destination_id` | `string` | No | No | — |
+| `end_time` | `end_time` | `string<date-time>` | No | No | — |
+| `expiration_time` | `expiration_time` | `string<date-time>` | No | No | — |
+| `external_budget` | `external_budget` | `integer` | No | No | — |
+| `external_impression` | `external_impression` | `integer` | No | No | — |
+| `external_maximum_budget` | `external_maximum_budget` | `integer` | No | No | — |
+| `external_maximum_impression` | `external_maximum_impression` | `string` | No | No | — |
+| `external_maximum_reach` | `external_maximum_reach` | `integer` | No | No | — |
+| `external_minimum_budget` | `external_minimum_budget` | `integer` | No | No | — |
+| `external_minimum_impression` | `external_minimum_impression` | `integer` | No | No | — |
+| `external_minimum_reach` | `external_minimum_reach` | `integer` | No | No | — |
+| `external_reach` | `external_reach` | `integer` | No | No | — |
+| `feed_ratio_0000` | `feed_ratio_0000` | `integer` | No | No | — |
+| `frequency_cap` | `frequency_cap` | `integer` | No | No | — |
+| `frequency_distribution_map` | `frequency_distribution_map` | `Array<Record<string, Array<number>>>` | No | No | — |
+| `frequency_distribution_map_agg` | `frequency_distribution_map_agg` | `Array<Record<string, Array<integer>>>` | No | No | — |
+| `grp_audience_size` | `grp_audience_size` | `number` | No | No | — |
+| `grp_avg_probability_map` | `grp_avg_probability_map` | `string` | No | No | — |
+| `grp_country_audience_size` | `grp_country_audience_size` | `number` | No | No | — |
+| `grp_curve` | `grp_curve` | `Array<number>` | No | No | — |
+| `grp_dmas_audience_size` | `grp_dmas_audience_size` | `number` | No | No | — |
+| `grp_filtering_threshold_00` | `grp_filtering_threshold_00` | `integer` | No | No | — |
+| `grp_points` | `grp_points` | `number` | No | No | — |
+| `grp_ratio` | `grp_ratio` | `number` | No | No | — |
+| `grp_reach_ratio` | `grp_reach_ratio` | `number` | No | No | — |
+| `grp_status` | `grp_status` | `string` | No | No | — |
+| `holdout_percentage` | `holdout_percentage` | `integer` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `impression_curve` | `impression_curve` | `Array<integer>` | No | No | — |
+| `instagram_destination_id` | `instagram_destination_id` | `string` | No | No | — |
+| `instream_packages` | `instream_packages` | `Array<string>` | No | No | — |
+| `interval_frequency_cap` | `interval_frequency_cap` | `integer` | No | No | — |
+| `interval_frequency_cap_reset_period` | `interval_frequency_cap_reset_period` | `integer` | No | No | — |
+| `is_balanced_frequency` | `is_balanced_frequency` | `boolean` | No | No | — |
+| `is_bonus_media` | `is_bonus_media` | `integer` | No | No | — |
+| `is_conversion_goal` | `is_conversion_goal` | `integer` | No | No | — |
+| `is_higher_average_frequency` | `is_higher_average_frequency` | `boolean` | No | No | — |
+| `is_io` | `is_io` | `boolean` | No | No | — |
+| `is_reserved_buying` | `is_reserved_buying` | `integer` | No | No | — |
+| `is_trp` | `is_trp` | `boolean` | No | No | — |
+| `meta_moment_maker_spec` | `meta_moment_maker_spec` | `MetaMomentMakerConfigFields` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `objective` | `objective` | `integer` | No | No | — |
+| `objective_name` | `objective_name` | `string` | No | No | — |
+| `odax_objective` | `odax_objective` | `integer` | No | No | — |
+| `odax_objective_name` | `odax_objective_name` | `string` | No | No | — |
+| `optimization_goal` | `optimization_goal` | `integer` | No | No | — |
+| `optimization_goal_name` | `optimization_goal_name` | `string` | No | No | — |
+| `pause_periods` | `pause_periods` | `Array<Record<string, unknown>>` | No | No | — |
+| `percent_reach_at_target_frequency` | `percent_reach_at_target_frequency` | `integer` | No | No | — |
+| `placement_breakdown` | `placement_breakdown` | `ReachFrequencyEstimatesPlacementBreakdownFields` | No | No | — |
+| `placement_breakdown_map` | `placement_breakdown_map` | `Array<Record<string, ReachFrequencyEstimatesPlacementBreakdownFields>>` | No | No | — |
+| `plan_name` | `plan_name` | `string` | No | No | — |
+| `plan_type` | `plan_type` | `string` | No | No | — |
+| `prediction_mode` | `prediction_mode` | `integer` | No | No | — |
+| `prediction_progress` | `prediction_progress` | `integer` | No | No | — |
+| `reference_id` | `reference_id` | `string` | No | No | — |
+| `reservation_status` | `reservation_status` | `integer` | No | No | — |
+| `start_time` | `start_time` | `string<date-time>` | No | No | — |
+| `status` | `status` | `integer` | No | No | — |
+| `story_event_type` | `story_event_type` | `integer` | No | No | — |
+| `target_cpm` | `target_cpm` | `integer` | No | No | — |
+| `target_frequency` | `target_frequency` | `integer` | No | No | — |
+| `target_frequency_reset_period` | `target_frequency_reset_period` | `integer` | No | No | — |
+| `target_spec` | `target_spec` | `TargetingFields` | No | No | — |
+| `time_created` | `time_created` | `string<date-time>` | No | No | — |
+| `time_updated` | `time_updated` | `string<date-time>` | No | No | — |
+| `timezone_id` | `timezone_id` | `integer` | No | No | — |
+| `timezone_name` | `timezone_name` | `string` | No | No | — |
+| `topline_id` | `topline_id` | `integer` | No | No | — |
+| `trending_topics_spec` | `trending_topics_spec` | `TrendingTopicsSpecFields` | No | No | — |
+| `video_view_length_constraint` | `video_view_length_constraint` | `integer` | No | No | — |
+| `viewtag` | `viewtag` | `string` | No | No | — |
+
+## ReachFrequencyPredictionInstreamPackages
+
+`enum` model on the `json` wire format.
+
+**Values:** `BEAUTY`, `ENTERTAINMENT`, `FOOD`, `NORMAL`, `PREMIUM`, `REGULAR_ANIMALS_PETS`, `REGULAR_FOOD`, `REGULAR_GAMES`, `REGULAR_POLITICS`, `REGULAR_SPORTS`, `REGULAR_STYLE`, `REGULAR_TV_MOVIES`, `SPANISH`, `SPORTS`
+
+## ReachFrequencySpecFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `countries` | `countries` | `Array<string>` | No | No | — |
+| `default_creation_data` | `default_creation_data` | `Record<string, unknown>` | No | No | — |
+| `global_io_max_campaign_duration` | `global_io_max_campaign_duration` | `integer` | No | No | — |
+| `max_campaign_duration` | `max_campaign_duration` | `Record<string, unknown>` | No | No | — |
+| `max_days_to_finish` | `max_days_to_finish` | `Record<string, unknown>` | No | No | — |
+| `max_pause_without_prediction_rerun` | `max_pause_without_prediction_rerun` | `Record<string, unknown>` | No | No | — |
+| `min_campaign_duration` | `min_campaign_duration` | `Record<string, unknown>` | No | No | — |
+| `min_reach_limits` | `min_reach_limits` | `Record<string, unknown>` | No | No | — |
+
+## RecommendationFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `created_time` | `created_time` | `string<date-time>` | No | No | — |
+| `has_rating` | `has_rating` | `boolean` | No | No | — |
+| `has_review` | `has_review` | `boolean` | No | No | — |
+| `open_graph_story` | `open_graph_story` | `Record<string, unknown>` | No | No | — |
+| `rating` | `rating` | `integer` | No | No | — |
+| `recommendation_type` | `recommendation_type` | `string` | No | No | — |
+| `review_text` | `review_text` | `string` | No | No | — |
+| `reviewer` | `reviewer` | `UserFields` | No | No | — |
+
+## RecommendedIGMediaFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `intent_score` | `intent_score` | `number` | No | No | — |
+| `media` | `media` | `IGMediaFields` | No | No | — |
+
+## RecommendedPagePostFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `intent_score` | `intent_score` | `number` | No | No | — |
+| `is_ig_media` | `is_ig_media` | `boolean` | No | No | — |
+| `post_id` | `post_id` | `string` | No | No | — |
+
+## RegionalRegulationIdentitiesFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `australia_finserv_beneficiary` | `australia_finserv_beneficiary` | `string` | No | No | — |
+| `australia_finserv_payer` | `australia_finserv_payer` | `string` | No | No | — |
+| `india_finserv_beneficiary` | `india_finserv_beneficiary` | `string` | No | No | — |
+| `india_finserv_payer` | `india_finserv_payer` | `string` | No | No | — |
+| `singapore_universal_beneficiary` | `singapore_universal_beneficiary` | `string` | No | No | — |
+| `singapore_universal_payer` | `singapore_universal_payer` | `string` | No | No | — |
+| `taiwan_finserv_beneficiary` | `taiwan_finserv_beneficiary` | `string` | No | No | — |
+| `taiwan_finserv_payer` | `taiwan_finserv_payer` | `string` | No | No | — |
+| `taiwan_universal_beneficiary` | `taiwan_universal_beneficiary` | `string` | No | No | — |
+| `taiwan_universal_payer` | `taiwan_universal_payer` | `string` | No | No | — |
+| `universal_beneficiary` | `universal_beneficiary` | `string` | No | No | — |
+| `universal_payer` | `universal_payer` | `string` | No | No | — |
+
+## RepeatReachStateFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `current_saturation_level` | `current_saturation_level` | `number` | No | No | — |
+| `forecasted_saturation_level` | `forecasted_saturation_level` | `number` | No | No | — |
+| `high_saturation_threshold` | `high_saturation_threshold` | `number` | No | No | — |
+| `should_display_cpr` | `should_display_cpr` | `boolean` | No | No | — |
+
+## ReportingAudienceFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `custom_audiences` | `custom_audiences` | `Array<RawCustomAudienceFields>` | No | No | — |
+| `custom_audiences_url_param_name` | `custom_audiences_url_param_name` | `string` | No | No | — |
+| `custom_audiences_url_param_type` | `custom_audiences_url_param_type` | `string` | No | No | — |
+
+## ResearchPollStudyFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account` | `account` | `AdAccountFields` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+
+## ResellerGuidanceFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_first_spend_date` | `ad_account_first_spend_date` | `string` | No | No | — |
+| `ad_account_id` | `ad_account_id` | `string` | No | No | — |
+| `adopted_guidance_l7d` | `adopted_guidance_l7d` | `Array<string>` | No | No | — |
+| `advertiser_name` | `advertiser_name` | `string` | No | No | — |
+| `attributed_to_reseller_l7d` | `attributed_to_reseller_l7d` | `boolean` | No | No | — |
+| `available_guidance` | `available_guidance` | `Array<string>` | No | No | — |
+| `guidance_adoption_rate_l7d` | `guidance_adoption_rate_l7d` | `number` | No | No | — |
+| `nurtured_by_reseller_l7d` | `nurtured_by_reseller_l7d` | `boolean` | No | No | — |
+| `planning_agency_name` | `planning_agency_name` | `string` | No | No | — |
+| `recommendation_time` | `recommendation_time` | `string<date-time>` | No | No | — |
+| `reporting_ds` | `reporting_ds` | `string` | No | No | — |
+| `reseller` | `reseller` | `BusinessFields` | No | No | — |
+| `revenue_l30d` | `revenue_l30d` | `number` | No | No | — |
+| `ultimate_advertiser_name` | `ultimate_advertiser_name` | `string` | No | No | — |
+
+## RevSharePolicyFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `policy_id` | `policy_id` | `string` | No | No | — |
+| `policy_name` | `policy_name` | `string` | No | No | — |
+
+## RightsManagerDataExportFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `download_uri` | `download_uri` | `string` | No | No | — |
+| `export_scope` | `export_scope` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `record_type` | `record_type` | `string` | No | No | — |
+| `time_range_end` | `time_range_end` | `string<date-time>` | No | No | — |
+| `time_range_start` | `time_range_start` | `string<date-time>` | No | No | — |
+
+## RightsManagerInsightsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `error` | `error` | `string` | No | No | — |
+| `error_message` | `error_message` | `string` | No | No | — |
+| `metadata` | `metadata` | `Array<Record<string, Record<string, unknown>>>` | No | No | — |
+| `totals` | `totals` | `Array<Record<string, Record<string, unknown>>>` | No | No | — |
+| `x_axis_breakdown` | `x_axis_breakdown` | `Array<Array<Record<string, Record<string, unknown>>>>` | No | No | — |
+
+## RobotFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `bringup_vars` | `bringup_vars` | `Array<Record<string, string>>` | No | No | — |
+| `configurations` | `configurations` | `Array<Record<string, string>>` | No | No | — |
+| `data_center` | `data_center` | `string` | No | No | — |
+| `fw_image` | `fw_image` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `init_pos` | `init_pos` | `Array<Record<string, number>>` | No | No | — |
+| `last_pos` | `last_pos` | `Array<Record<string, number>>` | No | No | — |
+| `meetup_link_hash` | `meetup_link_hash` | `string` | No | No | — |
+| `release_image` | `release_image` | `string` | No | No | — |
+| `robot_notes` | `robot_notes` | `string` | No | No | — |
+| `suite` | `suite` | `string` | No | No | — |
+| `target_fw_image` | `target_fw_image` | `string` | No | No | — |
+| `target_fw_image_uri` | `target_fw_image_uri` | `string` | No | No | — |
+| `target_map_image_uri` | `target_map_image_uri` | `string` | No | No | — |
+| `target_os_image_uri` | `target_os_image_uri` | `string` | No | No | — |
+| `target_release_image` | `target_release_image` | `string` | No | No | — |
+| `target_sw_image_uri` | `target_sw_image_uri` | `string` | No | No | — |
+| `user` | `user` | `UserFields` | No | No | — |
+
+## RTBDynamicPostFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `child_attachments` | `child_attachments` | `Array<DynamicPostChildAttachmentFields>` | No | No | — |
+| `created` | `created` | `string<date-time>` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `image_url` | `image_url` | `string` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `message` | `message` | `string` | No | No | — |
+| `owner_id` | `owner_id` | `string` | No | No | — |
+| `place_id` | `place_id` | `string` | No | No | — |
+| `product_id` | `product_id` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+
+## SalesRightsInventoryManagementFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `available_impressions` | `available_impressions` | `integer` | No | No | — |
+| `booked_impressions` | `booked_impressions` | `integer` | No | No | — |
+| `overbooked_impressions` | `overbooked_impressions` | `integer` | No | No | — |
+| `supported_countries` | `supported_countries` | `Array<string>` | No | No | — |
+| `total_impressions` | `total_impressions` | `integer` | No | No | — |
+| `unavailable_impressions` | `unavailable_impressions` | `integer` | No | No | — |
+| `warning_messages` | `warning_messages` | `Array<string>` | No | No | — |
+
+## SavedAudienceFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `account` | `account` | `AdAccountFields` | No | No | — |
+| `approximate_count_lower_bound` | `approximate_count_lower_bound` | `integer` | No | No | — |
+| `approximate_count_upper_bound` | `approximate_count_upper_bound` | `integer` | No | No | — |
+| `delete_time` | `delete_time` | `integer` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `operation_status` | `operation_status` | `CustomAudienceStatusFields` | No | No | — |
+| `owner_business` | `owner_business` | `BusinessFields` | No | No | — |
+| `page_deletion_marked_delete_time` | `page_deletion_marked_delete_time` | `integer` | No | No | — |
+| `permission_for_actions` | `permission_for_actions` | `AudiencePermissionForActionsFields` | No | No | — |
+| `run_status` | `run_status` | `string` | No | No | — |
+| `sentence_lines` | `sentence_lines` | `Array<unknown>` | No | No | — |
+| `targeting` | `targeting` | `TargetingFields` | No | No | — |
+| `time_created` | `time_created` | `string<date-time>` | No | No | — |
+| `time_updated` | `time_updated` | `string<date-time>` | No | No | — |
+
+## SavedMessageResponseFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `image` | `image` | `string` | No | No | — |
+| `is_enabled` | `is_enabled` | `boolean` | No | No | — |
+| `message` | `message` | `string` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+
+## ScheduledPostFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `admin_creator` | `admin_creator` | `UserFields` | No | No | — |
+| `creation_time` | `creation_time` | `string<date-time>` | No | No | — |
+| `feed_audience_description` | `feed_audience_description` | `string` | No | No | — |
+| `feed_targeting` | `feed_targeting` | `TargetingFields` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `is_post_in_good_state` | `is_post_in_good_state` | `boolean` | No | No | — |
+| `message` | `message` | `string` | No | No | — |
+| `modified_time` | `modified_time` | `string<date-time>` | No | No | — |
+| `og_action_summary` | `og_action_summary` | `string` | No | No | — |
+| `permalink_url` | `permalink_url` | `string` | No | No | — |
+| `place` | `place` | `PlaceFields` | No | No | — |
+| `privacy_description` | `privacy_description` | `string` | No | No | — |
+| `scheduled_failure_notice` | `scheduled_failure_notice` | `string` | No | No | — |
+| `scheduled_publish_time` | `scheduled_publish_time` | `string<date-time>` | No | No | — |
+| `story_token` | `story_token` | `string` | No | No | — |
+| `thumbnail` | `thumbnail` | `string` | No | No | — |
+| `video_id` | `video_id` | `string` | No | No | — |
+
+## ScimCompanyUserPhoneNumberFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `number` | `number` | `string` | No | No | — |
+| `primary` | `primary` | `boolean` | No | No | — |
+| `type` | `type` | `string` | No | No | — |

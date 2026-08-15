@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:ce2cfd9ae6d971e2d80efecbaa82d4961eb68061155fce1b89708e8051d27cee",
+    "doNotEdit": true
+  },
   "platform": "bluesky",
   "source": {
     "kind": "documentation",

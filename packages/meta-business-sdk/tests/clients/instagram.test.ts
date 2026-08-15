@@ -299,6 +299,7 @@ test("low-level containers API works directly", async () => {
 
   const api = createClient({ accessToken: "tok" });
   const ig = createInstagramClient({ api, igAccountId: "ig_456" });
+  expect(ig.api).toBe(api);
 
   const container = await ig.containers.create({ imageUrl: "https://x.com/p.jpg" });
   expect(container.id).toBe("c1");
@@ -308,4 +309,19 @@ test("low-level containers API works directly", async () => {
 
   const published = await ig.containers.publish("c1");
   expect(published.id).toBe("post_1");
+});
+
+test("resumable upload rejects a malformed provider result", async () => {
+  mockFetchSequence([{ body: {} }]);
+
+  const api = createClient({ accessToken: "tok" });
+  const ig = createInstagramClient({ api, igAccountId: "ig_456" });
+
+  await expect(
+    ig.containers.uploadResumable({
+      containerId: "c1",
+      accessToken: "tok",
+      fileUrl: "https://cdn.example.com/video.mp4",
+    }),
+  ).rejects.toThrow();
 });

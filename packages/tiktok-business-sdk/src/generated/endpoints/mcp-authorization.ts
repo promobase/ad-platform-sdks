@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d8c15e7e8a2a7e078943f6989d53405c763de614b56365a3e6902e701ffb59d2
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for MCP Authorization — do not edit
 import type { OpenMcpServerOauthWellKnownOpenidConfigurationParams, OpenMcpServerOauthWellKnownOpenidConfigurationResponse, WellKnownOauthProtectedResourceOpenMcpServerParams, WellKnownOauthProtectedResourceOpenMcpServerResponse, OpenMcpServerOauthRegisterParams, OpenMcpServerOauthRegisterResponse, PortalMcpTt4bAuthorizeParams, PortalMcpTt4bAuthorizeResponse, OpenMcpServerOauthTokenParams, OpenMcpServerOauthTokenResponse, OpenMcpServerOauthRevokeParams, OpenMcpServerOauthRevokeResponse, OpenMcpServerParams, OpenMcpServerResponse } from "../types/mcp-authorization.ts";
 

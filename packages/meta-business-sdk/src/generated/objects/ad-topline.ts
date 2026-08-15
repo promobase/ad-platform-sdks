@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:dcabb0d93209188b7751eb5db506f4cb7b6650f96ff8d73c0a4b45450583de27
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface AdToplineFields {

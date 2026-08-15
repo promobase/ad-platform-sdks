@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a9026bee42c92abbceda11f8ed65f29933fec277c4c9d8cb9ac50950ca7b1798
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.enums.CallToActionTypeEnum.CallToActionType. Do not edit by hand.
 export type CallToActionType =
   | "UNSPECIFIED"

@@ -1,6 +1,6 @@
 /**
- * Verify a Meta webhook challenge request.
- * Used in GET handler to respond to Meta's subscription verification.
+ * Verify a provider webhook challenge request.
+ * Used in GET handlers to respond to subscription verification.
  */
 export function verifyWebhookChallenge(
   params: {

@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:c145d9e170b8a0eab8925453def4d707da64a4c1b9671feef436273996f6452c
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { AppPublisherFields } from "./app-publisher.ts";
 import type { WebPublisherFields } from "./web-publisher.ts";
 
@@ -45,7 +48,7 @@ export function publisherBlockListNode(client: ApiClient, id: string) {
     createAppendPublisherUrl: (params: PublisherBlockListCreateAppendPublisherUrlsParams) =>
       client.post<Record<string, unknown>>(`${id}/append_publisher_urls`, params as Record<string, unknown>),
     pagedWebPublishers: <F extends (keyof WebPublisherFields)[]>(opts: { fields: F; params?: PublisherBlockListListPagedWebPublishersParams }) =>
-      new Cursor<Pick<WebPublisherFields, F[number]>>(client, `${id}/paged_web_publishers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<WebPublisherFields, F[number]>>(client, `${id}/paged_web_publishers`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

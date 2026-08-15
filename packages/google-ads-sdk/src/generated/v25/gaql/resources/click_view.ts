@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:4246ab9515fb27b19ef1d1a69522acb11b275650182d3841719dea41864ef696
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type ClickViewSelectableField =
   | "click_view.resource_name"

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3eb2a20a8977d8993debc730efff010aca7745ba7b8af5bc934a6672ce2042ed
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AdCampaignLearningStageInfoFields {
   attribution_windows: string[];
   cas_segment: string;

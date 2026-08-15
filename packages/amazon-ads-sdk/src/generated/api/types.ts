@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:fbedd969cffe6e72ac903201fb6fd3bd95a779106c90047e5e37f3c9f94be1ec
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for the Amazon Ads API v3 — do not edit
 
 export interface AdsBrandStoresApiContractBadGatewayResponseContent {

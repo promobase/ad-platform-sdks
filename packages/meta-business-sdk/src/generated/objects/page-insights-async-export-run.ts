@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d1515b4d81ad894361b74cc5607fa6b5c65fff253e694d5df0b015d1ea5df2a1
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface PageInsightsAsyncExportRunFields {

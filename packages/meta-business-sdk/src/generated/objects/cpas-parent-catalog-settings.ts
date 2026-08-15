@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:8bf551afae5fb75c728e711381990ea173fe70fb8fd7e1c911f310722ef46069
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface CPASParentCatalogSettingsFields {

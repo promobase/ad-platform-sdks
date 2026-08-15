@@ -1,0 +1,50 @@
+---
+title: "Facebook Image Copyright Dispute endpoints"
+description: "1 generated Facebook endpoint contract for Image Copyright Dispute."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 279
+  label: "Image Copyright Dispute"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:9d0d9b52b97841167b57b432608b678b6a1813ea0f851c3091f1d95a490a1ccf -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.imageCopyrightDispute.get
+
+`GET` `/{id}`
+
+GET ImageCopyrightDispute
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `imageCopyrightDispute.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `ImageCopyrightDisputeFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

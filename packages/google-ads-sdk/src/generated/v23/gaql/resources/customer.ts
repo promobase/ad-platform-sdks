@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d26529da7ccfeca27e365039a1b6c7b16b17be9f5cd8ac7a91b0d9d3db29a9fe
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type CustomerSelectableField =
   | "customer.resource_name"

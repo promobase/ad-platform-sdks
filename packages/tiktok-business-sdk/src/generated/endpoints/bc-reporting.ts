@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:92cd45cf41be45bf49a2debb52f18b839c7d395dff319087b011937c9f706b4c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for BC Reporting — do not edit
 import type { BcAdvertiserAttributeParams, BcAdvertiserAttributeResponse } from "../types/bc-reporting.ts";
 

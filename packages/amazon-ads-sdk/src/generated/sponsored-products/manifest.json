@@ -1,4 +1,8 @@
 {
+  "_generated": {
+    "fingerprint": "sha256:3e25c502d96674d6c52cd81cc795493d95f6d94c6e8c3cd44f30f4b6815f2af3",
+    "doNotEdit": true
+  },
   "source": "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/SponsoredProducts_prod_3p.json",
   "specSha256": "93fa50011836e3f4a6d3beff320735c8f9f77c7ee14fe212899b346a7ba344cc",
   "endpoints": 80,

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:32c8a309357644fdf0f4a464609b99b7bbce0d1f297e67841d11b7e3ee9195a3
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface PageLocationsBreakdownFields {
   location_id: string;
   location_name: string;

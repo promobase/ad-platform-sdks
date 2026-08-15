@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:01e4ea816ab8b305af979f697b7d48a77a442d2976174809531f2c9da0749f5b
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface GeoGatingPolicyFields {

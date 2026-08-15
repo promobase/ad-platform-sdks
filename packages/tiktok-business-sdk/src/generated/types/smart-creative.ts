@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:575666f16424eb803aaff9072dfda381b5e532134ca9d96cdad09661f2b89783
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Smart Creative — do not edit
 
 export interface AdAcoGetParams {

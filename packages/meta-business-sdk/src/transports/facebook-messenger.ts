@@ -1,6 +1,6 @@
-import { requestMetaJson, type MetaTransportClientOptions } from "./http.ts";
+import { requestJson, type TransportClientOptions } from "./http.ts";
 
-export type FacebookMessengerClientOptions = MetaTransportClientOptions & {
+export type FacebookMessengerClientOptions = TransportClientOptions & {
   readonly pageId: string;
 };
 
@@ -20,7 +20,7 @@ export type FacebookMessengerMessage =
 
 export function createFacebookMessengerTransport(opts: FacebookMessengerClientOptions) {
   async function send(message: FacebookMessengerMessage, recipientId: string) {
-    const result = await requestMetaJson<{
+    const result = await requestJson<{
       readonly recipient_id: string;
       readonly message_id: string;
     }>(opts, "facebook", "messenger.send", `${opts.pageId}/messages`, {

@@ -1,0 +1,50 @@
+---
+title: "Facebook Ads Naming Template endpoints"
+description: "1 generated Facebook endpoint contract for Ads Naming Template."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 149
+  label: "Ads Naming Template"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:54e181b55a5f8c4b62f58a0760b4435093c43f51a244261b8c385f4c9956b6b4 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.adsNamingTemplate.get
+
+`GET` `/{id}`
+
+GET AdsNamingTemplate
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `adsNamingTemplate.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `AdsNamingTemplateFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

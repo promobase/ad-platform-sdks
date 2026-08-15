@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d08a7f8d7699a3184d29611e7d0294fc851bbc1a92b7efae87fedcceffef8da2
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type OfflineConversionUploadClientSummarySelectableField =
   | "offline_conversion_upload_client_summary.resource_name"

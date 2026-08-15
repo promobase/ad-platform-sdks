@@ -1,0 +1,1197 @@
+---
+title: "Facebook models: Offline Conversion Data Set Upload Sort By – Partner Center Export File Fields"
+description: "100 generated Facebook model contracts, from OfflineConversionDataSetUploadSortBy through PartnerCenterExportFileFields."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 1010
+  label: "Offline Conversion Data Set Upload Sort By – Partner Center Export File Fields"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:8440020f3f8f9c1b15386fc9b303c22747c3f34733fcbcc74ecc7bf240e22ac5 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## OfflineConversionDataSetUploadSortBy
+
+`enum` model on the `json` wire format.
+
+**Values:** `API_CALLS`, `CREATION_TIME`, `EVENT_TIME_MAX`, `EVENT_TIME_MIN`, `FIRST_UPLOAD_TIME`, `IS_EXCLUDED_FOR_LIFT`, `LAST_UPLOAD_TIME`
+
+## OfflineConversionDataSetUsageFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `num_lift_studies` | `num_lift_studies` | `integer` | No | No | — |
+
+## OfflineProductItemFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `applinks` | `applinks` | `CatalogItemAppLinksFields` | No | No | — |
+| `brand` | `brand` | `string` | No | No | — |
+| `category` | `category` | `string` | No | No | — |
+| `currency` | `currency` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `image_fetch_status` | `image_fetch_status` | `OfflineProductItemImageFetchStatus` | No | No | — |
+| `image_url` | `image_url` | `string` | No | No | — |
+| `images` | `images` | `Array<string>` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `offline_product_item_id` | `offline_product_item_id` | `string` | No | No | — |
+| `price` | `price` | `string` | No | No | — |
+| `sanitized_images` | `sanitized_images` | `Array<string>` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+| `visibility` | `visibility` | `OfflineProductItemVisibility` | No | No | — |
+
+## OfflineProductItemImageFetchStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `DIRECT_UPLOAD`, `FETCHED`, `FETCH_FAILED`, `NO_STATUS`, `OUTDATED`, `PARTIAL_FETCH`
+
+## OfflineProductItemVisibility
+
+`enum` model on the `json` wire format.
+
+**Values:** `PUBLISHED`, `STAGING`
+
+## OfflineTermsOfServiceFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `accept_time` | `accept_time` | `integer` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `signed_by_user` | `signed_by_user` | `UserFields` | No | No | — |
+
+## OffsitePixelFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `creator` | `creator` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `js_pixel` | `js_pixel` | `string` | No | No | — |
+| `last_firing_time` | `last_firing_time` | `string<date-time>` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `tag` | `tag` | `string` | No | No | — |
+
+## OffsiteSignalContainerBusinessObjectFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business` | `business` | `BusinessFields` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `is_eligible_for_sharing_to_ad_account` | `is_eligible_for_sharing_to_ad_account` | `boolean` | No | No | — |
+| `is_eligible_for_sharing_to_business` | `is_eligible_for_sharing_to_business` | `boolean` | No | No | — |
+| `is_unavailable` | `is_unavailable` | `boolean` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `primary_container_id` | `primary_container_id` | `string` | No | No | — |
+
+## OmegaCustomerTrxFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ad_account_ids` | `ad_account_ids` | `Array<string>` | No | No | — |
+| `advertiser_name` | `advertiser_name` | `string` | No | No | — |
+| `amount` | `amount` | `string` | No | No | — |
+| `amount_due` | `amount_due` | `CurrencyAmountFields` | No | No | — |
+| `billed_amount_details` | `billed_amount_details` | `Record<string, unknown>` | No | No | — |
+| `billing_period` | `billing_period` | `string` | No | No | — |
+| `cdn_download_uri` | `cdn_download_uri` | `string` | No | No | — |
+| `currency` | `currency` | `string` | No | No | — |
+| `download_uri` | `download_uri` | `string` | No | No | — |
+| `due_date` | `due_date` | `string<date-time>` | No | No | — |
+| `entity` | `entity` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `invoice_date` | `invoice_date` | `string<date-time>` | No | No | — |
+| `invoice_id` | `invoice_id` | `string` | No | No | — |
+| `invoice_type` | `invoice_type` | `string` | No | No | — |
+| `liability_type` | `liability_type` | `string` | No | No | — |
+| `payment_status` | `payment_status` | `string` | No | No | — |
+| `payment_term` | `payment_term` | `string` | No | No | — |
+| `type` | `type` | `string` | No | No | — |
+
+## OmegaCustomerTrxType
+
+`enum` model on the `json` wire format.
+
+**Values:** `CM`, `DM`, `INV`, `PRO_FORMA`
+
+## OpenBridgeConfigurationCapiPublishingState
+
+`enum` model on the `json` wire format.
+
+**Values:** `DISABLED`, `ENABLED`, `NOT_INITIALIZED`
+
+## OpenBridgeConfigurationEventEnrichmentAdvertiserState
+
+`enum` model on the `json` wire format.
+
+**Values:** `DISABLED`, `ENABLED`, `NOT_INITIALIZED`
+
+## OpenBridgeConfigurationEventEnrichmentMetaState
+
+`enum` model on the `json` wire format.
+
+**Values:** `ALLOWED`, `BLOCKED`, `NOT_INITIALIZED`
+
+## OpenBridgeConfigurationEventEnrichmentState
+
+`enum` model on the `json` wire format.
+
+**Values:** `NO`, `NOT_INITIALIZED`, `YES`
+
+## OpenBridgeConfigurationFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `active` | `active` | `boolean` | No | No | — |
+| `associated_sgw_data_source_id` | `associated_sgw_data_source_id` | `string` | No | No | — |
+| `blocked_event_types` | `blocked_event_types` | `Array<string>` | No | No | — |
+| `blocked_websites` | `blocked_websites` | `Array<string>` | No | No | — |
+| `browser_agent` | `browser_agent` | `Array<string>` | No | No | — |
+| `capi_publishing_state` | `capi_publishing_state` | `string` | No | No | — |
+| `cloud_provider` | `cloud_provider` | `string` | No | No | — |
+| `cloud_region` | `cloud_region` | `string` | No | No | — |
+| `destination_id` | `destination_id` | `string` | No | No | — |
+| `endpoint` | `endpoint` | `string` | No | No | — |
+| `event_enrichment_advertiser_state` | `event_enrichment_advertiser_state` | `string` | No | No | — |
+| `event_enrichment_meta_state` | `event_enrichment_meta_state` | `string` | No | No | — |
+| `event_enrichment_state` | `event_enrichment_state` | `string` | No | No | — |
+| `fallback_domain` | `fallback_domain` | `string` | No | No | — |
+| `host_business_id` | `host_business_id` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `instance_id` | `instance_id` | `string` | No | No | — |
+| `instance_version` | `instance_version` | `string` | No | No | — |
+| `is_sgw_instance` | `is_sgw_instance` | `boolean` | No | No | — |
+| `is_sgw_pixel_from_meta_pixel` | `is_sgw_pixel_from_meta_pixel` | `boolean` | No | No | — |
+| `mpc_fallback_domain` | `mpc_fallback_domain` | `string` | No | No | — |
+| `partner_name` | `partner_name` | `string` | No | No | — |
+| `pixel_id` | `pixel_id` | `string` | No | No | — |
+| `sgw_account_id` | `sgw_account_id` | `string` | No | No | — |
+| `sgw_instance_url` | `sgw_instance_url` | `string` | No | No | — |
+| `sgw_pixel_id` | `sgw_pixel_id` | `string` | No | No | — |
+
+## OpenGraphContextFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+
+## OrderIDAttributionsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | No | No | — |
+| `attribution_type` | `attribution_type` | `string` | No | No | — |
+| `attributions` | `attributions` | `Array<Record<string, unknown>>` | No | No | — |
+| `conversion_device` | `conversion_device` | `string` | No | No | — |
+| `dataset_id` | `dataset_id` | `string` | No | No | — |
+| `holdout_status` | `holdout_status` | `Array<Record<string, unknown>>` | No | No | — |
+| `order_id` | `order_id` | `string` | No | No | — |
+| `order_timestamp` | `order_timestamp` | `string<date-time>` | No | No | — |
+| `pixel_id` | `pixel_id` | `string` | No | No | — |
+
+## OrganizationFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `legal_entity_name` | `legal_entity_name` | `string` | No | No | — |
+| `owner_business` | `owner_business` | `BusinessFields` | No | No | — |
+
+## OutcomePredictionPointFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actions` | `actions` | `number` | No | No | — |
+| `impressions` | `impressions` | `number` | No | No | — |
+| `reach` | `reach` | `number` | No | No | — |
+| `spend` | `spend` | `integer` | No | No | — |
+
+## OverrideDetailsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `key` | `key` | `string` | No | No | — |
+| `type` | `type` | `string` | No | No | — |
+| `values` | `values` | `Record<string, unknown>` | No | No | — |
+
+## OverrideDetailsType
+
+`enum` model on the `json` wire format.
+
+**Values:** `COUNTRY`, `LANGUAGE`, `LANGUAGE_AND_COUNTRY`
+
+## OwnedDomainFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `domain_name` | `domain_name` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `owner_business` | `owner_business` | `BusinessFields` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+| `verification_code` | `verification_code` | `string` | No | No | — |
+
+## P2MInvoicePaymentsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `page_id` | `page_id` | `string` | No | No | — |
+| `payments` | `payments` | `Array<Record<string, unknown>>` | No | No | — |
+
+## PageAboutStoryComposedBlockEntityRangesFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `key` | `key` | `string` | No | No | — |
+| `length` | `length` | `integer` | No | No | — |
+| `offset` | `offset` | `integer` | No | No | — |
+
+## PageAboutStoryComposedBlockFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `depth` | `depth` | `integer` | No | No | — |
+| `entity_ranges` | `entity_ranges` | `Array<PageAboutStoryComposedBlockEntityRangesFields>` | No | No | — |
+| `inline_style_ranges` | `inline_style_ranges` | `Array<PageAboutStoryComposedBlockInlineStyleFields>` | No | No | — |
+| `text` | `text` | `string` | No | No | — |
+| `type` | `type` | `string` | No | No | — |
+
+## PageAboutStoryComposedBlockInlineStyleFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `length` | `length` | `integer` | No | No | — |
+| `offset` | `offset` | `integer` | No | No | — |
+| `style` | `style` | `string` | No | No | — |
+
+## PageActions
+
+`enum` model on the `json` wire format.
+
+**Values:** `BAN_USER`, `BLOCK_USER`, `MOVE_TO_SPAM`, `UNBAN_USER`, `UNBLOCK_USER`
+
+## PageAppWithLeadsAccessFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `can_access_leads` | `can_access_leads` | `boolean` | No | No | — |
+| `type` | `type` | `string` | No | No | — |
+
+## PageAttire
+
+`enum` model on the `json` wire format.
+
+**Values:** `Casual`, `Dressy`, `Unspecified`
+
+## PageBackdatedTimeGranularity
+
+`enum` model on the `json` wire format.
+
+**Values:** `day`, `hour`, `min`, `month`, `none`, `year`
+
+## PageCallToActionAndroidDestinationType
+
+`enum` model on the `json` wire format.
+
+**Values:** `APP_DEEPLINK`, `BECOME_A_VOLUNTEER`, `EMAIL`, `FACEBOOK_APP`, `FOLLOW`, `MARKETPLACE_INVENTORY_PAGE`, `MENU_ON_FACEBOOK`, `MESSENGER`, `MINI_SHOP`, `MOBILE_CENTER`, `NONE`, `PHONE_CALL`, `SHOP_ON_FACEBOOK`, `WEBSITE`
+
+## PageCallToActionFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `android_app` | `android_app` | `ApplicationFields` | No | No | — |
+| `android_deeplink` | `android_deeplink` | `string` | No | No | — |
+| `android_destination_type` | `android_destination_type` | `string` | No | No | — |
+| `android_package_name` | `android_package_name` | `string` | No | No | — |
+| `android_url` | `android_url` | `string` | No | No | — |
+| `created_time` | `created_time` | `string<date-time>` | No | No | — |
+| `email_address` | `email_address` | `string` | No | No | — |
+| `from` | `from` | `PageFields` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `intl_number_with_plus` | `intl_number_with_plus` | `string` | No | No | — |
+| `iphone_app` | `iphone_app` | `ApplicationFields` | No | No | — |
+| `iphone_deeplink` | `iphone_deeplink` | `string` | No | No | — |
+| `iphone_destination_type` | `iphone_destination_type` | `string` | No | No | — |
+| `iphone_url` | `iphone_url` | `string` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+| `type` | `type` | `string` | No | No | — |
+| `updated_time` | `updated_time` | `string<date-time>` | No | No | — |
+| `web_destination_type` | `web_destination_type` | `string` | No | No | — |
+| `web_url` | `web_url` | `string` | No | No | — |
+
+## PageCallToActionIphoneDestinationType
+
+`enum` model on the `json` wire format.
+
+**Values:** `APP_DEEPLINK`, `BECOME_A_VOLUNTEER`, `EMAIL`, `FACEBOOK_APP`, `FOLLOW`, `MARKETPLACE_INVENTORY_PAGE`, `MENU_ON_FACEBOOK`, `MESSENGER`, `MINI_SHOP`, `NONE`, `PHONE_CALL`, `SHOP_ON_FACEBOOK`, `WEBSITE`
+
+## PageCallToActionType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BECOME_A_VOLUNTEER`, `BOOK_APPOINTMENT`, `BOOK_NOW`, `BUY_TICKETS`, `CALL_NOW`, `CHARITY_DONATE`, `CHECK_IN`, `CONTACT_US`, `CREATOR_STOREFRONT`, `DONATE_NOW`, `EMAIL`, `FOLLOW_PAGE`, `GET_DIRECTIONS`, `GET_OFFER`, `GET_OFFER_VIEW`, `INTERESTED`, `LEARN_MORE`, `LISTEN`, `LOCAL_DEV_PLATFORM`, `MESSAGE`, `MOBILE_CENTER`, `OPEN_APP`, `ORDER_FOOD`, `PLAY_MUSIC`, `PLAY_NOW`, `PURCHASE_GIFT_CARDS`, `REQUEST_APPOINTMENT`, `REQUEST_QUOTE`, `SHOP_NOW`, `SHOP_ON_FACEBOOK`, `SIGN_UP`, `VIEW_INVENTORY`, `VIEW_MENU`, `VIEW_SHOP`, `VISIT_GROUP`, `WATCH_NOW`, `WOODHENGE_SUPPORT`
+
+## PageCallToActionWebDestinationType
+
+`enum` model on the `json` wire format.
+
+**Values:** `BECOME_A_VOLUNTEER`, `BECOME_SUPPORTER`, `EMAIL`, `FOLLOW`, `MESSENGER`, `MOBILE_CENTER`, `NONE`, `SHOP_ON_FACEBOOK`, `WEBSITE`
+
+## PageCategory
+
+`enum` model on the `json` wire format.
+
+**Values:** `UTILITY`
+
+## PageCategoryFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `api_enum` | `api_enum` | `string` | No | No | — |
+| `fb_page_categories` | `fb_page_categories` | `Array<PageCategory>` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+
+## PageChangeProposalFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `acceptance_status` | `acceptance_status` | `string` | No | No | — |
+| `category` | `category` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `upcoming_change_info` | `upcoming_change_info` | `PageUpcomingChangeFields` | No | No | — |
+
+## PageCrmsWithLeadsAccessFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `can_access_leads` | `can_access_leads` | `boolean` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `integration_type` | `integration_type` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+
+## PageCTSTopicFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `app_id` | `app_id` | `string` | No | No | — |
+| `frequency` | `frequency` | `string` | No | No | — |
+| `image_hash` | `image_hash` | `string` | No | No | — |
+| `image_url` | `image_url` | `string` | No | No | — |
+| `subscriber` | `subscriber` | `integer` | No | No | — |
+| `title` | `title` | `string` | No | No | — |
+
+## PageCTXBudgetDFOBudgetRecommendationFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `string` | No | No | — |
+| `budget_leads` | `budget_leads` | `string` | No | No | — |
+| `budget_new_model` | `budget_new_model` | `string` | No | No | — |
+| `budget_purchases` | `budget_purchases` | `string` | No | No | — |
+| `budget_value` | `budget_value` | `string` | No | No | — |
+| `budget_without_threshold` | `budget_without_threshold` | `string` | No | No | — |
+| `reported_conversion` | `reported_conversion` | `string` | No | No | — |
+| `reported_conversion_leads` | `reported_conversion_leads` | `string` | No | No | — |
+| `reported_conversion_purchases` | `reported_conversion_purchases` | `string` | No | No | — |
+| `reported_conversion_value` | `reported_conversion_value` | `string` | No | No | — |
+| `reported_conversions_new_model` | `reported_conversions_new_model` | `string` | No | No | — |
+| `reported_conversions_without_threshold` | `reported_conversions_without_threshold` | `string` | No | No | — |
+| `zo_budget` | `zo_budget` | `string` | No | No | — |
+| `zo_budget_leads` | `zo_budget_leads` | `string` | No | No | — |
+| `zo_budget_purchases` | `zo_budget_purchases` | `string` | No | No | — |
+| `zo_budget_value` | `zo_budget_value` | `string` | No | No | — |
+
+## PageCTXBudgetSimilarAdvertiserBudgetRecommendationFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `budget` | `budget` | `string` | No | No | — |
+| `budget_new_model` | `budget_new_model` | `string` | No | No | — |
+| `budget_without_threshold` | `budget_without_threshold` | `string` | No | No | — |
+| `reported_conversion` | `reported_conversion` | `string` | No | No | — |
+| `reported_conversions_new_model` | `reported_conversions_new_model` | `string` | No | No | — |
+| `reported_conversions_without_threshold` | `reported_conversions_without_threshold` | `string` | No | No | — |
+
+## PageCTXDefaultGreetingTextFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `ctd` | `ctd` | `string` | No | No | — |
+| `ctm` | `ctm` | `string` | No | No | — |
+| `ctwa` | `ctwa` | `string` | No | No | — |
+
+## PageCTXMessagingFeatureLimitFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `messaging_feature_limit_duration` | `messaging_feature_limit_duration` | `integer` | No | No | — |
+| `messaging_feature_limit_type` | `messaging_feature_limit_type` | `string` | No | No | — |
+| `messaging_violation_type` | `messaging_violation_type` | `string` | No | No | — |
+
+## PageDeveloperAction
+
+`enum` model on the `json` wire format.
+
+**Values:** `ENABLE_FOLLOWUP_MESSAGE`
+
+## PageDirectIntegrationCrmWithLeadsAccessFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `can_access_leads` | `can_access_leads` | `boolean` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+
+## PageFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `about` | `about` | `string` | No | No | — |
+| `access_token` | `access_token` | `string` | No | No | — |
+| `ad_campaign` | `ad_campaign` | `AdSetFields` | No | No | — |
+| `affiliation` | `affiliation` | `string` | No | No | — |
+| `app_id` | `app_id` | `string` | No | No | — |
+| `artists_we_like` | `artists_we_like` | `string` | No | No | — |
+| `attire` | `attire` | `string` | No | No | — |
+| `available_promo_offer_ids` | `available_promo_offer_ids` | `Array<Record<string, Array<Record<string, string>>>>` | No | No | — |
+| `awards` | `awards` | `string` | No | No | — |
+| `band_interests` | `band_interests` | `string` | No | No | — |
+| `band_members` | `band_members` | `string` | No | No | — |
+| `best_page` | `best_page` | `PageFields` | No | No | — |
+| `bio` | `bio` | `string` | No | No | — |
+| `birthday` | `birthday` | `string` | No | No | — |
+| `booking_agent` | `booking_agent` | `string` | No | No | — |
+| `breaking_news_usage` | `breaking_news_usage` | `Record<string, unknown>` | No | No | — |
+| `built` | `built` | `string` | No | No | — |
+| `business` | `business` | `Record<string, unknown>` | No | No | — |
+| `can_checkin` | `can_checkin` | `boolean` | No | No | — |
+| `can_post` | `can_post` | `boolean` | No | No | — |
+| `category` | `category` | `string` | No | No | — |
+| `category_list` | `category_list` | `Array<PageCategory>` | No | No | — |
+| `checkins` | `checkins` | `integer` | No | No | — |
+| `company_overview` | `company_overview` | `string` | No | No | — |
+| `connected_instagram_account` | `connected_instagram_account` | `IGUserFields` | No | No | — |
+| `connected_page_backed_instagram_account` | `connected_page_backed_instagram_account` | `IGUserFields` | No | No | — |
+| `contact_address` | `contact_address` | `MailingAddressFields` | No | No | — |
+| `copyright_attribution_insights` | `copyright_attribution_insights` | `CopyrightAttributionInsightsFields` | No | No | — |
+| `copyright_whitelisted_ig_partners` | `copyright_whitelisted_ig_partners` | `Array<string>` | No | No | — |
+| `country_page_likes` | `country_page_likes` | `integer` | No | No | — |
+| `cover` | `cover` | `CoverPhotoFields` | No | No | — |
+| `culinary_team` | `culinary_team` | `string` | No | No | — |
+| `current_location` | `current_location` | `string` | No | No | — |
+| `delivery_and_pickup_option_info` | `delivery_and_pickup_option_info` | `Array<string>` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `description_html` | `description_html` | `string` | No | No | — |
+| `differently_open_offerings` | `differently_open_offerings` | `Array<Record<string, boolean>>` | No | No | — |
+| `directed_by` | `directed_by` | `string` | No | No | — |
+| `display_subtext` | `display_subtext` | `string` | No | No | — |
+| `displayed_message_response_time` | `displayed_message_response_time` | `string` | No | No | — |
+| `does_viewer_have_page_permission_link_ig` | `does_viewer_have_page_permission_link_ig` | `boolean` | No | No | — |
+| `emails` | `emails` | `Array<string>` | No | No | — |
+| `engagement` | `engagement` | `EngagementFields` | No | No | — |
+| `fan_count` | `fan_count` | `integer` | No | No | — |
+| `featured_video` | `featured_video` | `AdVideoFields` | No | No | — |
+| `features` | `features` | `string` | No | No | — |
+| `followers_count` | `followers_count` | `integer` | No | No | — |
+| `food_styles` | `food_styles` | `Array<string>` | No | No | — |
+| `founded` | `founded` | `string` | No | No | — |
+| `general_info` | `general_info` | `string` | No | No | — |
+| `general_manager` | `general_manager` | `string` | No | No | — |
+| `genre` | `genre` | `string` | No | No | — |
+| `global_brand_page_name` | `global_brand_page_name` | `string` | No | No | — |
+| `global_brand_root_id` | `global_brand_root_id` | `string` | No | No | — |
+| `has_added_app` | `has_added_app` | `boolean` | No | No | — |
+| `has_lead_access` | `has_lead_access` | `HasLeadAccessFields` | No | No | — |
+| `has_transitioned_to_new_page_experience` | `has_transitioned_to_new_page_experience` | `boolean` | No | No | — |
+| `has_whatsapp_business_number` | `has_whatsapp_business_number` | `boolean` | No | No | — |
+| `has_whatsapp_number` | `has_whatsapp_number` | `boolean` | No | No | — |
+| `hometown` | `hometown` | `string` | No | No | — |
+| `hours` | `hours` | `Record<string, string>` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `impressum` | `impressum` | `string` | No | No | — |
+| `influences` | `influences` | `string` | No | No | — |
+| `instagram_business_account` | `instagram_business_account` | `IGUserFields` | No | No | — |
+| `is_always_open` | `is_always_open` | `boolean` | No | No | — |
+| `is_calling_eligible` | `is_calling_eligible` | `boolean` | No | No | — |
+| `is_chain` | `is_chain` | `boolean` | No | No | — |
+| `is_community_page` | `is_community_page` | `boolean` | No | No | — |
+| `is_eligible_for_branded_content` | `is_eligible_for_branded_content` | `boolean` | No | No | — |
+| `is_eligible_for_disable_connect_ig_btn_for_non_page_admin_am_web` | `is_eligible_for_disable_connect_ig_btn_for_non_page_admin_am_web` | `boolean` | No | No | — |
+| `is_messenger_bot_get_started_enabled` | `is_messenger_bot_get_started_enabled` | `boolean` | No | No | — |
+| `is_messenger_platform_bot` | `is_messenger_platform_bot` | `boolean` | No | No | — |
+| `is_owned` | `is_owned` | `boolean` | No | No | — |
+| `is_permanently_closed` | `is_permanently_closed` | `boolean` | No | No | — |
+| `is_published` | `is_published` | `boolean` | No | No | — |
+| `is_unclaimed` | `is_unclaimed` | `boolean` | No | No | — |
+| `is_verified` | `is_verified` | `boolean` | No | No | — |
+| `is_webhooks_subscribed` | `is_webhooks_subscribed` | `boolean` | No | No | — |
+| `keywords` | `keywords` | `Record<string, unknown>` | No | No | — |
+| `leadgen_tos_acceptance_time` | `leadgen_tos_acceptance_time` | `string<date-time>` | No | No | — |
+| `leadgen_tos_accepted` | `leadgen_tos_accepted` | `boolean` | No | No | — |
+| `leadgen_tos_accepting_user` | `leadgen_tos_accepting_user` | `UserFields` | No | No | — |
+| `link` | `link` | `string` | No | No | — |
+| `location` | `location` | `LocationFields` | No | No | — |
+| `members` | `members` | `string` | No | No | — |
+| `merchant_id` | `merchant_id` | `string` | No | No | — |
+| `merchant_review_status` | `merchant_review_status` | `string` | No | No | — |
+| `messaging_feature_status` | `messaging_feature_status` | `MessagingFeatureStatusFields` | No | No | — |
+| `messenger_ads_default_icebreakers` | `messenger_ads_default_icebreakers` | `Array<string>` | No | No | — |
+| `messenger_ads_default_quick_replies` | `messenger_ads_default_quick_replies` | `Array<string>` | No | No | — |
+| `messenger_ads_quick_replies_type` | `messenger_ads_quick_replies_type` | `string` | No | No | — |
+| `mini_shop_storefront` | `mini_shop_storefront` | `ShopFields` | No | No | — |
+| `mission` | `mission` | `string` | No | No | — |
+| `mpg` | `mpg` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `name_with_location_descriptor` | `name_with_location_descriptor` | `string` | No | No | — |
+| `network` | `network` | `string` | No | No | — |
+| `new_like_count` | `new_like_count` | `integer` | No | No | — |
+| `offer_eligible` | `offer_eligible` | `boolean` | No | No | — |
+| `overall_star_rating` | `overall_star_rating` | `number` | No | No | — |
+| `owner_business` | `owner_business` | `BusinessFields` | No | No | — |
+| `page_backed_threads_account_id` | `page_backed_threads_account_id` | `string` | No | No | — |
+| `page_token` | `page_token` | `string` | No | No | — |
+| `parent_page` | `parent_page` | `PageFields` | No | No | — |
+| `parking` | `parking` | `PageParkingFields` | No | No | — |
+| `payment_options` | `payment_options` | `PagePaymentOptionsFields` | No | No | — |
+| `personal_info` | `personal_info` | `string` | No | No | — |
+| `personal_interests` | `personal_interests` | `string` | No | No | — |
+| `pharma_safety_info` | `pharma_safety_info` | `string` | No | No | — |
+| `phone` | `phone` | `string` | No | No | — |
+| `pickup_options` | `pickup_options` | `Array<string>` | No | No | — |
+| `place_type` | `place_type` | `string` | No | No | — |
+| `plot_outline` | `plot_outline` | `string` | No | No | — |
+| `preferred_audience` | `preferred_audience` | `TargetingFields` | No | No | — |
+| `press_contact` | `press_contact` | `string` | No | No | — |
+| `price_range` | `price_range` | `string` | No | No | — |
+| `priority_hours` | `priority_hours` | `Array<Record<string, string>>` | No | No | — |
+| `privacy_info_url` | `privacy_info_url` | `string` | No | No | — |
+| `produced_by` | `produced_by` | `string` | No | No | — |
+| `products` | `products` | `string` | No | No | — |
+| `promotion_eligible` | `promotion_eligible` | `boolean` | No | No | — |
+| `promotion_ineligible_reason` | `promotion_ineligible_reason` | `string` | No | No | — |
+| `public_transit` | `public_transit` | `string` | No | No | — |
+| `rating_count` | `rating_count` | `integer` | No | No | — |
+| `recipient` | `recipient` | `string` | No | No | — |
+| `record_label` | `record_label` | `string` | No | No | — |
+| `release_date` | `release_date` | `string` | No | No | — |
+| `restaurant_services` | `restaurant_services` | `PageRestaurantServicesFields` | No | No | — |
+| `restaurant_specialties` | `restaurant_specialties` | `PageRestaurantSpecialtiesFields` | No | No | — |
+| `schedule` | `schedule` | `string` | No | No | — |
+| `screenplay_by` | `screenplay_by` | `string` | No | No | — |
+| `season` | `season` | `string` | No | No | — |
+| `single_line_address` | `single_line_address` | `string` | No | No | — |
+| `starring` | `starring` | `string` | No | No | — |
+| `start_info` | `start_info` | `PageStartInfoFields` | No | No | — |
+| `store_code` | `store_code` | `string` | No | No | — |
+| `store_location_descriptor` | `store_location_descriptor` | `string` | No | No | — |
+| `store_number` | `store_number` | `integer` | No | No | — |
+| `studio` | `studio` | `string` | No | No | — |
+| `supports_donate_button_in_live_video` | `supports_donate_button_in_live_video` | `boolean` | No | No | — |
+| `talking_about_count` | `talking_about_count` | `integer` | No | No | — |
+| `temporary_status` | `temporary_status` | `string` | No | No | — |
+| `unread_message_count` | `unread_message_count` | `integer` | No | No | — |
+| `unread_notif_count` | `unread_notif_count` | `integer` | No | No | — |
+| `unseen_message_count` | `unseen_message_count` | `integer` | No | No | — |
+| `user_access_expire_time` | `user_access_expire_time` | `string<date-time>` | No | No | — |
+| `username` | `username` | `string` | No | No | — |
+| `verification_status` | `verification_status` | `string` | No | No | — |
+| `voip_info` | `voip_info` | `VoipInfoFields` | No | No | — |
+| `website` | `website` | `string` | No | No | — |
+| `were_here_count` | `were_here_count` | `integer` | No | No | — |
+| `whatsapp_number` | `whatsapp_number` | `string` | No | No | — |
+| `written_by` | `written_by` | `string` | No | No | — |
+
+## PageFolder
+
+`enum` model on the `json` wire format.
+
+**Values:** `PARTNERSHIP`
+
+## PageFoodStyles
+
+`enum` model on the `json` wire format.
+
+**Values:** `Afghani`, `American (New)`, `American (Traditional)`, `Asian Fusion`, `Barbeque`, `Brazilian`, `Breakfast`, `British`, `Brunch`, `Buffets`, `Burgers`, `Burmese`, `Cajun/Creole`, `Caribbean`, `Chinese`, `Creperies`, `Cuban`, `Delis`, `Diners`, `Ethiopian`, `Fast Food`, `Filipino`, `Fondue`, `Food Stands`, `French`, `German`, `Greek and Mediterranean`, `Hawaiian`, `Himalayan/Nepalese`, `Hot Dogs`, `Indian/Pakistani`, `Irish`, `Italian`, `Japanese`, `Korean`, `Latin American`, `Mexican`, `Middle Eastern`, `Moroccan`, `Pizza`, `Russian`, `Sandwiches`, `Seafood`, `Singaporean`, `Soul Food`, `Southern`, `Spanish/Basque`, `Steakhouses`, `Sushi Bars`, `Taiwanese`, `Tapas Bars`, `Tex-Mex`, `Thai`, `Turkish`, `Vegan`, `Vegetarian`, `Vietnamese`
+
+## PageFormatting
+
+`enum` model on the `json` wire format.
+
+**Values:** `MARKDOWN`, `PLAINTEXT`
+
+## PageGameBotQuotaInformationFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `count` | `count` | `integer` | No | No | — |
+| `time_window` | `time_window` | `integer` | No | No | — |
+
+## PageGenAiProvenanceType
+
+`enum` model on the `json` wire format.
+
+**Values:** `C2PA`, `C2PA_METADATA_EDITED`, `EXPLICIT`, `EXPLICIT_ANIMATE`, `EXPLICIT_DROP_IN`, `EXPLICIT_FACE_SWAP`, `EXPLICIT_IMAGINE`, `EXPLICIT_IMAGINE_ME`, `EXPLICIT_RESTYLE`, `EXPLICIT_WARDROBE`, `INVISIBLE_WATERMARK`, `IPTC`, `IPTC_METADATA_EDITED`
+
+## PageGetStartedNullstateFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `cta_title` | `cta_title` | `string` | No | No | — |
+| `processed_greeting` | `processed_greeting` | `string` | No | No | — |
+| `responsiveness` | `responsiveness` | `string` | No | No | — |
+
+## PageInsightsAsyncExportRunFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `data_level` | `data_level` | `string` | No | No | — |
+| `filters` | `filters` | `Array<Record<string, unknown>>` | No | No | — |
+| `format` | `format` | `string` | No | No | — |
+| `gen_report_date` | `gen_report_date` | `integer` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `report_end_date` | `report_end_date` | `integer` | No | No | — |
+| `report_start_date` | `report_start_date` | `integer` | No | No | — |
+| `sorters` | `sorters` | `Array<Record<string, unknown>>` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+
+## PageLeadsAccessConfigFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `page` | `page` | `PageFields` | No | No | — |
+
+## PageLocationsBreakdownFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `location_id` | `location_id` | `string` | No | No | — |
+| `location_name` | `location_name` | `string` | No | No | — |
+| `location_type` | `location_type` | `string` | No | No | — |
+| `num_pages` | `num_pages` | `integer` | No | No | — |
+| `num_pages_eligible_for_store_visit_reporting` | `num_pages_eligible_for_store_visit_reporting` | `integer` | No | No | — |
+| `num_unpublished_or_closed_pages` | `num_unpublished_or_closed_pages` | `integer` | No | No | — |
+| `parent_country_code` | `parent_country_code` | `string` | No | No | — |
+| `parent_region_id` | `parent_region_id` | `integer` | No | No | — |
+| `parent_region_name` | `parent_region_name` | `string` | No | No | — |
+
+## PageMessageResponsivenessMetricsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `is_very_responsive` | `is_very_responsive` | `boolean` | No | No | — |
+| `response_rate` | `response_rate` | `number` | No | No | — |
+| `response_time` | `response_time` | `number` | No | No | — |
+
+## PageMessagingType
+
+`enum` model on the `json` wire format.
+
+**Values:** `MESSAGE_TAG`, `RESPONSE`, `UPDATE`, `UTILITY`
+
+## PageModel
+
+`enum` model on the `json` wire format.
+
+**Values:** `ARABIC`, `CHINESE`, `CROATIAN`, `CUSTOM`, `DANISH`, `DUTCH`, `ENGLISH`, `FRENCH_STANDARD`, `GEORGIAN`, `GERMAN_STANDARD`, `GREEK`, `HEBREW`, `HUNGARIAN`, `IRISH`, `ITALIAN_STANDARD`, `KOREAN`, `NORWEGIAN_BOKMAL`, `POLISH`, `PORTUGUESE`, `ROMANIAN`, `SPANISH`, `SWEDISH`, `VIETNAMESE`
+
+## PageNotificationType
+
+`enum` model on the `json` wire format.
+
+**Values:** `NO_PUSH`, `REGULAR`, `SILENT_PUSH`
+
+## PageParameterFormat
+
+`enum` model on the `json` wire format.
+
+**Values:** `NAMED`, `POSITIONAL`
+
+## PageParkingFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `lot` | `lot` | `integer` | No | No | — |
+| `street` | `street` | `integer` | No | No | — |
+| `valet` | `valet` | `integer` | No | No | — |
+
+## PagePartnerWithLeadsAccessFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `can_access_leads` | `can_access_leads` | `boolean` | No | No | — |
+| `partner_business` | `partner_business` | `BusinessFields` | No | No | — |
+| `permitted_tasks` | `permitted_tasks` | `Array<string>` | No | No | — |
+
+## PagePaymentOptionsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `amex` | `amex` | `integer` | No | No | — |
+| `cash_only` | `cash_only` | `integer` | No | No | — |
+| `discover` | `discover` | `integer` | No | No | — |
+| `mastercard` | `mastercard` | `integer` | No | No | — |
+| `visa` | `visa` | `integer` | No | No | — |
+
+## PagePermittedTasks
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADVERTISE`, `ANALYZE`, `CASHIER_ROLE`, `CREATE_CONTENT`, `GLOBAL_STRUCTURE_MANAGEMENT`, `MANAGE`, `MANAGE_JOBS`, `MANAGE_LEADS`, `MESSAGING`, `MODERATE`, `MODERATE_COMMUNITY`, `PAGES_MESSAGING`, `PAGES_MESSAGING_SUBSCRIPTIONS`, `PROFILE_PLUS_ADVERTISE`, `PROFILE_PLUS_ANALYZE`, `PROFILE_PLUS_CREATE_CONTENT`, `PROFILE_PLUS_CREATIVE_MANAGEMENT`, `PROFILE_PLUS_CREATOR_MANAGEMENT`, `PROFILE_PLUS_FACEBOOK_ACCESS`, `PROFILE_PLUS_FULL_CONTROL`, `PROFILE_PLUS_GLOBAL_STRUCTURE_MANAGEMENT`, `PROFILE_PLUS_MANAGE`, `PROFILE_PLUS_MANAGE_LEADS`, `PROFILE_PLUS_MESSAGING`, `PROFILE_PLUS_MODERATE`, `PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY`, `PROFILE_PLUS_REVENUE`, `READ_PAGE_MAILBOXES`, `VIEW_MONETIZATION_INSIGHTS`
+
+## PagePickupOptions
+
+`enum` model on the `json` wire format.
+
+**Values:** `CURBSIDE`, `IN_STORE`, `OTHER`
+
+## PagePlaceAttachmentSetting
+
+`enum` model on the `json` wire format.
+
+**Values:** `1`, `2`
+
+## PagePlatform
+
+`enum` model on the `json` wire format.
+
+**Values:** `INSTAGRAM`, `MESSENGER`
+
+## PagePostBackdatedTimeGranularity
+
+`enum` model on the `json` wire format.
+
+**Values:** `day`, `hour`, `min`, `month`, `none`, `year`
+
+## PagePostExperimentFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `auto_resolve_settings` | `auto_resolve_settings` | `Record<string, unknown>` | No | No | — |
+| `control_video_id` | `control_video_id` | `string` | No | No | — |
+| `creation_time` | `creation_time` | `string<date-time>` | No | No | — |
+| `creator` | `creator` | `UserFields` | No | No | — |
+| `declared_winning_time` | `declared_winning_time` | `string<date-time>` | No | No | — |
+| `declared_winning_video_id` | `declared_winning_video_id` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `experiment_video_ids` | `experiment_video_ids` | `Array<string>` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `insight_snapshots` | `insight_snapshots` | `Array<Record<string, Array<Record<string, Record<string, unknown>>>>>` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `optimization_goal` | `optimization_goal` | `string` | No | No | — |
+| `publish_status` | `publish_status` | `string` | No | No | — |
+| `publish_time` | `publish_time` | `string<date-time>` | No | No | — |
+| `scheduled_experiment_timestamp` | `scheduled_experiment_timestamp` | `string<date-time>` | No | No | — |
+| `updated_time` | `updated_time` | `string<date-time>` | No | No | — |
+
+## PagePostExperimentOptimizationGoal
+
+`enum` model on the `json` wire format.
+
+**Values:** `AUTO_RESOLVE_TO_CONTROL`, `AVG_TIME_WATCHED`, `COMMENTS`, `IMPRESSIONS`, `IMPRESSIONS_UNIQUE`, `LINK_CLICKS`, `OTHER`, `REACTIONS`, `REELS_PLAYS`, `SHARES`, `VIDEO_VIEWS_60S`, `VIEWERS`, `VIEWS`
+
+## PagePostFeedStoryVisibility
+
+`enum` model on the `json` wire format.
+
+**Values:** `hidden`, `visible`
+
+## PagePostFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `actions` | `actions` | `Array<unknown>` | No | No | — |
+| `admin_creator` | `admin_creator` | `Record<string, unknown>` | No | No | — |
+| `allowed_advertising_objectives` | `allowed_advertising_objectives` | `Array<string>` | No | No | — |
+| `application` | `application` | `ApplicationFields` | No | No | — |
+| `backdated_time` | `backdated_time` | `string<date-time>` | No | No | — |
+| `call_to_action` | `call_to_action` | `Record<string, unknown>` | No | No | — |
+| `can_reply_privately` | `can_reply_privately` | `boolean` | No | No | — |
+| `child_attachments` | `child_attachments` | `Array<unknown>` | No | No | — |
+| `comments_mirroring_domain` | `comments_mirroring_domain` | `string` | No | No | — |
+| `coordinates` | `coordinates` | `Record<string, unknown>` | No | No | — |
+| `created_time` | `created_time` | `string<date-time>` | No | No | — |
+| `event` | `event` | `EventFields` | No | No | — |
+| `expanded_height` | `expanded_height` | `integer` | No | No | — |
+| `expanded_width` | `expanded_width` | `integer` | No | No | — |
+| `feed_targeting` | `feed_targeting` | `Record<string, unknown>` | No | No | — |
+| `from` | `from` | `Record<string, unknown>` | No | No | — |
+| `full_picture` | `full_picture` | `string` | No | No | — |
+| `height` | `height` | `integer` | No | No | — |
+| `icon` | `icon` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `instagram_eligibility` | `instagram_eligibility` | `string` | No | No | — |
+| `is_app_share` | `is_app_share` | `boolean` | No | No | — |
+| `is_eligible_for_dark_post` | `is_eligible_for_dark_post` | `boolean` | No | No | — |
+| `is_eligible_for_promotion` | `is_eligible_for_promotion` | `boolean` | No | No | — |
+| `is_expired` | `is_expired` | `boolean` | No | No | — |
+| `is_fb_live_videos` | `is_fb_live_videos` | `boolean` | No | No | — |
+| `is_hidden` | `is_hidden` | `boolean` | No | No | — |
+| `is_inline_created` | `is_inline_created` | `boolean` | No | No | — |
+| `is_instagram_eligible` | `is_instagram_eligible` | `boolean` | No | No | — |
+| `is_live_clip` | `is_live_clip` | `boolean` | No | No | — |
+| `is_popular` | `is_popular` | `boolean` | No | No | — |
+| `is_published` | `is_published` | `boolean` | No | No | — |
+| `is_spherical` | `is_spherical` | `boolean` | No | No | — |
+| `message` | `message` | `string` | No | No | — |
+| `message_tags` | `message_tags` | `Array<unknown>` | No | No | — |
+| `multi_share_end_card` | `multi_share_end_card` | `boolean` | No | No | — |
+| `multi_share_optimized` | `multi_share_optimized` | `boolean` | No | No | — |
+| `parent_id` | `parent_id` | `string` | No | No | — |
+| `permalink_url` | `permalink_url` | `string` | No | No | — |
+| `picture` | `picture` | `string` | No | No | — |
+| `place` | `place` | `PlaceFields` | No | No | — |
+| `privacy` | `privacy` | `PrivacyFields` | No | No | — |
+| `promotable_id` | `promotable_id` | `string` | No | No | — |
+| `promotion_status` | `promotion_status` | `string` | No | No | — |
+| `properties` | `properties` | `Array<unknown>` | No | No | — |
+| `scheduled_publish_time` | `scheduled_publish_time` | `number` | No | No | — |
+| `shares` | `shares` | `Record<string, unknown>` | No | No | — |
+| `status_type` | `status_type` | `string` | No | No | — |
+| `story` | `story` | `string` | No | No | — |
+| `story_tags` | `story_tags` | `Array<unknown>` | No | No | — |
+| `subscribed` | `subscribed` | `boolean` | No | No | — |
+| `target` | `target` | `ProfileFields` | No | No | — |
+| `targeting` | `targeting` | `Record<string, unknown>` | No | No | — |
+| `timeline_visibility` | `timeline_visibility` | `string` | No | No | — |
+| `updated_time` | `updated_time` | `string<date-time>` | No | No | — |
+| `via` | `via` | `Record<string, unknown>` | No | No | — |
+| `video_buying_eligibility` | `video_buying_eligibility` | `Array<string>` | No | No | — |
+| `was_fb_live_videos` | `was_fb_live_videos` | `boolean` | No | No | — |
+| `width` | `width` | `integer` | No | No | — |
+
+## PagePostingToRedspace
+
+`enum` model on the `json` wire format.
+
+**Values:** `disabled`, `enabled`
+
+## PagePostSurfacesBlacklist
+
+`enum` model on the `json` wire format.
+
+**Values:** `1`, `2`, `3`, `4`, `5`
+
+## PagePostTimelineVisibility
+
+`enum` model on the `json` wire format.
+
+**Values:** `forced_allow`, `hidden`, `normal`
+
+## PagePostWith
+
+`enum` model on the `json` wire format.
+
+**Values:** `LOCATION`
+
+## PagePublisherFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `global_parent_id` | `global_parent_id` | `string` | No | No | — |
+| `icon` | `icon` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `url` | `url` | `string` | No | No | — |
+
+## PageRecommendationAction
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACCEPT_CLOSED`, `ACCEPT_NEW`, `REJECT_CLOSED`, `REJECT_NEW`
+
+## PageRecommendedPostsInfoFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `recommendation_source` | `recommendation_source` | `string` | No | No | — |
+| `recommended_posts` | `recommended_posts` | `Array<RecommendedPagePostFields>` | No | No | — |
+
+## PageRestaurantServicesFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `catering` | `catering` | `boolean` | No | No | — |
+| `delivery` | `delivery` | `boolean` | No | No | — |
+| `groups` | `groups` | `boolean` | No | No | — |
+| `kids` | `kids` | `boolean` | No | No | — |
+| `outdoor` | `outdoor` | `boolean` | No | No | — |
+| `pickup` | `pickup` | `boolean` | No | No | — |
+| `reserve` | `reserve` | `boolean` | No | No | — |
+| `takeout` | `takeout` | `boolean` | No | No | — |
+| `waiter` | `waiter` | `boolean` | No | No | — |
+| `walkins` | `walkins` | `boolean` | No | No | — |
+
+## PageRestaurantSpecialtiesFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `breakfast` | `breakfast` | `integer` | No | No | — |
+| `coffee` | `coffee` | `integer` | No | No | — |
+| `dinner` | `dinner` | `integer` | No | No | — |
+| `drinks` | `drinks` | `integer` | No | No | — |
+| `lunch` | `lunch` | `integer` | No | No | — |
+
+## PageSenderAction
+
+`enum` model on the `json` wire format.
+
+**Values:** `MARK_SEEN`, `REACT`, `TYPING_OFF`, `TYPING_ON`, `UNREACT`
+
+## PageSettingsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `setting` | `setting` | `string` | No | No | — |
+| `value` | `value` | `Record<string, unknown>` | No | No | — |
+
+## PageStartInfoFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `date` | `date` | `Record<string, unknown>` | No | No | — |
+| `type` | `type` | `string` | No | No | — |
+
+## PageSubscribedFields
+
+`enum` model on the `json` wire format.
+
+**Values:** `affiliation`, `agent_messages`, `agent_questions`, `attire`, `awards`, `bio`, `birthday`, `business_integrity`, `call_permission_reply`, `call_settings_update`, `calls`, `category`, `checkins`, `comment_poll_response`, `company_overview`, `conversations`, `culinary_team`, `current_location`, `description`, `email`, `feature_access_list`, `feed`, `follow`, `founded`, `general_info`, `general_manager`, `group_feed`, `hometown`, `hours`, `inbox_labels`, `invalid_topic_placeholder`, `invoice_access_bank_slip_events`, `invoice_access_invoice_change`, `invoice_access_invoice_draft_change`, `invoice_access_onboarding_status_active`, `leadgen`, `leadgen_fat`, `leadgen_update`, `live_videos`, `local_delivery`, `location`, `marketing_message_clicks`, `marketing_message_deliveries`, `marketing_message_delivery_failed`, `marketing_message_echoes`, `marketing_message_reads`, `marketing_messages_subscriber_upload_status`, `mcom_invoice_change`, `members`, `mention`, `merchant_review`, `message_context`, `message_deliveries`, `message_echoes`, `message_edits`, `message_mention`, `message_reactions`, `message_reads`, `message_template_status_update`, `messages`, `messaging_account_linking`, `messaging_appointments`, `messaging_checkout_updates`, `messaging_customer_information`, `messaging_direct_sends`, `messaging_fblogin_account_linking`, `messaging_feedback`, `messaging_game_plays`, `messaging_handovers`, `messaging_in_thread_lead_form_submit`, `messaging_integrity`, `messaging_optins`, `messaging_optouts`, `messaging_payments`, `messaging_policy_enforcement`, `messaging_postbacks`, `messaging_pre_checkouts`, `messaging_referrals`, `mission`, `name`, `page_about_story`, `page_change_proposal`, `page_upcoming_change`, `parking`, `payment_options`, `payment_request_update`, `personal_info`, `personal_interests`, `phone`, `picture`, `price_range`, `product_review`, `products`, `public_transit`, `publisher_subscriptions`, `ratings`, `registration`, `response_feedback`, `send_cart`, `standby`, `story_poll_response`, `story_share`, `user_action`, `video_text_question_responses`, `videos`, `website`
+
+## PageSuggestionAction
+
+`enum` model on the `json` wire format.
+
+**Values:** `ACCEPT`, `DISMISS`, `IMPRESSION`
+
+## PageTargetSurface
+
+`enum` model on the `json` wire format.
+
+**Values:** `STORY`, `TIMELINE`
+
+## PageTasks
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADVERTISE`, `ANALYZE`, `CASHIER_ROLE`, `CREATE_CONTENT`, `GLOBAL_STRUCTURE_MANAGEMENT`, `MANAGE`, `MANAGE_JOBS`, `MANAGE_LEADS`, `MESSAGING`, `MODERATE`, `MODERATE_COMMUNITY`, `PAGES_MESSAGING`, `PAGES_MESSAGING_SUBSCRIPTIONS`, `PROFILE_PLUS_ADVERTISE`, `PROFILE_PLUS_ANALYZE`, `PROFILE_PLUS_CREATE_CONTENT`, `PROFILE_PLUS_CREATIVE_MANAGEMENT`, `PROFILE_PLUS_CREATOR_MANAGEMENT`, `PROFILE_PLUS_FACEBOOK_ACCESS`, `PROFILE_PLUS_FULL_CONTROL`, `PROFILE_PLUS_GLOBAL_STRUCTURE_MANAGEMENT`, `PROFILE_PLUS_MANAGE`, `PROFILE_PLUS_MANAGE_LEADS`, `PROFILE_PLUS_MESSAGING`, `PROFILE_PLUS_MODERATE`, `PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY`, `PROFILE_PLUS_REVENUE`, `READ_PAGE_MAILBOXES`, `VIEW_MONETIZATION_INSIGHTS`
+
+## PageTemporaryStatus
+
+`enum` model on the `json` wire format.
+
+**Values:** `DIFFERENTLY_OPEN`, `NO_DATA`, `OPERATING_AS_USUAL`, `TEMPORARILY_CLOSED`
+
+## PageThreadOwnerFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `thread_owner` | `thread_owner` | `Record<string, unknown>` | No | No | — |
+
+## PageUnpublishedContentType
+
+`enum` model on the `json` wire format.
+
+**Values:** `ADS_POST`, `DRAFT`, `INLINE_CREATED`, `PUBLISHED`, `PUBLISH_PENDING`, `REVIEWABLE_BRANDED_CONTENT`, `SCHEDULED`, `SCHEDULED_RECURRING`
+
+## PageUpcomingChangeFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `change_type` | `change_type` | `string` | No | No | — |
+| `effective_time` | `effective_time` | `string<date-time>` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `page` | `page` | `PageFields` | No | No | — |
+| `proposal` | `proposal` | `PageChangeProposalFields` | No | No | — |
+| `timer_status` | `timer_status` | `string` | No | No | — |
+
+## PageUserMessageThreadLabelFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `page_label_name` | `page_label_name` | `string` | No | No | — |
+
+## PageUserPermissionsFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `business` | `business` | `BusinessFields` | No | No | — |
+| `business_persona` | `business_persona` | `string` | No | No | — |
+| `created_by` | `created_by` | `ProfileFields` | No | No | — |
+| `created_time` | `created_time` | `string<date-time>` | No | No | — |
+| `email` | `email` | `string` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+| `tasks` | `tasks` | `Array<string>` | No | No | — |
+| `updated_by` | `updated_by` | `ProfileFields` | No | No | — |
+| `updated_time` | `updated_time` | `string<date-time>` | No | No | — |
+| `user` | `user` | `ProfileFields` | No | No | — |
+
+## PageUserWithLeadsAccessFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `active_on_business` | `active_on_business` | `boolean` | No | No | — |
+| `business_role` | `business_role` | `string` | No | No | — |
+| `can_access_leads` | `can_access_leads` | `boolean` | No | No | — |
+| `page_role` | `page_role` | `string` | No | No | — |
+
+## PartnerAccountLinkingFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `adaccount` | `adaccount` | `AdAccountFields` | No | No | — |
+| `app` | `app` | `ApplicationFields` | No | No | — |
+| `business` | `business` | `BusinessFields` | No | No | — |
+| `externalidentifier` | `externalidentifier` | `string` | No | No | — |
+| `externalidentifieruri` | `externalidentifieruri` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `partnername` | `partnername` | `string` | No | No | — |
+| `pixel` | `pixel` | `string` | No | No | — |
+
+## PartnerAppAndWelcomeMessageFlowDataFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `flow_data` | `flow_data` | `Array<Record<string, unknown>>` | No | No | — |
+
+## PartnerCategoryFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `approximate_count` | `approximate_count` | `integer` | No | No | — |
+| `country` | `country` | `string` | No | No | — |
+| `description` | `description` | `string` | No | No | — |
+| `details` | `details` | `string` | No | No | — |
+| `id` | `id` | `string` | No | No | — |
+| `is_private` | `is_private` | `boolean` | No | No | — |
+| `name` | `name` | `string` | No | No | — |
+| `parent_category` | `parent_category` | `string` | No | No | — |
+| `source` | `source` | `string` | No | No | — |
+| `status` | `status` | `string` | No | No | — |
+| `targeting_type` | `targeting_type` | `string` | No | No | — |
+
+## PartnerCenterExportFileFields
+
+`object` model on the `json` wire format.
+
+| Field | Wire name | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `id` | `string` | No | No | — |
+| `report_ds` | `report_ds` | `string` | No | No | — |
+| `url` | `url` | `string` | No | No | — |

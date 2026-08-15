@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:68e2937077ec5f62d360bf6d91624279c23325d84adc08528ad4ff2c76d49088
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for conversion_events — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { EventsCreateResponse } from "../types.ts";

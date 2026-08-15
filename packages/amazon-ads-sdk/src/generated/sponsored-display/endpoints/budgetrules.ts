@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:ecee536686532581532f577e145714b8ec11e8579cfc75f3cf95154214fb2b7e
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for BudgetRules — do not edit
 import type { AmazonAdsApiClient } from "../../../api-client.ts";
 import type { GetSDBudgetRulesForAdvertiserResponseEndpoint, GetBudgetRuleByRuleIdForSDCampaignsResponse, GetCampaignsAssociatedWithSDBudgetRuleResponse, ListAssociatedBudgetRulesForSDCampaignsResponse, DisassociateAssociatedBudgetRuleForSDCampaignsResponse } from "../types.ts";

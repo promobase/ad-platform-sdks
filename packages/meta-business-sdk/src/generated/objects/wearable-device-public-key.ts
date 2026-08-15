@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:2e06ceea2a5f79461b6f0b0d0b6aa498ccaa8899d362223b7a91663588d05923
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 
 export interface WearableDevicePublicKeyFields {

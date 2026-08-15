@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:b0189185b8205012035e397fed589d0c7817799896e4acf79d4a08820ef980e9
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file was generated from google-discovery/youtube-v3.json.
 // Do not edit by hand. Run `bun --filter='./packages/youtube-sdk' run codegen`.
 

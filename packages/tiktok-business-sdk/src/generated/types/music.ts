@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:1141be76ab5b9924ce1583bc40640cc71a8071dc07c8670bae8fb698cc464d7c
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for Music — do not edit
 
 export interface FileMusicUploadParams {

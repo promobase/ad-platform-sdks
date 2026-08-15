@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c024644f6194fabdabc649ec80c33226d80878cc1905e4152f07e6be13f43f15
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 
 export type ActivityEventId = string;

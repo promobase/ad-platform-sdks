@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3430763485ae2a0a79908cbf891cd19c0489f74c49ccbea53c6e0e9a6d6d2e42
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.enums.PromotionExtensionOccasionEnum.PromotionExtensionOccasion. Do not edit by hand.
 export type PromotionExtensionOccasion =
   | "UNSPECIFIED"

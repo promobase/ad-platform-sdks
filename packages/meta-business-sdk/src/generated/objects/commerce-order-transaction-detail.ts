@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:08f5d10764ec4a745aa280d8eb45c16c0601390259bf84ba0d6424bdecbbdb18
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { CommerceOrderFields } from "./commerce-order.ts";
 
 export interface CommerceOrderTransactionDetailFields {

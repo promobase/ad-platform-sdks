@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c1d4c4aec952116c6829a19ba5d7e1d92fb3f1b61c69cea33ea51c5ec57d0ec2
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type AssetGroupListingGroupFilterSelectableField =
   | "asset_group_listing_group_filter.resource_name"

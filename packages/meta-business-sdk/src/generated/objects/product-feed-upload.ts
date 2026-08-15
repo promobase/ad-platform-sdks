@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:76a78ed28bc0b98b2522ef05b03723f6b984036a7780c1f134a6e4dfc162dd14
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { ProductFeedUploadErrorFields } from "./product-feed-upload-error.ts";
 import type { ProductFeedUploadErrorReportFields } from "./product-feed-upload-error-report.ts";
 import type { ProductFeedUploadInputMethod } from "../enums.ts";
@@ -35,7 +38,7 @@ export function productFeedUploadNode(client: ApiClient, id: string) {
     createErrorReport: (params: Record<string, unknown>) =>
       client.post<ProductFeedUploadFields>(`${id}/error_report`, params as Record<string, unknown>),
     errors: <F extends (keyof ProductFeedUploadErrorFields)[]>(opts: { fields: F; params?: ProductFeedUploadListErrorsParams }) =>
-      new Cursor<Pick<ProductFeedUploadErrorFields, F[number]>>(client, `${id}/errors`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<ProductFeedUploadErrorFields, F[number]>>(client, `${id}/errors`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
   };
 }
 

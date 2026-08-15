@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3aa38280940bc114709d9fc646f3b58e41c869803df7fbaf2dea503c9549b2fa
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.UrlFieldErrorEnum.UrlFieldError. Do not edit by hand.
 export type UrlFieldError =
   | "UNSPECIFIED"

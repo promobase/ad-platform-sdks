@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:e3f51d47b92e2768c5ce890471733b95e54c2aa5b9d75a43398e3b3b6672e369
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for roles — do not edit
 
 export interface Role {

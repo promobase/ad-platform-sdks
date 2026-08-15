@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d8dc19d093387317b8d9c772bfe365b680fdb500da94279c743649ab8c29cef9
+// DO NOT EDIT: generated file; changes will be overwritten.
 export const SENSITIVE_QUERY_PARAMS: Set<string> = new Set([
     "api_key",
     "api-key",

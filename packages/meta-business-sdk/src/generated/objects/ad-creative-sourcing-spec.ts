@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:d761ff135ff3cb2a2d6a2943cacda800d073cd98f023c51c68316bcae7293878
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdCreativePromotionMetadataSpecFields } from "./ad-creative-promotion-metadata-spec.ts";
 import type { AdCreativeSiteLinksSpecFields } from "./ad-creative-site-links-spec.ts";
 

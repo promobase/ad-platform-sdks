@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7b62785ee53c3f4c24fce822ae155caa9777402ada376b7809d6c8ff70d4c1bd
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for BC Billing Groups — do not edit
 import type { BcBillingGroupCreateParams, BcBillingGroupCreateResponse, BcBillingGroupUpdateParams, BcBillingGroupUpdateResponse, BcBillingGroupGetParams, BcBillingGroupGetResponse, BcBillingGroupAdvertiserListParams, BcBillingGroupAdvertiserListResponse } from "../types/bc-billing-groups.ts";
 

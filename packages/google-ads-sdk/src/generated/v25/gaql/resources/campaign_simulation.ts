@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:c15d57630777f34e879b2a534534453fece0e1d22c37300a7827b9bea2733af9
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated. Do not edit by hand.
 export type CampaignSimulationSelectableField =
   | "campaign_simulation.resource_name"

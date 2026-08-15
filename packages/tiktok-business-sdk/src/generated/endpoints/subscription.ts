@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:440f602b85a75cf45d9bd16bfcc24c4945e30e727db69ed1cda4e5fd0de86dfa
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for Subscription — do not edit
 import type { SubscriptionSubscribeParams, SubscriptionSubscribeResponse, SubscriptionGetParams, SubscriptionGetResponse, SubscriptionUnsubscribeParams, SubscriptionUnsubscribeResponse } from "../types/subscription.ts";
 

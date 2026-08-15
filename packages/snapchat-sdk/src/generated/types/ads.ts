@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:3983345c0d27d166859c9fc233c6d94f0c1a0b10cd99ec3bcfff48a753f34c28
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for ads — do not edit
 
 export interface Ad {

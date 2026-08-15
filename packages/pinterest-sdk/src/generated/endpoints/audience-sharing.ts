@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:7d00fdbbf298a397aa339f77e0cf6b27289ed66dbe61505de781dca7ad11d2e3
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated client for audience_sharing — do not edit
 import type { PinterestApiClient } from "../../api-client.ts";
 import type { UpdateAdAccountToAdAccountSharedAudienceResponse, UpdateAdAccountToBusinessSharedAudienceResponse, AdAccountsAudiencesSharedAccountsListResponse, SharedAudiencesForBusinessListResponse, UpdateBusinessToAdAccountSharedAudienceResponse, UpdateBusinessToBusinessSharedAudienceResponse, BusinessAccountAudiencesSharedAccountsListResponse } from "../types.ts";

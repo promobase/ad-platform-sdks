@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:192019aea035bca5c3f831fe54a7daf42861d088f4d3e839254e8c96e19e85d5
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.CustomerFeedErrorEnum.CustomerFeedError. Do not edit by hand.
 export type CustomerFeedError =
   | "UNSPECIFIED"

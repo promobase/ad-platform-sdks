@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:1f6db8b18a24f59e48f1c9f3887a61ffa7c6c30b203297475b587e92a45b00e2
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface ReachFrequencyEstimatesPlacementBreakdownFields {
   android: number[];
   audience_network: number[];

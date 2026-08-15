@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:4371c898d98c93e010ff4fe378f3f107d7cb36c342a5b397da3ab803c04d9e40
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v25.errors.OperationAccessDeniedErrorEnum.OperationAccessDeniedError. Do not edit by hand.
 export type OperationAccessDeniedError =
   | "UNSPECIFIED"

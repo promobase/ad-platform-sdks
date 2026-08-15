@@ -1,3 +1,4 @@
+import { createGraphClient } from "../../generated/client-factory.ts";
 import { createAccount } from "./account.ts";
 import { createComments } from "./comments.ts";
 import { createFeed } from "./feed.ts";
@@ -9,12 +10,21 @@ import type { FacebookPageClientOptions, OAuthConfig } from "./types.ts";
 export type * from "./types.ts";
 
 export function createFacebookPageClient(opts: FacebookPageClientOptions) {
-  const api = opts.api;
+  const api =
+    opts.api ??
+    createGraphClient({
+      accessToken: opts.accessToken,
+      apiVersion: opts.apiVersion,
+      fetch: opts.fetch,
+      signal: opts.signal,
+    });
   const pageId = opts.pageId;
   const accessToken = opts.accessToken;
   const page = api.page(pageId);
 
   return {
+    /** Generated Graph client for provider operations without a convenience wrapper. */
+    api,
     feed: createFeed(api, page, pageId, accessToken, opts.fetch, opts.signal),
     stories: createStories(pageId, accessToken, opts.fetch, opts.signal),
     comments: createComments(api),

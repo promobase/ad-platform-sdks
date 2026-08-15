@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:caf2f898a3684438cf5e0ff2259e3a2ca1f9b53acaf010d63c6e63cb5e73e688
+// DO NOT EDIT: generated file; changes will be overwritten.
 // This file is generated. Do not edit by hand.
 import { Schema } from "effect";
 

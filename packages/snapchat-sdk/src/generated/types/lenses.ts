@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a502dc830d2187b813c04e6e56187ba00139bd713652da0b5f90b937f7b8b6e6
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for lenses — do not edit
 
 export interface Campaign {

@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:42d8c7ae3b0469c403ab488e8ec1894515b60badf08b3b6a870b386f7e50eb61
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Generated from google.ads.googleads.v23.errors.ExperimentArmErrorEnum.ExperimentArmError. Do not edit by hand.
 export type ExperimentArmError =
   | "UNSPECIFIED"

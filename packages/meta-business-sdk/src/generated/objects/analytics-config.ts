@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:31af41bfb1a6cbc3e70d9601a542bf83d34cfb607b771d3769715e9703fc44f7
+// DO NOT EDIT: generated file; changes will be overwritten.
 export interface AnalyticsConfigFields {
   analytics_access_for_authorized_ad_account: boolean;
   breakdowns_config: Record<string, unknown>[];

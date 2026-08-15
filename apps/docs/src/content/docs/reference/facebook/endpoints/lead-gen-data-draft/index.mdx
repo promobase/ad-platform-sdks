@@ -1,0 +1,50 @@
+---
+title: "Facebook Lead Gen Data Draft endpoints"
+description: "1 generated Facebook endpoint contract for Lead Gen Data Draft."
+generated: true
+platform: "facebook"
+sourceVersion: "v25.0"
+sidebar:
+  order: 285
+  label: "Lead Gen Data Draft"
+tableOfContents: false
+---
+
+<!-- @generated -->
+<!-- fingerprint: sha256:c7257a36e91512f76d4956bac474423680eb07e09ca433469f6904df0d6bdbc2 -->
+<!-- DO NOT EDIT: generated file; changes will be overwritten. -->
+
+{/* Generated from canonical SdkIr (vendor-json: packages/meta-business-sdk/api_specs). Do not edit by hand. */}
+
+## facebook.leadGenDataDraft.get
+
+`GET` `/{id}`
+
+GET LeadGenDataDraft
+
+| Behavior | Value |
+| --- | --- |
+| Effect | `read` |
+| Execution | `inline` |
+| Idempotency | `safe` |
+| Capabilities | `leadGenDataDraft.read` |
+| Required scopes | None declared |
+| Rate-limit bucket | `facebook-graph-api` |
+| Output | `LeadGenDataDraftFields` |
+
+**Parameters**
+
+| Name | Location | Type | Required | Nullable | Description |
+| --- | --- | --- | --- | --- | --- |
+| `id` | `path` | `string` | Yes | No | — |
+
+**Declared errors**
+
+| Status | Code | Model | Retryable |
+| --- | --- | --- | --- |
+| 400 | — | — | No |
+| 401 | — | — | No |
+| 403 | — | — | No |
+| 429 | — | — | Yes |
+| 500 | — | — | Yes |
+| 503 | — | — | Yes |

@@ -6,7 +6,7 @@ import { writeEffectArtifacts } from "@openpromo/sdk-codegen";
 import { buildDepGraph, findCycles } from "./dep-graph.ts";
 import { type EmitContext, emitEnumType, emitObjectFile, specNameToFileName } from "./emitter.ts";
 import { type EnumMap, extractAllEnums } from "./enum-extractor.ts";
-import { metaCanonicalIr } from "./ir.ts";
+import { facebookGraphCanonicalIr } from "./ir.ts";
 import { applyPatches, parseSpecs } from "./parser.ts";
 import { enumTypeToTsName, type TypeResolverContext } from "./type-resolver.ts";
 
@@ -123,15 +123,19 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   const sourceRevision = Bun.spawnSync(["git", "-C", join(specsDir, "../.."), "rev-parse", "HEAD"])
     .stdout.toString()
     .trim();
-  const canonicalIr = metaCanonicalIr(specs, extractedEnums, {
+  const canonicalIr = facebookGraphCanonicalIr(specs, extractedEnums, {
     version: sourceVersion,
     revision: sourceRevision || undefined,
   });
 
+  const docsOutputDir = join(import.meta.dir, "../../../../apps/docs/src/content/docs/reference");
+  // The canonical Graph IR is now emitted under the direct Facebook platform
+  // name. Remove the old generated family grouping so stale docs cannot ship.
+  await rm(join(docsOutputDir, "meta"), { recursive: true, force: true });
   await writeEffectArtifacts({
     outputDir: join(outputDir, "effect"),
     contractOutputDir: outputDir,
-    docsOutputDir: join(import.meta.dir, "../../../../apps/docs/src/content/docs/reference"),
+    docsOutputDir,
     ir: canonicalIr,
   });
 
@@ -175,7 +179,7 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
 
   factoryLines.push("");
   factoryLines.push(
-    "export interface MetaClientOptions extends Omit<BaseOptions, 'baseUrl' | 'onError'> {",
+    "export interface GraphClientOptions extends Omit<BaseOptions, 'baseUrl' | 'onError'> {",
   );
   factoryLines.push("  baseUrl?: string;");
   factoryLines.push("  apiVersion?: string;");
@@ -184,7 +188,7 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
   factoryLines.push("  retry?: Partial<import('@openpromo/sdk-runtime').RetryConfig>;");
   factoryLines.push("}");
   factoryLines.push("");
-  factoryLines.push("export function createTypedClient(opts: MetaClientOptions) {");
+  factoryLines.push("export function createGraphClient(opts: GraphClientOptions) {");
   factoryLines.push("  const client = new ApiClient({");
   factoryLines.push("    ...opts,");
   factoryLines.push(`    baseUrl: opts.baseUrl ?? "https://graph.facebook.com",`);
@@ -235,9 +239,11 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
     barrelLines.push("");
   }
 
-  // Re-export createTypedClient as createClient
-  barrelLines.push(`export { createTypedClient as createClient } from "./client-factory.ts";`);
-  barrelLines.push(`export type { MetaClientOptions } from "./client-factory.ts";`);
+  // Re-export the Graph client through both the explicit and concise names.
+  barrelLines.push(
+    `export { createGraphClient, createGraphClient as createClient } from "./client-factory.ts";`,
+  );
+  barrelLines.push(`export type { GraphClientOptions } from "./client-factory.ts";`);
   barrelLines.push(`export type { ApiClient, ApiClientOptions } from "@openpromo/sdk-runtime";`);
   barrelLines.push(`export { Cursor } from "@openpromo/sdk-runtime";`);
   barrelLines.push(`export { FacebookApiError } from "../errors.ts";`);
@@ -275,9 +281,10 @@ export async function runCodegen(opts: CodegenOptions): Promise<void> {
     `export { safeParseInstagramWebhook, safeParseFacebookWebhook, safeParseThreadsWebhook, WebhookParseError } from "../clients/index.ts";`,
   );
   barrelLines.push(`export type { WebhookParseResult } from "../clients/index.ts";`);
-  barrelLines.push(`export { MetaRateLimiter } from "../rate-limiter.ts";`);
-  barrelLines.push(`export type { MetaRateLimiterOptions, MetaUsage } from "../rate-limiter.ts";`);
-  barrelLines.push(`export { Meta } from "../namespace.ts";`);
+  barrelLines.push(`export { GraphRateLimiter } from "../rate-limiter.ts";`);
+  barrelLines.push(
+    `export type { GraphRateLimiterOptions, GraphUsage } from "../rate-limiter.ts";`,
+  );
   barrelLines.push(`export { Facebook, Instagram, Threads, WhatsApp } from "../namespace.ts";`);
   barrelLines.push("");
 

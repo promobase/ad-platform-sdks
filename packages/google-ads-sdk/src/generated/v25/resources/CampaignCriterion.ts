@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:a58251d90cdbaa491c5b94a8444718bfcc4f01e2ab0ad44974f7013e4c342d3a
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { AdScheduleInfo, AgeRangeInfo, BrandListInfo, CampaignCriterionStatus, CarrierInfo, CombinedAudienceInfo, ContentLabelInfo, CriterionType, CustomAffinityInfo, CustomAudienceInfo, DeviceInfo, ExtendedDemographicInfo, GenderInfo, IncomeRangeInfo, IpBlockInfo, KeywordInfo, KeywordThemeInfo, LanguageInfo, LifeEventInfo, ListingScopeInfo, LocalServiceIdInfo, LocationGroupInfo, LocationInfo, MobileAppCategoryInfo, MobileApplicationInfo, MobileDeviceInfo, OperatingSystemVersionInfo, ParentalStatusInfo, PlacementInfo, ProximityInfo, TopicInfo, UserInterestInfo, UserListInfo, VideoLineupInfo, WebpageInfo, WebpageListInfo, YouTubeChannelInfo, YouTubeVideoInfo } from "../index.ts";
 
 // Generated from google.ads.googleads.v25.resources.CampaignCriterion. Do not edit by hand.

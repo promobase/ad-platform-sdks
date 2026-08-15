@@ -1,6 +1,9 @@
+// @generated
+// fingerprint: sha256:d1295bc73009b93ee9670244f96dcdd91b0ed19013d8f69e5bf5034fba1cf76b
+// DO NOT EDIT: generated file; changes will be overwritten.
 import type { ApiClient } from "@openpromo/sdk-runtime";
 import { Cursor } from "@openpromo/sdk-runtime";
-import { metaPagination } from "../../pagination.ts";
+import { graphPagination } from "../../pagination.ts";
 import type { BusinessFields } from "./business.ts";
 import type { WhatsAppBusinessPreVerifiedPhoneNumberCodeVerificationStatus } from "../enums.ts";
 
@@ -33,7 +36,7 @@ export function whatsAppBusinessPreVerifiedPhoneNumberNode(client: ApiClient, id
     delete: () =>
       client.delete(`${id}`, {}),
     partners: <F extends (keyof BusinessFields)[]>(opts: { fields: F; params?: Record<string, unknown> }) =>
-      new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/partners`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, metaPagination()),
+      new Cursor<Pick<BusinessFields, F[number]>>(client, `${id}/partners`, opts as { fields: readonly string[]; params?: Record<string, unknown> }, graphPagination()),
     createRequestCode: (params: WhatsAppBusinessPreVerifiedPhoneNumberCreateRequestCodeParams) =>
       client.post<Record<string, unknown>>(`${id}/request_code`, params as Record<string, unknown>),
     createVerifyCode: (params: WhatsAppBusinessPreVerifiedPhoneNumberCreateVerifyCodeParams) =>

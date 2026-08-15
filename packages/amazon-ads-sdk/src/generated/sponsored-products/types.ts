@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:9d03713b01437ceb317c0451db75346412a3f49f2c782dc0782aa0b88cfcea9d
+// DO NOT EDIT: generated file; changes will be overwritten.
 // Auto-generated types for the Amazon Ads API v3 — do not edit
 
 export interface AccessDeniedException {

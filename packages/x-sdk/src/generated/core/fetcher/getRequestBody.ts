@@ -1,3 +1,6 @@
+// @generated
+// fingerprint: sha256:58b172b6b02ad713f0b9c3e9c978cd6f110ad45190f72ff7fd445be059c13f5f
+// DO NOT EDIT: generated file; changes will be overwritten.
 import { toJson } from "../json.js";
 import { toQueryString } from "../url/qs.js";
 
