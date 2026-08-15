@@ -1,5 +1,21 @@
 # @openpromo/ad-platforms
 
+## 0.9.0
+
+### Minor Changes
+
+- [`6ef154a`](https://github.com/promobase/ad-platform-sdks/commit/6ef154a3241f297657bcf413aa5fb94c5dfdfcd7) Thanks [@rayli09](https://github.com/rayli09)! - Add a worker-safe Valibot Meta webhook leaf with strict Web Crypto signature
+  verification, typed Facebook/Instagram/Threads/WhatsApp parsing and event
+  extraction, native Messenger/Instagram/WhatsApp transport clients, direct
+  provider namespaces, and workflow-compatible provider error metadata. Remove
+  the package's first-party Zod dependency while retaining compatibility wrappers
+  for the existing root webhook API.
+
+### Patch Changes
+
+- Updated dependencies [[`6ef154a`](https://github.com/promobase/ad-platform-sdks/commit/6ef154a3241f297657bcf413aa5fb94c5dfdfcd7)]:
+  - @openpromo/meta@0.4.0
+
 ## 0.8.0
 
 ### Minor Changes
