@@ -1,9 +1,7 @@
 ---
 "@openpromo/sdk-runtime": minor
-"@openpromo/tiktok": patch
 ---
 
-Add a `better-result` Promise boundary, workflow-safe publication handles,
-explicit idempotency and reconciliation outcomes, and phase metadata for
-durable provider publishing. TikTok normalized publish results now distinguish
-the provider operation ID from the final post ID.
+Add a `better-result` Promise boundary and explicit idempotency and
+reconciliation outcomes for provider operations. Publishing orchestration and
+provider-specific result shapes remain in the consuming application.

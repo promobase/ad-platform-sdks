@@ -126,17 +126,6 @@ test("TikTok video waitForPublish polls until complete", async () => {
     await expect(
       client.videos.waitForPublish("publish-123", { intervalMs: 0, maxAttempts: 2 }),
     ).resolves.toEqual({ status: "PUBLISH_COMPLETE", post_ids: ["post-123"] });
-
-    await expect(
-      client.videos.waitForPublishResult("publish-123", { intervalMs: 0, maxAttempts: 1 }),
-    ).resolves.toEqual({
-      platform: "tiktok",
-      state: "published",
-      id: "post-456",
-      operationId: "publish-123",
-      postId: "post-456",
-      raw: { status: "PUBLISH_COMPLETE", post_ids: ["post-456"] },
-    });
   } finally {
     globalThis.fetch = originalFetch;
   }

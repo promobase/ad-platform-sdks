@@ -1,4 +1,3 @@
-import type { PlatformPublishResult } from "@openpromo/sdk-runtime";
 import { Data, Effect } from "effect";
 
 import {
@@ -119,50 +118,6 @@ export function createVideos(opts: TikTokClientOptions) {
     return poll(0);
   }
 
-  function normalizePublishStatus(
-    publishId: string,
-    status: PublishStatusResponse,
-  ): PlatformPublishResult<PublishStatusResponse> {
-    const postId = status.post_ids?.[0];
-    if (status.status === "FAILED") {
-      return {
-        platform: "tiktok",
-        state: "failed",
-        operationId: publishId,
-        id: publishId,
-        message: status.reason ?? "TikTok publish failed",
-        raw: status,
-      };
-    }
-    if (status.status === "PUBLISH_COMPLETE" && !postId) {
-      return {
-        platform: "tiktok",
-        state: "unknown",
-        operationId: publishId,
-        id: publishId,
-        message: "TikTok reported completion without a final post ID",
-        raw: status,
-      };
-    }
-    if (postId) {
-      return {
-        platform: "tiktok",
-        state: "published",
-        operationId: publishId,
-        id: postId,
-        postId,
-        raw: status,
-      };
-    }
-    return {
-      platform: "tiktok",
-      state: "processing",
-      operationId: publishId,
-      id: publishId,
-      raw: status,
-    };
-  }
-
   const client = {
     /**
      * Publish a video post to the TikTok account.
@@ -240,15 +195,6 @@ export function createVideos(opts: TikTokClientOptions) {
       const result = await Effect.runPromise(Effect.either(waitForPublishEffect(publishId, opts)));
       if (result._tag === "Left") throw waitForPublishErrorToError(result.left);
       return result.right;
-    },
-
-    /** Wait for publish and return the shared normalized platform result shape. */
-    async waitForPublishResult(
-      publishId: string,
-      opts?: { intervalMs?: number; maxAttempts?: number },
-    ): Promise<PlatformPublishResult<PublishStatusResponse>> {
-      const status = await this.waitForPublish(publishId, opts);
-      return normalizePublishStatus(publishId, status);
     },
 
     /** List videos/posts for the TikTok account. Cursor-based pagination. */

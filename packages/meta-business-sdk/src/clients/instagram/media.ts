@@ -1,4 +1,3 @@
-import type { PlatformPublishResult } from "@openpromo/sdk-runtime";
 import { Effect } from "effect";
 
 import type { createContainers } from "./containers.ts";
@@ -170,16 +169,6 @@ export function createMedia(
     return result.right;
   }
 
-  function normalizePublishResult(result: PublishResult): PlatformPublishResult<PublishResult> {
-    return {
-      platform: "instagram",
-      state: "published",
-      id: result.id,
-      postId: result.id,
-      raw: result,
-    };
-  }
-
   const client = {
     /** Effect variant of publishPhoto for orchestration-heavy callers. */
     publishPhotoEffect,
@@ -209,24 +198,6 @@ export function createMedia(
      */
     async publishCarousel(opts: PublishCarouselOptions): Promise<PublishResult> {
       return runPublish(publishCarouselEffect(opts));
-    },
-
-    async publishPhotoResult(
-      opts: PublishPhotoOptions,
-    ): Promise<PlatformPublishResult<PublishResult>> {
-      return normalizePublishResult(await this.publishPhoto(opts));
-    },
-
-    async publishVideoResult(
-      opts: PublishVideoOptions,
-    ): Promise<PlatformPublishResult<PublishResult>> {
-      return normalizePublishResult(await this.publishVideo(opts));
-    },
-
-    async publishCarouselResult(
-      opts: PublishCarouselOptions,
-    ): Promise<PlatformPublishResult<PublishResult>> {
-      return normalizePublishResult(await this.publishCarousel(opts));
     },
 
     /** List media using the generated IGUser media edge. */

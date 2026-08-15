@@ -150,13 +150,12 @@ provider call in an ad-hoc `try/catch`:
 import { Result } from "@openpromo/sdk-runtime/result";
 
 const result = await Result.tryPromise({
-  // `provider.publishPhase` is a Mosaic operation exposed by the adapter.
-  // The adapter passes requestId/idempotencyKey into sdk-runtime.
-  try: () => provider.publishPhase({ message: content.caption }),
+  // Wrap any provider operation at the Promise seam.
+  try: () => provider.operation(),
   catch: (cause) => (cause instanceof Error ? cause : new Error(String(cause))),
 });
 
-const publication = result.match({
+const value = result.match({
   ok: (value) => value,
   err: (error) => {
     if (error._tag === "MutationOutcomeUnknown") {
@@ -198,28 +197,23 @@ durable step unless the step intentionally treats the error as terminal.
 
 `Result` is a Promise-boundary convenience, not a replacement for Workflow
 control flow. OpenPromo still places each effect in `step.do`, uses
-`step.sleep` for provider polling, and persists only the returned serializable
-handle. The existing throwing Promise methods remain available for callers
-that prefer exceptions, and Effect consumers continue using the typed Effect
-error channel. The `MutationOutcomeUnknown` branch is available when the
-adapter is backed by Mosaic's shared effect runtime; legacy provider clients
-that only throw an HTTP error cannot infer whether a timed-out mutation was
-committed until they are moved behind that seam.
+`step.sleep` for provider polling, and owns any domain-specific state machine.
+The existing throwing Promise methods remain available for callers that prefer
+exceptions, and Effect consumers continue using the typed Effect error channel.
+The `MutationOutcomeUnknown` branch is available when an operation is backed by
+Mosaic's shared effect runtime; legacy provider clients that only throw an HTTP
+error cannot infer whether a timed-out mutation was committed until they are
+moved behind that seam.
 
 Provider mutations must distinguish these concepts:
 
 ```ts
 type MutationOutcome = "not_started" | "committed" | "unknown";
-
-type PublicationResult =
-  | { state: "accepted" | "processing"; operationId: string; postId?: string }
-  | { state: "published"; postId: string; operationId?: string; permalink?: string }
-  | { state: "failed"; operationId?: string; reason: string };
 ```
 
-An unknown response is not a provider post ID. The caller must reconcile by
-operation ID, idempotency key, or provider lookup before retrying. Mosaic must
-never generate a placeholder external ID.
+Mosaic returns provider-native response types and provider operation IDs. It
+does not invent a cross-platform publication state or placeholder external ID;
+OpenPromo owns reconciliation and any content/publisher state projection.
 
 `forPlacementSpec()` and other OpenPromo content/account wiring stay in
 OpenPromo. Mosaic only owns Graph/API requests, response validation, provider

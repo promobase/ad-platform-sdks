@@ -91,18 +91,6 @@ export type {
 } from "./http-client.ts";
 export { HttpClient, HttpError } from "./http-client.ts";
 export type {
-  JsonPrimitive,
-  JsonValue,
-  PlatformPublishError,
-  PlatformPublishResult,
-  PublishOperationHandle,
-  PublishPhase,
-  PublishPhaseContract,
-  PublishPlatform,
-  PublishState,
-} from "./publish.ts";
-export { acceptedPublish, publishedPublish, PublishPhases } from "./publish.ts";
-export type {
   OAuthAdapter,
   OAuthAdapterErrorDetails,
   OAuthAdapterResult,
