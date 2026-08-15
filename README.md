@@ -1,7 +1,10 @@
 <div align="center">
 
 <a href="https://mosaic.openpromo.app">
-  <img src="./apps/docs/public/mosaic-mark.svg" width="88" alt="Mosaic" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./apps/docs/public/mosaic-mark-inverse.svg" />
+    <img src="./apps/docs/public/mosaic-mark.svg" width="88" alt="Mosaic" />
+  </picture>
 </a>
 
 # Mosaic
