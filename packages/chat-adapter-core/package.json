@@ -42,5 +42,8 @@
     "type": "git",
     "url": "https://github.com/promobase/ad-platform-sdks",
     "directory": "packages/chat-adapter-core"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
