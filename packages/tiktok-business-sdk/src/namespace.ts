@@ -42,6 +42,7 @@ import {
   createTikTokBusinessOAuthAdapter,
   createTikTokDeveloperOAuthAdapter,
 } from "./oauth-adapters.ts";
+import { constructTikTokEvent } from "./webhooks.ts";
 import { TikTokBusinessOAuthScopes, TikTokDeveloperOAuthScopes } from "./oauth-scopes.ts";
 import type { TikTokCursorOptions } from "./pagination.ts";
 import { TikTokCursor } from "./pagination.ts";
@@ -139,6 +140,9 @@ export const TikTok = {
    * ```
    */
   Webhooks: {
+    /** Verify + parse + normalize to { type, data }. Throws on failure. */
+    constructEvent: constructTikTokEvent,
+
     /** Verify + parse any TikTok webhook. Throws on failure. Content is auto-parsed. */
     parse: parseTikTokWebhook,
     /** Verify + parse any TikTok webhook. Returns Result — never throws. Content is auto-parsed. */

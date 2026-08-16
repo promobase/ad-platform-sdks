@@ -20,144 +20,142 @@ type EventContext = {
 
 export type FacebookWebhookEvent =
   | (EventContext & {
-      readonly kind: "message" | "echo";
-      readonly event: WithRequired<FacebookMessagingEvent, "message">;
+      readonly type: "message" | "echo";
+      readonly data: WithRequired<FacebookMessagingEvent, "message">;
     })
   | (EventContext & {
-      readonly kind: "quick_reply";
-      readonly event: WithRequired<FacebookMessagingEvent, "message">;
+      readonly type: "quick_reply";
+      readonly data: WithRequired<FacebookMessagingEvent, "message">;
     })
   | (EventContext & {
-      readonly kind: "postback";
-      readonly event: WithRequired<FacebookMessagingEvent, "postback">;
+      readonly type: "postback";
+      readonly data: WithRequired<FacebookMessagingEvent, "postback">;
     })
   | (EventContext & {
-      readonly kind: "referral";
-      readonly event: WithRequired<FacebookMessagingEvent, "referral">;
+      readonly type: "referral";
+      readonly data: WithRequired<FacebookMessagingEvent, "referral">;
     })
   | (EventContext & {
-      readonly kind: "delivery";
-      readonly event: WithRequired<FacebookMessagingEvent, "delivery">;
+      readonly type: "delivery";
+      readonly data: WithRequired<FacebookMessagingEvent, "delivery">;
     })
   | (EventContext & {
-      readonly kind: "read";
-      readonly event: WithRequired<FacebookMessagingEvent, "read">;
+      readonly type: "read";
+      readonly data: WithRequired<FacebookMessagingEvent, "read">;
     })
   | (EventContext & {
-      readonly kind: "reaction";
-      readonly event: WithRequired<FacebookMessagingEvent, "reaction">;
+      readonly type: "reaction";
+      readonly data: WithRequired<FacebookMessagingEvent, "reaction">;
     })
   | (EventContext & {
-      readonly kind: "message_edit";
-      readonly event: WithRequired<FacebookMessagingEvent, "message_edit">;
+      readonly type: "message_edit";
+      readonly data: WithRequired<FacebookMessagingEvent, "message_edit">;
     })
   | (EventContext & {
-      readonly kind: "optin";
-      readonly event: WithRequired<FacebookMessagingEvent, "optin">;
+      readonly type: "optin";
+      readonly data: WithRequired<FacebookMessagingEvent, "optin">;
     })
   | (EventContext & {
-      readonly kind: "account_linking";
-      readonly event: WithRequired<FacebookMessagingEvent, "account_linking">;
+      readonly type: "account_linking";
+      readonly data: WithRequired<FacebookMessagingEvent, "account_linking">;
     })
   | (EventContext & {
-      readonly kind: "pass_thread_control" | "take_thread_control" | "request_thread_control";
-      readonly event: FacebookMessagingEvent;
+      readonly type: "pass_thread_control" | "take_thread_control" | "request_thread_control";
+      readonly data: FacebookMessagingEvent;
     })
   | (EventContext & {
-      readonly kind: "standby";
-      readonly event: FacebookMessagingEvent;
+      readonly type: "standby";
+      readonly data: FacebookMessagingEvent;
     })
   | (EventContext & {
-      readonly kind: "comment_change";
-      readonly change: FacebookChange;
+      readonly type: "comment_change";
+      readonly data: FacebookChange;
     })
   | (EventContext & {
-      readonly kind: "unknown";
-      readonly event?: FacebookMessagingEvent;
-      readonly change?: FacebookChange;
+      readonly type: "unknown";
+      readonly data?: FacebookMessagingEvent | FacebookChange;
     });
 
 export type InstagramWebhookEvent =
   | (EventContext & {
-      readonly kind: "message" | "echo";
-      readonly event: WithRequired<InstagramMessagingEvent, "message">;
+      readonly type: "message" | "echo";
+      readonly data: WithRequired<InstagramMessagingEvent, "message">;
     })
   | (EventContext & {
-      readonly kind: "quick_reply";
-      readonly event: WithRequired<InstagramMessagingEvent, "message">;
+      readonly type: "quick_reply";
+      readonly data: WithRequired<InstagramMessagingEvent, "message">;
     })
   | (EventContext & {
-      readonly kind: "postback";
-      readonly event: WithRequired<InstagramMessagingEvent, "postback">;
+      readonly type: "postback";
+      readonly data: WithRequired<InstagramMessagingEvent, "postback">;
     })
   | (EventContext & {
-      readonly kind: "referral";
-      readonly event: WithRequired<InstagramMessagingEvent, "referral">;
+      readonly type: "referral";
+      readonly data: WithRequired<InstagramMessagingEvent, "referral">;
     })
   | (EventContext & {
-      readonly kind: "delivery";
-      readonly event: WithRequired<InstagramMessagingEvent, "delivery">;
+      readonly type: "delivery";
+      readonly data: WithRequired<InstagramMessagingEvent, "delivery">;
     })
   | (EventContext & {
-      readonly kind: "read";
-      readonly event: WithRequired<InstagramMessagingEvent, "read">;
+      readonly type: "read";
+      readonly data: WithRequired<InstagramMessagingEvent, "read">;
     })
   | (EventContext & {
-      readonly kind: "reaction";
-      readonly event: WithRequired<InstagramMessagingEvent, "reaction">;
+      readonly type: "reaction";
+      readonly data: WithRequired<InstagramMessagingEvent, "reaction">;
     })
   | (EventContext & {
-      readonly kind: "message_edit";
-      readonly event: WithRequired<InstagramMessagingEvent, "message_edit">;
+      readonly type: "message_edit";
+      readonly data: WithRequired<InstagramMessagingEvent, "message_edit">;
     })
   | (EventContext & {
-      readonly kind: "optin";
-      readonly event: WithRequired<InstagramMessagingEvent, "optin">;
+      readonly type: "optin";
+      readonly data: WithRequired<InstagramMessagingEvent, "optin">;
     })
   | (EventContext & {
-      readonly kind: "account_linking";
-      readonly event: WithRequired<InstagramMessagingEvent, "account_linking">;
+      readonly type: "account_linking";
+      readonly data: WithRequired<InstagramMessagingEvent, "account_linking">;
     })
   | (EventContext & {
-      readonly kind: "pass_thread_control" | "take_thread_control" | "request_thread_control";
-      readonly event: InstagramMessagingEvent;
+      readonly type: "pass_thread_control" | "take_thread_control" | "request_thread_control";
+      readonly data: InstagramMessagingEvent;
     })
   | (EventContext & {
-      readonly kind:
+      readonly type:
         | "comment_change"
         | "message_edit_change"
         | "message_reaction_change"
         | "mention_change"
         | "live_comment_change"
         | "story_insights_change";
-      readonly change: InstagramChange;
+      readonly data: InstagramChange;
     })
   | (EventContext & {
-      readonly kind: "standby";
-      readonly event: InstagramMessagingEvent;
+      readonly type: "standby";
+      readonly data: InstagramMessagingEvent;
     })
   | (EventContext & {
-      readonly kind: "unknown";
-      readonly event?: InstagramMessagingEvent;
-      readonly change?: InstagramChange;
+      readonly type: "unknown";
+      readonly data?: InstagramMessagingEvent | InstagramChange;
     });
 
 export type WhatsAppWebhookEvent =
   | (EventContext & {
-      readonly kind: "message";
-      readonly message: WhatsAppMessage;
+      readonly type: "message";
+      readonly data: WhatsAppMessage;
       readonly phoneNumberId: string;
       readonly wabaId: string;
     })
   | (EventContext & {
-      readonly kind: "status";
-      readonly status: WhatsAppStatus;
+      readonly type: "status";
+      readonly data: WhatsAppStatus;
       readonly phoneNumberId: string;
       readonly wabaId: string;
     })
   | (EventContext & {
-      readonly kind: "unknown";
-      readonly value: unknown;
+      readonly type: "unknown";
+      readonly data: unknown;
       readonly phoneNumberId: string;
       readonly wabaId: string;
     });
@@ -177,91 +175,91 @@ export function getFacebookWebhookEvents(
       if (event.message) {
         events.push({
           ...entryContext,
-          kind: event.message.is_echo ? "echo" : "message",
-          event: { ...event, message: event.message },
+          type: event.message.is_echo ? "echo" : "message",
+          data: { ...event, message: event.message },
         });
         emitted = true;
         if (event.message.quick_reply) {
           events.push({
             ...entryContext,
-            kind: "quick_reply",
-            event: { ...event, message: event.message },
+            type: "quick_reply",
+            data: { ...event, message: event.message },
           });
         }
       }
       if (event.postback) {
         events.push({
           ...entryContext,
-          kind: "postback",
-          event: { ...event, postback: event.postback },
+          type: "postback",
+          data: { ...event, postback: event.postback },
         });
         emitted = true;
       }
       if (event.referral) {
         events.push({
           ...entryContext,
-          kind: "referral",
-          event: { ...event, referral: event.referral },
+          type: "referral",
+          data: { ...event, referral: event.referral },
         });
         emitted = true;
       }
       if (event.delivery) {
         events.push({
           ...entryContext,
-          kind: "delivery",
-          event: { ...event, delivery: event.delivery },
+          type: "delivery",
+          data: { ...event, delivery: event.delivery },
         });
         emitted = true;
       }
       if (event.read) {
-        events.push({ ...entryContext, kind: "read", event: { ...event, read: event.read } });
+        events.push({ ...entryContext, type: "read", data: { ...event, read: event.read } });
         emitted = true;
       }
       if (event.reaction) {
         events.push({
           ...entryContext,
-          kind: "reaction",
-          event: { ...event, reaction: event.reaction },
+          type: "reaction",
+          data: { ...event, reaction: event.reaction },
         });
         emitted = true;
       }
       if (event.message_edit) {
         events.push({
           ...entryContext,
-          kind: "message_edit",
-          event: { ...event, message_edit: event.message_edit },
+          type: "message_edit",
+          data: { ...event, message_edit: event.message_edit },
         });
         emitted = true;
       }
       if (event.optin) {
-        events.push({ ...entryContext, kind: "optin", event: { ...event, optin: event.optin } });
+        events.push({ ...entryContext, type: "optin", data: { ...event, optin: event.optin } });
         emitted = true;
       }
       if (event.account_linking) {
         events.push({
           ...entryContext,
-          kind: "account_linking",
-          event: { ...event, account_linking: event.account_linking },
+          type: "account_linking",
+          data: { ...event, account_linking: event.account_linking },
         });
         emitted = true;
       }
-      for (const kind of [
+      for (const type of [
         "pass_thread_control",
         "take_thread_control",
         "request_thread_control",
       ] as const) {
-        if (event[kind]) {
-          events.push({ ...entryContext, kind, event });
+        if (event[type]) {
+          events.push({ ...entryContext, type, data: event });
           emitted = true;
         }
       }
-      if (!emitted) events.push({ ...entryContext, kind: "unknown", event });
+      if (!emitted) events.push({ ...entryContext, type: "unknown", data: event });
     }
     for (const change of entry.changes ?? []) {
-      events.push({ ...entryContext, kind: "comment_change", change });
+      events.push({ ...entryContext, type: "comment_change", data: change });
     }
     for (const event of entry.standby ?? []) {
-      events.push({ ...entryContext, kind: "standby", event });
+      events.push({ ...entryContext, type: "standby", data: event });
     }
   }
   return events;
@@ -278,90 +276,90 @@ export function getInstagramWebhookEvents(
       if (event.message) {
         events.push({
           ...entryContext,
-          kind: event.message.is_echo ? "echo" : "message",
-          event: { ...event, message: event.message },
+          type: event.message.is_echo ? "echo" : "message",
+          data: { ...event, message: event.message },
         });
         emitted = true;
         if (event.message.quick_reply) {
           events.push({
             ...entryContext,
-            kind: "quick_reply",
-            event: { ...event, message: event.message },
+            type: "quick_reply",
+            data: { ...event, message: event.message },
           });
         }
       }
       if (event.postback) {
         events.push({
           ...entryContext,
-          kind: "postback",
-          event: { ...event, postback: event.postback },
+          type: "postback",
+          data: { ...event, postback: event.postback },
         });
         emitted = true;
       }
       if (event.referral) {
         events.push({
           ...entryContext,
-          kind: "referral",
-          event: { ...event, referral: event.referral },
+          type: "referral",
+          data: { ...event, referral: event.referral },
         });
         emitted = true;
       }
       if (event.delivery) {
         events.push({
           ...entryContext,
-          kind: "delivery",
-          event: { ...event, delivery: event.delivery },
+          type: "delivery",
+          data: { ...event, delivery: event.delivery },
         });
         emitted = true;
       }
       if (event.read) {
-        events.push({ ...entryContext, kind: "read", event: { ...event, read: event.read } });
+        events.push({ ...entryContext, type: "read", data: { ...event, read: event.read } });
         emitted = true;
       }
       if (event.reaction) {
         events.push({
           ...entryContext,
-          kind: "reaction",
-          event: { ...event, reaction: event.reaction },
+          type: "reaction",
+          data: { ...event, reaction: event.reaction },
         });
         emitted = true;
       }
       if (event.message_edit) {
         events.push({
           ...entryContext,
-          kind: "message_edit",
-          event: { ...event, message_edit: event.message_edit },
+          type: "message_edit",
+          data: { ...event, message_edit: event.message_edit },
         });
         emitted = true;
       }
       if (event.optin) {
-        events.push({ ...entryContext, kind: "optin", event: { ...event, optin: event.optin } });
+        events.push({ ...entryContext, type: "optin", data: { ...event, optin: event.optin } });
         emitted = true;
       }
       if (event.account_linking) {
         events.push({
           ...entryContext,
-          kind: "account_linking",
-          event: { ...event, account_linking: event.account_linking },
+          type: "account_linking",
+          data: { ...event, account_linking: event.account_linking },
         });
         emitted = true;
       }
-      for (const kind of [
+      for (const type of [
         "pass_thread_control",
         "take_thread_control",
         "request_thread_control",
       ] as const) {
-        if (event[kind]) {
-          events.push({ ...entryContext, kind, event });
+        if (event[type]) {
+          events.push({ ...entryContext, type, data: event });
           emitted = true;
         }
       }
-      if (!emitted) events.push({ ...entryContext, kind: "unknown", event });
+      if (!emitted) events.push({ ...entryContext, type: "unknown", data: event });
     }
     for (const change of entry.changes ?? []) {
       events.push({
         ...entryContext,
-        kind:
+        type:
           change.field === "comments"
             ? "comment_change"
             : change.field === "message_edit"
@@ -373,11 +371,11 @@ export function getInstagramWebhookEvents(
                   : change.field === "live_comments"
                     ? "live_comment_change"
                     : "story_insights_change",
-        change,
+        data: change,
       });
     }
     for (const event of entry.standby ?? []) {
-      events.push({ ...entryContext, kind: "standby", event });
+      events.push({ ...entryContext, type: "standby", data: event });
     }
   }
   return events;
@@ -394,8 +392,8 @@ export function getWhatsAppWebhookEvents(
       for (const message of messages ?? []) {
         events.push({
           ...entryContext,
-          kind: "message",
-          message,
+          type: "message",
+          data: message,
           phoneNumberId: metadata.phone_number_id,
           wabaId: entry.id,
         });
@@ -403,8 +401,8 @@ export function getWhatsAppWebhookEvents(
       for (const status of statuses ?? []) {
         events.push({
           ...entryContext,
-          kind: "status",
-          status,
+          type: "status",
+          data: status,
           phoneNumberId: metadata.phone_number_id,
           wabaId: entry.id,
         });
@@ -412,8 +410,8 @@ export function getWhatsAppWebhookEvents(
       if (!messages?.length && !statuses?.length) {
         events.push({
           ...entryContext,
-          kind: "unknown",
-          value: change.value,
+          type: "unknown",
+          data: change.value,
           phoneNumberId: metadata.phone_number_id,
           wabaId: entry.id,
         });
@@ -428,11 +426,11 @@ export type ThreadsChangeValue = ThreadsWebhookPayload["values"]["value"];
 
 export type ThreadsWebhookEvent =
   | (EventContext & {
-      readonly kind: "replies" | "delete" | "publish" | "mentions";
+      readonly type: "replies" | "delete" | "publish" | "mentions";
       readonly value: ThreadsChangeValue;
     })
   | (EventContext & {
-      readonly kind: "unknown";
+      readonly type: "unknown";
       readonly value?: ThreadsChangeValue;
     });
 
@@ -444,7 +442,7 @@ export function getThreadsWebhookEvents(
   const field = payload.values.field;
 
   if (field === "replies" || field === "delete" || field === "publish" || field === "mentions") {
-    return [{ ...entryContext, kind: field, value }];
+    return [{ ...entryContext, type: field, value }];
   }
-  return [{ ...entryContext, kind: "unknown", value }];
+  return [{ ...entryContext, type: "unknown", value }];
 }

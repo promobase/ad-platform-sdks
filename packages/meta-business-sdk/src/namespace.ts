@@ -49,6 +49,12 @@ import {
   safeParseInstagramWebhook,
   safeParseThreadsWebhook,
 } from "./clients/webhooks.ts";
+import { constructEvents } from "./webhooks/index.ts";
+import {
+  getFacebookWebhookEvents,
+  getInstagramWebhookEvents,
+  getThreadsWebhookEvents,
+} from "./webhooks/events.ts";
 import { createWhatsAppClient } from "./clients/whatsapp.ts";
 import { createGraphClient } from "./generated/client-factory.ts";
 import type { GraphClientOptions } from "./generated/client-factory.ts";
@@ -68,18 +74,24 @@ const facebookWebhooks = {
   parse: parseFacebookWebhook,
   safeParse: safeParseFacebookWebhook,
   schema: fbWebhookPayloadSchema,
+  events: getFacebookWebhookEvents,
+  constructEvents: constructEvents.facebook,
 } as const;
 
 const instagramWebhooks = {
   parse: parseInstagramWebhook,
   safeParse: safeParseInstagramWebhook,
   schema: igWebhookPayloadSchema,
+  events: getInstagramWebhookEvents,
+  constructEvents: constructEvents.instagram,
 } as const;
 
 const threadsWebhooks = {
   parse: parseThreadsWebhook,
   safeParse: safeParseThreadsWebhook,
   schema: threadsWebhookPayloadSchema,
+  events: getThreadsWebhookEvents,
+  constructEvents: constructEvents.threads,
 } as const;
 
 /** Direct Facebook platform surface. */

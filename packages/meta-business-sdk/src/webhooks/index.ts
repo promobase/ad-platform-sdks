@@ -24,6 +24,7 @@ import {
   getThreadsWebhookEvents,
   getWhatsAppWebhookEvents,
 } from "./events.ts";
+import type { FacebookWebhookEvent, InstagramWebhookEvent, ThreadsWebhookEvent } from "./events.ts";
 import {
   facebookWebhookPayloadSchema,
   instagramWebhookPayloadSchema,
@@ -165,6 +166,39 @@ export const safeParse = {
     safeParseWebhook(options, asParseable(whatsappWebhookPayloadSchema)),
 } as const;
 
+function constructEventsFor<TPayload, TEvent>(
+  options: WebhookParseOptions,
+  schema: { parse: (input: unknown) => TPayload },
+  extract: (payload: TPayload) => readonly TEvent[],
+): Promise<readonly TEvent[]> {
+  return parseWebhook(options, schema).then(extract);
+}
+
+/**
+ * Stripe-style one-call convenience: verify signature + parse envelope +
+ * extract typed events in a single step. Throws `WebhookParseError` on
+ * invalid signature/JSON/payload. Events are `{ type, data, entryId, ... }`
+ * tagged unions for exhaustive pattern matching.
+ */
+export const constructEvents = {
+  facebook: (
+    options: WebhookParseOptions,
+  ): Promise<readonly FacebookWebhookEvent[]> =>
+    constructEventsFor(options, asParseable(facebookWebhookPayloadSchema), getFacebookWebhookEvents),
+  instagram: (
+    options: WebhookParseOptions,
+  ): Promise<readonly InstagramWebhookEvent[]> =>
+    constructEventsFor(
+      options,
+      asParseable(instagramWebhookPayloadSchema),
+      getInstagramWebhookEvents,
+    ),
+  threads: (
+    options: WebhookParseOptions,
+  ): Promise<readonly ThreadsWebhookEvent[]> =>
+    constructEventsFor(options, asParseable(threadsWebhookPayloadSchema), getThreadsWebhookEvents),
+} as const;
+
 export const schemas = {
   facebook: facebookWebhookPayloadSchema,
   instagram: instagramWebhookPayloadSchema,
@@ -181,18 +215,21 @@ export const webhooks = {
     safeParse: safeParse.facebook,
     schema: schemas.facebook,
     events: getFacebookWebhookEvents,
+    constructEvents: constructEvents.facebook,
   },
   instagram: {
     parse: parse.instagram,
     safeParse: safeParse.instagram,
     schema: schemas.instagram,
     events: getInstagramWebhookEvents,
+    constructEvents: constructEvents.instagram,
   },
   threads: {
     parse: parse.threads,
     safeParse: safeParse.threads,
     schema: schemas.threads,
     events: getThreadsWebhookEvents,
+    constructEvents: constructEvents.threads,
   },
   whatsapp: {
     parse: parse.whatsapp,

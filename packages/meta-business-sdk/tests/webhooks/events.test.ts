@@ -22,15 +22,15 @@ test("facebook events: exhaustive pattern match over tagged kinds", () => {
   } as const;
 
   const events = webhooks.facebook.events(payload as never);
-  const kinds = events.map((event) => event.kind);
+  const types = events.map((event) => event.type);
 
-  expect(kinds).toContain("message");
-  expect(kinds).toContain("read");
-  expect(kinds).toContain("comment_change");
+  expect(types).toContain("message");
+  expect(types).toContain("read");
+  expect(types).toContain("comment_change");
 
   // Exhaustive switch with never fallback — compile-time safety net.
   for (const event of events) {
-    switch (event.kind) {
+    switch (event.type) {
       case "message":
       case "echo":
       case "quick_reply":
@@ -71,8 +71,8 @@ test("threads events: replies + unknown field both deliver", () => {
   });
 
   expect(replies).toHaveLength(1);
-  expect(replies[0]?.kind).toBe("replies");
-  if (replies[0]?.kind !== "replies") return;
+  expect(replies[0]?.type).toBe("replies");
+  if (replies[0]?.type !== "replies") return;
   expect(replies[0].entryId).toBe("user_1");
   expect(replies[0].value.root_post?.owner_id).toBe("owner_1");
 
@@ -85,5 +85,5 @@ test("threads events: replies + unknown field both deliver", () => {
     values: { field: "brand_new_field", value: { id: "x" } },
   });
 
-  expect(unknown[0]?.kind).toBe("unknown");
+  expect(unknown[0]?.type).toBe("unknown");
 });

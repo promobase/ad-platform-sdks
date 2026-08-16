@@ -75,15 +75,15 @@ test("safeParse verifies signature + envelope, and extraction preserves unknown 
   const extracted = getXWebhookEvents(result.data);
   expect(extracted.length).toBe(2);
 
-  const kinds = extracted.map((event) => event.kind);
+  const kinds = extracted.map((event) => event.type);
   expect(kinds.includes("message_create")).toBe(true);
   expect(kinds.includes("unknown")).toBe(true);
 
   // Exhaustive pattern matching on the tagged union.
   for (const event of extracted) {
-    switch (event.kind) {
+    switch (event.type) {
       case "message_create":
-        expect(event.event.message_create.message_data.text).toBe("hello");
+        expect(event.data.message_create.message_data.text).toBe("hello");
         break;
       case "tweet_create":
         break;

@@ -5,6 +5,7 @@ import { createXOAuthAdapter } from "./oauth-adapters.ts";
 import { createXOAuth } from "./oauth.js";
 import {
   WebhookParseError,
+  constructXWebhookEvents,
   getXWebhookEvents,
   parseXWebhook,
   safeParseXWebhook,
@@ -29,6 +30,7 @@ export const X = {
     parse: parseXWebhook,
     safeParse: safeParseXWebhook,
     events: getXWebhookEvents,
+    constructEvents: constructXWebhookEvents,
     schemas: { envelope: xWebhookPayloadSchema },
     ParseError: WebhookParseError,
   },

@@ -46,9 +46,9 @@ export type XTweetCreateEvent = {
 };
 
 export type XWebhookEvent =
-  | { readonly kind: "message_create"; readonly event: XMessageCreateEvent }
-  | { readonly kind: "tweet_create"; readonly event: XTweetCreateEvent }
-  | { readonly kind: "unknown"; readonly type: string; readonly event: unknown };
+  | { readonly type: "message_create"; readonly data: XMessageCreateEvent }
+  | { readonly type: "tweet_create"; readonly data: XTweetCreateEvent }
+  | { readonly type: "unknown"; readonly data: unknown; readonly sourceType: string };
 
 export const xWebhookPayloadSchema = v.looseObject({
   for_user_id: v.string(),
@@ -69,15 +69,25 @@ export function getXWebhookEvents(payload: XWebhookPayload): readonly XWebhookEv
     const items = Array.isArray(list) ? list : [list];
     for (const item of items) {
       if (type === "message_create") {
-        result.push({ kind: "message_create", event: item as XMessageCreateEvent });
+        result.push({ type: "message_create", data: item as XMessageCreateEvent });
       } else if (type === "tweet_create") {
-        result.push({ kind: "tweet_create", event: item as XTweetCreateEvent });
+        result.push({ type: "tweet_create", data: item as XTweetCreateEvent });
       } else {
-        result.push({ kind: "unknown", type, event: item });
+        result.push({ type: "unknown", data: item, sourceType: type });
       }
     }
   }
   return result;
+}
+
+/**
+ * Stripe-style one-call convenience: verify signature + parse envelope +
+ * extract typed events. Throws `WebhookParseError` on invalid deliveries.
+ */
+export async function constructXWebhookEvents(
+  options: WebhookParseOptions,
+): Promise<readonly XWebhookEvent[]> {
+  return getXWebhookEvents(await parseXWebhook(options));
 }
 
 /** Valibot schema adapted to the shared parseable contract. */

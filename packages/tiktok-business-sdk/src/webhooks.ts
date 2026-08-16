@@ -15,6 +15,7 @@ import {
 
 // Re-export everything from schemas
 export * from "./webhook-schemas.ts";
+import type * as WebhookSchemas from "./webhook-schemas.ts";
 
 // --- Webhook Signature Verification ---
 
@@ -187,6 +188,69 @@ export async function safeParseVideoWebhook(
   opts: WebhookParseOptions,
 ): Promise<WebhookParseResult<VideoWebhookEvent>> {
   return verifyAndParse(opts, videoWebhookEventSchema);
+}
+
+/** Valibot schema adapted to the shared parseable contract. */
+const parseableTikTok = {
+  parse: (input: unknown) => v.parse(tiktokWebhookEventSchema, input),
+};
+
+/**
+ * Normalized Stripe-style event projection: `{ type, data, ...context }`.
+ *
+ * The wire schema keeps the provider's `event` field name; this projection
+ * presents the same value as `type` with the auto-parsed `content` as
+ * `data`, so every platform's construct-event surface shares one shape and
+ * one pattern-matching discriminant. The trailing open member tolerates
+ * unknown event kinds (delivered without typed data).
+ */
+type ConstructedFrom<E extends { event: string; content: unknown }> = {
+  readonly type: E["event"];
+  readonly data: E["content"];
+  readonly client_key: string;
+  readonly create_time: number;
+  readonly user_openid: string;
+};
+
+export type TikTokConstructedEvent =
+  | ConstructedFrom<WebhookSchemas.PublishFailedEvent>
+  | ConstructedFrom<WebhookSchemas.PublishCompleteEvent>
+  | ConstructedFrom<WebhookSchemas.PublishPubliclyAvailableEvent>
+  | ConstructedFrom<WebhookSchemas.PublishNoLongerAvailableEvent>
+  | ConstructedFrom<WebhookSchemas.CommentWebhookEvent>
+  | ConstructedFrom<WebhookSchemas.MentionWebhookEvent>
+  | ConstructedFrom<WebhookSchemas.DMWebhookEvent>
+  | {
+      readonly type: "unknown";
+      readonly data?: unknown;
+      readonly sourceType: string;
+      readonly client_key?: string;
+      readonly create_time?: number;
+      readonly user_openid?: string;
+    };
+
+export function toConstructedEvent(event: TikTokWebhookEvent): TikTokConstructedEvent {
+  const base = {
+    client_key: event.client_key ?? "",
+    create_time: event.create_time ?? 0,
+    user_openid: event.user_openid ?? "",
+  };
+  if ("content" in event) {
+    // The narrowed union's event/content index to the same member the object
+    // literal matches; cast keeps the per-case discrimination at call sites.
+    return { ...base, type: event.event, data: event.content } as TikTokConstructedEvent;
+  }
+  return { ...base, type: "unknown", data: undefined, sourceType: event.event };
+}
+
+/**
+ * Stripe-style one-call convenience: verify signature + parse + normalize.
+ * Throws `WebhookParseError` on invalid deliveries.
+ */
+export async function constructTikTokEvent(
+  options: WebhookParseOptions,
+): Promise<TikTokConstructedEvent> {
+  return toConstructedEvent(await parseTikTokWebhook(options));
 }
 
 /** Safe-parse, narrowed to COMMENT update events only. */

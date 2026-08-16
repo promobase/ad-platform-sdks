@@ -215,7 +215,7 @@ test("Facebook parity covers Inbox DM, delivery, postback, referral, and feed ch
       "provider_extension",
       "keep-me",
     );
-    const kinds = webhooks.facebook.events(result.data).map((event) => event.kind);
+    const kinds = webhooks.facebook.events(result.data).map((event) => event.type);
     expect(kinds).toContain("optin");
     expect(kinds).toContain("account_linking");
     expect(kinds).toContain("pass_thread_control");
@@ -307,26 +307,26 @@ test("Instagram parity covers Inbox edits, unsends, unsupported messages, commen
     expect(result.data.entry[0]?.changes?.[2]?.value).toHaveProperty("sender");
 
     const extracted = webhooks.instagram.events(result.data);
-    expect(extracted.map((item) => item.kind)).toContain("message");
-    expect(extracted.map((item) => item.kind)).toContain("comment_change");
-    expect(extracted.map((item) => item.kind)).toContain("mention_change");
-    expect(extracted.map((item) => item.kind)).toContain("live_comment_change");
-    expect(extracted.map((item) => item.kind)).toContain("story_insights_change");
-    expect(extracted.map((item) => item.kind)).toContain("standby");
+    expect(extracted.map((item) => item.type)).toContain("message");
+    expect(extracted.map((item) => item.type)).toContain("comment_change");
+    expect(extracted.map((item) => item.type)).toContain("mention_change");
+    expect(extracted.map((item) => item.type)).toContain("live_comment_change");
+    expect(extracted.map((item) => item.type)).toContain("story_insights_change");
+    expect(extracted.map((item) => item.type)).toContain("standby");
     for (const item of extracted) {
-      switch (item.kind) {
+      switch (item.type) {
         case "message":
         case "echo":
-          expect(item.event.message.mid).toBe("ig_mid_1");
+          expect(item.data.message.mid).toBe("ig_mid_1");
           break;
         case "comment_change":
-          expect(item.change.field).toBe("comments");
+          expect(item.data.field).toBe("comments");
           break;
         case "message_reaction_change":
-          expect(item.change.field).toBe("message_reactions");
+          expect(item.data.field).toBe("message_reactions");
           break;
         case "message_edit_change":
-          expect(item.change.field).toBe("message_edit");
+          expect(item.data.field).toBe("message_edit");
           break;
       }
     }
@@ -384,13 +384,13 @@ test("WhatsApp parser covers inbound messages and durable status lifecycle", asy
   expect(result.success).toBe(true);
   if (result.success) {
     const events = webhooks.whatsapp.events(result.data);
-    expect(events.map((event) => event.kind)).toEqual(["message", "status"]);
-    if (events[0]?.kind === "message") {
-      expect(events[0].message.id).toBe("wamid.inbound");
+    expect(events.map((event) => event.type)).toEqual(["message", "status"]);
+    if (events[0]?.type === "message") {
+      expect(events[0].data.id).toBe("wamid.inbound");
       expect(events[0].phoneNumberId).toBe("phone_123");
     }
-    if (events[1]?.kind === "status") {
-      expect(events[1].status.status).toBe("delivered");
+    if (events[1]?.type === "status") {
+      expect(events[1].data.status).toBe("delivered");
     }
   }
 });

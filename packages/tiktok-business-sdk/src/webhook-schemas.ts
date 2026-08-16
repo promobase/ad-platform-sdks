@@ -200,7 +200,12 @@ export const dmWebhookEventSchema = v.object({
  * Sits last in the union so known events keep their rich parse while unknown
  * kinds still deliver instead of dropping the whole payload.
  */
-const unknownWebhookEventSchema = v.looseObject({ event: v.string() });
+const unknownWebhookEventSchema = v.looseObject({
+  event: v.string(),
+  client_key: v.optional(v.string()),
+  create_time: v.optional(v.number()),
+  user_openid: v.optional(v.string()),
+});
 
 export const tiktokWebhookEventSchema = v.union([
   videoWebhookEventSchema,
