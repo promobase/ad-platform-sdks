@@ -382,6 +382,7 @@
       },
       "devDependencies": {
         "@openpromo/sdk-codegen": "workspace:*",
+        "@types/bun": "latest",
       },
       "peerDependencies": {
         "typescript": ">=5.9.3 <8",
