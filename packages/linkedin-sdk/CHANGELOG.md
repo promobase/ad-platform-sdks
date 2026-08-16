@@ -1,5 +1,12 @@
 # @promobase/linkedin-sdk
 
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies [[`5eecfab`](https://github.com/promobase/ad-platform-sdks/commit/5eecfab2499261d279a7ada7fd485b2158fcea99)]:
+  - @openpromo/sdk-runtime@0.8.0
+
 ## 0.9.0
 
 ### Minor Changes

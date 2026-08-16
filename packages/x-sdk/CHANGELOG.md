@@ -1,5 +1,49 @@
 # @promobase/x-sdk
 
+## 0.9.0
+
+### Minor Changes
+
+- [`5eecfab`](https://github.com/promobase/ad-platform-sdks/commit/5eecfab2499261d279a7ada7fd485b2158fcea99) Thanks [@rayli09](https://github.com/rayli09)! - Converged, type-safe webhook event handling.
+
+  - `@openpromo/sdk-runtime/webhooks` (new subpath): shared
+    `WebhookParseError` / `WebhookParseOptions` / `WebhookParseResult`,
+    `verifyWebhookSignature` (timing-safe HMAC), `verifyWebhookChallenge`,
+    and `parseWebhook` / `safeParseWebhook` with an injectable verifier so
+    every platform package can reuse the same contract.
+  - `@openpromo/meta/webhooks`: parse/safeParse now run on the shared
+    primitives; Threads gains a typed event union
+    (`getThreadsWebhookEvents`, `ThreadsWebhookEvent`) matching the existing
+    Facebook/Instagram extraction; per-kind change types
+    (`FacebookCommentChange`, `InstagramCommentChange`,
+    `InstagramMessageEditChange`, `InstagramMessageReactionChange`) are
+    exported so consumers can narrow the tolerant change unions.
+  - `@openpromo/x/webhooks` (new subpath): CRC challenge
+    (`verifyCrcChallenge`), base64 HMAC signature verification, tolerant
+    envelope parsing, and typed event extraction (`message_create`,
+    `tweet_create`, `unknown`), exposed as `X.Webhooks`.
+  - Chat adapters narrow the tolerant webhook unions by field/event kind.
+
+- [`22899be`](https://github.com/promobase/ad-platform-sdks/commit/22899beb81f69883a6667e1623f7dd4a2556511a) Thanks [@rayli09](https://github.com/rayli09)! - Stripe-style unified webhook event surface: one-call `constructEvents` /
+  `constructEvent` that verifies the signature, parses the delivery, and
+  returns typed events for exhaustive pattern matching.
+
+  - Meta and X events are normalized to a shared `{ type, data, entryId }`
+    shape (previously `kind`/`event`/`change`), with a tolerant `unknown`
+    catch-all (`sourceType` carries the provider's original key).
+  - `Facebook.Webhooks.constructEvents`, `Instagram.Webhooks.constructEvents`,
+    `Threads.Webhooks.constructEvents`, `X.Webhooks.constructEvents`, and
+    `TikTok.Webhooks.constructEvent` (TikTok keeps the provider's wire `event`
+    field; the projection presents it as `type` with auto-parsed `content` as
+    `data`).
+  - `WebhookParseError` is thrown on invalid signatures/payloads, mirroring
+    Stripe's `constructEvent` behavior.
+
+### Patch Changes
+
+- Updated dependencies [[`5eecfab`](https://github.com/promobase/ad-platform-sdks/commit/5eecfab2499261d279a7ada7fd485b2158fcea99)]:
+  - @openpromo/sdk-runtime@0.8.0
+
 ## 0.8.0
 
 ### Minor Changes
