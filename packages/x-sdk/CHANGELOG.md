@@ -1,5 +1,18 @@
 # @promobase/x-sdk
 
+## 0.8.0
+
+### Minor Changes
+
+- [`3e4a908`](https://github.com/promobase/ad-platform-sdks/commit/3e4a9082099715fa2720a1240c88c250db1cdd82) Thanks [@rayli09](https://github.com/rayli09)! - Add provider-specific OAuth scope catalogs and typed adapter inputs across the supported platform
+  SDKs. Add an explicit `customOAuthScope` escape hatch for provider permissions not yet in a catalog,
+  while preserving provider-granted scopes as forward-compatible strings.
+
+### Patch Changes
+
+- Updated dependencies [[`269d091`](https://github.com/promobase/ad-platform-sdks/commit/269d09195c5e33b995c90333674f423b0fd0241e), [`6a12a9c`](https://github.com/promobase/ad-platform-sdks/commit/6a12a9cd0a18980bb9a44fb334e9bc606e3a894f), [`3e4a908`](https://github.com/promobase/ad-platform-sdks/commit/3e4a9082099715fa2720a1240c88c250db1cdd82)]:
+  - @openpromo/sdk-runtime@0.7.0
+
 ## 0.7.0
 
 ### Minor Changes

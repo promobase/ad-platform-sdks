@@ -1,0 +1,38 @@
+{
+  "object": "page",
+  "entry": [
+    {
+      "id": "PAGE_ID_123",
+      "time": 1723680000,
+      "messaging": [
+        {
+          "sender": { "id": "psid_1001" },
+          "recipient": { "id": "PAGE_ID_123" },
+          "timestamp": 1723680000000,
+          "message": { "mid": "m_inbound_1", "text": "Hi, is this in stock?" }
+        },
+        {
+          "sender": { "id": "PAGE_ID_123" },
+          "recipient": { "id": "psid_1001" },
+          "timestamp": 1723680005000,
+          "message": { "mid": "m_echo_1", "text": "Yes it is!", "is_echo": true }
+        },
+        {
+          "sender": { "id": "psid_1001" },
+          "recipient": { "id": "PAGE_ID_123" },
+          "timestamp": 1723680010000,
+          "postback": {
+            "payload": "chat:{\"a\":\"approve\",\"v\":\"order_1\"}",
+            "title": "Approve"
+          }
+        },
+        {
+          "sender": { "id": "psid_1001" },
+          "recipient": { "id": "PAGE_ID_123" },
+          "timestamp": 1723680015000,
+          "reaction": { "mid": "m_inbound_1", "action": "react", "emoji": "thumbs_up" }
+        }
+      ]
+    }
+  ]
+}

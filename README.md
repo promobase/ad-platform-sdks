@@ -101,7 +101,8 @@ apps/docs                  Mosaic documentation and API reference
 Read the [architecture guide](./docs/effect-native-architecture.md) for the contract and runtime
 boundaries. The current Facebook, Instagram, and TikTok Business parity work is tracked in the
 [first-party parity plan](./docs/first-party-platform-parity-plan.md) and
-[parity tracker](./docs/first-party-platform-parity-tracker.md). Or start with the
+[parity tracker](./docs/first-party-platform-parity-tracker.md). First-party Chat SDK adapters are
+scoped in the [Chat SDK adapters plan](./docs/chat-sdk-adapters-plan.md). Or start with the
 [documentation site](https://mosaic.openpromo.app).
 
 ## Contributing
