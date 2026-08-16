@@ -42,6 +42,26 @@ Env contract: `TIKTOK_APP_SECRET`, `TIKTOK_ACCESS_TOKEN`, `TIKTOK_BUSINESS_ID`
 (or pass explicitly for per-account use). `chat` is a peer dependency
 (`^4.0.0`).
 
-TikTok Business **DMs** (Business Messaging API, `im_receive_msg` events) are
-a follow-up surface in this package; note the platform's 10-messages/48h
-limit on automated sends.
+## Direct messages
+
+`createTikTokMessagingAdapter()` is a **separate Chat SDK adapter** for
+TikTok Business Messaging DMs — its own webhook surface (`im_receive_msg`,
+`im_send_msg`, `im_mark_read_msg`), thread model
+(`tiktok:{businessId}:dm:{conversationId}`), and send semantics:
+
+```ts
+const bot = new Chat({
+  userName: "shop-bot",
+  adapters: {
+    tiktok: createTikTokMessagingAdapter(),
+    tiktok_comments: createTikTokCommentsAdapter(),
+  },
+  state: createMemoryState(),
+});
+```
+
+Inbound messages dispatch as `onDirectMessage`; business echoes are cached;
+`im_mark_read_msg` is handled as a read receipt. `thread.post()` sends a
+text message (message type `TEXT`), `startTyping()`/`markAsRead()` send
+`SENDER_ACTION` typing/read receipts. Note the platform's **10 automated
+messages/48h** limit on the Business Messaging API.

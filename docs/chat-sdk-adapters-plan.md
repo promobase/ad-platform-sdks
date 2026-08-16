@@ -1,9 +1,9 @@
 # Chat SDK Adapters — Plan
 
-> Status: M2 part 1 complete (2026-08-15) — Messenger + Instagram DM adapters
-> with official parity, Meta comment adapters, IG changes-field edits/reactions,
-> and the TikTok comments adapter. M2 part 2 (TikTok Business Messaging DMs)
-> and M3 (automated parity tests) remain.
+> Status: M2 complete (2026-08-15) — Messenger + Instagram DM adapters with
+> official parity, Meta comment adapters, IG changes-field edits/reactions, and
+> the full TikTok package (comments + Business Messaging DMs). M3 (automated
+> parity tests) remains.
 > Owner: Ad Platform SDKs. Companion to
 > [`openpromo-migration.md`](./openpromo-migration.md) — this plan extends its
 > ownership boundary to Chat SDK adapter packages.

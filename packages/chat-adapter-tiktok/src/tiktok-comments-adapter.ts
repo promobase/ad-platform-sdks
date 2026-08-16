@@ -3,10 +3,13 @@ import {
   commentThreadId,
   type CommentEvent,
 } from "@openpromo/chat-adapter-core";
-import { TikTok, commentWebhookEventSchema, verifyWebhookSignature } from "@openpromo/tiktok";
+import { TikTok, commentWebhookEventSchema } from "@openpromo/tiktok";
 import type { CommentWebhookEvent } from "@openpromo/tiktok";
 import type { Logger } from "chat";
 import { safeParse } from "valibot";
+
+import { verifyTikTokInbound } from "./verify-inbound.ts";
+import { collectTikTokWebhookEvents } from "./webhook-events.ts";
 
 export interface CommentThreadId {
   /** Top-level comment id the thread is rooted at. */
@@ -97,33 +100,17 @@ export class TikTokCommentsAdapter extends CommentAdapterBase<CommentThreadId> {
   }
 
   protected async verifyInbound(request: Request, body: string): Promise<Response | null> {
-    if (request.method === "GET") {
-      const challenge = new URL(request.url).searchParams.get("challenge");
-      if (!challenge) {
-        return new Response("Missing challenge", { status: 400 });
-      }
-      return new Response(challenge, { status: 200 });
-    }
-
-    const signature = request.headers.get("TikTok-Signature");
-    if (!signature) {
-      return new Response("Missing TikTok-Signature header", { status: 403 });
-    }
-    const valid = await verifyWebhookSignature(body, signature, this.appSecret, {
-      maxAgeSeconds: this.maxSignatureAgeSeconds,
+    return verifyTikTokInbound(request, body, {
+      appSecret: this.appSecret,
+      maxSignatureAgeSeconds: this.maxSignatureAgeSeconds,
     });
-    if (!valid) {
-      return new Response("Invalid TikTok-Signature", { status: 403 });
-    }
-    return null;
   }
 
   protected async parseWebhook(body: string): Promise<CommentEvent[]> {
     const payload = JSON.parse(body) as unknown;
-    const events = collectWebhookEvents(payload);
 
     const result: CommentEvent[] = [];
-    for (const event of events) {
+    for (const event of collectTikTokWebhookEvents(payload)) {
       if (event.event !== "comment.update") continue;
       result.push(await this.commentEventFromUpdate(event));
     }
@@ -243,22 +230,4 @@ export class TikTokCommentsAdapter extends CommentAdapterBase<CommentThreadId> {
       fromId: this.businessId,
     };
   }
-}
-
-/** Collect webhook events from any of TikTok's payload shapes. */
-function collectWebhookEvents(payload: unknown): CommentWebhookEvent[] {
-  if (typeof payload !== "object" || payload === null) return [];
-  const record = payload as Record<string, unknown>;
-  const candidates: unknown[] = [];
-  if (Array.isArray(record.events)) candidates.push(...record.events);
-  if (typeof record.event === "object" && record.event !== null) candidates.push(record.event);
-  if (typeof record.data === "object" && record.data !== null) candidates.push(record.data);
-  candidates.push(record);
-
-  const events: CommentWebhookEvent[] = [];
-  for (const candidate of candidates) {
-    const parsed = safeParse(commentWebhookEventSchema, candidate);
-    if (parsed.success) events.push(parsed.output);
-  }
-  return events;
 }

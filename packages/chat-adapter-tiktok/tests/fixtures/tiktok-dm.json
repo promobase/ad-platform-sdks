@@ -1,0 +1,25 @@
+{
+  "events": [
+    {
+      "client_key": "aw123",
+      "create_time": 1723680000,
+      "user_openid": "openid_1",
+      "event": "im_receive_msg",
+      "content": "{\"from\":\"u1\",\"to\":\"biz\",\"unique_identifier\":\"u1\",\"from_user\":{\"id\":\"u1\",\"role\":\"personal_account\"},\"to_user\":{\"id\":\"biz\",\"role\":\"business_account\"},\"conversation_id\":\"conv_1\",\"message_id\":\"m1\",\"timestamp\":1723680000,\"type\":\"TEXT\",\"scene_type\":1,\"is_follower\":true,\"content\":\"How much is shipping?\"}"
+    },
+    {
+      "client_key": "aw123",
+      "create_time": 1723680010,
+      "user_openid": "openid_1",
+      "event": "im_send_msg",
+      "content": "{\"from\":\"biz\",\"to\":\"u1\",\"unique_identifier\":\"biz\",\"from_user\":{\"id\":\"biz\",\"role\":\"business_account\"},\"to_user\":{\"id\":\"u1\",\"role\":\"personal_account\"},\"conversation_id\":\"conv_1\",\"message_id\":\"m2\",\"timestamp\":1723680010,\"type\":\"TEXT\",\"content\":\"$12!\"}"
+    },
+    {
+      "client_key": "aw123",
+      "create_time": 1723680020,
+      "user_openid": "openid_1",
+      "event": "im_mark_read_msg",
+      "content": "{\"from\":\"u1\",\"to\":\"biz\",\"unique_identifier\":\"u1\",\"conversation_id\":\"conv_1\",\"timestamp\":1723680020}"
+    }
+  ]
+}
