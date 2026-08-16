@@ -427,11 +427,11 @@ export type ThreadsChangeValue = ThreadsWebhookPayload["values"]["value"];
 export type ThreadsWebhookEvent =
   | (EventContext & {
       readonly type: "replies" | "delete" | "publish" | "mentions";
-      readonly value: ThreadsChangeValue;
+      readonly data: ThreadsChangeValue;
     })
   | (EventContext & {
       readonly type: "unknown";
-      readonly value?: ThreadsChangeValue;
+      readonly data?: ThreadsChangeValue;
     });
 
 export function getThreadsWebhookEvents(
@@ -442,7 +442,7 @@ export function getThreadsWebhookEvents(
   const field = payload.values.field;
 
   if (field === "replies" || field === "delete" || field === "publish" || field === "mentions") {
-    return [{ ...entryContext, type: field, value }];
+    return [{ ...entryContext, type: field, data: value }];
   }
-  return [{ ...entryContext, type: "unknown", value }];
+  return [{ ...entryContext, type: "unknown", data: value }];
 }

@@ -1,0 +1,16 @@
+{
+  "name": "@openpromo/examples",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "dependencies": {
+    "@openpromo/ad-platforms": "workspace:*",
+    "@openpromo/google-business-profile": "workspace:*",
+    "@openpromo/linkedin": "workspace:*",
+    "@openpromo/meta": "workspace:*",
+    "@openpromo/sdk-runtime": "workspace:*",
+    "@openpromo/tiktok": "workspace:*",
+    "@openpromo/x": "workspace:*",
+    "@openpromo/youtube": "workspace:*"
+  }
+}

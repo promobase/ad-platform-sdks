@@ -79,7 +79,7 @@ test("threads events: replies + unknown field both deliver", () => {
   expect(replies[0]?.type).toBe("replies");
   if (replies[0]?.type !== "replies") return;
   expect(replies[0].entryId).toBe("user_1");
-  expect(replies[0].value.root_post?.owner_id).toBe("owner_1");
+  expect(replies[0].data.root_post?.owner_id).toBe("owner_1");
 
   const unknown = webhooks.threads.events({
     app_id: "app_1",

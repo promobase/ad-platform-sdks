@@ -3,12 +3,13 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "examples"
   ],
   "scripts": {
     "build": "bun --filter='./packages/*' run build && bun run --cwd apps/docs build",
     "clean": "bun --filter='./packages/*' run clean",
-    "typecheck": "bun --filter='./packages/*' run typecheck && bun run --cwd apps/docs typecheck",
+    "typecheck": "bun --filter='./packages/*' run typecheck && bun run --cwd apps/docs typecheck && bun run typecheck:examples",
     "test": "bun test scripts/ && bun --filter='./packages/*' run test",
     "lint": "oxlint --deny-warnings .",
     "lint:fix": "oxlint --fix .",
@@ -21,7 +22,8 @@
     "effect:check": "bun scripts/check-effect-runtime.mjs",
     "docs:check": "bun run --cwd apps/docs reference:check && bun run --cwd apps/docs lint",
     "published:check": "bun scripts/check-published-subpaths.mjs",
-    "codegen:check": "bun scripts/check-codegen-coverage.mjs && node scripts/ensure-generated-headers.mjs --check"
+    "codegen:check": "bun scripts/check-codegen-coverage.mjs && node scripts/ensure-generated-headers.mjs --check",
+    "typecheck:examples": "tsc -p examples/tsconfig.json --noEmit"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.6.0",

@@ -39,9 +39,23 @@
         "wrangler": "4.118.0",
       },
     },
+    "examples": {
+      "name": "@openpromo/examples",
+      "version": "0.0.0",
+      "dependencies": {
+        "@openpromo/ad-platforms": "workspace:*",
+        "@openpromo/google-business-profile": "workspace:*",
+        "@openpromo/linkedin": "workspace:*",
+        "@openpromo/meta": "workspace:*",
+        "@openpromo/sdk-runtime": "workspace:*",
+        "@openpromo/tiktok": "workspace:*",
+        "@openpromo/x": "workspace:*",
+        "@openpromo/youtube": "workspace:*",
+      },
+    },
     "packages/ad-platforms": {
       "name": "@openpromo/ad-platforms",
-      "version": "2.0.0",
+      "version": "0.10.0",
       "dependencies": {
         "@openpromo/amazon-ads": "workspace:*",
         "@openpromo/bluesky": "workspace:*",
@@ -71,7 +85,7 @@
     },
     "packages/amazon-ads-sdk": {
       "name": "@openpromo/amazon-ads",
-      "version": "0.3.1",
+      "version": "0.10.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -87,7 +101,7 @@
     },
     "packages/bluesky-sdk": {
       "name": "@openpromo/bluesky",
-      "version": "0.3.1",
+      "version": "0.10.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -102,7 +116,7 @@
     },
     "packages/chat-adapter-core": {
       "name": "@openpromo/chat-adapter-core",
-      "version": "0.1.0",
+      "version": "0.10.0",
       "dependencies": {
         "@chat-adapter/shared": "^4.38.0",
       },
@@ -117,7 +131,7 @@
     },
     "packages/chat-adapter-instagram": {
       "name": "@openpromo/chat-adapter-instagram",
-      "version": "0.1.0",
+      "version": "0.10.0",
       "dependencies": {
         "@chat-adapter/shared": "^4.38.0",
         "@openpromo/chat-adapter-core": "workspace:*",
@@ -135,7 +149,7 @@
     },
     "packages/chat-adapter-messenger": {
       "name": "@openpromo/chat-adapter-messenger",
-      "version": "0.1.0",
+      "version": "0.10.0",
       "dependencies": {
         "@chat-adapter/shared": "^4.38.0",
         "@openpromo/chat-adapter-core": "workspace:*",
@@ -153,7 +167,7 @@
     },
     "packages/chat-adapter-tiktok": {
       "name": "@openpromo/chat-adapter-tiktok",
-      "version": "0.1.0",
+      "version": "0.10.0",
       "dependencies": {
         "@chat-adapter/shared": "^4.38.0",
         "@openpromo/chat-adapter-core": "workspace:*",
@@ -172,7 +186,7 @@
     },
     "packages/chat-adapters": {
       "name": "@openpromo/chat-adapters",
-      "version": "0.1.0",
+      "version": "0.10.0",
       "dependencies": {
         "@openpromo/chat-adapter-core": "workspace:*",
         "@openpromo/chat-adapter-instagram": "workspace:*",
@@ -186,7 +200,7 @@
     },
     "packages/cli": {
       "name": "@openpromo/ad-platforms-cli",
-      "version": "0.6.5",
+      "version": "0.10.0",
       "bin": {
         "mosaic-ads": "./dist/index.js",
         "mosaic-ads-mcp": "./dist/mcp.js",
@@ -216,7 +230,7 @@
     },
     "packages/google-ads-sdk": {
       "name": "@openpromo/google-ads",
-      "version": "0.4.1",
+      "version": "0.10.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -231,7 +245,7 @@
     },
     "packages/google-business-profile-sdk": {
       "name": "@openpromo/google-business-profile",
-      "version": "0.6.0",
+      "version": "0.10.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -246,7 +260,7 @@
     },
     "packages/linkedin-sdk": {
       "name": "@openpromo/linkedin",
-      "version": "0.9.0",
+      "version": "0.10.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -261,7 +275,7 @@
     },
     "packages/meta-business-sdk": {
       "name": "@openpromo/meta",
-      "version": "2.0.0",
+      "version": "0.10.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -281,7 +295,7 @@
     },
     "packages/pinterest-sdk": {
       "name": "@openpromo/pinterest",
-      "version": "0.3.1",
+      "version": "0.10.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -297,7 +311,7 @@
     },
     "packages/reddit-sdk": {
       "name": "@openpromo/reddit",
-      "version": "0.3.1",
+      "version": "0.10.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -323,7 +337,7 @@
     },
     "packages/sdk-runtime": {
       "name": "@openpromo/sdk-runtime",
-      "version": "0.7.0",
+      "version": "0.10.0",
       "dependencies": {
         "better-result": "^2.10.0",
         "effect": "^3.22.1",
@@ -338,7 +352,7 @@
     },
     "packages/snapchat-sdk": {
       "name": "@openpromo/snapchat",
-      "version": "0.3.1",
+      "version": "0.10.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -353,7 +367,7 @@
     },
     "packages/tiktok-business-sdk": {
       "name": "@openpromo/tiktok",
-      "version": "0.6.0",
+      "version": "0.10.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -374,7 +388,7 @@
     },
     "packages/x-sdk": {
       "name": "@openpromo/x",
-      "version": "0.8.0",
+      "version": "0.10.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -390,7 +404,7 @@
     },
     "packages/youtube-sdk": {
       "name": "@openpromo/youtube",
-      "version": "0.8.0",
+      "version": "0.10.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -762,6 +776,8 @@
     "@openpromo/chat-adapters": ["@openpromo/chat-adapters@workspace:packages/chat-adapters"],
 
     "@openpromo/docs": ["@openpromo/docs@workspace:apps/docs"],
+
+    "@openpromo/examples": ["@openpromo/examples@workspace:examples"],
 
     "@openpromo/google-ads": ["@openpromo/google-ads@workspace:packages/google-ads-sdk"],
 
