@@ -6,9 +6,17 @@ on:
   pull_request:
     branches: [master]
 
+# PR pushes cancel superseded runs instead of queueing; master pushes
+# serialize without cancellation so an in-flight docs deploy is never cut off.
+concurrency:
+  group: ci-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v6
         with:

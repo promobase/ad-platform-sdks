@@ -6,6 +6,7 @@ updates:
     schedule:
       interval: "weekly"
       day: "monday"
+    open-pull-requests-limit: 5
     groups:
       # Bundle minor/patch updates into one PR per group to reduce noise
       typescript-tooling:
@@ -25,6 +26,7 @@ updates:
     schedule:
       interval: "weekly"
       day: "monday"
+    open-pull-requests-limit: 5
     groups:
       actions:
         patterns: ["*"]
