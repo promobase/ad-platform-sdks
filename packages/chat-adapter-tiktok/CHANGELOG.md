@@ -1,5 +1,12 @@
 # @openpromo/chat-adapter-tiktok
 
+## 0.1.2
+
+### Patch Changes
+
+- Updated dependencies [[`0df6f0c`](https://github.com/promobase/ad-platform-sdks/commit/0df6f0ca74fec291b00ab6e2bf7c1cd503286f2b)]:
+  - @openpromo/tiktok@0.8.0
+
 ## 0.1.1
 
 ### Patch Changes

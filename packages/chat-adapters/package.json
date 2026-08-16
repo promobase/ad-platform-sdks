@@ -1,6 +1,6 @@
 {
   "name": "@openpromo/chat-adapters",
-  "version": "0.2.0",
+  "version": "0.10.0",
   "description": "Umbrella package for OpenPromo first-party Chat SDK adapters",
   "type": "module",
   "module": "./dist/index.js",

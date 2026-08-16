@@ -1,5 +1,18 @@
 # @openpromo/meta
 
+## 2.2.0
+
+### Minor Changes
+
+- [`0df6f0c`](https://github.com/promobase/ad-platform-sdks/commit/0df6f0ca74fec291b00ab6e2bf7c1cd503286f2b) Thanks [@rayli09](https://github.com/rayli09)! - Unify every package on a single shared `0.x.0` version line. All packages
+  release together with one version number; this release moves the family to
+  `0.10.0` (a forced downgrade for `@openpromo/meta`, previously 2.x).
+
+### Patch Changes
+
+- Updated dependencies [[`0df6f0c`](https://github.com/promobase/ad-platform-sdks/commit/0df6f0ca74fec291b00ab6e2bf7c1cd503286f2b)]:
+  - @openpromo/sdk-runtime@0.9.0
+
 ## 2.1.0
 
 ### Minor Changes

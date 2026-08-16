@@ -1,6 +1,6 @@
 {
   "name": "@openpromo/ad-platforms",
-  "version": "2.0.1",
+  "version": "0.10.0",
   "description": "Unified type-safe TypeScript SDK for Facebook, Instagram, Threads, WhatsApp, TikTok, LinkedIn, X, YouTube, and future ad platforms — single install, single namespace",
   "keywords": [
     "facebook",

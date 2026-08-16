@@ -1,5 +1,24 @@
 # @openpromo/ad-platforms
 
+## 2.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`0df6f0c`](https://github.com/promobase/ad-platform-sdks/commit/0df6f0ca74fec291b00ab6e2bf7c1cd503286f2b)]:
+  - @openpromo/meta@2.2.0
+  - @openpromo/sdk-runtime@0.9.0
+  - @openpromo/tiktok@0.8.0
+  - @openpromo/x@0.10.0
+  - @openpromo/amazon-ads@0.3.3
+  - @openpromo/bluesky@0.3.3
+  - @openpromo/google-ads@0.4.3
+  - @openpromo/google-business-profile@0.6.2
+  - @openpromo/linkedin@0.9.2
+  - @openpromo/pinterest@0.3.3
+  - @openpromo/reddit@0.3.3
+  - @openpromo/snapchat@0.3.3
+  - @openpromo/youtube@0.8.2
+
 ## 2.0.1
 
 ### Patch Changes
