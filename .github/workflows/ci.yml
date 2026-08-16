@@ -24,8 +24,8 @@ jobs:
 
       - uses: oven-sh/setup-bun@v2
         with:
+          # bun install caching is enabled by default in setup-bun@v2.
           bun-version: latest
-          cache: true
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
@@ -80,8 +80,8 @@ jobs:
 
       - uses: oven-sh/setup-bun@v2
         with:
+          # bun install caching is enabled by default in setup-bun@v2.
           bun-version: latest
-          cache: true
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
