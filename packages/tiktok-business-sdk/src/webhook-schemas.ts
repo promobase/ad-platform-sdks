@@ -195,11 +195,19 @@ export const dmWebhookEventSchema = v.object({
   content: jsonContent(dmContentSchema),
 });
 
+/**
+ * Catch-all for event kinds not modeled yet (provider-added event types).
+ * Sits last in the union so known events keep their rich parse while unknown
+ * kinds still deliver instead of dropping the whole payload.
+ */
+const unknownWebhookEventSchema = v.looseObject({ event: v.string() });
+
 export const tiktokWebhookEventSchema = v.union([
   videoWebhookEventSchema,
   commentWebhookEventSchema,
   mentionWebhookEventSchema,
   dmWebhookEventSchema,
+  unknownWebhookEventSchema,
 ]);
 
 // --- Inferred Types (content is already parsed) ---

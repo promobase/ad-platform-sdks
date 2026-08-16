@@ -301,15 +301,27 @@ export const instagramStoryInsightsChangeSchema = v.looseObject({
   value: v.looseObject({}),
 });
 
-export const facebookChangeSchema = v.union([facebookCommentChangeSchema]);
+/**
+ * Catch-all for change fields not modeled yet. Production webhooks may carry
+ * provider-added fields (likes, leadgen, story insights, ...); rejecting them
+ * would drop the whole delivery. Sits last in the change unions so known
+ * fields keep their rich parse.
+ */
+const unknownChangeSchema = v.looseObject({
+  field: v.string(),
+  value: v.looseObject({}),
+});
 
-export const instagramChangeSchema = v.variant("field", [
+export const facebookChangeSchema = v.union([facebookCommentChangeSchema, unknownChangeSchema]);
+
+export const instagramChangeSchema = v.union([
   instagramCommentChangeSchema,
   instagramMessageEditChangeSchema,
   instagramMessageReactionChangeSchema,
   instagramMentionChangeSchema,
   instagramLiveCommentChangeSchema,
   instagramStoryInsightsChangeSchema,
+  unknownChangeSchema,
 ]);
 
 export const facebookWebhookPayloadSchema = v.looseObject({
@@ -447,7 +459,9 @@ export const threadsWebhookPayloadSchema = v.looseObject({
   time: v.number(),
   subscription_id: v.string(),
   values: v.looseObject({
-    field: v.picklist(["replies", "mentions", "delete", "publish"] as const),
+    // Tolerant: Meta may add topic/field values; unknown fields must not drop
+    // the delivery. The known literals are kept first for self-documentation.
+    field: v.union([v.picklist(["replies", "mentions", "delete", "publish"] as const), v.string()]),
     value: v.looseObject({
       id: v.optional(v.string()),
       username: v.optional(v.string()),
