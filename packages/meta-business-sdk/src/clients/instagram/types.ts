@@ -60,6 +60,7 @@ export type InstagramAttachmentType = "image" | "video" | "audio" | "file";
 
 export type InstagramAttachment =
   | { type: InstagramAttachmentType; url: string }
+  | { type: InstagramAttachmentType; attachmentId: string }
   | { type: "MEDIA_SHARE"; mediaId: string };
 
 export interface InstagramQuickReply {
@@ -117,6 +118,8 @@ export interface PollingConfig {
 export interface InstagramClientOptions {
   api: ReturnType<typeof import("../../generated/index.ts").createClient>;
   igAccountId: string;
+  /** IG access token for multipart uploads the form-encoded client cannot carry. */
+  accessToken?: string;
   /** Identifies which provider credential family owns the Graph client. */
   credentialFamily?: InstagramCredentialFamily;
   polling?: Partial<PollingConfig>;

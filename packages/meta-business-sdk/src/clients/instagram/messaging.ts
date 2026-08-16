@@ -9,7 +9,11 @@ import type {
 
 type CreateClientReturn = ReturnType<typeof import("../../generated/index.ts").createClient>;
 
-export function createMessaging(api: CreateClientReturn, igAccountId: string) {
+export function createMessaging(
+  api: CreateClientReturn,
+  igAccountId: string,
+  options: { accessToken?: string; fetch?: typeof fetch } = {},
+) {
   function validateQuickReplies(replies: readonly InstagramQuickReply[]) {
     if (replies.length > 13) throw new Error("Instagram supports at most 13 quick replies");
     if (replies.some((reply) => reply.title.length > 20)) {
@@ -104,6 +108,11 @@ export function createMessaging(api: CreateClientReturn, igAccountId: string) {
   function attachmentBody(attachment: InstagramAttachment): Record<string, unknown> {
     if (attachment.type === "MEDIA_SHARE") {
       return { attachment: { type: attachment.type, payload: { id: attachment.mediaId } } };
+    }
+    if ("attachmentId" in attachment) {
+      return {
+        attachment: { type: attachment.type, payload: { attachment_id: attachment.attachmentId } },
+      };
     }
     return { attachment: { type: attachment.type, payload: { url: attachment.url } } };
   }
@@ -220,6 +229,14 @@ export function createMessaging(api: CreateClientReturn, igAccountId: string) {
       return sendMessage({ id: recipientId }, { text }, replyToMid);
     },
 
+    /** Send an Instagram sender action (typing indicator). */
+    async sendSenderAction(recipientId: string, action: "typing_on" | "typing_off"): Promise<void> {
+      await api.client.post(`${igAccountId}/messages`, {
+        recipient: { id: recipientId },
+        sender_action: action,
+      });
+    },
+
     /** Send a private reply to a public comment (7-day window, max 1 per comment, 1000 chars). */
     async privateReply(
       commentId: string,
@@ -234,6 +251,43 @@ export function createMessaging(api: CreateClientReturn, igAccountId: string) {
         },
       );
       return { messageId: result.message_id, recipientId: result.recipient_id };
+    },
+
+    /**
+     * Upload reusable media for DM attachments. The graph client is
+     * form-encoded, so multipart uploads use the injected fetch directly with
+     * the access token in the query string.
+     */
+    async uploadAttachment(
+      attachmentType: "image" | "video" | "audio" | "file",
+      data: Blob,
+      filename: string,
+    ): Promise<{ attachmentId: string }> {
+      const token = options.accessToken;
+      if (!token) {
+        throw new Error("Instagram accessToken is required for media uploads");
+      }
+      const formData = new FormData();
+      formData.append(
+        "message",
+        JSON.stringify({ attachment: { type: attachmentType, payload: { is_reusable: true } } }),
+      );
+      formData.append("filedata", data, filename);
+      const url = `https://graph.instagram.com/${igAccountId}/message_attachments?access_token=${encodeURIComponent(token)}`;
+      const response = await (options.fetch ?? fetch)(url, {
+        method: "POST",
+        body: formData,
+      });
+      const body = (await response.json()) as {
+        attachment_id?: string;
+        error?: { message?: string };
+      };
+      if (!response.ok || !body.attachment_id) {
+        throw new Error(
+          body.error?.message ?? "Instagram Attachment Upload API did not return an attachment ID",
+        );
+      }
+      return { attachmentId: body.attachment_id };
     },
   };
 }

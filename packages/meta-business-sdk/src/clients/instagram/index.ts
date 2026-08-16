@@ -25,7 +25,10 @@ export function createInstagramClient(opts: InstagramClientOptions) {
     media: createMedia(api, containers, igUser, polling),
     stories: createStories(containers, polling),
     comments: createComments(api),
-    messaging: createMessaging(api, igAccountId),
+    messaging: createMessaging(api, igAccountId, {
+      accessToken: opts.accessToken,
+      fetch: opts.fetch,
+    }),
     account: createAccount(api, igAccountId),
     containers,
     webhooks: {

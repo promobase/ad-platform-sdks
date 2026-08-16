@@ -207,5 +207,16 @@ export function createMessaging(page: PageNode) {
       });
       return { messageId: (result as any).message_id, recipientId: (result as any).recipient_id };
     },
+
+    /** Send a Messenger sender action (typing indicator or mark-seen). */
+    async sendSenderAction(
+      recipientPsid: string,
+      action: "typing_on" | "typing_off" | "mark_seen",
+    ): Promise<void> {
+      await page.createMessage({
+        recipient: { id: recipientPsid },
+        sender_action: action,
+      } as unknown as Parameters<PageNode["createMessage"]>[0]);
+    },
   };
 }

@@ -1,0 +1,27 @@
+{
+  "object": "instagram",
+  "entry": [
+    {
+      "id": "IG_ACCOUNT_1",
+      "time": 1723680000,
+      "messaging": [
+        {
+          "sender": { "id": "igsid_2001" },
+          "recipient": { "id": "IG_ACCOUNT_1" },
+          "timestamp": 1723680000000,
+          "message": { "mid": "agm_inbound_1", "text": "How much is shipping?" }
+        },
+        {
+          "sender": { "id": "igsid_2001" },
+          "recipient": { "id": "IG_ACCOUNT_1" },
+          "timestamp": 1723680005000,
+          "message": {
+            "mid": "agm_quick_1",
+            "text": "Order",
+            "quick_reply": { "payload": "chat:{\"a\":\"order_now\"}" }
+          }
+        }
+      ]
+    }
+  ]
+}

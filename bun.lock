@@ -41,7 +41,7 @@
     },
     "packages/ad-platforms": {
       "name": "@openpromo/ad-platforms",
-      "version": "0.9.0",
+      "version": "2.0.0",
       "dependencies": {
         "@openpromo/amazon-ads": "workspace:*",
         "@openpromo/bluesky": "workspace:*",
@@ -71,7 +71,7 @@
     },
     "packages/amazon-ads-sdk": {
       "name": "@openpromo/amazon-ads",
-      "version": "0.2.0",
+      "version": "0.3.1",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -87,7 +87,7 @@
     },
     "packages/bluesky-sdk": {
       "name": "@openpromo/bluesky",
-      "version": "0.2.0",
+      "version": "0.3.1",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -100,9 +100,73 @@
         "typescript": ">=5.9.3 <8",
       },
     },
+    "packages/chat-adapter-core": {
+      "name": "@openpromo/chat-adapter-core",
+      "version": "0.1.0",
+      "dependencies": {
+        "@chat-adapter/shared": "^4.38.0",
+      },
+      "devDependencies": {
+        "@types/bun": "latest",
+        "chat": "^4.38.0",
+        "typescript": "^7.0.2",
+      },
+      "peerDependencies": {
+        "chat": "^4.0.0",
+      },
+    },
+    "packages/chat-adapter-instagram": {
+      "name": "@openpromo/chat-adapter-instagram",
+      "version": "0.1.0",
+      "dependencies": {
+        "@chat-adapter/shared": "^4.38.0",
+        "@openpromo/chat-adapter-core": "workspace:*",
+        "@openpromo/meta": "workspace:*",
+      },
+      "devDependencies": {
+        "@chat-adapter/state-memory": "^4.38.0",
+        "@types/bun": "latest",
+        "chat": "^4.38.0",
+        "typescript": "^7.0.2",
+      },
+      "peerDependencies": {
+        "chat": "^4.0.0",
+      },
+    },
+    "packages/chat-adapter-messenger": {
+      "name": "@openpromo/chat-adapter-messenger",
+      "version": "0.1.0",
+      "dependencies": {
+        "@chat-adapter/shared": "^4.38.0",
+        "@openpromo/chat-adapter-core": "workspace:*",
+        "@openpromo/meta": "workspace:*",
+      },
+      "devDependencies": {
+        "@chat-adapter/state-memory": "^4.38.0",
+        "@types/bun": "latest",
+        "chat": "^4.38.0",
+        "typescript": "^7.0.2",
+      },
+      "peerDependencies": {
+        "chat": "^4.0.0",
+      },
+    },
+    "packages/chat-adapters": {
+      "name": "@openpromo/chat-adapters",
+      "version": "0.1.0",
+      "dependencies": {
+        "@openpromo/chat-adapter-core": "workspace:*",
+        "@openpromo/chat-adapter-instagram": "workspace:*",
+        "@openpromo/chat-adapter-messenger": "workspace:*",
+      },
+      "devDependencies": {
+        "@types/bun": "latest",
+        "typescript": "^7.0.2",
+      },
+    },
     "packages/cli": {
       "name": "@openpromo/ad-platforms-cli",
-      "version": "0.6.3",
+      "version": "0.6.5",
       "bin": {
         "mosaic-ads": "./dist/index.js",
         "mosaic-ads-mcp": "./dist/mcp.js",
@@ -132,7 +196,7 @@
     },
     "packages/google-ads-sdk": {
       "name": "@openpromo/google-ads",
-      "version": "0.3.1",
+      "version": "0.4.1",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -147,7 +211,7 @@
     },
     "packages/google-business-profile-sdk": {
       "name": "@openpromo/google-business-profile",
-      "version": "0.4.0",
+      "version": "0.6.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -162,7 +226,7 @@
     },
     "packages/linkedin-sdk": {
       "name": "@openpromo/linkedin",
-      "version": "0.7.0",
+      "version": "0.9.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -177,7 +241,7 @@
     },
     "packages/meta-business-sdk": {
       "name": "@openpromo/meta",
-      "version": "0.4.0",
+      "version": "2.0.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -197,7 +261,7 @@
     },
     "packages/pinterest-sdk": {
       "name": "@openpromo/pinterest",
-      "version": "0.2.0",
+      "version": "0.3.1",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -213,7 +277,7 @@
     },
     "packages/reddit-sdk": {
       "name": "@openpromo/reddit",
-      "version": "0.2.0",
+      "version": "0.3.1",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -229,7 +293,7 @@
     },
     "packages/sdk-codegen": {
       "name": "@openpromo/sdk-codegen",
-      "version": "0.1.1",
+      "version": "0.2.0",
       "dependencies": {
         "effect": "^3.22.1",
       },
@@ -239,7 +303,7 @@
     },
     "packages/sdk-runtime": {
       "name": "@openpromo/sdk-runtime",
-      "version": "0.5.0",
+      "version": "0.7.0",
       "dependencies": {
         "better-result": "^2.10.0",
         "effect": "^3.22.1",
@@ -254,7 +318,7 @@
     },
     "packages/snapchat-sdk": {
       "name": "@openpromo/snapchat",
-      "version": "0.2.0",
+      "version": "0.3.1",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -269,7 +333,7 @@
     },
     "packages/tiktok-business-sdk": {
       "name": "@openpromo/tiktok",
-      "version": "0.4.1",
+      "version": "0.6.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -290,7 +354,7 @@
     },
     "packages/x-sdk": {
       "name": "@openpromo/x",
-      "version": "0.6.0",
+      "version": "0.8.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -305,7 +369,7 @@
     },
     "packages/youtube-sdk": {
       "name": "@openpromo/youtube",
-      "version": "0.6.0",
+      "version": "0.8.0",
       "dependencies": {
         "@openpromo/sdk-runtime": "workspace:*",
         "effect": "^3.22.1",
@@ -459,6 +523,10 @@
     "@changesets/types": ["@changesets/types@6.1.0", "", {}, "sha512-rKQcJ+o1nKNgeoYRHKOS07tAMNd3YSN0uHaJOZYjBAgxfV7TUE7JE+z4BzZdQwb5hKaYbayKN5KrYV7ODb2rAA=="],
 
     "@changesets/write": ["@changesets/write@0.4.0", "", { "dependencies": { "@changesets/types": "^6.1.0", "fs-extra": "^7.0.1", "human-id": "^4.1.1", "prettier": "^2.7.1" } }, "sha512-CdTLvIOPiCNuH71pyDu3rA+Q0n65cmAbXnwWH84rKGiFumFzkmHNT8KHTMEchcxN+Kl8I54xGUhJ7l3E7X396Q=="],
+
+    "@chat-adapter/shared": ["@chat-adapter/shared@4.38.0", "", { "dependencies": { "chat": "4.38.0" } }, "sha512-mBOAVJ18eB1w8yOEhVRfQGvR0ALg/VawndP/mht4Da3xXJQIiwUid8v/G+wm9XuQieJyIG4JL9dIUed4YUHDdQ=="],
+
+    "@chat-adapter/state-memory": ["@chat-adapter/state-memory@4.38.0", "", { "dependencies": { "chat": "4.38.0" } }, "sha512-fqwGvFp/NC8ocuv1RRjlzsjt9H23f5D+RcdtyYY5RiEOOWeaxEtZheM36gpBjOr2NTzYfNz/1aOQNRWDYsJTsg=="],
 
     "@clack/core": ["@clack/core@0.4.1", "", { "dependencies": { "picocolors": "^1.0.0", "sisteransi": "^1.0.5" } }, "sha512-Pxhij4UXg8KSr7rPek6Zowm+5M22rbd2g1nfojHJkxp5YkFqiZ2+YLEM/XGVIzvGOcM0nqjIFxrpDwWRZYWYjA=="],
 
@@ -661,6 +729,14 @@
     "@openpromo/amazon-ads": ["@openpromo/amazon-ads@workspace:packages/amazon-ads-sdk"],
 
     "@openpromo/bluesky": ["@openpromo/bluesky@workspace:packages/bluesky-sdk"],
+
+    "@openpromo/chat-adapter-core": ["@openpromo/chat-adapter-core@workspace:packages/chat-adapter-core"],
+
+    "@openpromo/chat-adapter-instagram": ["@openpromo/chat-adapter-instagram@workspace:packages/chat-adapter-instagram"],
+
+    "@openpromo/chat-adapter-messenger": ["@openpromo/chat-adapter-messenger@workspace:packages/chat-adapter-messenger"],
+
+    "@openpromo/chat-adapters": ["@openpromo/chat-adapters@workspace:packages/chat-adapters"],
 
     "@openpromo/docs": ["@openpromo/docs@workspace:apps/docs"],
 
@@ -1002,7 +1078,7 @@
 
     "@webgpu/types": ["@webgpu/types@0.1.21", "", {}, "sha512-pUrWq3V5PiSGFLeLxoGqReTZmiiXwY3jRkIG5sLLKjyqNxrwm/04b4nw7LSmGWJcKk59XOM/YRTUwOzo4MMlow=="],
 
-    "@workflow/serde": ["@workflow/serde@4.1.0", "", {}, "sha512-pav4F2BoirECWR7Nf1TKt+2eETcBj7jj4cBefQ8VXQCA6NPkaKeLfj/zMgi+3zYV5ZIBT4GuUiphsj0/b9hPQQ=="],
+    "@workflow/serde": ["@workflow/serde@4.1.0-beta.2", "", {}, "sha512-8kkeoQKLDaKXefjV5dbhBj2aErfKp1Mc4pb6tj8144cF+Em5SPbyMbyLCHp+BVrFfFVCBluCtMx+jjvaFVZGww=="],
 
     "accepts": ["accepts@2.0.0", "", { "dependencies": { "mime-types": "^3.0.0", "negotiator": "^1.0.0" } }, "sha512-5cvg6CtKwfgdmVqY1WIiXKc3Q1bkRqGLi+2W/6ao+6Y7gu/RCwRuAhGEzh5B4KlszSuTLgZYuqFqo5bImjNKng=="],
 
@@ -1089,6 +1165,8 @@
     "character-reference-invalid": ["character-reference-invalid@2.0.1", "", {}, "sha512-iBZ4F4wRbyORVsu0jPV7gXkOsGYjGHPmAyv+HiHG8gi5PtC9KI2j1+v8/tlibRvjoWX027ypmG/n0HtO5t7unw=="],
 
     "chardet": ["chardet@2.1.1", "", {}, "sha512-PsezH1rqdV9VvyNhxxOW32/d75r01NY7TQCmOqomRo15ZSOKbpTFVsfjghxo6JloQUCGnH4k1LGu0R4yCLlWQQ=="],
+
+    "chat": ["chat@4.38.0", "", { "dependencies": { "@workflow/serde": "4.1.0-beta.2", "mdast-util-to-string": "^4.0.0", "remark-gfm": "^4.0.0", "remark-parse": "^11.0.0", "remark-stringify": "^11.0.0", "remend": "^1.2.1", "unified": "^11.0.5" }, "peerDependencies": { "ai": "^6.0.182 || ^7.0.0", "workflow": "^5.0.0-beta.35", "zod": "^3.0.0 || ^4.0.0" }, "optionalPeers": ["ai", "workflow", "zod"] }, "sha512-begN9W19/kSfMPz7hl0q8CNufs6TE7ddvIERhBPjShxWRvwI6+KGVGlr9cJsNoppjE3JywvHUYUuifZa5uj6IA=="],
 
     "cheerio": ["cheerio@1.2.0", "", { "dependencies": { "cheerio-select": "^2.1.0", "dom-serializer": "^2.0.0", "domhandler": "^5.0.3", "domutils": "^3.2.2", "encoding-sniffer": "^0.2.1", "htmlparser2": "^10.1.0", "parse5": "^7.3.0", "parse5-htmlparser2-tree-adapter": "^7.1.0", "parse5-parser-stream": "^7.1.2", "undici": "^7.19.0", "whatwg-mimetype": "^4.0.0" } }, "sha512-WDrybc/gKFpTYQutKIK6UvfcuxijIZfMfXaYm8NMsPQxSYvf+13fXUJ4rztGGbJcBQ/GF55gvrZ0Bc0bj/mqvg=="],
 
@@ -1796,6 +1874,8 @@
 
     "remark-stringify": ["remark-stringify@11.0.0", "", { "dependencies": { "@types/mdast": "^4.0.0", "mdast-util-to-markdown": "^2.0.0", "unified": "^11.0.0" } }, "sha512-1OSmLd3awB/t8qdoEOMazZkNsfVTeY4fTsgzcQFdXNq8ToTN4ZGwrMnlda4K6smTFKD+GRV6O48i6Z4iKgPPpw=="],
 
+    "remend": ["remend@1.3.0", "", {}, "sha512-iIhggPkhW3hFImKtB10w0dz4EZbs28mV/dmbcYVonWEJ6UGHHpP+bFZnTh6GNWJONg5m+U56JrL+8IxZRdgWjw=="],
+
     "request-light": ["request-light@0.7.0", "", {}, "sha512-lMbBMrDoxgsyO+yB3sDcrDuX85yYt7sS8BfQd11jtbW/z5ZWgLZRcEGLsLoYw7I0WSUGQBs8CC8ScIxkTX1+6Q=="],
 
     "require-from-string": ["require-from-string@2.0.2", "", {}, "sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw=="],
@@ -2071,6 +2151,8 @@
     "zod-to-json-schema": ["zod-to-json-schema@3.25.2", "", { "peerDependencies": { "zod": "^3.25.28 || ^4" } }, "sha512-O/PgfnpT1xKSDeQYSCfRI5Gy3hPf91mKVDuYLUHZJMiDFptvP41MSnWofm8dnCm0256ZNfZIM7DSzuSMAFnjHA=="],
 
     "zwitch": ["zwitch@2.0.4", "", {}, "sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A=="],
+
+    "@ai-sdk/provider-utils/@workflow/serde": ["@workflow/serde@4.1.0", "", {}, "sha512-pav4F2BoirECWR7Nf1TKt+2eETcBj7jj4cBefQ8VXQCA6NPkaKeLfj/zMgi+3zYV5ZIBT4GuUiphsj0/b9hPQQ=="],
 
     "@antfu/install-pkg/package-manager-detector": ["package-manager-detector@1.8.0", "", {}, "sha512-yQA4H19AmPEoMUeavPMDIe1higySl/gH/yaQrkT/s07Qp+7pp2hYz30N3z2l5BkjVkF9Ow6o0wjJamm2y7Sn0A=="],
 

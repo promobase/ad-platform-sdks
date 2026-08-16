@@ -1,0 +1,41 @@
+{
+  "name": "@openpromo/chat-adapter-core",
+  "version": "0.1.0",
+  "description": "Platform-neutral shared machinery for OpenPromo first-party Chat SDK adapters — thread identity, webhook ingress, normalization, and capability tables",
+  "type": "module",
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "src/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test tests/"
+  },
+  "exports": {
+    ".": {
+      "bun": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@chat-adapter/shared": "^4.38.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "chat": "^4.38.0",
+    "typescript": "^7.0.2"
+  },
+  "peerDependencies": {
+    "chat": "^4.0.0"
+  }
+}
