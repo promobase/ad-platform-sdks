@@ -98,6 +98,15 @@ export abstract class ChatMessagingAdapterBase<
   /** Thread id for a raw messaging event (contact keyed, echo-aware). */
   protected abstract threadIdForEvent(event: TRawEvent): string;
 
+  /**
+   * Thread id for an edit event. Defaults to the sender-based id; platforms
+   * whose edit payloads lack the original recipient should resolve the
+   * cached message's thread instead.
+   */
+  protected threadIdForEditedEvent(event: TRawEvent): string {
+    return this.threadIdForEvent(event);
+  }
+
   /** Thread data for a 1:1 conversation with a user. */
   protected abstract threadIdForUser(userId: string): TThreadId;
 
@@ -172,6 +181,19 @@ export abstract class ChatMessagingAdapterBase<
   private async dispatchEvent(event: TRawEvent, options?: WebhookOptions): Promise<void> {
     const chat = this.chat;
     if (!chat) return;
+
+    if (event.message_edit) {
+      const threadId = this.threadIdForEditedEvent(event);
+      await chat.processMessageUpdated(
+        {
+          adapter: this,
+          threadId,
+          message: async () => this.parseMessage(event),
+        },
+        options,
+      );
+      return;
+    }
 
     if (event.message?.quick_reply?.payload) {
       await this.dispatchAction(
@@ -274,7 +296,7 @@ export abstract class ChatMessagingAdapterBase<
   // ── Message parsing ───────────────────────────────────────────────────
 
   parseMessage(raw: TRawEvent): Message<TRawEvent> {
-    const message = normalizeMessagingEvent(raw, this.threadIdForEvent(raw));
+    const message = normalizeMessagingEvent(raw, this.threadIdForEvent(raw), this.botUserId);
     this.cacheMessage(message as Message<TRawEvent>);
     return message as Message<TRawEvent>;
   }
@@ -419,11 +441,15 @@ export abstract class ChatMessagingAdapterBase<
   }
 
   async fetchMessage(_threadId: string, messageId: string): Promise<Message<TRawEvent> | null> {
+    return this.findCachedMessage(messageId) ?? null;
+  }
+
+  protected findCachedMessage(messageId: string): Message<TRawEvent> | undefined {
     for (const messages of this.messageCache.values()) {
       const found = messages.find((message) => message.id === messageId);
       if (found) return found;
     }
-    return null;
+    return undefined;
   }
 
   async fetchThread(threadId: string): Promise<ThreadInfo> {

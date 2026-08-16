@@ -226,6 +226,60 @@ test("inbound story replies surface as attachments", async () => {
   expect(message.attachments[0]!.url).toBe("https://cdn.example.com/story.jpg");
 });
 
+test("changes-field edits and reactions dispatch through the DM adapter", async () => {
+  const fixture = JSON.stringify(
+    (await import("./fixtures/ig-messaging-changes.json", { with: { type: "json" } })).default,
+  );
+  const signature = await signBody(fixture, APP_SECRET);
+
+  const adapter = instagramAdapter({ fetch: okGraphFetch([]) });
+  const chat = new Chat({
+    userName: "test-bot",
+    adapters: { instagram: adapter },
+    state: createMemoryState(),
+  });
+
+  const received: Array<{ id: string; text: string }> = [];
+  const updated: Array<{ id: string; text: string; threadId: string; edited: boolean }> = [];
+  const reactions: Array<{ messageId: string; added: boolean }> = [];
+
+  chat.onDirectMessage(async (_thread, message) => {
+    received.push({ id: message.id, text: message.text });
+  });
+  chat.onMessageUpdated(async (thread, message) => {
+    updated.push({
+      id: message.id,
+      text: message.text,
+      threadId: thread.id,
+      edited: message.metadata.edited,
+    });
+  });
+  chat.onReaction((event) => {
+    reactions.push({ messageId: event.messageId, added: event.added });
+  });
+
+  const res = await chat.webhooks.instagram(
+    new Request(webhookUrl(), {
+      method: "POST",
+      headers: { "X-Hub-Signature-256": `sha256=${signature}` },
+      body: fixture,
+    }),
+  );
+  expect(res.status).toBe(200);
+  expect(received).toEqual([{ id: "agm_edit_1", text: "Original text" }]);
+  // The edit resolves to the cached original message's thread (customer keyed),
+  // not the editor key.
+  expect(updated).toEqual([
+    {
+      id: "agm_edit_1",
+      text: "Edited text",
+      threadId: `instagram:${ACCOUNT_ID}:igsid_2001`,
+      edited: true,
+    },
+  ]);
+  expect(reactions).toEqual([{ messageId: "agm_edit_1", added: true }]);
+});
+
 test("thread id round trips", () => {
   const adapter = instagramAdapter();
   const id = adapter.encodeThreadId({ accountId: ACCOUNT_ID, userId: "igsid_2001" });

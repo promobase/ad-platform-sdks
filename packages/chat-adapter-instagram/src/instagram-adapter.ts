@@ -73,6 +73,40 @@ export interface InstagramAdapterOptions {
 }
 
 /**
+ * Synthetic DM event built from a `changes` webhook entry (`message_edit`).
+ */
+export interface IGEditChangeEvent {
+  sender: { id: string };
+  recipient: { id: string };
+  timestamp: number;
+  message_edit: {
+    mid: string;
+    text?: string | null;
+    num_edit?: number;
+    from?: { id?: string; username?: string };
+  };
+}
+
+/** Synthetic DM event built from a `changes` webhook entry (`message_reactions`). */
+export interface IGReactionChangeEvent {
+  sender: { id: string };
+  recipient: { id: string };
+  timestamp: number;
+  reaction: {
+    mid: string;
+    action: "react" | "unreact";
+    emoji?: string;
+    reaction?: string;
+  };
+}
+
+/** Every inbound DM event the adapter dispatches (messaging + changes). */
+export type IGWebhookInboundEvent =
+  | IGWebhookMessagingEvent
+  | IGEditChangeEvent
+  | IGReactionChangeEvent;
+
+/**
  * Instagram DM adapter. Thread id format `instagram:{accountId}:{userId}`
  * mirrors the official @chat-adapter/instagram. Sends go through
  * `@openpromo/meta`'s Instagram messaging client.
@@ -85,7 +119,7 @@ export interface InstagramAdapterOptions {
  */
 export class InstagramAdapter extends ChatMessagingAdapterBase<
   InstagramThreadId,
-  IGWebhookMessagingEvent
+  IGWebhookInboundEvent
 > {
   readonly name = "instagram";
 
@@ -155,10 +189,21 @@ export class InstagramAdapter extends ChatMessagingAdapterBase<
     return { accountId: this.accountId, userId };
   }
 
-  protected threadIdForEvent(event: IGWebhookMessagingEvent): string {
-    const isEcho = Boolean(event.message?.is_echo);
+  protected threadIdForEvent(event: IGWebhookInboundEvent): string {
+    const isEcho = Boolean("message" in event ? event.message?.is_echo : false);
     const userId = isEcho ? event.recipient.id : event.sender.id;
     return this.encodeThreadId({ accountId: this.accountId, userId });
+  }
+
+  /**
+   * Edit-change payloads carry only the editor's id (no original recipient),
+   * so the thread resolves from the cached message when available.
+   */
+  protected override threadIdForEditedEvent(event: IGWebhookInboundEvent): string {
+    if (!("message_edit" in event) || !event.message_edit) return this.threadIdForEvent(event);
+    const cached = this.findCachedMessage(event.message_edit.mid);
+    if (cached) return cached.threadId;
+    return this.threadIdForEvent(event);
   }
 
   protected threadIdForUser(userId: string): InstagramThreadId {
@@ -172,14 +217,17 @@ export class InstagramAdapter extends ChatMessagingAdapterBase<
     });
   }
 
-  protected async parseWebhook(body: string): Promise<IGWebhookMessagingEvent[][]> {
+  protected async parseWebhook(body: string): Promise<IGWebhookInboundEvent[][]> {
     const parsed = igWebhookPayloadSchema.safeParse(JSON.parse(body));
     if (!parsed.success) {
       const detail =
         parsed.error instanceof Error ? parsed.error.message : "Invalid webhook payload";
       throw new Error(detail);
     }
-    return parsed.data.entry.map((entry) => entry.messaging ?? []);
+    return parsed.data.entry.map((entry) => [
+      ...(entry.messaging ?? []),
+      ...synthesizeChangeEvents(entry.changes ?? [], this.accountId),
+    ]);
   }
 
   protected override decodeActionPayload(payload: string): {
@@ -571,4 +619,42 @@ function extensionForType(type: InstagramMediaType): string {
   if (type === "video") return "mp4";
   if (type === "audio") return "m4a";
   return "pdf";
+}
+
+function synthesizeChangeEvents(
+  changes: NonNullable<import("@openpromo/meta").IGWebhookPayload["entry"][number]["changes"]>,
+  accountId: string,
+): IGWebhookInboundEvent[] {
+  const events: IGWebhookInboundEvent[] = [];
+  for (const change of changes) {
+    if (change.field === "message_edit") {
+      const value = change.value;
+      events.push({
+        sender: { id: value.from?.id ?? "" },
+        recipient: { id: accountId },
+        timestamp: (value.timestamp ?? Math.floor(Date.now() / 1000)) * 1000,
+        message_edit: {
+          mid: value.mid,
+          ...(value.text !== undefined && value.text !== null ? { text: value.text } : {}),
+          ...(value.num_edit !== undefined ? { num_edit: value.num_edit } : {}),
+          ...(value.from ? { from: value.from } : {}),
+        },
+      });
+    } else if (change.field === "message_reactions") {
+      const value = change.value;
+      const action = value.action ?? (value.verb === "remove" ? "unreact" : "react");
+      events.push({
+        sender: { id: value.from?.id ?? "" },
+        recipient: { id: accountId },
+        timestamp: (value.timestamp ?? Math.floor(Date.now() / 1000)) * 1000,
+        reaction: {
+          mid: value.mid,
+          action,
+          ...(value.emoji ? { emoji: value.emoji } : {}),
+          ...(value.reaction ? { reaction: value.reaction } : {}),
+        },
+      });
+    }
+  }
+  return events;
 }

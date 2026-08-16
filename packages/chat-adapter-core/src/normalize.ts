@@ -18,6 +18,13 @@ export interface MessagingEventLike {
     attachments?: Array<{ type: string; payload?: { url?: string; id?: string } }>;
     reply_to?: { mid?: string; story?: { id: string; url: string } };
   };
+  message_edit?: {
+    mid: string;
+    text?: string | null;
+    num_edit?: number;
+    timestamp?: number;
+    from?: { id?: string; username?: string };
+  };
   postback?: { payload: string; mid?: string; title?: string };
   reaction?: { mid: string; action: "react" | "unreact"; emoji?: string; reaction?: string };
   read?: { watermark?: number; mid?: string };
@@ -63,17 +70,21 @@ function mapAttachments(event: MessagingEventLike): Attachment[] {
 export function normalizeMessagingEvent(
   event: MessagingEventLike,
   threadId: string,
+  botUserId?: string,
 ): Message<MessagingEventLike> {
   const message = event.message;
-  if (!message) {
+  const edit = event.message_edit;
+  if (!message && !edit) {
     throw new Error(`Messaging event without a message payload: ${JSON.stringify(event)}`);
   }
-  const isEcho = Boolean(message.is_echo);
-  const authorId = isEcho ? event.recipient.id : event.sender.id;
-  const text = message.text ?? event.postback?.title ?? "";
+  const isEcho = Boolean(message?.is_echo);
+  const editAuthorId = edit?.from?.id;
+  const authorId = isEcho ? event.recipient.id : (editAuthorId ?? event.sender.id);
+  const isMe = isEcho || (botUserId !== undefined && authorId === botUserId);
+  const text = message?.text ?? edit?.text ?? event.postback?.title ?? "";
 
   return new Message({
-    id: message.mid,
+    id: message?.mid ?? edit?.mid ?? `${event.timestamp}:${authorId}`,
     threadId,
     text,
     formatted: parseMarkdown(text),
@@ -83,11 +94,12 @@ export function normalizeMessagingEvent(
       userName: authorId,
       fullName: authorId,
       isBot: isEcho,
-      isMe: isEcho,
+      isMe,
     },
     metadata: {
       dateSent: new Date(event.timestamp),
-      edited: false,
+      edited: Boolean(edit),
+      ...(edit ? { editedAt: new Date(event.timestamp) } : {}),
     },
     attachments: mapAttachments(event),
     isMention: true,
