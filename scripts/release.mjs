@@ -28,9 +28,29 @@ try {
     // higher versions (e.g. @openpromo/meta 2.x -> 0.x), and npm rejects
     // lower versions without --force. Unified versions always bump upward
     // after this transition, so --force only ever overrides the once.
+    //
+    // Idempotent: packages whose version already matches the registry are
+    // skipped, so retried runs only publish what is actually missing.
     for (const packageDir of packageDirs) {
       const packageJson = JSON.parse(readFileSync(join(packageDir, "package.json"), "utf8"));
       if (packageJson.private) continue;
+      const current = spawnSync(
+        "npm",
+        ["view", `${packageJson.name}@${packageJson.version}`, "version"],
+        {
+          cwd: root,
+          env: process.env,
+          encoding: "utf8",
+        },
+      );
+      const alreadyPublished =
+        current.status === 0 && current.stdout?.trim() === packageJson.version;
+      if (alreadyPublished) {
+        console.log(
+          `[release] ${packageJson.name}@${packageJson.version} already published, skipping`,
+        );
+        continue;
+      }
       const publish = spawnSync("npm", ["publish", packageDir, "--force"], {
         cwd: root,
         env: process.env,
