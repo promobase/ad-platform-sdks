@@ -19,8 +19,11 @@ import {
   createGraphClient,
   igWebhookPayloadSchema,
 } from "@openpromo/meta";
-import type { InstagramMessageEditChange, InstagramMessageReactionChange } from "@openpromo/meta/webhooks";
 import type { IGWebhookMessagingEvent } from "@openpromo/meta";
+import type {
+  InstagramMessageEditChange,
+  InstagramMessageReactionChange,
+} from "@openpromo/meta/webhooks";
 import type { AdapterPostableMessage, Attachment, CardElement, Logger } from "chat";
 
 import { cardToInstagram, decodeInstagramCallbackData } from "./cards.ts";

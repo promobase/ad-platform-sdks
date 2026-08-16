@@ -1,4 +1,3 @@
-import * as v from "valibot";
 import {
   WebhookParseError,
   parseWebhook,
@@ -6,6 +5,7 @@ import {
   type WebhookParseOptions,
   type WebhookParseResult,
 } from "@openpromo/sdk-runtime/webhooks";
+import * as v from "valibot";
 
 import { createWhatsAppClient, WhatsAppApiError } from "../clients/whatsapp.ts";
 import type {
@@ -181,21 +181,19 @@ function constructEventsFor<TPayload, TEvent>(
  * tagged unions for exhaustive pattern matching.
  */
 export const constructEvents = {
-  facebook: (
-    options: WebhookParseOptions,
-  ): Promise<readonly FacebookWebhookEvent[]> =>
-    constructEventsFor(options, asParseable(facebookWebhookPayloadSchema), getFacebookWebhookEvents),
-  instagram: (
-    options: WebhookParseOptions,
-  ): Promise<readonly InstagramWebhookEvent[]> =>
+  facebook: (options: WebhookParseOptions): Promise<readonly FacebookWebhookEvent[]> =>
+    constructEventsFor(
+      options,
+      asParseable(facebookWebhookPayloadSchema),
+      getFacebookWebhookEvents,
+    ),
+  instagram: (options: WebhookParseOptions): Promise<readonly InstagramWebhookEvent[]> =>
     constructEventsFor(
       options,
       asParseable(instagramWebhookPayloadSchema),
       getInstagramWebhookEvents,
     ),
-  threads: (
-    options: WebhookParseOptions,
-  ): Promise<readonly ThreadsWebhookEvent[]> =>
+  threads: (options: WebhookParseOptions): Promise<readonly ThreadsWebhookEvent[]> =>
     constructEventsFor(options, asParseable(threadsWebhookPayloadSchema), getThreadsWebhookEvents),
 } as const;
 

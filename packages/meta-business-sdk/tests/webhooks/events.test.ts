@@ -13,7 +13,12 @@ test("facebook events: exhaustive pattern match over tagged kinds", () => {
         id: "page_1",
         time: 1786800000,
         messaging: [
-          { sender: { id: "u1" }, recipient: { id: "u2" }, timestamp: 1, message: { mid: "m1", text: "hi" } },
+          {
+            sender: { id: "u1" },
+            recipient: { id: "u2" },
+            timestamp: 1,
+            message: { mid: "m1", text: "hi" },
+          },
           { sender: { id: "u1" }, recipient: { id: "u2" }, timestamp: 2, read: { watermark: 1 } },
         ],
         changes: [{ field: "feed", value: { comment_id: "c1" } }],

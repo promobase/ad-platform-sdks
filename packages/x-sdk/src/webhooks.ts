@@ -1,5 +1,3 @@
-import * as v from "valibot";
-
 import {
   parseWebhook,
   safeParseWebhook,
@@ -10,6 +8,7 @@ import {
   webhookBodyToText,
   type WebhookChallengeResult,
 } from "@openpromo/sdk-runtime/webhooks";
+import * as v from "valibot";
 
 /**
  * X Account Activity API webhook surface.
@@ -142,7 +141,9 @@ export async function verifyWebhookSignature(
     false,
     ["sign"],
   );
-  const actual = new Uint8Array(await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(body)));
+  const actual = new Uint8Array(
+    await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(body)),
+  );
   return constantTimeEqual(actual, expected);
 }
 

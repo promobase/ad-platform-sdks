@@ -49,12 +49,6 @@ import {
   safeParseInstagramWebhook,
   safeParseThreadsWebhook,
 } from "./clients/webhooks.ts";
-import { constructEvents } from "./webhooks/index.ts";
-import {
-  getFacebookWebhookEvents,
-  getInstagramWebhookEvents,
-  getThreadsWebhookEvents,
-} from "./webhooks/events.ts";
 import { createWhatsAppClient } from "./clients/whatsapp.ts";
 import { createGraphClient } from "./generated/client-factory.ts";
 import type { GraphClientOptions } from "./generated/client-factory.ts";
@@ -69,6 +63,12 @@ import {
   InstagramLoginOAuthScopes,
   ThreadsOAuthScopes,
 } from "./oauth-scopes.ts";
+import {
+  getFacebookWebhookEvents,
+  getInstagramWebhookEvents,
+  getThreadsWebhookEvents,
+} from "./webhooks/events.ts";
+import { constructEvents } from "./webhooks/index.ts";
 
 const facebookWebhooks = {
   parse: parseFacebookWebhook,

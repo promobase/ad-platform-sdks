@@ -42,12 +42,12 @@ import {
   createTikTokBusinessOAuthAdapter,
   createTikTokDeveloperOAuthAdapter,
 } from "./oauth-adapters.ts";
-import { constructTikTokEvent } from "./webhooks.ts";
 import { TikTokBusinessOAuthScopes, TikTokDeveloperOAuthScopes } from "./oauth-scopes.ts";
 import type { TikTokCursorOptions } from "./pagination.ts";
 import { TikTokCursor } from "./pagination.ts";
 import type { TikTokRateLimiterOptions } from "./rate-limiter.ts";
 import { TikTokRateLimiter } from "./rate-limiter.ts";
+import { constructTikTokEvent } from "./webhooks.ts";
 import type { WebhookParseOptions, WebhookParseResult } from "./webhooks.ts";
 import {
   commentContentSchema,
