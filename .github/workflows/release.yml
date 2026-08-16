@@ -32,6 +32,14 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      - name: Cache TypeScript build info
+        uses: actions/cache@v4
+        with:
+          path: packages/*/.tsbuildinfo
+          key: tsgo-${{ runner.os }}-${{ hashFiles('bun.lock') }}
+          restore-keys: |
+            tsgo-${{ runner.os }}-
+
       - name: Typecheck
         run: bun run typecheck
 

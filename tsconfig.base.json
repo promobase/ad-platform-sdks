@@ -10,6 +10,8 @@
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "noEmit": true,
+    "incremental": true,
+    "tsBuildInfoFile": "${configDir}/.tsbuildinfo",
     "strict": true,
     "skipLibCheck": true,
     "noFallthroughCasesInSwitch": true,
