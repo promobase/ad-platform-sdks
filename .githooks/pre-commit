@@ -1,5 +1,6 @@
 #!/bin/sh
-# Pre-commit hook: typecheck all packages that have changes staged
+# Pre-commit hook: typecheck affected packages, then repo-wide format + lint
+# (mirrors what CI's `bun run format:check` / `bun run lint` enforce).
 
 set -e
 
@@ -19,8 +20,19 @@ check_package() {
   fi
 }
 
-check_package "packages/sdk-runtime" "@promobase/sdk-runtime"
-check_package "packages/meta-business-sdk" "@promobase/meta-business-sdk-ts"
-check_package "packages/tiktok-business-sdk" "@promobase/tiktok-business-sdk"
+check_package "packages/sdk-runtime" "@openpromo/sdk-runtime"
+check_package "packages/meta-business-sdk" "@openpromo/meta"
+check_package "packages/tiktok-business-sdk" "@openpromo/tiktok"
+check_package "packages/x-sdk" "@openpromo/x"
+check_package "packages/chat-adapter-instagram" "@openpromo/chat-adapter-instagram"
+check_package "packages/chat-adapter-messenger" "@openpromo/chat-adapter-messenger"
+check_package "packages/chat-adapter-tiktok" "@openpromo/chat-adapter-tiktok"
+
+if echo "$STAGED" | grep -qE '\.(ts|tsx|js|jsx|mjs|cjs|json|jsonc)$'; then
+  echo "[pre-commit] Checking formatting (oxfmt)..."
+  (cd "$ROOT" && bun run format:check)
+  echo "[pre-commit] Checking lint (oxlint)..."
+  (cd "$ROOT" && bun run lint)
+fi
 
 echo "[pre-commit] All checks passed"
