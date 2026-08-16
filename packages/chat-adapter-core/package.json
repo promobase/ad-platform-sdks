@@ -1,6 +1,6 @@
 {
   "name": "@openpromo/chat-adapter-core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Platform-neutral shared machinery for OpenPromo first-party Chat SDK adapters — thread identity, webhook ingress, normalization, and capability tables",
   "type": "module",
   "module": "./dist/index.js",

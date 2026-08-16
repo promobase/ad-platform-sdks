@@ -1,5 +1,37 @@
 # @openpromo/tiktok
 
+## 0.7.0
+
+### Minor Changes
+
+- [`22899be`](https://github.com/promobase/ad-platform-sdks/commit/22899beb81f69883a6667e1623f7dd4a2556511a) Thanks [@rayli09](https://github.com/rayli09)! - Stripe-style unified webhook event surface: one-call `constructEvents` /
+  `constructEvent` that verifies the signature, parses the delivery, and
+  returns typed events for exhaustive pattern matching.
+
+  - Meta and X events are normalized to a shared `{ type, data, entryId }`
+    shape (previously `kind`/`event`/`change`), with a tolerant `unknown`
+    catch-all (`sourceType` carries the provider's original key).
+  - `Facebook.Webhooks.constructEvents`, `Instagram.Webhooks.constructEvents`,
+    `Threads.Webhooks.constructEvents`, `X.Webhooks.constructEvents`, and
+    `TikTok.Webhooks.constructEvent` (TikTok keeps the provider's wire `event`
+    field; the projection presents it as `type` with auto-parsed `content` as
+    `data`).
+  - `WebhookParseError` is thrown on invalid signatures/payloads, mirroring
+    Stripe's `constructEvent` behavior.
+
+### Patch Changes
+
+- [`44216a3`](https://github.com/promobase/ad-platform-sdks/commit/44216a35b5500a48e602625b28068564632932f6) Thanks [@rayli09](https://github.com/rayli09)! - Make webhook payload schemas tolerant of provider-added fields and event
+  kinds. Meta change arrays previously rejected any delivery carrying an
+  unmodeled `field` (e.g. `likes`, `leadgen`, `story_insights`), and Threads
+  rejected unknown `values.field` values; TikTok rejected unknown event kinds.
+  Known fields/events keep their rich parse (catch-alls sit last in the
+  unions); unknown ones now deliver instead of dropping the whole payload.
+  Adds production-tolerance tests covering unknown-field deliveries and
+  signature rejection.
+- Updated dependencies [[`5eecfab`](https://github.com/promobase/ad-platform-sdks/commit/5eecfab2499261d279a7ada7fd485b2158fcea99)]:
+  - @openpromo/sdk-runtime@0.8.0
+
 ## 0.6.0
 
 ### Minor Changes
