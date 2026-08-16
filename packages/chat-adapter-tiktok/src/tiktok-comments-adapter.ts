@@ -112,7 +112,8 @@ export class TikTokCommentsAdapter extends CommentAdapterBase<CommentThreadId> {
     const result: CommentEvent[] = [];
     for (const event of collectTikTokWebhookEvents(payload)) {
       if (event.event !== "comment.update") continue;
-      result.push(await this.commentEventFromUpdate(event));
+      // Narrow the tolerant event union to the comment member.
+      result.push(await this.commentEventFromUpdate(event as CommentWebhookEvent));
     }
     return result;
   }

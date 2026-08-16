@@ -19,6 +19,7 @@ import {
   createGraphClient,
   igWebhookPayloadSchema,
 } from "@openpromo/meta";
+import type { InstagramMessageEditChange, InstagramMessageReactionChange } from "@openpromo/meta/webhooks";
 import type { IGWebhookMessagingEvent } from "@openpromo/meta";
 import type { AdapterPostableMessage, Attachment, CardElement, Logger } from "chat";
 
@@ -628,7 +629,8 @@ function synthesizeChangeEvents(
   const events: IGWebhookInboundEvent[] = [];
   for (const change of changes) {
     if (change.field === "message_edit") {
-      const value = change.value;
+      // Narrow the tolerant change union to the message_edit member.
+      const value = (change as InstagramMessageEditChange).value;
       events.push({
         sender: { id: value.from?.id ?? "" },
         recipient: { id: accountId },
@@ -641,7 +643,8 @@ function synthesizeChangeEvents(
         },
       });
     } else if (change.field === "message_reactions") {
-      const value = change.value;
+      // Narrow the tolerant change union to the message_reactions member.
+      const value = (change as InstagramMessageReactionChange).value;
       const action = value.action ?? (value.verb === "remove" ? "unreact" : "react");
       events.push({
         sender: { id: value.from?.id ?? "" },

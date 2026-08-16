@@ -312,6 +312,13 @@ const unknownChangeSchema = v.looseObject({
   value: v.looseObject({}),
 });
 
+export type FacebookCommentChange = v.InferOutput<typeof facebookCommentChangeSchema>;
+export type InstagramCommentChange = v.InferOutput<typeof instagramCommentChangeSchema>;
+export type InstagramMessageEditChange = v.InferOutput<typeof instagramMessageEditChangeSchema>;
+export type InstagramMessageReactionChange = v.InferOutput<
+  typeof instagramMessageReactionChangeSchema
+>;
+
 export const facebookChangeSchema = v.union([facebookCommentChangeSchema, unknownChangeSchema]);
 
 export const instagramChangeSchema = v.union([

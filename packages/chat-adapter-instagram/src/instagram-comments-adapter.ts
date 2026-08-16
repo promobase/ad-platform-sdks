@@ -5,6 +5,7 @@ import {
   type CommentEvent,
 } from "@openpromo/chat-adapter-core";
 import { createGraphClient, Instagram, igWebhookPayloadSchema } from "@openpromo/meta";
+import type { InstagramCommentChange } from "@openpromo/meta/webhooks";
 import type { Logger } from "chat";
 
 export interface CommentThreadId {
@@ -112,7 +113,8 @@ export class InstagramCommentsAdapter extends CommentAdapterBase<CommentThreadId
     for (const entry of parsed.data.entry) {
       for (const change of entry.changes ?? []) {
         if (change.field !== "comments") continue;
-        const value = change.value;
+        // Narrow the tolerant change union to the comments member.
+        const value = (change as InstagramCommentChange).value;
         const commentId = value.comment_id ?? value.id;
         if (!commentId) continue;
         events.push({

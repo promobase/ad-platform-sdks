@@ -1,4 +1,11 @@
 import * as v from "valibot";
+import {
+  WebhookParseError,
+  parseWebhook,
+  safeParseWebhook,
+  type WebhookParseOptions,
+  type WebhookParseResult,
+} from "@openpromo/sdk-runtime/webhooks";
 
 import { createWhatsAppClient, WhatsAppApiError } from "../clients/whatsapp.ts";
 import type {
@@ -14,6 +21,7 @@ import type {
 import {
   getFacebookWebhookEvents,
   getInstagramWebhookEvents,
+  getThreadsWebhookEvents,
   getWhatsAppWebhookEvents,
 } from "./events.ts";
 import {
@@ -42,6 +50,10 @@ import type { WebhookBody, WebhookChallengeParams, WebhookChallengeResult } from
 
 export type {
   FacebookChange,
+  FacebookCommentChange,
+  InstagramCommentChange,
+  InstagramMessageEditChange,
+  InstagramMessageReactionChange,
   FacebookMessage,
   FacebookMessagingEvent,
   FacebookWebhookPayload,
@@ -58,6 +70,7 @@ export type {
 export type {
   FacebookWebhookEvent,
   InstagramWebhookEvent,
+  ThreadsWebhookEvent,
   WhatsAppWebhookEvent,
 } from "./events.ts";
 export {
@@ -68,7 +81,6 @@ export {
 export {
   facebookAttachmentSchema,
   facebookChangeSchema,
-  facebookCommentChangeSchema,
   facebookDeliverySchema,
   facebookMessageSchema,
   facebookMessagingEventSchema,
@@ -101,6 +113,7 @@ export {
   whatsappWebhookPayloadSchema,
 } from "./schemas.ts";
 export type { WebhookBody, WebhookChallengeParams, WebhookChallengeResult } from "./verify.ts";
+export { facebookCommentChangeSchema } from "./schemas.ts";
 export { verifyWebhookChallenge, verifyWebhookSignature } from "./verify.ts";
 export type {
   WhatsAppClientOptions,
@@ -114,89 +127,42 @@ export type {
 } from "../clients/whatsapp.ts";
 export { createWhatsAppClient, WhatsAppApiError } from "../clients/whatsapp.ts";
 
-export type WebhookParseOptions = {
-  readonly body: WebhookBody;
-  readonly signature: string;
-  readonly appSecret: string;
-};
+export {
+  DEFAULT_WEBHOOK_MAX_AGE_SECONDS,
+  WebhookParseError,
+  parseWebhook,
+  safeParseWebhook,
+  type WebhookParseErrorCode,
+  type WebhookParseOptions,
+  type WebhookParseResult,
+} from "@openpromo/sdk-runtime/webhooks";
 
-export type WebhookParseErrorCode = "INVALID_SIGNATURE" | "INVALID_JSON" | "INVALID_PAYLOAD";
-
-export class WebhookParseError extends Error {
-  readonly code: WebhookParseErrorCode;
-  readonly details?: unknown;
-
-  constructor(code: WebhookParseErrorCode, message: string, details?: unknown) {
-    super(message);
-    this.name = "WebhookParseError";
-    this.code = code;
-    this.details = details;
-  }
-}
-
-export type WebhookParseResult<T> =
-  | { readonly success: true; readonly data: T }
-  | { readonly success: false; readonly error: WebhookParseError };
-
-async function parseWebhook<TSchema extends v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>>>(
-  options: WebhookParseOptions,
+function asParseable<TSchema extends v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>>>(
   schema: TSchema,
-): Promise<v.InferOutput<TSchema>> {
-  if (!(await verifyWebhookSignature(options.body, options.signature, options.appSecret))) {
-    throw new WebhookParseError("INVALID_SIGNATURE", "Invalid webhook signature");
-  }
-
-  let input: unknown;
-  try {
-    input = JSON.parse(webhookBodyToText(options.body)) as unknown;
-  } catch (error) {
-    throw new WebhookParseError("INVALID_JSON", "Failed to parse webhook body as JSON", error);
-  }
-
-  try {
-    return v.parse(schema, input);
-  } catch (error) {
-    throw new WebhookParseError("INVALID_PAYLOAD", "Webhook payload validation failed", error);
-  }
-}
-
-async function safeParseWebhook<
-  TSchema extends v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>>,
->(
-  options: WebhookParseOptions,
-  schema: TSchema,
-): Promise<WebhookParseResult<v.InferOutput<TSchema>>> {
-  try {
-    return { success: true, data: await parseWebhook(options, schema) };
-  } catch (error) {
-    const parseError =
-      error instanceof WebhookParseError
-        ? error
-        : new WebhookParseError("INVALID_PAYLOAD", "Webhook payload validation failed", error);
-    return { success: false, error: parseError };
-  }
+): { parse: (input: unknown) => v.InferOutput<TSchema> } {
+  return { parse: (input) => v.parse(schema, input) };
 }
 
 export const parse = {
   facebook: (options: WebhookParseOptions): Promise<FacebookWebhookPayload> =>
-    parseWebhook(options, facebookWebhookPayloadSchema),
+    parseWebhook(options, asParseable(facebookWebhookPayloadSchema)),
   instagram: (options: WebhookParseOptions): Promise<InstagramWebhookPayload> =>
-    parseWebhook(options, instagramWebhookPayloadSchema),
+    parseWebhook(options, asParseable(instagramWebhookPayloadSchema)),
   threads: (options: WebhookParseOptions): Promise<ThreadsWebhookPayload> =>
-    parseWebhook(options, threadsWebhookPayloadSchema),
+    parseWebhook(options, asParseable(threadsWebhookPayloadSchema)),
   whatsapp: (options: WebhookParseOptions): Promise<WhatsAppWebhookPayload> =>
-    parseWebhook(options, whatsappWebhookPayloadSchema),
+    parseWebhook(options, asParseable(whatsappWebhookPayloadSchema)),
 } as const;
 
 export const safeParse = {
   facebook: (options: WebhookParseOptions): Promise<WebhookParseResult<FacebookWebhookPayload>> =>
-    safeParseWebhook(options, facebookWebhookPayloadSchema),
+    safeParseWebhook(options, asParseable(facebookWebhookPayloadSchema)),
   instagram: (options: WebhookParseOptions): Promise<WebhookParseResult<InstagramWebhookPayload>> =>
-    safeParseWebhook(options, instagramWebhookPayloadSchema),
+    safeParseWebhook(options, asParseable(instagramWebhookPayloadSchema)),
   threads: (options: WebhookParseOptions): Promise<WebhookParseResult<ThreadsWebhookPayload>> =>
-    safeParseWebhook(options, threadsWebhookPayloadSchema),
+    safeParseWebhook(options, asParseable(threadsWebhookPayloadSchema)),
   whatsapp: (options: WebhookParseOptions): Promise<WebhookParseResult<WhatsAppWebhookPayload>> =>
-    safeParseWebhook(options, whatsappWebhookPayloadSchema),
+    safeParseWebhook(options, asParseable(whatsappWebhookPayloadSchema)),
 } as const;
 
 export const schemas = {
@@ -226,6 +192,7 @@ export const webhooks = {
     parse: parse.threads,
     safeParse: safeParse.threads,
     schema: schemas.threads,
+    events: getThreadsWebhookEvents,
   },
   whatsapp: {
     parse: parse.whatsapp,

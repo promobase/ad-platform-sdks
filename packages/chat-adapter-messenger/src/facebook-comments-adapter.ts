@@ -5,6 +5,7 @@ import {
   type CommentEvent,
 } from "@openpromo/chat-adapter-core";
 import { Facebook, fbWebhookPayloadSchema } from "@openpromo/meta";
+import type { FacebookCommentChange } from "@openpromo/meta/webhooks";
 import type { Logger } from "chat";
 
 /**
@@ -104,7 +105,8 @@ export class FacebookCommentsAdapter extends CommentAdapterBase<CommentThreadId>
     for (const entry of parsed.data.entry) {
       for (const change of entry.changes ?? []) {
         if (change.field !== "feed" || change.value.item !== "comment") continue;
-        const value = change.value;
+        // Narrow the tolerant change union to the feed-comment member.
+        const value = (change as FacebookCommentChange).value;
         if (!value.comment_id) continue;
         events.push({
           commentId: value.comment_id,

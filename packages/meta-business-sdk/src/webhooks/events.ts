@@ -5,6 +5,7 @@ import type {
   InstagramChange,
   InstagramMessagingEvent,
   InstagramWebhookPayload,
+  ThreadsWebhookPayload,
   WhatsAppMessage,
   WhatsAppStatus,
   WhatsAppWebhookPayload,
@@ -420,4 +421,30 @@ export function getWhatsAppWebhookEvents(
     }
   }
   return events;
+}
+
+/** Value of a Threads webhook delivery (id/username/text/root_post/owner...). */
+export type ThreadsChangeValue = ThreadsWebhookPayload["values"]["value"];
+
+export type ThreadsWebhookEvent =
+  | (EventContext & {
+      readonly kind: "replies" | "delete" | "publish" | "mentions";
+      readonly value: ThreadsChangeValue;
+    })
+  | (EventContext & {
+      readonly kind: "unknown";
+      readonly value?: ThreadsChangeValue;
+    });
+
+export function getThreadsWebhookEvents(
+  payload: ThreadsWebhookPayload,
+): readonly ThreadsWebhookEvent[] {
+  const entryContext: EventContext = { entryId: payload.target_id, entryTime: payload.time };
+  const value = payload.values.value;
+  const field = payload.values.field;
+
+  if (field === "replies" || field === "delete" || field === "publish" || field === "mentions") {
+    return [{ ...entryContext, kind: field, value }];
+  }
+  return [{ ...entryContext, kind: "unknown", value }];
 }

@@ -3,6 +3,15 @@ import type { BaseClientOptions } from "./generated/index.js";
 import { XApiClient } from "./generated/index.js";
 import { createXOAuthAdapter } from "./oauth-adapters.ts";
 import { createXOAuth } from "./oauth.js";
+import {
+  WebhookParseError,
+  getXWebhookEvents,
+  parseXWebhook,
+  safeParseXWebhook,
+  verifyCrcChallenge,
+  verifyWebhookSignature,
+  xWebhookPayloadSchema,
+} from "./webhooks.ts";
 
 export const X = {
   createClient(opts: BaseClientOptions) {
@@ -14,4 +23,13 @@ export const X = {
   },
   OAuth: createXOAuth,
   oauth: createXOAuthAdapter,
+  Webhooks: {
+    verifySignature: verifyWebhookSignature,
+    verifyCrcChallenge,
+    parse: parseXWebhook,
+    safeParse: safeParseXWebhook,
+    events: getXWebhookEvents,
+    schemas: { envelope: xWebhookPayloadSchema },
+    ParseError: WebhookParseError,
+  },
 };

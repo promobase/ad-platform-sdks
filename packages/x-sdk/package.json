@@ -99,6 +99,12 @@
       "types": "./dist/generated/valibot/index.d.ts",
       "import": "./dist/generated/valibot/index.js",
       "default": "./dist/generated/valibot/index.js"
+    },
+    "./webhooks": {
+      "bun": "./src/webhooks.ts",
+      "types": "./dist/webhooks.d.ts",
+      "import": "./dist/webhooks.js",
+      "default": "./dist/webhooks.js"
     }
   },
   "dependencies": {
@@ -107,7 +113,8 @@
     "valibot": "^1.4.2"
   },
   "devDependencies": {
-    "@openpromo/sdk-codegen": "workspace:*"
+    "@openpromo/sdk-codegen": "workspace:*",
+    "@types/bun": "latest"
   },
   "engines": {
     "node": ">=18"
