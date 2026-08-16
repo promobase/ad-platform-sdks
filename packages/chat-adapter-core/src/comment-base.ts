@@ -27,6 +27,8 @@ export interface CommentEvent {
   /** Post id (facebook) or media id (instagram). */
   postId?: string;
   mediaId?: string;
+  /** Video id (tiktok). */
+  videoId?: string;
   text: string | null;
   verb: CommentVerb;
   fromId?: string;
@@ -185,6 +187,7 @@ export abstract class CommentAdapterBase<
     const next: CommentThreadContext = { ...existing };
     if (event.postId) next.postId = event.postId;
     if (event.mediaId) next.mediaId = event.mediaId;
+    if (event.videoId) next.videoId = event.videoId;
     this.threadContext.set(threadId, next);
   }
 

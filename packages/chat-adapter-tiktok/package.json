@@ -1,7 +1,12 @@
 {
-  "name": "@openpromo/chat-adapters",
+  "name": "@openpromo/chat-adapter-tiktok",
   "version": "0.1.0",
-  "description": "Umbrella package for OpenPromo first-party Chat SDK adapters",
+  "description": "First-party Chat SDK adapter for TikTok Business comments, built on @openpromo/tiktok webhook schemas and the comments client",
+  "keywords": [
+    "chat-sdk",
+    "chat-adapter",
+    "tiktok"
+  ],
   "type": "module",
   "module": "./dist/index.js",
   "main": "./dist/index.js",
@@ -28,13 +33,18 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@chat-adapter/shared": "^4.38.0",
     "@openpromo/chat-adapter-core": "workspace:*",
-    "@openpromo/chat-adapter-instagram": "workspace:*",
-    "@openpromo/chat-adapter-messenger": "workspace:*",
-    "@openpromo/chat-adapter-tiktok": "workspace:*"
+    "@openpromo/tiktok": "workspace:*",
+    "valibot": "^1.0.0"
   },
   "devDependencies": {
+    "@chat-adapter/state-memory": "^4.38.0",
     "@types/bun": "latest",
+    "chat": "^4.38.0",
     "typescript": "^7.0.2"
+  },
+  "peerDependencies": {
+    "chat": "^4.0.0"
   }
 }

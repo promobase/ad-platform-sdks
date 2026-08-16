@@ -1,0 +1,25 @@
+{
+  "events": [
+    {
+      "client_key": "aw123",
+      "create_time": 1723680000,
+      "user_openid": "openid_1",
+      "event": "comment.update",
+      "content": "{\"comment_id\":111,\"video_id\":9,\"parent_comment_id\":110,\"comment_type\":\"reply\",\"comment_action\":\"insert\",\"timestamp\":1723680000,\"unique_identifier\":\"u1\",\"text\":\"Nice!\"}"
+    },
+    {
+      "client_key": "aw123",
+      "create_time": 1723680010,
+      "user_openid": "openid_1",
+      "event": "comment.update",
+      "content": "{\"comment_id\":222,\"video_id\":9,\"comment_type\":\"comment\",\"comment_action\":\"insert\",\"timestamp\":1723680010,\"unique_identifier\":\"ourbrand\",\"text\":\"Thanks for watching!\"}"
+    },
+    {
+      "client_key": "aw123",
+      "create_time": 1723680020,
+      "user_openid": "openid_1",
+      "event": "comment.update",
+      "content": "{\"comment_id\":333,\"video_id\":9,\"parent_comment_id\":110,\"comment_type\":\"reply\",\"comment_action\":\"delete\",\"timestamp\":1723680020,\"unique_identifier\":\"u2\",\"text\":\"Removed\"}"
+    }
+  ]
+}

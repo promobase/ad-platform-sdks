@@ -151,6 +151,25 @@
         "chat": "^4.0.0",
       },
     },
+    "packages/chat-adapter-tiktok": {
+      "name": "@openpromo/chat-adapter-tiktok",
+      "version": "0.1.0",
+      "dependencies": {
+        "@chat-adapter/shared": "^4.38.0",
+        "@openpromo/chat-adapter-core": "workspace:*",
+        "@openpromo/tiktok": "workspace:*",
+        "valibot": "^1.0.0",
+      },
+      "devDependencies": {
+        "@chat-adapter/state-memory": "^4.38.0",
+        "@types/bun": "latest",
+        "chat": "^4.38.0",
+        "typescript": "^7.0.2",
+      },
+      "peerDependencies": {
+        "chat": "^4.0.0",
+      },
+    },
     "packages/chat-adapters": {
       "name": "@openpromo/chat-adapters",
       "version": "0.1.0",
@@ -158,6 +177,7 @@
         "@openpromo/chat-adapter-core": "workspace:*",
         "@openpromo/chat-adapter-instagram": "workspace:*",
         "@openpromo/chat-adapter-messenger": "workspace:*",
+        "@openpromo/chat-adapter-tiktok": "workspace:*",
       },
       "devDependencies": {
         "@types/bun": "latest",
@@ -735,6 +755,8 @@
     "@openpromo/chat-adapter-instagram": ["@openpromo/chat-adapter-instagram@workspace:packages/chat-adapter-instagram"],
 
     "@openpromo/chat-adapter-messenger": ["@openpromo/chat-adapter-messenger@workspace:packages/chat-adapter-messenger"],
+
+    "@openpromo/chat-adapter-tiktok": ["@openpromo/chat-adapter-tiktok@workspace:packages/chat-adapter-tiktok"],
 
     "@openpromo/chat-adapters": ["@openpromo/chat-adapters@workspace:packages/chat-adapters"],
 

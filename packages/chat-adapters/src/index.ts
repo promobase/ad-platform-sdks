@@ -36,6 +36,11 @@ export type {
   InstagramTemplatePayload,
   InstagramThreadId,
 } from "@openpromo/chat-adapter-instagram";
+export { createTikTokCommentsAdapter, TikTokCommentsAdapter } from "@openpromo/chat-adapter-tiktok";
+export type {
+  TikTokCommentThreadId,
+  TikTokCommentsAdapterOptions,
+} from "@openpromo/chat-adapter-tiktok";
 export {
   ChatMessagingAdapterBase,
   CommentAdapterBase,

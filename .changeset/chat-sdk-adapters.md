@@ -20,6 +20,9 @@ parity against the official `@chat-adapter/*` implementations.
   `FacebookCommentsAdapter` / `InstagramCommentsAdapter` comment adapters
   (comment-tree threads, add/edit/remove/hide verbs, reply/hide/delete
   sends).
+- `chat-adapter-tiktok`: TikTok Business comments adapter (comment.update
+  events, detail-fetch enrichment for owner/name, reply/hide/delete sends,
+  TikTok-Signature verification).
 - `chat-adapters`: umbrella re-export.
 - `@openpromo/meta`: `sendSenderAction` on both messaging clients, Instagram
   `uploadAttachment` plus the `attachmentId` media variant, and an optional
