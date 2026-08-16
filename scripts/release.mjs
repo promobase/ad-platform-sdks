@@ -23,18 +23,21 @@ try {
   if (checkOnly) {
     console.log(`Validated ${packageDirs.length} publishable workspace manifests`);
   } else {
-    const changeset = resolve(root, "node_modules", ".bin", "changeset");
-    const result = spawnSync(changeset, ["publish"], {
-      cwd: root,
-      env: process.env,
-      stdio: "inherit",
-    });
-
-    if (result.error) {
-      throw result.error;
-    }
-    if (result.status !== 0) {
-      process.exitCode = result.status ?? 1;
+    // Publish directly per package with --force: the unified 0.x.0 version
+    // line intentionally downgraded packages that previously published under
+    // higher versions (e.g. @openpromo/meta 2.x -> 0.x), and npm rejects
+    // lower versions without --force. Unified versions always bump upward
+    // after this transition, so --force only ever overrides the once.
+    for (const packageDir of packageDirs) {
+      const packageJson = JSON.parse(readFileSync(join(packageDir, "package.json"), "utf8"));
+      if (packageJson.private) continue;
+      const publish = spawnSync("npm", ["publish", packageDir, "--force"], {
+        cwd: root,
+        env: process.env,
+        stdio: "inherit",
+      });
+      if (publish.error) throw publish.error;
+      if (publish.status !== 0) process.exit(publish.status ?? 1);
     }
   }
 } finally {

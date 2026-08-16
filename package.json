@@ -15,7 +15,7 @@
     "format": "oxfmt --write .oxfmtrc.json .oxlintrc.json '**/*.{ts,tsx,js,jsx,mjs,cjs,json,jsonc}'",
     "format:check": "oxfmt --check .oxfmtrc.json .oxlintrc.json '**/*.{ts,tsx,js,jsx,mjs,cjs,json,jsonc}'",
     "changeset": "changeset",
-    "version": "changeset version",
+    "version": "node scripts/fixed-version.mjs",
     "release": "node scripts/release.mjs",
     "release:check": "node scripts/release.mjs --check",
     "effect:check": "bun scripts/check-effect-runtime.mjs",
