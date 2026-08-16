@@ -22,6 +22,30 @@ Feature parity with the official `@chat-adapter/instagram`:
 Thread id format `instagram:{accountId}:{userId}` mirrors the official
 adapter.
 
+## Post comments
+
+`createInstagramCommentsAdapter()` is a **separate Chat SDK adapter** for
+Instagram post comments — its own webhook surface (`changes` comments),
+thread model (one thread per comment tree:
+`instagram:{accountId}:comment:{parentCommentId}`), and send semantics
+(reply, hide, delete). Register it next to the DM adapter and route the same
+webhook callback to both handlers:
+
+```ts
+const bot = new Chat({
+  userName: "shop-bot",
+  adapters: {
+    instagram: createInstagramAdapter(),
+    instagram_comments: createInstagramCommentsAdapter(),
+  },
+  state: createMemoryState(),
+});
+```
+
+Comment events dispatch as `onNewMessage` (adds), `onMessageUpdated` (edits),
+and `onMessageDeleted` (removes/hides). `thread.post()` replies to the
+thread-root comment.
+
 ## Usage
 
 ```ts

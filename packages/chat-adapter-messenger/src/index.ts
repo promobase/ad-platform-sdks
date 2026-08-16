@@ -1,9 +1,12 @@
 import { ValidationError } from "@chat-adapter/shared";
 import type { Logger } from "chat";
 
+import { FacebookCommentsAdapter } from "./facebook-comments-adapter.ts";
 import { MessengerAdapter } from "./messenger-adapter.ts";
 import type { MessengerAdapterOptions } from "./messenger-adapter.ts";
 
+export { FacebookCommentsAdapter } from "./facebook-comments-adapter.ts";
+export type { CommentThreadId as FacebookCommentThreadId } from "./facebook-comments-adapter.ts";
 export { MessengerAdapter } from "./messenger-adapter.ts";
 export type { MessengerAdapterOptions, MessengerThreadId } from "./messenger-adapter.ts";
 export {
@@ -27,6 +30,28 @@ function requiredEnv(name: string, adapter: string): string {
  * FACEBOOK_APP_SECRET, FACEBOOK_VERIFY_TOKEN, FACEBOOK_PAGE_ACCESS_TOKEN,
  * FACEBOOK_PAGE_ID, optional FACEBOOK_API_VERSION.
  */
+/**
+ * Create a Facebook Page comments adapter. Same env contract as the
+ * Messenger adapter; register it alongside `createMessengerAdapter()` and
+ * route the same webhook callback to both handlers.
+ */
+export function createFacebookCommentsAdapter(
+  config?: Partial<MessengerAdapterOptions> & { logger?: Logger },
+): FacebookCommentsAdapter {
+  return new FacebookCommentsAdapter({
+    appSecret: config?.appSecret ?? requiredEnv("FACEBOOK_APP_SECRET", "facebook_comments"),
+    verifyToken: config?.verifyToken ?? requiredEnv("FACEBOOK_VERIFY_TOKEN", "facebook_comments"),
+    accessToken:
+      config?.accessToken ?? requiredEnv("FACEBOOK_PAGE_ACCESS_TOKEN", "facebook_comments"),
+    pageId: config?.pageId ?? requiredEnv("FACEBOOK_PAGE_ID", "facebook_comments"),
+    apiVersion: config?.apiVersion ?? process.env.FACEBOOK_API_VERSION,
+    userName: config?.userName,
+    logger: config?.logger,
+    fetch: config?.fetch,
+    signal: config?.signal,
+  });
+}
+
 export function createMessengerAdapter(
   config?: Partial<MessengerAdapterOptions> & { logger?: Logger },
 ): MessengerAdapter {

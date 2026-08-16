@@ -20,6 +20,30 @@ Feature parity with the official `@chat-adapter/messenger`:
 
 Thread id format `messenger:{userId}` mirrors the official adapter.
 
+## Post comments
+
+`createFacebookCommentsAdapter()` is a **separate Chat SDK adapter** for
+Facebook Page post comments — its own webhook surface (`changes` feed
+comments), thread model (one thread per comment tree:
+`facebook:{pageId}:comment:{parentCommentId}`), and send semantics (reply,
+hide, delete). Register it next to the Messenger adapter and route the same
+page webhook callback to both handlers:
+
+```ts
+const bot = new Chat({
+  userName: "shop-bot",
+  adapters: {
+    messenger: createMessengerAdapter(),
+    facebook_comments: createFacebookCommentsAdapter(),
+  },
+  state: createMemoryState(),
+});
+```
+
+Comment events dispatch as `onNewMessage` (adds), `onMessageUpdated` (edits),
+and `onMessageDeleted` (removes/hides). `thread.post()` replies to the
+thread-root comment.
+
 ## Usage
 
 ```ts

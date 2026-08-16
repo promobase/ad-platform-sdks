@@ -1,5 +1,7 @@
 export {
+  createFacebookCommentsAdapter,
   createMessengerAdapter,
+  FacebookCommentsAdapter,
   MessengerAdapter,
   cardToMessenger,
   cardToMessengerText,
@@ -7,6 +9,7 @@ export {
   encodeMessengerCallbackData,
 } from "@openpromo/chat-adapter-messenger";
 export type {
+  FacebookCommentThreadId,
   MessengerAdapterOptions,
   MessengerButton,
   MessengerCardResult,
@@ -15,7 +18,9 @@ export type {
 } from "@openpromo/chat-adapter-messenger";
 export {
   createInstagramAdapter,
+  createInstagramCommentsAdapter,
   InstagramAdapter,
+  InstagramCommentsAdapter,
   cardToInstagram,
   cardToInstagramText,
   decodeInstagramCallbackData,
@@ -24,6 +29,7 @@ export {
 export type {
   InstagramAdapterOptions,
   InstagramButton,
+  InstagramCommentThreadId,
   InstagramCardResult,
   InstagramPostOptions,
   InstagramQuickReply,
@@ -32,6 +38,7 @@ export type {
 } from "@openpromo/chat-adapter-instagram";
 export {
   ChatMessagingAdapterBase,
+  CommentAdapterBase,
   MarkdownFormatConverter,
   commentMessageState,
   commentThreadId,
@@ -47,6 +54,7 @@ export {
 export type {
   AdapterCapabilities,
   ChatAdapterPlatform,
+  CommentEvent,
   CommentThreadContext,
   CommentThreadData,
   CommentVerb,

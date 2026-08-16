@@ -1,8 +1,8 @@
 # Chat SDK Adapters — Plan
 
-> Status: M0 complete (2026-08-15) — core scaffold, Messenger + Instagram DM
-> adapters, fixture tests all green on `feat/chat-sdk-adapters` off `master`.
-> M1 (Meta comment surfaces) is next.
+> Status: M1 complete (2026-08-15) — Messenger + Instagram DM adapters with
+> official parity, plus separate Facebook/Instagram comment adapters (comment
+> trees, add/edit/remove/hide verbs). M2 (TikTok) is next.
 > Owner: Ad Platform SDKs. Companion to
 > [`openpromo-migration.md`](./openpromo-migration.md) — this plan extends its
 > ownership boundary to Chat SDK adapter packages.

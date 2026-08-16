@@ -8,8 +8,7 @@ import {
 import {
   ChatMessagingAdapterBase,
   dmThreadId,
-  verifyHubChallenge,
-  verifyHubSignature,
+  verifyHubInbound,
 } from "@openpromo/chat-adapter-core";
 import { Facebook, FacebookApiError, fbWebhookPayloadSchema } from "@openpromo/meta";
 import type { FBWebhookMessagingEvent } from "@openpromo/meta";
@@ -118,26 +117,10 @@ export class MessengerAdapter extends ChatMessagingAdapterBase<
   }
 
   protected async verifyInbound(request: Request, body: string): Promise<Response | null> {
-    if (request.method === "GET") {
-      const result = verifyHubChallenge(
-        Object.fromEntries(new URL(request.url).searchParams.entries()),
-        this.verifyToken,
-      );
-      if (!result.valid || !result.challenge) {
-        return new Response("Verification failed", { status: 403 });
-      }
-      return new Response(result.challenge, { status: 200 });
-    }
-
-    const signature = request.headers.get("X-Hub-Signature-256");
-    if (!signature) {
-      return new Response("Missing X-Hub-Signature-256 header", { status: 403 });
-    }
-    const valid = await verifyHubSignature(body, signature, this.appSecret);
-    if (!valid) {
-      return new Response("Invalid X-Hub-Signature-256 header", { status: 403 });
-    }
-    return null;
+    return verifyHubInbound(request, body, {
+      appSecret: this.appSecret,
+      verifyToken: this.verifyToken,
+    });
   }
 
   protected async parseWebhook(body: string): Promise<FBWebhookMessagingEvent[][]> {
