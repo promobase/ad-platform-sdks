@@ -35,16 +35,18 @@ function nextUnifiedVersion(versions) {
   return `0.${maxMinor + 1}.0`;
 }
 
-// 1. Let changesets do its thing: version bumps, changelogs, changeset
-//    consumption. Its per-package numbers are discarded below.
+// 1. Snapshot the CURRENT published line BEFORE changesets bumps anything:
+//    the next unified 0.x.0 must be computed from the previously released
+//    versions, not from changesets' per-package increments.
+const packages = packageDirs.map(readVersion).filter((pkg) => !pkg.private);
+const unified = nextUnifiedVersion(packages);
+
+// 2. Let changesets do its thing: changelogs and changeset consumption.
+//    Its per-package numbers are discarded below.
 const changeset = resolve(root, "node_modules", ".bin", "changeset");
 const result = spawnSync(changeset, ["version"], { cwd: root, stdio: "inherit" });
 if (result.error) throw result.error;
 if (result.status !== 0) process.exit(result.status ?? 1);
-
-// 2. Unify every publishable package on the next 0.x.0.
-const packages = packageDirs.map(readVersion).filter((pkg) => !pkg.private);
-const unified = nextUnifiedVersion(packages);
 
 for (const pkgDir of packageDirs) {
   const path = join(pkgDir, "package.json");
