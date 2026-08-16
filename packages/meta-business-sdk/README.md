@@ -139,7 +139,7 @@ These generated contract surfaces are separate from the hand-authored
 payloads and event extraction.
 
 For a compile-checked OAuth → connected-account → workflow publishing → webhook handoff flow, see
-[`examples/openpromo-integration-flow.ts`](./examples/openpromo-integration-flow.ts).
+[`examples/meta/openpromo-integration-flow.ts`](../../examples/meta/openpromo-integration-flow.ts).
 
 ## Features
 

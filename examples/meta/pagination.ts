@@ -3,7 +3,7 @@
  *
  * Run: bun examples/pagination.ts
  */
-import { createClient } from "../src/generated/index.ts";
+import { createClient } from "@openpromo/meta";
 
 const api = createClient({
   accessToken: process.env.META_ACCESS_TOKEN!,

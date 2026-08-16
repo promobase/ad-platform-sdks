@@ -6,7 +6,7 @@
  *
  * Run: bun examples/type-safety-demo.ts
  */
-import { createClient } from "../src/generated/index.ts";
+import { createClient } from "@openpromo/meta";
 
 const api = createClient({ accessToken: "demo" });
 

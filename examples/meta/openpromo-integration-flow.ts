@@ -1,3 +1,8 @@
+import { Facebook, WhatsApp } from "@openpromo/meta";
+import { createInstagramTransport } from "@openpromo/meta/transports";
+import type { FacebookWebhookEvent } from "@openpromo/meta/webhooks";
+import type { WhatsAppWebhookEvent } from "@openpromo/meta/webhooks";
+import { webhooks } from "@openpromo/meta/webhooks";
 /**
  * End-to-end provider integration seams for an application such as OpenPromo.
  *
@@ -9,20 +14,13 @@
  */
 import { AllPlatforms } from "@openpromo/sdk-runtime/platforms";
 
-import { Facebook, WhatsApp } from "../src/namespace.ts";
-import { createFacebookOAuthAdapter } from "../src/oauth-adapters.ts";
-import { createInstagramTransport } from "../src/transports/instagram.ts";
-import type { FacebookWebhookEvent } from "../src/webhooks/events.ts";
-import type { WhatsAppWebhookEvent } from "../src/webhooks/events.ts";
-import { webhooks } from "../src/webhooks/index.ts";
-
 export type WorkflowHost = {
   step<T>(name: string, operation: () => Promise<T>): Promise<T>;
   sleep(duration: string): Promise<void>;
 };
 
 export type FacebookOAuthInput = {
-  readonly config: Parameters<typeof createFacebookOAuthAdapter>[0];
+  readonly config: Parameters<typeof Facebook.oauth>[0];
   readonly code: string;
   readonly callbackState: string;
   readonly expectedState: string;
@@ -30,7 +28,7 @@ export type FacebookOAuthInput = {
 
 /** Exchange an OAuth callback without making token persistence an SDK concern. */
 export async function exchangeFacebookCode(input: FacebookOAuthInput) {
-  const oauth = createFacebookOAuthAdapter(input.config);
+  const oauth = Facebook.oauth(input.config);
   return oauth.result.exchangeCode({
     code: input.code,
     state: input.callbackState,
@@ -46,11 +44,11 @@ export type FacebookPageConnection = {
 
 /** Resolve provider account metadata after the host has accepted the OAuth grant. */
 export async function resolveFacebookPage(input: {
-  readonly config: Parameters<typeof createFacebookOAuthAdapter>[0];
+  readonly config: Parameters<typeof Facebook.oauth>[0];
   readonly accessToken: string;
   readonly pageId: string;
 }): Promise<FacebookPageConnection & { readonly name: string }> {
-  const oauth = createFacebookOAuthAdapter(input.config);
+  const oauth = Facebook.oauth(input.config);
   const page = await oauth.getPage({ accessToken: input.accessToken, pageId: input.pageId });
 
   return {

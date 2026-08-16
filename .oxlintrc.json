@@ -14,7 +14,7 @@
   },
   "overrides": [
     {
-      "files": ["packages/meta-business-sdk/examples/**/*.ts"],
+      "files": ["examples/**/*.ts"],
       "rules": {
         "no-unused-expressions": "off"
       }
