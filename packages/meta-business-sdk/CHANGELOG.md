@@ -1,5 +1,11 @@
 # @openpromo/meta
 
+## 0.11.1
+
+### Patch Changes
+
+- [`286d44d`](https://github.com/promobase/ad-platform-sdks/commit/286d44d8a7f6ad2c1d36769c7461c12b0648efb4) Thanks [@rayli09](https://github.com/rayli09)! - Accept Facebook long-lived OAuth responses that omit `expires_in` and apply the existing 60-day fallback. Expose the Page discovery fields needed by account setup through the OAuth adapter, normalize numeric Instagram and Threads user IDs, apply the Instagram token-expiry fallback, and add a typed current Page Post Insights facade.
+
 ## 0.10.1
 
 ### Patch Changes

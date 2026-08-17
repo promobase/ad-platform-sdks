@@ -1,5 +1,12 @@
 # @openpromo/chat-adapter-messenger
 
+## 0.11.1
+
+### Patch Changes
+
+- Updated dependencies [[`286d44d`](https://github.com/promobase/ad-platform-sdks/commit/286d44d8a7f6ad2c1d36769c7461c12b0648efb4)]:
+  - @openpromo/meta@0.11.1
+
 ## 0.11.0
 
 ### Minor Changes

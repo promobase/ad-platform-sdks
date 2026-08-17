@@ -1,5 +1,13 @@
 # @openpromo/chat-adapters
 
+## 0.11.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @openpromo/chat-adapter-instagram@0.11.1
+  - @openpromo/chat-adapter-messenger@0.11.1
+
 ## 0.11.0
 
 ### Minor Changes
