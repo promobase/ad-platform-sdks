@@ -3,12 +3,14 @@ import { describe, expect, test } from "bun:test";
 import { AllPlatforms, Result } from "../src/index.ts";
 import {
   OAuthAdapterError,
+  createOAuthFlow,
   assertOAuthState,
   createPkcePair,
   customOAuthScope,
   secondsFromNow,
   withOAuthResults,
 } from "../src/oauth.ts";
+import type { OAuthExchangeInput } from "../src/oauth.ts";
 
 describe("OAuth runtime primitives", () => {
   test("rejects a mismatched callback state with a typed error", () => {
@@ -76,5 +78,49 @@ describe("OAuth runtime primitives", () => {
         phase: "exchange",
       });
     }
+  });
+
+  test("encapsulates authorization and callback state while preserving adapter methods", async () => {
+    let exchangeInput: Partial<OAuthExchangeInput> = {};
+    const adapter = withOAuthResults({
+      provider: AllPlatforms.X,
+      async authorize(input) {
+        expect(input.pkce).toBe("auto");
+        return {
+          url: "https://provider.test/authorize",
+          state: input.state,
+          codeVerifier: "verifier",
+        };
+      },
+      async exchangeCode(input) {
+        exchangeInput = input;
+        return {
+          accessToken: "access-token",
+          scopes: input.scopes ?? [],
+          providerData: { userId: "user-1" },
+        };
+      },
+      async discover() {
+        return { userId: "user-1" };
+      },
+    });
+    const flow = createOAuthFlow(adapter, {
+      scopes: ["tweet.read"],
+      state: "state-1",
+      pkce: "auto",
+    });
+
+    const authorization = await flow.authorize();
+    const grant = await flow.complete({ code: "code-1", state: authorization.state });
+
+    expect(grant.accessToken).toBe("access-token");
+    expect(exchangeInput).toEqual({
+      code: "code-1",
+      state: "state-1",
+      expectedState: "state-1",
+      codeVerifier: "verifier",
+      scopes: ["tweet.read"],
+    });
+    expect(await flow.adapter.discover()).toEqual({ userId: "user-1" });
   });
 });

@@ -139,6 +139,98 @@ export type OAuthAdapterWithResults<
   readonly result: OAuthAdapterResult<TProvider, TScope>;
 };
 
+export type OAuthFlowOptions<TScope extends string = string> = {
+  readonly scopes: readonly TScope[];
+  readonly state: string;
+  readonly pkce?: OAuthPkce | "auto";
+};
+
+export type OAuthFlowCompletionInput = {
+  readonly code: string;
+  readonly state?: string;
+  readonly codeVerifier?: string;
+};
+
+/**
+ * Encapsulates the two-request OAuth browser flow while preserving the
+ * provider adapter's native methods and extra discovery helpers.
+ *
+ * The flow object is intentionally short-lived. Persist `state` and any
+ * returned `codeVerifier` in the application's session store before redirect;
+ * reconstruct the flow with the same options in the callback handler.
+ */
+export class OAuthFlow<
+  TProvider,
+  TScope extends string,
+  TAdapter extends OAuthAdapterWithResults<TProvider, TScope> = OAuthAdapterWithResults<
+    TProvider,
+    TScope
+  >,
+> {
+  readonly adapter: TAdapter;
+  private authorization?: OAuthAuthorization;
+
+  constructor(
+    adapter: TAdapter,
+    private readonly options: OAuthFlowOptions<TScope>,
+  ) {
+    this.adapter = adapter;
+  }
+
+  /** Build the provider authorization URL and retain its generated verifier. */
+  async authorize(): Promise<OAuthAuthorization> {
+    const authorization = await this.adapter.authorize({
+      scopes: this.options.scopes,
+      state: this.options.state,
+      pkce: this.options.pkce,
+    });
+    this.authorization = authorization;
+    return authorization;
+  }
+
+  /** Exchange a callback code while enforcing this flow's original state. */
+  complete(input: OAuthFlowCompletionInput): Promise<OAuthTokenSet<TProvider>> {
+    return this.adapter.exchangeCode({
+      code: input.code,
+      state: input.state ?? this.options.state,
+      expectedState: this.options.state,
+      codeVerifier: input.codeVerifier ?? this.authorization?.codeVerifier,
+      scopes: this.options.scopes,
+    });
+  }
+
+  async refresh(input: OAuthRefreshInput<TScope>): Promise<OAuthTokenSet<TProvider>> {
+    if (!this.adapter.refresh) {
+      throw new OAuthAdapterError("OAuth provider does not support refresh", {
+        provider: this.adapter.provider,
+        phase: "refresh",
+      });
+    }
+    return this.adapter.refresh(input);
+  }
+
+  async revoke(input: {
+    readonly token: string;
+    readonly tokenType?: "access_token" | "refresh_token";
+  }): Promise<void> {
+    if (!this.adapter.revoke) {
+      throw new OAuthAdapterError("OAuth provider does not support revoke", {
+        provider: this.adapter.provider,
+        phase: "revoke",
+      });
+    }
+    await this.adapter.revoke(input);
+  }
+}
+
+export function createOAuthFlow<
+  TProvider,
+  TScope extends string,
+  TAdapter extends OAuthAdapterWithResults<TProvider, TScope>,
+>(adapter: TAdapter, options: OAuthFlowOptions<TScope>): OAuthFlow<TProvider, TScope, TAdapter> {
+  return new OAuthFlow(adapter, options);
+}
+
 /**
  * Adds a non-throwing Result façade while preserving the adapter's existing API
  * and any platform-specific discovery methods.

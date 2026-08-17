@@ -1,96 +1,86 @@
 /**
- * Normalized OAuth flow — the shared adapter contract.
+ * Encapsulated OAuth flow — provider configuration stays at the edge while
+ * authorization, callback state, PKCE, and typed grants stay in one object.
  *
- * Every platform exposes a lower-case `oauth` factory with the same shape:
- * authorize (builds the URL, optionally PKCE), exchangeCode (code -> typed
- * token grant), refresh, revoke. The `.result` façade returns non-throwing
- * Results for explicit branching via `match`.
- *
- * Requires app credentials in env, then:
+ * Requires:
  *   META_APP_ID=... META_APP_SECRET=... bun examples/oauth/oauth-flow.ts
+ *
+ * The OAuthFlow object is short-lived. Persist `state` and `codeVerifier` in
+ * your session store before redirecting, then recreate the flow with the same
+ * state in the callback route. The provider adapter remains available through
+ * `flow.adapter` for native discovery methods such as Facebook page listing.
  */
 import { Facebook } from "@openpromo/meta";
-import { redactOAuthTokenSet } from "@openpromo/sdk-runtime";
+import { OAuthAdapterError, createOAuthFlow, redactOAuthTokenSet } from "@openpromo/sdk-runtime";
 import { X } from "@openpromo/x";
 
-const appId = process.env.META_APP_ID!;
-const appSecret = process.env.META_APP_SECRET!;
 const redirectUri = "https://example.com/callback";
 
-const facebook = Facebook.oauth({ appId, appSecret, redirectUri });
+async function main(): Promise<void> {
+  const facebook = createOAuthFlow(
+    Facebook.oauth({
+      appId: required("META_APP_ID"),
+      appSecret: required("META_APP_SECRET"),
+      redirectUri,
+    }),
+    {
+      scopes: ["pages_show_list", "pages_manage_posts"],
+      state: "csrf-state",
+    },
+  );
 
-// --- 1. Authorize: build the URL + state (PKCE rejected for Meta) ---
-const authorization = await facebook.result.authorize({
-  scopes: ["pages_show_list", "pages_manage_posts"],
-  state: "csrf-state",
-});
+  const authorization = await facebook.authorize();
+  console.log("Open this URL:", authorization.url);
+  console.log("Persist this state:", authorization.state);
 
-const authorizationUrl = authorization.match({
-  ok: (auth) => auth.url,
-  err: (error) => {
-    console.error("authorize failed:", error.details.phase);
-    return null;
-  },
-});
-if (authorizationUrl) {
-  console.log("Open this URL:", authorizationUrl);
-  // Persist authorization.state (and codeVerifier for PKCE providers).
-}
+  const code = process.env.OAUTH_CALLBACK_CODE;
+  if (code) {
+    try {
+      const grant = await facebook.complete({ code, state: authorization.state });
+      const metadata = redactOAuthTokenSet(facebook.adapter.provider, grant);
+      console.log("Granted, expires at:", metadata.accessTokenExpiresAt);
+      console.log("Scopes:", metadata.scopes.join(", "));
 
-// --- 2. Exchange the callback code for a typed grant ---
-const code = process.env.OAUTH_CALLBACK_CODE; // from the redirect
-if (code) {
-  const grant = await facebook.result.exchangeCode({
-    code,
-    state: "csrf-state",
-    expectedState: "csrf-state",
-  });
-
-  type ExchangeOutcome =
-    | { status: "ok"; tokenSet: import("@openpromo/sdk-runtime").OAuthTokenSet<unknown> }
-    | { status: "not-retryable" }
-    | { status: "retryable"; provider: string };
-
-  const outcome = grant.match<ExchangeOutcome>({
-    ok: (tokenSet) => ({ status: "ok", tokenSet }),
-    err: (error) =>
-      // Validation-phase failures (state mismatch) are not retryable.
-      error.details.phase === "validate"
-        ? { status: "not-retryable" }
-        : { status: "retryable", provider: error.details.provider },
-  });
-
-  if (outcome.status === "ok") {
-    // Persist the token set; never log raw tokens.
-    const metadata = redactOAuthTokenSet("FACEBOOK", outcome.tokenSet);
-    console.log("Granted, expires at:", metadata.accessTokenExpiresAt);
-    console.log("Scopes:", metadata.scopes.join(", "));
-
-    // --- 3. Account discovery stays provider-specific ---
-    const pages = await facebook.listPages({ accessToken: outcome.tokenSet.accessToken });
-    console.log("Pages:", pages.map((page) => page.name).join(", "));
-  } else {
-    console.log("Exchange failed; retryable:", outcome.status === "retryable");
+      // Provider-specific discovery remains native and typed; the flow only
+      // encapsulates the OAuth lifecycle around the adapter.
+      const pages = await facebook.adapter.listPages({ accessToken: grant.accessToken });
+      console.log("Pages:", pages.map((page) => page.name).join(", "));
+    } catch (error) {
+      reportOAuthError(error);
+    }
   }
+
+  const x = createOAuthFlow(
+    X.oauth({
+      clientId: required("X_CLIENT_ID"),
+      clientSecret: process.env.X_CLIENT_SECRET,
+      redirectUri,
+    }),
+    {
+      scopes: ["tweet.read", "offline.access"],
+      state: "x-state",
+      pkce: "auto",
+    },
+  );
+  const xAuthorization = await x.authorize();
+  console.log("X URL:", xAuthorization.url);
+  console.log("Persist X verifier:", xAuthorization.codeVerifier);
 }
 
-// --- 4. PKCE providers (X, TikTok Developer) ---
-const x = X.oauth({
-  clientId: process.env.X_CLIENT_ID!,
-  clientSecret: process.env.X_CLIENT_SECRET,
-  redirectUri,
-});
+function required(name: string): string {
+  const value = process.env[name];
+  if (!value) throw new Error(`${name} is required`);
+  return value;
+}
 
-const xAuthorization = await x.result.authorize({
-  scopes: ["tweet.read", "offline.access"],
-  state: "x-state",
-  pkce: "auto", // returns the codeVerifier alongside the URL
-});
+function reportOAuthError(error: unknown): void {
+  if (error instanceof OAuthAdapterError) {
+    console.error(
+      `${error.details.provider} OAuth ${error.details.phase} failed: ${error.message}`,
+    );
+    return;
+  }
+  throw error;
+}
 
-xAuthorization.match({
-  ok: (auth) => {
-    console.log("X URL:", auth.url);
-    console.log("Persist codeVerifier:", auth.codeVerifier);
-  },
-  err: (error) => console.error("X authorize failed:", error.details.phase),
-});
+await main();
