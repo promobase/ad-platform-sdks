@@ -15,7 +15,7 @@ jobs:
       pull-requests: write
       id-token: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
           fetch-depth: 0
@@ -33,7 +33,7 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Cache TypeScript build info
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: packages/*/.tsbuildinfo
           key: tsgo-${{ runner.os }}-${{ hashFiles('bun.lock') }}
@@ -46,7 +46,7 @@ jobs:
         run: bun run build
 
       - name: Preserve documentation build for deployment
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: docs-dist-${{ github.sha }}
           path: apps/docs/dist
@@ -79,7 +79,7 @@ jobs:
 
       - name: Create Release PR or Publish
         id: changesets
-        uses: changesets/action@v1
+        uses: changesets/action@v2
         with:
           version: bun run version
           publish: bun run release
@@ -167,7 +167,7 @@ jobs:
       name: docs-production
       url: https://docs.openpromo.app
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - uses: oven-sh/setup-bun@v2
         with:
@@ -177,7 +177,7 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Restore documentation build
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: docs-dist-${{ github.sha }}
           path: apps/docs/dist
