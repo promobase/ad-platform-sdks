@@ -69,6 +69,12 @@ export interface PageToken {
   id: string;
   name: string;
   access_token: string;
+  username?: string;
+  category?: string;
+  fan_count?: number;
+  followers_count?: number;
+  about?: string;
+  picture?: { data?: { url?: string; width?: number; height?: number } };
 }
 
 export interface FacebookUserProfile {

@@ -72,6 +72,39 @@ describe("Graph OAuth adapters", () => {
     expect(grant.accessTokenExpiresAt).toBeInstanceOf(Date);
   });
 
+  test("lists Facebook Pages with the fields needed by account setup", async () => {
+    const adapter = createFacebookOAuthAdapter({
+      appId: "app",
+      appSecret: "secret",
+      redirectUri: "https://example.test/callback",
+      fetch: (async (input) => {
+        expect(String(input)).toContain("me/accounts");
+        expect(String(input)).toContain("fan_count");
+        return jsonResponse({
+          data: [
+            {
+              id: "page-1",
+              name: "Page One",
+              access_token: "page-token",
+              fan_count: 42,
+              about: "A page",
+              picture: { data: { url: "https://example.test/page.jpg" } },
+            },
+          ],
+        });
+      }) as typeof fetch,
+    });
+
+    await expect(adapter.listPages({ accessToken: "user-token" })).resolves.toEqual([
+      expect.objectContaining({
+        id: "page-1",
+        name: "Page One",
+        access_token: "page-token",
+        fan_count: 42,
+      }),
+    ]);
+  });
+
   test("validates provider token payloads before normalization", async () => {
     const adapter = createFacebookOAuthAdapter({
       appId: "app",

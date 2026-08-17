@@ -24,6 +24,22 @@ const pageTokenSchema = v.object({
   id: v.string(),
   name: v.string(),
   access_token: v.string(),
+  username: v.optional(v.string()),
+  category: v.optional(v.string()),
+  fan_count: v.optional(v.number()),
+  followers_count: v.optional(v.number()),
+  about: v.optional(v.string()),
+  picture: v.optional(
+    v.object({
+      data: v.optional(
+        v.object({
+          url: v.optional(v.string()),
+          width: v.optional(v.number()),
+          height: v.optional(v.number()),
+        }),
+      ),
+    }),
+  ),
 });
 const profileSchema = v.object({
   id: v.string(),
@@ -142,7 +158,8 @@ export function createOAuth(config: OAuthConfig) {
     async getPageTokens(userAccessToken: string): Promise<PageToken[]> {
       const params = new URLSearchParams({
         access_token: userAccessToken,
-        fields: "id,name,access_token,username,picture",
+        fields:
+          "id,name,access_token,username,picture.type(large),category,fan_count,followers_count,about",
       });
 
       const response = await fetchImpl(

@@ -43,7 +43,27 @@ const facebookLongLivedTokenSchema = v.object({
   token_type: v.string(),
   expires_in: v.optional(v.number()),
 });
-const pageTokenSchema = v.object({ id: v.string(), name: v.string(), access_token: v.string() });
+const pageTokenSchema = v.object({
+  id: v.string(),
+  name: v.string(),
+  access_token: v.string(),
+  username: v.optional(v.string()),
+  category: v.optional(v.string()),
+  fan_count: v.optional(v.number()),
+  followers_count: v.optional(v.number()),
+  about: v.optional(v.string()),
+  picture: v.optional(
+    v.object({
+      data: v.optional(
+        v.object({
+          url: v.optional(v.string()),
+          width: v.optional(v.number()),
+          height: v.optional(v.number()),
+        }),
+      ),
+    }),
+  ),
+});
 const instagramShortLivedTokenSchema = v.object({
   access_token: v.string(),
   user_id: v.string(),
