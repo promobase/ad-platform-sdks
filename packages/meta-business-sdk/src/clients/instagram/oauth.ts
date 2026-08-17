@@ -12,7 +12,10 @@ import type {
 const IG_OAUTH_BASE = "https://api.instagram.com/oauth";
 const IG_GRAPH_BASE = "https://graph.instagram.com";
 
-const shortLivedTokenSchema = v.object({ access_token: v.string(), user_id: v.string() });
+const shortLivedTokenSchema = v.object({
+  access_token: v.string(),
+  user_id: v.pipe(v.union([v.string(), v.number()]), v.transform(String)),
+});
 const longLivedTokenSchema = v.object({
   access_token: v.string(),
   token_type: v.string(),
