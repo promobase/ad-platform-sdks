@@ -1,5 +1,19 @@
 # @openpromo/sdk-runtime
 
+## 0.11.0
+
+### Minor Changes
+
+- [`121fdf8`](https://github.com/promobase/ad-platform-sdks/commit/121fdf866e24083e949af589b422273f36efa5e9) Thanks [@rayli09](https://github.com/rayli09)! - Add `createOAuthFlow()` and `OAuthFlow` to encapsulate authorization and
+  callback completion while preserving each provider adapter's native typed
+  discovery methods.
+
+- [`da6decd`](https://github.com/promobase/ad-platform-sdks/commit/da6decda34c8d09b9ae5d729ee5de4680ab54e9c) Thanks [@rayli09](https://github.com/rayli09)! - Centralize HMAC, signature encoding/decoding, raw-body, and timing-safe webhook
+  verification primitives in `@openpromo/sdk-runtime/webhooks`. Harden the
+  Meta-family Chat adapter, TikTok, and X webhook verifiers to use the shared
+  implementation while preserving their provider-specific header and challenge
+  protocols.
+
 ## 0.9.0
 
 ### Minor Changes
