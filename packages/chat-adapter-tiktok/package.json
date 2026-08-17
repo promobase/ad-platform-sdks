@@ -1,6 +1,6 @@
 {
   "name": "@openpromo/chat-adapter-tiktok",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "First-party Chat SDK adapter for TikTok Business comments, built on @openpromo/tiktok webhook schemas and the comments client",
   "keywords": [
     "chat-sdk",

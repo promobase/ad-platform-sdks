@@ -1,6 +1,6 @@
 {
   "name": "@openpromo/snapchat",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Type-safe TypeScript SDK for the Snapchat Marketing API (Ads, Media, Creatives, Stats) and OAuth",
   "keywords": [
     "snapchat",

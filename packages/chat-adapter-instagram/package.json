@@ -1,6 +1,6 @@
 {
   "name": "@openpromo/chat-adapter-instagram",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "First-party Chat SDK adapter for Instagram DMs, built on @openpromo/meta webhook schemas and the Instagram messaging client",
   "keywords": [
     "chat-sdk",
