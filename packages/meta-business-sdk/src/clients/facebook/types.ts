@@ -77,6 +77,27 @@ export interface PageToken {
   picture?: { data?: { url?: string; width?: number; height?: number } };
 }
 
+/** Page Post Insights metrics supported by the current Graph API surface. */
+export const FacebookPostInsightsMetric = {
+  MediaView: "post_media_view",
+  TotalUniqueMediaView: "post_total_media_view_unique",
+} as const;
+
+export type FacebookPostInsightsMetric =
+  (typeof FacebookPostInsightsMetric)[keyof typeof FacebookPostInsightsMetric];
+
+export const FACEBOOK_POST_INSIGHTS_DEFAULT_METRICS = [
+  FacebookPostInsightsMetric.MediaView,
+  FacebookPostInsightsMetric.TotalUniqueMediaView,
+] as const satisfies readonly FacebookPostInsightsMetric[];
+
+export interface FacebookPostInsightsOptions {
+  metrics?: readonly FacebookPostInsightsMetric[];
+  period?: string;
+  since?: string;
+  until?: string;
+}
+
 export interface FacebookUserProfile {
   id: string;
   name: string;

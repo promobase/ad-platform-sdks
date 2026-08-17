@@ -7,7 +7,9 @@ import type {
   PageCreatePhotosParams,
   PageCreateVideosParams,
 } from "../../generated/objects/page.ts";
+import { FACEBOOK_POST_INSIGHTS_DEFAULT_METRICS } from "./types.ts";
 import type {
+  FacebookPostInsightsOptions,
   PagePostFields,
   PostAttachment,
   FacebookVideoDetails,
@@ -335,6 +337,22 @@ export function createFeed(
         params: opts?.limit ? { limit: opts.limit } : undefined,
       });
       return cursor.toArray();
+    },
+
+    /** Read current Graph API Page Post Insights metrics without stale metric names. */
+    async getInsights(postId: string, opts: FacebookPostInsightsOptions = {}) {
+      if (!postId) throw new Error("postId is required to fetch Facebook post insights");
+      const metrics = opts.metrics ?? FACEBOOK_POST_INSIGHTS_DEFAULT_METRICS;
+      const params = {
+        metric: [...metrics] as unknown as Record<string, unknown>[],
+        ...(opts.period === undefined ? {} : { period: opts.period }),
+        ...(opts.since === undefined ? {} : { since: opts.since }),
+        ...(opts.until === undefined ? {} : { until: opts.until }),
+      };
+      return api
+        .pagePost(postId)
+        .insights({ fields: ["name", "period", "values"], params })
+        .toArray();
     },
 
     /** Update a Page post. Only posts created by your app can be updated. */

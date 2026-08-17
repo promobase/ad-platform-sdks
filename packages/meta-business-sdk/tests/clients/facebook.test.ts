@@ -145,6 +145,25 @@ test("list feeds returns Page posts", async () => {
   expect(posts).toHaveLength(2);
 });
 
+test("getInsights uses the current typed Page Post metric catalog", async () => {
+  mockFetchSequence([
+    {
+      body: {
+        data: [{ name: "post_media_view", period: "lifetime", values: [{ value: 10 }] }],
+      },
+    },
+  ]);
+
+  const fb = createFacebookPageClient({ pageId: "page_123", accessToken: "tok" });
+  const insights = await fb.feed.getInsights("post_123");
+
+  expect(insights).toHaveLength(1);
+  const [url] = (globalThis.fetch as unknown as ReturnType<typeof mock>).mock.calls[0] as [string];
+  expect(url).toContain("post_123/insights");
+  expect(url).toContain("post_media_view");
+  expect(url).toContain("post_total_media_view_unique");
+});
+
 test("deletePost sends DELETE", async () => {
   mockFetchSequence([{ body: { success: true } }]);
 
