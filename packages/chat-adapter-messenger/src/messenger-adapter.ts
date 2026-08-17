@@ -5,11 +5,7 @@ import {
   ResourceNotFoundError,
   ValidationError,
 } from "@chat-adapter/shared";
-import {
-  ChatMessagingAdapterBase,
-  dmThreadId,
-  verifyHubInbound,
-} from "@openpromo/chat-adapter-core";
+import { ChatMessagingAdapterBase, verifyHubInbound } from "@openpromo/chat-adapter-core";
 import { Facebook, FacebookApiError, fbWebhookPayloadSchema } from "@openpromo/meta";
 import type { FBWebhookMessagingEvent } from "@openpromo/meta";
 import type { CardElement, Logger } from "chat";
@@ -45,8 +41,9 @@ export interface MessengerAdapterOptions {
 }
 
 /**
- * Facebook Messenger DM adapter. Thread id format `messenger:{userId}`
- * mirrors the official @chat-adapter/messenger. Sends go through
+ * Facebook Messenger DM adapter. Thread id format
+ * `messenger:{pageId}:{userId}` keeps multiple connected Pages isolated in
+ * one workspace Chat runtime. Sends go through
  * `@openpromo/meta`'s Facebook Page messaging client.
  *
  * Feature parity with the official adapter: messages, echoes, postbacks and
@@ -60,6 +57,7 @@ export class MessengerAdapter extends ChatMessagingAdapterBase<
 > {
   private readonly appSecret: string;
   private readonly verifyToken: string;
+  private readonly pageId: string;
   private readonly pageClient: ReturnType<typeof Facebook.createClient>;
 
   constructor(options: MessengerAdapterOptions) {
@@ -72,6 +70,7 @@ export class MessengerAdapter extends ChatMessagingAdapterBase<
     });
     this.appSecret = options.appSecret;
     this.verifyToken = options.verifyToken;
+    this.pageId = options.pageId;
     this.pageClient = Facebook.createClient({
       pageId: options.pageId,
       accessToken: options.accessToken,
@@ -94,14 +93,15 @@ export class MessengerAdapter extends ChatMessagingAdapterBase<
   }
 
   encodeThreadId(data: MessengerThreadId): string {
-    return dmThreadId({ platform: "messenger", accountId: "", userId: data.userId });
+    return `messenger:${this.pageId}:${data.userId}`;
   }
 
   decodeThreadId(threadId: string): MessengerThreadId {
-    if (!threadId.startsWith("messenger:")) {
+    const prefix = `messenger:${this.pageId}:`;
+    if (!threadId.startsWith(prefix)) {
       throw new ValidationError("messenger", `Invalid messenger thread id: ${threadId}`);
     }
-    const userId = threadId.slice("messenger:".length);
+    const userId = threadId.slice(prefix.length);
     if (!userId) {
       throw new ValidationError("messenger", `Invalid messenger thread id: ${threadId}`);
     }

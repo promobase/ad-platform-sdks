@@ -280,6 +280,38 @@ test("changes-field edits and reactions dispatch through the DM adapter", async 
   expect(reactions).toEqual([{ messageId: "agm_edit_1", added: true }]);
 });
 
+test("parseWebhookEvents preserves the cached thread for changes-field edits", async () => {
+  const fixture = JSON.stringify(
+    (await import("./fixtures/ig-messaging-changes.json", { with: { type: "json" } })).default,
+  );
+  const signature = await signBody(fixture, APP_SECRET);
+  const adapter = instagramAdapter();
+
+  const result = await adapter.parseWebhookEvents(
+    new Request(webhookUrl(), {
+      method: "POST",
+      headers: { "X-Hub-Signature-256": `sha256=${signature}` },
+      body: fixture,
+    }),
+  );
+
+  expect(result.kind).toBe("events");
+  if (result.kind !== "events") throw new Error("expected normalized events");
+  expect(result.events).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        kind: "message_updated",
+        eventId: "agm_edit_1",
+        threadId: `instagram:${ACCOUNT_ID}:igsid_2001`,
+        message: expect.objectContaining({
+          id: "agm_edit_1",
+          threadId: `instagram:${ACCOUNT_ID}:igsid_2001`,
+        }),
+      }),
+    ]),
+  );
+});
+
 test("thread id round trips", () => {
   const adapter = instagramAdapter();
   const id = adapter.encodeThreadId({ accountId: ACCOUNT_ID, userId: "igsid_2001" });

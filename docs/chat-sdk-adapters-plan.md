@@ -50,17 +50,17 @@ caller must durably offload the returned events before acknowledging a webhook.
 
 ## Surface inventory
 
-| Surface                                                                                   | Official adapter             | Mosaic building blocks (exist today)                                                                                  | Track              |
-| ----------------------------------------------------------------------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| Facebook Messenger DMs                                                                    | ✅ `@chat-adapter/messenger` | `parseFacebookWebhook`/`safeParseFacebookWebhook`, `fbWebhookPayloadSchema`, `facebook/messaging.ts` (send, reply)    | Validate           |
-| Instagram DMs                                                                             | ✅ `@chat-adapter/instagram` | `parseInstagramWebhook`, `igWebhookPayloadSchema`, `instagram/messaging.ts` (send, reply, privateReply)               | Validate           |
-| Facebook post comments                                                                    | ❌                           | `facebook/comments.ts` (create, list, reply, hide, delete), feed `changes` webhook value schema                       | Build              |
-| Instagram post comments                                                                   | ❌                           | `instagram/comments.ts` (create, list, reply, hide, delete), comments webhook field schema                            | Build              |
-| Threads replies                                                                           | ❌                           | `parseThreadsWebhook`, `threadsWebhookPayloadSchema`                                                                  | Build (backlog)    |
-| TikTok comments                                                                           | ❌ (no adapter anywhere)     | `tiktok-business-sdk`: `clients/webhooks.ts` (config list/update/delete), `webhook-schemas.ts`, `clients/comments.ts` | Build              |
-| TikTok messaging                                                                          | ❌ (no adapter anywhere)     | `tiktok-business-sdk`: `clients/messaging.ts` (conversations, messages, auto-messages)                                | Build (complete)   |
-| X DMs / mentions                                                                          | ✅ `@chat-adapter/x`         | Official Chat SDK adapter selected for transport validation and OpenPromo ingress composition                         | Validate (selected) |
-| WhatsApp, Slack, Discord, Telegram, Teams, Google Chat, Twilio, GitHub, Linear, Notion      | ✅                           | n/a — not OpenPromo product surfaces today                                                                            | Validate (backlog) |
+| Surface                                                                                | Official adapter             | Mosaic building blocks (exist today)                                                                                  | Track               |
+| -------------------------------------------------------------------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| Facebook Messenger DMs                                                                 | ✅ `@chat-adapter/messenger` | `parseFacebookWebhook`/`safeParseFacebookWebhook`, `fbWebhookPayloadSchema`, `facebook/messaging.ts` (send, reply)    | Validate            |
+| Instagram DMs                                                                          | ✅ `@chat-adapter/instagram` | `parseInstagramWebhook`, `igWebhookPayloadSchema`, `instagram/messaging.ts` (send, reply, privateReply)               | Validate            |
+| Facebook post comments                                                                 | ❌                           | `facebook/comments.ts` (create, list, reply, hide, delete), feed `changes` webhook value schema                       | Build               |
+| Instagram post comments                                                                | ❌                           | `instagram/comments.ts` (create, list, reply, hide, delete), comments webhook field schema                            | Build               |
+| Threads replies                                                                        | ❌                           | `parseThreadsWebhook`, `threadsWebhookPayloadSchema`                                                                  | Build (backlog)     |
+| TikTok comments                                                                        | ❌ (no adapter anywhere)     | `tiktok-business-sdk`: `clients/webhooks.ts` (config list/update/delete), `webhook-schemas.ts`, `clients/comments.ts` | Build               |
+| TikTok messaging                                                                       | ❌ (no adapter anywhere)     | `tiktok-business-sdk`: `clients/messaging.ts` (conversations, messages, auto-messages)                                | Build (complete)    |
+| X DMs / mentions                                                                       | ✅ `@chat-adapter/x`         | Official Chat SDK adapter selected for transport validation and OpenPromo ingress composition                         | Validate (selected) |
+| WhatsApp, Slack, Discord, Telegram, Teams, Google Chat, Twilio, GitHub, Linear, Notion | ✅                           | n/a — not OpenPromo product surfaces today                                                                            | Validate (backlog)  |
 
 ## Package layout
 
@@ -89,8 +89,10 @@ Implement the Chat SDK `Adapter` surface (see `chat-sdk.dev/docs/contributing/bu
 - `webhooks[adapterName](request)` — verification (reuse `verifyWebhookSignature`
   - Zod parsers), provider ack, GET challenge handling.
 - Thread/Message normalization with stable thread-id schemes:
-  - DMs: `messenger:{recipientId}`, `instagram:{accountId}:{userId}` (mirror
-    the official adapters — same shapes, so cross-validation is apples-to-apples).
+  - DMs: `messenger:{accountId}:{recipientId}`,
+    `instagram:{accountId}:{userId}`. Account scope is required when one
+    workspace Chat runtime mounts multiple connected accounts; the official
+    Messenger account-less shape is not safe for this multi-tenant runtime.
   - Comments: `{platform}:{accountId}:comment:{parentCommentId}` (see below).
 - Posting: `thread.post`, `startTyping`, `markAsRead`; capability flags for
   edits (unsupported on both Meta surfaces), streaming (buffered), reactions
@@ -100,9 +102,9 @@ Implement the Chat SDK `Adapter` surface (see `chat-sdk.dev/docs/contributing/bu
 - `parseWebhookEvents(request)` verifies the request, calls the adapter's
   existing provider parser, and returns generic `AdapterWebhookEvent` values.
   The event contract has stable common fields (`kind`, `threadId`, optional
-  message/action/reaction, raw payload) plus open-ended `metadata` and custom
-  event kinds. It contains no workspace, account, Inbox, or provider-family
-  fields.
+  `eventId`, message/action/reaction, raw payload) plus open-ended `metadata`
+  and custom event kinds. It contains no workspace, account, Inbox, or
+  provider-family fields.
 - Adapter instances accept an explicit runtime name so one workspace can mount
   multiple accounts/surfaces without Chat SDK name collisions. Callers that
   own canonical history can disable Chat SDK thread-history persistence.
@@ -173,12 +175,12 @@ For Messenger DMs and Instagram DMs, before/while shipping our own adapter:
 
 ## Milestones
 
-| Milestone | Scope                                                                                                                   | Exit proof                                                             |
-| --------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| M0 spike  | `chat-adapter-core` scaffold; messenger+instagram DM adapters with replay fixtures; comments-as-threads shape confirmed | Fixture parity run vs official adapters; both DMs post via our clients |
-| M1        | `chat-adapter-meta` completes (comments surfaces)                                                                       | Comment-thread fixtures pass; OpenPromo ingress spike                  |
-| M2        | `chat-adapter-tiktok`                                                                                                   | TikTok comment + messaging fixtures pass                               |
-| M3        | Generic transport extraction for all first-party adapters                                                               | Signed requests normalize without a Chat runtime; context is preserved  |
+| Milestone | Scope                                                                                                                   | Exit proof                                                               |
+| --------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| M0 spike  | `chat-adapter-core` scaffold; messenger+instagram DM adapters with replay fixtures; comments-as-threads shape confirmed | Fixture parity run vs official adapters; both DMs post via our clients   |
+| M1        | `chat-adapter-meta` completes (comments surfaces)                                                                       | Comment-thread fixtures pass; OpenPromo ingress spike                    |
+| M2        | `chat-adapter-tiktok`                                                                                                   | TikTok comment + messaging fixtures pass                                 |
+| M3        | Generic transport extraction for all first-party adapters                                                               | Signed requests normalize without a Chat runtime; context is preserved   |
 | M4        | Validation backlog for other official-adapter platforms                                                                 | Capability matrix filled in; X is validated through the official adapter |
 
 ## Non-goals

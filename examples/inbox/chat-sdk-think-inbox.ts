@@ -5,8 +5,9 @@
  *
  *   provider webhook
  *     -> Chat ingress Agent + Mosaic adapter
- *     -> canonical Inbox persistence (application-owned)
- *     -> workspace InboxAgent RPC
+ *     -> durable normalized ingress spool
+ *     -> drain: canonical Inbox persistence (application-owned)
+ *     -> drain: workspace InboxAgent RPC
  *     -> Think runTurn({ mode: "submit" })
  *     -> InboxAgent-owned batching/FIFO execution
  *
@@ -52,6 +53,25 @@ export interface CanonicalInboxRepository {
     readonly authorName: string;
     readonly isSelf: boolean;
   }): Promise<CanonicalInboxMessage>;
+}
+
+/** The durable record written before the provider webhook is acknowledged. */
+export type InboxIngressEvent = {
+  readonly workspaceId: string;
+  readonly connectedAccountId: string;
+  readonly provider: string;
+  readonly conversationId: string;
+  readonly messageId: string;
+  readonly text: string;
+  readonly authorId: string;
+  readonly authorName: string;
+  readonly isSelf: boolean;
+  readonly raw: unknown;
+};
+
+/** The application supplies a DO/Queue-backed implementation in production. */
+export interface DurableInboxIngressSpool {
+  append(event: InboxIngressEvent): Promise<void>;
 }
 
 /** The RPC surface the Chat ingress needs from the workspace InboxAgent. */
@@ -116,8 +136,7 @@ export type InboxChatRuntimeInput = {
   readonly verifyToken: string;
   readonly pageAccessToken: string;
   readonly pageId: string;
-  readonly repository: CanonicalInboxRepository;
-  readonly resolveInboxAgent: ResolveInboxAgent;
+  readonly spool: DurableInboxIngressSpool;
 };
 
 type MessengerAdapter = ReturnType<typeof createMessengerAdapter>;
@@ -130,7 +149,7 @@ export type InboxChatBot = Chat<{ messenger: MessengerAdapter }>;
  * becoming a second Inbox source of truth. `createChatSdkState()` still gives
  * Chat SDK durable webhook dedupe and transport state; it does not create
  * reasoning agents. `concurrent` avoids Chat SDK's message batching so the
- * InboxAgent admission path sees every event.
+ * durable Inbox spool sees every event.
  */
 export function createInboxChatRuntime(input: InboxChatRuntimeInput): Chat {
   const messenger = createMessengerAdapter({
@@ -154,10 +173,10 @@ export function createInboxChatRuntime(input: InboxChatRuntimeInput): Chat {
     // customer Inbox or trigger an InboxAgent turn.
     if (message.author.isMe) return;
 
-    // This is the only transport-to-domain conversion. The repository owns
-    // canonical identity/idempotency; the adapter owns provider parsing and
-    // Chat SDK owns stable thread/message normalization.
-    const canonical = await input.repository.persistMessage({
+    // The webhook callback only writes the normalized transport event to a
+    // durable spool. It must not perform canonical persistence or Think RPC;
+    // those belong to the recoverable drain below.
+    await input.spool.append({
       workspaceId: input.workspaceId,
       connectedAccountId: input.connectedAccountId,
       provider: "messenger",
@@ -167,15 +186,25 @@ export function createInboxChatRuntime(input: InboxChatRuntimeInput): Chat {
       authorId: message.author.userId,
       authorName: message.author.fullName,
       isSelf: message.author.isMe,
+      raw: message.raw,
     });
-
-    // The RPC must await durable acceptance. `waitUntil` alone would only keep
-    // a Worker alive; it would not make the Inbox admission durable.
-    const inboxAgent = await input.resolveInboxAgent(input.workspaceId);
-    await inboxAgent.admitCanonicalMessage(canonical);
   });
 
   return bot;
+}
+
+/**
+ * Drain one durable ingress event. Retries are safe when the repository and
+ * InboxAgent admission key on the provider message identity.
+ */
+export async function drainInboxIngressEvent(input: {
+  readonly event: InboxIngressEvent;
+  readonly repository: CanonicalInboxRepository;
+  readonly resolveInboxAgent: ResolveInboxAgent;
+}) {
+  const canonical = await input.repository.persistMessage(input.event);
+  const inboxAgent = await input.resolveInboxAgent(input.event.workspaceId);
+  return inboxAgent.admitCanonicalMessage(canonical);
 }
 
 /** Thin public route: the ingress Agent owns the Chat SDK webhook call. */
@@ -186,18 +215,19 @@ export function handleMessengerWebhook(bot: InboxChatBot, request: Request): Pro
 /*
  * Worker wiring (schematic — bindings are application-specific):
  *
- *   const inboxAgent = await getAgentByName(env.InboxAgent, workspaceId);
  *   const bot = createInboxChatRuntime({
  *     workspaceId,
  *     connectedAccountId,
- *     repository: canonicalInboxRepository,
- *     resolveInboxAgent: async () => inboxAgent,
+ *     spool: workspaceIngressSpool,
  *     appSecret: env.META_APP_SECRET,
  *     verifyToken: env.META_VERIFY_TOKEN,
  *     pageAccessToken: env.PAGE_ACCESS_TOKEN,
  *     pageId: env.PAGE_ID,
  *   });
  *   return handleMessengerWebhook(bot, request);
+ *
+ * A queue/DO consumer then calls `drainInboxIngressEvent()` with the
+ * canonical repository and `getAgentByName(env.InboxAgent, workspaceId)`.
  *
  * Export `ChatSdkStateAgent` from the Worker entrypoint when using
  * createChatSdkState() so the Chat SDK state Durable Object is discoverable:

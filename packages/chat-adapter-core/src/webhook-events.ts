@@ -30,6 +30,8 @@ export type AdapterWebhookEventKind =
 export type AdapterWebhookEvent<TRaw = unknown, TMetadata = Record<string, unknown>> = {
   kind: AdapterWebhookEventKind;
   threadId: string;
+  /** Provider-stable event identity when the webhook surface exposes one. */
+  eventId?: string;
   message?: Message<TRaw>;
   messageId?: string;
   action?: {

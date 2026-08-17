@@ -217,7 +217,8 @@ Mosaic's first-party Chat adapters already own provider-specific webhook
 verification and parsing. Each first-party adapter also exposes
 `parseWebhookEvents(request)`, which runs that existing parser and returns
 verified, thread-normalized `AdapterWebhookEvent` values without requiring a
-`Chat` instance. The result is intentionally generic: common message/action/
+`Chat` instance. Events expose a provider-stable `eventId` when available. The
+result is intentionally generic: common message/action/
 reaction/read/delivery events have stable fields, while provider facts such as
 comment post context or future email headers live in `metadata`. Official X is
 composed through its Chat runtime callback and translated at the same boundary;

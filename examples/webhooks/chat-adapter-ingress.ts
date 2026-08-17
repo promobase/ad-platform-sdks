@@ -160,12 +160,13 @@ function toDurableIngressEvent(
 ): DurableIngressEvent {
   const message = event.message;
   const messageId = event.messageId ?? message?.id;
+  const eventId = event.eventId ?? messageId;
 
   return {
     // Message/comment IDs are provider-scoped, so include the adapter runtime
     // name. Events without a stable provider ID must be deduplicated by the
     // canonicalizer using provider-specific metadata before agent admission.
-    idempotencyKey: messageId ? `${adapterName}:${event.kind}:${messageId}` : undefined,
+    idempotencyKey: eventId ? `${adapterName}:${event.kind}:${eventId}` : undefined,
     adapterName,
     connectedAccountId,
     receivedAt,

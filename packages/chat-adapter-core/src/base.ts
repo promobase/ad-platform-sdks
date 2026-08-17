@@ -185,11 +185,12 @@ export abstract class ChatMessagingAdapterBase<TThreadId, TRawEvent extends Mess
 
   protected normalizeWebhookEvent(event: TRawEvent): AdapterWebhookEvent<TRawEvent>[] {
     if (event.message_edit) {
-      const message = this.parseMessage(event);
+      const message = this.parseMessage(event, this.threadIdForEditedEvent(event));
       return [
         {
           kind: "message_updated",
           threadId: message.threadId,
+          eventId: message.id,
           message,
           raw: event,
           isSelf: message.author.isMe,
@@ -202,6 +203,7 @@ export abstract class ChatMessagingAdapterBase<TThreadId, TRawEvent extends Mess
         {
           kind: "action",
           threadId: this.threadIdForEvent(event),
+          eventId: event.message.mid,
           messageId: event.message.mid,
           action: { id: actionId, ...(value === undefined ? {} : { value }) },
           raw: event,
@@ -214,6 +216,7 @@ export abstract class ChatMessagingAdapterBase<TThreadId, TRawEvent extends Mess
         {
           kind: "action",
           threadId: this.threadIdForEvent(event),
+          ...(event.postback.mid ? { eventId: event.postback.mid } : {}),
           messageId: event.postback.mid,
           action: { id: actionId, ...(value === undefined ? {} : { value }) },
           raw: event,
@@ -246,6 +249,7 @@ export abstract class ChatMessagingAdapterBase<TThreadId, TRawEvent extends Mess
       {
         kind: "message",
         threadId: message.threadId,
+        eventId: message.id,
         message,
         raw: event,
         isSelf: message.author.isMe,
@@ -290,7 +294,7 @@ export abstract class ChatMessagingAdapterBase<TThreadId, TRawEvent extends Mess
         {
           adapter: this,
           threadId,
-          message: async () => this.parseMessage(event),
+          message: async () => this.parseMessage(event, threadId),
         },
         options,
       );
@@ -397,8 +401,8 @@ export abstract class ChatMessagingAdapterBase<TThreadId, TRawEvent extends Mess
 
   // ── Message parsing ───────────────────────────────────────────────────
 
-  parseMessage(raw: TRawEvent): Message<TRawEvent> {
-    const message = normalizeMessagingEvent(raw, this.threadIdForEvent(raw), this.botUserId);
+  parseMessage(raw: TRawEvent, threadId = this.threadIdForEvent(raw)): Message<TRawEvent> {
+    const message = normalizeMessagingEvent(raw, threadId, this.botUserId);
     this.cacheMessage(message as Message<TRawEvent>);
     return message as Message<TRawEvent>;
   }

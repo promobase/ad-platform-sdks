@@ -119,11 +119,12 @@ test("parseWebhookEvents verifies and normalizes without a Chat runtime", async 
     expect.arrayContaining([
       expect.objectContaining({
         kind: "message",
-        threadId: "messenger:psid_1001",
+        eventId: "m_inbound_1",
+        threadId: `messenger:${PAGE_ID}:psid_1001`,
       }),
       expect.objectContaining({
         kind: "action",
-        threadId: "messenger:psid_1001",
+        threadId: `messenger:${PAGE_ID}:psid_1001`,
         action: { id: "approve", value: "order_1" },
       }),
     ]),
@@ -169,13 +170,17 @@ test("webhook dispatches messages, postbacks, and reactions", async () => {
 
   // Inbound message dispatched; page echo is cached, not dispatched.
   expect(received).toEqual([
-    { text: "Hi, is this in stock?", threadId: "messenger:psid_1001", id: "m_inbound_1" },
+    {
+      text: "Hi, is this in stock?",
+      threadId: `messenger:${PAGE_ID}:psid_1001`,
+      id: "m_inbound_1",
+    },
   ]);
   expect(actions).toEqual([{ actionId: "approve", value: "order_1" }]);
   expect(reactions).toEqual([{ messageId: "m_inbound_1", added: true }]);
 
   // Echo was cached: history includes inbound + echo messages.
-  const history = await adapter.fetchMessages("messenger:psid_1001");
+  const history = await adapter.fetchMessages(`messenger:${PAGE_ID}:psid_1001`);
   expect(history.messages.map((m) => m.id)).toEqual(["m_inbound_1", "m_echo_1"]);
 });
 
@@ -189,10 +194,10 @@ test("fetchMessages paginates the cache", async () => {
       message: { mid: `m_seq_${i}`, text: `msg ${i}` },
     });
   }
-  const page = await adapter.fetchMessages("messenger:psid_1001", { limit: 2 });
+  const page = await adapter.fetchMessages(`messenger:${PAGE_ID}:psid_1001`, { limit: 2 });
   expect(page.messages.map((m) => m.id)).toEqual(["m_seq_3", "m_seq_4"]);
   expect(page.nextCursor).toBe("m_seq_3");
-  const older = await adapter.fetchMessages("messenger:psid_1001", {
+  const older = await adapter.fetchMessages(`messenger:${PAGE_ID}:psid_1001`, {
     limit: 2,
     cursor: page.nextCursor,
   });
@@ -202,7 +207,10 @@ test("fetchMessages paginates the cache", async () => {
 test("postMessage sends text through the Messenger Send API", async () => {
   const calls: Array<{ url: string; body: Record<string, unknown> }> = [];
   const adapter = messengerAdapter({ fetch: okGraphFetch(calls) });
-  const result = await adapter.postMessage("messenger:psid_1001", "Yes, it is in stock!");
+  const result = await adapter.postMessage(
+    `messenger:${PAGE_ID}:psid_1001`,
+    "Yes, it is in stock!",
+  );
 
   expect(result.id).toBe("m_reply_1");
   expect(calls).toHaveLength(1);
@@ -217,7 +225,7 @@ test("postMessage sends text through the Messenger Send API", async () => {
 test("postMessage truncates long text", async () => {
   const calls: Array<{ url: string; body: Record<string, unknown> }> = [];
   const adapter = messengerAdapter({ fetch: okGraphFetch(calls) });
-  await adapter.postMessage("messenger:psid_1001", "x".repeat(2100));
+  await adapter.postMessage(`messenger:${PAGE_ID}:psid_1001`, "x".repeat(2100));
   const sent = calls[0]!.body.message as { text: string };
   expect(sent.text.length).toBe(2000);
   expect(sent.text.endsWith("...")).toBe(true);
@@ -236,7 +244,7 @@ test("postMessage converts a card to a Generic template", async () => {
       },
     ],
   };
-  await adapter.postMessage("messenger:psid_1001", { card });
+  await adapter.postMessage(`messenger:${PAGE_ID}:psid_1001`, { card });
   const message = calls[0]!.body.message as {
     attachment: { type: string; payload: { template_type: string } };
   };
@@ -252,7 +260,7 @@ test("stream buffers chunks into one message", async () => {
     yield "Hello ";
     yield { type: "markdown_text", text: "world" };
   }
-  await adapter.stream("messenger:psid_1001", chunks());
+  await adapter.stream(`messenger:${PAGE_ID}:psid_1001`, chunks());
 
   expect(calls).toHaveLength(1);
   expect((calls[0]!.body.message as { text: string }).text.trim()).toBe("Hello world");
@@ -262,16 +270,35 @@ test("startTyping and markAsRead send sender actions", async () => {
   const calls: Array<{ url: string; body: Record<string, unknown> }> = [];
   const adapter = messengerAdapter({ fetch: okGraphFetch(calls) });
 
-  await adapter.startTyping("messenger:psid_1001");
+  await adapter.startTyping(`messenger:${PAGE_ID}:psid_1001`);
   expect(calls[0]!.body.sender_action).toBe("typing_on");
 
-  await adapter.markAsRead("messenger:psid_1001", "m_inbound_1");
+  await adapter.markAsRead(`messenger:${PAGE_ID}:psid_1001`, "m_inbound_1");
   expect(calls[1]!.body.sender_action).toBe("mark_seen");
 });
 
 test("thread id round trips", () => {
   const adapter = messengerAdapter();
-  expect(adapter.encodeThreadId({ userId: "psid_1001" })).toBe("messenger:psid_1001");
-  expect(adapter.decodeThreadId("messenger:psid_1001")).toEqual({ userId: "psid_1001" });
+  expect(adapter.encodeThreadId({ userId: "psid_1001" })).toBe(`messenger:${PAGE_ID}:psid_1001`);
+  expect(adapter.decodeThreadId(`messenger:${PAGE_ID}:psid_1001`)).toEqual({
+    userId: "psid_1001",
+  });
   expect(() => adapter.decodeThreadId("instagram:1:2")).toThrow();
 });
+
+test("thread ids stay isolated across connected Pages", () => {
+  const otherPage = createMessengerAdapter({
+    appSecret: APP_SECRET,
+    verifyToken: VERIFY_TOKEN,
+    accessToken: "page_token_2",
+    pageId: "PAGE_ID_456",
+  });
+
+  expect(adapterThreadId(messengerAdapter(), "psid_1001")).not.toBe(
+    adapterThreadId(otherPage, "psid_1001"),
+  );
+});
+
+function adapterThreadId(adapter: ReturnType<typeof messengerAdapter>, userId: string): string {
+  return adapter.encodeThreadId({ userId });
+}

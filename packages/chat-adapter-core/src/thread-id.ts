@@ -1,9 +1,10 @@
 /**
  * Thread identity is the adapter contract: the same thread id must encode the
  * same provider conversation everywhere it is stored, logged, or routed.
- * DM ids mirror the official Chat SDK adapters so cross-validation is
- * apples-to-apples; comment ids are OpenPromo's own scheme because no official
- * adapter exposes comment threads.
+ * Instagram DM ids mirror the official Chat SDK shape. Messenger adapter ids
+ * add the Page account scope because Inbox can mount multiple Pages in one Chat
+ * runtime; comment ids are OpenPromo's own scheme because no official adapter
+ * exposes comment threads.
  */
 
 export type ChatAdapterPlatform = "messenger" | "instagram" | "tiktok";
@@ -22,7 +23,8 @@ export interface DmThreadData {
 
 /**
  * Encode a DM thread id.
- * - messenger: `messenger:{userId}` (mirrors `@chat-adapter/messenger`)
+ * - messenger: `messenger:{userId}` (legacy helper shape; the first-party
+ *   MessengerAdapter uses `messenger:{pageId}:{userId}` for account isolation)
  * - instagram: `instagram:{accountId}:{userId}` (mirrors `@chat-adapter/instagram`)
  */
 export function dmThreadId(data: DmThreadData): string {

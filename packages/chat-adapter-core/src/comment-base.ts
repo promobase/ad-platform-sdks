@@ -166,6 +166,7 @@ export abstract class CommentAdapterBase<TThreadId extends { parentCommentId: st
         {
           kind: "message_deleted",
           threadId,
+          eventId: event.commentId,
           messageId: event.commentId,
           raw: event,
           isSelf: this.isSelfFrom(event),
@@ -179,6 +180,7 @@ export abstract class CommentAdapterBase<TThreadId extends { parentCommentId: st
         {
           kind: "message_updated",
           threadId,
+          eventId: event.commentId,
           message,
           raw: event,
           isSelf: message.author.isMe,
@@ -190,6 +192,7 @@ export abstract class CommentAdapterBase<TThreadId extends { parentCommentId: st
       {
         kind: "message",
         threadId,
+        eventId: event.commentId,
         message,
         raw: event,
         isSelf: message.author.isMe,

@@ -18,7 +18,9 @@ Feature parity with the official `@chat-adapter/messenger`:
 - Cached message history with cursor pagination (`fetchMessages`)
 - Provider error mapping (rate limit / auth / validation / not found)
 
-Thread id format `messenger:{userId}` mirrors the official adapter.
+Thread id format `messenger:{pageId}:{userId}` keeps connected Pages isolated
+when one workspace Chat runtime mounts multiple accounts. This intentionally
+differs from the single-account official adapter's account-less format.
 
 ## Post comments
 
