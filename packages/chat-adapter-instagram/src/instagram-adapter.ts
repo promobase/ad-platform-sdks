@@ -60,6 +60,8 @@ export interface InstagramPostOptions {
 }
 
 export interface InstagramAdapterOptions {
+  /** Unique Chat SDK adapter name when multiple accounts share one runtime. */
+  adapterName?: string;
   /** Meta app secret, used to verify X-Hub-Signature-256. */
   appSecret: string;
   /** Webhook verify token shared with Meta during subscription. */
@@ -74,6 +76,7 @@ export interface InstagramAdapterOptions {
   logger?: Logger;
   fetch?: typeof fetch;
   signal?: AbortSignal;
+  persistThreadHistory?: boolean;
 }
 
 /**
@@ -125,8 +128,6 @@ export class InstagramAdapter extends ChatMessagingAdapterBase<
   InstagramThreadId,
   IGWebhookInboundEvent
 > {
-  readonly name = "instagram";
-
   private readonly appSecret: string;
   private readonly verifyToken: string;
   private readonly accessToken: string;
@@ -136,10 +137,11 @@ export class InstagramAdapter extends ChatMessagingAdapterBase<
 
   constructor(options: InstagramAdapterOptions) {
     super({
-      adapterName: "instagram",
+      adapterName: options.adapterName ?? "instagram",
       userName: options.userName,
       logger: options.logger,
       emojiFormat: "messenger",
+      persistThreadHistory: options.persistThreadHistory,
     });
     this.appSecret = options.appSecret;
     this.verifyToken = options.verifyToken;

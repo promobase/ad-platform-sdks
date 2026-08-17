@@ -18,14 +18,13 @@ import type { Logger } from "chat";
  * delete on comments), and shares only the page client and credentials.
  */
 export class FacebookCommentsAdapter extends CommentAdapterBase<CommentThreadId> {
-  readonly name = "facebook_comments";
-
   private readonly appSecret: string;
   private readonly verifyToken: string;
   private readonly pageId: string;
   private readonly pageClient: ReturnType<typeof Facebook.createClient>;
 
   constructor(options: {
+    adapterName?: string;
     appSecret: string;
     verifyToken: string;
     accessToken: string;
@@ -35,12 +34,14 @@ export class FacebookCommentsAdapter extends CommentAdapterBase<CommentThreadId>
     logger?: Logger;
     fetch?: typeof fetch;
     signal?: AbortSignal;
+    persistThreadHistory?: boolean;
   }) {
     super({
-      adapterName: "facebook_comments",
+      adapterName: options.adapterName ?? "facebook_comments",
       userName: options.userName,
       logger: options.logger,
       emojiFormat: "messenger",
+      persistThreadHistory: options.persistThreadHistory,
     });
     this.appSecret = options.appSecret;
     this.verifyToken = options.verifyToken;

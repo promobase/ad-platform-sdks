@@ -80,6 +80,38 @@ test("POST without a valid signature is rejected", async () => {
   expect(res.status).toBe(403);
 });
 
+test("parseWebhookEvents exposes normalized DM events without a Chat runtime", async () => {
+  const fixture = JSON.stringify(
+    (await import("./fixtures/tiktok-dm.json", { with: { type: "json" } })).default,
+  );
+  const signature = await signTikTokBody(fixture, APP_SECRET);
+  const adapter = dmAdapter();
+
+  const result = await adapter.parseWebhookEvents(
+    new Request(webhookUrl(), {
+      method: "POST",
+      headers: { "TikTok-Signature": signature },
+      body: fixture,
+    }),
+  );
+
+  expect(result.kind).toBe("events");
+  if (result.kind !== "events") throw new Error("expected normalized events");
+  expect(result.events).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        kind: "message",
+        threadId: `tiktok:${BUSINESS_ID}:dm:conv_1`,
+      }),
+      expect.objectContaining({
+        kind: "read",
+        threadId: `tiktok:${BUSINESS_ID}:dm:conv_1`,
+      }),
+    ]),
+  );
+  expect(result.events.find((event) => event.kind === "message")?.message?.id).toBe("m1");
+});
+
 test("webhook dispatches inbound DMs, caches echoes, and ignores read receipts", async () => {
   const fixture = JSON.stringify(
     (await import("./fixtures/tiktok-dm.json", { with: { type: "json" } })).default,

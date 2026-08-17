@@ -25,6 +25,10 @@ export interface TikTokCommentsAdapterOptions {
   businessId: string;
   /** Maximum acceptable webhook signature age in seconds (default 300). */
   maxSignatureAgeSeconds?: number;
+  /** Unique runtime name when multiple TikTok accounts share one Chat instance. */
+  adapterName?: string;
+  /** Disable Chat SDK history persistence when the caller owns durable history. */
+  persistThreadHistory?: boolean;
   userName?: string;
   logger?: Logger;
   fetch?: typeof fetch;
@@ -42,8 +46,6 @@ export interface TikTokCommentsAdapterOptions {
  * events tombstone from the payload without a fetch.
  */
 export class TikTokCommentsAdapter extends CommentAdapterBase<CommentThreadId> {
-  readonly name = "tiktok_comments";
-
   private readonly appSecret: string;
   private readonly businessId: string;
   private readonly maxSignatureAgeSeconds: number;
@@ -53,10 +55,11 @@ export class TikTokCommentsAdapter extends CommentAdapterBase<CommentThreadId> {
 
   constructor(options: TikTokCommentsAdapterOptions) {
     super({
-      adapterName: "tiktok_comments",
+      adapterName: options.adapterName ?? "tiktok_comments",
       userName: options.userName,
       logger: options.logger,
       emojiFormat: "messenger",
+      persistThreadHistory: options.persistThreadHistory,
     });
     this.appSecret = options.appSecret;
     this.businessId = options.businessId;

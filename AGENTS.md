@@ -24,6 +24,12 @@ social platforms.
 Keep platform-specific behavior in its owning SDK, cross-platform transport primitives in
 `sdk-runtime`, aggregation in `ad-platforms`, and command/MCP presentation in `cli`.
 
+When adapter work starts accumulating provider-family conditionals, duplicate
+dedupe/queueing, or inline domain callbacks around webhook parsing, treat that
+as a design smell: deepen the generic transport seam or record the deferred
+boundary and owner. Do not make Mosaic depend on OpenPromo workspace/domain
+types just to simplify one consumer.
+
 ## Canonical Commands
 
 Run repository-wide commands from the root:

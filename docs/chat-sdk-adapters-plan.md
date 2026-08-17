@@ -1,9 +1,10 @@
 # Chat SDK Adapters — Plan
 
-> Status: M2 complete (2026-08-15) — Messenger + Instagram DM adapters with
-> official parity, Meta comment adapters, IG changes-field edits/reactions, and
-> the full TikTok package (comments + Business Messaging DMs). M3 (automated
-> parity tests) remains.
+> Status: M3 transport seam in progress (2026-08-16) — Messenger + Instagram
+> DM adapters with official parity, Meta comment adapters, and the full TikTok
+> package (comments + Business Messaging DMs). The next exit is a generic,
+> runtime-independent webhook extraction contract for OpenPromo's durable
+> ingress.
 > Owner: Ad Platform SDKs. Companion to
 > [`openpromo-migration.md`](./openpromo-migration.md) — this plan extends its
 > ownership boundary to Chat SDK adapter packages.
@@ -15,9 +16,10 @@ OpenPromo needs, built on this repository's generated clients and webhook
 schemas — not on Vercel's `@chat-adapter/*` implementations. Two tracks:
 
 1. **Cross-validate** surfaces that already have an official Chat SDK adapter
-   (Messenger DMs, Instagram DMs): we still ship our own implementation, but
-   the official adapter serves as a behavioral oracle, and our codegen + Zod
-   schemas make validation cheap.
+   (Messenger DMs, Instagram DMs, and X): we still ship our own implementation
+   where OpenPromo needs a Mosaic-owned transport, but the official adapter
+   serves as a behavioral oracle. X is currently selected for official-adapter
+   consumption rather than a Mosaic reimplementation.
 2. **Build** surfaces with no official adapter: Facebook/Instagram **post
    comments**, **TikTok** (comments + messaging), Threads replies (backlog).
 
@@ -40,6 +42,12 @@ credentials, canonical storage, review policy. It consumes the adapters from
 the per-workspace Chat ingress (fan-out) and keeps InboxAgent as the decision
 brain, admitted through `submitInboxMessageEvent`.
 
+The adapter's existing protected `parseWebhook()` methods remain the
+provider-specific decoding layer. The public `parseWebhookEvents(request)` seam
+only adds verified, thread-normalized extraction without requiring a Chat
+runtime. It does not persist, deduplicate, enqueue, or invoke an agent; the
+caller must durably offload the returned events before acknowledging a webhook.
+
 ## Surface inventory
 
 | Surface                                                                                   | Official adapter             | Mosaic building blocks (exist today)                                                                                  | Track              |
@@ -50,8 +58,9 @@ brain, admitted through `submitInboxMessageEvent`.
 | Instagram post comments                                                                   | ❌                           | `instagram/comments.ts` (create, list, reply, hide, delete), comments webhook field schema                            | Build              |
 | Threads replies                                                                           | ❌                           | `parseThreadsWebhook`, `threadsWebhookPayloadSchema`                                                                  | Build (backlog)    |
 | TikTok comments                                                                           | ❌ (no adapter anywhere)     | `tiktok-business-sdk`: `clients/webhooks.ts` (config list/update/delete), `webhook-schemas.ts`, `clients/comments.ts` | Build              |
-| TikTok messaging                                                                          | ❌ (no adapter anywhere)     | `tiktok-business-sdk`: `clients/messaging.ts` (conversations, messages, auto-messages)                                | Build (phase 2)    |
-| WhatsApp, X, Slack, Discord, Telegram, Teams, Google Chat, Twilio, GitHub, Linear, Notion | ✅                           | n/a — not OpenPromo product surfaces today                                                                            | Validate (backlog) |
+| TikTok messaging                                                                          | ❌ (no adapter anywhere)     | `tiktok-business-sdk`: `clients/messaging.ts` (conversations, messages, auto-messages)                                | Build (complete)   |
+| X DMs / mentions                                                                          | ✅ `@chat-adapter/x`         | Official Chat SDK adapter selected for transport validation and OpenPromo ingress composition                         | Validate (selected) |
+| WhatsApp, Slack, Discord, Telegram, Teams, Google Chat, Twilio, GitHub, Linear, Notion      | ✅                           | n/a — not OpenPromo product surfaces today                                                                            | Validate (backlog) |
 
 ## Package layout
 
@@ -60,7 +69,8 @@ Mirror the repository convention (per-platform packages + umbrella):
 ```text
 packages/chat-adapter-core/     # shared: comments-as-threads normalization,
                                 # thread-id helpers, capability table,
-                                # @chat-adapter/tests wiring, adapter base
+                                # webhook verification/extraction, generic event
+                                # contract, @chat-adapter/tests wiring, adapter base
 packages/chat-adapter-meta/     # createMessengerAdapter(), createInstagramAdapter()
                                 # (DMs + comments)
 packages/chat-adapter-tiktok/   # createTikTokAdapter() (comments + messaging)
@@ -87,6 +97,19 @@ Implement the Chat SDK `Adapter` surface (see `chat-sdk.dev/docs/contributing/bu
   (receive-only), cards/quick replies.
 - Provider send calls go through the owning platform SDK clients
   (`createMessaging`, `createComments`), never raw fetch in the adapter.
+- `parseWebhookEvents(request)` verifies the request, calls the adapter's
+  existing provider parser, and returns generic `AdapterWebhookEvent` values.
+  The event contract has stable common fields (`kind`, `threadId`, optional
+  message/action/reaction, raw payload) plus open-ended `metadata` and custom
+  event kinds. It contains no workspace, account, Inbox, or provider-family
+  fields.
+- Adapter instances accept an explicit runtime name so one workspace can mount
+  multiple accounts/surfaces without Chat SDK name collisions. Callers that
+  own canonical history can disable Chat SDK thread-history persistence.
+- Official X remains a special composition: its Chat SDK adapter is mounted in
+  the ingress Chat runtime and its callback output is translated into the same
+  application-level event envelope. Mosaic does not duplicate X's webhook
+  parser merely to force it through the first-party base classes.
 
 ## Comments-as-threads model (the differentiating piece)
 
@@ -130,10 +153,14 @@ For Messenger DMs and Instagram DMs, before/while shipping our own adapter:
 - **Phase 1 — Meta adapter**: `chat-adapter-core` + `chat-adapter-meta`
   (messenger + instagram DMs, comments-as-threads). Highest value; unblocks
   both Meta comment surfaces with one design.
-- **Phase 2 — TikTok adapter**: `chat-adapter-tiktok` (comments first,
-  messaging second — note the 10-message/48h Business Messaging API limit).
-- **Phase 3 — Threads replies** and the other official-adapter platforms as
-  validation-only backlog entries.
+- **Phase 2 — TikTok adapter**: `chat-adapter-tiktok` (comments + messaging;
+  note the 10-message/48h Business Messaging API limit).
+- **Phase 3 — Transport extraction**: generic verified event extraction,
+  account-scoped adapter names, and a no-Chat-runtime path for the durable
+  OpenPromo ingress.
+- **Phase 4 — Threads replies** and the other official-adapter platforms as
+  validation-only backlog entries. X uses the official adapter unless Mosaic
+  later needs provider-owned capabilities that justify a facade.
 
 ## Testing and verification
 
@@ -141,8 +168,8 @@ For Messenger DMs and Instagram DMs, before/while shipping our own adapter:
 - Replay fixtures: captured real Meta/TikTok webhook payloads parsed through
   our Zod schemas (repo rule: no live provider calls in tests; mock transport).
 - Cross-validation fixtures diff official vs our adapter output (Track 1).
-- OpenPromo-side E2E (out of scope here, after M1): signed webhook → adapter →
-  InboxAgent admission → review, per the existing agent harness contract.
+- OpenPromo-side E2E (out of scope here): signed webhook → adapter extraction →
+  durable ingress → InboxAgent admission → review, per the OpenPromo harness.
 
 ## Milestones
 
@@ -150,8 +177,9 @@ For Messenger DMs and Instagram DMs, before/while shipping our own adapter:
 | --------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | M0 spike  | `chat-adapter-core` scaffold; messenger+instagram DM adapters with replay fixtures; comments-as-threads shape confirmed | Fixture parity run vs official adapters; both DMs post via our clients |
 | M1        | `chat-adapter-meta` completes (comments surfaces)                                                                       | Comment-thread fixtures pass; OpenPromo ingress spike                  |
-| M2        | `chat-adapter-tiktok`                                                                                                   | TikTok comment fixtures pass                                           |
-| M3        | Validation backlog for other official-adapter platforms                                                                 | Capability matrix filled in, no code shipped                           |
+| M2        | `chat-adapter-tiktok`                                                                                                   | TikTok comment + messaging fixtures pass                               |
+| M3        | Generic transport extraction for all first-party adapters                                                               | Signed requests normalize without a Chat runtime; context is preserved  |
+| M4        | Validation backlog for other official-adapter platforms                                                                 | Capability matrix filled in; X is validated through the official adapter |
 
 ## Non-goals
 
@@ -159,8 +187,9 @@ For Messenger DMs and Instagram DMs, before/while shipping our own adapter:
   hand-maintained Zod schemas (the codegen owns Graph API objects/endpoints).
 - No MCP/CLI exposure of the adapter packages.
 - No live-provider tests in this repository.
-- No migration of OpenPromo's webhook routes into mosaic (routing stays
-  OpenPromo's, per `openpromo-migration.md`).
+- No migration of OpenPromo's webhook routes into Mosaic (routing stays
+  OpenPromo's, per `openpromo-migration.md`). Mosaic owns verification and
+  provider parsing; OpenPromo owns routing and durable admission.
 
 ## Open questions
 
@@ -171,3 +200,6 @@ For Messenger DMs and Instagram DMs, before/while shipping our own adapter:
   initially?
 - `chat` peer-dep pinning and release cadence across adapter packages.
 - Threads priority: after Phase 2 or parked with the validation backlog?
+- Future iMessage and email adapters should implement the same generic
+  extraction contract (or a small standalone equivalent) and put transport
+  facts in `metadata`; do not extend the contract with DM/comment-only fields.

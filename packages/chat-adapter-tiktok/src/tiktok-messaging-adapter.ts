@@ -32,6 +32,10 @@ export interface TikTokMessagingAdapterOptions {
   businessId: string;
   /** Maximum acceptable webhook signature age in seconds (default 300). */
   maxSignatureAgeSeconds?: number;
+  /** Unique runtime name when multiple TikTok accounts share one Chat instance. */
+  adapterName?: string;
+  /** Disable Chat SDK history persistence when the caller owns durable history. */
+  persistThreadHistory?: boolean;
   userName?: string;
   logger?: Logger;
   fetch?: typeof fetch;
@@ -51,8 +55,6 @@ export class TikTokMessagingAdapter extends ChatMessagingAdapterBase<
   TikTokDmThreadId,
   TikTokDMMessageEvent
 > {
-  readonly name = "tiktok";
-
   private readonly appSecret: string;
   private readonly businessId: string;
   private readonly maxSignatureAgeSeconds: number;
@@ -60,10 +62,11 @@ export class TikTokMessagingAdapter extends ChatMessagingAdapterBase<
 
   constructor(options: TikTokMessagingAdapterOptions) {
     super({
-      adapterName: "tiktok",
+      adapterName: options.adapterName ?? "tiktok",
       userName: options.userName,
       logger: options.logger,
       emojiFormat: "messenger",
+      persistThreadHistory: options.persistThreadHistory,
     });
     this.appSecret = options.appSecret;
     this.businessId = options.businessId;

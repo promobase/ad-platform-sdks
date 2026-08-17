@@ -7,10 +7,15 @@ import { TikTokMessagingAdapter } from "./tiktok-messaging-adapter.ts";
 import type { TikTokMessagingAdapterOptions } from "./tiktok-messaging-adapter.ts";
 
 export { TikTokCommentsAdapter } from "./tiktok-comments-adapter.ts";
+export { TikTokMessagingAdapter } from "./tiktok-messaging-adapter.ts";
 export type {
   CommentThreadId as TikTokCommentThreadId,
   TikTokCommentsAdapterOptions,
 } from "./tiktok-comments-adapter.ts";
+export type {
+  TikTokDmThreadId,
+  TikTokMessagingAdapterOptions,
+} from "./tiktok-messaging-adapter.ts";
 
 function requiredEnv(name: string, adapter: string): string {
   const value = process.env[name];
@@ -37,6 +42,8 @@ export function createTikTokMessagingAdapter(
     accessToken: config?.accessToken ?? requiredEnv("TIKTOK_ACCESS_TOKEN", "tiktok"),
     businessId: config?.businessId ?? requiredEnv("TIKTOK_BUSINESS_ID", "tiktok"),
     maxSignatureAgeSeconds: config?.maxSignatureAgeSeconds,
+    adapterName: config?.adapterName,
+    persistThreadHistory: config?.persistThreadHistory,
     userName: config?.userName,
     logger: config?.logger,
     fetch: config?.fetch,
@@ -52,6 +59,8 @@ export function createTikTokCommentsAdapter(
     accessToken: config?.accessToken ?? requiredEnv("TIKTOK_ACCESS_TOKEN", "tiktok_comments"),
     businessId: config?.businessId ?? requiredEnv("TIKTOK_BUSINESS_ID", "tiktok_comments"),
     maxSignatureAgeSeconds: config?.maxSignatureAgeSeconds,
+    adapterName: config?.adapterName,
+    persistThreadHistory: config?.persistThreadHistory,
     userName: config?.userName,
     logger: config?.logger,
     fetch: config?.fetch,

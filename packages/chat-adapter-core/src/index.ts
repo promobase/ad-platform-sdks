@@ -4,6 +4,12 @@ export type { CommentEvent } from "./comment-base.ts";
 export { MarkdownFormatConverter } from "./format.ts";
 export { isMessagingEventWithMessage, normalizeMessagingEvent } from "./normalize.ts";
 export type { MessagingEventLike } from "./normalize.ts";
+export type {
+  AdapterWebhookEvent,
+  AdapterWebhookEventKind,
+  AdapterWebhookParseResult,
+  AdapterWebhookSource,
+} from "./webhook-events.ts";
 export {
   commentMessageState,
   commentThreadId,

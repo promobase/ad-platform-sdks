@@ -98,6 +98,39 @@ test("POST with an invalid signature is rejected", async () => {
   expect(res.status).toBe(403);
 });
 
+test("parseWebhookEvents verifies and normalizes without a Chat runtime", async () => {
+  const fixture = JSON.stringify(
+    (await import("./fixtures/fb-messaging.json", { with: { type: "json" } })).default,
+  );
+  const signature = await signBody(fixture, APP_SECRET);
+  const adapter = messengerAdapter();
+
+  const result = await adapter.parseWebhookEvents(
+    new Request(webhookUrl(), {
+      method: "POST",
+      headers: { "X-Hub-Signature-256": `sha256=${signature}` },
+      body: fixture,
+    }),
+  );
+
+  expect(result.kind).toBe("events");
+  if (result.kind !== "events") throw new Error("expected normalized events");
+  expect(result.events).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        kind: "message",
+        threadId: "messenger:psid_1001",
+      }),
+      expect.objectContaining({
+        kind: "action",
+        threadId: "messenger:psid_1001",
+        action: { id: "approve", value: "order_1" },
+      }),
+    ]),
+  );
+  expect(result.events.find((event) => event.kind === "message")?.message?.id).toBe("m_inbound_1");
+});
+
 test("webhook dispatches messages, postbacks, and reactions", async () => {
   const fixture = JSON.stringify(
     (await import("./fixtures/fb-messaging.json", { with: { type: "json" } })).default,

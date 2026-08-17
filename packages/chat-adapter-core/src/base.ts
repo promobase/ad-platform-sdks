@@ -32,8 +32,17 @@ import {
   normalizeMessagingEvent,
   type MessagingEventLike,
 } from "./normalize.ts";
+import type {
+  AdapterWebhookEvent,
+  AdapterWebhookParseResult,
+  AdapterWebhookSource,
+} from "./webhook-events.ts";
 
 const MESSAGE_SEQUENCE_PATTERN = /:(\d+)$/;
+
+type VerifiedWebhookEvents<T> =
+  | { kind: "response"; response: Response }
+  | { kind: "events"; events: T[][] };
 
 /**
  * Platform-neutral Chat SDK adapter runtime for DM messaging platforms.
@@ -53,16 +62,15 @@ const MESSAGE_SEQUENCE_PATTERN = /:(\d+)$/;
  * defaults — is shared. Platform = the basic unit: one adapter class per
  * platform package, never a provider-company grouping.
  */
-export abstract class ChatMessagingAdapterBase<
-  TThreadId,
-  TRawEvent extends MessagingEventLike,
-> implements Adapter<TThreadId, TRawEvent> {
-  abstract readonly name: string;
+export abstract class ChatMessagingAdapterBase<TThreadId, TRawEvent extends MessagingEventLike>
+  implements Adapter<TThreadId, TRawEvent>, AdapterWebhookSource<TRawEvent>
+{
+  readonly name: string;
   userName: string;
   botUserId: string | undefined;
 
   readonly lockScope = "thread" as const;
-  readonly persistThreadHistory = true;
+  readonly persistThreadHistory: boolean;
 
   protected chat: ChatInstance | null = null;
   protected logger: Logger;
@@ -75,11 +83,14 @@ export abstract class ChatMessagingAdapterBase<
     userName?: string;
     logger?: Logger;
     emojiFormat?: Parameters<typeof convertEmojiPlaceholders>[1];
+    persistThreadHistory?: boolean;
   }) {
     this.adapterName = options.adapterName;
+    this.name = options.adapterName;
     this.userName = options.userName ?? options.adapterName;
     this.logger = options.logger ?? new ConsoleLogger();
     this.emojiFormat = options.emojiFormat ?? "messenger";
+    this.persistThreadHistory = options.persistThreadHistory ?? true;
   }
 
   protected readonly adapterName: string;
@@ -133,6 +144,115 @@ export abstract class ChatMessagingAdapterBase<
   /** Decode a verified webhook body into rows of messaging events. Throws on parse failure. */
   protected abstract parseWebhook(body: string): Promise<TRawEvent[][]>;
 
+  /**
+   * Verify and normalize webhook events without requiring a Chat runtime.
+   * Transport-owned callers can durably enqueue these events, then map them
+   * into their own domain model before invoking `handleWebhook`-style effects.
+   */
+  async parseWebhookEvents(request: Request): Promise<AdapterWebhookParseResult<TRawEvent>> {
+    const result = await this.parseVerifiedWebhook(request);
+    if (result.kind === "response") return result;
+    return {
+      kind: "events",
+      events: result.events.flatMap((events) =>
+        events.flatMap((event) => this.normalizeWebhookEvent(event)),
+      ),
+    };
+  }
+
+  private async parseVerifiedWebhook(request: Request): Promise<VerifiedWebhookEvents<TRawEvent>> {
+    if (request.method !== "GET" && request.method !== "POST") {
+      return { kind: "response", response: new Response("Method not allowed", { status: 405 }) };
+    }
+    const body = await request.text();
+    const rejection = await this.verifyInbound(request, body);
+    if (rejection) return { kind: "response", response: rejection };
+    if (request.method === "GET") {
+      return { kind: "response", response: new Response("Not found", { status: 404 }) };
+    }
+
+    try {
+      return { kind: "events", events: await this.parseWebhook(body) };
+    } catch (error) {
+      return {
+        kind: "response",
+        response: new Response(error instanceof Error ? error.message : "Invalid payload", {
+          status: 400,
+        }),
+      };
+    }
+  }
+
+  protected normalizeWebhookEvent(event: TRawEvent): AdapterWebhookEvent<TRawEvent>[] {
+    if (event.message_edit) {
+      const message = this.parseMessage(event);
+      return [
+        {
+          kind: "message_updated",
+          threadId: message.threadId,
+          message,
+          raw: event,
+          isSelf: message.author.isMe,
+        },
+      ];
+    }
+    if (event.message?.quick_reply?.payload) {
+      const { actionId, value } = this.decodeActionPayload(event.message.quick_reply.payload);
+      return [
+        {
+          kind: "action",
+          threadId: this.threadIdForEvent(event),
+          messageId: event.message.mid,
+          action: { id: actionId, ...(value === undefined ? {} : { value }) },
+          raw: event,
+        },
+      ];
+    }
+    if (event.postback) {
+      const { actionId, value } = this.decodeActionPayload(event.postback.payload);
+      return [
+        {
+          kind: "action",
+          threadId: this.threadIdForEvent(event),
+          messageId: event.postback.mid,
+          action: { id: actionId, ...(value === undefined ? {} : { value }) },
+          raw: event,
+        },
+      ];
+    }
+    if (event.reaction) {
+      return [
+        {
+          kind: "reaction",
+          threadId: this.threadIdForEvent(event),
+          messageId: event.reaction.mid,
+          reaction: {
+            added: event.reaction.action === "react",
+            rawEmoji: event.reaction.emoji ?? event.reaction.reaction ?? "",
+          },
+          raw: event,
+        },
+      ];
+    }
+    if (event.read) {
+      return [{ kind: "read", threadId: this.threadIdForEvent(event), raw: event }];
+    }
+    if (event.delivery) {
+      return [{ kind: "delivery", threadId: this.threadIdForEvent(event), raw: event }];
+    }
+    if (!isMessagingEventWithMessage(event)) return [];
+    const message = this.parseMessage(event);
+    return [
+      {
+        kind: "message",
+        threadId: message.threadId,
+        message,
+        raw: event,
+        isSelf: message.author.isMe,
+      },
+    ];
+  }
+
   /** Decode a button/quick-reply payload into an action. Passthrough by default. */
   protected decodeActionPayload(payload: string): {
     actionId: string;
@@ -142,26 +262,8 @@ export abstract class ChatMessagingAdapterBase<
   }
 
   async handleWebhook(request: Request, options?: WebhookOptions): Promise<Response> {
-    if (request.method !== "GET" && request.method !== "POST") {
-      return new Response("Method not allowed", { status: 405 });
-    }
-
-    const body = await request.text();
-    const rejection = await this.verifyInbound(request, body);
-    if (rejection) return rejection;
-
-    if (request.method === "GET") {
-      return new Response("Not found", { status: 404 });
-    }
-
-    let events: TRawEvent[][];
-    try {
-      events = await this.parseWebhook(body);
-    } catch (error) {
-      return new Response(error instanceof Error ? error.message : "Invalid payload", {
-        status: 400,
-      });
-    }
+    const result = await this.parseVerifiedWebhook(request);
+    if (result.kind === "response") return result.response;
 
     const chat = this.chat;
     if (!chat) {
@@ -169,7 +271,7 @@ export abstract class ChatMessagingAdapterBase<
       return new Response("EVENT_RECEIVED", { status: 200 });
     }
 
-    for (const entry of events) {
+    for (const entry of result.events) {
       for (const event of entry) {
         await this.dispatchEvent(event, options);
       }

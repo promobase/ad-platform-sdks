@@ -151,6 +151,31 @@ test("POST without a valid signature is rejected", async () => {
   expect(res.status).toBe(403);
 });
 
+test("parseWebhookEvents preserves provider context for a generic consumer", async () => {
+  const fixture = JSON.stringify(
+    (await import("./fixtures/tiktok-comments.json", { with: { type: "json" } })).default,
+  );
+  const signature = await signTikTokBody(fixture, APP_SECRET);
+  const adapter = commentsAdapter({ fetch: okTikTokFetch([]) });
+
+  const result = await adapter.parseWebhookEvents(
+    new Request(webhookUrl(), {
+      method: "POST",
+      headers: { "TikTok-Signature": signature },
+      body: fixture,
+    }),
+  );
+
+  expect(result.kind).toBe("events");
+  if (result.kind !== "events") throw new Error("expected normalized events");
+  const message = result.events.find((event) => event.kind === "message");
+  expect(message).toMatchObject({
+    threadId: `tiktok:${BUSINESS_ID}:comment:110`,
+    metadata: { videoId: "9" },
+  });
+  expect(message?.message?.id).toBe("111");
+});
+
 test("webhook dispatches comments, caches self-comments, and tombstones deletes", async () => {
   const fixture = JSON.stringify(
     (await import("./fixtures/tiktok-comments.json", { with: { type: "json" } })).default,

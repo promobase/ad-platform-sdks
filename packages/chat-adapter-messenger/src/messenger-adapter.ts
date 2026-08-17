@@ -25,6 +25,8 @@ export interface MessengerThreadId {
 }
 
 export interface MessengerAdapterOptions {
+  /** Unique Chat SDK adapter name when multiple accounts share one runtime. */
+  adapterName?: string;
   /** Meta app secret, used to verify X-Hub-Signature-256. */
   appSecret: string;
   /** Webhook verify token shared with Meta during subscription. */
@@ -39,6 +41,7 @@ export interface MessengerAdapterOptions {
   logger?: Logger;
   fetch?: typeof fetch;
   signal?: AbortSignal;
+  persistThreadHistory?: boolean;
 }
 
 /**
@@ -55,18 +58,17 @@ export class MessengerAdapter extends ChatMessagingAdapterBase<
   MessengerThreadId,
   FBWebhookMessagingEvent
 > {
-  readonly name = "messenger";
-
   private readonly appSecret: string;
   private readonly verifyToken: string;
   private readonly pageClient: ReturnType<typeof Facebook.createClient>;
 
   constructor(options: MessengerAdapterOptions) {
     super({
-      adapterName: "messenger",
+      adapterName: options.adapterName ?? "messenger",
       userName: options.userName,
       logger: options.logger,
       emojiFormat: "messenger",
+      persistThreadHistory: options.persistThreadHistory,
     });
     this.appSecret = options.appSecret;
     this.verifyToken = options.verifyToken;

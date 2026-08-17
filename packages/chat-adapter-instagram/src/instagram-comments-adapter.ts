@@ -23,14 +23,13 @@ export interface CommentThreadId {
  * on comments); it shares only the graph client and credentials.
  */
 export class InstagramCommentsAdapter extends CommentAdapterBase<CommentThreadId> {
-  readonly name = "instagram_comments";
-
   private readonly appSecret: string;
   private readonly verifyToken: string;
   private readonly accountId: string;
   private readonly igClient: ReturnType<typeof Instagram.createClient>;
 
   constructor(options: {
+    adapterName?: string;
     appSecret: string;
     verifyToken: string;
     accessToken: string;
@@ -40,12 +39,14 @@ export class InstagramCommentsAdapter extends CommentAdapterBase<CommentThreadId
     logger?: Logger;
     fetch?: typeof fetch;
     signal?: AbortSignal;
+    persistThreadHistory?: boolean;
   }) {
     super({
-      adapterName: "instagram_comments",
+      adapterName: options.adapterName ?? "instagram_comments",
       userName: options.userName,
       logger: options.logger,
       emojiFormat: "messenger",
+      persistThreadHistory: options.persistThreadHistory,
     });
     this.appSecret = options.appSecret;
     this.verifyToken = options.verifyToken;

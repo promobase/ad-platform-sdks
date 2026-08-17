@@ -15,6 +15,15 @@ import type {
 
 import { MarkdownFormatConverter } from "./format.ts";
 import type { CommentThreadContext, CommentVerb } from "./thread-id.ts";
+import type {
+  AdapterWebhookEvent,
+  AdapterWebhookParseResult,
+  AdapterWebhookSource,
+} from "./webhook-events.ts";
+
+type VerifiedWebhookEvents<T> =
+  | { kind: "response"; response: Response }
+  | { kind: "events"; events: T[] };
 
 /**
  * Canonical comment event after platform normalization. Platform adapters map
@@ -45,15 +54,17 @@ export interface CommentEvent {
  * DM adapter runtime — comments are their own surface with their own thread
  * model, verbs (add/edit/remove/hide), and send semantics.
  */
-export abstract class CommentAdapterBase<
-  TThreadId extends { parentCommentId: string },
-> implements Adapter<TThreadId, CommentEvent> {
-  abstract readonly name: string;
+export abstract class CommentAdapterBase<TThreadId extends { parentCommentId: string }>
+  implements
+    Adapter<TThreadId, CommentEvent>,
+    AdapterWebhookSource<CommentEvent, CommentThreadContext>
+{
+  readonly name: string;
   userName: string;
   botUserId: string | undefined;
 
   readonly lockScope = "thread" as const;
-  readonly persistThreadHistory = true;
+  readonly persistThreadHistory: boolean;
 
   protected chat: ChatInstance | null = null;
   protected logger: Logger;
@@ -67,11 +78,14 @@ export abstract class CommentAdapterBase<
     userName?: string;
     logger?: Logger;
     emojiFormat?: Parameters<typeof convertEmojiPlaceholders>[1];
+    persistThreadHistory?: boolean;
   }) {
     this.adapterName = options.adapterName;
+    this.name = options.adapterName;
     this.userName = options.userName ?? options.adapterName;
     this.logger = options.logger ?? new ConsoleLogger();
     this.emojiFormat = options.emojiFormat ?? "messenger";
+    this.persistThreadHistory = options.persistThreadHistory ?? true;
   }
 
   protected readonly adapterName: string;
@@ -104,27 +118,89 @@ export abstract class CommentAdapterBase<
   /** Decode a verified webhook body into normalized comment events. */
   protected abstract parseWebhook(body: string): Promise<CommentEvent[]>;
 
-  async handleWebhook(request: Request, options?: WebhookOptions): Promise<Response> {
-    if (request.method !== "GET" && request.method !== "POST") {
-      return new Response("Method not allowed", { status: 405 });
-    }
+  /** Verify and normalize comments without requiring a Chat runtime. */
+  async parseWebhookEvents(
+    request: Request,
+  ): Promise<AdapterWebhookParseResult<CommentEvent, CommentThreadContext>> {
+    const result = await this.parseVerifiedWebhook(request);
+    if (result.kind === "response") return result;
+    return {
+      kind: "events",
+      events: result.events.flatMap((event) => this.normalizeWebhookEvent(event)),
+    };
+  }
 
+  private async parseVerifiedWebhook(
+    request: Request,
+  ): Promise<VerifiedWebhookEvents<CommentEvent>> {
+    if (request.method !== "GET" && request.method !== "POST") {
+      return { kind: "response", response: new Response("Method not allowed", { status: 405 }) };
+    }
     const body = await request.text();
     const rejection = await this.verifyInbound(request, body);
-    if (rejection) return rejection;
-
+    if (rejection) return { kind: "response", response: rejection };
     if (request.method === "GET") {
-      return new Response("Not found", { status: 404 });
+      return { kind: "response", response: new Response("Not found", { status: 404 }) };
     }
 
-    let events: CommentEvent[];
     try {
-      events = await this.parseWebhook(body);
+      return { kind: "events", events: await this.parseWebhook(body) };
     } catch (error) {
-      return new Response(error instanceof Error ? error.message : "Invalid payload", {
-        status: 400,
-      });
+      return {
+        kind: "response",
+        response: new Response(error instanceof Error ? error.message : "Invalid payload", {
+          status: 400,
+        }),
+      };
     }
+  }
+
+  protected normalizeWebhookEvent(
+    event: CommentEvent,
+  ): AdapterWebhookEvent<CommentEvent, CommentThreadContext>[] {
+    const threadId = this.threadIdForEvent(event);
+    this.recordThreadContext(threadId, event);
+    const metadata = this.threadContext.get(threadId);
+    if (["remove", "delete", "hide"].includes(event.verb)) {
+      return [
+        {
+          kind: "message_deleted",
+          threadId,
+          messageId: event.commentId,
+          raw: event,
+          isSelf: this.isSelfFrom(event),
+          metadata,
+        },
+      ];
+    }
+    const message = this.parseMessage(event);
+    if (event.verb === "edit") {
+      return [
+        {
+          kind: "message_updated",
+          threadId,
+          message,
+          raw: event,
+          isSelf: message.author.isMe,
+          metadata,
+        },
+      ];
+    }
+    return [
+      {
+        kind: "message",
+        threadId,
+        message,
+        raw: event,
+        isSelf: message.author.isMe,
+        metadata,
+      },
+    ];
+  }
+
+  async handleWebhook(request: Request, options?: WebhookOptions): Promise<Response> {
+    const result = await this.parseVerifiedWebhook(request);
+    if (result.kind === "response") return result.response;
 
     const chat = this.chat;
     if (!chat) {
@@ -132,7 +208,7 @@ export abstract class CommentAdapterBase<
       return new Response("EVENT_RECEIVED", { status: 200 });
     }
 
-    for (const event of events) {
+    for (const event of result.events) {
       await this.dispatchEvent(event, options);
     }
 

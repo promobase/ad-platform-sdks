@@ -36,10 +36,17 @@ export type {
   InstagramTemplatePayload,
   InstagramThreadId,
 } from "@openpromo/chat-adapter-instagram";
-export { createTikTokCommentsAdapter, TikTokCommentsAdapter } from "@openpromo/chat-adapter-tiktok";
+export {
+  createTikTokCommentsAdapter,
+  createTikTokMessagingAdapter,
+  TikTokCommentsAdapter,
+  TikTokMessagingAdapter,
+} from "@openpromo/chat-adapter-tiktok";
 export type {
   TikTokCommentThreadId,
   TikTokCommentsAdapterOptions,
+  TikTokDmThreadId,
+  TikTokMessagingAdapterOptions,
 } from "@openpromo/chat-adapter-tiktok";
 export {
   ChatMessagingAdapterBase,
@@ -58,6 +65,10 @@ export {
 } from "@openpromo/chat-adapter-core";
 export type {
   AdapterCapabilities,
+  AdapterWebhookEvent,
+  AdapterWebhookEventKind,
+  AdapterWebhookParseResult,
+  AdapterWebhookSource,
   ChatAdapterPlatform,
   CommentEvent,
   CommentThreadContext,

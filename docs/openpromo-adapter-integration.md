@@ -211,6 +211,36 @@ OpenPromo. Mosaic only owns Graph/API requests, response validation, provider
 errors, and typed transport results. Inbox entities and webhook-to-Inbox
 processing remain deferred.
 
+## Webhook-to-Inbox transport seam
+
+Mosaic's first-party Chat adapters already own provider-specific webhook
+verification and parsing. Each first-party adapter also exposes
+`parseWebhookEvents(request)`, which runs that existing parser and returns
+verified, thread-normalized `AdapterWebhookEvent` values without requiring a
+`Chat` instance. The result is intentionally generic: common message/action/
+reaction/read/delivery events have stable fields, while provider facts such as
+comment post context or future email headers live in `metadata`. Official X is
+composed through its Chat runtime callback and translated at the same boundary;
+it does not need a duplicate Mosaic parser.
+
+An OpenPromo workspace ingress should use this seam as follows:
+
+1. Bind the adapter instance to the connected account and give it a unique
+   runtime name.
+2. Call `parseWebhookEvents()` and durably enqueue the returned values in the
+   workspace-scoped ingress DO before acknowledging the provider webhook.
+3. Map the generic event into OpenPromo's canonical message/event model,
+   persist it idempotently, and admit the canonical internal message ID to
+   InboxAgent's durable turn queue.
+4. Keep outbound sends behind OpenPromo's account-aware gateway; do not call
+   `thread.post()` from the webhook handler or use Chat SDK history as a second
+   Inbox source of truth.
+
+Chat SDK's own burst/debounce and history persistence remain useful for normal
+Chat applications. Inbox ingress may disable adapter history persistence when
+OpenPromo owns canonical history, but neither Chat SDK `waitUntil` nor a
+provider webhook acknowledgement is a durable queue.
+
 ## Canonical platform identifiers
 
 Use `@openpromo/sdk-runtime/platforms` when a cross-platform selector is needed:
