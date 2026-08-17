@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "dependencies": {
+    "@openpromo/chat-adapters": "workspace:*",
     "@openpromo/ad-platforms": "workspace:*",
     "@openpromo/google-business-profile": "workspace:*",
     "@openpromo/linkedin": "workspace:*",
