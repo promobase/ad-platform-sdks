@@ -66,6 +66,37 @@ describe("TikTok OAuth adapters", () => {
     expect(profile.username).toBe("business");
   });
 
+  test("accepts Business token responses without optional metadata", async () => {
+    const adapter = createTikTokBusinessOAuthAdapter({
+      clientKey: "client",
+      clientSecret: "secret",
+      redirectUri: "https://example.test/callback",
+      fetch: (async () =>
+        jsonResponse({
+          code: 0,
+          message: "OK",
+          request_id: "request-optional-fields",
+          data: {
+            access_token: "access",
+            expires_in: 86_400,
+            refresh_token: "refresh",
+            open_id: "business-1",
+          },
+        })) as unknown as typeof fetch,
+    });
+
+    const grant = await adapter.exchangeCode({
+      code: "code",
+      state: "state",
+      expectedState: "state",
+    });
+
+    expect(grant.accessToken).toBe("access");
+    expect(grant.scopes).toEqual([]);
+    expect(grant.tokenType).toBeUndefined();
+    expect(grant.refreshTokenExpiresAt).toBeUndefined();
+  });
+
   test("supports the advertiser compatibility flow and discovery", async () => {
     let call = 0;
     const adapter = createTikTokAdvertiserOAuthAdapter({

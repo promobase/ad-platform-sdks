@@ -9,11 +9,11 @@ const TT_API_BASE = "https://business-api.tiktok.com/open_api/v1.3";
 
 const tokenSchema = v.object({
   access_token: v.string(),
-  token_type: v.string(),
-  scope: v.string(),
+  token_type: v.optional(v.string()),
+  scope: v.optional(v.string()),
   expires_in: v.number(),
   refresh_token: v.string(),
-  refresh_token_expires_in: v.number(),
+  refresh_token_expires_in: v.optional(v.number()),
   open_id: v.string(),
 });
 const tokenInfoSchema = v.object({

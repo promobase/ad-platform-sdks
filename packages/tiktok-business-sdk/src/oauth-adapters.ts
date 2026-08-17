@@ -89,11 +89,11 @@ export interface TikTokBusinessProfile {
 
 const businessTokenSchema = v.object({
   access_token: v.string(),
-  token_type: v.string(),
-  scope: v.string(),
+  token_type: v.optional(v.string()),
+  scope: v.optional(v.string()),
   expires_in: v.number(),
   refresh_token: v.string(),
-  refresh_token_expires_in: v.number(),
+  refresh_token_expires_in: v.optional(v.number()),
   open_id: v.string(),
 });
 
@@ -174,7 +174,7 @@ function businessTokenSet(raw: TokenResponse): OAuthTokenSet<TikTokBusinessOAuth
     accessToken: raw.access_token,
     refreshToken: raw.refresh_token,
     tokenType: raw.token_type,
-    scopes: raw.scope.split(" ").filter(Boolean),
+    scopes: raw.scope?.split(/[\s,]+/).filter(Boolean) ?? [],
     accessTokenExpiresAt: secondsFromNow(raw.expires_in),
     refreshTokenExpiresAt: secondsFromNow(raw.refresh_token_expires_in),
     providerData: { ...raw, credentialFamily: "business-login" },
