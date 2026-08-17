@@ -1,6 +1,6 @@
 {
   "name": "@openpromo/bluesky",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "Type-safe TypeScript SDK for Bluesky and the AT Protocol (posts, feeds, profiles, graphs, notifications)",
   "keywords": [
     "bluesky",

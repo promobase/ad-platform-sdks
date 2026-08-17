@@ -1,6 +1,6 @@
 {
   "name": "@openpromo/pinterest",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "Type-safe TypeScript SDK for the Pinterest REST API v5 (ads, pins, boards, catalogs) and Pinterest OAuth",
   "keywords": [
     "pinterest",
