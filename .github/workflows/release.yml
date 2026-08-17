@@ -40,11 +40,40 @@ jobs:
           restore-keys: |
             tsgo-${{ runner.os }}-
 
+      # Release owns validation for master pushes. Pull requests are validated
+      # by ci.yml; keeping this gate here prevents publishing an unvalidated
+      # direct master push or release-PR merge.
+      - name: Lint
+        run: bun run lint
+
+      - name: Check formatting
+        run: bun run format:check
+
+      - name: Check documentation contracts
+        run: bun run docs:check
+
+      - name: Check generated SDK coverage ledgers
+        run: bun run codegen:check
+
       - name: Typecheck
         run: bun run typecheck
 
       - name: Build
         run: bun run build
+
+      - name: Preserve documentation build for deployment
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-dist-${{ github.sha }}
+          path: apps/docs/dist
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Validate publish manifests
+        run: bun run release:check
+
+      - name: Test workspace
+        run: bun run test
 
       - name: Create Release PR or Publish
         id: changesets
@@ -121,3 +150,38 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.CHANGESETS_GH_TOKEN }}
         run: gh pr merge ${{ steps.changesets.outputs.pullRequestNumber }} --auto --squash --repo "$GITHUB_REPOSITORY"
+
+  deploy-docs:
+    name: Deploy documentation
+    needs: release
+    if: needs.release.result == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    concurrency:
+      group: docs-production
+      cancel-in-progress: false
+    environment:
+      name: docs-production
+      url: https://docs.openpromo.app
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Restore documentation build
+        uses: actions/download-artifact@v4
+        with:
+          name: docs-dist-${{ github.sha }}
+          path: apps/docs/dist
+
+      - name: Deploy documentation to Cloudflare
+        run: bun run --cwd apps/docs wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
