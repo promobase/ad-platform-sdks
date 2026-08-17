@@ -1,6 +1,6 @@
 {
   "name": "@openpromo/amazon-ads",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "Type-safe TypeScript SDK for the Amazon Ads API v3 (Sponsored Products, Sponsored Brands, Sponsored Display) and LWA OAuth",
   "keywords": [
     "amazon",

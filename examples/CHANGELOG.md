@@ -1,5 +1,14 @@
 # @openpromo/examples
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies [[`487dc98`](https://github.com/promobase/ad-platform-sdks/commit/487dc98b6073232948c7f7c0a05dabfd8e20993e)]:
+  - @openpromo/tiktok@0.12.1
+  - @openpromo/ad-platforms@0.12.1
+  - @openpromo/chat-adapters@0.12.1
+
 ## 0.0.2
 
 ### Patch Changes

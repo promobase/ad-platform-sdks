@@ -1,5 +1,11 @@
 # @openpromo/tiktok
 
+## 0.12.1
+
+### Patch Changes
+
+- [`487dc98`](https://github.com/promobase/ad-platform-sdks/commit/487dc98b6073232948c7f7c0a05dabfd8e20993e) Thanks [@rayli09](https://github.com/rayli09)! - Accept TikTok Business OAuth token responses that omit optional scope, token type, or refresh-token expiry metadata.
+
 ## 0.10.1
 
 ### Patch Changes

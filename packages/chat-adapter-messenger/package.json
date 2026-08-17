@@ -1,6 +1,6 @@
 {
   "name": "@openpromo/chat-adapter-messenger",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "First-party Chat SDK adapter for Facebook Messenger DMs, built on @openpromo/meta webhook schemas and the Facebook Page messaging client",
   "keywords": [
     "chat-sdk",

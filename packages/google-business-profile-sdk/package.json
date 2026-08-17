@@ -1,6 +1,6 @@
 {
   "name": "@openpromo/google-business-profile",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "Type-safe TypeScript SDK for Google Business Profile accounts, locations, posts, and performance",
   "keywords": [
     "google-business-profile",
