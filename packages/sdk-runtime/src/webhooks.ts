@@ -55,7 +55,8 @@ export const DEFAULT_WEBHOOK_MAX_AGE_SECONDS = 300;
 
 const SHA256_HEX_LENGTH = 64;
 
-function toBytes(body: WebhookBody): Uint8Array<ArrayBuffer> {
+/** Convert a webhook body to a detached byte array without changing signed bytes. */
+export function webhookBodyToBytes(body: WebhookBody): Uint8Array<ArrayBuffer> {
   let source: Uint8Array;
   if (typeof body === "string") {
     source = new TextEncoder().encode(body);
@@ -70,10 +71,11 @@ function toBytes(body: WebhookBody): Uint8Array<ArrayBuffer> {
 }
 
 export function webhookBodyToText(body: WebhookBody): string {
-  return new TextDecoder().decode(toBytes(body));
+  return new TextDecoder().decode(webhookBodyToBytes(body));
 }
 
-function constantTimeEqual(left: Uint8Array, right: Uint8Array): boolean {
+/** Compare signature bytes without an early-exit timing leak. */
+export function constantTimeEqual(left: Uint8Array, right: Uint8Array): boolean {
   if (left.length !== right.length) return false;
   let difference = 0;
   for (let index = 0; index < left.length; index += 1) {
@@ -82,16 +84,76 @@ function constantTimeEqual(left: Uint8Array, right: Uint8Array): boolean {
   return difference === 0;
 }
 
-/** Hex-decode a `sha256=<hex>` signature header. Returns undefined when malformed. */
-function decodeSha256Signature(signature: string): Uint8Array | undefined {
-  if (!signature.startsWith("sha256=")) return undefined;
-  const hex = signature.slice("sha256=".length);
-  if (hex.length !== SHA256_HEX_LENGTH || !/^[0-9a-f]+$/i.test(hex)) return undefined;
-  const bytes = new Uint8Array(SHA256_HEX_LENGTH / 2);
+/** Decode an even-length hexadecimal signature. Returns undefined when malformed. */
+export function decodeHexSignature(
+  value: string,
+  expectedByteLength?: number,
+): Uint8Array<ArrayBuffer> | undefined {
+  if (value.length === 0 || value.length % 2 !== 0 || !/^[0-9a-f]+$/i.test(value)) {
+    return undefined;
+  }
+  const bytes = new Uint8Array(value.length / 2);
+  if (expectedByteLength !== undefined && bytes.length !== expectedByteLength) return undefined;
   for (let index = 0; index < bytes.length; index += 1) {
-    bytes[index] = Number.parseInt(hex.slice(index * 2, index * 2 + 2), 16);
+    bytes[index] = Number.parseInt(value.slice(index * 2, index * 2 + 2), 16);
   }
   return bytes;
+}
+
+/** Decode a base64 signature. Returns undefined when malformed. */
+export function decodeBase64Signature(
+  value: string,
+  expectedByteLength?: number,
+): Uint8Array<ArrayBuffer> | undefined {
+  try {
+    const bytes = Uint8Array.from(atob(value), (character) => character.charCodeAt(0));
+    return expectedByteLength === undefined || bytes.length === expectedByteLength
+      ? bytes
+      : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+/** Encode bytes as lowercase hexadecimal for provider headers and fixtures. */
+export function encodeHexSignature(bytes: Uint8Array): string {
+  return Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0")).join("");
+}
+
+/** Encode bytes as base64 for provider headers and fixtures. */
+export function encodeBase64Signature(bytes: Uint8Array): string {
+  return btoa(String.fromCharCode(...bytes));
+}
+
+/** Create an HMAC-SHA256 digest over an exact raw body/signing input. */
+export async function hmacSha256(
+  body: WebhookBody,
+  secret: string,
+): Promise<Uint8Array<ArrayBuffer>> {
+  const key = await crypto.subtle.importKey(
+    "raw",
+    new TextEncoder().encode(secret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"],
+  );
+  return new Uint8Array(await crypto.subtle.sign("HMAC", key, webhookBodyToBytes(body).buffer));
+}
+
+/** Verify an HMAC-SHA256 digest using the shared timing-safe primitive. */
+export async function verifyHmacSha256(
+  body: WebhookBody,
+  expected: Uint8Array<ArrayBuffer>,
+  secret: string,
+): Promise<boolean> {
+  const key = await crypto.subtle.importKey(
+    "raw",
+    new TextEncoder().encode(secret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["verify"],
+  );
+  return crypto.subtle.verify("HMAC", key, expected, webhookBodyToBytes(body).buffer);
 }
 
 /**
@@ -103,18 +165,10 @@ export async function verifyWebhookSignature(
   signature: string,
   appSecret: string,
 ): Promise<boolean> {
-  const expected = decodeSha256Signature(signature);
+  if (!signature.startsWith("sha256=")) return false;
+  const expected = decodeHexSignature(signature.slice("sha256=".length), SHA256_HEX_LENGTH / 2);
   if (!expected) return false;
-
-  const key = await crypto.subtle.importKey(
-    "raw",
-    new TextEncoder().encode(appSecret),
-    { name: "HMAC", hash: "SHA-256" },
-    false,
-    ["sign"],
-  );
-  const actual = new Uint8Array(await crypto.subtle.sign("HMAC", key, toBytes(body).buffer));
-  return constantTimeEqual(actual, expected);
+  return verifyHmacSha256(body, expected, appSecret);
 }
 
 export interface WebhookChallengeParams {

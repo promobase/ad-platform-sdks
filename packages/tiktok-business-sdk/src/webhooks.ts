@@ -1,3 +1,4 @@
+import { decodeHexSignature, verifyHmacSha256 } from "@openpromo/sdk-runtime/webhooks";
 import * as v from "valibot";
 
 import {
@@ -46,16 +47,13 @@ function parseSignatureHeader(value: string): ParsedSignature | undefined {
   const timestampValue = fields.get("t");
   const signatureValue = fields.get("s");
   if (!timestampValue || !signatureValue || !/^\d+$/.test(timestampValue)) return undefined;
-  if (!/^[0-9a-f]{64}$/i.test(signatureValue)) return undefined;
-
   const timestamp = Number(timestampValue);
   if (!Number.isSafeInteger(timestamp)) return undefined;
 
-  const bytes = new Uint8Array(signatureValue.length / 2);
-  for (let index = 0; index < bytes.length; index += 1) {
-    bytes[index] = Number.parseInt(signatureValue.slice(index * 2, index * 2 + 2), 16);
-  }
-  return { timestamp, signature: bytes };
+  const signature = decodeHexSignature(signatureValue, 32);
+  if (!signature) return undefined;
+
+  return { timestamp, signature };
 }
 
 /**
@@ -79,22 +77,13 @@ export async function verifyWebhookSignature(
   const now = options.now ?? Math.floor(Date.now() / 1000);
   if (!Number.isFinite(now) || Math.abs(now - parsed.timestamp) > maxAgeSeconds) return false;
 
-  const bodyText = typeof body === "string" ? body : new TextDecoder().decode(new Uint8Array(body));
-  const encoder = new TextEncoder();
-  const key = await crypto.subtle.importKey(
-    "raw",
-    encoder.encode(appSecret),
-    { name: "HMAC", hash: "SHA-256" },
-    false,
-    ["verify"],
-  );
-
-  return crypto.subtle.verify(
-    "HMAC",
-    key,
-    parsed.signature,
-    encoder.encode(`${parsed.timestamp}.${bodyText}`),
-  );
+  const bodyBytes =
+    typeof body === "string" ? new TextEncoder().encode(body) : new Uint8Array(body);
+  const prefixBytes = new TextEncoder().encode(`${parsed.timestamp}.`);
+  const signingInput = new Uint8Array(prefixBytes.length + bodyBytes.length);
+  signingInput.set(prefixBytes);
+  signingInput.set(bodyBytes, prefixBytes.length);
+  return verifyHmacSha256(signingInput, parsed.signature, appSecret);
 }
 
 // --- Parse Error ---

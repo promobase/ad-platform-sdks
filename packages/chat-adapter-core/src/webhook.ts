@@ -1,8 +1,9 @@
-/**
- * Hub-protocol webhook verification helpers (challenge handshake and
- * X-Hub-Signature-256 HMAC). Shared by every hub-protocol platform adapter;
- * platform packages wire these into their `verifyInbound` hook.
- */
+/** Hub-protocol request helpers shared by the Meta-family Chat adapters. */
+
+import {
+  verifyWebhookChallenge as verifyRuntimeWebhookChallenge,
+  verifyWebhookSignature as verifyRuntimeWebhookSignature,
+} from "@openpromo/sdk-runtime/webhooks";
 
 export interface HubChallengeParams {
   "hub.mode"?: string;
@@ -15,14 +16,7 @@ export function verifyHubChallenge(
   params: HubChallengeParams,
   expectedVerifyToken: string,
 ): { valid: boolean; challenge?: string } {
-  if (
-    params["hub.mode"] === "subscribe" &&
-    params["hub.verify_token"] === expectedVerifyToken &&
-    params["hub.challenge"]
-  ) {
-    return { valid: true, challenge: params["hub.challenge"] };
-  }
-  return { valid: false };
+  return verifyRuntimeWebhookChallenge(params, expectedVerifyToken);
 }
 
 /** Verify an X-Hub-Signature-256 HMAC-SHA256 signature over the raw body. */
@@ -31,20 +25,7 @@ export async function verifyHubSignature(
   signature: string,
   appSecret: string,
 ): Promise<boolean> {
-  const expectedSig = signature.replace("sha256=", "");
-  const encoder = new TextEncoder();
-  const key = await crypto.subtle.importKey(
-    "raw",
-    encoder.encode(appSecret),
-    { name: "HMAC", hash: "SHA-256" },
-    false,
-    ["sign"],
-  );
-  const signed = await crypto.subtle.sign("HMAC", key, encoder.encode(body));
-  const hex = Array.from(new Uint8Array(signed))
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
-  return hex === expectedSig;
+  return verifyRuntimeWebhookSignature(body, signature, appSecret);
 }
 
 /**

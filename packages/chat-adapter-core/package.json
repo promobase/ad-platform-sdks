@@ -28,7 +28,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@chat-adapter/shared": "^4.38.0"
+    "@chat-adapter/shared": "^4.38.0",
+    "@openpromo/sdk-runtime": "workspace:*"
   },
   "devDependencies": {
     "@types/bun": "latest",

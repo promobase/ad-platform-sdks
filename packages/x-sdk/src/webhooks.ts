@@ -1,11 +1,14 @@
 import {
+  decodeBase64Signature,
+  encodeHexSignature,
+  hmacSha256,
   parseWebhook,
   safeParseWebhook,
   type WebhookBody,
   type WebhookParseOptions,
   type WebhookParseResult,
   WebhookParseError,
-  webhookBodyToText,
+  verifyHmacSha256,
   type WebhookChallengeResult,
 } from "@openpromo/sdk-runtime/webhooks";
 import * as v from "valibot";
@@ -106,15 +109,6 @@ export function safeParseXWebhook(
   return safeParseWebhook(options, parseableEnvelope, verifyWebhookSignature);
 }
 
-function constantTimeEqual(left: Uint8Array, right: Uint8Array): boolean {
-  if (left.length !== right.length) return false;
-  let difference = 0;
-  for (let index = 0; index < left.length; index += 1) {
-    difference |= left[index]! ^ right[index]!;
-  }
-  return difference === 0;
-}
-
 /**
  * Verify the `x-twitter-webhooks-signature` header (base64 HMAC-SHA256 over
  * the raw body). Timing-safe.
@@ -124,27 +118,8 @@ export async function verifyWebhookSignature(
   signature: string,
   consumerSecret: string,
 ): Promise<boolean> {
-  if (typeof body !== "string") {
-    return verifyWebhookSignature(webhookBodyToText(body), signature, consumerSecret);
-  }
-  let expected: Uint8Array;
-  try {
-    expected = Uint8Array.from(atob(signature), (char) => char.charCodeAt(0));
-  } catch {
-    return false;
-  }
-
-  const key = await crypto.subtle.importKey(
-    "raw",
-    new TextEncoder().encode(consumerSecret),
-    { name: "HMAC", hash: "SHA-256" },
-    false,
-    ["sign"],
-  );
-  const actual = new Uint8Array(
-    await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(body)),
-  );
-  return constantTimeEqual(actual, expected);
+  const expected = decodeBase64Signature(signature, 32);
+  return expected ? verifyHmacSha256(body, expected, consumerSecret) : false;
 }
 
 /**
@@ -165,18 +140,8 @@ export async function verifyCrcChallenge(input: {
     return { valid: false };
   }
 
-  const key = await crypto.subtle.importKey(
-    "raw",
-    new TextEncoder().encode(input.consumerSecret),
-    { name: "HMAC", hash: "SHA-256" },
-    false,
-    ["sign"],
-  );
-  const digest = new Uint8Array(
-    await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(input.crcToken)),
-  );
-  const hex = Array.from(digest, (byte) => byte.toString(16).padStart(2, "0")).join("");
-  return { valid: true, responseToken: `sha256=${hex}` };
+  const digest = await hmacSha256(input.crcToken, input.consumerSecret);
+  return { valid: true, responseToken: `sha256=${encodeHexSignature(digest)}` };
 }
 
 export { WebhookParseError, type XWebhookPayload as XWebhookPayloadType };

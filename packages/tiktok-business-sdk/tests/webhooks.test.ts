@@ -91,6 +91,11 @@ describe("TikTok Business webhooks", () => {
         now: timestamp,
       }),
     ).resolves.toBe(false);
+
+    const rawBytes = new TextEncoder().encode(commentBody);
+    await expect(
+      verifyWebhookSignature(rawBytes.buffer, signature, appSecret, { now: timestamp }),
+    ).resolves.toBe(true);
   });
 
   test("parses the documented comment.update fixture with numeric IDs", async () => {
