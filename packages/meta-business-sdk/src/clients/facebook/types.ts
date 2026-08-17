@@ -61,7 +61,8 @@ export interface OAuthConfig {
 export interface LongLivedToken {
   access_token: string;
   token_type: string;
-  expires_in: number;
+  /** Facebook may omit expiry for long-lived/Page-derived tokens. */
+  expires_in?: number;
 }
 
 export interface PageToken {

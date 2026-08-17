@@ -41,16 +41,22 @@ const facebookShortLivedTokenSchema = v.object({ access_token: v.string() });
 const facebookLongLivedTokenSchema = v.object({
   access_token: v.string(),
   token_type: v.string(),
-  expires_in: v.number(),
+  expires_in: v.optional(v.number()),
 });
 const pageTokenSchema = v.object({ id: v.string(), name: v.string(), access_token: v.string() });
 const instagramShortLivedTokenSchema = v.object({
   access_token: v.string(),
   user_id: v.string(),
 });
-const instagramLongLivedTokenSchema = facebookLongLivedTokenSchema;
+const instagramLongLivedTokenSchema = v.object({
+  access_token: v.string(),
+  token_type: v.string(),
+  expires_in: v.number(),
+});
 const threadsShortLivedTokenSchema = instagramShortLivedTokenSchema;
-const threadsLongLivedTokenSchema = facebookLongLivedTokenSchema;
+const threadsLongLivedTokenSchema = instagramLongLivedTokenSchema;
+
+const FACEBOOK_DEFAULT_TOKEN_EXPIRY_SECONDS = 60 * 24 * 60 * 60;
 
 type GraphOAuthData<TShort, TLong> = {
   readonly shortLived: TShort;
@@ -99,7 +105,7 @@ function facebookTokenSet(
     accessToken: token.access_token,
     tokenType: token.token_type,
     scopes: [...scopes],
-    accessTokenExpiresAt: tokenExpiry(token.expires_in),
+    accessTokenExpiresAt: tokenExpiry(token.expires_in ?? FACEBOOK_DEFAULT_TOKEN_EXPIRY_SECONDS),
     providerData,
   };
 }
@@ -127,7 +133,7 @@ export function createFacebookOAuthAdapter(config: FacebookOAuthConfig): OAuthAd
       accessToken: raw.access_token,
       tokenType: raw.token_type,
       scopes: [],
-      accessTokenExpiresAt: tokenExpiry(raw.expires_in),
+      accessTokenExpiresAt: tokenExpiry(raw.expires_in ?? FACEBOOK_DEFAULT_TOKEN_EXPIRY_SECONDS),
       providerData: raw,
     } satisfies OAuthTokenSet<FacebookLongLivedToken>;
   }

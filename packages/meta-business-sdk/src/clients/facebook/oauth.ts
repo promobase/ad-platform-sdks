@@ -18,7 +18,7 @@ const shortLivedTokenSchema = v.object({ access_token: v.string() });
 const longLivedTokenSchema = v.object({
   access_token: v.string(),
   token_type: v.string(),
-  expires_in: v.number(),
+  expires_in: v.optional(v.number()),
 });
 const pageTokenSchema = v.object({
   id: v.string(),

@@ -48,6 +48,30 @@ describe("Graph OAuth adapters", () => {
     expect(requests).toHaveLength(2);
   });
 
+  test("accepts Facebook long-lived responses without expires_in", async () => {
+    const adapter = createFacebookOAuthAdapter({
+      appId: "app",
+      appSecret: "secret",
+      redirectUri: "https://example.test/callback",
+      fetch: (async (input) => {
+        const url = String(input);
+        if (url.includes("fb_exchange_token")) {
+          return jsonResponse({ access_token: "long-lived", token_type: "bearer" });
+        }
+        return jsonResponse({ access_token: "short-lived" });
+      }) as typeof fetch,
+    });
+
+    const grant = await adapter.exchangeCode({
+      code: "code",
+      state: "state",
+      expectedState: "state",
+    });
+
+    expect(grant.accessToken).toBe("long-lived");
+    expect(grant.accessTokenExpiresAt).toBeInstanceOf(Date);
+  });
+
   test("validates provider token payloads before normalization", async () => {
     const adapter = createFacebookOAuthAdapter({
       appId: "app",
