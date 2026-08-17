@@ -1,6 +1,6 @@
 {
   "name": "@openpromo/google-ads",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "Type-safe Google Ads API v25 SDK, runtime-agnostic, generated from protobuf. Customer-bound factory and typed GAQL query builder.",
   "keywords": [
     "google-ads",
