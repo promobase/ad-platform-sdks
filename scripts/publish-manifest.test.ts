@@ -61,6 +61,26 @@ describe("publish manifest", () => {
       "@fixture/consumer": "1.0.0",
     });
   });
+
+  test("discovers an exact root workspace directory", () => {
+    const { root } = createFixture();
+    const examplesDir = join(root, "examples");
+    mkdirSync(examplesDir, { recursive: true });
+    writeFileSync(
+      join(root, "package.json"),
+      `${JSON.stringify({ private: true, workspaces: ["packages/*", "examples"] }, null, 2)}\n`,
+    );
+    writeFileSync(
+      join(examplesDir, "package.json"),
+      `${JSON.stringify({ name: "@fixture/examples", version: "0.0.0", private: true }, null, 2)}\n`,
+    );
+
+    expect(Object.fromEntries(readWorkspaceVersions(root))).toMatchObject({
+      "@fixture/examples": "0.0.0",
+      "@fixture/dependency": "1.2.3",
+      "@fixture/consumer": "1.0.0",
+    });
+  });
 });
 
 function createFixture() {

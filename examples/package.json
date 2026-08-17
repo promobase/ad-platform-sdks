@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "dependencies": {
+    "@cloudflare/think": "0.15.1",
     "@openpromo/chat-adapters": "workspace:*",
     "@openpromo/ad-platforms": "workspace:*",
     "@openpromo/google-business-profile": "workspace:*",
@@ -12,6 +13,9 @@
     "@openpromo/sdk-runtime": "workspace:*",
     "@openpromo/tiktok": "workspace:*",
     "@openpromo/x": "workspace:*",
-    "@openpromo/youtube": "workspace:*"
+    "@openpromo/youtube": "workspace:*",
+    "agents": "0.20.1",
+    "ai": "^7.0.0",
+    "chat": "4.38.0"
   }
 }

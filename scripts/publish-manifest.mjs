@@ -101,16 +101,17 @@ export function readWorkspaceVersions(root) {
 
   for (const pattern of rootPackage.workspaces ?? []) {
     const match = /^([^*/]+)\/\*$/.exec(pattern);
-    if (!match) {
-      throw new Error(`Unsupported workspace pattern: ${pattern}`);
-    }
-
-    const workspaceDir = join(root, match[1]);
-    if (!existsSync(workspaceDir)) {
+    const workspaceDir = match ? join(root, match[1]) : undefined;
+    if (workspaceDir && !existsSync(workspaceDir)) {
       continue;
     }
-    for (const packageName of readdirNames(workspaceDir)) {
-      const workspacePackagePath = join(workspaceDir, packageName, "package.json");
+    const workspacePackagePaths = match
+      ? readdirNames(workspaceDir).map((packageName) =>
+          join(workspaceDir, packageName, "package.json"),
+        )
+      : [join(root, pattern, "package.json")];
+
+    for (const workspacePackagePath of workspacePackagePaths) {
       if (!existsSync(workspacePackagePath)) {
         continue;
       }
