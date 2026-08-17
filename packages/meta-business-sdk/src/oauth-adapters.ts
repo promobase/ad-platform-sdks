@@ -71,10 +71,14 @@ const instagramShortLivedTokenSchema = v.object({
 const instagramLongLivedTokenSchema = v.object({
   access_token: v.string(),
   token_type: v.string(),
-  expires_in: v.number(),
+  expires_in: v.optional(v.number()),
 });
 const threadsShortLivedTokenSchema = instagramShortLivedTokenSchema;
-const threadsLongLivedTokenSchema = instagramLongLivedTokenSchema;
+const threadsLongLivedTokenSchema = v.object({
+  access_token: v.string(),
+  token_type: v.string(),
+  expires_in: v.number(),
+});
 
 const FACEBOOK_DEFAULT_TOKEN_EXPIRY_SECONDS = 60 * 24 * 60 * 60;
 
@@ -228,7 +232,9 @@ function instagramTokenSet(
     accessToken: longLived.access_token,
     tokenType: longLived.token_type,
     scopes: [...scopes],
-    accessTokenExpiresAt: tokenExpiry(longLived.expires_in),
+    accessTokenExpiresAt: tokenExpiry(
+      longLived.expires_in ?? FACEBOOK_DEFAULT_TOKEN_EXPIRY_SECONDS,
+    ),
     providerData: { shortLived, longLived, credentialFamily: "instagram-login" },
   };
 }

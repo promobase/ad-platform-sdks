@@ -19,11 +19,11 @@ const shortLivedTokenSchema = v.object({
 const longLivedTokenSchema = v.object({
   access_token: v.string(),
   token_type: v.string(),
-  expires_in: v.number(),
+  expires_in: v.optional(v.number()),
 });
 const profileSchema = v.object({
   id: v.string(),
-  user_id: v.optional(v.string()),
+  user_id: v.optional(v.pipe(v.union([v.string(), v.number()]), v.transform(String))),
   username: v.string(),
   name: v.optional(v.string()),
   account_type: v.optional(v.picklist(["BUSINESS", "MEDIA_CREATOR", "PERSONAL"])),

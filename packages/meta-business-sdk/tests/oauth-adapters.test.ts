@@ -108,7 +108,7 @@ describe("Graph OAuth adapters", () => {
   test("normalizes Instagram numeric user IDs from the OAuth token response", async () => {
     const responses = [
       '{"access_token":"short-lived","user_id":25159999793598036}',
-      JSON.stringify({ access_token: "long-lived", token_type: "bearer", expires_in: 5_184_000 }),
+      JSON.stringify({ access_token: "long-lived", token_type: "bearer" }),
     ];
     const adapter = createInstagramOAuthAdapter({
       appId: "app",
@@ -129,6 +129,51 @@ describe("Graph OAuth adapters", () => {
 
     expect(grant.accessToken).toBe("long-lived");
     expect(grant.providerData.shortLived.user_id).toBe("25159999793598036");
+    expect(grant.accessTokenExpiresAt).toBeInstanceOf(Date);
+  });
+
+  test("normalizes Threads numeric user IDs from the OAuth token response", async () => {
+    const responses = [
+      '{"access_token":"short-lived","user_id":25159999793598036}',
+      JSON.stringify({ access_token: "long-lived", token_type: "bearer", expires_in: 5_184_000 }),
+    ];
+    const adapter = createThreadsOAuthAdapter({
+      appId: "app",
+      appSecret: "secret",
+      redirectUri: "https://example.test/callback",
+      fetch: (async () =>
+        new Response(responses.shift(), {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        })) as unknown as typeof fetch,
+    });
+
+    const grant = await adapter.exchangeCode({
+      code: "code",
+      state: "state",
+      expectedState: "state",
+      codeVerifier: "verifier",
+    });
+
+    expect(grant.providerData.shortLived.user_id).toBe("25159999793598036");
+  });
+
+  test("normalizes numeric Instagram profile user IDs", async () => {
+    const adapter = createInstagramOAuthAdapter({
+      appId: "app",
+      appSecret: "secret",
+      redirectUri: "https://example.test/callback",
+      fetch: (async () =>
+        jsonResponse({
+          id: "ig-profile",
+          user_id: 25159999793598036,
+          username: "ray",
+        })) as unknown as typeof fetch,
+    });
+
+    await expect(adapter.getProfile({ accessToken: "token" })).resolves.toEqual(
+      expect.objectContaining({ user_id: "25159999793598036" }),
+    );
   });
 
   test("validates provider token payloads before normalization", async () => {
